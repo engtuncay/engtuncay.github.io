@@ -10,7 +10,7 @@
 
 - Bir proje oluşturduğumuzda proje ismimizde namespace oluşturulur. Java package kavramına benzer.
 
-Genel Yapısı
+- Genel Yapısı
 
 ````csharp
 class CustomerManager 
