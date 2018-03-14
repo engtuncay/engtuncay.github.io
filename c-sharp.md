@@ -9,11 +9,12 @@ Genel Yapısı
 
 Kullanmak/Çağırmak için ( Call a method of a class )
 
-CustomerManager customerManager = new CustomerManager() customerManager.add();
-Sınıflara (Class) property ekleme
+    CustomerManager customerManager = new CustomerManager() 
+    customerManager.add();
 
 
-## Class lara property ekleme
+## Sınıflara (Class) property ekleme
+
     class Customer
     {
         public int Id { get; set; }
