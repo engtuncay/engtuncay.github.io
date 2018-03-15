@@ -7,7 +7,10 @@
 ## Kısayollar
 
 - Ctrl + E : Recently visited files  ( eski açılan dosyalar )
-- 
+- Alt + 2 : Favorites
+- ​
+
+
 
 
 
