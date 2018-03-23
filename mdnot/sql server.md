@@ -1,0 +1,32 @@
+
+
+scaler function , bir değer döndürür.
+
+
+
+Örnek bir function
+
+
+
+Create Function dbo.Ayadi(@TARIH AS DATETIME)
+
+RETURNS VARCHAR(20)
+
+AS
+
+BEGIN
+
+DECLARE @AYADI AS VARCHAR(20)
+
+IF DATEPART(MONTH,TARIH)=1 SET @AYADI = '01.OCAK'
+
+IF DATEPART(MONTH,TARIH)=2 SET @AYADI = '01.OCAK'
+
+IF DATEPART(MONTH,TARIH)=3 SET @AYADI = '01.OCAK'
+
+IF DATEPART(MONTH,TARIH)=1 SET @AYADI = '01.OCAK'
+
+
+
+END
+
