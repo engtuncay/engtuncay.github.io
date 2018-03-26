@@ -1,5 +1,15 @@
 
 
+
+
+
+
+[TOC]
+
+
+
+
+
 ### Function
 
 - Scaler function : Bir değer döndürür.
@@ -7,7 +17,7 @@
 
 
 
-#### Fonksiyon Örnek 1
+#### Scalar Fonksiyon Örnek (varchar dönüşlü)
 
 
 
@@ -30,9 +40,13 @@ END
 
 
 
-#### Fonksiyonun Kullanılışı
+#### Fonksiyonun Kullanılışı - Test
 
 ```mssql
 select dbo.ayadi('20180301')
 ```
+
+
+
+
 
