@@ -3,18 +3,25 @@
 - [Deneme](#deneme)
     - [Deneme 2](#deneme-2)
     - [ddd](#ddd)
-    - [dd](#dd)
+
+    ​
 
 
-# Deneme Headers H1
+# H1 - Main Section (Core) (SubSection ların Gruplanması) Java Fx
 
-## Deneme H2
+## H2 - Sub Section ( I/O İşlemler) ( Bölümün asıl konusu) Fx ait konular
 
-### H3
+## H3 - Sub SubSection ( Buffer Nesnesi) Sub Sectionın alt konuları fx in alt konusunun maddeleri
 
-#### H4
+#### H4 altı çizgisiz
 
-## baslik alt H2
+##### H5 altı çizgisiz
+
+###### H6 çizgisiz ve soluk (son başlık derecesi)
+
+### 
+
+## baslikalt H2
 
 
 - Deneme
