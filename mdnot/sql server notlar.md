@@ -50,3 +50,13 @@ select dbo.ayadi('20180301')
 
 
 
+## Çeşitli Komutlar
+
+##### SET ANSI_NULLS ON
+
+
+
+##### SET QUOTED_IDENTIFIER ON
+
+
+
