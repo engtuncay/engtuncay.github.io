@@ -136,9 +136,9 @@ Port of IntelliJ IDEA key bindings for VS Code. Includes keymaps for popular Jet
 | ctrl+shift+f4        | cmd+shift+f4        | Close active run/messages/find/... tab            | N/A       |
 | ctrl+g               | cmd+l               | Go to line                                        | ✅         |
 | ctrl+e               | cmd+e               | Recent files popup                                | ✅         |
-| ctrl+alt+left        | cmd+alt+left        | Navigate back                                     | ✅         |
+| **ctrl+alt+left**    | cmd+alt+left        | Navigate back                                     | ✅         |
 |                      | cmd+[               | Navigate back                                     | ✅         |
-| ctrl+alt+right       | cmd+alt+right       | Navigate forward                                  | ✅         |
+| **ctrl+alt+right**   | cmd+alt+right       | Navigate forward                                  | ✅         |
 |                      | cmd+]               | Navigate forward                                  | ✅         |
 | ctrl+shift+backspace | cmd+shift+backspace | Navigate to last edit location                    | N/A       |
 | alt+f1               | alt+f1              | Select current file or symbol in any view         | N/A       |
