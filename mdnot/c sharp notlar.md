@@ -3,8 +3,6 @@
 [TOC]
 
 
-from dilinger
-----
 
 ## Class ( Sınıflar )
 
@@ -36,13 +34,32 @@ customerManager.add();
 
     class Customer
     {
+    	//property
         public int Id { get; set; }
         public string FirstName { get; set; }
     
     }
 
 iki şekilde tanım yapabiliriz.
-    
+
+
+
+Not : Field ise
+
+```
+class Customer
+{
+	// fields
+    public string FirstName;
+    public int no;
+
+}
+```
+
+
+
+​    
+
     Customer customer = new Customer ();
     customer.Id = 1;
     customer.FirstName = "tuncay";
