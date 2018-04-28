@@ -7,7 +7,6 @@ Neil Asp Dot Net Core Course Notes
 
 
 
-
 ---
 ## Environment
 
@@ -24,20 +23,21 @@ Kurulacak Uygulamalar
 ## DotNet Cli
 
 - -h ile yardım alırız. Mesela, 
-  - dotnet new -h 
+  - ***dotnet new -h*** 
     - Bu bize yeni oluşturulacak proje ile ilgili opsiyonları sıralar.
-- dotnet new webapi -o DatingApp.API -n DatingApp.API
+- ***dotnet new webapi -o {folderName} -n {projectName}***
+  - Örnek : dotnet new webapi -o DatingApp.API -n DatingApp.API
   - DatingApp.API adında klasör içerisine projeyi oluşturur. (namespace DatingApp.API yapar)
 
 ---
 ## Project Files
 
-- Vscode components
+- Vscode components ( Önerilen Eklentiler)
   - C#
   - C# Extensions
 - Program.cs 
 - Startup.cs
-- two important initial classes
+- Two important initial classes
 
 ---
 
@@ -47,7 +47,7 @@ Kurulacak Uygulamalar
   - [controller] controller ismini gösteriyor.
   - örnekteki values eşitlenir.
 - Uygulamayı çalıştırmak için (api webservis başlatır)
-  - terminal: **dotnet run**
+  - terminal: ***dotnet run***
 - browser apimize ulaşmak adresi gireriz:
   - localhost:5000/api/values
 - terminalden (power shell)
@@ -68,7 +68,6 @@ Kurulacak Uygulamalar
 ---
 
 ## Creating the First Model and Data Context
-
 
 ---
 <!--stackedit_data:
