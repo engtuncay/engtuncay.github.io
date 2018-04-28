@@ -3,13 +3,13 @@
 
 <!-- TOC -->
 
-- [Inference (Tip) Çıkarımı , ( wm:sonuç çıkarma)](#inference-tip-çıkarımı---wmsonuç-çıkarma)
+- [Type Inference (Tip) Çıkarımı , ( wm:sonuç çıkarma)](#type-inference-tip-çıkarımı---wmsonuç-çıkarma)
 
 <!-- /TOC -->
 
 
 
-#### Inference (Tip) Çıkarımı , ( wm:sonuç çıkarma)
+#### Type Inference (Tip) Çıkarımı , ( wm:sonuç çıkarma)
 
 One of the best feature that came in Java 10 is called "Local Variable Type Inference". In short, we can write local variables like below now.
 
