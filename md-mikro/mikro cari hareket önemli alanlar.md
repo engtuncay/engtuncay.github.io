@@ -24,6 +24,8 @@ cari hareket cins
 
 26	**cha_normal_Iade**	Tinyint					Normal/Iade?	
 
+ürün iade faturası ise 1 olması lazım. örnek: satıcıya iade fat.,müşteriden alınan iade faturası
+
 ```
 0:Normal 1:İade
 ```
@@ -37,7 +39,12 @@ cari hareket cins
 28	cha_ticaret_turu		Tinyint					Dış Ticaret Türü	
 
 ```
-0:Toptan Yurt İçi Ticaret 1:Perakende Yurt İçi Ticaret 2:İhraç kayıtlı Yurt İçi Ticaret 3:Yurt Dışı Ticaret 4:Yurt Dışı Nitelikli İhraç Kayıtlı Ticaret 5:Yurt Dışı Nitelikli Yurt İçi Ticaret
+0:Toptan Yurt İçi Ticaret 
+1:Perakende Yurt İçi Ticaret 
+2:İhraç kayıtlı Yurt İçi Ticaret 
+3:Yurt Dışı Ticaret 
+4:Yurt Dışı Nitelikli İhraç Kayıtlı Ticaret 
+5:Yurt Dışı Nitelikli Yurt İçi Ticaret
 ```
 
 
