@@ -1,45 +1,75 @@
 
 cari hareket cins
 
+```
 0:Nakit 1:Müşteri Çeki 2:Müşteri Senedi 3:Firma Çeki 4:Firma Senedi 5:Dekont 6:Toptan Fatura 7:Perakende Faturası 8:Hizmet Faturası 9:Serbest Meslek Makbuzu 10:Vade Farkı Faturası 11:Kur Farkı Faturası 12:Fason Faturası 13:Dış Ticaret Faturası 14:Demirbaş Faturası 15:Değer Farkı Faturası 16:Cari Açılış 17:Müşteri Havale Sözü 18:Müşteri Ödeme Sözü 19:Müşteri Kredi Kartı 20:Firma Havale Emri 21:Firma Ödeme Emri 22:Firma Kredi Kartı 23:Vade Farkı Sıfırlama 24:Hal Faturası 25:Müstahsil Fatura 26:Stok Gider Pusulası 27:Gider Makbuzu 28:İthalat Masraf Faturası 29:Gümrük Beyannamesi 30:Finansal Kiralama Sözleşmesi 31:Finansal Kira Faturası 32:FUTURE_2 33:Avans Makbuzu 34:Müstahsil Değer Farkı Faturası 35:Kabzımal Faturası 36:Hediye Çeki Faturası 37:Müşteri Teminat Mektubu 38:Firma Teminat Mektubu 39:Depozito Çeki 40:Depozito Senedi 41:Firma Reel Kredi Kartı
-
+```
 
 36	**cha_cari_cins**	 Tinyint	Cari Cinsi	
 
-0:Carimiz 1:Cari Personelimiz 2:Bankamız 3:Hizmetimiz 4:Kasamız 
-
+```
+0:Carimiz 1:Cari Personelimiz 2:Bankamız 3:Hizmetimiz 4:Kasamız` 
 5:Giderimiz 6:Muhasebe Hesabımız 7:Personelimiz 8:Demirbaşımız 
-
-9:İthalat Dosyamız 10:Finansal Sözleşmemiz 11:Kredi Sözleşmemiz 12:Dönemsel Hizmetimiz 
-
+9:İthalat Dosyamız 10:Finansal Sözleşmemiz 
+11:Kredi Sözleşmemiz 12:Dönemsel Hizmetimiz 
 13:Kredi Kartımız
 
+```
 
-24	**cha_tip**	Tinyint	Hareket Tipi	0:Borç 1:Alacak
+24	**cha_tip**	Tinyint	Hareket Tipi	
 
-26	**cha_normal_Iade**	Tinyint	Normal/Iade?	0:Normal 1:İade
+```
+0:Borç 1:Alacak
+```
 
-27	**cha_tpoz**	Tinyint	Cari Pozisyonu	0:Açık 1:Kapalı
+26	**cha_normal_Iade**	Tinyint					Normal/Iade?	
 
-28	cha_ticaret_turu	Tinyint	Dış Ticaret Türü	
+```
+0:Normal 1:İade
+```
+
+27	**cha_tpoz**			Tinyint					Cari Pozisyonu	
+
+```
+0:Açık 1:Kapalı
+```
+
+28	cha_ticaret_turu		Tinyint					Dış Ticaret Türü	
+
+```
 0:Toptan Yurt İçi Ticaret 1:Perakende Yurt İçi Ticaret 2:İhraç kayıtlı Yurt İçi Ticaret 3:Yurt Dışı Ticaret 4:Yurt Dışı Nitelikli İhraç Kayıtlı Ticaret 5:Yurt Dışı Nitelikli Yurt İçi Ticaret
+```
 
 
-20	cha_evrakno_seri	dbo.nvarchar_evrakseri	Evrak Seri No	 
-21	cha_evrakno_sira	Integer	Evrak Sıra No	 
-22	cha_satir_no	Integer	Hareket Satır No	 
-23	cha_tarihi	DateTime	Hareket Tarihi
+20	cha_evrakno_seri	: 	dbo.nvarchar_evrakseri	Evrak Seri No	 
+21	cha_evrakno_sira	: 	Integer					Evrak Sıra No	 
+22	cha_satir_no	:		Integer					Hareket Satır No	 
+23	cha_tarihi	:		DateTime				Hareket Tarihi
 
+111	cha_sntck_poz	Tinyint	Senet Çek Pozisyonu	
 
-111	cha_sntck_poz	Tinyint	Senet Çek Pozisyonu	0:Portföyde 1:Ciro 2:Tahsilde 3:Teminatta 4:İade Edilen 5:Diğer3
+```
+0:Portföyde 1:Ciro 2:Tahsilde 3:Teminatta 4:İade Edilen 5:Diğer3
 6:Ödenmedi Portföyde 7:Ödenmedi İade 8:İcrada 9:Kısmen Ödendi 10:Ödendi
+```
 
-137	cha_e_islem_turu	Tinyint	e-İşlem Türü	0:Tanımsız 1:e-Belge 2:e-Arşiv
+137	cha_e_islem_turu	Tinyint	e-İşlem Türü	
 
-138	cha_fatura_belge_turu	Tinyint	Fatura Belge Türü	0:Fatura 1:Masraf Listesi 2:Perakende Fiş 3:Z Raporu 4:Navlun 5:Bilet 6:Poliçe 7:Zeyilname 8:Fon 9:Kontrat 10:Müstahsil 11:Diğer 12:Serbest Bölge Faturası
+```
+0:Tanımsız 1:e-Belge 2:e-Arşiv
+```
 
-EVRAK TİP
+138	cha_fatura_belge_turu	Tinyint	Fatura Belge Türü	
 
+```
+0:Fatura 1:Masraf Listesi 2:Perakende Fiş 3:Z Raporu 4:Navlun 5:Bilet 6:Poliçe 7:Zeyilname 8:Fon 9:Kontrat 10:Müstahsil 11:Diğer 12:Serbest Bölge Faturası
+```
+
+
+
+### EVRAK TİP
+
+```
 0:Alış Faturası
 1:Tahsilat Makbuzu
 2:Kasa Tahsilat Fişi
@@ -177,6 +207,7 @@ EVRAK TİP
 134:Müşteri Havale Sözü İade Çıkış Bordrosu
 135:Kısmen Ödenen Çek Kasaları Arası Transfer
 136:Kısmen Ödenen Karşılıksız Çek Kasaları Arası Transfer
+```
 
 
 Indeks Tablosu
