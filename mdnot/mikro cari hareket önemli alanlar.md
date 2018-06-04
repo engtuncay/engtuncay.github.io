@@ -1,4 +1,7 @@
 
+
+
+
 cari hareket cins
 
 ```
@@ -24,13 +27,15 @@ cari hareket cins
 
 26	**cha_normal_Iade**	Tinyint					Normal/Iade?	
 
-ürün iade faturası ise 1 olması lazım. örnek: satıcıya iade fat.,müşteriden alınan iade faturası
+iade faturalarında 1 olması lazım. örnek: satıcıya iade fat.,müşteriden alınan iade faturası
 
 ```
 0:Normal 1:İade
 ```
 
 27	**cha_tpoz**			Tinyint					Cari Pozisyonu	
+
+Cari Pozisyon nedir ???
 
 ```
 0:Açık 1:Kapalı
@@ -47,13 +52,15 @@ cari hareket cins
 5:Yurt Dışı Nitelikli Yurt İçi Ticaret
 ```
 
+20	**cha_evrakno_seri**	:  dbo.nvarchar_evrakseri	Evrak Seri No	 
+21	**cha_evrakno_sira**	:  Integer					Evrak Sıra No	 
+22	**cha_satir_no**		: Integer					Hareket Satır No	 
 
-20	cha_evrakno_seri	: 	dbo.nvarchar_evrakseri	Evrak Seri No	 
-21	cha_evrakno_sira	: 	Integer					Evrak Sıra No	 
-22	cha_satir_no	:		Integer					Hareket Satır No	 
-23	cha_tarihi	:		DateTime				Hareket Tarihi
+evrak no seri , sira , satir no üçü birlikte unique dir.
 
-111	cha_sntck_poz	Tinyint	Senet Çek Pozisyonu	
+23	**cha_tarihi**			: DateTime				Hareket Tarihi
+
+111	cha_sntck_poz		: Tinyint	Senet Çek Pozisyonu	
 
 ```
 0:Portföyde 1:Ciro 2:Tahsilde 3:Teminatta 4:İade Edilen 5:Diğer3

@@ -1,11 +1,32 @@
 
 
+<!-- TOC -->
 
+
+
+<!-- /TOC -->
 
 
 
 [TOC]
 
+### Outer Join Usage : Draft
+
+
+
+
+
+### Outer Apply Usage
+
+
+
+````sql
+select ADRES.adr_temsilci_kodu ,* FROM [CARI_HESAPLAR] SUBECH 
+OUTER APPLY (SELECT TOP 1 ADRES1.adr_temsilci_kodu FROM [CARI_HESAP_ADRESLERI] ADRES1 WHERE ADRES1.adr_cari_kod = SUBECH.cari_kod) AS ADRES
+
+
+
+````
 
 
 
@@ -99,10 +120,10 @@ Output
 ```
 DB : MikroDB_V15 
 	
-	DB : MikroDB_V15_TEMP 	
-	DB : MikroDB_V15_OZPASTEST 	
-	DB : MikroDB_V15_OZPASTEST_LOGDATA 	
-	DB : OZPASENTEGRE 	
+DB : MikroDB_V15_TEMP 	
+DB : MikroDB_V15_OZPASTEST 	
+DB : MikroDB_V15_OZPASTEST_LOGDATA 	
+DB : OZPASENTEGRE 	
 	DB : ENTEGRE_CRM 	
 	DB : ENTEGRE_ERP 	
 	DB : AKTARIM_TESTOZPAS 	
@@ -123,11 +144,42 @@ DB : MikroDB_V15
 
 
 
+## Case When Yapısı
+
+That format requires you to use either:
+
+```sql
+CASE ebv.db_no 
+  WHEN 22978 THEN 'WECS 9500' 
+  WHEN 23218 THEN 'WECS 9500'  
+  WHEN 23219 THEN 'WECS 9500' 
+  ELSE 'WECS 9520' 
+END as wecs_system 
+```
+
+Otherwise, use:
+
+```sql
+CASE  
+  WHEN ebv.db_no IN (22978, 23218, 23219) THEN 'WECS 9500' 
+  ELSE 'WECS 9520' 
+END as wecs_system 
+```
+
+
+
+## IIF YAPISI
+
+```sql
+SELECT [ID],[NAME],[STATUS],IIF([STATUS]='Active', 1,0) [Boolean Status]
+FROM tbl_sample
+```
+
 
 
 ## Çeşitli Komutlar
 
-##### SET ANSI_NULLS ON
+### SET ANSI_NULLS ON
 
 
 
