@@ -2,18 +2,44 @@
 
 
 
-cari hareket cins
+cha_cinsi : cari hareket cinsi (nakit,kredi kartı,çek,toptan fatura ....)
 
 ```
-0:Nakit 1:Müşteri Çeki 2:Müşteri Senedi 3:Firma Çeki 4:Firma Senedi 5:Dekont 6:Toptan Fatura 7:Perakende Faturası 8:Hizmet Faturası 9:Serbest Meslek Makbuzu 10:Vade Farkı Faturası 11:Kur Farkı Faturası 12:Fason Faturası 13:Dış Ticaret Faturası 14:Demirbaş Faturası 15:Değer Farkı Faturası 16:Cari Açılış 17:Müşteri Havale Sözü 18:Müşteri Ödeme Sözü 19:Müşteri Kredi Kartı 20:Firma Havale Emri 21:Firma Ödeme Emri 22:Firma Kredi Kartı 23:Vade Farkı Sıfırlama 24:Hal Faturası 25:Müstahsil Fatura 26:Stok Gider Pusulası 27:Gider Makbuzu 28:İthalat Masraf Faturası 29:Gümrük Beyannamesi 30:Finansal Kiralama Sözleşmesi 31:Finansal Kira Faturası 32:FUTURE_2 33:Avans Makbuzu 34:Müstahsil Değer Farkı Faturası 35:Kabzımal Faturası 36:Hediye Çeki Faturası 37:Müşteri Teminat Mektubu 38:Firma Teminat Mektubu 39:Depozito Çeki 40:Depozito Senedi 41:Firma Reel Kredi Kartı
+(0:Nakit  (havalede nakit içerisinde gelen,gideni chatipe göre belirleriz)) 
+
+(1:Müşteri Çeki) (2:Müşteri Senedi) 
+
+3:Firma Çeki 4:Firma Senedi 5:Dekont 
+6:Toptan Fatura 7:Perakende Faturası   (satış ve alış faturaları toptan faturalarına girer)
+8:Hizmet Faturası
+
+,9:Serbest Meslek Makbuzu ,10:Vade Farkı Faturası 11:Kur Farkı Faturası 12:Fason Faturası 13:Dış Ticaret Faturası 14:Demirbaş Faturası 15:Değer Farkı Faturası 
+
+16:Cari Açılış 
+17:Müşteri Havale Sözü 18:Müşteri Ödeme Sözü 
+
+(19:Müşteri Kredi Kartı) 
+
+20:Firma Havale Emri 21:Firma Ödeme Emri 
+
+22:Firma Kredi Kartı 
+
+23:Vade Farkı Sıfırlama 24:Hal Faturası 25:Müstahsil Fatura 26:Stok Gider Pusulası 
+
+27:Gider Makbuzu 
+
+28:İthalat Masraf Faturası 29:Gümrük Beyannamesi 30:Finansal Kiralama Sözleşmesi 31:Finansal Kira Faturası 32:FUTURE_2 33:Avans Makbuzu 34:Müstahsil Değer Farkı Faturası 35:Kabzımal Faturası 36:Hediye Çeki Faturası 37:Müşteri Teminat Mektubu 38:Firma Teminat Mektubu 39:Depozito Çeki 40:Depozito Senedi 41:Firma Reel Kredi Kartı
 ```
+
+
 
 36	**cha_cari_cins**	 Tinyint	Cari Cinsi	
 
 ```
 0:Carimiz 1:Cari Personelimiz 2:Bankamız 3:Hizmetimiz 4:Kasamız` 
-5:Giderimiz 6:Muhasebe Hesabımız 7:Personelimiz 8:Demirbaşımız 
-9:İthalat Dosyamız 10:Finansal Sözleşmemiz 
+5:Giderimiz 6:Muhasebe Hesabımız 7:Personelimiz 
+
+8:Demirbaşımız 9:İthalat Dosyamız 10:Finansal Sözleşmemiz 
 11:Kredi Sözleşmemiz 12:Dönemsel Hizmetimiz 
 13:Kredi Kartımız
 
