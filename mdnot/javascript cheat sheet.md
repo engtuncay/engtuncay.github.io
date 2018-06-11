@@ -959,6 +959,7 @@ var someAsyncThing = function() {
   });
 };
 
+// someAsyncThing() promise objesi döner
 someAsyncThing().then(function() {
   console.log('everything is great');
 }).catch(function(error) {

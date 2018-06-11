@@ -189,4 +189,11 @@ web essentials extension kurarak emmet özelliği eklenebilir.
 
 #### 
 
+![Vscode File Menüsü - Ayarlar](https://image.ibb.co/k2zAk8/vscode_file_menu.png)
+
+
+
+
+
+
 

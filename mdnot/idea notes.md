@@ -60,7 +60,6 @@ At the beginning it’s quite difficult to remember all you wish to use and goin
 - **dep** – Inserts <dependency/>
 
 
-
 - **pl** – Inserts <plugin/>
 
 
