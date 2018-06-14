@@ -16,6 +16,51 @@ Here's what all those big words above mean:
 - <a name="object-oriented"></a>__Object-Oriented Programming__: Object based programming
 - <a name="functional"></a>__Functional Programming__: Function based programming
 
+---
+
+
+<!-- TOC -->
+
+- [JavaScript Cheat Sheet](#javascript-cheat-sheet)
+    - [Quick Access Links](#quick-access-links)
+    - [1. Basics](#1-basics)
+        - [i. Primitives: Number, String, Boolean (and some special ones)](#i-primitives-number-string-boolean-and-some-special-ones)
+        - [ii. Operators aka weirdly written functions](#ii-operators-aka-weirdly-written-functions)
+    - [2. More Basic Syntax](#2-more-basic-syntax)
+        - [i. Variables](#i-variables)
+        - [ii. Arrays](#ii-arrays)
+        - [iii. Logic and Control Structures](#iii-logic-and-control-structures)
+    - [2. More Basic Syntax](#2-more-basic-syntax-1)
+    - [3. Objects and Functions](#3-objects-and-functions)
+        - [i. Objects](#i-objects)
+        - [ii. Functions](#ii-functions)
+        - [iii. Bind, Call and Apply](#iii-bind-call-and-apply)
+    - [4. Function Execution, Variable Scope, Closures & Callbacks](#4-function-execution-variable-scope-closures--callbacks)
+        - [i. Hoisting](#i-hoisting)
+        - [ii. Scope Chain](#ii-scope-chain)
+        - [iii. Closures](#iii-closures)
+        - [iv. Callbacks](#iv-callbacks)
+    - [5. Object-Oriented JS and Prototypal Inheritance](#5-object-oriented-js-and-prototypal-inheritance)
+        - [i. Function Constructors](#i-function-constructors)
+        - [ii. Prototypes](#ii-prototypes)
+        - [iii. Prototypal Inheritance aka setting prototypes of new objects](#iii-prototypal-inheritance-aka-setting-prototypes-of-new-objects)
+        - [iv. Built-In Constructors](#iv-built-in-constructors)
+    - [6. Bugs and Error Handling](#6-bugs-and-error-handling)
+    - [7. New ES6 stuff](#7-new-es6-stuff)
+        - [Arrows](#arrows)
+        - [Classes](#classes)
+        - [String Interpolation](#string-interpolation)
+        - [`let` and `const`](#let-and-const)
+        - [Generator](#generator)
+        - [Maps, Sets, WeakMap, WeakSet](#maps-sets-weakmap-weakset)
+        - [Promises](#promises)
+        - [Modules](#modules)
+
+<!-- /TOC -->
+
+---
+
+
 ## Quick Access Links 
 1. [Basics](#basics)
     1. [Primitives](#primitives)
@@ -959,7 +1004,7 @@ var someAsyncThing = function() {
   });
 };
 
-// someAsyncThing() promise objesi döner
+// someAsyncThing() promise objesi döner. Promise objesinin then fonksiyonu çağrılır.
 someAsyncThing().then(function() {
   console.log('everything is great');
 }).catch(function(error) {
