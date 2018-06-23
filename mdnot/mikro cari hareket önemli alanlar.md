@@ -1,8 +1,27 @@
 
 
+<!-- TOC -->
 
+- [cha_cinsi](#cha_cinsi)
+- [36 cha_cari_cins Tinyint Cari Cinsi](#36-cha_cari_cins-tinyint-cari-cinsi)
+- [24 cha_tip Tinyint Hareket Tipi](#24-cha_tip-tinyint-hareket-tipi)
+- [26 cha_normal_Iade Tinyint Normal/Iade?](#26-cha_normal_iade-tinyint-normaliade)
+- [27 cha_tpoz Tinyint Cari Pozisyonu](#27-cha_tpoz-tinyint-cari-pozisyonu)
+- [28 cha_ticaret_turu Tinyint Dış Ticaret Türü](#28-cha_ticaret_turu-tinyint-dış-ticaret-türü)
+- [Seri , Sıra ve Satır No](#seri--sıra-ve-satır-no)
+- [23 cha_tarihi DateTime Hareket Tarihi](#23-cha_tarihi-datetime-hareket-tarihi)
+- [111 cha_sntck_poz Tinyint Senet Çek Pozisyonu](#111-cha_sntck_poz-tinyint-senet-çek-pozisyonu)
+- [137 cha_e_islem_turu Tinyint e-İşlem Türü](#137-cha_e_islem_turu-tinyint-e-i̇şlem-türü)
+- [138 cha_fatura_belge_turu Tinyint Fatura Belge Türü](#138-cha_fatura_belge_turu-tinyint-fatura-belge-türü)
+- [cha Evrak Tip](#cha-evrak-tip)
+- [Indeks Tablosu](#indeks-tablosu)
 
-cha_cinsi : cari hareket cinsi (nakit,kredi kartı,çek,toptan fatura ....)
+<!-- /TOC -->
+
+---
+
+## cha_cinsi 
+- cari hareket cinsi (nakit,kredi kartı,çek,toptan fatura ....)
 
 ```
 (0:Nakit  (havalede nakit içerisinde gelen,gideni chatipe göre belirleriz)) 
@@ -33,7 +52,7 @@ cha_cinsi : cari hareket cinsi (nakit,kredi kartı,çek,toptan fatura ....)
 
 
 
-36	**cha_cari_cins**	 Tinyint	Cari Cinsi	
+## 36 cha_cari_cins Tinyint Cari Cinsi
 
 ```
 0:Carimiz 1:Cari Personelimiz 2:Bankamız 3:Hizmetimiz 4:Kasamız` 
@@ -45,13 +64,13 @@ cha_cinsi : cari hareket cinsi (nakit,kredi kartı,çek,toptan fatura ....)
 
 ```
 
-24	**cha_tip**	Tinyint	Hareket Tipi	
+## 24 cha_tip Tinyint Hareket Tipi	
 
 ```
 0:Borç 1:Alacak
 ```
 
-26	**cha_normal_Iade**	Tinyint					Normal/Iade?	
+## 26 cha_normal_Iade Tinyint Normal/Iade?	
 
 iade faturalarında 1 olması lazım. örnek: satıcıya iade fat.,müşteriden alınan iade faturası
 
@@ -59,7 +78,7 @@ iade faturalarında 1 olması lazım. örnek: satıcıya iade fat.,müşteriden 
 0:Normal 1:İade
 ```
 
-27	**cha_tpoz**			Tinyint					Cari Pozisyonu	
+## 27 cha_tpoz Tinyint Cari Pozisyonu	
 
 Cari Pozisyon nedir ???
 
@@ -67,7 +86,7 @@ Cari Pozisyon nedir ???
 0:Açık 1:Kapalı
 ```
 
-28	cha_ticaret_turu		Tinyint					Dış Ticaret Türü	
+## 28 cha_ticaret_turu Tinyint Dış Ticaret Türü	
 
 ```
 0:Toptan Yurt İçi Ticaret 
@@ -78,36 +97,37 @@ Cari Pozisyon nedir ???
 5:Yurt Dışı Nitelikli Yurt İçi Ticaret
 ```
 
-20	**cha_evrakno_seri**	:  dbo.nvarchar_evrakseri	Evrak Seri No	 
-21	**cha_evrakno_sira**	:  Integer					Evrak Sıra No	 
-22	**cha_satir_no**		: Integer					Hareket Satır No	 
+##  Seri , Sıra ve Satır No
+
+- 20	**cha_evrakno_seri**	:  dbo.nvarchar_evrakseri	Evrak Seri No	 
+- 21	**cha_evrakno_sira**	:  Integer					Evrak Sıra No	 
+- 22	**cha_satir_no**		: Integer					Hareket Satır No	 
 
 evrak no seri , sira , satir no üçü birlikte unique dir.
 
-23	**cha_tarihi**			: DateTime				Hareket Tarihi
+## 23 cha_tarihi DateTime Hareket Tarihi
 
-111	cha_sntck_poz		: Tinyint	Senet Çek Pozisyonu	
+## 111 cha_sntck_poz Tinyint Senet Çek Pozisyonu	
 
 ```
 0:Portföyde 1:Ciro 2:Tahsilde 3:Teminatta 4:İade Edilen 5:Diğer3
 6:Ödenmedi Portföyde 7:Ödenmedi İade 8:İcrada 9:Kısmen Ödendi 10:Ödendi
 ```
 
-137	cha_e_islem_turu	Tinyint	e-İşlem Türü	
+## 137 cha_e_islem_turu Tinyint e-İşlem Türü
 
 ```
 0:Tanımsız 1:e-Belge 2:e-Arşiv
 ```
 
-138	cha_fatura_belge_turu	Tinyint	Fatura Belge Türü	
+## 138 cha_fatura_belge_turu Tinyint Fatura Belge Türü	
 
 ```
 0:Fatura 1:Masraf Listesi 2:Perakende Fiş 3:Z Raporu 4:Navlun 5:Bilet 6:Poliçe 7:Zeyilname 8:Fon 9:Kontrat 10:Müstahsil 11:Diğer 12:Serbest Bölge Faturası
 ```
 
 
-
-### EVRAK TİP
+## cha Evrak Tip
 
 ```
 0:Alış Faturası
@@ -250,8 +270,11 @@ evrak no seri , sira , satir no üçü birlikte unique dir.
 ```
 
 
-Indeks Tablosu
-Indeks	Özellik	Alanlar
+## Indeks Tablosu
+- Indeks	Özellik	Alanlar
+
+```
+
 NDX_CARI_HESAP_HAREKETLERI_00	CONSTRAINT PRIMARY KEY	cha_RECno
 NDX_CARI_HESAP_HAREKETLERI_01	UNIQUE	cha_RECid_DBCno, cha_RECid_RECno
 NDX_CARI_HESAP_HAREKETLERI_02		cha_tarihi
@@ -264,3 +287,6 @@ NDX_CARI_HESAP_HAREKETLERI_08		cha_EXIMkodu
 NDX_CARI_HESAP_HAREKETLERI_09		cha_ciro_cari_kodu
 NDX_CARI_HESAP_HAREKETLERI_10		cha_trefno
 NDX_CARI_HESAP_HAREKETLERI_11		cha_sip_recid_dbcno, cha_sip_recid_recno
+
+```
+
