@@ -63,4 +63,5 @@ Examples : ASCII , UCS-2 , UTF-16 , UTF-32
 
 
 
+## SNIPPETS
 
