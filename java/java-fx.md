@@ -33,12 +33,14 @@
 
 - Appearance and functionality varies based on platform
 
+- Stage sahne , Scene perde,dekor.
+
 
 ## Scene
 
-- **Pencere stage, Pencerenin içi scene dir.** Sahne, stage aynıdır, scene yani sahne dekoru değişebilir. Aynı sahnede, farklı scene'lere geçiş yapılabilir.
+- **Pencere stage (sahne,platform), Pencerenin içi scene (dekor) dir.** Sahne, stage aynıdır, scene yani sahne dekoru değişebilir. Aynı sahnede (stage), farklı dekorlar (aşamalar,oyunlar)(scene) sahnelenebilir.
 
-- Hosted by a stage. ( Bir sahne(stage) tarafından evsahipliği yapılır (ağırlanır).)
+- Hosted by a stage. ( Bir sahne(scene), stage tarafından barındırılır/evsahipliği yapılır/ağırlanır.
 
 - Container for elements that comprise the scene (Dekor elemanlarını kendi içinde barındırır.)
 
