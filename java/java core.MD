@@ -6,17 +6,29 @@
 <!-- TOC -->
 
 - [Java Core](#java-core)
+    - [Types](#types)
+        - [String](#string)
+        - [Date](#date)
     - [Atomic Reference](#atomic-reference)
 - [Java IO](#java-io)
     - [Character Encoding](#character-encoding)
         - [Hexidecimal Number](#hexidecimal-number)
         - [Encoding Scheme](#encoding-scheme)
+    - [SNIPPETS](#snippets)
 
 <!-- /TOC -->
 
 ---
 
 # Java Core
+
+## Types
+
+### String
+
+### Date
+
+
 
 ## Atomic Reference
 

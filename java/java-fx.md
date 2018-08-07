@@ -38,25 +38,26 @@
 
 ## Scene
 
-- **Pencere stage (sahne,platform), Pencerenin içi scene (dekor) dir.** Sahne, stage aynıdır, scene yani sahne dekoru değişebilir. Aynı sahnede (stage), farklı dekorlar (aşamalar,oyunlar)(scene) sahnelenebilir.
+- **Pencere stage (sahne,platform), Pencerenin içi scene (dekor) dir.** Aynı sahnede(stage) farklı dekorlar veya oyunlar(scene) sahnelenebilir.
 
-- Hosted by a stage. ( Bir sahne(scene), stage tarafından barındırılır/evsahipliği yapılır/ağırlanır.
+- Hosted by a stage. ( Bir sahne(scene), stage tarafından barındırılır/evsahipliği yapılır/ağırlanır).
 
-- Container for elements that comprise the scene (Dekor elemanlarını kendi içinde barındırır.)
+- Container for elements that comprise the scene (Dekor elemanlarını içine alan bir settir,kümedir.)
 
 - Consists of a scene graph. ( Scene graph içerir.)
 
 - Elements of a scene are nodes. ( Scene elemanları (küme elemanları gibi...) node'lardır.) Examples textbox, button, checkbox etc.
 
-- Parent nodes can contain other child nodes. ( Ebeveyn node, çocuk nodelarını içerir.)
+- Parent nodes can contain other child nodes. ( Ebeveyn node, çocuk node'larını içerebilir.)
 
 *All are subclasses of Node*
 
-- Root node temel node dur. Root node, stack pane veya border pane yerleştirilebilir
+- Root node temel node dur. Örneğin root node'a, stack pane veya border pane yerleştirilebilir
 
 ## Layout Sistemleri
 
 - alignment : bir üst node içerisinde nasıl konumlanacak
+
 - x ve y koordinat sistemindeki gibidir: x ekseni yatay eksen (<-->) ve y ekseni dikey eksendir (|).  
 
 ### Gridpane
@@ -88,6 +89,8 @@ Docs oracle javafx layout dan detaylı bilgi alınabilir
 
 
 ### MigLayout
+
+
 
 ```java
 // iki satır 
