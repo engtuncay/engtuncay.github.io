@@ -9,7 +9,12 @@
     - [Install](#install)
 - [Sorgular](#sorgular)
     - [Select](#select)
+        - [Select Single Row (Entity)](#select-single-row-entity)
+        - [Select Single Value](#select-single-value)
+        - [Select List of Rows As Entity](#select-list-of-rows-as-entity)
+        - [Select List of Rows As Map](#select-list-of-rows-as-map)
     - [Insert](#insert)
+        - [Get Generated ID](#get-generated-id)
     - [Update](#update)
     - [Delete](#delete)
     - [Create](#create)
@@ -40,7 +45,23 @@ Java Jdbi Helper Library
 
 ## Select 
 
+### Select Single Row (Entity)
 
+### Select Single Value
+
+
+```
+
+Optional<Integer> optResult = jdbi.withHandle(handle -> {
+			return handle.createQuery(sql)
+					.bind("TXTKOD", urunkod.trim())
+					.mapTo(Integer.class)
+					.findFirst();
+		});
+        
+```
+
+### Select List of Rows As Entity
 
 ```
 
@@ -75,9 +96,17 @@ return result;
 
 ```
 
+### Select List of Rows As Map
+
+
+
 
 
 ## Insert
+
+
+
+### Get Generated ID
 
 
 ## Update
