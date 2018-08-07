@@ -8,11 +8,14 @@
 - [26 cha_normal_Iade Tinyint Normal/Iade?](#26-cha_normal_iade-tinyint-normaliade)
 - [27 cha_tpoz Tinyint Cari Pozisyonu](#27-cha_tpoz-tinyint-cari-pozisyonu)
 - [28 cha_ticaret_turu Tinyint Dış Ticaret Türü](#28-cha_ticaret_turu-tinyint-dış-ticaret-türü)
-- [Seri , Sıra ve Satır No](#seri--sıra-ve-satır-no)
-- [23 cha_tarihi DateTime Hareket Tarihi](#23-cha_tarihi-datetime-hareket-tarihi)
-- [111 cha_sntck_poz Tinyint Senet Çek Pozisyonu](#111-cha_sntck_poz-tinyint-senet-çek-pozisyonu)
-- [137 cha_e_islem_turu Tinyint e-İşlem Türü](#137-cha_e_islem_turu-tinyint-e-i̇şlem-türü)
-- [138 cha_fatura_belge_turu Tinyint Fatura Belge Türü](#138-cha_fatura_belge_turu-tinyint-fatura-belge-türü)
+- [Seri, Sıra ve Satır No](#seri-sıra-ve-satır-no)
+- [20 cha_evrakno_seri nvarchar_evrakseri Evrak Seri No](#20-cha_evrakno_seri-nvarchar_evrakseri-evrak-seri-no)
+- [21 cha_evrakno_sira Integer Evrak Sıra No](#21-cha_evrakno_sira-integer-evrak-sıra-no)
+- [22 cha_satir_no Integer - Hareket Satır No](#22-cha_satir_no-integer---hareket-satır-no)
+- [23 cha_tarihi DateTime - İşlem Tarihi](#23-cha_tarihi-datetime---i̇şlem-tarihi)
+- [111 cha_sntck_poz Tinyint - Senet Çek Pozisyonu](#111-cha_sntck_poz-tinyint---senet-çek-pozisyonu)
+- [137 cha_e_islem_turu Tinyint - e-İşlem Türü](#137-cha_e_islem_turu-tinyint---e-i̇şlem-türü)
+- [138 cha_fatura_belge_turu Tinyint - Fatura Belge Türü](#138-cha_fatura_belge_turu-tinyint---fatura-belge-türü)
 - [cha Evrak Tip](#cha-evrak-tip)
 - [Indeks Tablosu](#indeks-tablosu)
 
@@ -97,30 +100,33 @@ Cari Pozisyon nedir ???
 5:Yurt Dışı Nitelikli Yurt İçi Ticaret
 ```
 
-##  Seri , Sıra ve Satır No
+## Seri, Sıra ve Satır No
 
-- 20	**cha_evrakno_seri**	:  dbo.nvarchar_evrakseri	Evrak Seri No	 
-- 21	**cha_evrakno_sira**	:  Integer					Evrak Sıra No	 
-- 22	**cha_satir_no**		: Integer					Hareket Satır No	 
+## 20 cha_evrakno_seri nvarchar_evrakseri Evrak Seri No
+
+## 21 cha_evrakno_sira Integer Evrak Sıra No
+
+## 22 cha_satir_no Integer - Hareket Satır No
 
 evrak no seri , sira , satir no üçü birlikte unique dir.
 
-## 23 cha_tarihi DateTime Hareket Tarihi
+## 23 cha_tarihi DateTime - İşlem Tarihi
+Hareket veya İşlem Tarihi
 
-## 111 cha_sntck_poz Tinyint Senet Çek Pozisyonu	
+## 111 cha_sntck_poz Tinyint - Senet Çek Pozisyonu
 
 ```
 0:Portföyde 1:Ciro 2:Tahsilde 3:Teminatta 4:İade Edilen 5:Diğer3
 6:Ödenmedi Portföyde 7:Ödenmedi İade 8:İcrada 9:Kısmen Ödendi 10:Ödendi
 ```
 
-## 137 cha_e_islem_turu Tinyint e-İşlem Türü
+## 137 cha_e_islem_turu Tinyint - e-İşlem Türü
 
 ```
 0:Tanımsız 1:e-Belge 2:e-Arşiv
 ```
 
-## 138 cha_fatura_belge_turu Tinyint Fatura Belge Türü	
+## 138 cha_fatura_belge_turu Tinyint - Fatura Belge Türü
 
 ```
 0:Fatura 1:Masraf Listesi 2:Perakende Fiş 3:Z Raporu 4:Navlun 5:Bilet 6:Poliçe 7:Zeyilname 8:Fon 9:Kontrat 10:Müstahsil 11:Diğer 12:Serbest Bölge Faturası

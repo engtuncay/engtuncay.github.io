@@ -14,7 +14,6 @@
     - [Character Encoding](#character-encoding)
         - [Hexidecimal Number](#hexidecimal-number)
         - [Encoding Scheme](#encoding-scheme)
-    - [SNIPPETS](#snippets)
 
 <!-- /TOC -->
 
@@ -72,8 +71,4 @@ Encoding : 'a' -> 61 hex code -> 0110 0001
 Decoding : 0110 0001 -> 61 -> 'a'
 
 Examples : ASCII , UCS-2 , UTF-16 , UTF-32
-
-
-
-## SNIPPETS
 
