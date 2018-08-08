@@ -14,7 +14,8 @@
         - [Module Nedir](#module-nedir)
         - [Örnek](#örnek)
     - [Compenent](#compenent)
-        - [Örnek](#örnek-1)
+        - [Generate a new component named heroes.](#generate-a-new-component-named-heroes)
+        - [Örnek Component Sınıfı](#örnek-component-sınıfı)
         - [Selectors](#selectors)
         - [Template](#template)
         - [Styles](#styles)
@@ -38,7 +39,7 @@ Then install the Angular CLI globally. (-g) argumanı verilir. Global yükleme y
 
 npm install -g @angular/cli
 
-Note: Global Yükleme Nereye Yapılıyor ? *-*  
+Note: Windowsta global Yükleme Nereye Yapılıyor ? *-*  
 
 ## Step 2. Create a new project 
 
@@ -134,7 +135,11 @@ export class AppModule { }
 
 - Componentleri @Component annotasyonu ile belirtmek lazım. Annotasyon, json objesi içinde üç argüman vermeliyiz: selector , template ve styles.
 
-### Örnek
+### Generate a new component named heroes.
+
+`ng generate component heroes` 
+
+### Örnek Component Sınıfı
 
 ```
 import { Component, Input } from '@angular/core';
