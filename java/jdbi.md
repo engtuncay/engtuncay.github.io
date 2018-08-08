@@ -50,6 +50,8 @@ Java Jdbi Helper Library
 ### Select Single Value
 
 
+
+
 ```
 
 Optional<Integer> optResult = jdbi.withHandle(handle -> {
