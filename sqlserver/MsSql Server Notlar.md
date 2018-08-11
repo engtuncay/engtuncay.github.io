@@ -2,13 +2,29 @@
 
 <!-- TOC -->
 
-
+- [JOINLER](#joinler)
+    - [Outer Join Usage : Draft](#outer-join-usage--draft)
+    - [Outer Apply Usage](#outer-apply-usage)
+- [Function](#function)
+    - [Scalar Function (Değer Döndüren Fonksiyon)](#scalar-function-değer-döndüren-fonksiyon)
+    - [Tabular Function](#tabular-function)
+    - [Fonksiyonun Çağrılması](#fonksiyonun-çağrılması)
+    - [Değişkene Değer Atama](#değişkene-değer-atama)
+    - [Fonksiyondan değer atama](#fonksiyondan-değer-atama)
+- [Cursor Tanımlama](#cursor-tanımlama)
+- [Case When Yapısı](#case-when-yapısı)
+- [IIF YAPISI](#iif-yapisi)
+- [Çeşitli Komutlar](#çeşitli-komutlar)
+    - [SET ANSI_NULLS ON](#set-ansi_nulls-on)
+    - [SET QUOTED_IDENTIFIER ON](#set-quoted_identifier-on)
 
 <!-- /TOC -->
 
 
 
 [TOC]
+
+## JOINLER
 
 ### Outer Join Usage : Draft
 
@@ -31,16 +47,14 @@ OUTER APPLY (SELECT TOP 1 ADRES1.adr_temsilci_kodu FROM [CARI_HESAP_ADRESLERI] A
 
 
 
-### Function
+## Function
 
 - Scaler function : Bir değer döndürür.
 - Table function :
 
 
 
-#### Scalar Fonksiyon Örnek (varchar dönüşlü)
-
-
+### Scalar Function (Değer Döndüren Fonksiyon)
 
 ```mssql
 Create Function dbo.ayadi(@TARIH AS DATETIME)
@@ -60,8 +74,26 @@ END
 ```
 
 
+### Tabular Function
 
-#### Fonksiyonun Kullanılışı - Test
+```
+CREATE FUNCTION GetAllProducts(@Category  NVARCHAR(25) )
+RETURNS TABLE
+AS
+RETURN
+(SELECT ProductID, ProductName, RetailPrice, Category
+FROM CurrentProducts 
+WHERE Category = @Category)
+
+```
+
+Kaynaklar
+- https://blog.sqlauthority.com/2011/08/26/sql-server-tips-from-the-sql-joes-2-pros-development-series-table-valued-functions-day-26-of-35/
+
+
+
+
+### Fonksiyonun Çağrılması
 
 ```mssql
 select dbo.ayadi('20180301')
@@ -75,7 +107,7 @@ select dbo.ayadi('20180301')
 
 
 
-#### Fonksiyondan değer atama
+### Fonksiyondan değer atama
 
 ```mssql
 select @value = dbo.getNumber()
@@ -83,7 +115,7 @@ select @value = dbo.getNumber()
 
 
 
-### Cursor Tanımlama
+## Cursor Tanımlama
 
 ```mssql
 -- Sqlserverdaki Veritabanlarını Listeler
@@ -183,7 +215,7 @@ FROM tbl_sample
 
 
 
-##### SET QUOTED_IDENTIFIER ON
+### SET QUOTED_IDENTIFIER ON
 
 
 
