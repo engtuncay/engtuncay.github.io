@@ -2,24 +2,33 @@
 <!-- TOC -->
 
 - [QUICK GUIDE](#quick-guide)
-    - [Step 1. Set up the Development Environment](#step-1-set-up-the-development-environment)
-        - [Install Node Js](#install-node-js)
-        - [Install Angular CLI](#install-angular-cli)
-    - [Step 2. Create a new project](#step-2-create-a-new-project)
-    - [Step 3: Serve the application](#step-3-serve-the-application)
-    - [Step 4: Edit your first Angular component](#step-4-edit-your-first-angular-component)
-    - [Project file review](#project-file-review)
+  - [Step 1. Set up the Development Environment](#step-1-set-up-the-development-environment)
+    - [Install Node Js](#install-node-js)
+    - [Install Angular CLI](#install-angular-cli)
+  - [Step 2. Create a new project](#step-2-create-a-new-project)
+  - [Step 3: Serve the application](#step-3-serve-the-application)
+  - [Step 4: Edit your first Angular component](#step-4-edit-your-first-angular-component)
+  - [Project file review](#project-file-review)
 - [Angular Notes](#angular-notes)
-    - [Module](#module)
-        - [Module Nedir](#module-nedir)
-        - [Örnek](#örnek)
-    - [Compenent](#compenent)
-        - [Generate a new component named heroes.](#generate-a-new-component-named-heroes)
-        - [Örnek Component Sınıfı](#örnek-component-sınıfı)
-        - [Selectors](#selectors)
-        - [Template](#template)
-        - [Styles](#styles)
-        - [Tip](#tip)
+  - [Module](#module)
+    - [Module Nedir](#module-nedir)
+    - [Örnek](#%C3%B6rnek)
+  - [Services](#services)
+  - [Create the HeroService](#create-the-heroservice)
+  - [Compenent](#compenent)
+    - [Generate a new component named heroes.](#generate-a-new-component-named-heroes)
+    - [Örnek Component Sınıfı](#%C3%B6rnek-component-s%C4%B1n%C4%B1f%C4%B1)
+    - [Selectors](#selectors)
+    - [Template](#template)
+    - [Styles](#styles)
+    - [Tip](#tip)
+  - [Angular - Component Interaction](#angular---component-interaction)
+    - [Pass data from parent to child with input binding](#pass-data-from-parent-to-child-with-input-binding)
+    - [Intercept input property changes with a setter](#intercept-input-property-changes-with-a-setter)
+    - [Intercept input property changes with ngOnChanges()](#intercept-input-property-changes-with-ngonchanges)
+    - [Parent listens for child event](#parent-listens-for-child-event)
+    - [Parent calls an @ViewChild()](#parent-calls-an-viewchild)
+    - [Parent interacts with child via local variable](#parent-interacts-with-child-via-local-variable)
 
 <!-- /TOC -->
 
@@ -31,7 +40,7 @@
 
 ### Install Node Js
 
-Install Node.js® and npm if they are not already on your machine.
+Install Node.js® and npm (node package manager) if they are not already on your machine.
 
 ### Install Angular CLI
 
@@ -131,6 +140,12 @@ export class AppModule { }
 
 ```
 
+## Services
+
+## Create the HeroService
+
+
+
 ## Compenent
 
 - Componentleri @Component annotasyonu ile belirtmek lazım. Annotasyon, json objesi içinde üç argüman vermeliyiz: selector , template ve styles.
@@ -182,7 +197,7 @@ Component annotation da :
 styles: [`h1 { font-family: Lato; }`]
 ```
 
-- Url ile adres verebiliriz.
+- styleUrls prm.siyle adres verebiliriz.
 
 ```
 styleUrls: ['./app.component.css']
@@ -195,7 +210,111 @@ Not: array olduğu için birden fazla css dosyası tanımlayabiliriz.
 
 ### Tip
 
-` (back tick) ile string tanımlarsak multi line yapabiliriz.
+` (back tick) ile string tanımlarsak multi line kullanabiliriz.
+
+## Angular - Component Interaction 
+  - Kaynak : https://angular.io/guide/component-interaction
+
+
+###  Pass data from parent to child with input binding
+
+**Syntax**: <child_component [child_field]="parent.field" ></child_component>
+
+Note: - "nests" "iç içe koymak "
+
+```
+<app-hero-child *ngFor="let hero of heroes"
+      [hero]="hero"
+      [master]="master">
+</app-hero-child>
+```
+
+### Intercept input property changes with a setter
+
+(Intercept: yakalamak,catch,durdurmak,alıkoymak,engelleme)
+
+Use an input property setter to intercept and act upon a value from the parent
+
+```
+@Input()
+set name(name: string) { 
+    
+}
+```
+
+###  Intercept input property changes with ngOnChanges() 
+Detect and act upon changes to input property values with the ngOnChanges() method of the OnChanges lifecycle hook interface.  
+
+input property değişikliklerini yakalanması
+
+### Parent listens for child event
+
+Child Compenent
+```
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+
+@Component({
+  selector: 'app-voter',
+  template: `
+    <button (click)="vote(true)"  [disabled]="didVote">Agree</button>`
+})
+export class VoterComponent {
+  @Input()  name: string;
+  @Output() voted = new EventEmitter<boolean>();
+  didVote = false;
+ 
+  vote(agreed: boolean) {
+    this.voted.emit(agreed);
+    this.didVote = true;
+  }
+}
+```
+
+Parent Component
+```
+@Component({
+  selector: 'app-vote-taker',
+  template: `
+    <app-voter *ngFor="let voter of voters"
+      [name]="voter"
+      (voted)="onVoted($event)">
+    </app-voter>`
+})
+export class VoteTakerComponent {
+  agreed = 0;
+  disagreed = 0;
+  voters = ['Mr. IQ', 'Ms. Universe', 'Bombasto'];
+ 
+  onVoted(agreed: boolean) {
+    agreed ? this.agreed++ : this.disagreed++;
+  }
+}
+
+```
+
+- child comp deki name fieldına , parent comp deki voter objesi bağlanmış.
+    - [child_input_field] = "parent_field"
+- (voted)  = "onVoted($event)"
+    - (child_output_field)="parent_method(T)"
+    - child comp da voted output fieldı var. (child_output_field)
+    - voted a tanımlı emitter objesinin, parent daki onVoted($event) methodu ,abonesi(subscribe) olur. emitter objesine callback olarak tanımlanır. parent method gelecek argüman , event emittera tanımlanan generic objedir.
+
+voted 
+
+
+
+
+### Parent calls an @ViewChild()
+
+### Parent interacts with child via local variable
+
+Cc: a template reference variable for the child element"
+"concept "
+
+- "You can place a local variable, #timer, on the tag <countdown-timer> representing the child component"
+
+
+
 
 
 
