@@ -25,8 +25,8 @@
   - [Angular - Component Interaction](#angular---component-interaction)
     - [Pass data from parent to child with input binding](#pass-data-from-parent-to-child-with-input-binding)
     - [Intercept input property changes with a setter](#intercept-input-property-changes-with-a-setter)
-    - [Intercept input property changes with ngOnChanges()](#intercept-input-property-changes-with-ngonchanges)
     - [Parent listens for child event](#parent-listens-for-child-event)
+    - [Intercept input property changes with ngOnChanges()](#intercept-input-property-changes-with-ngonchanges)
     - [Parent calls an @ViewChild()](#parent-calls-an-viewchild)
     - [Parent interacts with child via local variable](#parent-interacts-with-child-via-local-variable)
 
@@ -242,11 +242,6 @@ set name(name: string) {
 }
 ```
 
-###  Intercept input property changes with ngOnChanges() 
-Detect and act upon changes to input property values with the ngOnChanges() method of the OnChanges lifecycle hook interface.  
-
-input property değişikliklerini yakalanması
-
 ### Parent listens for child event
 
 Child Compenent
@@ -299,10 +294,11 @@ export class VoteTakerComponent {
     - child comp da voted output fieldı var. (child_output_field)
     - voted a tanımlı emitter objesinin, parent daki onVoted($event) methodu ,abonesi(subscribe) olur. emitter objesine callback olarak tanımlanır. parent method gelecek argüman , event emittera tanımlanan generic objedir.
 
-voted 
 
+###  Intercept input property changes with ngOnChanges() 
+Detect and act upon changes to input property values with the ngOnChanges() method of the OnChanges lifecycle hook interface.  
 
-
+input property değişikliklerini yakalanması
 
 ### Parent calls an @ViewChild()
 
