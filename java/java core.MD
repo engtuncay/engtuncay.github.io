@@ -1,5 +1,11 @@
 
-**Java Programming**
+**Java Programming Language**
+
+**Prepared By** Tuncay Orak
+
+**Contributions**
+
+Sources are given at the end of the sections.
 
 ---
 
@@ -9,15 +15,18 @@
     - [Types](#types)
         - [String](#string)
         - [Date](#date)
+            - [Parsing String to Date](#parsing-string-to-date)
     - [Atomic Reference](#atomic-reference)
 - [Java Regular Expressions](#java-regular-expressions)
+    - [Regex Online Test](#regex-online-test)
     - [Matching a single character](#matching-a-single-character)
     - [Characters that need to be written in a special way](#characters-that-need-to-be-written-in-a-special-way)
     - [Matching a single character with a predefined character class](#matching-a-single-character-with-a-predefined-character-class)
     - [Defining Character classes (match one character)](#defining-character-classes-match-one-character)
     - [Position and Boundary patterns (match zero characters)](#position-and-boundary-patterns-match-zero-characters)
-    - [Quantifiers (repeating the previous element)](#quantifiers-repeating-the-previous-element)
+    - [Quantifiers (repeating the previous element) (Miktar Belirleyiciler)](#quantifiers-repeating-the-previous-element-miktar-belirleyiciler)
     - [Other](#other)
+    - [Regex Tutorials](#regex-tutorials)
 - [Java IO](#java-io)
     - [Character Encoding](#character-encoding)
         - [Hexidecimal Number](#hexidecimal-number)
@@ -34,6 +43,15 @@
 ### String
 
 ### Date
+
+####  Parsing String to Date
+
+Source
+
+https://www.mkyong.com/java/how-to-convert-string-to-date-java/
+
+
+
 
 
 ## Atomic Reference
@@ -53,9 +71,16 @@ AtomicReference<List<MkCARI_HESAP_HAREKETLERI>> atomref = new AtomicReference<>(
 
 # Java Regular Expressions
 
+## Regex Online Test
+
+- http://www.regexplanet.com/advanced/java/index.html
+
+
+
 ## Matching a single character
 
-Characters that otherwise have special regexp meanings
+Characters that otherwise have special regexp meanings.
+
 Özel anlama sahip karakterler. Kullanırsak, backslash ( \ ) ile kullanmamız gerekir.
 
 ```
@@ -87,7 +112,7 @@ Karakter kümesini tanımlayan özel karakterler
 
 ## Defining Character classes (match one character)
 
-Character classes provide a way to specify a set of characters. The class specification is enclosed in []. The set can also be expressed by what must not be in it by beginning the set with a caret, "^". Minus, "-", can be used to indicate a range of character values. Altho a character class matches only one character, a quantifier following it can be used to match multiple characters.
+Character classes provide a way to specify a set of characters. The class specification is enclosed in [ ]. The set can also be expressed by what must not be in it by beginning the set with a caret, "^". Minus, "-", can be used to indicate a range of character values. Altho a character class matches only one character, a quantifier following it can be used to match multiple characters.
 
 ```
 [abc]	a, b, or c (simple class)
@@ -110,19 +135,19 @@ $	The end of a line. Very userful. ^$ matches all emtpy lines.
 
 ``` 
 
-## Quantifiers (repeating the previous element)
+## Quantifiers (repeating the previous element) (Miktar Belirleyiciler)
 
 Greedy quantifiers - Expand as much as possible
+Açgözlü belirleyiciler - Mümkün olduğ
 
 ```
-X?	X, once or not at all
-X*	X, zero or more times
-X+	X, one or more times
-X{n}	X, exactly n times
-X{n,}	X, at least n times
-X{n,m}	X, at least n but not more than m times
+X?	X, once or not at all  (1 veya 0)
+X*	X, zero or more times  ( 0 veya daha çok)
+X+	X, one or more times  ( 1 veya daha çok)
+X{n}	X, exactly n times ( Tam olarak n tane)
+X{n,}	X, at least n times ( En az n tane)
+X{n,m}	X, at least n but not more than m times ( En az n, en çok m tane )
  
-
 ```
 
 Reluctant quantifiers - Expand only if forced by later failure to match
@@ -152,6 +177,20 @@ Grouping - Parentheses both group and create a numbered element that can be used
         Numbered starting at 1.
 
 ```
+
+## Regex Tutorials
+
+- https://www.leepoint.net/data/strings/40regular_expressions/25sum-regex-basic.html
+
+- https://www.journaldev.com/634/regular-expression-in-java-regex-example
+
+
+
+Sources
+
+- https://www.leepoint.net/data/strings/40regular_expressions/25sum-regex-basic.html
+
+
 
 
 # Java IO
