@@ -276,6 +276,7 @@ Hareket veya İşlem Tarihi
 ```
 
 
+
 ## Indeks Tablosu
 - Indeks	Özellik	Alanlar
 
