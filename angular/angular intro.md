@@ -1,40 +1,43 @@
 
 <!-- TOC -->
 
-- [QUICK GUIDE](#quick-guide)
-  - [Step 1. Set up the Development Environment](#step-1-set-up-the-development-environment)
-    - [Install Node Js](#install-node-js)
-    - [Install Angular CLI](#install-angular-cli)
-  - [Step 2. Create a new project](#step-2-create-a-new-project)
-  - [Step 3: Serve the application](#step-3-serve-the-application)
-  - [Step 4: Edit your first Angular component](#step-4-edit-your-first-angular-component)
-  - [Project file review](#project-file-review)
-- [Angular Notes](#angular-notes)
-  - [Module](#module)
-    - [Module Nedir](#module-nedir)
-    - [Örnek](#%C3%B6rnek)
-  - [Services](#services)
-  - [Create the HeroService](#create-the-heroservice)
-  - [Compenent](#compenent)
-    - [Generate a new component named heroes.](#generate-a-new-component-named-heroes)
-    - [Örnek Component Sınıfı](#%C3%B6rnek-component-s%C4%B1n%C4%B1f%C4%B1)
-    - [Selectors](#selectors)
-    - [Template](#template)
-    - [Styles](#styles)
-    - [Tip](#tip)
-  - [Angular - Component Interaction](#angular---component-interaction)
-    - [Pass data from parent to child with input binding](#pass-data-from-parent-to-child-with-input-binding)
-    - [Intercept input property changes with a setter](#intercept-input-property-changes-with-a-setter)
-    - [Parent listens for child event](#parent-listens-for-child-event)
-    - [Intercept input property changes with ngOnChanges()](#intercept-input-property-changes-with-ngonchanges)
-    - [Parent calls an @ViewChild()](#parent-calls-an-viewchild)
-    - [Parent interacts with child via local variable](#parent-interacts-with-child-via-local-variable)
+- [Quick Guide](#quick-guide)
+    - [Step 1. Set up the Development Environment](#step-1-set-up-the-development-environment)
+        - [Install Node Js](#install-node-js)
+        - [Install Angular CLI](#install-angular-cli)
+    - [Step 2. Create a new project](#step-2-create-a-new-project)
+    - [Step 3: Serve the application](#step-3-serve-the-application)
+    - [Step 4: Edit your first Angular component](#step-4-edit-your-first-angular-component)
+    - [Project file review](#project-file-review)
+- [Angular Tutorial](#angular-tutorial)
+    - [Module](#module)
+        - [Module Nedir](#module-nedir)
+        - [Örnek](#örnek)
+    - [Services](#services)
+    - [Create the HeroService](#create-the-heroservice)
+    - [Compenent](#compenent)
+        - [Cli Command](#cli-command)
+        - [Örnek Component Sınıfı](#örnek-component-sınıfı)
+        - [Selectors](#selectors)
+        - [Template](#template)
+        - [Styles](#styles)
+        - [Tip](#tip)
+    - [Angular - Component Interaction](#angular---component-interaction)
+        - [Pass data from parent to child with input binding](#pass-data-from-parent-to-child-with-input-binding)
+        - [Intercept input property changes with a setter](#intercept-input-property-changes-with-a-setter)
+        - [Parent listens for child event](#parent-listens-for-child-event)
+        - [Intercept input property changes with ngOnChanges()](#intercept-input-property-changes-with-ngonchanges)
+        - [Parent calls an @ViewChild()](#parent-calls-an-viewchild)
+        - [Parent interacts with child via local variable](#parent-interacts-with-child-via-local-variable)
+    - [Directives](#directives)
+        - [ngIf](#ngif)
+- [Sources](#sources)
 
 <!-- /TOC -->
 
 ---
 
-# QUICK GUIDE
+# Quick Guide
 
 ## Step 1. Set up the Development Environment 
 
@@ -110,7 +113,7 @@ The first file you should check out is README.md. It has some basic information 
 
 Some of the generated files might be unfamiliar to you.
 
-# Angular Notes
+# Angular Tutorial
 
 ## Module
 
@@ -120,7 +123,7 @@ Some of the generated files might be unfamiliar to you.
 
 ### Örnek
 
-```angular
+```typescript
 
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -150,13 +153,15 @@ export class AppModule { }
 
 - Componentleri @Component annotasyonu ile belirtmek lazım. Annotasyon, json objesi içinde üç argüman vermeliyiz: selector , template ve styles.
 
-### Generate a new component named heroes.
+### Cli Command
+
+Generate a new component named heroes.
 
 `ng generate component heroes` 
 
 ### Örnek Component Sınıfı
 
-```
+```typescript
 import { Component, Input } from '@angular/core';
 
 @Component({
@@ -222,7 +227,7 @@ Not: array olduğu için birden fazla css dosyası tanımlayabiliriz.
 
 Note: - "nests" "iç içe koymak "
 
-```
+```typescript
 <app-hero-child *ngFor="let hero of heroes"
       [hero]="hero"
       [master]="master">
@@ -235,7 +240,7 @@ Note: - "nests" "iç içe koymak "
 
 Use an input property setter to intercept and act upon a value from the parent
 
-```
+```typescript
 @Input()
 set name(name: string) { 
     
@@ -245,7 +250,7 @@ set name(name: string) {
 ### Parent listens for child event
 
 Child Compenent
-```
+```typescript
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
@@ -266,7 +271,7 @@ export class VoterComponent {
 ```
 
 Parent Component
-```
+```typescript
 @Component({
   selector: 'app-vote-taker',
   template: `
@@ -311,11 +316,40 @@ Cc: a template reference variable for the child element"
 
 
 
+## Directives
+
+### ngIf
+
+- Şarta göre DOMa ekleme
+
+ngif şartı gerçekleştiği an (observable), angular html elementini dom a ekler ve gösterir, şart gerçekleşmezse doma eklenmez ve göstermez.
+
+```typescript
+<div *ngIf="courses.length>0">
+    if ngif true, then angular add this div to DOM
+</div>
+
+```
+
+- Şarta göre Template Refaransını aktif etme
+
+```typescript
+<div *ngIf="courses.length>0;else #noCourses">
+    List of Courses
+    (couse sayısı 0 dan büyükse bu div doma eklenir, yoksa
+    , #noCourse template refaransı doma eklenir,gösterilir.)
+</div>
+
+<ng-template #noCourses>
+  No courses yet.
+</ng-template>
+
+```
 
 
 
 
-
+# Sources
 
 https://angular.io/guide/quickstart
 
