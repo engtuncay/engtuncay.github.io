@@ -5,20 +5,23 @@
 
 - [Jdbi 3](#jdbi-3)
     - [Jdbi Nedir](#jdbi-nedir)
-    - [Maven Repo](#maven-repo)
-    - [Install](#install)
-- [Sorgular](#sorgular)
-    - [Select](#select)
-        - [Select Single Row (Entity)](#select-single-row-entity)
-        - [Select Single Value](#select-single-value)
-        - [Select List of Rows As Entity](#select-list-of-rows-as-entity)
-        - [Select List of Rows As Map](#select-list-of-rows-as-map)
+    - [Maven Repo (draft)](#maven-repo-draft)
+    - [Install (draft)](#install-draft)
+- [Parameter Binding (draft)](#parameter-binding-draft)
+- [Queries (Sorgular)](#queries-sorgular)
+    - [Select Queries](#select-queries)
+        - [Select Single Row (Entity) - Bind Object     (draft)](#select-single-row-entity---bind-object-----draft)
+        - [Select Single Value - Bind Variable](#select-single-value---bind-variable)
+        - [Select Rows - Bind List of Objects](#select-rows---bind-list-of-objects)
+        - [Select Rows - Bind Map (draft)](#select-rows---bind-map-draft)
     - [Insert](#insert)
-        - [Get Generated ID](#get-generated-id)
-    - [Update](#update)
-    - [Delete](#delete)
-    - [Create](#create)
-- [Plug-Ins](#plug-ins)
+        - [Insert With Handle Bind Bean](#insert-with-handle-bind-bean)
+        - [Multiple Insert With One Transaction (draft)](#multiple-insert-with-one-transaction-draft)
+        - [Get Generated ID (draft)](#get-generated-id-draft)
+    - [Update Query (draft)](#update-query-draft)
+    - [Delete Query (draft)](#delete-query-draft)
+    - [Create Query (draft)](#create-query-draft)
+- [Plug-Ins (draft)](#plug-ins-draft)
 
 <!-- /TOC -->
 
@@ -33,27 +36,29 @@
 Java Jdbi Helper Library
 
 
-## Maven Repo
+## Maven Repo (draft)
 
 
-## Install
+## Install (draft)
 
 
+# Parameter Binding (draft)
 
 
-# Sorgular
+# Queries (Sorgular)
 
-## Select 
+## Select Queries
 
-### Select Single Row (Entity)
+### Select Single Row (Entity) - Bind Object     (draft)
 
-### Select Single Value
+Tek obje döndüren sorguların kullanımı :
 
 
+### Select Single Value - Bind Variable
 
+Tek değer döndüren sorguların kullanımı :
 
 ```
-
 Optional<Integer> optResult = jdbi.withHandle(handle -> {
 			return handle.createQuery(sql)
 					.bind("TXTKOD", urunkod.trim())
@@ -63,7 +68,7 @@ Optional<Integer> optResult = jdbi.withHandle(handle -> {
         
 ```
 
-### Select List of Rows As Entity
+### Select Rows - Bind List of Objects
 
 ```
 
@@ -98,31 +103,46 @@ return result;
 
 ```
 
-### Select List of Rows As Map
-
-
-
+### Select Rows - Bind Map (draft)
 
 
 ## Insert
 
 
+### Insert With Handle Bind Bean
 
-### Get Generated ID
+```java
+
+Integer rowCountUpdate = jdbi.withHandle(handle -> {
+    return handle.createUpdate(new OzJdbi().getInsertQuery(TblFiyatVade.class))
+            .bindBean(tblFiyatVade)
+            .execute(); // returns row count updated
+});
+
+if(rowCountUpdate!=null & rowCountUpdate>0) return true;
+return false;
+
+```
+
+### Multiple Insert With One Transaction (draft)
 
 
-## Update
+
+### Get Generated ID (draft)
 
 
-## Delete
+## Update Query (draft)
 
 
-## Create
+## Delete Query (draft)
+
+
+## Create Query (draft)
 
 
 
 
-# Plug-Ins
+# Plug-Ins (draft)
 
 
 
