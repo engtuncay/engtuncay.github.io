@@ -10,7 +10,7 @@
 - [Parameter Binding (draft)](#parameter-binding-draft)
 - [Queries (Sorgular)](#queries-sorgular)
     - [Select Queries](#select-queries)
-        - [Select Single Row (Entity) - Bind Object     (draft)](#select-single-row-entity---bind-object-----draft)
+        - [Select Single Row (Entity) - Bind Object](#select-single-row-entity---bind-object)
         - [Select Single Value - Bind Variable](#select-single-value---bind-variable)
         - [Select Rows - Bind List of Objects](#select-rows---bind-list-of-objects)
         - [Select Rows - Bind Map (draft)](#select-rows---bind-map-draft)
@@ -49,16 +49,25 @@ Java Jdbi Helper Library
 
 ## Select Queries
 
-### Select Single Row (Entity) - Bind Object     (draft)
+### Select Single Row (Entity) - Bind Object
 
 Tek obje döndüren sorguların kullanımı :
 
+```java
+Optional<TBLURUN> tblurunOptional = jdbi.withHandle(handle -> {
+    return handle.createQuery(stf(sqseUrunOzetBirim).sqlFmtAt())
+        .bind("TXTKOD", urunkod.trim())
+        .mapToBean(TBLURUN.class)
+        .findFirst();
+});
+
+```
 
 ### Select Single Value - Bind Variable
 
 Tek değer döndüren sorguların kullanımı :
 
-```
+```java
 Optional<Integer> optResult = jdbi.withHandle(handle -> {
 			return handle.createQuery(sql)
 					.bind("TXTKOD", urunkod.trim())
@@ -70,19 +79,12 @@ Optional<Integer> optResult = jdbi.withHandle(handle -> {
 
 ### Select Rows - Bind List of Objects
 
-```
-
-String sqlFiyatOzet = "select TFV.[CRRFIYAT],TFV.[TRHBITISTARIH],TFV.[TRHBASLANGICTARIH],TFV.[BYTMUSTERIKRITERTIP],TFV.[TXTMUSTERIKRITER] from TBLFIYATVADE TFV INNER JOIN TBLURUN TU ON TFV.LNGURUNKOD = TU.LNGKOD WHERE TU.TXTKOD=@_TXTKOD AND TFV.BYTDURUM=0 AND (TFV.[TXTMUSTERIKRITER] IS NULL OR TFV.[TXTMUSTERIKRITER]='') AND TFV.[TRHBITISTARIH]>=@_DATERPR  AND TFV.[TRHBASLANGICTARIH]<=@_DATERPR  AND TFV.[CRRFIYAT]<>@_CRRFIYAT ";
-
-Jdbi jdbi = JdbiOzpasWeb.getJdbi();
-
-Date date = UtilozDate.getDatewithTimeZero();
-
-//System.out.println("sql:"+ finalSql);
+```java
+Jdbi jdbi = JdbiPanoFactory.getJdbiByAppProp(this);
 
 List<TblFiyatVade> result = jdbi.withHandle(handle -> {
-    
-    return handle.select(stf(sqlFiyatOzet).sqlFmtConvertAtDash())
+
+    return handle.select(stf(sqlFiyatOzet).sqlFmtAt())
             .bind("TXTKOD", urunkod)
             .bind("CRRFIYAT", crrfiyat)
             .bind("DATERPR", date)
@@ -96,11 +98,10 @@ return result;
 ```
 
 
+MapToBean Alternatifler
 ```
 //handle.registerRowMapper(FieldMapper.factory(TblFiyatVade.class));
 //.collect(Collectors.toList());
-
-
 ```
 
 ### Select Rows - Bind Map (draft)
