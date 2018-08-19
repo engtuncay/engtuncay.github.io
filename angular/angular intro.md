@@ -10,6 +10,7 @@
     - [Step 4: Edit your first Angular component](#step-4-edit-your-first-angular-component)
     - [Project file review](#project-file-review)
 - [Angular Tutorial](#angular-tutorial)
+    - [Vscode Plugins](#vscode-plugins)
     - [Module](#module)
         - [Module Nedir](#module-nedir)
         - [Örnek](#örnek)
@@ -31,6 +32,8 @@
         - [Parent interacts with child via local variable](#parent-interacts-with-child-via-local-variable)
     - [Directives](#directives)
         - [ngIf](#ngif)
+    - [Bölüm 4 - Displaying Data and Handling Events](#bölüm-4---displaying-data-and-handling-events)
+        - [Property Binding](#property-binding)
 - [Sources](#sources)
 
 <!-- /TOC -->
@@ -114,6 +117,11 @@ The first file you should check out is README.md. It has some basic information 
 Some of the generated files might be unfamiliar to you.
 
 # Angular Tutorial
+
+## Vscode Plugins
+
+Auto Import 1.2 By Steoates
+
 
 ## Module
 
@@ -345,6 +353,17 @@ ngif şartı gerçekleştiği an (observable), angular html elementini dom a ekl
 </ng-template>
 
 ```
+
+## Bölüm 4 - Displaying Data and Handling Events
+
+### Property Binding
+
+```
+<img [src]="title"/>
+
+```
+
+
 
 
 
