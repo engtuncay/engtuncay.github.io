@@ -7,6 +7,9 @@
     - [Jdbi Nedir](#jdbi-nedir)
     - [Maven Repo (draft)](#maven-repo-draft)
     - [Install (draft)](#install-draft)
+- [Usage of Handle](#usage-of-handle)
+    - [withHandle](#withhandle)
+    - [Handle](#handle)
 - [Parameter Binding (draft)](#parameter-binding-draft)
 - [Queries (Sorgular)](#queries-sorgular)
     - [Select Queries](#select-queries)
@@ -40,6 +43,12 @@ Java Jdbi Helper Library
 
 
 ## Install (draft)
+
+# Usage of Handle 
+
+## withHandle
+
+## Handle
 
 
 # Parameter Binding (draft)
