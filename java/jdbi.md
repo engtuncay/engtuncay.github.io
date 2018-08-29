@@ -18,9 +18,9 @@
         - [Select Rows - Bind List of Objects](#select-rows---bind-list-of-objects)
         - [Select Rows - Bind Map (draft)](#select-rows---bind-map-draft)
     - [Insert](#insert)
-        - [Insert With Handle Bind Bean](#insert-with-handle-bind-bean)
-        - [Multiple Insert With One Transaction (draft)](#multiple-insert-with-one-transaction-draft)
-        - [Get Generated ID (draft)](#get-generated-id-draft)
+        - [Insert By WithHandle Method By Binding Bean](#insert-by-withhandle-method-by-binding-bean)
+        - [Multiple Insert With One Transaction](#multiple-insert-with-one-transaction)
+        - [Get Generated ID After Insert Query (draft)](#get-generated-id-after-insert-query-draft)
     - [Update Query (draft)](#update-query-draft)
     - [Delete Query (draft)](#delete-query-draft)
     - [Create Query (draft)](#create-query-draft)
@@ -119,7 +119,7 @@ MapToBean Alternatifler
 ## Insert
 
 
-### Insert With Handle Bind Bean
+### Insert By WithHandle Method By Binding Bean
 
 ```java
 
@@ -134,11 +134,31 @@ return false;
 
 ```
 
-### Multiple Insert With One Transaction (draft)
+### Multiple Insert With One Transaction
 
 
+```java
 
-### Get Generated ID (draft)
+Boolean result = jdbi.inTransaction(handle -> {
+
+    handle.begin();
+
+    try {
+        // transactions
+
+        handle.commit();
+        return true;
+    } catch (Exception e) {
+        Loghelper.debugException(getClass(), e);
+        handle.rollback();
+        return false;
+    }
+
+});
+
+```
+
+### Get Generated ID After Insert Query (draft)
 
 
 ## Update Query (draft)

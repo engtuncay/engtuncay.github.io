@@ -24,7 +24,7 @@
     - [Workbench](#workbench)
         - [EditorConfig for VS Code - EditorConfig Support for Visual Studio Code (must have plugin for VSCode)](#editorconfig-for-vs-code---editorconfig-support-for-visual-studio-code-must-have-plugin-for-vscode)
         - [angular2-inline - support for inline HTML and CSS in angular components. I don't use inline templates, but this is a helpful extension in case you use inline HTML or CSS.](#angular2-inline---support-for-inline-html-and-css-in-angular-components-i-dont-use-inline-templates-but-this-is-a-helpful-extension-in-case-you-use-inline-html-or-css)
-        - [NgBootstrap Snippets - if you need Bootstrap 4 support in you angular project, this extension has some helpful snippets.](#ngbootstrap-snippets---if-you-need-bootstrap-4-support-in-you-angular-project-this-extension-has-some-helpful-snippets)
+        - [NgBootstrap Snippets - if you need Bootstrap 4 support in you angular project, this extension has some helpful snippets.]                    (#ngbootstrap-snippets---if-you-need-bootstrap-4-support-in-you-angular-project-this-extension-has-some-helpful-snippets)
         - [vscode-icons - my favorite collection of icons for VSCode projects!](#vscode-icons---my-favorite-collection-of-icons-for-vscode-projects)
 - [Productivity](#productivity)
     - [Bracket Pair Colorizer](#bracket-pair-colorizer)
