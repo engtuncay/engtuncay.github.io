@@ -8,8 +8,8 @@
     - [Maven Repo (draft)](#maven-repo-draft)
     - [Install (draft)](#install-draft)
 - [Usage of Handle](#usage-of-handle)
-    - [withHandle](#withhandle)
-    - [Handle](#handle)
+    - [withHandle Method](#withhandle-method)
+    - [useHandle Method](#usehandle-method)
 - [Parameter Binding (draft)](#parameter-binding-draft)
 - [Queries (Sorgular)](#queries-sorgular)
     - [Select Queries](#select-queries)
@@ -46,9 +46,9 @@ Java Jdbi Helper Library
 
 # Usage of Handle 
 
-## withHandle
+## withHandle Method
 
-## Handle
+## useHandle Method
 
 
 # Parameter Binding (draft)

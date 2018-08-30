@@ -3,6 +3,8 @@
 <!-- TOC -->
 
 - [Angular](#angular)
+    - [Angular Core (category)](#angular-core-category)
+        - [Angular Language Service (extension)](#angular-language-service-extension)
     - [Angular Snippets](#angular-snippets)
         - [Angular v6 TypeScript Snippets](#angular-v6-typescript-snippets)
         - [Angular 2, 4 and upcoming latest TypeScript HTML Snippets](#angular-2-4-and-upcoming-latest-typescript-html-snippets)
@@ -13,10 +15,9 @@
     - [Testing](#testing)
         - [SimonTest - Analyzes your Angular code and generates unit tests for you](#simontest---analyzes-your-angular-code-and-generates-unit-tests-for-you)
         - [Angular 2 TypeScript Test Snippets](#angular-2-typescript-test-snippets)
-    - [Debug (web)](#debug-web)
-        - [Debugger for Chrome - Must have extension for Angular development.](#debugger-for-chrome---must-have-extension-for-angular-development)
-        - [Template Productivity](#template-productivity)
-        - [Angular Language Service - provides a rich editing experience for Angular templates, very useful when working on Angular HTML template.](#angular-language-service---provides-a-rich-editing-experience-for-angular-templates-very-useful-when-working-on-angular-html-template)
+- [Debug (web)](#debug-web)
+    - [Debugger for Chrome - Must have extension for Angular development.](#debugger-for-chrome---must-have-extension-for-angular-development)
+    - [Template Productivity](#template-productivity)
     - [Code Analysis](#code-analysis)
         - [TSLint - linter for the TypeScript language, help fixing error in TS code.](#tslint---linter-for-the-typescript-language-help-fixing-error-in-ts-code)
         - [AngularDoc for Visual Studio Code](#angulardoc-for-visual-studio-code)
@@ -24,7 +25,7 @@
     - [Workbench](#workbench)
         - [EditorConfig for VS Code - EditorConfig Support for Visual Studio Code (must have plugin for VSCode)](#editorconfig-for-vs-code---editorconfig-support-for-visual-studio-code-must-have-plugin-for-vscode)
         - [angular2-inline - support for inline HTML and CSS in angular components. I don't use inline templates, but this is a helpful extension in case you use inline HTML or CSS.](#angular2-inline---support-for-inline-html-and-css-in-angular-components-i-dont-use-inline-templates-but-this-is-a-helpful-extension-in-case-you-use-inline-html-or-css)
-        - [NgBootstrap Snippets - if you need Bootstrap 4 support in you angular project, this extension has some helpful snippets.]                    (#ngbootstrap-snippets---if-you-need-bootstrap-4-support-in-you-angular-project-this-extension-has-some-helpful-snippets)
+        - [NgBootstrap Snippets - if you need Bootstrap 4 support in you angular project, this extension has some helpful snippets.](#ngbootstrap-snippets---if-you-need-bootstrap-4-support-in-you-angular-project-this-extension-has-some-helpful-snippets)
         - [vscode-icons - my favorite collection of icons for VSCode projects!](#vscode-icons---my-favorite-collection-of-icons-for-vscode-projects)
 - [Productivity](#productivity)
     - [Bracket Pair Colorizer](#bracket-pair-colorizer)
@@ -43,8 +44,16 @@ Angular + Angular Material + NgRX + RxJS Code Snippets
 
 # Angular
 
-## Angular Snippets
+## Angular Core (category)
 
+### Angular Language Service (extension)
+
+Description
+
+provides a rich editing experience for Angular templates, very useful when working on Angular HTML template. 
+
+
+## Angular Snippets
 
 ###  Angular v6 TypeScript Snippets 
 
@@ -81,15 +90,13 @@ When using this extension, I also recommend the following setting: workbench.edi
 ###  Angular 2 TypeScript Test Snippets
 Angular 2 TypeScript test snippets.
 
-## Debug (web)
+# Debug (web)
 
-###  Debugger for Chrome - Must have extension for Angular development. 
+##  Debugger for Chrome - Must have extension for Angular development. 
 
 You can debug using chrome and add your breakpoints in VSCode. Tutorial on how to use can be found on VSCode docs.
 
-### Template Productivity
-
-### Angular Language Service - provides a rich editing experience for Angular templates, very useful when working on Angular HTML template.
+## Template Productivity
 
 Auto Rename Tag - Auto rename paired HTML/XML tag.
 

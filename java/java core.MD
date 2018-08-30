@@ -27,6 +27,7 @@ Sources are given at the end of the sections.
     - [Quantifiers (repeating the previous element) (Miktar Belirleyiciler)](#quantifiers-repeating-the-previous-element-miktar-belirleyiciler)
     - [Other](#other)
     - [Regex Tutorials](#regex-tutorials)
+    - [Sources](#sources)
 - [Java IO](#java-io)
     - [Character Encoding](#character-encoding)
         - [Hexidecimal Number](#hexidecimal-number)
@@ -186,7 +187,7 @@ Grouping - Parentheses both group and create a numbered element that can be used
 
 
 
-Sources
+## Sources
 
 - https://www.leepoint.net/data/strings/40regular_expressions/25sum-regex-basic.html
 
