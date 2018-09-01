@@ -354,14 +354,67 @@ ngif şartı gerçekleştiği an (observable), angular html elementini dom a ekl
 
 ```
 
+# Mosh Course Style
+
 ## Bölüm 4 - Displaying Data and Handling Events
+
+### String Interpolation
+
+```angular
+{{ field_name }}
+```
+
 
 ### Property Binding
 
 ```
-<img [src]="title"/>
+<img [src]="imageUrl"/>
 
 ```
+
+- Burada src, img html element bir property'sidir.
+
+- imageUrl, componentin içindeki field'dır.
+
+```angular
+export class CourseComponent {
+    imageUrl="http://lorempixel.com/400/200";
+}
+```
+
+### Attribute Binding
+
+- Şöyle bir ifade çalışmayacaktır.
+
+```
+<td [colspan]="colspan"></td>
+```
+
+td 'nin colspan diye bir propertsi yoktur.
+
+Not : html elementinin attribute ile dom img objesinin property'si çoğu zaman birbirinin tutar. bazı istisnalar vardır. Bunlardır biri de colspan dır.
+
+<img src="">  : burada src attribute
+
+dom:    img class
+        src --> property
+
+<h1 [textContent]="title"></h1>
+
+- Bunun için şu şekilde yapılmalıdır (attribute binding) :
+
+```
+<td [attr.colspan]="colspan"></td>
+```
+
+
+
+
+
+
+
+
+
 
 
 
