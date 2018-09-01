@@ -37,6 +37,8 @@ c + -  | Close Active Editor
 Shortcut | Action | When
 --- | --- | ---
 c,s + j  | String ifadeyi birleştirir
+F2 | Sonraki Vurgulanan Hata
+s + F2 | Önceki Vurgulanan Hata
 .. | ..
 
 
