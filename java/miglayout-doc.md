@@ -72,17 +72,17 @@ Do not let the vast amount of options make you think that this layout manager is
 
 There are **three constraint types** that can be set on the layout manager instance and the handled components. They are:
 
-1. Layout Constraints. These constraints specify how the layout manager instance should work in general. For instance how all the laid out components should be aligned as a group, should there be available space in the container. This constraint is set directly on the layout manager instance, either in the constructor or using a standard get/set property. E.g. "align center, fill".
+1. **Layout Constraints**. These constraints specify **how the layout manager instance should work in general**. For instance how all the laid out components should be aligned as a group, should there be available space in the container. This constraint is set directly on the layout manager instance, either in the constructor or using a standard get/set property. E.g. "align center, fill".
 
-2. Row/Column Constraints. Specifies the properties for the grid's rows and columns. Constraints such as sizes and default alignments can be specified. These constraints are set directly on the layout manager instance, either in the constructor or using standard get/set properties. E.g. "[35px]10px[50:pref]".
+2. **Row/Column Constraints**. Specifies the properties for the grid's rows and columns. Constraints such as sizes and default alignments can be specified. These constraints are set directly on the layout manager instance, either in the constructor or using standard get/set properties. E.g. "[35px]10px[50:pref]".
 
-3. Component Constraints. They are used for specifying the properties and bounds for individual components. This can for instance be to override the minimum, preferred or maximum vertical and/or horizontal sizes for the component. You can set the alignment and if a cell should be split and/or spanned, and much more. This constraint is normally set as an argument when adding the component to the container or using standard get/set properties. E.g. "width 100px, left".,
+3. **Component Constraints**. They are used for specifying the properties and bounds for individual components. This can for instance be to override the minimum, preferred or maximum vertical and/or horizontal sizes for the component. You can set the alignment and if a cell should be split and/or spanned, and much more. This constraint is normally set as an argument when adding the component to the container or using standard get/set properties. E.g. "width 100px, left".,
 
-Grid Flow
+###  Grid Flow
 
 The components are normally laid out in a grid. Which components goes into which cells are decided in two ways, or by a mix thereof. When the first component is added to the container the MigLayout that is managing it will put the component in the (0, 0) cell. The next one will be put in the (1, 0) and so on. This is the normal flow, however you can change the default direction of the flow in any way. See the Layout Constraints below for what you can do and how to do it. You can also set the cell by providing a column/row coordinate in the Component Constraint E.g. "grid 2 4". That component will end up in that cell and the next component will flow from there the same way as described above, unless it also has an absolute grid position specified. There are also flow constraints such as "wrap", "newline", "skip", "span" and "split" to control the flow in the grid, like how normal text flows over a paper or computer screen.
 
-In-cell Flow
+###  In-cell Flow
 
 If more that one component is occupying the same cell (either because the cell has been split or the same cell has been specified in the Component Constraints by a grid position) the components in that cell will flow in the vertical or horizontal direction. Default direction will be the same as the whole layout is using, but it can be set on a cell-by-cell basis. Components will be put next to each other with an option to align them in the non-flowing direction (e.g. "aligny" for horizontal flow). The gaps between the components have customizable min/preferred/max sizes and this can for instance be used to create glues (pushing gaps).
 
