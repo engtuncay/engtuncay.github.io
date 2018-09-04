@@ -101,6 +101,72 @@ panel.add(comp4)
 
 ```
 
+Örnek MigLayout Tasarım
+
+```java
+// Main Layouts
+
+		migHeader = new MigPane("debug,insets 0","[]","[]");  //[][][grow,fill][][grow,fill]
+		migContent = new MigPane("debug,insets 0","[]","[]");  //[][][grow,fill][][grow,fill]
+
+		migMain = new MigPane("fill,debug,insets 0","[grow,fill]","[][grow,fill]");  //[][][grow,fill][][grow,fill]
+		migMain.add(migHeader,"span");  // gap 0 , pushy
+		migMain.add(migContent,"span");
+
+		// initialize components
+		lblEskiSifre= new FxLabel("Eski Şifre");
+		lblTekrar = new FxLabel("Tekrar");
+		lblYeniSifre = new FxLabel("Yeni Şifre");
+		lblMesaj= new FxLabel("Lütfen gerekli bilgileri doldurunuz.");
+
+		txfEskiSifre= new FxTextField();
+		txfTekrar=new FxTextField();
+		txfYeniSifre= new FxTextField();
+
+		btnOnayla=new FxButton("Onayla");
+
+		//
+
+		migForm1 = new MigPane("debug,insets 0","0[]","0[]");
+		//migForm1.setPadding(new Insets(0,0,0,0));
+
+		migForm1.add(lblEskiSifre,"");
+		migForm1.add(txfEskiSifre,"wrap");
+
+		migForm1.add(lblYeniSifre,"");
+		migForm1.add(txfYeniSifre,"wrap");
+
+		migForm1.add(lblTekrar,"");
+		migForm1.add(txfTekrar,"wrap");
+
+		migContent.add(migForm1,"span");  //span,gap 0
+
+		// Toolbar contente ekleyelim
+		hBoxToolbar1 = new HBox(5);
+		//hBoxToolbar1.setPadding(new Insets(0,0,0,0));
+		hBoxToolbar1.getChildren().add(btnOnayla);
+
+		hBoxToolbar1.setStyle("-fx-border-color: black;");
+
+		migHeader.add(new Label("Header"), "span");
+
+		migContent.add(lblMesaj,"span");
+		migContent.add(hBoxToolbar1, "span");
+
+//		migForm1.setStyle("-fx-border-color: black;");
+//		migContent.setStyle("-fx-border-color: black;");
+//		migHeader.setStyle("-fx-border-color: black;");
+//		migMain.setStyle("-fx-border-color: black;");
+
+
+
+		//migContent.add(lblMesaj, "span");
+		//lblMesaj.setVisible(false);
+		//lblMesaj.setManaged(false);
+
+
+```
+
 
 
 
