@@ -1,5 +1,19 @@
 
-MigLayout
+
+- [MigLayout](#miglayout)
+- [Initial Example](#initial-example)
+- [Introduction](#introduction)
+- [Basic Concepts](#basic-concepts)
+    - [Grid Flow](#grid-flow)
+    - [In-cell Flow](#in-cell-flow)
+- [Common Argument Types](#common-argument-types)
+- [Layout Constraints](#layout-constraints)
+- [Column/Row Constraints](#columnrow-constraints)
+- [Component Constraints](#component-constraints)
+- [Further Reading](#further-reading)
+
+
+## MigLayout
 
 MigLayout is an extremely flexible layout manager that can be used in many different ways to layout components using a single and consistent API.
 
