@@ -3,8 +3,24 @@
 - [Initial Example](#initial-example)
 - [Introduction](#introduction)
 - [Basic Concepts](#basic-concepts)
+	- [**Layout Constraints**](#layout-constraints)
+	- [**Row/Column Constraints**](#rowcolumn-constraints)
+	- [**Component Constraints**](#component-constraints)
 	- [Grid Flow](#grid-flow)
 	- [In-cell Flow](#in-cell-flow)
+	- [Gaps](#gaps)
+	- [Absolute Positioning](#absolute-positioning)
+	- [Expressions](#expressions)
+	- [Docking Components](#docking-components)
+	- [Button Bars and Button Order](#button-bars-and-button-order)
+	- [Different Units](#different-units)
+	- [Growing and Shrinking](#growing-and-shrinking)
+	- [Size Groups](#size-groups)
+	- [End Groups](#end-groups)
+	- [Component Sizes](#component-sizes)
+	- [Visual Bounds](#visual-bounds)
+	- [Baseline Support](#baseline-support)
+	- [Visual Guide Lines for Debugging Layouts](#visual-guide-lines-for-debugging-layouts)
 - [Common Argument Types](#common-argument-types)
 - [Layout Constraints](#layout-constraints)
 - [Column/Row Constraints](#columnrow-constraints)
@@ -33,9 +49,15 @@ MiG Layout is free to use and is Open Source.
 ## Initial Example
 
 An initial example that uses the grid funcitonality to create two rows with a right aligned label and a growing text field on each of the rows. It is using the default ("related") gaps except for the inter-row gap which is 10 pixels.
-// Layout, Column and Row constraints as arguments.
 
-```
+**General Structure** (Genel Yapı)
+
+MigPane layout = new MigPane(layoutConstraints, columnContraints, rowContraints);
+
+layout.add( new Component(....), componentConstraints);
+
+
+```java
 MigLayout layout = new MigLayout("fillx", "[right]rel[grow,fill]", "[]10[]");
 JPanel panel = new JPanel(layout);
 
@@ -85,11 +107,19 @@ Do not let the vast amount of options make you think that this layout manager is
 
 There are **three constraint types** that can be set on the layout manager instance and the handled components. They are:
 
-1. **Layout Constraints**. These constraints specify **how the layout manager instance should work in general**. For instance how all the laid out components should be aligned as a group, should there be available space in the container. This constraint is set directly on the layout manager instance, either in the constructor or using a standard get/set property. E.g. "align center, fill".
+### **Layout Constraints**
 
-2. **Row/Column Constraints**. Specifies the properties for the grid's rows and columns. Constraints such as sizes and default alignments can be specified. These constraints are set directly on the layout manager instance, either in the constructor or using standard get/set properties. E.g. "[35px]10px[50:pref]".
+These constraints specify **how the layout manager instance should work in general**. For instance how all the laid out components should be aligned as a group, should there be available space in the container. This constraint is set directly on the layout manager instance, either in the constructor or using a standard get/set property. E.g. "align center, fill".
 
-3. **Component Constraints**. They are used for specifying the properties and bounds for individual components. This can for instance be to override the minimum, preferred or maximum vertical and/or horizontal sizes for the component. You can set the alignment and if a cell should be split and/or spanned, and much more. This constraint is normally set as an argument when adding the component to the container or using standard get/set properties. E.g. "width 100px, left".,
+### **Row/Column Constraints**
+
+Specifies the properties for the grid's rows and columns. Constraints such as sizes and default alignments can be specified. These constraints are set directly on the layout manager instance, either in the constructor or using standard get/set properties. E.g. "[35px]10px[50:pref]".
+
+### **Component Constraints**
+
+They are used for specifying the properties and bounds for individual components. This can for instance be to override the minimum, preferred or maximum vertical and/or horizontal sizes for the component. You can set the alignment and if a cell should be split and/or spanned, and much more. This constraint is normally set as an argument when adding the component to the container or using standard get/set properties. E.g. "width 100px, left".,
+
+Other Basic Concepts
 
 ###  Grid Flow
 
@@ -99,58 +129,58 @@ The components are normally laid out in a grid. Which components goes into which
 
 If more that one component is occupying the same cell (either because the cell has been split or the same cell has been specified in the Component Constraints by a grid position) the components in that cell will flow in the vertical or horizontal direction. Default direction will be the same as the whole layout is using, but it can be set on a cell-by-cell basis. Components will be put next to each other with an option to align them in the non-flowing direction (e.g. "aligny" for horizontal flow). The gaps between the components have customizable min/preferred/max sizes and this can for instance be used to create glues (pushing gaps).
 
-Gaps
+### Gaps
 
 The white space between components is highly configurable. The gap between each cell row/column can be specified on a row/column basis. The default gap is decided per platform and defaults to the interpretation of how mush a "related" gap is. The default gap can be overridden for the whole layout in the Layout Constraint or it can be specified in the row/column constraints. Generally gaps are not added; instead they are considered to be the minimum space a component/cell wants to the components/cells around, this is consistent with how humans would define spacing. If for instance one component have a gap of 10 pixels after it and the next component has specified a 20 pixel gap before it, the resulting gap is 20 pixels and not 30. Gaps can actually be specified in a min/preferred/max size notion which gives them power to for instance grow/shrink as available space changes. Gaps between columns/rows and/or components in a cell can be appended with ":push" wich means that the gap should be greedy and use any free space avaible. Pushing gaps in a cell will not force the cell to be bigger, it will only use the left over space in the cell. Pushing gaps between columns/rows will make the layout fill the whole space of the container, if any is avalable.
 
-Absolute Positioning
+### Absolute Positioning
 
 In the Component Constraints it is possible to specify absolute coordinates in any unit and the component will get these and thus not be positioned in the grid cells. These coordinates will be relative to the parent so it is for instance easy to put a component and 20% in and 80% down into the container. This is a powerful and flexible way to layout components that needs to be independent of other components and possibly overlap them. For instance this can be used to create a local GlassPane-like component over a container, without the need for re-routing events and such tricks needed for normal GlassPanes.
 
 All coordinates in the absolute constraint (I.e. x, y, x2, y2) can have links to other components or to the parent, or its visual bounds. Since these coordinates are UnitValues they can in fact be full expressions. For inststance (b1.x + indent) as an x-coordinate will put the left side of the component indented relative to "b1".
 
-Expressions
+### Expressions
 
 Everywhere where there is a UnitValue there can always be a full expression that looks like a normal Java expression. For instance (button1.x + 1cm - (parent.w*0.2)) will be evaluated the same way it would in Java code, with precedence for multiply and division and full support for parentheses. If spaces is used in the expression it must be surrounded by parentheses.
 
-Docking Components
+### Docking Components
 
 Docking is fully supported by MigLayout. The docking is similar to the docking in BorderLayout but it is much more configurable and can have more than five components docked. Components can be glued to one of the edges: "north", "west", "south","east" or "center" and will "cut that part off" so that no other components will be laid out there (except maybe absolute positioned components). The space that is left in the middle (center) is laid out with the normal grid, the normal way, unless there is a "dock center" component. Docking is a very flexible way to layout panels but it can be used for many other layout needs as well.
 
-Button Bars and Button Order
+### Button Bars and Button Order
 
 MigLayout has support for reorganizing your buttons (within a single cell, which might span a whole row though) according to platform preference. For instance the OK and Cancel buttons have different order on Windows and Mac OS X. While other layout managers use factories and button builders for this, it is inherently supported by MigLayout by just tagging the buttons. One just tags the OK button with "ok" and the Cancel button with "cancel" and they will end up in the correct order for the platform the application is running on, if they are put in the same grid cell. There are about 10 different tags and the format for how the buttons should be ordered, and what spacing is to be used between buttons, including glues, can be highly customized in a very simple way by settting the button order with PlatformDefaults.setButtonOrder(String).
 
-Different Units
+### Different Units
 
 There is support for a lot of different units in MigLayout. The built in units are Pixel, Millimeter, Centimeter, Points, Inch, LogicalPixel, Percent and ScreenPercent. There are also a few special keywords that can be used, such as "related", "unrelated", "indent" and "paragraph". They are used to make gaps (spacing) appropriate to whatever platform the application is running on and they are a great help to make the applications feel native on every platform.
 You can even create your own units by providing a converter between that unit and pixels.
 
-Growing and Shrinking
+### Growing and Shrinking
 
 What should happen when a component isn't given the preferred size is extremely customizable. There is the option to divide components into grow and shrink priority groups where a higher priority will shrink/grow before components/rows/columns with lower priorities are resized. Grow weight within those groups can be set to specify how the free space or shrinkage should be divided between the components/rows/columns in that priority group. There are a lot of things to configure if needed, but the normal behavior is enough for most cases. MigLayout fully adheres to the Component's minimum, preferred and maximum sizes.
 
-Size Groups
+### Size Groups
 
 Sometimes there is the need for components/columns/rows to have the same width and/or height. This is easily done with size groups. These can be used for instance in button bars where buttons normally should have the same minimum width or to create non-fluctuating component form in tab panes.
 
-End Groups
+### End Groups
 
 For absolute layouts there is sometimes the need to set the end of related components to the biggest one in the group. This can be accomplished in an easy way by assigning the components an endgroup. All components in the same end group will automatically have their right side set to the largest component in that group.
 
-Component Sizes
+### Component Sizes
 
 The components have minimum, preferred and maximum size which are normally set by the UI delegate behind the component or explicitly by the component user. In the Component Constraints these sizes can be overridden so that the need for explicitly setting the sizes directly on the component is seldom needed. If not overridden the original values will be used. This is even more useful in GUI toolkits that doens't have the notion of minimum and maximum component sizes, such as Eclipse's SWT Component Toolkit. With MigLayout you can set minimum and/or maximum size in the component constraints and this will work the same way as if they were set directly on the component, as you might do in for instance Swing.
 
-Visual Bounds
+### Visual Bounds
 
 Some components, for instance the JTabbedPane in the Windows XP theme, have drop shadows. This means that the visual, human perceptible, bounds are not the same as the mathematical outer bounds. MigLayout has a way to handle this and it can be extended to include information for more components in the future.
 
-Baseline Support
+### Baseline Support
 
 MigLayout supports baseline alignment for JDK 6 and later. It does this using reflection so that releases before JDK 6 can be used. Baseline defaults to center alignment if not supported by the JDK. Components in the same grid row can be baseline aligned. Default alignment can be set to baseline, or it can be specified for individual components.
 
-Visual Guide Lines for Debugging Layouts
+### Visual Guide Lines for Debugging Layouts
 
 To turn on debugging for a container just add the "debug" constraint to the Layout Constraints. This will trigger a special debug overdraw of the container that will outline the cells in the grid and the component bounds. This is a invaluable help for understanding why components end up where they do. There is no need for a DebugPanel or anything else that will modify the actual component creation code.
  
