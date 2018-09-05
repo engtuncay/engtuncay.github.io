@@ -1,19 +1,25 @@
 
+<!-- vscode-markdown-toc -->
+* 1. [MigLayout](#MigLayout)
+* 2. [Initial Example](#InitialExample)
+* 3. [Introduction](#Introduction)
+* 4. [Basic Concepts](#BasicConcepts)
+	* 4.1. [ Grid Flow](#GridFlow)
+	* 4.2. [ In-cell Flow](#In-cellFlow)
+* 5. [Common Argument Types](#CommonArgumentTypes)
+* 6. [Layout Constraints](#LayoutConstraints)
+* 7. [Column/Row Constraints](#ColumnRowConstraints)
+* 8. [Component Constraints](#ComponentConstraints)
+* 9. [Further Reading](#FurtherReading)
 
-- [MigLayout](#miglayout)
-- [Initial Example](#initial-example)
-- [Introduction](#introduction)
-- [Basic Concepts](#basic-concepts)
-    - [Grid Flow](#grid-flow)
-    - [In-cell Flow](#in-cell-flow)
-- [Common Argument Types](#common-argument-types)
-- [Layout Constraints](#layout-constraints)
-- [Column/Row Constraints](#columnrow-constraints)
-- [Component Constraints](#component-constraints)
-- [Further Reading](#further-reading)
+<!-- vscode-markdown-toc-config
+	numbering=false
+	autoSave=true
+	/vscode-markdown-toc-config -->
+<!-- /vscode-markdown-toc -->
 
 
-## MigLayout
+##  1. <a name='MigLayout'></a>MigLayout Intro
 
 MigLayout is an extremely flexible layout manager that can be used in many different ways to layout components using a single and consistent API.
 
@@ -31,7 +37,7 @@ Docking, absolute positioning with component links and powerful grid layout all 
 GUI toolkit dependence put in three simple wrapper classes makes MiG Layout trivial to port to for instance .NET or any other GUI toolkit.
 MiG Layout is free to use and is Open Source.
 
-## Initial Example
+##  2. <a name='InitialExample'></a>Initial Example
 
 An initial example that uses the grid funcitonality to create two rows with a right aligned label and a growing text field on each of the rows. It is using the default ("related") gaps except for the inter-row gap which is 10 pixels.
 // Layout, Column and Row constraints as arguments.
@@ -61,7 +67,7 @@ panel.add(new JLabel("Enter weight:"));
 panel.add(new JTextField(""));
 ```
 
-## Introduction
+##  3. <a name='Introduction'></a>Introduction
 
 The constraints used are all entered as Strings or through chained API method calls. The API and String constraints are the same with some small differences that are documented in the JavaDoc for the API methods. The API version will not be handleled furthere here since that would mostly be reiterating the same things twice. You can download the JavaDoc on the Mig Layout site.
 
@@ -82,7 +88,7 @@ MigLayout can use many different unit types, such as millimeters or inches. It a
 
 Do not let the vast amount of options make you think that this layout manager is hard to use. They are seldom needed for normal layouts but they are very handy to have when exact and complex layouts are required.
 
-## Basic Concepts
+##  4. <a name='BasicConcepts'></a>Basic Concepts
 
 There are **three constraint types** that can be set on the layout manager instance and the handled components. They are:
 
@@ -92,11 +98,11 @@ There are **three constraint types** that can be set on the layout manager insta
 
 3. **Component Constraints**. They are used for specifying the properties and bounds for individual components. This can for instance be to override the minimum, preferred or maximum vertical and/or horizontal sizes for the component. You can set the alignment and if a cell should be split and/or spanned, and much more. This constraint is normally set as an argument when adding the component to the container or using standard get/set properties. E.g. "width 100px, left".,
 
-###  Grid Flow
+###  4.1. <a name='GridFlow'></a> Grid Flow
 
 The components are normally laid out in a grid. Which components goes into which cells are decided in two ways, or by a mix thereof. When the first component is added to the container the MigLayout that is managing it will put the component in the (0, 0) cell. The next one will be put in the (1, 0) and so on. This is the normal flow, however you can change the default direction of the flow in any way. See the Layout Constraints below for what you can do and how to do it. You can also set the cell by providing a column/row coordinate in the Component Constraint E.g. "grid 2 4". That component will end up in that cell and the next component will flow from there the same way as described above, unless it also has an absolute grid position specified. There are also flow constraints such as "wrap", "newline", "skip", "span" and "split" to control the flow in the grid, like how normal text flows over a paper or computer screen.
 
-###  In-cell Flow
+###  4.2. <a name='In-cellFlow'></a> In-cell Flow
 
 If more that one component is occupying the same cell (either because the cell has been split or the same cell has been specified in the Component Constraints by a grid position) the components in that cell will flow in the vertical or horizontal direction. Default direction will be the same as the whole layout is using, but it can be set on a cell-by-cell basis. Components will be put next to each other with an option to align them in the non-flowing direction (e.g. "aligny" for horizontal flow). The gaps between the components have customizable min/preferred/max sizes and this can for instance be used to create glues (pushing gaps).
 
@@ -155,7 +161,7 @@ Visual Guide Lines for Debugging Layouts
 
 To turn on debugging for a container just add the "debug" constraint to the Layout Constraints. This will trigger a special debug overdraw of the container that will outline the cells in the grid and the component bounds. This is a invaluable help for understanding why components end up where they do. There is no need for a DebugPanel or anything else that will modify the actual component creation code.
  
-## Common Argument Types
+##  5. <a name='CommonArgumentTypes'></a>Common Argument Types
 
 Note! Italics is used to denote an argument. Square brackets are used to indicate an optional argument.
 
@@ -227,7 +233,7 @@ AlignKeyword
 For alignment purposes these keywords can be used: t/top, l/left, b/bottom, r/right, lead/leading, trail/trailing and base/baseline. Leading/trailing is dependant on if component orientation is "left-to-right" or "right-to-left". There is also a keyword "align label" or for columns/rows one need only to use "label". It will align the component(s), which is normally labels, left, center or right depending on the style guides for the platform. This currently means left justfied on all platforms except OS X which has right justified labels.
 
  
-## Layout Constraints
+##  6. <a name='LayoutConstraints'></a>Layout Constraints
 
 wrap [count]
 
@@ -310,7 +316,7 @@ Example: "nocache"
 
  
 
-## Column/Row Constraints
+##  7. <a name='ColumnRowConstraints'></a>Column/Row Constraints
 
 Column and row constraints works the same and hence forth the term row will be used for both columns and rows.
 Every [] section denotes constraints for that row. The gap size between is the gap size dividing tthe two rows. The format for the constraint is:
@@ -378,7 +384,7 @@ Example: "align 50%" or "align top" or "align leading" or "align 100px" or "top,
 
  
 
-## Component Constraints
+##  8. <a name='ComponentConstraints'></a>Component Constraints
 
 Component constraints are used as an argument in the Container.add(...) for Swing and by setting it as Control.setLayoutData(...) in SWT. It can be used to specify constraints that has to do with the component's size and/or the grid cell flow. The format is same as for Layout Constraint, which means that the constraints are specified one by one with comma signs as separators. 
 
@@ -578,7 +584,7 @@ Example: "tag ok" or "tag help2".
 
  
 
-## Further Reading
+##  9. <a name='FurtherReading'></a>Further Reading
 
 There are more information to digest regarding MigLayout. The resources are all available at www.migcomponents.com
 
