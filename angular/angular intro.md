@@ -13,12 +13,12 @@
     - [Vscode Plugins](#vscode-plugins)
     - [Module](#module)
         - [Module Nedir](#module-nedir)
-        - [Örnek](#örnek)
+        - [Örnek](#%C3%B6rnek)
     - [Services](#services)
     - [Create the HeroService](#create-the-heroservice)
     - [Compenent](#compenent)
         - [Cli Command](#cli-command)
-        - [Örnek Component Sınıfı](#örnek-component-sınıfı)
+        - [Örnek Component Sınıfı](#%C3%B6rnek-component-s%C4%B1n%C4%B1f%C4%B1)
         - [Selectors](#selectors)
         - [Template](#template)
         - [Styles](#styles)
@@ -32,8 +32,14 @@
         - [Parent interacts with child via local variable](#parent-interacts-with-child-via-local-variable)
     - [Directives](#directives)
         - [ngIf](#ngif)
-    - [Bölüm 4 - Displaying Data and Handling Events](#bölüm-4---displaying-data-and-handling-events)
+- [Mosh Course Style](#mosh-course-style)
+    - [Bölüm 4 - Displaying Data and Handling Events](#b%C3%B6l%C3%BCm-4---displaying-data-and-handling-events)
+        - [String Interpolation](#string-interpolation)
         - [Property Binding](#property-binding)
+        - [Attribute Binding](#attribute-binding)
+        - [Class Binding](#class-binding)
+    - [Dependency Ekleme](#dependency-ekleme)
+    - [styles.css Global css](#stylescss-global-css)
 - [Sources](#sources)
 
 <!-- /TOC -->
@@ -390,6 +396,7 @@ export class CourseComponent {
 <td [colspan]="colspan"></td>
 ```
 
+
 td 'nin colspan diye bir propertsi yoktur.
 
 Not : html elementinin attribute ile dom img objesinin property'si çoğu zaman birbirinin tutar. bazı istisnalar vardır. Bunlardır biri de colspan dır.
@@ -407,6 +414,12 @@ dom:    img class
 <td [attr.colspan]="colspan"></td>
 ```
 
+### Class Binding
+
+<button class="btn btn-primary" [class.active]="isActive" >
+Coomand </button>
+
+- component objesinde isActive true ise html elementinin class tanımlamasına active ekler.
 
 
 
@@ -414,6 +427,30 @@ dom:    img class
 
 
 
+
+
+
+
+
+
+## Dependency Ekleme
+
+package.json dosyasında dependencies key , objesine 
+eklenir:
+
+"bootstrap":"^3.3.7"
+
+^ latest version gösterir
+
+dependency eklendikten sonra yüklemek için 
+npm install komutu çalıştırılır.
+
+
+## styles.css Global css
+
+@import "~bootstrap/dist/css/bootsrap.css";
+
+farklı css dosyaları da eklenir. @import annotasyonu ile.
 
 
 

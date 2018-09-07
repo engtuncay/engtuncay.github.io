@@ -1,21 +1,17 @@
 
 
 ---
-<!-- TOC -->
 
-- [Temel Pencere Sistemi ( Stage (Sahne) and Scene (Dekor) )](#temel-pencere-sistemi--stage-sahne-and-scene-dekor-)
-    - [Stage](#stage)
-    - [Scene](#scene)
-    - [Layout Sistemleri](#layout-sistemleri)
-        - [Gridpane](#gridpane)
-        - [Stack Pane](#stack-pane)
-        - [MigLayout](#miglayout)
+- [Temel Pencere Sistemi ( Stage (Sahne) and Scene (Dekor) )](#temel-pencere-sistemi--stage-sahne-and-scene-dekor)
+	- [Stage](#stage)
+	- [Scene](#scene)
+	- [Layout Sistemleri](#layout-sistemleri)
+		- [Gridpane](#gridpane)
+		- [Stack Pane](#stack-pane)
+		- [MigLayout](#miglayout)
 
-<!-- /TOC -->
+
 ---
-
-
-[TOC]
 
 
 # Temel Pencere Sistemi ( Stage (Sahne) and Scene (Dekor) )
