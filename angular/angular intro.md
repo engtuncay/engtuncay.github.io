@@ -38,6 +38,10 @@
         - [Property Binding](#property-binding)
         - [Attribute Binding](#attribute-binding)
         - [Class Binding](#class-binding)
+        - [Style Binding](#style-binding)
+        - [Event Binding](#event-binding)
+        - [Event Bubbling](#event-bubbling)
+        - [Event Filtering](#event-filtering)
     - [Dependency Ekleme](#dependency-ekleme)
     - [styles.css Global css](#stylescss-global-css)
 - [Sources](#sources)
@@ -420,6 +424,71 @@ dom:    img class
 Coomand </button>
 
 - component objesinde isActive true ise html elementinin class tanımlamasına active ekler.
+
+### Style Binding
+
+<button [style.backgroundColor]="isActive?'blue':'white'">
+Command </button>
+
+comp objesinde isActive true ise blue,false ise white background color tanımlar.
+
+true ise html elemetinin style="background-color: blue;"
+tanımlanır.
+
+
+### Event Binding
+
+<button (click)="onSave()">Save</button>
+
+click evenet ı, comp classındaki onSave metoduna bağlanır.
+
+---
+
+<button (click)="onSave($event)">Save</button>
+
+metoda mouse event objesi gönderir.
+
+
+### Event Bubbling
+
+<div (click)="onDivClicked()"><button (click)="onSave($event)">Save</button>
+</div>
+
+button tıkladığımızda aynı zamanda div de tıklanmış oluyor.
+geriye dogru tıklanmayı pasife almak için 
+    $event.stopPropagation();
+kullanırız.
+
+---
+
+comp class:
+
+onSave($event) {
+    $event.stopPropagation();
+
+    console.log('button clicked');
+
+  }
+
+  onDivClicked() {
+    console.log('div clicked');
+  }
+
+
+### Event Filtering
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
