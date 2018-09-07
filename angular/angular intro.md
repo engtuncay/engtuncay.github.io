@@ -1,6 +1,4 @@
 
-<!-- TOC -->
-
 - [Quick Guide](#quick-guide)
     - [Step 1. Set up the Development Environment](#step-1-set-up-the-development-environment)
         - [Install Node Js](#install-node-js)
@@ -42,11 +40,12 @@
         - [Event Binding](#event-binding)
         - [Event Bubbling](#event-bubbling)
         - [Event Filtering](#event-filtering)
+        - [Template Variables](#template-variables)
+        - [Two Way Binding](#two-way-binding)
     - [Dependency Ekleme](#dependency-ekleme)
     - [styles.css Global css](#stylescss-global-css)
 - [Sources](#sources)
 
-<!-- /TOC -->
 
 ---
 
@@ -476,6 +475,47 @@ onSave($event) {
 
 
 ### Event Filtering
+
+İki yolla yapılır
+
+<button (keyup)="onAction($event)">Save</button>
+
+comp class:
+
+    onAction($event){
+        if($event.keyCode===13) console.log("Enter was pressed");
+    }
+
+
+---
+
+Kısa Yöntem
+
+<button (keyup.enter)="onEnter($event)">Save</button>
+
+### Template Variables
+
+
+$event objesinden elementing değerine ulaşmak için
+
+$event.target.value değişkenini kullanırız.
+
+Template Variable kullanarak daha kısa yöntemle ulaşabiliriz.
+
+<input #email (keyup.enter)="onKeyUp(email.value)"/>
+
+onKeyUp(email){
+    console.log(email);
+}
+
+değişkenimiz email, input dom objesini gösterir. bunu (email değişkenini) yalnızca templatede kullanbiliriz.
+
+
+
+### Two Way Binding
+
+
+
 
 
 
