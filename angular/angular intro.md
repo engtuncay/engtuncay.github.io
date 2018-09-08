@@ -42,6 +42,7 @@
         - [Event Filtering](#event-filtering)
         - [Template Variables](#template-variables)
         - [Two Way Binding](#two-way-binding)
+        - [Pipes](#pipes)
     - [Dependency Ekleme](#dependency-ekleme)
     - [styles.css Global css](#stylescss-global-css)
 - [Sources](#sources)
@@ -513,6 +514,32 @@ değişkenimiz email, input dom objesini gösterir. bunu (email değişkenini) y
 
 
 ### Two Way Binding
+
+Two Way Alternative Way
+
+<input [value]="email" (keyup.enter)="email=$event.target.value;onKeyUp()" >
+
+Two Way Binding
+
+<input [(ngModel)]="email" (keyup.enter)="onKeyUp()"/>
+
+Comp class email değişkeni ile , input elementinin value sı birbirine bağlanmış oldu.
+
+[(Banana in a box)] syntax
+
+**two way binding kullanmak için** Forms Module yüklemek lazım. Bunun için de
+
+app Module içine
+
+import { FormsModule } from '@angular/forms';
+
+ve ngmodule dekaratörünün imports anahtarına, FormsModule eklenir.
+
+### Pipes
+
+
+
+
 
 
 
