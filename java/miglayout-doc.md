@@ -23,7 +23,23 @@
 	- [Baseline Support](#baseline-support)
 	- [Visual Guide Lines for Debugging Layouts](#visual-guide-lines-for-debugging-layouts)
 - [Common Argument Types](#common-argument-types)
+	- [UnitValue](#unitvalue)
+	- [BoundSize](#boundsize)
+	- [AlignKeyword](#alignkeyword)
 - [Layout Constraints](#layout-constraints)
+	- [wrap [count]](#wrap-count)
+	- [gap gapx [gapy] or gapx gapx or gapy gapy](#gap-gapx-gapy-or-gapx-gapx-or-gapy-gapy)
+	- [debug [millis]](#debug-millis)
+	- [nogrid](#nogrid)
+	- [novisualpadding](#novisualpadding)
+	- [fill or fillx or filly](#fill-or-fillx-or-filly)
+	- [ins/insets ["dialog"] or ["panel"] or [top/all [left] [bottom] [right]]](#insinsets-%22dialog%22-or-%22panel%22-or-topall-left-bottom-right)
+	- [flowy](#flowy)
+	- [al/align alignx [aligny] or aligny/ay aligny or aligny/ax alignx](#alalign-alignx-aligny-or-alignyay-aligny-or-alignyax-alignx)
+	- [ltr/lefttoright or rtl/righttoleft](#ltrlefttoright-or-rtlrighttoleft)
+	- [ttb/toptobottom or btt/bottomtotop](#ttbtoptobottom-or-bttbottomtotop)
+	- [hidemode](#hidemode)
+	- [nocache](#nocache)
 - [Column/Row Constraints](#columnrow-constraints)
 	- [sg/sizegroup [name]](#sgsizegroup-name)
 	- [fill](#fill)
@@ -62,6 +78,7 @@
 	- [hidemode](#hidemode)
 	- [tag [name]](#tag-name)
 - [Further Reading](#further-reading)
+- [Sources](#sources)
 
 
 ## MigLayout
@@ -124,9 +141,13 @@ The constraints used are all entered as Strings or through chained API method ca
 
 There are three major ways to layout components with MigLayout. They can be combined freely in the same container. You can for instance link a component's position to a component in the grid with absolute positioning and have it use the same vertical size as another component that is docked "north" in the container. These are the main layout types:
 
-Grid Based. This is the default mode and what is happening if you just add components and don't specify any of the other ways. It is more flexible than both GridBagLayout and JGoodies' FormLayout.
+Grid Based. 
 
-Docking Components. This add components at any of the four edges of the container, or in the center. It is more flexible and than BorderLayout yet as easy to use.
+This is the default mode and what is happening if you just add components and don't specify any of the other ways. It is more flexible than both GridBagLayout and JGoodies' FormLayout.
+
+Docking Components. 
+
+This add components at any of the four edges of the container, or in the center. It is more flexible and than BorderLayout yet as easy to use.
 Absolute positioning with Links. Components can be positioned with absolute coordinates and linked to other components' bounds, to the container, to component groups' bounds or to any combination of this using normal Java expressions.
 
 MigLayout is using a grid (rows and columns) with automatic handling of gaps for default basic component layout. The grid is very flexible and can for instance be tweaked more that an HTML table. For instance, every cell can be split to contain more than one component, and several cells can be spanned (merged) to work as one big cell. The cells can even both be spanned and split at the same time making almost any conceivable layout possible, without resorting to "tricks".
@@ -224,7 +245,7 @@ To turn on debugging for a container just add the "debug" constraint to the Layo
 
 Note! Italics is used to denote an argument. Square brackets are used to indicate an optional argument.
 
-UnitValue
+### UnitValue
 
 A value that represents a size. Normally it consist of a value (integer or float) and the unit type (e.g. "mm"). MigLayout support defining custom unit types and there are some special ones built in. These are listed below and some have a context to which they can appear. UnitValues can be quite rich expressions, like: "(10px + 0.25*((pref/2)-10))".
 
@@ -282,7 +303,7 @@ max/maximum - A reference to the smallest maximum size of the column/row. E.g. "
 Unit values that can be specified for a component's width. These can only be used on the width component constraints size.
 button - A reference to the platform minimum size for a button. E.g. "wmin button"
 
-BoundSize
+### BoundSize
 
 A bound size is a size that optionally has a lower and/or upper bound. Practically it is a minimum/preferred/maximum size combination but none of the sizes are actually mandatory. If a size is missing (e.g. the preferred) it is null and will be replaced by the most appropriate value. For components this value is the corresponding size (E.g. Component.getPreferredSize() on Swing) and for columns/rows it is the size of the components in the row (see min/pref/max in UnitValue above).
 
@@ -298,75 +319,77 @@ push can be appended to a gap to make that gap "greedy" and take any left over s
 
 Note! For row/column constraints the minimum, preferred and maximum keywords can be used. A null value is the same thing as any of these constraints, for the indicated position, but they can for instance be used to set the minimum size to the preferred one or the other way around. E.g. "pref:pref" or "min:min:pref".
 
-AlignKeyword
+### AlignKeyword
 
 For alignment purposes these keywords can be used: t/top, l/left, b/bottom, r/right, lead/leading, trail/trailing and base/baseline. Leading/trailing is dependant on if component orientation is "left-to-right" or "right-to-left". There is also a keyword "align label" or for columns/rows one need only to use "label". It will align the component(s), which is normally labels, left, center or right depending on the style guides for the platform. This currently means left justfied on all platforms except OS X which has right justified labels.
 
  
 ## Layout Constraints
 
-wrap [count]
+### wrap [count]
 
 Sets auto-wrap mode for the layout. This means that the grid will wrap to a new column/row after a certain number of columns (for horizontal flow) or rows (for vertical flow). The number is either specified as an integer after the keyword or if not, the number of column/row constraints specified will be used. A wrapping layout means that after the count:th component has been added the layout will wrap and continue on the next row/column. If wrap is turned off (default) the Component Constraint's "wrap" and "newline" can be used to control wrapping. 
 
 Example: "wrap" or "wrap 4".
 
-gap gapx [gapy] or gapx gapx or gapy gapy
+### gap gapx [gapy] or gapx gapx or gapy gapy
 
 Specifies the default gap between the cells in the grid and are thus overriding the platform default value. The gaps are specified as a BoundSize. See above. 
 Example: "gap 5px 10px" or "gap unrel rel" or "gapx 5dlu" or "gapx 10::50" or "gapy 0:rel:null" or "gap 10! 10!".
 
-debug [millis]
+### debug [millis]
 
 Turns on debug painting for the container. This will lead to an active repaint every millis milliseconds. Default value is 1000 (once every second). 
 Example: "debug" or "debug 4000".
 
-nogrid
+### nogrid
 
 Puts the layout in a flow-only mode. All components in the flow direction will be put in the same cell and will thus not be aligned with component in other rows/columns. For normal horizontal flow this is the same as to say that all component will be put in the first and only column.
 
 Example: "nogrid".
 
-novisualpadding
+### novisualpadding
 
 Turns off padding of visual bounds (e.g. compensation for drop shadows)
 Example: "novisualpadding".
 
-fill or fillx or filly
+### fill or fillx or filly
 
 Claims all available space in the container for the columns and/or rows. At least one component need to have a "grow" constaint for it to fill the container. The space will be divided equal, though honoring "growpriority". If no columns/rows has "grow" set the grow weight of the componets in the rows/columns will migrate to that row/column.
 
 Example: "fill" or "fillx" or "filly"
 
-ins/insets ["dialog"] or ["panel"] or [top/all [left] [bottom] [right]]
+### ins/insets ["dialog"] or ["panel"] or [top/all [left] [bottom] [right]]
+
 Specified the insets for the laid out container. The gaps before/after the first/last column/row is always discarded and replaced by these layout insets. This is the same thing as setting an EmptyBorder on the container but without removing any border already there. Default value is "panel" (or zero if there are docking components). The size of "dialog" and "panel" insets is returned by the current PlatformConverter. The inset values all around can also be set explicitly for one or more sides. Insets on sides that are set to "null" or "n" will get the default values provided by the PlatformConverter. If less than four sides are specified the last value will be used for the remaining side. The gaps are specified as a UnitValue. See above.
 
 Example: "insets dialog" or "ins 0" or "insets 10 n n n" or "insets 10 20 30 40".
 
-flowy
+### flowy
 
 Puts the layout in vertical flow mode. This means that the next cell is normally below and the next component will be put there instead of to the right. Default is horizontal flow.
 
 Example: "flowy"
 
-al/align alignx [aligny] or aligny/ay aligny or aligny/ax alignx
+### al/align alignx [aligny] or aligny/ay aligny or aligny/ax alignx
+
 Specifies the alignment for the laid out components as a group. If the total bounds of all laid out components does not fill the entire container the align value is used to position the components within the container without changing their relative positions. The alignment can be specified as a UnitValue or AlignKeyword. See above. If an AlignKeyword is used the "align" keyword can be omitted. 
 
 Example: "align 50% 50%" or "aligny top" or "alignx leading" or "align 100px" or "top, left" or "aligny baseline"
 
-ltr/lefttoright or rtl/righttoleft
+### ltr/lefttoright or rtl/righttoleft
 
 Overrides the container's ComponentOrientation property for this layout. Normally this value is dependant on the Locale that the application is running. This constraint overrides that value.
 
 Example: "ltr" or "lefttoright" or "rtl"
 
-ttb/toptobottom or btt/bottomtotop
+### ttb/toptobottom or btt/bottomtotop
 
 Specifies if the components should be added in the grid bottom-to-top or top-to-bottom. This value is not picked up from the container and is top-to-bottom by default. 
 
 Example: "ttb" or "toptobottom" or "btt"
 
-hidemode
+### hidemode
 
 Sets the default hide mode for the layout. This hide mode can be overridden by the component constraint. The hide mode specified how the layout manager should handle a component that isn't visible. The modes are:
 
@@ -379,13 +402,12 @@ Sets the default hide mode for the layout. This hide mode can be overridden by t
 
 Example: "hidemode 1"
 
-nocache
+### nocache
 
 Instructs the layout engine to not use caches. This should normally only be needed if the "%" unit is used as it is a function of the parent size. If you are experiencing revalidation problems you can try to set this constraint. 
 Example: "nocache"
 
  
-
 ## Column/Row Constraints
 
 Column and row constraints works the same and hence forth the term row will be used for both columns and rows.
@@ -663,5 +685,7 @@ The demonstration application for Swing and SWT is available both as binaries an
 There is a cheat sheet that lists the constraints in a short and simple layout and can be view in a browser (HTML) or printed (PDF).
 
 There is an online forum dedicated to MigLayout. The it can be found here: www.miginfocom.com/forum
+
+## Sources
 
 Mig Layout White Paper  
