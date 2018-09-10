@@ -31,7 +31,7 @@
     - [Directives](#directives)
         - [ngIf](#ngif)
 - [Mosh Course Style](#mosh-course-style)
-    - [Bölüm 4 - Displaying Data and Handling Events](#b%C3%B6l%C3%BCm-4---displaying-data-and-handling-events)
+    - [4 - Displaying Data and Handling Events](#4---displaying-data-and-handling-events)
         - [String Interpolation](#string-interpolation)
         - [Property Binding](#property-binding)
         - [Attribute Binding](#attribute-binding)
@@ -43,6 +43,13 @@
         - [Template Variables](#template-variables)
         - [Two Way Binding](#two-way-binding)
         - [Pipes](#pipes)
+            - [Uppercase](#uppercase)
+            - [Lowercase](#lowercase)
+            - [Decimal](#decimal)
+            - [Currency](#currency)
+            - [Percent](#percent)
+            - [Date](#date)
+        - [Creating Custom Pipes](#creating-custom-pipes)
     - [Dependency Ekleme](#dependency-ekleme)
     - [styles.css Global css](#stylescss-global-css)
 - [Sources](#sources)
@@ -366,7 +373,7 @@ ngif şartı gerçekleştiği an (observable), angular html elementini dom a ekl
 
 # Mosh Course Style
 
-## Bölüm 4 - Displaying Data and Handling Events
+## 4 - Displaying Data and Handling Events
 
 ### String Interpolation
 
@@ -451,35 +458,38 @@ metoda mouse event objesi gönderir.
 
 ### Event Bubbling
 
-<div (click)="onDivClicked()"><button (click)="onSave($event)">Save</button>
+```html
+<div (click)="onDivClicked()">
+    <button (click)="onSave($event)">Save</button>
 </div>
+```
 
 button tıkladığımızda aynı zamanda div de tıklanmış oluyor.
 geriye dogru tıklanmayı pasife almak için 
+    
     $event.stopPropagation();
+
 kullanırız.
 
 ---
 
 comp class:
 
-onSave($event) {
-    $event.stopPropagation();
+    onSave($event) {
+        $event.stopPropagation();
+        console.log('button clicked');
+    }
 
-    console.log('button clicked');
-
-  }
-
-  onDivClicked() {
-    console.log('div clicked');
-  }
+    onDivClicked() {
+        console.log('div clicked');
+    }
 
 
 ### Event Filtering
 
 İki yolla yapılır
 
-<button (keyup)="onAction($event)">Save</button>
+    <button (keyup)="onAction($event)">Save</button>
 
 comp class:
 
@@ -492,22 +502,23 @@ comp class:
 
 Kısa Yöntem
 
-<button (keyup.enter)="onEnter($event)">Save</button>
+    <button (keyup.enter)="onEnter($event)">Save</button>
 
 ### Template Variables
 
-
-$event objesinden elementing değerine ulaşmak için
+$event objesinden elementin değerine ulaşmak için
 
 $event.target.value değişkenini kullanırız.
 
 Template Variable kullanarak daha kısa yöntemle ulaşabiliriz.
 
-<input #email (keyup.enter)="onKeyUp(email.value)"/>
+    <input #email (keyup.enter)="onKeyUp(email.value)"/>
 
-onKeyUp(email){
-    console.log(email);
-}
+    // comp class
+
+    onKeyUp(email){
+        console.log(email);
+    }
 
 değişkenimiz email, input dom objesini gösterir. bunu (email değişkenini) yalnızca templatede kullanbiliriz.
 
@@ -517,25 +528,138 @@ değişkenimiz email, input dom objesini gösterir. bunu (email değişkenini) y
 
 Two Way Alternative Way
 
-<input [value]="email" (keyup.enter)="email=$event.target.value;onKeyUp()" >
+    <input [value]="email" (keyup.enter)="email=$event.target.value;onKeyUp()" >
 
 Two Way Binding
 
-<input [(ngModel)]="email" (keyup.enter)="onKeyUp()"/>
+    <input [(ngModel)]="email" (keyup.enter)="onKeyUp()"/>
 
 Comp class email değişkeni ile , input elementinin value sı birbirine bağlanmış oldu.
 
-[(Banana in a box)] syntax
+    [(Banana in a box)] syntax
 
 **two way binding kullanmak için** Forms Module yüklemek lazım. Bunun için de
 
 app Module içine
 
-import { FormsModule } from '@angular/forms';
+    import { FormsModule } from '@angular/forms';
 
 ve ngmodule dekaratörünün imports anahtarına, FormsModule eklenir.
 
 ### Pipes
+
+Built-in Pipes
+
+#### Uppercase
+
+{{ fieldname | uppercase | lowercase }}
+
+
+#### Lowercase
+
+#### Decimal
+
+{{ fieldname| number }}
+
+30123 --> 30,123 şeklinde gösterilir
+
+{{ fieldname| number:'2.1-1'}}
+
+4.9745 --> 05.0 şeklinde gösterilir
+
+
+#### Currency
+
+{{ fieldname| currency }}
+
+190.95 --> 190.95 para işareti ile gösterir. Örneğin, USD190.95
+
+{{ fieldname| currency:'AUD'}}
+
+190.95 --> AUD190.95
+
+#### Percent
+
+
+#### Date
+
+    {{ fieldname | date:'shortDate' }}
+
+    4/1/2016 şeklinde tarihi gösterir.
+
+For more info about Date Pipe 
+
+https://angular.io/api/common/DatePipe
+
+
+
+### Creating Custom Pipes
+
+```
+
+import { Pipe,PipeTransform } from '@angular//core';
+
+export class SummaryPipe implements PipeTransform {
+
+    transform(value:any, args?:any){
+
+        if(!value)return null;
+
+        return value.substr(0,50)+'...';
+
+    }
+
+}
+
+```
+---
+
+Bu pipe projeye dahil etmemiz gerekir.
+
+app module içerisinde ngmodule dekaratorünün declarations key ine SummaryPipe ekleriz.
+
+@NgModule({
+    declarations: [
+        ....,
+        SummaryPipe
+    ],
+    ...
+})
+
+
+---
+
+Kullanımı
+
+{{ fieldname | summary:10}}
+
+
+---
+
+Multiple Argument For Custom pipe
+
+```
+
+import { Pipe,PipeTransform } from '@angular//core';
+
+export class SummaryPipe implements PipeTransform {
+
+    transform(value:any, limit?:number){
+
+        if(!value)return null;
+
+        let actualLimit = (limit) ? limit : 50;
+
+        return value.substr(0,actualLimit) +'...';
+
+    }
+
+}
+
+```
+
+
+
 
 
 
@@ -584,9 +708,12 @@ npm install komutu çalıştırılır.
 
 ## styles.css Global css
 
-@import "~bootstrap/dist/css/bootsrap.css";
+farklı css dosyaları da eklenir. @import annotasyonu ile:
 
-farklı css dosyaları da eklenir. @import annotasyonu ile.
+    @import "~bootstrap/dist/css/bootsrap.css";
+
+
+
 
 
 
