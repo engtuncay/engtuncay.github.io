@@ -17,6 +17,7 @@ Sources are given at the end of the sections.
         - [Date](#date)
             - [Parsing String to Date](#parsing-string-to-date)
     - [Atomic Reference](#atomic-reference)
+    - [Source](#source)
 - [Java Regular Expressions](#java-regular-expressions)
     - [Regex Online Test](#regex-online-test)
     - [Matching a single character](#matching-a-single-character)
@@ -47,9 +48,7 @@ Sources are given at the end of the sections.
 
 ####  Parsing String to Date
 
-Source
 
-https://www.mkyong.com/java/how-to-convert-string-to-date-java/
 
 
 
@@ -69,6 +68,11 @@ AtomicReference<List<MkCARI_HESAP_HAREKETLERI>> atomref = new AtomicReference<>(
 
      List<MkCARI_HESAP_HAREKETLERI> listEkstre = atomref.get();
 ```
+
+## Source
+
+https://www.mkyong.com/java/how-to-convert-string-to-date-java/
+
 
 # Java Regular Expressions
 
