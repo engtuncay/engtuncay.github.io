@@ -14,6 +14,7 @@
         - [@Injectable() services](#injectable-services)
         - [Get hero data](#get-hero-data)
         - [Provide the HeroService](#provide-the-heroservice)
+- [Angular Official Guides](#angular-official-guides)
     - [Angular - Component Interaction](#angular---component-interaction)
         - [Pass data from parent to child with input binding](#pass-data-from-parent-to-child-with-input-binding)
         - [Intercept input property changes with a setter](#intercept-input-property-changes-with-a-setter)
@@ -55,10 +56,11 @@
             - [Percent](#percent)
             - [Date](#date)
         - [Creating Custom Pipes](#creating-custom-pipes)
+        - [Ara Konular](#ara-konular)
+        - [Dependency Ekleme](#dependency-ekleme)
+        - [styles.css Global css](#stylescss-global-css)
     - [5 - Component API](#5---component-api)
         - [Input Properties](#input-properties)
-    - [Dependency Ekleme](#dependency-ekleme)
-    - [styles.css Global css](#stylescss-global-css)
 - [Sources](#sources)
 
 
@@ -140,11 +142,7 @@ An Angular CLI project is the foundation for both quick experiments and enterpri
 
 The first file you should check out is README.md. It has some basic information on how to use CLI commands. Whenever you want to know more about how Angular CLI works make sure to visit the Angular CLI repository and Wiki.
 
-Some of the generated files might be unfamiliar to you.
-
-Link
-
-You can get more information at the bottom of the web page
+Some of the generated files might be unfamiliar to you. You can get more information at the bottom of the web page
 
 https://angular.io/guide/quickstart
 
@@ -228,6 +226,8 @@ If you look at the @Injectable() statement right before the HeroService class de
 
 
 
+
+# Angular Official Guides
 
 
 
@@ -465,6 +465,7 @@ ngif şartı gerçekleştiği an (observable), angular html elementini dom a ekl
 </ng-template>
 
 ```
+
 
 
 
@@ -756,6 +757,27 @@ export class SummaryPipe implements PipeTransform {
 
 ```
 
+### Ara Konular
+
+### Dependency Ekleme
+
+package.json dosyasında dependencies key , objesine 
+eklenir:
+
+"bootstrap":"^3.3.7"
+
+^ latest version gösterir
+
+dependency eklendikten sonra yüklemek için 
+npm install komutu çalıştırılır.
+
+
+### styles.css Global css
+
+farklı css dosyaları da eklenir. @import annotasyonu ile:
+
+    @import "~bootstrap/dist/css/bootsrap.css";
+
 
 ## 5 - Component API
 
@@ -884,24 +906,7 @@ favorite.component.html
 
 
 
-## Dependency Ekleme
 
-package.json dosyasında dependencies key , objesine 
-eklenir:
-
-"bootstrap":"^3.3.7"
-
-^ latest version gösterir
-
-dependency eklendikten sonra yüklemek için 
-npm install komutu çalıştırılır.
-
-
-## styles.css Global css
-
-farklı css dosyaları da eklenir. @import annotasyonu ile:
-
-    @import "~bootstrap/dist/css/bootsrap.css";
 
 
 

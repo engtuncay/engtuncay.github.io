@@ -1,8 +1,17 @@
-# C Sharp Notlar
+# CSharp Intro Tutorial (English and Turkish)
 
-[TOC]
+- [CSharp Intro Tutorial (English and Turkish)](#csharp-intro-tutorial-english-and-turkish)
+- [OOP Mechanism](#oop-mechanism)
+    - [Class ( Sınıflar )](#class--s%C4%B1n%C4%B1flar)
+        - [Sınıflara (Class) property ekleme](#s%C4%B1n%C4%B1flara-class-property-ekleme)
+    - [Encapsulation](#encapsulation)
 
 
+---
+
+
+
+# OOP Mechanism
 
 ## Class ( Sınıflar )
 
@@ -30,7 +39,7 @@ customerManager.add();
 
 ---
 
-## Sınıflara (Class) property ekleme
+### Sınıflara (Class) property ekleme
 
     class Customer
     {
@@ -55,9 +64,6 @@ class Customer
 
 }
 ```
-
-
-
 ​    
 
     Customer customer = new Customer ();
