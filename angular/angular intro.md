@@ -1,5 +1,5 @@
 
-- [Quick Guide](#quick-guide)
+- [Angular Official Quick Guide](#angular-official-quick-guide)
     - [Step 1. Set up the Development Environment](#step-1-set-up-the-development-environment)
         - [Install Node Js](#install-node-js)
         - [Install Angular CLI](#install-angular-cli)
@@ -7,20 +7,13 @@
     - [Step 3: Serve the application](#step-3-serve-the-application)
     - [Step 4: Edit your first Angular component](#step-4-edit-your-first-angular-component)
     - [Project file review](#project-file-review)
-- [Angular Tutorial](#angular-tutorial)
-    - [Vscode Plugins](#vscode-plugins)
-    - [Module](#module)
-        - [Module Nedir](#module-nedir)
-        - [Örnek](#%C3%B6rnek)
+- [Angular Official Tutorial](#angular-official-tutorial)
     - [Services](#services)
-    - [Create the HeroService](#create-the-heroservice)
-    - [Compenent](#compenent)
-        - [Cli Command](#cli-command)
-        - [Örnek Component Sınıfı](#%C3%B6rnek-component-s%C4%B1n%C4%B1f%C4%B1)
-        - [Selectors](#selectors)
-        - [Template](#template)
-        - [Styles](#styles)
-        - [Tip](#tip)
+        - [Why Services](#why-services)
+        - [Create the HeroService](#create-the-heroservice)
+        - [@Injectable() services](#injectable-services)
+        - [Get hero data](#get-hero-data)
+        - [Provide the HeroService](#provide-the-heroservice)
     - [Angular - Component Interaction](#angular---component-interaction)
         - [Pass data from parent to child with input binding](#pass-data-from-parent-to-child-with-input-binding)
         - [Intercept input property changes with a setter](#intercept-input-property-changes-with-a-setter)
@@ -28,6 +21,18 @@
         - [Intercept input property changes with ngOnChanges()](#intercept-input-property-changes-with-ngonchanges)
         - [Parent calls an @ViewChild()](#parent-calls-an-viewchild)
         - [Parent interacts with child via local variable](#parent-interacts-with-child-via-local-variable)
+- [Angular Notes](#angular-notes)
+    - [Vscode Plugins](#vscode-plugins)
+    - [Cheatsheet](#cheatsheet)
+    - [Module](#module)
+        - [Örnek](#%C3%B6rnek)
+    - [Compenent](#compenent)
+        - [Cli Command](#cli-command)
+        - [Örnek Component Sınıfı](#%C3%B6rnek-component-s%C4%B1n%C4%B1f%C4%B1)
+        - [Selectors](#selectors)
+        - [Template](#template)
+        - [Styles](#styles)
+        - [Tip](#tip)
     - [Directives](#directives)
         - [ngIf](#ngif)
 - [Mosh Course Style](#mosh-course-style)
@@ -59,7 +64,9 @@
 
 ---
 
-# Quick Guide
+# Angular Official Quick Guide
+
+This chapter is from https://angular.io/guide/quickstart
 
 ## Step 1. Set up the Development Environment 
 
@@ -135,114 +142,94 @@ The first file you should check out is README.md. It has some basic information 
 
 Some of the generated files might be unfamiliar to you.
 
-# Angular Tutorial
+Link
 
-## Vscode Plugins
+You can get more information at the bottom of the web page
 
-Auto Import 1.2 By Steoates
+https://angular.io/guide/quickstart
 
 
-## Module
-
-### Module Nedir
-
-- Cevap: 
-
-### Örnek
-
-```typescript
-
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-
-import { AppComponent } from './app.component';
-import { HelloComponent } from './hello.component';
-
-@NgModule({
-imports: [ BrowserModule, FormsModule ],
-declarations: [ AppComponent, HelloComponent ],  // component tanımlaması
-bootstrap: [ AppComponent ] // main class , açılış componenti
-})
-export class AppModule { }
+# Angular Official Tutorial
 
 
 
-```
 
 ## Services
 
-## Create the HeroService
+This chapter is from https://angular.io/tutorial/toh-pt4
+
+
+### Why Services
+
+Components shouldn't fetch or save data directly and they certainly shouldn't knowingly present fake data. They should focus on presenting data and delegate data access to a service.
+
+Services are a great way to share information among classes that don't know each other. You'll create a MessageService and inject it in two places:
+
+1 in HeroService which uses the service to send a message.
+2 in MessagesComponent which displays that message.
 
 
 
-## Compenent
+### Create the HeroService
 
-- Componentleri @Component annotasyonu ile belirtmek lazım. Annotasyon, json objesi içinde üç argüman vermeliyiz: selector , template ve styles.
+Using the Angular CLI, create a service called hero.
 
-### Cli Command
+    ng generate service hero
 
-Generate a new component named heroes.
+The command generates skeleton HeroService class in src/app/hero.service.ts The HeroService class should look like the following example.
 
-`ng generate component heroes` 
+src/app/hero.service.ts
 
-### Örnek Component Sınıfı
+```
+import { Injectable } from '@angular/core';
 
-```typescript
-import { Component, Input } from '@angular/core';
-
-@Component({
-selector: 'hello',
-template: `<h1>Hello {{name}}! (hello component)</h1>`,
-styles: [`h1 { font-family: Lato; }`]
+@Injectable({
+  providedIn: 'root',
 })
-export class HelloComponent {
-@Input() name: string;
+export class HeroService {
+
+  constructor() { }
+
 }
-
 ```
 
-### Selectors
+###  @Injectable() services
 
-selector: 'hello'
-<hello> </hello> tag ile seçer
+Notice that the new service imports the Angular Injectable symbol and annotates the class with the @Injectable() decorator. This marks the class as one that participates in the dependency injection system. The HeroService class is going to provide an injectable service, and it can also have its own injected dependencies. It doesn't have any dependencies yet, but it will soon.
 
-selector: '[hello]'
-attribu ile seçer
-<div hello> </div>
+The @Injectable() decorator accepts a metadata object for the service, the same way the @Component() decorator did for your component classes.
 
-selector: '.hello'
-class ile seçer
-<div class='hello'></div>
+### Get hero data
 
-### Template
+The HeroService could get hero data from anywhere—a web service, local storage, or a mock data source.
+
+Removing data access from components means you can change your mind about the implementation anytime, without touching any components. They don't know how the service works.
+
+The implementation in this tutorial will continue to deliver mock heroes.
+
+Import the Hero and HEROES.
+
+    import { Hero } from './hero';
+    import { HEROES } from './mock-heroes';
+
+Add a getHeroes method to return the mock heroes.
+
+    getHeroes(): Hero[] {
+    return HEROES;
+    }
 
 
+### Provide the HeroService
 
-### Styles
+You must make the HeroService available to the dependency injection system before Angular can inject it into the HeroesComponent, as you will do below. You do this by registering a provider. A provider is something that can create or deliver a service; in this case, it instantiates the HeroService class to provide the service.
 
-Component annotation da :
-
-- Direk stili verebiliriz 
-
-```
-styles: [`h1 { font-family: Lato; }`]
-```
-
-- styleUrls prm.siyle adres verebiliriz.
-
-```
-styleUrls: ['./app.component.css']
-```
-
-Not: array olduğu için birden fazla css dosyası tanımlayabiliriz.
+If you look at the @Injectable() statement right before the HeroService class definition, you can see that the providedIn metadata value is 'root':
 
 
 
 
-### Tip
 
-` (back tick) ile string tanımlarsak multi line kullanabiliriz.
+
 
 ## Angular - Component Interaction 
   - Kaynak : https://angular.io/guide/component-interaction
@@ -343,6 +330,112 @@ Cc: a template reference variable for the child element"
 
 
 
+
+
+# Angular Notes
+
+## Vscode Plugins
+
+Auto Import 1.2 By Steoates
+
+## Cheatsheet
+
+https://angular.io/guide/cheatsheet
+
+
+## Module
+
+### Örnek
+
+```typescript
+
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+
+import { AppComponent } from './app.component';
+import { HelloComponent } from './hello.component';
+
+@NgModule({
+imports: [ BrowserModule, FormsModule ],
+declarations: [ AppComponent, HelloComponent ],  // component tanımlaması
+bootstrap: [ AppComponent ] // main class , açılış componenti
+})
+export class AppModule { }
+
+
+
+```
+
+
+## Compenent
+
+- Componentleri @Component annotasyonu ile belirtmek lazım. Annotasyon, json objesi içinde üç argüman vermeliyiz: selector , template ve styles.
+
+### Cli Command
+
+Generate a new component named heroes.
+
+    ng generate component heroes
+
+### Örnek Component Sınıfı
+
+```typescript
+import { Component, Input } from '@angular/core';
+
+@Component({
+selector: 'hello',
+template: `<h1>Hello {{name}}! (hello component)</h1>`,
+styles: [`h1 { font-family: Lato; }`]
+})
+export class HelloComponent {
+@Input() name: string;
+}
+
+```
+
+### Selectors
+
+selector: 'hello'
+<hello> </hello> tag ile seçer
+
+selector: '[hello]'
+attribu ile seçer
+<div hello> </div>
+
+selector: '.hello'
+class ile seçer
+<div class='hello'></div>
+
+### Template
+
+
+
+### Styles
+
+Component annotation da :
+
+- Direk stili verebiliriz 
+
+```
+styles: [`h1 { font-family: Lato; }`]
+```
+
+- styleUrls prm.siyle adres verebiliriz.
+
+```
+styleUrls: ['./app.component.css']
+```
+
+Not: array olduğu için birden fazla css dosyası tanımlayabiliriz.
+
+
+
+
+### Tip
+
+` (back tick) ile string tanımlarsak multi line kullanabiliriz.
+
 ## Directives
 
 ### ngIf
@@ -372,6 +465,9 @@ ngif şartı gerçekleştiği an (observable), angular html elementini dom a ekl
 </ng-template>
 
 ```
+
+
+
 
 # Mosh Course Style
 
@@ -818,5 +914,10 @@ farklı css dosyaları da eklenir. @import annotasyonu ile:
 
 # Sources
 
-https://angular.io/guide/quickstart
+- Quick Start Guide, https://angular.io/guide/quickstart
+- Angular Official Tutorial, https://angular.io/tutorial
+- Mosh Hamadani Angular Course on Udemy
+
+
+
 
