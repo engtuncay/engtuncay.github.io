@@ -50,6 +50,8 @@
             - [Percent](#percent)
             - [Date](#date)
         - [Creating Custom Pipes](#creating-custom-pipes)
+    - [5 - Component API](#5---component-api)
+        - [Input Properties](#input-properties)
     - [Dependency Ekleme](#dependency-ekleme)
     - [styles.css Global css](#stylescss-global-css)
 - [Sources](#sources)
@@ -657,6 +659,99 @@ export class SummaryPipe implements PipeTransform {
 }
 
 ```
+
+
+## 5 - Component API
+
+Örnek Component
+
+---
+
+Ana component app.component.ts
+
+
+    @Component({
+        selector: 'app-root',
+        templateUrl: './app.component.html',
+        styleUrls: ['./app.component.css']
+    })
+    export class AppComponent {
+
+        post={
+            title:"Title",
+            isFavorite:true
+        }
+
+    }
+
+---
+
+app.component.html
+
+    <favorite [isFavorite]="post.isFavorite" (change)="onFavoriteChange()"></favorite>
+
+Burada favorite.isFavorite = AppComponent.post.isFavorite bağlanmış oluyor.
+
+[isFavorite] input property , (change) ise output property dir.
+
+
+
+    state --> (input) Component (output) --> Event
+                          {}
+
+---
+
+favorite.component.ts
+
+```typescript
+    @Component({
+        selector: 'favorite',
+        templateUrl: './favorite.component.html',
+        styleUrl: ['./favorite.component.css']
+    })   
+    export class FavoriteComponent implements OnInit {
+
+        @Input() isFavorite: boolean;
+
+        constructor(){}
+
+        ngOnInit(){
+
+        }
+
+        onClick(){
+            
+        }
+        
+    }
+
+```
+
+---
+
+favorite.component.html
+
+```typescript
+
+<span 
+    class="glyphicon"
+    [class.glyphicon-star]="isSelected"
+    [class.glyphicon-star-empty]="!isSelected"
+    (click)="onClick()"
+></span>
+
+```
+
+
+
+
+
+### Input Properties
+
+
+
+
+
 
 
 
