@@ -83,6 +83,8 @@
 
 ## MigLayout
 
+This tutorial is from Mig Layout White Paper ( ).
+
 MigLayout is an extremely flexible layout manager that can be used in many different ways to layout components using a single and consistent API.
 
 The main features are:
@@ -496,7 +498,7 @@ Example: "newline" or "newline 15px" or "newline push" or "newline 15:push"
 
 ### push [weightx] [weighty] or pushx[weightx] or pushy [weighty]
 
-Makes the row and/or column that the component is residing in grow with "weight". This can be used instead of having a "grow" keyword in the column/row constraints. 
+Makes the row and/or column that the component is residing in grow with "weight". This can be used instead of having a "grow" keyword in the column/row constraints (within the constructor of Migpane). 
 
 Example: "push" or "pushx 200".
 

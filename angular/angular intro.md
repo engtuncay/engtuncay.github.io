@@ -303,7 +303,7 @@ If you look at the @Injectable() statement right before the HeroService class de
     providedIn: 'root',
     })
 
-When you provide the service at the root level, Angular creates **a single, shared instance** of HeroService and injects into any class that asks for it. Registering the provider in the @Injectable metadata also allows Angular to optimize an app by removing the service if it turns out not to be used after all (##).
+When you provide the service **at the root level**, Angular creates **a single, shared instance** of HeroService and injects into any class that asks for it. Registering the provider in the @Injectable metadata also allows Angular to optimize an app by removing the service if it turns out not to be used after all (##).
 
 To learn more about providers, see the Providers section (https://angular.io/guide/providers). To learn more about injectors, see the Dependency Injection guide (https://angular.io/guide/dependency-injection).
 
