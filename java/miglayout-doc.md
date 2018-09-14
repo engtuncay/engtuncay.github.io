@@ -4,8 +4,8 @@
 - [Initial Example](#initial-example)
 - [Introduction](#introduction)
 - [Basic Concepts](#basic-concepts)
-	- [**Layout Constraints**](#layout-constraints)
-	- [**Row/Column Constraints**](#rowcolumn-constraints)
+	- [**Layout Constraints (LC)**](#layout-constraints-lc)
+	- [**Row/Column Constraints (RC / CC)**](#rowcolumn-constraints-rc--cc)
 	- [**Component Constraints**](#component-constraints)
 	- [Grid Flow](#grid-flow)
 	- [In-cell Flow](#in-cell-flow)
@@ -166,11 +166,13 @@ Do not let the vast amount of options make you think that this layout manager is
 
 There are **three constraint types** that can be set on the layout manager instance and the handled components. They are:
 
-### **Layout Constraints**
+(Layout,Row,Column Constraint'ler miglayout constructor ile tanımlanır, component constraints ise, miglayout component eklerken tanımlanır.)
+
+### **Layout Constraints (LC)**
 
 These constraints specify **how the layout manager instance should work in general**. For instance how all the laid out components should be aligned as a group, should there be available space in the container. This constraint is set directly on the layout manager instance, either in the constructor or using a standard get/set property. E.g. "align center, fill".
 
-### **Row/Column Constraints**
+### **Row/Column Constraints (RC / CC)**
 
 Specifies the properties for the grid's rows and columns. Constraints such as sizes and default alignments can be specified. These constraints are set directly on the layout manager instance, either in the constructor or using standard get/set properties. E.g. "[35px]10px[50:pref]".
 
