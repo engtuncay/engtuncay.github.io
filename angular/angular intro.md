@@ -165,7 +165,7 @@ The first file you should check out is README.md. It has some basic information 
 
 Some of the generated files might be unfamiliar to you. You can get more information at the bottom of the web page
 
-https://angular.io/guide/quickstart
+https://angular.io/guide/quickstart#project-file-review
 
 
 # Angular Official Tutorial : Tour of Heroes
@@ -568,6 +568,7 @@ The messages will look better when you add the private CSS styles to messages.co
 
 
 ## Angular - Component Interaction 
+
   - Kaynak : https://angular.io/guide/component-interaction
 
 
