@@ -2,20 +2,20 @@
 
 <!-- TOC -->
 
-- [cha_cinsi](#cha_cinsi)
-- [36 cha_cari_cins Tinyint Cari Cinsi](#36-cha_cari_cins-tinyint-cari-cinsi)
-- [24 cha_tip Tinyint Hareket Tipi](#24-cha_tip-tinyint-hareket-tipi)
-- [26 cha_normal_Iade Tinyint Normal/Iade?](#26-cha_normal_iade-tinyint-normaliade)
-- [27 cha_tpoz Tinyint Cari Pozisyonu](#27-cha_tpoz-tinyint-cari-pozisyonu)
-- [28 cha_ticaret_turu Tinyint Dış Ticaret Türü](#28-cha_ticaret_turu-tinyint-dış-ticaret-türü)
-- [Seri, Sıra ve Satır No](#seri-sıra-ve-satır-no)
-- [20 cha_evrakno_seri nvarchar_evrakseri Evrak Seri No](#20-cha_evrakno_seri-nvarchar_evrakseri-evrak-seri-no)
-- [21 cha_evrakno_sira Integer Evrak Sıra No](#21-cha_evrakno_sira-integer-evrak-sıra-no)
-- [22 cha_satir_no Integer - Hareket Satır No](#22-cha_satir_no-integer---hareket-satır-no)
-- [23 cha_tarihi DateTime - İşlem Tarihi](#23-cha_tarihi-datetime---i̇şlem-tarihi)
-- [111 cha_sntck_poz Tinyint - Senet Çek Pozisyonu](#111-cha_sntck_poz-tinyint---senet-çek-pozisyonu)
-- [137 cha_e_islem_turu Tinyint - e-İşlem Türü](#137-cha_e_islem_turu-tinyint---e-i̇şlem-türü)
-- [138 cha_fatura_belge_turu Tinyint - Fatura Belge Türü](#138-cha_fatura_belge_turu-tinyint---fatura-belge-türü)
+- [cha_cinsi](#chacinsi)
+- [36 cha_cari_cins Tinyint Cari Cinsi](#36-chacaricins-tinyint-cari-cinsi)
+- [24 cha_tip Tinyint Hareket Tipi](#24-chatip-tinyint-hareket-tipi)
+- [26 cha_normal_Iade Tinyint Normal/Iade?](#26-chanormaliade-tinyint-normaliade)
+- [27 cha_tpoz Tinyint Cari Pozisyonu](#27-chatpoz-tinyint-cari-pozisyonu)
+- [28 cha_ticaret_turu Tinyint Dış Ticaret Türü](#28-chaticaretturu-tinyint-d%C4%B1%C5%9F-ticaret-t%C3%BCr%C3%BC)
+- [Seri, Sıra ve Satır No](#seri-s%C4%B1ra-ve-sat%C4%B1r-no)
+- [20 cha_evrakno_seri nvarchar_evrakseri Evrak Seri No](#20-chaevraknoseri-nvarcharevrakseri-evrak-seri-no)
+- [21 cha_evrakno_sira Integer Evrak Sıra No](#21-chaevraknosira-integer-evrak-s%C4%B1ra-no)
+- [22 cha_satir_no Integer - Hareket Satır No](#22-chasatirno-integer---hareket-sat%C4%B1r-no)
+- [23 cha_tarihi DateTime - İşlem Tarihi](#23-chatarihi-datetime---i%CC%87%C5%9Flem-tarihi)
+- [111 cha_sntck_poz Tinyint - Senet Çek Pozisyonu](#111-chasntckpoz-tinyint---senet-%C3%A7ek-pozisyonu)
+- [137 cha_e_islem_turu Tinyint - e-İşlem Türü](#137-chaeislemturu-tinyint---e-i%CC%87%C5%9Flem-t%C3%BCr%C3%BC)
+- [138 cha_fatura_belge_turu Tinyint - Fatura Belge Türü](#138-chafaturabelgeturu-tinyint---fatura-belge-t%C3%BCr%C3%BC)
 - [cha Evrak Tip](#cha-evrak-tip)
 - [Indeks Tablosu](#indeks-tablosu)
 
@@ -27,22 +27,35 @@
 - cari hareket cinsi (nakit,kredi kartı,çek,toptan fatura ....)
 
 ```
-(0:Nakit  (havalede nakit içerisinde gelen,gideni chatipe göre belirleriz)) 
+0:Nakit  (havalede nakit içerisinde gelen,gideni chatipe göre belirleriz)
 
-(1:Müşteri Çeki) (2:Müşteri Senedi) 
+1:Müşteri Çeki
+2:Müşteri Senedi
 
-3:Firma Çeki 4:Firma Senedi 5:Dekont 
-6:Toptan Fatura 7:Perakende Faturası   (satış ve alış faturaları toptan faturalarına girer)
+3:Firma Çeki 
+4:Firma Senedi 
+5:Dekont 
+
+6:Toptan Fatura 
+7:Perakende Faturası   (satış ve alış faturaları toptan faturalarına girer)
 8:Hizmet Faturası
 
-,9:Serbest Meslek Makbuzu ,10:Vade Farkı Faturası 11:Kur Farkı Faturası 12:Fason Faturası 13:Dış Ticaret Faturası 14:Demirbaş Faturası 15:Değer Farkı Faturası 
+9:Serbest Meslek Makbuzu
+10:Vade Farkı Faturası 
+11:Kur Farkı Faturası 
+12:Fason Faturası 
+13:Dış Ticaret Faturası 
+14:Demirbaş Faturası 
+15:Değer Farkı Faturası 
 
 16:Cari Açılış 
-17:Müşteri Havale Sözü 18:Müşteri Ödeme Sözü 
+17:Müşteri Havale Sözü 
+18:Müşteri Ödeme Sözü 
 
-(19:Müşteri Kredi Kartı) 
+19:Müşteri Kredi Kartı
 
-20:Firma Havale Emri 21:Firma Ödeme Emri 
+20:Firma Havale Emri 
+21:Firma Ödeme Emri 
 
 22:Firma Kredi Kartı 
 
@@ -50,7 +63,21 @@
 
 27:Gider Makbuzu 
 
-28:İthalat Masraf Faturası 29:Gümrük Beyannamesi 30:Finansal Kiralama Sözleşmesi 31:Finansal Kira Faturası 32:FUTURE_2 33:Avans Makbuzu 34:Müstahsil Değer Farkı Faturası 35:Kabzımal Faturası 36:Hediye Çeki Faturası 37:Müşteri Teminat Mektubu 38:Firma Teminat Mektubu 39:Depozito Çeki 40:Depozito Senedi 41:Firma Reel Kredi Kartı
+28:İthalat Masraf Faturası 
+29:Gümrük Beyannamesi 
+30:Finansal Kiralama Sözleşmesi 
+31:Finansal Kira Faturası 
+32:FUTURE_2 
+33:Avans Makbuzu 
+34:Müstahsil Değer Farkı Faturası 
+35:Kabzımal Faturası 
+36:Hediye Çeki Faturası 
+37:Müşteri Teminat Mektubu 
+38:Firma Teminat Mektubu 
+39:Depozito Çeki 
+40:Depozito Senedi 
+41:Firma Reel Kredi Kartı
+
 ```
 
 
