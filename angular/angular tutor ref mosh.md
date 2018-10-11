@@ -1,6 +1,9 @@
 
 - [Mosh Course Style](#mosh-course-style)
-    - [4 - Displaying Data and Handling Events](#4---displaying-data-and-handling-events)
+    - [1 Introduction](#1-introduction)
+    - [2 Typescript](#2-typescript)
+    - [3 Angular Fundamentals](#3-angular-fundamentals)
+    - [4 Displaying Data and Handling Events](#4-displaying-data-and-handling-events)
         - [String Interpolation](#string-interpolation)
         - [Property Binding](#property-binding)
         - [Attribute Binding](#attribute-binding)
@@ -37,11 +40,17 @@
         - [Safe Traversal Operator](#safe-traversal-operator)
         - [Custom Directives](#custom-directives)
 
-
+---
 
 # Mosh Course Style
 
-## 4 - Displaying Data and Handling Events
+## 1 Introduction
+
+## 2 Typescript
+
+## 3 Angular Fundamentals
+
+## 4 Displaying Data and Handling Events
 
 ### String Interpolation
 
