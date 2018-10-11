@@ -773,36 +773,6 @@ Not: array olduğu için birden fazla css dosyası tanımlayabiliriz.
 
 ` (back tick) ile string tanımlarsak multi line kullanabiliriz.
 
-## Directives
-
-### ngIf
-
-- Şarta göre DOMa ekleme
-
-ngif şartı gerçekleştiği an (observable), angular html elementini dom a ekler ve gösterir, şart gerçekleşmezse doma eklenmez ve göstermez.
-
-```typescript
-<div *ngIf="courses.length>0">
-    if ngif true, then angular add this div to DOM
-</div>
-
-```
-
-- Şarta göre Template Refaransını aktif etme
-
-```typescript
-<div *ngIf="courses.length>0;else #noCourses">
-    List of Courses
-    (couse sayısı 0 dan büyükse bu div doma eklenir, yoksa
-    , #noCourse template refaransı doma eklenir,gösterilir.)
-</div>
-
-<ng-template #noCourses>
-  No courses yet.
-</ng-template>
-
-```
-
 
 
 
