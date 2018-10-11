@@ -27,6 +27,15 @@
         - [styles.css Global css](#stylescss-global-css)
     - [5 - Component API](#5---component-api)
         - [Input Properties](#input-properties)
+        - [Aliaing Input Properties](#aliaing-input-properties)
+        - [Output Properties](#output-properties)
+        - [Passing Event Data](#passing-event-data)
+        - [Aliasing Output Properties](#aliasing-output-properties)
+        - [Templates](#templates)
+        - [Styles](#styles)
+        - [View Encapsulation](#view-encapsulation)
+        - [ngContent](#ngcontent)
+        - [ngContainer](#ngcontainer)
     - [6 - Directives ( Dom Manipulation )](#6---directives--dom-manipulation-)
         - [ngIf](#ngif)
         - [Hidden Property](#hidden-property)
@@ -437,6 +446,335 @@ favorite.component.html
 
 ### Input Properties
 
+- Farklı yollardan da input parametresi alınabilir.
+
+- Component decoratorü üzerinden...
+
+```typescript
+
+@Component({
+    ....
+    inputs:['isFavorite']
+})
+export class FavoriteComponent{
+
+    isFavorite : boolean;
+    ....
+
+}
+
+
+```
+
+### Aliaing Input Properties
+
+- @Input annotasyonu üzerinden de parametre alınabilir
+
+```typescript
+
+@Component({
+    ....
+})
+export class FavoriteComponent{
+
+    @Input('is-favorite) isFavorite : boolean;
+    ....
+
+}
+
+```
+
+- Bu yöntem daha iyi daha sonra değişkenimizin ismini değiştirsekte bağlantı bozulmaz.
+
+
+### Output Properties
+
+- Bir nevi parent component , child componentden event listener durumundadır.
+
+```html
+app.component.html
+
+    <favorite [isFavorite]="post.isFavorite" (change)="onFavoriteChange()"></favorite>
+
+```
+
+- Burada şöyle bir durum vardır
+
+` favorite.change.subscribe( () -> onFavoriteChanged())  
+
+parent component onfavoritechange metodu ile dinler, change event emitter objesine abone olur.
+
+app component ts
+```typescript
+
+export class AppComponent{
+
+    ....
+
+    onFavoriteChanged(){
+        ....
+    }
+
+}
+
+```
+
+### Passing Event Data
+
+- Örnek
+
+```typescript
+
+export class FavoriteComponent implements OnInit {
+
+    @Input('isFavorite') isSelected: boolean;
+    @Output() change = new EventEmitter();
+
+    constructor(){}
+
+    ngOnInit(){
+
+    }
+
+    onClick(){
+        this.isSelected = !this.isSelected;
+        ' dinleyen metodlara arguman göndererek çalıştırır.
+        this.change.emit(this.isSelected);
+
+
+    }
+
+    
+
+}
+
+
+export class AppComponent{
+
+    
+    post = {
+        title: "Title",
+        isFavorite: true
+    }
+    
+    ....
+
+    onFavoriteChanged(isFavorite){
+
+        console.log("Favorite changed:", isFavorite);
+        
+    }
+
+}
+
+
+
+Parent Html Dosyası
+
+<favorite [isFavorite]="post.isFavorite" (change)="onFavoriteChange($event)"></favorite>
+
+
+
+```
+
+
+- Child componentden obje olarak da gönderebiliriz.
+
+
+```typescript
+
+child component onClick metodu
+
+onClick(){
+        this.isSelected = !this.isSelected;
+        ' dinleyen metodlara arguman göndererek çalıştırır.
+        ' dinleyen metodlara obje gönderiyor
+        this.change.emit({ newValue: this.isSelected });
+
+
+    }
+
+
+parent component dinleyici metod
+
+onFavoriteChanged(eventArgs : { newValue: boolean }){
+
+        console.log("Favorite changed:", eventArgs);
+        
+    }
+
+
+```
+
+- interface tanımlayıp interface üzerinden de alabiliriz.
+
+```typescript
+
+export interface FavoriteChangedEventArgs {
+    newValue: boolean;
+}
+
+
+Bunu da parent component de kullanabiliriz.
+
+    import FavoriteChangedEventArgs ....;
+
+    onFavoriteChanged( eventArgs: FavoriteChangedEventArgs) {
+        console.log("Favorite changed:", eventArgs);
+    }
+
+```
+
+### Aliasing Output Properties
+
+- Output propertisine alias ile gönderme yapabiliriz.
+
+```typescript
+
+child comp.da
+
+@Output('change') click = new EventEmitter();
+
+```
+
+
+### Templates
+
+```typescript
+
+@Component({
+        selector: 'favorite',
+        templateUrl: './favorite.component.html',                  <-----------------------
+        styleUrl: ['./favorite.component.css']
+    })   
+    export class FavoriteComponent implements OnInit {
+    ....
+    }
+
+```
+
+### Styles
+
+```typescript
+
+@Component({
+        selector: 'favorite',
+        templateUrl: './favorite.component.html',
+        styleUrl: ['./favorite.component.css'],                 <-----------------------
+        styles: [
+            
+        ]
+    })   
+    export class FavoriteComponent implements OnInit {
+    ....
+    }
+
+```
+
+- Bir yolda template içerisinde style tanımlayabiliriz.
+
+
+```typescript
+
+<style>
+
+    .glyphicon { color: blue; }
+
+</style>
+
+<span 
+    class="glyphicon"
+    [class.glyphicon-star]="isSelected"
+    [class.glyphicon-star-empty]="!isSelected"
+    (click)="onClick()"
+></span>
+
+```
+
+### View Encapsulation
+
+Shadow Dom : Allows us to apply scoped styles to elements without bleeding out to the outer world.
+
++++
+
+
+### ngContent
+
+```html
+panel component html
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <ng-content></ng-content>
+    </div>
+    <div class="panel-body">
+        <ng-content></ng-content>
+    </div>
+</div>
+
+parent component
+
+<bootstrap-panel [body]="body"></bootstrap-panel>
+
+```
+
+- ikinci yöntem
+
+```html
+panel component html
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <ng-content></ng-content>
+    </div>
+    <div class="panel-body">
+        <ng-content></ng-content>
+    </div>
+</div>
+
+parent component
+
+<bootstrap-panel>
+    <div class="heading">Heading</div>
+    <div class="body">
+        <h2>Body</h2>
+        <p>some content...</p>
+    </div>
+</bootstrap-panel>
+
+```
+
+- You dont need a selector if you have only one ng-content
+
+### ngContainer
+
+```html
+
+panel component html
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <ng-content></ng-content>
+    </div>
+    <div class="panel-body">
+        <ng-content></ng-content>
+    </div>
+</div>
+
+
+parent component html
+
+<bootstrap-panel>
+    
+    <ng-container class="heading">Heading</ng-container>
+    
+    <div class="body">
+        <h2>Body</h2>
+        <p>some content...</p>
+    </div>
+
+</bootstrap-panel>
+
+```
+
+---
 
 ## 6 - Directives ( Dom Manipulation )
 
