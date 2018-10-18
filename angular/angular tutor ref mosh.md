@@ -773,7 +773,6 @@ parent component html
 </bootstrap-panel>
 
 ```
-
 ---
 
 ## 6 - Directives ( Dom Manipulation )
