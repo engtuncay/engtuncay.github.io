@@ -2,27 +2,55 @@
 
 <!-- TOC -->
 
-- [JOINLER](#joinler)
-    - [Outer Join Usage : Draft](#outer-join-usage--draft)
-    - [Outer Apply Usage](#outer-apply-usage)
-- [Function](#function)
-    - [Scalar Function (Değer Döndüren Fonksiyon)](#scalar-function-de%C4%9Fer-d%C3%B6nd%C3%BCren-fonksiyon)
-    - [Tabular Function](#tabular-function)
-    - [Fonksiyonun Çağrılması](#fonksiyonun-%C3%A7a%C4%9Fr%C4%B1lmas%C4%B1)
-    - [Değişkene Değer Atama](#de%C4%9Fi%C5%9Fkene-de%C4%9Fer-atama)
-    - [Fonksiyondan değer atama](#fonksiyondan-de%C4%9Fer-atama)
-- [Cursor Tanımlama](#cursor-tan%C4%B1mlama)
-- [Case When Yapısı](#case-when-yap%C4%B1s%C4%B1)
-- [IIF YAPISI](#iif-yapisi)
-- [Çeşitli Komutlar](#%C3%A7e%C5%9Fitli-komutlar)
-    - [SET ANSI_NULLS ON](#set-ansinulls-on)
-    - [SET QUOTED_IDENTIFIER ON](#set-quotedidentifier-on)
+- [SQL TEMEL SORGULAR](#sql-temel-sorgular)
+    - [SELECT](#select)
+    - [UPDATE](#update)
+        - [UPDATE JOIN](#update-join)
+    - [DELETE](#delete)
+- [SQL JOINLER](#sql-joinler)
+    - [JOINLER](#joinler)
+        - [Outer Join Usage : Draft](#outer-join-usage--draft)
+        - [Outer Apply Usage](#outer-apply-usage)
+- [SQL EXTENSIONS](#sql-extensions)
+    - [Function](#function)
+        - [Scalar Function (Değer Döndüren Fonksiyon)](#scalar-function-değer-döndüren-fonksiyon)
+        - [Tabular Function](#tabular-function)
+        - [Fonksiyonun Çağrılması](#fonksiyonun-Çağrılması)
+        - [Değişkene Değer Atama](#değişkene-değer-atama)
+        - [Fonksiyondan değer atama](#fonksiyondan-değer-atama)
+    - [Cursor Tanımlama](#cursor-tanımlama)
+    - [Case When Yapısı](#case-when-yapısı)
+    - [IIF YAPISI](#iif-yapisi)
+    - [Çeşitli Komutlar](#Çeşitli-komutlar)
+        - [SET ANSI_NULLS ON](#set-ansi_nulls-on)
+        - [SET QUOTED_IDENTIFIER ON](#set-quoted_identifier-on)
+- [SQL GÜVENLİK - KULLANICI SORGULAR](#sql-gÜvenlİk---kullanici-sorgular)
+- [SQL LOGGING](#sql-logging)
+    - [RaiseError](#raiseerror)
 
 <!-- /TOC -->
 
 
 
 [TOC]
+
+# SQL TEMEL SORGULAR
+
+## SELECT
+
+## UPDATE
+
+### UPDATE JOIN
+
+```
+Update t SET t.Column1=100 FROM myTableA t 
+LEFT JOIN myTableB t2 ON t2.ID=t.ID
+
+```
+
+## DELETE
+
+# SQL JOINLER
 
 ## JOINLER
 
@@ -45,7 +73,7 @@ OUTER APPLY (SELECT TOP 1 ADRES1.adr_temsilci_kodu FROM [CARI_HESAP_ADRESLERI] A
 ````
 
 
-
+# SQL EXTENSIONS
 
 ## Function
 
@@ -217,5 +245,29 @@ FROM tbl_sample
 
 ### SET QUOTED_IDENTIFIER ON
 
+
+
+
+
+# SQL GÜVENLİK - KULLANICI SORGULAR
+
+
+
+# SQL LOGGING
+
+## RaiseError
+
+```sql
+
+RAISERROR('Hiç bir sayı sıfıra bölünemez, hata oluştu',0,1);
+
+DECLARE @MaxAmount int = 16;
+DECLARE @minAmount int = 1;
+Raiserror('Total Amount should be less than %d and Greater than %d',@MaxAmount,@MinAmount)
+
+RAISERROR('SAYISI %d',@MUSTSAYI,0,1);
+
+
+```
 
 
