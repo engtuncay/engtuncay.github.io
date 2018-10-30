@@ -21,12 +21,15 @@
     - [Cursor Tanımlama](#cursor-tanımlama)
     - [Case When Yapısı](#case-when-yapısı)
     - [IIF YAPISI](#iif-yapisi)
+    - [Temp Table](#temp-table)
+    - [Global Değişkenler](#global-değişkenler)
     - [Çeşitli Komutlar](#Çeşitli-komutlar)
         - [SET ANSI_NULLS ON](#set-ansi_nulls-on)
         - [SET QUOTED_IDENTIFIER ON](#set-quoted_identifier-on)
 - [SQL GÜVENLİK - KULLANICI SORGULAR](#sql-gÜvenlİk---kullanici-sorgular)
 - [SQL LOGGING](#sql-logging)
     - [RaiseError](#raiseerror)
+    - [Kayıt Edilen Sayısını Bastırma](#kayıt-edilen-sayısını-bastırma)
 
 <!-- /TOC -->
 
@@ -236,6 +239,35 @@ FROM tbl_sample
 ```
 
 
+## Temp Table
+
+```sql
+
+create table #Temp (sira int)
+insert into #Temp values (34463),(34464),(34465),(34466),(34467),(34468
+
+SELECT Tp.sira, Chh2.sayi FROM #Temp Tp
+OUTER APPLY ( SELECT count(*)  as sayi FROM CARI_HESAP_HAREKETLERI Chh
+WHERE Chh.cha_evrakno_sira=Tp.sira AND Chh.cha_evrak_tip = @chh_evraktip 
+AND Chh.cha_evrakno_seri= @seri) as Chh2
+
+
+-- işlem sonra temp table silinir
+Drop Table #Temp
+
+```
+
+
+## Global Değişkenler
+
+- @@ROWCOUNT 
+
+Ne kadar satır etkilendiğini gösterir
+
+-- varchar çevrilir , print de string kullanmak için
+CAST( @@ROWCOUNT as varchar(10))
+
+
 
 ## Çeşitli Komutlar
 
@@ -269,5 +301,12 @@ RAISERROR('SAYISI %d',@MUSTSAYI,0,1);
 
 
 ```
+
+
+## Kayıt Edilen Sayısını Bastırma
+
+
+DELETE FROM STOK_HAREKETLERI where sth_evrakno_seri=@seri and sth_evrakno_sira=@sira and sth_evraktip = @sth_evraktip 
+PRINT  'STOK HAREKETLERİ - DELETED RECORDS :' + CAST( @@ROWCOUNT as varchar(10))
 
 
