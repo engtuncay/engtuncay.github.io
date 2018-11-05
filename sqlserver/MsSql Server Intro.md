@@ -13,23 +13,25 @@
         - [Outer Apply Usage](#outer-apply-usage)
 - [SQL EXTENSIONS](#sql-extensions)
     - [Function](#function)
-        - [Scalar Function (Değer Döndüren Fonksiyon)](#scalar-function-değer-döndüren-fonksiyon)
+        - [Scalar Function (Tek Değer Döndüren Fonksiyon)](#scalar-function-tek-de%C4%9Fer-d%C3%B6nd%C3%BCren-fonksiyon)
         - [Tabular Function](#tabular-function)
-        - [Fonksiyonun Çağrılması](#fonksiyonun-Çağrılması)
-        - [Değişkene Değer Atama](#değişkene-değer-atama)
-        - [Fonksiyondan değer atama](#fonksiyondan-değer-atama)
-    - [Cursor Tanımlama](#cursor-tanımlama)
-    - [Case When Yapısı](#case-when-yapısı)
+        - [Fonksiyonun Çağrılması](#fonksiyonun-%C3%A7a%C4%9Fr%C4%B1lmas%C4%B1)
+        - [Değişkene Değer Atama](#de%C4%9Fi%C5%9Fkene-de%C4%9Fer-atama)
+        - [Fonksiyondan değer atama](#fonksiyondan-de%C4%9Fer-atama)
+    - [Cursor Tanımlama](#cursor-tan%C4%B1mlama)
+    - [Case When Yapısı](#case-when-yap%C4%B1s%C4%B1)
     - [IIF YAPISI](#iif-yapisi)
     - [Temp Table](#temp-table)
-    - [Global Değişkenler](#global-değişkenler)
-    - [Çeşitli Komutlar](#Çeşitli-komutlar)
-        - [SET ANSI_NULLS ON](#set-ansi_nulls-on)
-        - [SET QUOTED_IDENTIFIER ON](#set-quoted_identifier-on)
-- [SQL GÜVENLİK - KULLANICI SORGULAR](#sql-gÜvenlİk---kullanici-sorgular)
+    - [Global Değişkenler](#global-de%C4%9Fi%C5%9Fkenler)
+    - [Çeşitli Komutlar](#%C3%A7e%C5%9Fitli-komutlar)
+        - [SET ANSI_NULLS ON](#set-ansinulls-on)
+        - [SET QUOTED_IDENTIFIER ON](#set-quotedidentifier-on)
+- [TSQL](#tsql)
+    - [IF Kullanımı](#if-kullan%C4%B1m%C4%B1)
+- [SQL GÜVENLİK - KULLANICI SORGULAR](#sql-g%C3%BCvenli%CC%87k---kullanici-sorgular)
 - [SQL LOGGING](#sql-logging)
     - [RaiseError](#raiseerror)
-    - [Kayıt Edilen Sayısını Bastırma](#kayıt-edilen-sayısını-bastırma)
+    - [Kayıt Edilen Sayısını Bastırma](#kay%C4%B1t-edilen-say%C4%B1s%C4%B1n%C4%B1-bast%C4%B1rma)
 
 <!-- /TOC -->
 
@@ -85,7 +87,7 @@ OUTER APPLY (SELECT TOP 1 ADRES1.adr_temsilci_kodu FROM [CARI_HESAP_ADRESLERI] A
 
 
 
-### Scalar Function (Değer Döndüren Fonksiyon)
+### Scalar Function (Tek Değer Döndüren Fonksiyon)
 
 ```mssql
 Create Function dbo.ayadi(@TARIH AS DATETIME)
@@ -234,7 +236,7 @@ END as wecs_system
 ## IIF YAPISI
 
 ```sql
-SELECT [ID],[NAME],[STATUS],IIF([STATUS]='Active', 1,0) [Boolean Status]
+SELECT id,name,status,IIF( status='Active', 1,0) [Boolean Status]
 FROM tbl_sample
 ```
 
@@ -264,8 +266,12 @@ Drop Table #Temp
 
 Ne kadar satır etkilendiğini gösterir
 
--- varchar çevrilir , print de string kullanmak için
+```
+-- varchar çevrilir , print de string kullanmak 
 CAST( @@ROWCOUNT as varchar(10))
+için
+```
+
 
 
 
@@ -279,6 +285,59 @@ CAST( @@ROWCOUNT as varchar(10))
 
 
 
+
+# TSQL 
+
+## IF Kullanımı
+
+```sql
+IF (kosul)
+  BEGIN
+    --Eğer koşulumuz doğru ise bu alandaki ifademiz çalışır.
+  END
+ELSE
+  BEGIN
+    --Eğer koşulumuz doğru değilse bu alandaki ifademiz çalışır.
+  END
+```
+
+```sql
+declare @Toplam int
+--1- Bu bir kural değil ama standart olan ilk önce değişkeni tanımlamaktır.
+select @Toplam = count( * ) from Person.Contact where FirstName like '%b%'
+--2- Burada tablomuzdaki FirstName kolonunda içinde b harfi olan kayıtların toplamını değişkene aktarıyoruz.
+
+if(@Toplam > 2000)
+  begin
+    print 'Fazla Kayıt Var!'
+  end
+else if(@Toplam < 2000)
+  begin
+    print 'Az Kayıt Var!'
+  end
+else
+  begin
+    print 'Az Kayıt Var!'
+  end
+```
+
+```sql
+IF((SELECT COUNT( * ) FROM Person.Contact WHERE FirstName LIKE '%b%') > 2000)
+begin
+  print '2000'den Fazla Kayıt Var!'
+end
+```
+
+```sql
+IF((SELECT COUNT( * ) FROM Production.Product WHERE ListPrice > 0 AND Color IS NOT NULL) > 100)
+BEGIN
+  print 'Çok fazla kayıt var.'
+END
+ELSE
+BEGIN
+  print 'Çok az kayıt var.'
+END
+```
 
 
 # SQL GÜVENLİK - KULLANICI SORGULAR
@@ -298,8 +357,6 @@ DECLARE @minAmount int = 1;
 Raiserror('Total Amount should be less than %d and Greater than %d',@MaxAmount,@MinAmount)
 
 RAISERROR('SAYISI %d',@MUSTSAYI,0,1);
-
-
 ```
 
 
