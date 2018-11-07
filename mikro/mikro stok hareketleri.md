@@ -69,10 +69,30 @@ No	Alan Adı	Tip	Açıklama	Detay
 ## 21	sth_cins	Tinyint	Hareket Cinsi	
 0:Toptan 1:Perakende 2:Dış Ticaret 3:Stok Virman 4:Fire 5:Sarf 6:Transfer 7:Üretim 8:Fason 9:Değer Farkı 10:Sayım 11:Stok Açılış 12:İthalat-İhracat 13:Hal 14:Müstahsil 15:Müstahsil Değer Farkı 14:Kabzımal 15:Gider Pusulası
 ## 22	sth_normal_iade	Tinyint	Normal / İade ?	0:Normal 1:İade
-## 23	sth_evraktip	Tinyint	Evrak Tipi	
-0:Depo Çıkış Fişi 1:Çıkış İrsaliyesi 2:Depo Transfer Fişi 3:Giriş Faturası 4:Çıkış Faturası
 
-5:Stoklara İthalat Masraf Yansıtma Dekontu 6:Stok Virman Fişi 7:Üretim Fişi 8:İlave Enflasyon Maliyet Fişi 9:Stoklara İlave Maliyet Yedirme Fişi 10:Antrepolardan Mal Millileştirme Fişi 11:Antrepolar Arası Transfer Fişi 12:Depo Giriş Fişi 13:Giriş İrsaliyesi 14:Fason Giriş Çıkış Fişi 15:Depolar Arası Satış Fişi 16:Stok Gider Pusulası Fişi 17:Depolar Arası Nakliye Fişi
+## 23	sth_evraktip	Tinyint	Evrak Tipi	
+2:Depo Transfer Fişi 
+12:Depo Giriş Fişi 
+0:Depo Çıkış Fişi 
+
+3:Giriş Faturası 
+4:Çıkış Faturası
+
+13:Giriş İrsaliyesi 
+1:Çıkış İrsaliyesi 
+
+---
+5:Stoklara İthalat Masraf Yansıtma Dekontu 
+6:Stok Virman Fişi 
+7:Üretim Fişi 
+8:İlave Enflasyon Maliyet Fişi 
+9:Stoklara İlave Maliyet Yedirme Fişi 
+10:Antrepolardan Mal Millileştirme Fişi 
+11:Antrepolar Arası Transfer Fişi 
+14:Fason Giriş Çıkış Fişi 
+15:Depolar Arası Satış Fişi 
+16:Stok Gider Pusulası Fişi 
+17:Depolar Arası Nakliye Fişi
 
 ## 24	sth_evrakno_seri	dbo.nvarchar_evrakseri	Evrak Seri No	 
 ## 25	sth_evrakno_sira	Integer	Evrak Sıra No	 

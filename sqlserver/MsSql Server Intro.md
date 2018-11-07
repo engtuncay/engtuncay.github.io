@@ -359,6 +359,9 @@ Raiserror('Total Amount should be less than %d and Greater than %d',@MaxAmount,@
 RAISERROR('SAYISI %d',@MUSTSAYI,0,1);
 ```
 
+**Ek Kaynak**
+
+https://docs.microsoft.com/en-us/sql/t-sql/language-elements/raiserror-transact-sql?view=sql-server-2017
 
 ## Kayıt Edilen Sayısını Bastırma
 
