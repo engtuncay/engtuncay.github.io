@@ -5,6 +5,8 @@
     - [Class ( Sınıflar )](#class--s%C4%B1n%C4%B1flar)
         - [Sınıflara (Class) property ekleme](#s%C4%B1n%C4%B1flara-class-property-ekleme)
     - [Encapsulation](#encapsulation)
+- [ADO (DB)](#ado-db)
+    - [Disconnected Mimari](#disconnected-mimari)
 
 
 ---
@@ -80,4 +82,19 @@ veya
 ----
 
 ## Encapsulation
+
+
+
+# ADO  (DB)
+
+## Disconnected Mimari
+
+                        |-- Command -- Reader -- List<T>
+                        |                      
+Database -- Connection  |-- Adapter -- DataSet--|-- DataTable
+                                                |-- DataTable
+
+
+
+
 
