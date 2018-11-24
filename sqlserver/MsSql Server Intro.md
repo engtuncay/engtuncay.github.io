@@ -18,6 +18,7 @@
     - [Fonksiyonun Çağrılması](#fonksiyonun-%C3%A7a%C4%9Fr%C4%B1lmas%C4%B1)
     - [Değişkene Değer Atama](#de%C4%9Fi%C5%9Fkene-de%C4%9Fer-atama)
     - [Fonksiyondan değer atama](#fonksiyondan-de%C4%9Fer-atama)
+  - [Stored Procedure](#stored-procedure)
   - [Cursor Tanımlama](#cursor-tan%C4%B1mlama)
   - [Case When Yapısı](#case-when-yap%C4%B1s%C4%B1)
   - [IIF YAPISI](#iif-yapisi)
@@ -153,6 +154,25 @@ select dbo.ayadi('20180301')
 select @value = dbo.getNumber()
 ```
 
+
+## Stored Procedure
+
+
+```sql
+CREATE PROC SP_UPT_MAAS
+( @bolum nvarchar(10) )
+WITH ENCRYPTION
+AS
+BEGIN
+UPDATE dbo.Calisanlar SET maas = maas * 1.20 WHERE bolum=@bolum (1)
+END
+
+```
+
+Kullanımı
+```sql
+exec IletisimUnvani @ContactTitle  = 'Owner';
+```
 
 
 ## Cursor Tanımlama
