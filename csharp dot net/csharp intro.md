@@ -124,7 +124,7 @@ Add(out num1, num2)
 
 ### Ref Keyword ile çalışmak 
 
-- Method tanımı
+Method tanımı
 
 static int Add ( ref int number1, int number2) 
 
