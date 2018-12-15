@@ -7,6 +7,7 @@
   - [UPDATE](#update)
     - [UPDATE JOIN](#update-join)
   - [DELETE](#delete)
+    - [DELETE WITH JOIN](#delete-with-join)
 - [SQL JOINLER](#sql-joinler)
   - [JOINLER](#joinler)
     - [Outer Join Usage : Draft](#outer-join-usage--draft)
@@ -62,6 +63,25 @@ Update alias SET alias.col=... (select sorgusunun FROM ve devamı eklenir)
 
 
 ## DELETE
+
+### DELETE WITH JOIN
+
+```sql
+DELETE w
+FROM WorkRecord2 w
+INNER JOIN Employee e ON EmployeeRun=EmployeeNo
+WHERE Company = '1' AND Date = '2013-05-06'
+```
+
+Syntax
+```sql
+DELETE alias FROM mytbl alias
+INNER JOIN ...normal select sql devam ediyor...
+
+```
+
+
+
 
 # SQL JOINLER
 
