@@ -97,10 +97,21 @@ INNER JOIN ...normal select sql devam ediyor...
 
 
 
+The APPLY operator allows you to join two table expressions; the right table expression is processed every time for each row from the left table expression. As you might have guessed, the left table expression is evaluated first and then the right table expression is evaluated against each row of the left table expression for the final result set. The final result set contains all the selected columns from the left table expression followed by all the columns of the right table expression.(*source1)
+
+SQL Server APPLY operator has two variants; CROSS APPLY and OUTER APPLY
+- The CROSS APPLY operator returns only those rows from the left table expression (in its final output) if it matches with the right table expression. In other words, the right table expression returns rows for the left table expression match only.(*source1)
+
+- The OUTER APPLY operator returns all the rows from the left table expression irrespective of its match with the right table expression. For those rows for which there are no corresponding matches in the right table expression, it contains NULL values in columns of the right table expression.(*source1)
+
+> So you might conclude, **the CROSS APPLY is equivalent to an INNER JOIN** (or to be more precise its like a CROSS JOIN with a correlated sub-query) with an implicit join condition of 1=1 whereas **the OUTER APPLY is equivalent to a LEFT OUTER JOIN**. (*source1)
+
+source1 : https://www.mssqltips.com/sqlservertip/1958/sql-server-cross-apply-and-outer-apply/
+
+
 ````sql
 select ADRES.adr_temsilci_kodu ,* FROM [CARI_HESAPLAR] SUBECH 
 OUTER APPLY (SELECT TOP 1 ADRES1.adr_temsilci_kodu FROM [CARI_HESAP_ADRESLERI] ADRES1 WHERE ADRES1.adr_cari_kod = SUBECH.cari_kod) AS ADRES
-
 
 
 ````
