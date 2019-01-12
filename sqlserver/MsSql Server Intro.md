@@ -76,7 +76,8 @@ WHERE Company = '1' AND Date = '2013-05-06'
 Syntax
 ```sql
 DELETE alias FROM mytbl alias
-INNER JOIN ...normal select sql devam ediyor...
+INNER JOIN 
+WHERE ...
 
 ```
 
@@ -128,7 +129,7 @@ OUTER APPLY (SELECT TOP 1 ADRES1.adr_temsilci_kodu FROM [CARI_HESAP_ADRESLERI] A
 
 ### Scalar Function (Tek Değer Döndüren Fonksiyon)
 
-```mssql
+```sql
 Create Function dbo.ayadi(@TARIH AS DATETIME)
 RETURNS VARCHAR(20)
 AS
@@ -148,7 +149,7 @@ END
 
 ### Tabular Function
 
-```
+```sql
 CREATE FUNCTION GetAllProducts(@Category  NVARCHAR(25) )
 RETURNS TABLE
 AS
@@ -208,7 +209,7 @@ exec IletisimUnvani @ContactTitle  = 'Owner';
 
 ## Cursor Tanımlama
 
-```mssql
+```sql
 -- Sqlserverdaki Veritabanlarını Listeler
 
 DECLARE @name VARCHAR(50) -- database name 
@@ -264,9 +265,6 @@ DB : OZPASENTEGRE
 ```
 
 
-
-
-
 ## Case When Yapısı
 
 That format requires you to use either:
@@ -312,7 +310,7 @@ WHERE Chh.cha_evrakno_sira=Tp.sira AND Chh.cha_evrak_tip = @chh_evraktip
 AND Chh.cha_evrakno_seri= @seri) as Chh2
 
 
--- işlem sonra temp table silinir
+-- işlemden sonra temp table silinir
 Drop Table #Temp
 
 ```
@@ -324,10 +322,10 @@ Drop Table #Temp
 
 Ne kadar satır etkilendiğini gösterir
 
-```
+```sql
 -- varchar çevrilir , print de string kullanmak 
-CAST( @@ROWCOUNT as varchar(10))
-için
+CAST(@@ROWCOUNT as varchar(10))
+
 ```
 
 
