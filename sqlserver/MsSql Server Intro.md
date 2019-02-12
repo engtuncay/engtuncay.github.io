@@ -150,7 +150,7 @@ END
 ### Tabular Function
 
 ```sql
-CREATE FUNCTION GetAllProducts(@Category  NVARCHAR(25) )
+CREATE FUNCTION GetAllProducts(@Category NVARCHAR(25) )
 RETURNS TABLE
 AS
 RETURN
