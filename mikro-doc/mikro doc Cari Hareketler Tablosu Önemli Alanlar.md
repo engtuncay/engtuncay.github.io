@@ -59,7 +59,11 @@
 
 22:Firma Kredi Kartı 
 
-23:Vade Farkı Sıfırlama 24:Hal Faturası 25:Müstahsil Fatura 26:Stok Gider Pusulası 
+23:Vade Farkı Sıfırlama 
+
+24:Hal Faturası 
+25:Müstahsil Fatura 
+26:Stok Gider Pusulası 
 
 27:Gider Makbuzu 
 
