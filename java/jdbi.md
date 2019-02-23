@@ -4,26 +4,26 @@
 <!-- TOC -->
 
 - [Jdbi 3](#jdbi-3)
-    - [Jdbi Nedir](#jdbi-nedir)
-    - [Maven Repo (draft)](#maven-repo-draft)
-    - [Install (draft)](#install-draft)
+  - [Jdbi Nedir](#jdbi-nedir)
+  - [Maven Repo (draft)](#maven-repo-draft)
+  - [Install (draft)](#install-draft)
 - [Usage of Handle](#usage-of-handle)
-    - [withHandle Method](#withhandle-method)
-    - [useHandle Method](#usehandle-method)
+  - [withHandle Method](#withhandle-method)
+  - [useHandle Method](#usehandle-method)
 - [Parameter Binding (draft)](#parameter-binding-draft)
 - [Queries (Sorgular)](#queries-sorgular)
-    - [Select Queries](#select-queries)
-        - [Select Single Row (Entity) - Bind Object](#select-single-row-entity---bind-object)
-        - [Select Single Value - Bind Variable](#select-single-value---bind-variable)
-        - [Select Rows - Bind List of Objects](#select-rows---bind-list-of-objects)
-        - [Select Rows - Bind Map (draft)](#select-rows---bind-map-draft)
-    - [Insert](#insert)
-        - [Insert By WithHandle Method By Binding Bean](#insert-by-withhandle-method-by-binding-bean)
-        - [Multiple Insert With One Transaction](#multiple-insert-with-one-transaction)
-        - [Get Generated ID After Insert Query (draft)](#get-generated-id-after-insert-query-draft)
-    - [Update Query (draft)](#update-query-draft)
-    - [Delete Query (draft)](#delete-query-draft)
-    - [Create Query (draft)](#create-query-draft)
+  - [Select Queries](#select-queries)
+    - [Select Single Row (Entity) - Bind Object](#select-single-row-entity---bind-object)
+    - [Select Single Value - Bind Variable](#select-single-value---bind-variable)
+    - [Select Rows - Bind List of Objects](#select-rows---bind-list-of-objects)
+    - [Select Rows - Bind Map (draft)](#select-rows---bind-map-draft)
+  - [Insert](#insert)
+    - [Insert By WithHandle Method By Binding Bean](#insert-by-withhandle-method-by-binding-bean)
+    - [Multiple Insert With One Transaction](#multiple-insert-with-one-transaction)
+    - [Get Generated ID After Insert Query (draft)](#get-generated-id-after-insert-query-draft)
+  - [Update Query (draft)](#update-query-draft)
+  - [Delete Query (draft)](#delete-query-draft)
+  - [Create Query (draft)](#create-query-draft)
 - [Plug-Ins (draft)](#plug-ins-draft)
 
 <!-- /TOC -->
@@ -123,11 +123,26 @@ MapToBean Alternatifler
 
 ```java
 
-Integer rowCountUpdate = jdbi.withHandle(handle -> {
-    return handle.createUpdate(new OzJdbi().getInsertQuery(TblFiyatVade.class))
-            .bindBean(tblFiyatVade)
-            .execute(); // returns row count updated
-});
+Jdbi jdbi = JdbiEntegre.getConnection();
+
+Integer rowCountUpdate = null;
+
+try {
+    rowCountUpdate = jdbi.withHandle(handle -> {
+        return handle.createUpdate(new FiJdbiHelper().getInsertQueryFi(TblMikroEvrakOnay.class))
+                .bindBean(meo)
+                .execute(); // returns row count updated
+    });
+
+} catch (Exception ex) {
+    Loghelper.debugException(getClass(), ex);
+}
+
+if (rowCountUpdate != null & rowCountUpdate > 0) return new FnDbResult(true);
+
+return new FnDbResult(false);
+
+// veya boolean değer döndermek istenirse
 
 if(rowCountUpdate!=null & rowCountUpdate>0) return true;
 return false;
