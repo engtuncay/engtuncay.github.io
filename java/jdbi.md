@@ -18,7 +18,7 @@
     - [Select Rows - Bind List of Objects](#select-rows---bind-list-of-objects)
     - [Select Rows - Bind Map (draft)](#select-rows---bind-map-draft)
   - [Insert](#insert)
-    - [Insert By WithHandle Method By Binding Bean](#insert-by-withhandle-method-by-binding-bean)
+    - [Insert/Update By WithHandle Method By Binding Bean](#insertupdate-by-withhandle-method-by-binding-bean)
     - [Multiple Insert With One Transaction](#multiple-insert-with-one-transaction)
     - [Get Generated ID After Insert Query (draft)](#get-generated-id-after-insert-query-draft)
   - [Update Query (draft)](#update-query-draft)
@@ -119,7 +119,7 @@ MapToBean Alternatifler
 ## Insert
 
 
-### Insert By WithHandle Method By Binding Bean
+### Insert/Update By WithHandle Method By Binding Bean
 
 ```java
 
