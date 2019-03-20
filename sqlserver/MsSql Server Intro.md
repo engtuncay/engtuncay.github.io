@@ -8,6 +8,7 @@
     - [UPDATE JOIN](#update-join)
   - [DELETE](#delete)
     - [DELETE WITH JOIN](#delete-with-join)
+  - [INSERT](#insert)
 - [SQL JOINLER](#sql-joinler)
   - [JOINLER](#joinler)
     - [Outer Join Usage : Draft](#outer-join-usage--draft)
@@ -81,7 +82,26 @@ WHERE ...
 
 ```
 
+## INSERT
 
+Syntax
+```sql
+INSERT INTO table_name (column1, column2, column3, ...)
+VALUES (value1, value2, value3, ...);
+```
+
+If you are adding values for all the columns of the table, you do not need to specify the column names in the SQL query. However, make sure the order of the values is in the same order as the columns in the table. The INSERT INTO syntax would be as follows:
+
+```sql
+INSERT INTO table_name
+VALUES (value1, value2, value3, ...);
+```
+
+**Example**
+```sql
+INSERT INTO Customers (CustomerName, ContactName, Address, City, PostalCode, Country, CustomerNo)
+VALUES ('Ahmet Sögüt', 'Ali Sögüt', 'Batıkent Mah', 'Gaziantep', '27000', 'Turkey',10);
+```
 
 
 # SQL JOINLER
