@@ -1,54 +1,66 @@
 
+IslemKod		evraktip	cinsi	cha_tip	cha _normal _Iade	aciklama   -- Evrak Adları
+1	:	0	6	1	0	Alış Faturası
 
-chaislemid	evraktip |	cinsi	| cha_tip|	cha_normal_Iade|	aciklama|	aciklamaek
+2	:	0	6	1	1	Müşt.den İade (Bozuk ve Saglam) Faturası
 
-1	1	0	1	0	Nakit Tahsilat	
+3	:	63	6	0	0	Satış Faturasi
 
-2	34	0	1	0	Havale (Alacak)	
+4	:	63	6	0	1	Satıcıya İade Faturası
 
-3	35	0	0	0	Havale Ödeme (Borç)(Gönderilen)	
+5	:	0	8	1	0	Alınan Hizmet Faturası
 
-4	4	1	1	0	Çek Alınan (Müşteri Çek Giriş)	
+6	:	63	8	0	0	Verilen Hizmet Faturası
 
-5	5	1	0	0	Portföydeki Çek Nakit (Borç)	
+7	:	1	0	1	0	Nakit Tahsilat
 
-6	11	1	0	0	Takas Çek Çıkış (Borç)	
+8	:	34	0	1	0	Havale (Alacak)
 
-7	14	1	1	0	Takas Çek Ödeme (Alacak)	
+9	:	35	0	0	0	Havale Ödeme (Borç)(Gönderilen)
 
-8	67	3	0	0	Çek Verilen(Borç) (Firma Çek Çıkış)	
+10	:	37	0	1	0	Kasa Masraf Fişi (Alacak)
 
-9	31	5	0	0	BD Borç Dekontu	Borç Dekontu olarak geçiyor Mikro Dökümanda 
+11	:	4	1	1	0	Çek Alınan (Müşteri Çek Giriş)
 
-10	32	5	1	0	BD Alacak Dekontu	
+12	:	5	1	0	0	Portföydeki Çek Nakit (Borç)
 
-11	33	5	0	0	Genel Amaçlı Virman Dekontu(Borç)	Virman Dekontu olarak geçiyor Mikro 
-Dökümanında
+13	:	11	1	0	0	Takas Çek Çıkış (Borç)
 
-12	33	5	1	0	Genel Amaçlı Virman Dekontu(Alacak)	
+14	:	14	1	1	0	Takas Çek Ödeme (Alacak)
 
-13	57	5	0	0	Cari Hesaplar Arası Virman (Borç)	Müşteri Satıcı olarak geçiyor Mikro Dökümanda 
+15	:	29	16	0	0	Açılış (Borç)
 
-14	57	5	1	0	Cari Hesaplar Arası Virman (Alacak)	
+16	:	29	16	1	0	Açılış (Alacak)
 
-15	110	5	0	0	Kasalar Arası Virman(Borç)	
+17	:	1	19	1	0	Kredi Kartı Tahsilatı (Müşteri)
 
-16	110	5	1	0	Kasalar Arasi Virman(Alacak)	
+18	:	54	19	0	0	Kredi Kartı Ödeme(Borç)
 
-17	0	6	1	0	Alış Faturası	
+19	:	104	19	0	0	Bankalar Arası Kredi Kartı Transferi(Borç)
 
-18	63	6	0	0	Satış Faturasi	
+20	:	64	22	0	0	Kredi Kartı Ödeme(Firma)(Borç)Tediye Makbuzu
 
-19	0	8	1	0	Alınan Hizmet Faturası	
-20	63	8	0	0	Verilen Hizmet Faturası	
-21	29	16	0	0	Açılış (Borç)	
-22	29	16	1	0	Açılış (Alacak)	
-23	1	19	1	0	Kredi Kartı Tahsilatı (Müşteri)	
-24	54	19	0	0	Müşteri Kredi Kartı Ödeme(Borç)	
-25	104	19	0	0	Bankalar Arası Kredi Kartı Transferi(Borç)	
-26	64	22	0	0	Kredi Kartı Ödeme(Firma)(Borç)Tediye Makbuzu	
-27	55	27	1	0	Gider Makbuzu(Alacak)	
-28	37	0	1	0	Kasa Masraf Fişi (Alacak)	
-29	0	6	1	1	İade (Bozuk ve Saglam) Faturası	
-30	63	6	0	1	Satıcıya İade Faturası	
+21	:	55	27	1	0	Gider Makbuzu(Alacak)
+
+22	:	67	3	0	0	Çek Verilen(Borç) (Firma Çek Çıkış)
+
+23	:	31	5	0	0	BD Borç Dekontu
+
+24	:	32	5	1	0	BD Alacak Dekontu
+
+25	:	33	5	0	0	Genel Amaçlı Virman Dekontu(Borç)
+
+26	:	33	5	1	0	Genel Amaçlı Virman Dekontu(Alacak)
+
+27	:	57	5	0	0	Cari Hesaplar Arası Virman (Borç)
+
+28	:	57	5	1	0	Cari Hesaplar Arası Virman (Alacak)
+
+29	:	110	5	0	0	Kasalar Arası Virman(Borç)
+
+30	:	110	5	1	0	Kasalar Arasi Virman(Alacak)
+
+31	:	100	5	0	0	Cari Borç Dekontu
+
+32	:	101	5	1	0	Cari Alacak Dekontu
 
