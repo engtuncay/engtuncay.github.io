@@ -2,6 +2,7 @@
 2018
 
 IslemKod		evraktip	cinsi	cha_tip	cha _normal _Iade	aciklama   -- Evrak Adları
+
 1	:	0	6	1	0	Alış Faturası
 
 2	:	0	6	1	1	Müşt.den İade (Bozuk ve Saglam) Faturası
