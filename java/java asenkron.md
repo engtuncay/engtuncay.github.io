@@ -1,7 +1,8 @@
 
 - [Java 8 – CompletableFuture ile Asenkron Programlama](#java-8-%E2%80%93-completablefuture-ile-asenkron-programlama)
   - [Syncronous vs. Asyncronous](#syncronous-vs-asyncronous)
-  - [CompletableFuture#runAsync](#completablefuturerunasync)
+  - [CompletableFuture](#completablefuture)
+  - [CompletableFuture#runAsync - Join Metodu](#completablefuturerunasync---join-metodu)
   - [CompletableFuture#allOf](#completablefutureallof)
   - [CompletableFuture#anyOf](#completablefutureanyof)
   - [CompletableFuture#supplyAsync](#completablefuturesupplyasync)
@@ -53,6 +54,8 @@ Cevap: Math.sum(5,3) = 8
 Java dilinin genel doğası gereği bu iki iş sırasıyla işletilecektir. Fakat dikkat edilirse, yapılan iki iş birbirinden tamamen bağımsızdır. Biri DB’den veri çekiyor, diğeri ise dosyalama sisteminden dosya okuyor. Dolayısıyla, bu işlerden birinin başlaması için diğer işin tamamlanması beklenmek zorunda değil.
 Bu iki metodun asenkron olarak çalışması için geleneksel çokişlemcikli programlama ile harici asenkron iş kolları oluşturulabilir. Fakat, burada geleneksel yöntemlerin dışında CompletableFuture nesnesi üzerinden gitmekte fayda görüyorum.
 
+### CompletableFuture
+
 
 ```java
 public class CompletableFuture<T> implements Future<T>, CompletionStage<T> {
@@ -60,7 +63,7 @@ public class CompletableFuture<T> implements Future<T>, CompletionStage<T> {
 }
 ```
 
-CompletableFuture sınıfı Future ve CompletionStage arayüzleri türünden jenerik bir sınıf. CompletableFuture türünden nesneler, nesnenin yapılandırıcısı üzerinden veya CompletableFuture ‘nin çeşitli statik metodlarıyla oluşturulabilmektedir.
+CompletableFuture sınıfı **Future** ve **CompletionStage** arayüzleri türünden jenerik bir sınıf. CompletableFuture türünden nesneler, **nesnenin yapılandırıcısı** üzerinden veya **CompletableFuture ‘nin çeşitli statik metodlarıyla** oluşturulabilmektedir.
 
 CompletableFuture ile doğası senkron koşmak olan bir işi, asenkron koşar hale getirebilirsiniz. Aslında yapılan iş, senkron koşan işin arka plana itilerek koşturulması ve mevcut program akışının kesintiye uğratılmamasıdır. CompletableFuture nesneleri, ekstra olarak tanımlanmadığı sürece tek bir ForkJoin Thread havuzu ile işlerini asenkron olarak arka planda koşturmaktadır.
 Şimdi yukarıdaki senkron örneği asenkron hale getirelim. Bunun için CompletableFuture#runAsync metodu kullanılabilir.
@@ -73,7 +76,7 @@ return f;
 
 ```
 
-### CompletableFuture#runAsync
+### CompletableFuture#runAsync - Join Metodu
 
 CompletableFuture#runAsync metodu Runnable türünden bir görev sınıfı kabul etmektedir, arından CompletableFuture türünden bir nesne döndürmektedir. Parametre olarak iletilen Runnable nesnesi, arkaplanda asenkron olarak koşturulmaktadır.
 
@@ -103,8 +106,10 @@ Yukarıdaki (1) ve (2) numaralı işler bu noktadan sonra arkaplanda ForkJoin th
 Peki şimdi bu iki asenkron görevin tamamlanma süresi ne kadar olacak?
 Cevap: Math.max(5,3) = 5
 Burada iki iş birden hemen hemen aynı anda başlayacağı için, iki işin toplamda tamamlanma süresi yaklaşık olarak en fazla süren görev kadar olacaktır.
+
 NOTE
-CompletableFuture#join metodu, asenkron olarak koşturulan görev tamamlanana kadar, uygulama akışının mevcut satırda askıda kalmasını sağlar. Yani (3)  ve (4) satırlarından sonraki satırlarda, yukarıdaki iki işin birden tamamlanmış olduğunu garanti edebiliriz.
+
+**CompletableFuture#join metodu, asenkron olarak koşturulan görev tamamlanana kadar, uygulama akışının mevcut satırda askıda kalmasını sağlar**. Yani (3)  ve (4) satırlarından sonraki satırlarda, yukarıdaki **iki işin birden tamamlanmış olduğunu garanti edebiliriz**.
 
 ### CompletableFuture#allOf
 
