@@ -2,9 +2,11 @@
 - [Java 8 – CompletableFuture ile Asenkron Programlama](#java-8-%E2%80%93-completablefuture-ile-asenkron-programlama)
   - [Syncronous vs. Asyncronous](#syncronous-vs-asyncronous)
   - [CompletableFuture#runAsync](#completablefuturerunasync)
+  - [CompletableFuture#allOf](#completablefutureallof)
   - [CompletableFuture#anyOf](#completablefutureanyof)
   - [CompletableFuture#supplyAsync](#completablefuturesupplyasync)
   - [CompletableFuture#runAfterBoth*](#completablefuturerunafterboth)
+  - [CompletableFuture#runAfterEither*](#completablefuturerunaftereither)
   - [CompletableFuture#handle*](#completablefuturehandle)
 
 
@@ -13,6 +15,8 @@
 
 ## Java 8 – CompletableFuture ile Asenkron Programlama
 Tarih : 18 Kasım 2014
+
+Yazar : Rahman USTA
 
 CompletableFuture sınıfı, Java 8 içerisinde asenkron operasyonlar için özelleştirilen bir sınıftır. Java ortamında Java SE ve Java EE teknolojilerinde bir çok asenkron programlama imkanı halihazırda geliştiricilere sunulmaktadır. CompletableFuture sınıfı ise, asenkron programla ihtiyaçlarına çok daha genel çözümler getirmektedir.
 
@@ -101,14 +105,19 @@ Cevap: Math.max(5,3) = 5
 Burada iki iş birden hemen hemen aynı anda başlayacağı için, iki işin toplamda tamamlanma süresi yaklaşık olarak en fazla süren görev kadar olacaktır.
 NOTE
 CompletableFuture#join metodu, asenkron olarak koşturulan görev tamamlanana kadar, uygulama akışının mevcut satırda askıda kalmasını sağlar. Yani (3)  ve (4) satırlarından sonraki satırlarda, yukarıdaki iki işin birden tamamlanmış olduğunu garanti edebiliriz.
-CompletableFuture#allOf
+
+### CompletableFuture#allOf
+
 Birden fazla CompletableFuture nesnesini birleştirir. Ancak herbir iş birden tamamlandığında, CompletableFuture nesnesi tamamlandı bilgisine sahip olur.
 
+```java
 public static CompletableFuture<Void> allOf(CompletableFuture<?>... cfs) {
 
 ...
 
 }
+```
+
 
 Örneğin;
 
@@ -153,6 +162,8 @@ Bitti. // 15. saniyede
 
 Birden fazla CompletableFuture nesnesini birleştirir. Herhangi bir görev tamamlandığında, CompletableFuture nesnesi tamamlandı bilgisine sahip olur.
 Örneğin;
+
+```java
 CompletableFuture<Void> future1 = CompletableFuture.runAsync(() -> {
 ...
 Thread.sleep(5000);
@@ -176,16 +187,22 @@ System.out.println("Bir arada iki derede.");
 anyOf.join();
 
 System.out.println("Bitti.");
-Çıktı
+
+// Çıktı
+
 Bir arada iki derede. // 0. saniyede
 İlk görev tamamlandı.. // 5. saniyede
 Bitti. // 5. saniyede
 Diğer görev tamamlandı.. // 15. saniyede
 
+```
+
 ### CompletableFuture#supplyAsync
 
 CompletableFuture#supplyAsync metodu CompletableFuture#runAsync metodu gibidir. Fakat koşma sonucunda geriye bir sonuç döndürebilmektedir. Bir iş sonunda geriye hesaplanmış bir değer döndürmeye ihtiyaç duyulduğu noktada kullanılabilir.
 Örneğin, /var/log dizinindeki tüm dosya ve klasörlerin listesini hesaplatmak istiyoruz diyelim.
+
+```java
 CompletableFuture<List<Path>> future = CompletableFuture.supplyAsync(() -> {
 Stream<Path> list = Stream.of();
 
@@ -198,6 +215,8 @@ e.printStackTrace();
 return list.collect(Collectors.toList());
 
 });
+```
+
 Bu ihtiyacı Files#list metodu ile sağlayabiliriz. Files#list metodu tanımlanan dizindeki tüm dizin ve dosyaları bir Path listesi olarak sunmaktadır. Dizindeki dosya ve dizin sayısına göre bir sonucun elde edilmesi belirli bir zaman gerektirebilir.
 
 NOTE
@@ -235,7 +254,10 @@ List<Path> liste = future.join(); (1)
 1.	İş bitiminde elde edilen sonuç listesi
 
 İkinci yol, thenAccept* metodu kullanmak
+
 thenAccept metodu ile callback stilinde asenkron işlerin sonuçları elde edilebilir. thenAccept metodu Consumer<T> türünden bir nesne kabul etmekte ve sonucu onun üzerinden sunmaktadır.
+
+```java
 CompletableFuture<List<Path>> future = CompletableFuture.supplyAsync(() -> {
 Stream<Path> list = Stream.of();
 
@@ -252,6 +274,8 @@ return list.collect(Collectors.toList());
 future.thenAccept( (List<Path> paths) -> {
 // liste burada
 });
+```
+
 
 Yukarıdaki thenAccept ile, CompletableFuture nesnesine bir hook tanımlanmış olur. İş bitiminde sonuç elde edildiği zaman bu metod otomatik olarak işletilir. Sonuç parametre olarak geliştiriciye sunulur.
 
@@ -276,8 +300,13 @@ return 10;
 future1.runAfterBoth(future2,()->{
 System.out.println("İkisi birden bitti"); // 5. saniyede
 });
-CompletableFuture#runAfterEither*
+```
+
+### CompletableFuture#runAfterEither*
 İki asenkron işden herhangi biri tamamlandığında bir Runnable türünden nesneyi koşturmayı sağlar.
+
+```java
+
 CompletableFuture<Void> future1 = CompletableFuture.runAsync(() -> {
 try {
 Thread.sleep(5000);
@@ -294,7 +323,6 @@ future1.runAfterEither(future2,()->{
 System.out.println("İkisinden biri tamamlandı.."); // 0. saniyede
 });
 ```
-
 
 ### CompletableFuture#handle*
 
