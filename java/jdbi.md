@@ -147,6 +147,9 @@ return new FnDbResult(false);
 if(rowCountUpdate!=null & rowCountUpdate>0) return true;
 return false;
 
+
+// stf(sqlUpdate).sqlFmtAt()
+
 ```
 
 ### Multiple Insert With One Transaction
