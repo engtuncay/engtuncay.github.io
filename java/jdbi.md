@@ -1,6 +1,12 @@
 
 
 
+Jdbi Ref
+
+http://jdbi.org/#_introduction_to_jdbi
+
+
+
 <!-- TOC -->
 
 - [Jdbi 3](#jdbi-3)
@@ -13,7 +19,7 @@
 - [Parameter Binding (draft)](#parameter-binding-draft)
 - [Queries (Sorgular)](#queries-sorgular)
   - [Select Queries](#select-queries)
-    - [Select Single Row (Entity) - Bind Object](#select-single-row-entity---bind-object)
+    - [Select Single Row (Entity) - Bind To Entity](#select-single-row-entity---bind-to-entity)
     - [Select Single Value - Bind Variable](#select-single-value---bind-variable)
     - [Select Rows - Bind List of Objects](#select-rows---bind-list-of-objects)
     - [Select Rows - Bind Map (draft)](#select-rows---bind-map-draft)
@@ -24,6 +30,9 @@
   - [Update Query (draft)](#update-query-draft)
   - [Delete Query (draft)](#delete-query-draft)
   - [Create Query (draft)](#create-query-draft)
+  - [Solutions](#solutions)
+    - [Exception while binding named parameter](#exception-while-binding-named-parameter)
+    - [UnableToCreateStatementException: Exception while binding named parameter 'xxxxxxxx' - Caused by: com.microsoft.sqlserver.jdbc.SQLServerException: The index 12 is out of range.](#unabletocreatestatementexception-exception-while-binding-named-parameter-xxxxxxxx---caused-by-commicrosoftsqlserverjdbcsqlserverexception-the-index-12-is-out-of-range)
 - [Plug-Ins (draft)](#plug-ins-draft)
 
 <!-- /TOC -->
@@ -58,17 +67,23 @@ Java Jdbi Helper Library
 
 ## Select Queries
 
-### Select Single Row (Entity) - Bind Object
+### Select Single Row (Entity) - Bind To Entity
 
 Tek obje döndüren sorguların kullanımı :
 
 ```java
-Optional<TBLURUN> tblurunOptional = jdbi.withHandle(handle -> {
-    return handle.createQuery(stf(sqseUrunOzetBirim).sqlFmtAt())
-        .bind("TXTKOD", urunkod.trim())
-        .mapToBean(TBLURUN.class)
-        .findFirst();
+
+Jdbi jdbi = JdbiMikroFactory.getJdbiByAppProp(getConnProfile());
+
+Optional<MkCARI_HESAPLAR> optResult = jdbi.withHandle(handle -> {
+    return handle.createQuery(stf(sqslCariHesaplar).sqlFmtAt())
+            .bind(Mkfields.cari_kod.toString(), cariKod)
+
+            .mapToBean(MkCARI_HESAPLAR.class)
+            .findFirst();
 });
+
+return optResult;
 
 ```
 
@@ -188,6 +203,32 @@ Boolean result = jdbi.inTransaction(handle -> {
 ## Create Query (draft)
 
 
+## Solutions
+
+### Exception while binding named parameter
+
+List bind çalışmıyorsa eğer, < veya > den sonra boşluk bırakılmadan parametre yazılırsa eğer hata veriyor.
+
+```java
+chh.cha_tarihi <@cha_tarihi1
+
+```
+
+veya ikinci bir yol escape koymak. Denemedim.
+
+```java
+\\<
+```
+
+https://stackoverflow.com/questions/32526233/jdbi-how-to-bind-a-list-parameter-in-java
+
+
+
+
+
+### UnableToCreateStatementException: Exception while binding named parameter 'xxxxxxxx'  - Caused by: com.microsoft.sqlserver.jdbc.SQLServerException: The index 12 is out of range. 
+
+Yorum satırlarında @ veya : başlayan parametre kalmış olabilir.
 
 
 # Plug-Ins (draft)
