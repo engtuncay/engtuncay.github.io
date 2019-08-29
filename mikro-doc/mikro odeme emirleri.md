@@ -82,6 +82,7 @@ No	Alan Adı	Tip	Açıklama	Detay
 
 Indeks Tablosu
 
+```
 Indeks	Özellik	Alanlar
 
 NDX_ODEME_EMIRLERI_00	CONSTRAINT PRIMARY KEY	sck_RECno
@@ -93,3 +94,4 @@ NDX_ODEME_EMIRLERI_05		sck_tip, sck_sahip_cari_cins, sck_sahip_cari_kodu, sck_so
 NDX_ODEME_EMIRLERI_06		Sck_TCMB_Banka_kodu, Sck_TCMB_Sube_kodu, sck_no
 NDX_ODEME_EMIRLERI_07		sck_srmmrk
 NDX_ODEME_EMIRLERI_08		sck_sahip_cari_cins, sck_sahip_cari_kodu, sck_vade
+```
