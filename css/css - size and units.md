@@ -162,13 +162,13 @@ body element block level element dir.
 
 ---
 
-html ve body elementler yükseklik 100% veririz.
+html ve body elementler yükseklik değeri verebiliriz.
 
 ---
 
 .postion : absolute
 
-yeniden izle %%%
+
 
 ### 119 - Defining the font size in the root element
 
