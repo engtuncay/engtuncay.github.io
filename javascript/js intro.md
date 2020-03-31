@@ -13,9 +13,9 @@ Javascript Introduction / Javascript'e Giriş
 
 - var,let,const
 
-var : global atama
-let : lokal atama
-const : sabit atama
+        var : global atama
+        let : lokal atama
+        const : sabit atama
 
 - const referans bir obje veya array oluşturursak, yeni set edemeyiz, fakat mevcut içinde değişiklik yapabiliriz.
 
@@ -23,97 +23,103 @@ const : sabit atama
 
 - Veri tipini string e çevirme
 
-value = String(323);
-value = String(true);
-value = String(function() { console.log()});
-value = String([1,2,3])
+        value = String(323);
+        value = String(true);
+        value = String(function() { console.log()});
+        value = String([1,2,3])
 
-value= (10).toString();
+        value= (10).toString();
 
 - Veri tipini sayıya çevirme
 
-value = Number("123");
-value = Number(null); // 0
+        value = Number("123");
+        value = Number(null); // 0
 
 undefined,string,fonksiyonu ve array'i number a çeviremeyiz.
 
-value = parseFloat("3.14");
-value = parseInt("3");
+    value = parseFloat("3.14");
+    value = parseInt("3");
 
 - Otomatik Çevirme
 
-const a = "Hello" + 34 // Hello34
-
-34 ü stringe çevirdi.
+        const a = "Hello" + 34 // Hello34
+        // 34 ü stringe çevirdi.
 
 ## Operatörler ve Math Objesi
 
-let a = 20
-let b = 10
+    let a = 20
+    let b = 10
 
-a + b
-a - b
-a * b
-a % b  (mod işlemi)
+    a + b
+    a - b
+    a * b
+    a % b  (mod işlemi)
 
 - Math objesi
 
-a = Math.PI
-b = Math.E
+```javascript
+        a = Math.PI
+        b = Math.E
 
-Math.round(3.6) // 4
-Math.ceil(3.2) // 4
-Math.floor(3.6) // 3
+        Math.round(3.6) // 4
+        Math.ceil(3.2) // 4
+        Math.floor(3.6) // 3
 
-Math.sqrt(16) // 4
-Math.abs(-10) // 10
-Math.pow(2,3) // 8
+        Math.sqrt(16) // 4
+        Math.abs(-10) // 10
+        Math.pow(2,3) // 8
 
-Math.max(10,-1,100) // 100
-Math.min(3,9,10) // 3
+        Math.max(10,-1,100) // 100
+        Math.min(3,9,10) // 3
 
-Math.random() // 0-1 arasında sayı üretir
+        Math.random() // 0-1 arasında sayı üretir
 
-Math.random() * 20 // 0-20 arasında sayı üretir
+        Math.random() * 20 // 0-20 arasında sayı üretir
 
-Math.floor(Math.random()*20+1); // 1 ile 20 arasında değer üretir
+        Math.floor(Math.random()*20+1); // 1 ile 20 arasında değer üretir
+```
 
 ## String Metodları
 
 - concatation
 
-let a = "Ali" + " " + "Kaya"
+        let a = "Ali" + " " + "Kaya"
 
-a + = ":";
+        a + = ":";
 
-a.concat(" Sayın"); // a + " Sayın"
+        a.concat(" Sayın"); // a + " Sayın"
 
 - Bazı metodlar
 
-a.length
-a.toLowerCase();
-a.toUpperCase();
+        a.length
+        a.toLowerCase();
+        a.toUpperCase();
 
 string değeri içindeki karakterlerin indexi 0 dan başlar.
 
-a[0] // A verir
+    a[0] // A verir
 
 // indexOf
-a.indexOf("A") // 0
-a.indexOf("x") // -1
+
+    a.indexOf("A") // 0
+    a.indexOf("x") // -1
 
 // chatAt
-a.charAt(0) // A
+    
+    a.charAt(0) // A
 
 // split
-let degerler = "Ali,Veli,Kaya";
-degerler.split(","); // [Ali,Veli,Kaya]
+
+    let degerler = "Ali,Veli,Kaya";
+    degerler.split(","); // [Ali,Veli,Kaya]
 
 // replace
-degerler.replace("Ali","Kemal") // Ali nin yerine Kemali koyar
+
+    degerler.replace("Ali","Kemal") // Ali nin yerine Kemali koyar
 
 // includes
-degerler.includes("Veli") // true döner
+
+    degerler.includes("Veli") // true döner
 
 
 ## Template Literal - String oluşturmada yeni standart
@@ -351,9 +357,9 @@ b.
 
 - return kullanımı ,fonksiyon sonucunda bir değer veya obje döndürmesi
 
-    function square(x){
-        return x*x;
-    }
+        function square(x){
+            return x*x;
+        }
 
 return bir fonksiyonu sonlandıran da ifadedir.
 
@@ -392,17 +398,17 @@ return bir fonksiyonu sonlandıran da ifadedir.
 
 - While Döngüsü
 
-    let i = 0
-    while(i<10){
-        console.log(i);
-        i++;
-        if(i==2){
-          continue;
+        let i = 0
+        while(i<10){
+            console.log(i);
+            i++;
+            if(i==2){
+              continue;
+            }
+            if(i==8){
+              break;
+            }
         }
-        if(i==8){
-          break;
-        }
-    }
 
 - break kullanırak döngü kırılabilir.
 
@@ -410,19 +416,19 @@ return bir fonksiyonu sonlandıran da ifadedir.
 
 - Do While Döngüsü
 
-    let i = 0
-    do {
-      console.log(i)
-      i++;
-    }while(i<10)
+        let i = 0
+        do {
+          console.log(i)
+          i++;
+        }while(i<10)
 
 
-    const langs = ["Phyton,"Javascript","Java"]
-    let index = 0;
-    while( index < langs.length){
-        console.log(langs[index]);
-        index++
-    }
+        const langs = ["Phyton,"Javascript","Java"]
+        let index = 0;
+        while( index < langs.length){
+            console.log(langs[index]);
+            index++
+        }
 
 
 - For Döngüsü
@@ -579,9 +585,9 @@ Function scope :
 
 Document Object Model
 
-                                                -> Element <head>
-    Document -> Root Element <html> 
-                                                -> Element <body>
+                                                                   |-> Element <head>
+    Document -> Root Element <html> -|
+                                                                   |-> Element <body>
                                                 
 
 ## Document Objesi (Part 1)
@@ -631,6 +637,4 @@ Document Object Model
         
 ## Document Objesi (Part 2)
 
-
-               
 
