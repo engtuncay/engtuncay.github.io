@@ -1,46 +1,72 @@
-Javascript Introduction / Javascript'e Giriş
+# Learn Javascript Fast 
 
-[TOC]
+- [Learn Javascript Fast](#learn-javascript-fast)
+- [Introduction to Javascript (tr:Javascript'e Giriş)](#introduction-to-javascript-trjavascripte-giri%c5%9f)
+  - [Vs Code Extension for Javascript (tr:Javascript için Vs Code Eklentileri )](#vs-code-extension-for-javascript-trjavascript-i%c3%a7in-vs-code-eklentileri)
+- [Core Concepts](#core-concepts)
+  - [Variable Assignment (tr:Değişken Tanımlama)](#variable-assignment-trde%c4%9fi%c5%9fken-tan%c4%b1mlama)
+  - [Data Type Casting (tr:Veri Tipini Değiştirme)](#data-type-casting-trveri-tipini-de%c4%9fi%c5%9ftirme)
+  - [Operatörler ve Math Objesi](#operat%c3%b6rler-ve-math-objesi)
+  - [String Metodları](#string-metodlar%c4%b1)
+  - [Template Literal - String oluşturmada yeni standart](#template-literal---string-olu%c5%9fturmada-yeni-standart)
+  - [Arraylerin Özellikleri](#arraylerin-%c3%96zellikleri)
+  - [Js de Obje Kavramı ve Oluşturma](#js-de-obje-kavram%c4%b1-ve-olu%c5%9fturma)
+  - [Js Zaman Objesi ve Metodları](#js-zaman-objesi-ve-metodlar%c4%b1)
+- [Js Temelleri (Bölüm 2)](#js-temelleri-b%c3%b6l%c3%bcm-2)
+  - [Karşılaştırma Operatörleri](#kar%c5%9f%c4%b1la%c5%9ft%c4%b1rma-operat%c3%b6rleri)
+  - [Mantıksal Bağlaçlar](#mant%c4%b1ksal-ba%c4%9fla%c3%a7lar)
+  - [If Statement (if ifadesi)](#if-statement-if-ifadesi)
+  - [Switch - Case Yapısı](#switch---case-yap%c4%b1s%c4%b1)
+  - [Fonksiyonlar, IIFE ve Anonim Fonksiyonlar](#fonksiyonlar-iife-ve-anonim-fonksiyonlar)
+  - [Döngüler - While,Do While,For](#d%c3%b6ng%c3%bcler---whiledo-whilefor)
+  - [Window Object](#window-object)
+  - [Kapsam (Scope) Kavramı - Function Scope, Global Scope, Block Scope](#kapsam-scope-kavram%c4%b1---function-scope-global-scope-block-scope)
+- [DOM](#dom)
+  - [Document Objesi (Part 1)](#document-objesi-part-1)
+  - [Document Object (Part 2)](#document-object-part-2)
 
-# Giriş Kurulum
 
-## Vs Code Js Eklentiler
+# Introduction to Javascript (tr:Javascript'e Giriş)
 
+## Vs Code Extension for Javascript (tr:Javascript için Vs Code Eklentileri )
 
-# Temel
+# Core Concepts
 
-## Değişken Tanımlama
+## Variable Assignment (tr:Değişken Tanımlama)
 
 - var,let,const
 
-        var : global atama
-        let : lokal atama
-        const : sabit atama
+        var : global assignemnt (tr:global atama)
+        let : local assignment (tr:yerel atama)
+        const : constant assignmet (tr:sabit atama)
 
-- const referans bir obje veya array oluşturursak, yeni set edemeyiz, fakat mevcut içinde değişiklik yapabiliriz.
+- If we create a reference or array with const, we couldnt set it again, but we can change content of const object or const array. (tr:const referans bir obje veya array oluşturursak, yeni set edemeyiz, fakat mevcut içinde değişiklik yapabiliriz.)
 
-## Veri Tipini Değiştirme
+## Data Type Casting (tr:Veri Tipini Değiştirme)
 
 - Veri tipini string e çevirme
 
-        value = String(323);
-        value = String(true);
-        value = String(function() { console.log()});
-        value = String([1,2,3])
+```js
+value1 = String(323);
+value2 = String(true);
+value3 = String(function() { console.log()});
+value4 = String([1,2,3])
 
-        value= (10).toString();
+value5 = (10).toString();
+```
 
 - Veri tipini sayıya çevirme
-
-        value = Number("123");
-        value = Number(null); // 0
+```js
+value = Number("123");
+value = Number(null); // 0
+```
 
 undefined,string,fonksiyonu ve array'i number a çeviremeyiz.
 
     value = parseFloat("3.14");
     value = parseInt("3");
 
-- Otomatik Çevirme
+- Automatic Casting (Otomatik Çevirme)
 
         const a = "Hello" + 34 // Hello34
         // 34 ü stringe çevirdi.
@@ -450,9 +476,9 @@ return bir fonksiyonu sonlandıran da ifadedir.
 
 
         const users = [
-         {name:"Ali",age:20}
-         {name:"Kemal"iage:24}
-         {name:"Veli"iage:22}
+         {name:"Ali",age:20},
+         {name:"Kemal",age:24},
+         {name:"Veli",age:22}
         ];
 
         const names = users.map(function(user){
@@ -483,31 +509,36 @@ return bir fonksiyonu sonlandıran da ifadedir.
         age 25
 
 
-## Window Objesi
+## Window Object
 
-- javascript blogumuz window objesinin içerisinde çalışır
+- Javascript code in a web page place in the window object, as this keyword (or reference) refer to window object. (tr: web sayfasındaki javascript kodlarımız window objesinin içerisinde çalışır, çünkü this anahtar kelimesi (veya referansı) window objesini gösterir.)
+
+```js
 
         console.log(this); // window objesini döner
 
         console.log(window); // window objesini döner
 
-
         window.location objesi
         window.confirm()
         window.prompt() kullanıcıdan veri almak için
 
+```
+
 - confirm
+
+```js
 
         const cevap = confirm("Emin misiniz?");
         console.log(cevap) // true ve false döner kullanıcının cevabına göre
 
-- promp
+// promp
 
         const cevap = prompt("2+2 = ?");
 
         console.log(cevap);
 
-- window.location
+// window.location
 
         let value = window.location;
         console.log(value);
@@ -528,6 +559,7 @@ return bir fonksiyonu sonlandıran da ifadedir.
         window.scrollx // yatay scroll'un konumu
         window.scrolly // dikey scrol'un konumu
 
+```
 
 ## Kapsam (Scope) Kavramı - Function Scope, Global Scope, Block Scope
 
@@ -549,22 +581,22 @@ Function scope :
 
 - Örnek
 
-        var value1 = 10;
-        let value2 = 20;
-        const value3= 30;
+```js
+var value1 = 10;
+let value2 = 20;
+const value3= 30;
 
-        function abc(){
-            var value1 = 40;
-            let value2 = 50;
-            const value3= 60;
+function abc(){
+    var value1 = 40;
+    let value2 = 50;
+    const value3= 60;
 
-            console.log(value1,value2,value3); // 40,50,60
-        }
+    console.log(value1,value2,value3); // 40,50,60
+}
 
-        abc();
-        console.log(value1,value2,value3); // 10,20,30
-
-
+abc();
+console.log(value1,value2,value3); // 10,20,30
+```
 
 - Örnek 2
 
@@ -599,42 +631,71 @@ Document Object Model
         console.log ( this.document )
 
 - Örnek 2
+```js
+let value;
+value= document;
+value= document.all;
 
-        let value;
-        value= document;
-        value= document.all;
-
-        value = document.all.lenght // html de kaç element olduğunu gösterir
-        value = document.all[0]; // html elementi gösterir
-        value = document.all[6]; // 6 'nci elementi döner
-        
-        
-        const elements = document.all; // html collection döner
-        
-        for ( let i=0; i <element.length;i++) {
-            console.log(elements[i]); // bütün eleman tanımlarını gösterir
-        }
-        
-        // elements.forEach xxx collection olduğu için kullanılamaz
-        
-        const collections = Array.from(document.all);
-        
-        collections.forEach( function(collection) {
-            console.log (collection);
-        })
-        
-        // body e erişmek için
-        
-        value = document.body;
-        value = document.head;
-        value = document.location; // location objesinin döner
-        value = document.location.hostname //  127.0.0.1
-        value = document.location.port // 5500
-        value = document.URL; // http://.....
-        value = document.characterSet // UTF-8
-        
-        console.log(value)
-        
-## Document Objesi (Part 2)
+value = document.all.lenght // html de kaç element olduğunu gösterir
+value = document.all[0]; // html elementi gösterir
+value = document.all[6]; // 6 'nci elementi döner
 
 
+const elements = document.all; // html collection döner
+
+for ( let i=0; i <element.length;i++) {
+    console.log(elements[i]); // bütün eleman tanımlarını gösterir
+}
+
+// elements.forEach xxx collection olduğu için kullanılamaz
+
+const collections = Array.from(document.all);
+
+collections.forEach( function(collection) {
+    console.log (collection);
+})
+
+// body e erişmek için
+
+value = document.body;
+value = document.head;
+value = document.location; // location objesinin döner
+value = document.location.hostname //  127.0.0.1
+value = document.location.port // 5500
+value = document.URL; // http://.....
+value = document.characterSet // UTF-8
+
+console.log(value)
+```
+
+## Document Object (Part 2)
+
+```js
+value = document.links; // sayfaya eklenen link etiketlerinin (a) listesini verir 
+value = document.links[0]; // ilk linki verir
+value = document.links.length; // link sayısını verir
+value = document.links[0].getAttribute("class");
+// link etiketinin class attribute nun değerinin verir
+
+value = document.links[0].getAttribute("href");
+
+value = document.links[0].getAttribute("class");
+
+value = document.links[0].className; // sınıf isimlerini verir
+
+value = document.links[0].classList; // tanımlı sınıfları array şeklinde verir
+
+```
+
+- Formlar
+
+```js
+value = document.forms; // sayfadaki formları gösterir (Html Collection olarak)
+value = document.forms.length; // form sayısını verir
+value = document.forms[0]; // ilk formu gösterir
+value = document.forms["form"] // name attribute'u form olan formu döner
+value = document.links[0].id; // ilk formun id attribute değerini döner
+value = document.links[0].getAttribute("id"); 
+
+
+```
