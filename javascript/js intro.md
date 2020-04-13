@@ -529,35 +529,35 @@ return bir fonksiyonu sonlandıran da ifadedir.
 
 ```js
 
-        const cevap = confirm("Emin misiniz?");
-        console.log(cevap) // true ve false döner kullanıcının cevabına göre
+const cevap = confirm("Emin misiniz?");
+console.log(cevap) // true ve false döner kullanıcının cevabına göre
 
 // promp
 
-        const cevap = prompt("2+2 = ?");
+const cevap = prompt("2+2 = ?");
 
-        console.log(cevap);
+console.log(cevap);
 
 // window.location
 
-        let value = window.location;
-        console.log(value);
+let value = window.location;
+console.log(value);
 
 
-        window.location.host    // host adresi
-        window.location.hostname
-        window.location.port
-        window.location.href
-        window.location.reload() // sayfayı yeniler.
+window.location.host    // host adresi
+window.location.hostname
+window.location.port
+window.location.href
+window.location.reload() // sayfayı yeniler.
 
-        window.outerHeight // pencere çubuğunu dahil edip yükseklik
-        window.outerWidth //
+window.outerHeight // pencere çubuğunu dahil edip yükseklik
+window.outerWidth //
 
-        window.innerHeight // web sayfasının gösterilen panelin yüksekliği
-        window.innerWidth
+window.innerHeight // web sayfasının gösterilen panelin yüksekliği
+window.innerWidth
 
-        window.scrollx // yatay scroll'un konumu
-        window.scrolly // dikey scrol'un konumu
+window.scrollx // yatay scroll'un konumu
+window.scrolly // dikey scrol'un konumu
 
 ```
 
