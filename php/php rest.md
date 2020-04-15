@@ -29,8 +29,6 @@ CREATE TABLE IF NOT EXISTS uyeler (
 ```
 
 
-
-
 # Rest Types
 
 Restful over HTTP normally breaks down into 4 types of requests of GET, POST, PUT and DELETE. There are other request types that are outside of the scope of this article. The requests can be described as:
@@ -42,6 +40,8 @@ Restful over HTTP normally breaks down into 4 types of requests of GET, POST, PU
 - PUT: Called when a user wants to update data. Is the U in CRUD.
   
 - DELETE: Used to remove data. And lastly, the DELETE in CRUD.
+
+In this tutorial, we are going to create a small application that executes those 4 methods and represents how we can give access to a microservice. This article will NOT cover areas such as security or access control.
 
 
 
