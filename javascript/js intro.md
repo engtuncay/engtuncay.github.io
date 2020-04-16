@@ -1,6 +1,9 @@
-# Learn Javascript Fast 
 
-- [Learn Javascript Fast](#learn-javascript-fast)
+
+# Introduction to Javascript (tr:Javascript'e Giriş)
+
+Learn Javascript with this tutorial. This tutorial is made by my notes from web courses ,tutorials and cheatsheets.
+
 - [Introduction to Javascript (tr:Javascript'e Giriş)](#introduction-to-javascript-trjavascripte-giri%c5%9f)
   - [Vs Code Extension for Javascript (tr:Javascript için Vs Code Eklentileri )](#vs-code-extension-for-javascript-trjavascript-i%c3%a7in-vs-code-eklentileri)
 - [Core Concepts](#core-concepts)
@@ -26,7 +29,7 @@
   - [Document Object (Part 2)](#document-object-part-2)
 
 
-# Introduction to Javascript (tr:Javascript'e Giriş)
+
 
 ## Vs Code Extension for Javascript (tr:Javascript için Vs Code Eklentileri )
 
@@ -83,26 +86,26 @@ undefined,string,fonksiyonu ve array'i number a çeviremeyiz.
 
 - Math objesi
 
-```javascript
-        a = Math.PI
-        b = Math.E
+```js
+a = Math.PI
+b = Math.E
 
-        Math.round(3.6) // 4
-        Math.ceil(3.2) // 4
-        Math.floor(3.6) // 3
+Math.round(3.6) // 4
+Math.ceil(3.2) // 4
+Math.floor(3.6) // 3
 
-        Math.sqrt(16) // 4
-        Math.abs(-10) // 10
-        Math.pow(2,3) // 8
+Math.sqrt(16) // 4
+Math.abs(-10) // 10
+Math.pow(2,3) // 8
 
-        Math.max(10,-1,100) // 100
-        Math.min(3,9,10) // 3
+Math.max(10,-1,100) // 100
+Math.min(3,9,10) // 3
 
-        Math.random() // 0-1 arasında sayı üretir
+Math.random() // 0-1 arasında sayı üretir
 
-        Math.random() * 20 // 0-20 arasında sayı üretir
+Math.random() * 20 // 0-20 arasında sayı üretir
 
-        Math.floor(Math.random()*20+1); // 1 ile 20 arasında değer üretir
+Math.floor(Math.random()*20+1); // 1 ile 20 arasında değer üretir
 ```
 
 ## String Metodları
@@ -542,7 +545,6 @@ console.log(cevap);
 
 let value = window.location;
 console.log(value);
-
 
 window.location.host    // host adresi
 window.location.hostname

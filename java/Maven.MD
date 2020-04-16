@@ -7,7 +7,8 @@ Java Build Tool
 <!-- TOC -->
 
 - [What is Maven](#what-is-maven)
-- [Maven Project Structure or Convention over Configuration ( Proje Dizin Yapısı)](#maven-project-structure-or-convention-over-configuration--proje-dizin-yapısı)
+- [Maven Project Structure or Convention over Configuration ( Proje Dizin Yapısı)](#maven-project-structure-or-convention-over-configuration--proje-dizin-yap%c4%b1s%c4%b1)
+- [Maven Specify Source and Resource Folders and File Types](#maven-specify-source-and-resource-folders-and-file-types)
 
 <!-- /TOC -->
 
@@ -26,6 +27,12 @@ Java Build Tool
 - Project Management Tool
 - ​
 
+POM : Project Object Model
+
+ModelVersion : version of pom model.
+
+groupId : grup ismi ( genellikle organizasyon ismi , ya da başına com getiriyorlar)
+artifactId : project name  ( jar dosyasının ismi oluyor )
 
 
 
