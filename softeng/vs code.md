@@ -4,7 +4,7 @@
 
 It's easy to rename a symbol such as a function name or variable name. Hit F2 while in the symbol Book to rename all instances - this will occur across all files in a project. You can also see refactoring in the right click context menu.
 
-##Refactoring via Extraction
+## Refactoring via Extraction
 Sometimes you want factor already written code into a separate function or constant to use it later again. Select the lines you want to factor out and press Ctrl+. or click the little light bulb and choose one of the respective Extract to... options. Try it by selecting the code inside the if-clause on line 3 or any other common code you want to factor out.
 
 ##Code Folding

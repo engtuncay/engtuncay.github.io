@@ -9,6 +9,8 @@
   - [Static Tanımım](#static-tan%c4%b1m%c4%b1m)
   - [Interface (Arayüz) Kullanımı](#interface-aray%c3%bcz-kullan%c4%b1m%c4%b1)
   - [Abstract Sınıf (Soyut Sınıf) Kullanımı](#abstract-s%c4%b1n%c4%b1f-soyut-s%c4%b1n%c4%b1f-kullan%c4%b1m%c4%b1)
+  - [Final Ön Tanımı](#final-%c3%96n-tan%c4%b1m%c4%b1)
+  - [Namespace nedir](#namespace-nedir)
 - [Php'nin Temelleri - 1 (Core Php)](#phpnin-temelleri---1-core-php)
   - [Comment Line and Block](#comment-line-and-block)
   - [Variable Assignment (tr:Değişken Tanımlama)](#variable-assignment-trde%c4%9fi%c5%9fken-tan%c4%b1mlama)
@@ -184,6 +186,105 @@ interface Canlı extends Insan {
 Interface'ler sınıf tarafından extend edilemezler.
 
 ## Abstract Sınıf (Soyut Sınıf) Kullanımı
+
+```php
+// abstract sınıf tanımı
+abstract class Canli {
+
+    public $x = 1;
+
+    abstract function beslen();
+}
+
+// abstract sınıfının kullanımı
+class Insan extends Canli {
+
+    function beslen(){
+        // işlemler
+    }
+
+}
+
+
+```
+
+## Final Ön Tanımı
+
+```php
+
+class Insan {
+
+    final public function get(){
+
+    }
+}
+
+class Tolga extends Insan {
+
+    // final function override edilemez / değişiklik yapılamaz
+    // xxx function get(){}
+
+}
+
+
+```
+
+
+## Namespace nedir 
+
+sınıfları bir araya toplayan kümedir.
+
+
+```php
+// namespace.php
+namespace Insan\HH
+
+interface Insan {
+
+}
+
+class Ahmet {
+
+    function get()){
+        return 12;
+    }
+}
+
+// birden fazla namespace aynı dosyada kullanılabilir
+namespace Insan\HH2;
+
+```
+
+Namespace'in kullanımı
+
+```php
+// demo1.php
+require 'namespace.php';
+echo Insan\HH\Ahmet::get();
+
+//Output
+//12
+
+```
+
+
+```php
+// demo2.php
+require 'namespace.php';
+use Insan\HH\Ahmet as ahmet
+echo ahmet::get();
+
+//Output
+//12
+
+```
+
+
+
+
+
+
+
 
 
 

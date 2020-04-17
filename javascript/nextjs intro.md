@@ -37,7 +37,21 @@ function HomePage(){
 }
 
 export default HomePage
-
 ```
+
+**Örnek** about sayfası ekleme
+
+pages klasörüne about.js dosyası ekleriz.
+
+```js
+function HomePage(){
+    return <div> Welcome to NextJs </div>
+}
+
+export default HomePage
+```
+
+
+
 
 

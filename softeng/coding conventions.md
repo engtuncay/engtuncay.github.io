@@ -33,3 +33,58 @@ Ayrıntılı tür kullanılmayacak , number double , int, float alanlara karşı
 
 
 
+---
+
+
+
+# Cat
+
+## Variable Naming
+
+| Prefix | Type  |
+| --- | --- |
+| tx | String / Chars   |
+| ln | Integer   |
+| dm | Decimal Numbar   |
+| ty | Tiny Int  |
+| dt | Date Time   |
+| by | Byte  |
+
+
+
+
+## Standard Methods
+
+
+| Controller Method | Meaning  |
+| --- | --- |
+| act....... | View üzerinden gelen actionlara karşılık metodlar   |
+| actBtn... | button üzerinden gelen action |
+
+
+| Model And Repo Method | Meaning  |
+| --- | --- |
+| checkExist......OnDb |  Veritabanın olup olmadığı kontrol edilir  |
+
+
+| View Method | Meaning  |
+| --- | --- |
+| ..... |   |
+
+
+
+## Bazı Kısaltmalar (Metod ismi içerisindeki)
+
+Wout : Without
+
+Wit : With
+
+By : e göre 
+
+Lim : Limit
+
+
+
+
+
+
