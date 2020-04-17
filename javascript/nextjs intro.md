@@ -1,21 +1,16 @@
-
-
-
 # NextJs
-
-
 
 ## Kurulum
 
-npm ile üç paket kurulur : next, react ve react-dom paketleri
+* npm ile üç paket kurulur : next, react ve react-dom paketleri
 
     npm install next react react-dom
 
-node projesi oluşturulur. -y parametresi default bilgilerle package.json dosyası oluşturulur.
+* node projesi oluşturulur. -y parametresi default bilgilerle package.json dosyası oluşturulur.
 
     npm init -y
 
-next.js script'leri ekleriz package.json dosyasına.
+* Package.json dosyasına next.js script'leri ekleriz 
 
 ```js
 "scripts": {
@@ -25,11 +20,7 @@ next.js script'leri ekleriz package.json dosyasına.
 }
 ```
 
-projenin çalıştırılması
-
-    yarn dev
-
-Bundan önce "pages" dizini oluşturulur. Pages klasörüne index.js dosyası oluşturulur.
+* "pages" dizini oluşturulur. Pages klasörüne index.js dosyası oluşturulur.
 
 ```js
 function HomePage(){
@@ -39,7 +30,12 @@ function HomePage(){
 export default HomePage
 ```
 
-**Örnek** about sayfası ekleme
+* Projenin çalıştırılması
+
+    yarn dev
+
+
+* About sayfası ekleme
 
 pages klasörüne about.js dosyası ekleriz.
 

@@ -262,7 +262,7 @@ Namespace'in kullanımı
 require 'namespace.php';
 echo Insan\HH\Ahmet::get();
 
-//Output
+//**Output**
 //12
 
 ```
@@ -274,7 +274,7 @@ require 'namespace.php';
 use Insan\HH\Ahmet as ahmet
 echo ahmet::get();
 
-//Output
+//**Output**
 //12
 
 ```
