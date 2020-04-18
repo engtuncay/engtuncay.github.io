@@ -31,6 +31,7 @@ Learn Javascript with this tutorial. This tutorial is made by my notes from web 
   - [For in ve For of Döngüleri](#for-in-ve-for-of-d%c3%b6ng%c3%bcleri)
   - [ES6 Maps](#es6-maps)
   - [Referans Tipler Tekrar](#referans-tipler-tekrar)
+  - [Set (Kümeler)](#set-k%c3%bcmeler)
 
 
 
@@ -933,6 +934,42 @@ console.log(array);
 
 ## Referans Tipler Tekrar
 
+Referans tiplerindeki eşitlik kontrolü bellekte aynı objeyi işaret edip etmediğini kontrol eder.
+
+
+## Set (Kümeler)
+
+* Setler kümelere benzeyen yapıdır. Aynı eleman iki defa bulunamaz.
+
+```js
+// Setler - Kümeler
+
+const myset = new Set();
+
+myset.add(100);
+myset.add(100);
+myset.add(3.14);
+myset.add("Ali");
+myset.add(true);
+myset.add([1,2,3]);
+myset.add({a:1,b:2});
+
+// Arrayden set oluşturma
+const myset2 = new Set([100,3.14,"Ali"]);
+
+console.log(myset); // 6 elemanlı set.
+console.log(myset2); // 3 elemanlı set.
+
+```
+
+```js
+// Size
+console.log(myset.size);
+
+// Delete Metodu
+myset.delete("Mustafa");
+
+```
 
 
 
