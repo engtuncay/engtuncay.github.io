@@ -4,11 +4,11 @@
 
 * npm ile üç paket kurulur : next, react ve react-dom paketleri
 
-    npm install next react react-dom
+        npm install next react react-dom
 
 * node projesi oluşturulur. -y parametresi default bilgilerle package.json dosyası oluşturulur.
 
-    npm init -y
+        npm init -y
 
 * Package.json dosyasına next.js script'leri ekleriz 
 
@@ -32,7 +32,7 @@ export default HomePage
 
 * Projenin çalıştırılması
 
-    yarn dev
+        yarn dev
 
 
 * About sayfası ekleme
@@ -40,12 +40,15 @@ export default HomePage
 pages klasörüne about.js dosyası ekleriz.
 
 ```js
-function HomePage(){
-    return <div> Welcome to NextJs </div>
+function about(){
+    return <div> About Page </div>
 }
 
-export default HomePage
+export default about
 ```
+
+## Sayfalar Arası Linkleme
+
 
 
 
