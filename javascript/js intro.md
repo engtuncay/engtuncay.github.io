@@ -27,6 +27,10 @@ Learn Javascript with this tutorial. This tutorial is made by my notes from web 
 - [DOM](#dom)
   - [Document Objesi (Part 1)](#document-objesi-part-1)
   - [Document Object (Part 2)](#document-object-part-2)
+- [ES-6 Özellikleri](#es-6-%c3%96zellikleri)
+  - [For in ve For of Döngüleri](#for-in-ve-for-of-d%c3%b6ng%c3%bcleri)
+  - [ES6 Maps](#es6-maps)
+  - [Referans Tipler Tekrar](#referans-tipler-tekrar)
 
 
 
@@ -701,3 +705,239 @@ value = document.links[0].getAttribute("id");
 
 
 ```
+
+
+# ES-6 Özellikleri
+
+## For in ve For of Döngüleri
+
+```js
+const person = {
+    name:"Mustafa",
+    age:25,
+    salary:3000
+};
+
+// For In 
+// Object
+for(let prop in person) {
+    console.log(prop,person[prop]);
+}
+
+// ---Output---
+// name Mustafa Murat
+// age 25
+// salary 3000
+
+```
+
+```js
+// String
+const name = "Ali";
+
+for (let index in name){
+    console.log(index,name[index]);
+}
+
+// ---Output---
+// 0 A
+// 1 l
+// 2 i
+
+```
+
+```js
+// Array
+const langs = ["Python","Java"];
+
+for (let value of langs){
+    console.log(value);
+}
+
+// ---Output---
+// Phyton
+// Java
+
+```
+
+```js
+// String
+const name = "Ali";
+
+for (let character of name){
+    console.log(character);
+}
+
+// ---Output---
+// A
+// l
+// i
+
+
+
+```
+
+
+## ES6 Maps
+
+```js
+// Mapler - Key(Anahtar) - Value(Değer)
+
+let myMap = new Map(); // Oluşturma
+console.log(typeof myMap);
+
+// ---Output---
+// 
+
+console.log(myMap);
+
+// ---Output---
+// Map(0) {}
+
+const key1= "Ali";
+const key2={a:10,b:20}
+const key3=()=>2;
+
+myMap.set(key1,"key1 value");
+myMap.set(key2,"key2 value");
+myMap.set(key3,"key3 value");
+
+console.log(myMap.get(key1));
+console.log(myMap.get(key2));
+console.log(myMap.get(key3));
+
+// ---Output---
+// key1 value
+// key2 value
+// key3 value
+
+
+console.log(myMap.size);
+
+// ---Output---
+// 3
+
+
+```
+
+* ÖRnek 2
+
+```js
+const cities = new Map();
+
+cities.set("Ankara",5);
+cities.set("İstanbul",15);
+cities.set("İzmir",4);
+
+// For Each
+cities.forEach(function(value,key){
+    console.log(key,value);
+})
+
+// ---Output---
+// Ankara 5
+// İstanbul 15
+// İzmir 4
+
+
+```
+
+
+* For of Kullanımı
+
+```js
+
+// For Of
+
+for(let value of cities){ 
+    console.log(key,value);
+}
+
+// ---Output---
+// [Ankara,5]
+// [İstanbul,15]
+// [İzmir,15]
+
+
+// Destruction kullanarak
+
+for(let [key,value] of cities){ 
+    console.log(key,value);
+}
+
+// ---Output---
+// Ankara 5
+// İstanbul 15
+// İzmir 4
+
+```
+
+```js
+
+// Map Keys
+
+for(let key of cities.keys()){
+    console.log(key);
+}
+
+// ---Output---
+// Ankara
+// İstanbul
+// İzmir
+
+// Iterate over values
+for(let value of cities.values()){
+    console.log(value);
+}
+
+// ---Output---
+// 5
+// 15
+// 4
+
+```
+
+* Arrayden map oluşturma
+
+```js
+// Arraylerden Map Oluşturma
+const array = [["key1","value1"],["key2","value2"]];
+
+const lastMap = new Map(array);
+
+console.log(lastMap);
+
+// ---Output---
+// Map(2) { "key1"=>"value1", "key2"=>"value2" }
+
+```
+
+* Map den Array oluşturma
+
+```js
+// Maplerden Array Oluşturma
+
+const cities = new Map();
+
+cities.set("Ankara",5);
+cities.set("İstanbul",15);
+cities.set("İzmir",4);
+
+const array = Array.from(cities);
+
+console.log(array);
+
+// ---Output---
+// [["Ankara",5],["İstanbul",15],["İzmir",4]]
+```
+
+## Referans Tipler Tekrar
+
+
+
+
+
+
+
+
+
