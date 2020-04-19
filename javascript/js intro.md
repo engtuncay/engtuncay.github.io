@@ -962,14 +962,31 @@ console.log(myset2); // 3 elemanlı set.
 
 ```
 
+* size property , delete method
+
 ```js
 // Size
-console.log(myset.size);
+console.log(myset.size); // 6
 
 // Delete Metodu
-myset.delete("Mustafa");
+myset.delete("Mustafa"); // removes "Mustafa" elements
 
 ```
+
+* has method
+
+```js
+// Has Metodu
+
+console.log(myset.has("Mustafa")); // out: true
+console.log(myset.has(3.14)); // out: true
+console.log(myset.has(2000)); // out: false
+console.log(myset.has([1,2,3])); // out:false
+
+
+```
+
+
 
 
 

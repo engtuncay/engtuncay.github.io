@@ -133,6 +133,24 @@ export default Layout;
 ```
 
 
+* index ve about.js dosyalarını layout tagimizi ekleriz
+
+```js
+import Layout from '../components';
+...
+//html alanına
+<Layout/>
+
+```
+
+## Prettier ve Seo için Head Kullanımı
+
+* Prettier bağımlığı eklenir
+
+        npm install prettier
+
+
+
 
 # Kaynaklar
 
