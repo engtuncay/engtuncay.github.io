@@ -1,5 +1,7 @@
 # NextJs'ye Giriş
 
+Server Side Rendering yapan react tabanlı bir framework. node ile serve yapılır.
+
 # Table of Contents
 
 - [NextJs'ye Giriş](#nextjsye-giri%c5%9f)
@@ -10,6 +12,7 @@
   - [Sayfalar Arası Linkleme](#sayfalar-aras%c4%b1-linkleme)
   - [Component Oluşturma](#component-olu%c5%9fturma)
   - [Master - Detail Uygulaması](#master---detail-uygulamas%c4%b1)
+  - [Prettier ve Seo için Head Kullanımı](#prettier-ve-seo-i%c3%a7in-head-kullan%c4%b1m%c4%b1)
 - [Kaynaklar](#kaynaklar)
 
 

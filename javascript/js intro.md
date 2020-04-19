@@ -2,8 +2,6 @@
 
 # Introduction to Javascript (tr:Javascript'e Giriş)
 
-Learn Javascript with this tutorial. This tutorial is made by my notes from web courses ,tutorials and cheatsheets.
-
 - [Introduction to Javascript (tr:Javascript'e Giriş)](#introduction-to-javascript-trjavascripte-giri%c5%9f)
   - [Vs Code Extension for Javascript (tr:Javascript için Vs Code Eklentileri )](#vs-code-extension-for-javascript-trjavascript-i%c3%a7in-vs-code-eklentileri)
 - [Core Concepts](#core-concepts)
@@ -32,8 +30,6 @@ Learn Javascript with this tutorial. This tutorial is made by my notes from web 
   - [ES6 Maps](#es6-maps)
   - [Referans Tipler Tekrar](#referans-tipler-tekrar)
   - [Set (Kümeler)](#set-k%c3%bcmeler)
-
-
 
 
 ## Vs Code Extension for Javascript (tr:Javascript için Vs Code Eklentileri )
@@ -983,8 +979,30 @@ console.log(myset.has(3.14)); // out: true
 console.log(myset.has(2000)); // out: false
 console.log(myset.has([1,2,3])); // out:false
 
-
 ```
+
+
+* For Each Usage of Set
+
+```js
+
+const myset3 = new Set();
+
+myset3.add(100);
+myset3.add("Ali");
+myset.add({a:1,b:2});
+
+myset.forEach(function(value){
+    console.log(value);
+})
+
+// ---Output---
+// 100
+// Ali
+// {a:1,b:2}
+```
+
+
 
 
 
