@@ -288,6 +288,8 @@ echo ahmet::get();
 
 
 
+
+
 ---
 
 # Php'nin Temelleri - 1 (Core Php)
