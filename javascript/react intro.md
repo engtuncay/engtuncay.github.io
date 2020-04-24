@@ -55,10 +55,11 @@ class App extends Component {
 - We assign variable to the App components.
 
 ```js
+
 // App.js
-//...
 class App extends Component {
   const propsabit = "ilk prop örneği";
+
   render() {
     return (
       <div className="App">
@@ -70,6 +71,10 @@ class App extends Component {
 }
 
 ```
+
+
+
+
 
 - usage of prop variable in the component
 
