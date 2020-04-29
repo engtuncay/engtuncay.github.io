@@ -74,8 +74,6 @@ class App extends Component {
 
 
 
-
-
 - usage of prop variable in the component
 
 ```js
