@@ -1,3 +1,5 @@
+Editor Uyguladığım Kısayollar
+
 - [Ide - Torak Keymap](#ide---torak-keymap)
 - [Vscode Default Shortcuts](#vscode-default-shortcuts)
 - [VsCode User Shortcuts](#vscode-user-shortcuts)
@@ -6,46 +8,68 @@
 
 # Ide - Torak Keymap
 
-| Shortcut | Action                     | When |
-| -------- | -------------------------- | ---- |
-| .        | .                          | .    |
-| c,s + j  | String ifadeyi birleştirir |      |
-| F2       | Sonraki Vurgulanan Hata    |      |
-| s + F2   | Önceki Vurgulanan Hata     |      |
-| .        | .                          | .    |
-| .        | .                          | .    |
-| .        | .                          | .    |
-| .        | .                          | .    |
+**File**
 
-Edit
+| Shortcut | Action | When | Extra |
+| -------- | ------ | ---- | ----- |
+| .        | .      | .    | .     |
+| .        | .      | .    | .     |
 
-| Shortcut | Action          | When |
-| -------- | --------------- | ---- |
-| c+k,d    | Format Document | .    |
-| .        | .               | .    |
-| .        | .               | .    |
 
-Navigation
+**Edit**
 
-| Shortcut | Action | When |
-| -------- | ------ | ---- |
-| .        | .      | .    |
-| .        | .      | .    |
+| Shortcut | Action                            | When | Extra |
+| -------- | --------------------------------- | ---- | ----- |
+| c+k,f    | Format Document                   | .    |
+| c+k,h    | Format Selection                  | .    |
+| .        | .                                 | .    |
+| c+s,j    | String ifadeyi birleştirir (idea) | .    |
 
-| Shortcut | Action        | When |
-| -------- | ------------- | ---- |
+
+**Navigation**
+
+| Shortcut     | Action                    | When | Extra        |
+| ------------ | ------------------------- | ---- | ------------ |
+| a+left,right | file next or prev on tabs | .    | c+pg.down/up |
+| .            | .                         | .    | .            |
+| .            | .                         | .    | .            |
+
+
+
+**Configuration**
+
+| Shortcut | Action        | When | Extra |
+| -------- | ------------- | ---- | ----- |
 | C+ş,i    | Zoom In       | .    |
 | C+ş,o    | Zoom Out      | .    |
 | C+ş,y    | Font Zoom in  | .    |
 | C+ş,u    | Font Zoom out | .    |
+| .        | .             | .    | .     |
 
-Debug / Run
+**Debug/Run**
 
-| Shortcut | Action | When |
-| -------- | ------ | ---- |
+| Shortcut | Action | When | Extra |
+| -------- | ------ | ---- | ----- |
+| .        | .      | .    | .     |
 | .        | .      | .    |
 | .        | .      | .    |
-| .        | .      | .    |
+
+
+
+
+**Sample**
+
+| Shortcut | Action | When | Extra |
+| -------- | ------ | ---- | ----- |
+| .        | .      | .    | .     |
+| .        | .      | .    | .     |
+
+
+
+| F2 | Sonraki Vurgulanan Hata | |
+| s + F2 | Önceki Vurgulanan Hata | |
+| . | . | . |
+| . | . | . |
 
 c,s,a + keyboard key : second key binding if there is.
 
@@ -75,6 +99,5 @@ a -> alt
 | F2       | Sonraki Vurgulanan Hata    |
 | s + F2   | Önceki Vurgulanan Hata     |
 | ..       | ..                         |
-
 
 # Eclipse Shortcuts
