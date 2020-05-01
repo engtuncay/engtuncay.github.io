@@ -13,9 +13,10 @@
   - [Namespace nedir](#namespace-nedir)
 - [Php'nin Temelleri - 1 (Core Php)](#phpnin-temelleri---1-core-php)
   - [Comment Line and Block](#comment-line-and-block)
-  - [Variable Assignment (tr:Değişken Tanımlama)](#variable-assignment-trde%c4%9fi%c5%9fken-tan%c4%b1mlama)
-  - [Data Type Casting (tr:Veri Tipini Değiştirme)](#data-type-casting-trveri-tipini-de%c4%9fi%c5%9ftirme)
-  - [Operatörler ve Math Objesi](#operat%c3%b6rler-ve-math-objesi)
+  - [Data Types](#data-types)
+  - [Constant Assignment](#constant-assignment)
+  - [Data Type Casting](#data-type-casting)
+  - [Operators and Math Object](#operators-and-math-object)
   - [String Metodları](#string-metodlar%c4%b1)
   - [Template Literal (String oluşturmada yeni standart)](#template-literal-string-olu%c5%9fturmada-yeni-standart)
   - [Arraylerin Özellikleri](#arraylerin-%c3%96zellikleri)
@@ -28,6 +29,8 @@
   - [Switch - Case Yapısı](#switch---case-yap%c4%b1s%c4%b1)
   - [Fonksiyonlar, IIFE ve Anonim Fonksiyonlar](#fonksiyonlar-iife-ve-anonim-fonksiyonlar)
   - [Döngüler - While,Do While,For](#d%c3%b6ng%c3%bcler---whiledo-whilefor)
+- [Database Connection](#database-connection)
+  - [PDO Connection](#pdo-connection)
 - [Composer](#composer)
   - [Kurulumu](#kurulumu)
   - [Kullanımı](#kullan%c4%b1m%c4%b1)
@@ -103,7 +106,7 @@ class Foo {
 
 ```
 
-## Yıkıcılar 
+## Yıkıcılar
 
 Objenin kullanımı bitince çalıştırılacak metotdur.
 
@@ -229,11 +232,9 @@ class Tolga extends Insan {
 
 ```
 
-
-## Namespace nedir 
+## Namespace nedir
 
 sınıfları bir araya toplayan kümedir.
-
 
 ```php
 // namespace.php
@@ -267,7 +268,6 @@ echo Insan\HH\Ahmet::get();
 
 ```
 
-
 ```php
 // demo2.php
 require 'namespace.php';
@@ -279,17 +279,6 @@ echo ahmet::get();
 
 ```
 
-
-
-
-
-
-
-
-
-
-
-
 ---
 
 # Php'nin Temelleri - 1 (Core Php)
@@ -297,33 +286,72 @@ echo ahmet::get();
 ## Comment Line and Block
 
     // This is a single-line comment
-    
+
     /*
         This is a mult-line comment.
     */
-  
+
 Comments are completely ignored when running a php file.
 
-## Variable Assignment (tr:Değişken Tanımlama)
+## Data Types
 
-## Data Type Casting (tr:Veri Tipini Değiştirme)
+- Data Types and Assignment
 
+```
+string "tayfun erbilen" 'tayfun erbilen'
+integer 500, 200
+double (Float) 5.5, 7.2
+boolean (true, false)
+array (dizi)
+object (Nesne)
+NULL
+```
 
+- gettype() fonksiyonu ile bir verinin türünü öğreniriz.
+
+```php
+$string = "tayfun erbilen";
+$int = 500;
+$float = 5.5;
+$bool = false;
+$array = array();
+$object = new stdClass;
+$null = NULL;
+echo gettype($null); // NULL
+```
+
+## Constant Assignment
+
+- Sabit Değişkenler;
+  - define() fonksiyonu ile tanımlanır
+  - Türkçe karakterler içerebilir
+  - Sayı ile başlayamaz
+  - Harf ya da \_ işareti ile başlar
+  - Büyük-küçük harfe duyarlıdır
+  - Veri türlerinde, Object hariç tüm veri türlerini kapsar.
+
+```php
+$tayfun = "tayfun erbilen";
+//echo $tayfun;
+
+define("tayfun", "tayfun erbilen");
+//define("Tayfun", "tayfun erbilen2");
+
+echo tayfun;
+```
+
+## Data Type Casting
 
     (double)(5 / 2);
 
-## Operatörler ve Math Objesi
+## Operators and Math Object
 
     + , - , * , / , % (modular arithmetic)
-
-
-
 
 Sabit Tanımlama
 
     define('PI', 3.1415926);
     echo "The value of PI is " . PI;
-
 
 ## String Metodları
 
@@ -343,9 +371,9 @@ List of Logical Operators
 
 The things that can go inside a statement that return a boolean
 
-    >  Greater then 
+    >  Greater then
     >= Greater then or equal
-    <  Less Then 
+    <  Less Then
     <= Less Then or Equal
     == Equal (value)
     === Both things equal to each other and are the same type
@@ -362,6 +390,28 @@ The things that can go inside a statement that return a boolean
 ## Fonksiyonlar, IIFE ve Anonim Fonksiyonlar
 
 ## Döngüler - While,Do While,For
+
+---
+
+# Database Connection
+
+## PDO Connection
+
+```php
+
+try {
+    $db = new PDO('mysql:host=localhost;dbname=uyeler', 'root', 'root'); // connectionUrl,user,pass
+    //printf("Baglantı kuruldu");
+} catch (PDOException $e){
+    echo $e->getMessage();
+}
+
+```
+
+
+
+
+
 
 ---
 
@@ -459,7 +509,6 @@ live at $streetAddress
 EOD;
 
     echo $str;
-
 
 # INCREMENT
 
@@ -659,18 +708,17 @@ echo "3 + 4 = " . addNumbers(3, 4);
   // ^That was a multi-line comment. This line is a single-line comment.
   // Comments are completely ignored when running a .php file.
 
-
-- This file contains brief examples of valid php code. I'll break up the major
-- subsections by multi-line comments, and include smaller labels of what each
-- thing is and what it does. Other things to note:
--
-- BASIC PHP SYNTAX
--
-- - Every statement ends in a ;
-- - Loops, ifs, and anything else with a block of code inside it have brackets {}
-- - Variables start with \$
-- - Everything is case sensitive
-- \*/
+* This file contains brief examples of valid php code. I'll break up the major
+* subsections by multi-line comments, and include smaller labels of what each
+* thing is and what it does. Other things to note:
+*
+* BASIC PHP SYNTAX
+*
+* - Every statement ends in a ;
+* - Loops, ifs, and anything else with a block of code inside it have brackets {}
+* - Variables start with \$
+* - Everything is case sensitive
+* \*/
 
 /\*
 
@@ -736,8 +784,7 @@ echo "Not used because we've already found a matching condition above.";
 
 /\*
 
-
-  \*/
+\*/
 
 // Sample Uses of Logical Evaluators
 
