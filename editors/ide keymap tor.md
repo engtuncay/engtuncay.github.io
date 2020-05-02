@@ -31,20 +31,27 @@ Editor Uyguladığım Kısayollar
 | Shortcut     | Action                    | When | Extra        |
 | ------------ | ------------------------- | ---- | ------------ |
 | a+left,right | file next or prev on tabs | .    | c+pg.down/up |
+| c+- / c,s+-  | navigate back-forward     | .    | .            |
+| F12          | Go To Declaration         | .    | .            |
+| C + p        | Go to File                | .    | .            |
+| C + m        | Go to Symbols (Method)    | .    | .            |
 | .            | .                         | .    | .            |
 | .            | .                         | .    | .            |
-
+| .            | .                         | .    | .            |
 
 
 **Configuration**
 
 | Shortcut | Action        | When | Extra |
 | -------- | ------------- | ---- | ----- |
-| C+ş,i    | Zoom In       | .    |
-| C+ş,o    | Zoom Out      | .    |
-| C+ş,y    | Font Zoom in  | .    |
-| C+ş,u    | Font Zoom out | .    |
+| .        | Settings      | .    | .     |
+| .        | Keymap        | .    | .     |
+| C+ş,i    | Zoom In       | .    | .     |
+| C+ş,o    | Zoom Out      | .    | .     |
+| C+ş,y    | Font Zoom in  | .    | .     |
+| C+ş,u    | Font Zoom out | .    | .     |
 | .        | .             | .    | .     |
+
 
 **Debug/Run**
 

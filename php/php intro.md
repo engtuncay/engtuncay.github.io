@@ -2,9 +2,9 @@
 
 - [Introduction to Php](#introduction-to-php)
 - [OOP Kavramları](#oop-kavramlar%c4%b1)
-  - [Sınıf Tanımlama](#s%c4%b1n%c4%b1f-tan%c4%b1mlama)
-  - [Miras Alma (Inheritance)](#miras-alma-inheritance)
-  - [Constructor (Kurucu Metod)](#constructor-kurucu-metod)
+  - [Class Definition](#class-definition)
+  - [Inheritance](#inheritance)
+  - [Constructor](#constructor)
   - [Yıkıcılar](#y%c4%b1k%c4%b1c%c4%b1lar)
   - [Static Tanımım](#static-tan%c4%b1m%c4%b1m)
   - [Interface (Arayüz) Kullanımı](#interface-aray%c3%bcz-kullan%c4%b1m%c4%b1)
@@ -23,12 +23,13 @@
   - [Obje Kavramı ve Oluşturma](#obje-kavram%c4%b1-ve-olu%c5%9fturma)
   - [Zaman Objesi ve Metodları](#zaman-objesi-ve-metodlar%c4%b1)
 - [Php Temelleri - 2](#php-temelleri---2)
-  - [Karşılaştırma Operatörleri](#kar%c5%9f%c4%b1la%c5%9ft%c4%b1rma-operat%c3%b6rleri)
-  - [Mantıksal Bağlaçlar](#mant%c4%b1ksal-ba%c4%9fla%c3%a7lar)
-  - [If Statement (if ifadesi)](#if-statement-if-ifadesi)
-  - [Switch - Case Yapısı](#switch---case-yap%c4%b1s%c4%b1)
+  - [Logical Operators](#logical-operators)
+  - [If Statement](#if-statement)
+- [TERNARY OPERATOR](#ternary-operator)
+- [SWITCH STATMENT](#switch-statment)
+- [LOOPS - For,While,Do While](#loops---forwhiledo-while)
   - [Fonksiyonlar, IIFE ve Anonim Fonksiyonlar](#fonksiyonlar-iife-ve-anonim-fonksiyonlar)
-  - [Döngüler - While,Do While,For](#d%c3%b6ng%c3%bcler---whiledo-whilefor)
+  - [Döngüler](#d%c3%b6ng%c3%bcler)
 - [Database Connection](#database-connection)
   - [PDO Connection](#pdo-connection)
 - [Composer](#composer)
@@ -39,11 +40,7 @@
 - [FORM POST (variables)](#form-post-variables)
 - [EOD String sytax](#eod-string-sytax)
 - [INCREMENT](#increment)
-- [CASTING](#casting)
 - [ARITHMETICS](#arithmetics)
-- [TERNARY OPERATOR](#ternary-operator)
-- [SWITCH STATMENT](#switch-statment)
-- [LOOPS](#loops)
 - [ARRAYS](#arrays)
 - [MULTI-DIMENSIONAL ARRAYS](#multi-dimensional-arrays)
 - [STRING FUNCTIONS & FORMATTING](#string-functions--formatting)
@@ -52,7 +49,7 @@
 
 # OOP Kavramları
 
-## Sınıf Tanımlama
+## Class Definition
 
 ```php
 class Foo {
@@ -76,7 +73,7 @@ $foobar->marka = "";
 $foobar->get();
 ```
 
-## Miras Alma (Inheritance)
+## Inheritance
 
 ```php
 class Bar {
@@ -93,7 +90,7 @@ class Foo extends Bar {
 
 ```
 
-## Constructor (Kurucu Metod)
+## Constructor
 
 ```php
 
@@ -114,13 +111,13 @@ Objenin kullanımı bitince çalıştırılacak metotdur.
 
 class Foo {
     public function __construct() {
-        // kurucu işlemleri
-        echo "beg";
+        // commands
+        echo "begin of object<br>";
     }
 
     public function __destruct() {
-        // kurucu işlemleri
-        echo "end";
+        // commands
+        echo "end of object<br>";
     }
 }
 
@@ -136,7 +133,9 @@ for($i=1; $i<5;i++>){
 // end of page
 
 // Output
-// beg1 2 3 4end
+begin of object
+1 2 3 4
+end of object
 
 ```
 
@@ -344,6 +343,12 @@ echo tayfun;
 
     (double)(5 / 2);
 
+$randNum = 5;
+$refToNum = &$randNum;
+$randNum = 100;
+
+echo '$refToNum = ' . $refToNum;
+
 ## Operators and Math Object
 
     + , - , * , / , % (modular arithmetic)
@@ -365,31 +370,77 @@ Sabit Tanımlama
 
 # Php Temelleri - 2
 
-## Karşılaştırma Operatörleri
-
-List of Logical Operators
+## Logical Operators
 
 The things that can go inside a statement that return a boolean
 
-    >  Greater then
-    >= Greater then or equal
-    <  Less Then
-    <= Less Then or Equal
-    == Equal (value)
-    === Both things equal to each other and are the same type
-    && Both things are true
-    || One of these things are true
-    ! Not Operator
+| Operator | Meaning                      |     |
+| -------- | ---------------------------- | --- |
+| >        | Greater then                 | >=  |
+| <        | Less then                    | >=  |
+| ==       | Equal                        | =!  |
+| ===      | Equal value and type         |     |
+| &&       | Both things are true         |     |
+| \|       | One of these things are true |     |
+| !        | Not Operator                 |     |
 
-## Mantıksal Bağlaçlar
+## If Statement
 
-## If Statement (if ifadesi)
 
-## Switch - Case Yapısı
+```php
+if ( $numOfOranges < 26 ) {
+    echo '5% Discount';
+} else if ( ($numOfOranges < 31) ) {
+    echo '10% Discount';
+} else {
+    echo '15% Discount';
+} 
+```
+
+# TERNARY OPERATOR
+
+```php
+echo (15 > 10) ? 15 : 10; 
+// Output
+// 15
+
+```
+# SWITCH STATMENT
+
+```php
+switch ($userName) {
+    case "Marry" :
+        echo "Hello Marry";
+        break;
+
+    case "John" :
+    	echo "Hello John";
+        break;
+
+    default :
+    	echo "Hello Valued Customer";
+    	break;
+}
+```
+
+# LOOPS - For,While,Do While
+
+```php
+for($i = 1; $i <= 20; $i++) {
+    // statements
+}
+
+$num = 0;
+
+while($num < 20) {
+    // statements
+}
+
+```
 
 ## Fonksiyonlar, IIFE ve Anonim Fonksiyonlar
 
-## Döngüler - While,Do While,For
+## Döngüler 
 
 ---
 
@@ -491,9 +542,9 @@ echo date('h:i:s:u a, l F jS Y e');
 
 # FORM POST (variables)
 
-$usersName = $\_POST['username'];
-$streetAddress = $\_POST['streetaddress'];
-$cityAddress = $\_POST['cityaddress'];
+$usersName = $_POST['username'];
+$streetAddress = $_POST['streetaddress'];
+$cityAddress = $_POST['cityaddress'];
 
 echo $usersName . "</br>";
 echo $streetAddress . "</br>";
@@ -521,13 +572,7 @@ echo "++randNum = " . ++$randNum . "</br>";
 echo "randNum++ = " . $randNum++ . "</br>";
 echo \$randNum;
 
-# CASTING
 
-$randNum = 5;
-$refToNum = &$randNum;
-$randNum = 100;
-
-echo '$refToNum = ' . $refToNum;
 
 # ARITHMETICS
 
@@ -540,57 +585,7 @@ echo '5 != 10';
 $numOfOranges = 4;
 $numOfBananas = 36;
 
-// IF STATEMENTS
-if ( ($numOfOranges > 25) && ($numOfBananas > 30) ) {
-echo '25% Discount';
-} else if ( ($numOfOranges > 30) || ($numOfBananas > 35) ) {
-echo '15% Discount';
-} else if ( !($numOfOranges < 5) || !($numOfBananas < 5) ) {
-echo '5% Discount';
-} else {
-echo 'No Discount for you';
-}
 
-# TERNARY OPERATOR
-
-\$biggestNum = (15 > 10) ? 15 : 10;
-
-echo \$biggestNum;
-
-# SWITCH STATMENT
-
-switch (\$usersName) {
-case "Derek" :
-echo "Hello Derek";
-break;
-
-    case "Sally" :
-    	echo "Hello Sally";
-    	break;
-
-    default :
-    	echo "Hello Valued Customer";
-    	break;
-
-}
-
-# LOOPS
-
-    $num = 0;
-
-    while($num < 20) {
-    	echo ++$num . ', ';
-    }
-
-    for($i = 1; $i <= 20; $i++) {
-    	echo $i;
-
-    	if($i != 20) {
-    		echo ', ';
-    	} else {
-    		break;
-    	}
-    }
 
 # ARRAYS
 
