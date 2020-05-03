@@ -1,7 +1,29 @@
 # Introduction to Php
 
 - [Introduction to Php](#introduction-to-php)
-- [OOP Kavramları](#oop-kavramlar%c4%b1)
+- [Php Basic - 1](#php-basic---1)
+  - [Comment Line and Block](#comment-line-and-block)
+  - [Data Types](#data-types)
+  - [Constant Assignment](#constant-assignment)
+  - [Data Type Casting](#data-type-casting)
+  - [Operators and Math Object](#operators-and-math-object)
+  - [String Metodları](#string-metodlar%c4%b1)
+  - [Template Literal (String oluşturmada yeni standart)](#template-literal-string-olu%c5%9fturmada-yeni-standart)
+  - [Arrays](#arrays)
+  - [Obje Kavramı ve Oluşturma](#obje-kavram%c4%b1-ve-olu%c5%9fturma)
+  - [Zaman Objesi ve Metodları](#zaman-objesi-ve-metodlar%c4%b1)
+- [Php Basic - 2](#php-basic---2)
+  - [Logical Operators](#logical-operators)
+  - [If Statement](#if-statement)
+- [Ternary Operator](#ternary-operator)
+- [Switch Statement](#switch-statement)
+- [Loops - For,While,Do While](#loops---forwhiledo-while)
+- [Functions](#functions)
+  - [Functions](#functions-1)
+  - [Anonymous Functions](#anonymous-functions)
+  - [get_args() function](#getargs-function)
+  - [Recursive Functions](#recursive-functions)
+- [OOP Concepts](#oop-concepts)
   - [Class Definition](#class-definition)
   - [Inheritance](#inheritance)
   - [Constructor](#constructor)
@@ -11,43 +33,481 @@
   - [Abstract Sınıf (Soyut Sınıf) Kullanımı](#abstract-s%c4%b1n%c4%b1f-soyut-s%c4%b1n%c4%b1f-kullan%c4%b1m%c4%b1)
   - [Final Ön Tanımı](#final-%c3%96n-tan%c4%b1m%c4%b1)
   - [Namespace nedir](#namespace-nedir)
-- [Php'nin Temelleri - 1 (Core Php)](#phpnin-temelleri---1-core-php)
-  - [Comment Line and Block](#comment-line-and-block)
-  - [Data Types](#data-types)
-  - [Constant Assignment](#constant-assignment)
-  - [Data Type Casting](#data-type-casting)
-  - [Operators and Math Object](#operators-and-math-object)
-  - [String Metodları](#string-metodlar%c4%b1)
-  - [Template Literal (String oluşturmada yeni standart)](#template-literal-string-olu%c5%9fturmada-yeni-standart)
-  - [Arraylerin Özellikleri](#arraylerin-%c3%96zellikleri)
-  - [Obje Kavramı ve Oluşturma](#obje-kavram%c4%b1-ve-olu%c5%9fturma)
-  - [Zaman Objesi ve Metodları](#zaman-objesi-ve-metodlar%c4%b1)
-- [Php Temelleri - 2](#php-temelleri---2)
-  - [Logical Operators](#logical-operators)
-  - [If Statement](#if-statement)
-- [TERNARY OPERATOR](#ternary-operator)
-- [SWITCH STATMENT](#switch-statment)
-- [LOOPS - For,While,Do While](#loops---forwhiledo-while)
-  - [Fonksiyonlar, IIFE ve Anonim Fonksiyonlar](#fonksiyonlar-iife-ve-anonim-fonksiyonlar)
-  - [Döngüler](#d%c3%b6ng%c3%bcler)
+- [Form Values](#form-values)
+- [Post Variables](#post-variables)
 - [Database Connection](#database-connection)
   - [PDO Connection](#pdo-connection)
 - [Composer](#composer)
   - [Kurulumu](#kurulumu)
   - [Kullanımı](#kullan%c4%b1m%c4%b1)
   - [Composer Komutları](#composer-komutlar%c4%b1)
-- [DATE](#date)
-- [FORM POST (variables)](#form-post-variables)
 - [EOD String sytax](#eod-string-sytax)
 - [INCREMENT](#increment)
 - [ARITHMETICS](#arithmetics)
-- [ARRAYS](#arrays)
 - [MULTI-DIMENSIONAL ARRAYS](#multi-dimensional-arrays)
 - [STRING FUNCTIONS & FORMATTING](#string-functions--formatting)
 - [Conversion Codes (printf)](#conversion-codes-printf)
 - [FUNCTION](#function)
+- [Kaynaklar](#kaynaklar)
 
-# OOP Kavramları
+# Php Basic - 1
+
+## Comment Line and Block
+
+    // This is a single-line comment
+
+    /*
+        This is a mult-line comment.
+    */
+
+Comments are completely ignored when running a php file.
+
+## Data Types
+
+- Data Types and Assignment
+
+```
+string "tayfun erbilen" 'tayfun erbilen'
+integer 500, 200
+double (Float) 5.5, 7.2
+boolean (true, false)
+array (dizi)
+object (Nesne)
+NULL
+```
+
+- gettype() fonksiyonu ile bir verinin türünü öğreniriz.
+
+```php
+$string = "tayfun erbilen";
+$int = 500;
+$float = 5.5;
+$bool = false;
+$array = array();
+$object = new stdClass;
+$null = NULL;
+echo gettype($null); // NULL
+```
+
+## Constant Assignment
+
+- Sabit Değişkenler;
+  - define() fonksiyonu ile tanımlanır
+  - Türkçe karakterler içerebilir
+  - Sayı ile başlayamaz
+  - Harf ya da \_ işareti ile başlar
+  - Büyük-küçük harfe duyarlıdır
+  - Veri türlerinde, Object hariç tüm veri türlerini kapsar.
+
+```php
+$tayfun = "tayfun erbilen";
+//echo $tayfun;
+
+define("tayfun", "tayfun erbilen");
+//define("Tayfun", "tayfun erbilen2");
+
+echo tayfun;
+```
+
+## Data Type Casting
+
+    (double)(5 / 2);
+
+$randNum = 5;
+$refToNum = &$randNum;
+$randNum = 100;
+
+echo '$refToNum = ' . $refToNum;
+
+## Operators and Math Object
+
+    + , - , * , / , % (modular arithmetic)
+
+Sabit Tanımlama
+
+    define('PI', 3.1415926);
+    echo "The value of PI is " . PI;
+
+## String Metodları
+
+## Template Literal (String oluşturmada yeni standart)
+
+## Arrays
+
+$bestFriends = array('Joy', 'Willow', 'Ivy');
+
+echo 'My Wife ' . $bestFriends[0];
+
+$bestFriends[4] = 'Steve';
+
+foreach ($bestFriends as $friend) {
+    echo \$friend . ', ';
+}
+
+$customer = array('Name'=>$usersName, 'Street'=>$streetAddress, 'City'=>$cityAddress);
+
+echo "</br>";
+
+foreach ($customer as $key => $value) {
+	echo $key . ' : ' . \$value . "</br>";
+}
+
+$bestFriends = $bestFriends + $customer;
+
+## Obje Kavramı ve Oluşturma
+
+## Zaman Objesi ve Metodları
+
+date_default_timezone_set('UTC');
+echo date('h:i:s:u a, l F jS Y e');
+
+
+---
+
+# Php Basic - 2
+
+## Logical Operators
+
+Operators that return a boolean
+
+| Operator | Meaning                           |     |
+| -------- | --------------------------------- | --- |
+| >        | Greater then                      | >=  |
+| <        | Less then                         | >=  |
+| ==       | Equal                             | =!  |
+| ===      | Equal value and type              |     |
+| &&       | And (Both things are true)        |     |
+| \|       | Or (One of these things are true) |     |
+| !        | Not Operator                      |     |
+
+## If Statement
+
+
+```php
+if ( $numOfOranges < 26 ) {
+    echo '5% Discount';
+} else if ( ($numOfOranges < 31) ) {
+    echo '10% Discount';
+} else {
+    echo '15% Discount';
+} 
+```
+
+# Ternary Operator
+
+```php
+echo (15 > 10) ? 15 : 10; 
+// Output
+// 15
+```
+
+
+# Switch Statement
+
+```php
+switch ($userName) {
+    case "Marry" :
+        echo "Hello Marry";
+        break;
+
+    case "John" :
+    	echo "Hello John";
+        break;
+
+    default :
+    	echo "Hello Valued Customer";
+    	break;
+}
+```
+
+# Loops - For,While,Do While
+
+```php
+for($i = 1; $i <= 20; $i++) {
+    // statements
+}
+
+$num = 0;
+
+while($num < 20) {
+    // statements
+}
+
+```
+
+# Functions
+
+
+## Functions
+
+- Function without parameter
+
+```php
+function test()
+{
+    return "test";
+}
+
+$a = test();
+//echo $a;
+
+```
+
+- Function with parameters
+
+```php
+
+function topla($sayi1 = 2, $sayi2 = 10)
+{
+    return ($sayi1 + $sayi2);
+}
+
+$toplam = topla();
+//echo $toplam;
+
+```
+
+- Using global variable in a function
+
+```php
+
+$ad = 'Tayfun';
+
+/*
+    global
+    $GLOBALS
+*/
+
+function adsoyad($soyad)
+{
+    // $GLOBALS['ad']
+    global $ad;
+    return $ad . ' ' . $soyad;
+}
+
+//echo adsoyad('Erbilen');
+
+$yazi = "tayfun";
+
+//echo substr($yazi, 0, 10) . '..';
+
+function kisalt($str, $limit = 10)
+{
+    $karakterSayisi = strlen($str);
+    if ($karakterSayisi > $limit){
+       $str = substr($str, 0, $limit) . '..';
+    }
+    return $str;
+}
+
+echo kisalt($yazi, 5);
+```
+
+## Anonymous Functions
+
+- Basit Fonksiyon Kullanımı
+
+```php
+function test(){
+    return 'test';
+}
+
+//echo test();
+
+```
+- Anonim fonksiyon kullanımı
+
+```php
+
+$test = function($par){
+    return 'test ' . $par;
+};
+
+$test2 = function() use ($test){
+    return 'test2 ' .  $test('test3');
+};
+
+echo $test2();
+
+//echo $test('tayfun');
+
+```
+
+- function assignment to an Array ( it s defined as closure)
+
+```php
+
+$arr = [
+    function(){
+        return '1. fonksiyon';
+    },
+    function(){
+        return '2. fonksiyon';
+    },
+    function(){
+        return '3. fonksiyon';
+    }
+];
+
+//echo $arr[rand(0,2)]();
+
+```
+
+
+
+```php
+$soyad = 'Erbilen';
+
+function filtrele($isim)
+{
+    global $soyad;
+    return $isim . ' ' . $soyad; 
+}
+
+$arr = ['Tayfun','Güner','Meltem','Zeynep'];
+$arr = array_map(function($isim) use($soyad){
+    return $isim . ' ' . $soyad; 
+}, $arr);
+
+// Another usage
+// array_map ( 'filtrele',$arr) 
+
+print_r($arr);
+
+
+
+```
+
+## get_args() function
+
+```php
+/*
+    func_num_args()
+    func_get_args()
+    func_get_arg()
+*/
+
+function test()
+{
+    echo func_num_args() . '<br>';
+    print_r(func_get_args()) . '<br>';
+    echo func_get_arg(2);
+}
+
+test('tayfun', 'udemy', 'prototurk', '93academy');
+
+// Output
+
+
+```
+
+## Recursive Functions
+
+```php
+function say($sayi)
+{
+    echo $sayi;
+    if ($sayi < 10) {
+        say($sayi + 1);
+    }
+}
+
+//say(1);
+
+$kategoriler = [
+    [
+        'id' => 1,
+        'parent' => 0,
+        'ad' => 'Dersler'
+    ],
+    [
+        'id' => 2,
+        'parent' => 0,
+        'ad' => 'Güncel'
+    ],
+    [
+        'id' => 3,
+        'parent' => 0,
+        'ad' => 'Blog'
+    ],
+    [
+        'id' => 4,
+        'parent' => 1,
+        'ad' => 'PHP Dersleri'
+    ],
+    [
+        'id' => 5,
+        'parent' => 1,
+        'ad' => 'CSS Dersleri'
+    ],
+    [
+        'id' => 6,
+        'parent' => 4,
+        'ad' => 'Fonksiyonlar'
+    ],
+    [
+        'id' => 7,
+        'parent' => 4,
+        'ad' => 'Değişken Kullanımı'
+    ],
+    [
+        'id' => 8,
+        'parent' => 6,
+        'ad' => 'Recursive Fonksiyonlar'
+    ]
+];
+
+function kategoriListele($kategoriler, $parent = 0)
+{
+    $html = '';
+    $html .= '<ul>';
+    foreach ($kategoriler as $kategori) {
+        if ($kategori['parent'] == $parent) {
+            $html .= '<li>' . $kategori['ad'];
+            $html .= kategoriListele($kategoriler, $kategori['id']);
+            $html .= '</li>';
+        }
+    }
+    $html .= '</ul>';
+    return $html;
+}
+
+//echo kategoriListele($kategoriler);
+
+$arr = [
+    'ad' => 'tayfun',
+    'soyad' => 'erbilen',
+    'sporlar' => [
+        'yuzme' => 'evet',
+        'kosma' => 'hayır',
+        'savunma_sporlari' => [
+            'jeetkunedo' => 'evet',
+            'judo' => 'hayır'
+        ]
+    ]
+];
+
+function dizide_bul($dizi, $anahtar)
+{
+    foreach ($dizi as $key => $val) {
+        if ($key == $anahtar) {
+            return $val;
+        }
+        if (is_array($val)) {
+            $sonuc = dizide_bul($val, $anahtar);
+            if ($sonuc) {
+                return $sonuc;
+            }
+        }
+    }
+    return false;
+}
+
+print_r(dizide_bul($arr, 'savunma_sporlari'));
+```
+
+
+# OOP Concepts
 
 ## Class Definition
 
@@ -280,167 +740,25 @@ echo ahmet::get();
 
 ---
 
-# Php'nin Temelleri - 1 (Core Php)
 
-## Comment Line and Block
 
-    // This is a single-line comment
+---
 
-    /*
-        This is a mult-line comment.
-    */
+# Form Values
 
-Comments are completely ignored when running a php file.
-
-## Data Types
-
-- Data Types and Assignment
-
-```
-string "tayfun erbilen" 'tayfun erbilen'
-integer 500, 200
-double (Float) 5.5, 7.2
-boolean (true, false)
-array (dizi)
-object (Nesne)
-NULL
-```
-
-- gettype() fonksiyonu ile bir verinin türünü öğreniriz.
+# Post Variables
 
 ```php
-$string = "tayfun erbilen";
-$int = 500;
-$float = 5.5;
-$bool = false;
-$array = array();
-$object = new stdClass;
-$null = NULL;
-echo gettype($null); // NULL
+$usersName = $_POST['username'];
+$streetAddress = $_POST['streetaddress'];
+$cityAddress = $_POST['cityaddress'];
+
+echo $usersName . "</br>";
+echo $streetAddress . "</br>";
+echo \$cityAddress . "</br></br>";
 ```
 
-## Constant Assignment
 
-- Sabit Değişkenler;
-  - define() fonksiyonu ile tanımlanır
-  - Türkçe karakterler içerebilir
-  - Sayı ile başlayamaz
-  - Harf ya da \_ işareti ile başlar
-  - Büyük-küçük harfe duyarlıdır
-  - Veri türlerinde, Object hariç tüm veri türlerini kapsar.
-
-```php
-$tayfun = "tayfun erbilen";
-//echo $tayfun;
-
-define("tayfun", "tayfun erbilen");
-//define("Tayfun", "tayfun erbilen2");
-
-echo tayfun;
-```
-
-## Data Type Casting
-
-    (double)(5 / 2);
-
-$randNum = 5;
-$refToNum = &$randNum;
-$randNum = 100;
-
-echo '$refToNum = ' . $refToNum;
-
-## Operators and Math Object
-
-    + , - , * , / , % (modular arithmetic)
-
-Sabit Tanımlama
-
-    define('PI', 3.1415926);
-    echo "The value of PI is " . PI;
-
-## String Metodları
-
-## Template Literal (String oluşturmada yeni standart)
-
-## Arraylerin Özellikleri
-
-## Obje Kavramı ve Oluşturma
-
-## Zaman Objesi ve Metodları
-
-# Php Temelleri - 2
-
-## Logical Operators
-
-The things that can go inside a statement that return a boolean
-
-| Operator | Meaning                      |     |
-| -------- | ---------------------------- | --- |
-| >        | Greater then                 | >=  |
-| <        | Less then                    | >=  |
-| ==       | Equal                        | =!  |
-| ===      | Equal value and type         |     |
-| &&       | Both things are true         |     |
-| \|       | One of these things are true |     |
-| !        | Not Operator                 |     |
-
-## If Statement
-
-
-```php
-if ( $numOfOranges < 26 ) {
-    echo '5% Discount';
-} else if ( ($numOfOranges < 31) ) {
-    echo '10% Discount';
-} else {
-    echo '15% Discount';
-} 
-```
-
-# TERNARY OPERATOR
-
-```php
-echo (15 > 10) ? 15 : 10; 
-// Output
-// 15
-
-```
-# SWITCH STATMENT
-
-```php
-switch ($userName) {
-    case "Marry" :
-        echo "Hello Marry";
-        break;
-
-    case "John" :
-    	echo "Hello John";
-        break;
-
-    default :
-    	echo "Hello Valued Customer";
-    	break;
-}
-```
-
-# LOOPS - For,While,Do While
-
-```php
-for($i = 1; $i <= 20; $i++) {
-    // statements
-}
-
-$num = 0;
-
-while($num < 20) {
-    // statements
-}
-
-```
-
-## Fonksiyonlar, IIFE ve Anonim Fonksiyonlar
-
-## Döngüler 
 
 ---
 
@@ -532,23 +850,9 @@ veya
 
 * getcomposer.org detay komutları görebilirsiniz.
 
-# DATE
 
-echo "Data processed";
 
-date_default_timezone_set('UTC');
 
-echo date('h:i:s:u a, l F jS Y e');
-
-# FORM POST (variables)
-
-$usersName = $_POST['username'];
-$streetAddress = $_POST['streetaddress'];
-$cityAddress = $_POST['cityaddress'];
-
-echo $usersName . "</br>";
-echo $streetAddress . "</br>";
-echo \$cityAddress . "</br></br>";
 
 # EOD String sytax
 
@@ -587,27 +891,7 @@ $numOfBananas = 36;
 
 
 
-# ARRAYS
 
-\$bestFriends = array('Joy', 'Willow', 'Ivy');
-
-//echo 'My Wife ' . \$bestFriends[0];
-
-\$bestFriends[4] = 'Steve';
-
-foreach ($bestFriends as $friend) {
-echo \$friend . ', ';
-}
-
-$customer = array('Name'=>$usersName, 'Street'=>$streetAddress, 'City'=>$cityAddress);
-
-echo "</br>";
-
-foreach ($customer as $key => $value) {
-	echo $key . ' : ' . \$value . "</br>";
-}
-
-$bestFriends = $bestFriends + \$customer;
 
 # MULTI-DIMENSIONAL ARRAYS
 
@@ -871,3 +1155,10 @@ $queryResult = $connection->query("SELECT \* FROM USERS;"); // Any query can go 
 // TODO add get first row from result as array
 
 ?>
+
+
+
+# Kaynaklar
+
+- Udemy Tayfun Erbilen Kursu
+- Cheatsheets
