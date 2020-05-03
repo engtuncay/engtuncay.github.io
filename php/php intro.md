@@ -506,12 +506,69 @@ function dizide_bul($dizi, $anahtar)
 print_r(dizide_bul($arr, 'savunma_sporlari'));
 ```
 
+## function_exists
+
+```php
+function test2(){
+    return 'test';
+}
+
+if (function_exists('test')){
+    echo 'test fonksiyonu vardır';
+} else {
+    echo 'test fonksiyonu yoktur';
+}
+
+function kisalt($str, $limit = 10)
+{
+    $karakterSayisi = strlen($str);
+    if ($karakterSayisi > $limit){
+        if (function_exists('mb_substr')){
+            $str = mb_substr($str, 0, $limit, 'utf8') . '..';
+        } else {
+            $str = substr($str, 0, $limit) . '..';
+        }
+    }
+    return $str;
+}
+
+```
+
+
+## Yield Function
+
+```php
+
+// memory_get_usage()
+// number_format()
+
+function byteToMB($byte)
+{
+    return number_format($byte / 1048576, 2);
+}
+
+$sayilar = range(0, 1000000);
+
+echo byteToMB(memory_get_usage()) . ' MB bellek kullanıldı<br>';
+
+function say($baslangic, $limit)
+{
+    for ($i = $baslangic; $i <= $limit; $i++) {
+        yield $i;
+    }
+}
+
+$sayilar = say(0, 1000000);
+
+echo byteToMB(memory_get_usage()) . ' MB bellek kullanıldı';
+```
 
 # OOP Concepts
 
 ## Class Definition
 
 ```php
+
 class Foo {
     public $marka; // default public olduğu için publc koymayabiliriz
     public $model; // açık kullanılabilir
@@ -523,6 +580,7 @@ class Foo {
     }
 
 }
+
 ```
 
 Sınıf Örneği, obje oluşturalım , objenin alanlarına ulaşalım.
@@ -599,7 +657,7 @@ end of object
 
 ```
 
-## Static Tanımım
+## Static Definition
 
 ```php
 class Foo {

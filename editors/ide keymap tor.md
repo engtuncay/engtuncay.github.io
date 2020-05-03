@@ -63,6 +63,13 @@ Editor Uyguladığım Kısayollar
 
 
 
+**Sample**
+
+| Shortcut | Action          | When | Extra |
+| -------- | --------------- | ---- | ----- |
+| a+s      | Toggle Side Bar | .    | .     |
+| .        | .               | .    | .     |
+
 
 **Sample**
 
