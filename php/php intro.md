@@ -23,12 +23,16 @@
   - [Anonymous Functions](#anonymous-functions)
   - [get_args() function](#getargs-function)
   - [Recursive Functions](#recursive-functions)
+  - [function_exists](#functionexists)
+  - [Yield Function](#yield-function)
+  - [Static variable in a function](#static-variable-in-a-function)
+  - [Php 7 Feature - Parameter ad Return Type](#php-7-feature---parameter-ad-return-type)
 - [OOP Concepts](#oop-concepts)
   - [Class Definition](#class-definition)
   - [Inheritance](#inheritance)
   - [Constructor](#constructor)
   - [Yıkıcılar](#y%c4%b1k%c4%b1c%c4%b1lar)
-  - [Static Tanımım](#static-tan%c4%b1m%c4%b1m)
+  - [Static Definition](#static-definition)
   - [Interface (Arayüz) Kullanımı](#interface-aray%c3%bcz-kullan%c4%b1m%c4%b1)
   - [Abstract Sınıf (Soyut Sınıf) Kullanımı](#abstract-s%c4%b1n%c4%b1f-soyut-s%c4%b1n%c4%b1f-kullan%c4%b1m%c4%b1)
   - [Final Ön Tanımı](#final-%c3%96n-tan%c4%b1m%c4%b1)
@@ -561,6 +565,53 @@ function say($baslangic, $limit)
 $sayilar = say(0, 1000000);
 
 echo byteToMB(memory_get_usage()) . ' MB bellek kullanıldı';
+```
+##  Static variable in a function
+
+
+```php
+
+function say(){
+    static $sayi = 1;
+    echo $sayi . '<br>';
+    $sayi++;
+}
+
+function yukle($deger){
+    static $yuklenenler = [];
+    $yuklenenler[] = $deger;
+    return $yuklenenler;
+}
+
+yukle('test.php');
+yukle('a.php');
+$yuklenenler = yukle('b.php');
+
+print_r($yuklenenler);
+
+```
+
+## Php 7 Feature - Parameter ad Return Type
+
+```php
+function say(){
+    static $sayi = 1;
+    echo $sayi . '<br>';
+    $sayi++;
+}
+
+function yukle($deger){
+    // static variable is defined
+    static $yuklenenler = [];
+    $yuklenenler[] = $deger;
+    return $yuklenenler;
+}
+
+yukle('test.php');
+yukle('a.php');
+$yuklenenler = yukle('b.php');
+
+print_r($yuklenenler);
 ```
 
 # OOP Concepts

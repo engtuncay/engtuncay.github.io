@@ -40,17 +40,16 @@ Editor Uyguladığım Kısayollar
 | .            | .                         | .    | .            |
 
 
-**Configuration**
+**Configuration / Interface**
 
-| Shortcut | Action        | When | Extra |
-| -------- | ------------- | ---- | ----- |
-| .        | Settings      | .    | .     |
-| .        | Keymap        | .    | .     |
-| C+ş,i    | Zoom In       | .    | .     |
-| C+ş,o    | Zoom Out      | .    | .     |
-| C+ş,y    | Font Zoom in  | .    | .     |
-| C+ş,u    | Font Zoom out | .    | .     |
-| .        | .             | .    | .     |
+| Shortcut | Action           | When | Extra |
+| -------- | ---------------- | ---- | ----- |
+| c+ş,s    | Settings         | .    | .     |
+| ctş,k    | Keymap           | .    | .     |
+| C+ş,i/o  | Zoom In/Out      | .    | .     |
+| C+ş,y/u  | Font Zoom in/out | .    | .     |
+| c,s+s    | Toggle Side Bar  | .    | .     |
+| .        | .                | .    | .     |
 
 
 **Debug/Run**
@@ -61,14 +60,6 @@ Editor Uyguladığım Kısayollar
 | .        | .      | .    |
 | .        | .      | .    |
 
-
-
-**Sample**
-
-| Shortcut | Action          | When | Extra |
-| -------- | --------------- | ---- | ----- |
-| a+s      | Toggle Side Bar | .    | .     |
-| .        | .               | .    | .     |
 
 
 **Sample**
@@ -90,6 +81,22 @@ c,s,a + keyboard key : second key binding if there is.
 c -> ctrl
 s -> shift
 a -> alt
+
+Kullanılamaycak Tuş Kombinasyonlar
+
+alt + harfler : menülere yönleniyor
+ctrl + alt : alt gr olarak çalışıyor
+shift : tuş alternativi
+win : windows tuşları çakışıyor
+
+Kullanılacak Tuş Kombinasyonları
+
+ctrl + shift
+alt + sayılar
+alt + shift
+
+
+
 
 # Vscode Default Shortcuts
 
