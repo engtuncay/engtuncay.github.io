@@ -1,7 +1,7 @@
 # Introduction to Php
 
 - [Introduction to Php](#introduction-to-php)
-- [Php Basic - 1](#php-basic---1)
+- [Php Basic](#php-basic)
   - [Comment Line and Block](#comment-line-and-block)
   - [Data Types](#data-types)
   - [Constant Assignment](#constant-assignment)
@@ -12,12 +12,11 @@
   - [Arrays](#arrays)
   - [Obje Kavramı ve Oluşturma](#obje-kavram%c4%b1-ve-olu%c5%9fturma)
   - [Zaman Objesi ve Metodları](#zaman-objesi-ve-metodlar%c4%b1)
-- [Php Basic - 2](#php-basic---2)
   - [Logical Operators](#logical-operators)
   - [If Statement](#if-statement)
-- [Ternary Operator](#ternary-operator)
-- [Switch Statement](#switch-statement)
-- [Loops - For,While,Do While](#loops---forwhiledo-while)
+  - [Ternary Operator](#ternary-operator)
+  - [Switch Statement](#switch-statement)
+  - [Loops - For,While,Do While](#loops---forwhiledo-while)
 - [Functions](#functions)
   - [Functions](#functions-1)
   - [Anonymous Functions](#anonymous-functions)
@@ -54,7 +53,7 @@
 - [FUNCTION](#function)
 - [Kaynaklar](#kaynaklar)
 
-# Php Basic - 1
+# Php Basic
 
 ## Comment Line and Block
 
@@ -166,10 +165,6 @@ date_default_timezone_set('UTC');
 echo date('h:i:s:u a, l F jS Y e');
 
 
----
-
-# Php Basic - 2
-
 ## Logical Operators
 
 Operators that return a boolean
@@ -197,7 +192,7 @@ if ( $numOfOranges < 26 ) {
 } 
 ```
 
-# Ternary Operator
+## Ternary Operator
 
 ```php
 echo (15 > 10) ? 15 : 10; 
@@ -206,7 +201,7 @@ echo (15 > 10) ? 15 : 10;
 ```
 
 
-# Switch Statement
+## Switch Statement
 
 ```php
 switch ($userName) {
@@ -224,7 +219,7 @@ switch ($userName) {
 }
 ```
 
-# Loops - For,While,Do While
+## Loops - For,While,Do While
 
 ```php
 for($i = 1; $i <= 20; $i++) {
@@ -594,24 +589,23 @@ print_r($yuklenenler);
 ## Php 7 Feature - Parameter ad Return Type
 
 ```php
-function say(){
-    static $sayi = 1;
-    echo $sayi . '<br>';
-    $sayi++;
+
+declare(strict_types = 1);
+
+function topla(int $sayi1, int $sayi2): string
+{
+    return (string) ($sayi1 + $sayi2);
 }
 
-function yukle($deger){
-    // static variable is defined
-    static $yuklenenler = [];
-    $yuklenenler[] = $deger;
-    return $yuklenenler;
+function arr(array $arr): string
+{
+    return implode(',', $arr);
 }
 
-yukle('test.php');
-yukle('a.php');
-$yuklenenler = yukle('b.php');
+//echo topla(1,3);
 
-print_r($yuklenenler);
+print_r(arr(["test","test2"]));
+
 ```
 
 # OOP Concepts
