@@ -1,6 +1,11 @@
 Editor Uyguladığım Kısayollar
 
 - [Ide - Torak Keymap](#ide---torak-keymap)
+  - [File](#file)
+  - [Edit](#edit)
+  - [Navigation](#navigation)
+  - [Configuration / Interface](#configuration--interface)
+  - [Debug/Run](#debugrun)
 - [Vscode Default Shortcuts](#vscode-default-shortcuts)
 - [VsCode User Shortcuts](#vscode-user-shortcuts)
 - [Idea Default Shortcuts](#idea-default-shortcuts)
@@ -8,7 +13,8 @@ Editor Uyguladığım Kısayollar
 
 # Ide - Torak Keymap
 
-**File**
+## File
+
 
 | Shortcut | Action | When | Extra |
 | -------- | ------ | ---- | ----- |
@@ -16,7 +22,7 @@ Editor Uyguladığım Kısayollar
 | .        | .      | .    | .     |
 
 
-**Edit**
+## Edit
 
 | Shortcut | Action                            | When | Extra |
 | -------- | --------------------------------- | ---- | ----- |
@@ -26,21 +32,22 @@ Editor Uyguladığım Kısayollar
 | c+s,j    | String ifadeyi birleştirir (idea) | .    |
 
 
-**Navigation**
+## Navigation
 
-| Shortcut     | Action                    | When | Extra        |
-| ------------ | ------------------------- | ---- | ------------ |
-| a+left,right | file next or prev on tabs | .    | c+pg.down/up |
-| c+- / c,s+-  | navigate back-forward     | .    | .            |
-| F12          | Go To Declaration         | .    | .            |
-| C + p        | Go to File                | .    | .            |
-| C + m        | Go to Symbols (Method)    | .    | .            |
-| .            | .                         | .    | .            |
-| .            | .                         | .    | .            |
-| .            | .                         | .    | .            |
+| Shortcut     | Action                         | When | Extra        |
+| ------------ | ------------------------------ | ---- | ------------ |
+| a+left,right | file next or prev on tabs      | .    | c+pg.down/up |
+| C+-/c,s+-    | navigate back-forward          | .    | .            |
+| F12          | Go To Declaration              | .    | .            |
+| C+ p         | Go to File                     | .    | .            |
+| C+ m         | Go to Symbols (Method)         | .    | .            |
+| F2 / S+F2    | Sonraki/Önceki Vurgulanan Hata |      | .            |
+| .            | .                              | .    | .            |
+| .            | .                              | .    | .            |
+| .            | .                              | .    | .            |
 
 
-**Configuration / Interface**
+## Configuration / Interface
 
 | Shortcut | Action           | When | Extra |
 | -------- | ---------------- | ---- | ----- |
@@ -52,7 +59,7 @@ Editor Uyguladığım Kısayollar
 | .        | .                | .    | .     |
 
 
-**Debug/Run**
+## Debug/Run
 
 | Shortcut | Action | When | Extra |
 | -------- | ------ | ---- | ----- |
@@ -71,10 +78,9 @@ Editor Uyguladığım Kısayollar
 
 
 
-| F2 | Sonraki Vurgulanan Hata | |
+
 | s + F2 | Önceki Vurgulanan Hata | |
-| . | . | . |
-| . | . | . |
+
 
 c,s,a + keyboard key : second key binding if there is.
 
