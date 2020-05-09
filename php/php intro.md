@@ -17,6 +17,10 @@
   - [Ternary Operator](#ternary-operator)
   - [Switch Statement](#switch-statement)
   - [Loops - For,While,Do While](#loops---forwhiledo-while)
+- [Arrays](#arrays-1)
+  - [Array Intro](#array-intro)
+  - [Array Functions (1)](#array-functions-1)
+  - [Array Functions (2)](#array-functions-2)
 - [Functions](#functions)
   - [Functions](#functions-1)
   - [Anonymous Functions](#anonymous-functions)
@@ -234,6 +238,358 @@ while($num < 20) {
 
 ```
 
+
+# Arrays
+
+
+## Array Intro
+
+
+
+
+## Array Functions (1)
+
+```php
+
+/*
+    print_r()
+    var_dump()
+    explode()
+    implode()
+    count()
+    is_array()
+    shuffle()
+    array_combine()
+    array_count_values()
+    array_flip()
+    array_key_exists()
+*/
+
+$arr = [
+    'ad' => 'tayfun',
+    'soyad' => 'erbilen',
+    'yas' => 24
+];
+
+print_r($arr);
+
+/* ** Output
+ Array
+(
+    [ad] => tayfun
+    [soyad] => erbilen
+    [yas] => 24
+)
+ */
+
+var_dump($arr);
+
+/* ** Output
+array(3) {
+  ["ad"]=>
+  string(6) "tayfun"
+  ["soyad"]=>
+  string(7) "erbilen"
+  ["yas"]=>
+  int(24)
+}
+*/
+
+$test = 'tayfun,erbilen,udemy';
+$arr = explode(',', $test);
+
+print_r($arr);
+
+/*
+Array
+(
+    [0] => tayfun
+    [1] => erbilen
+    [2] => udemy
+)
+*/
+
+$string = implode('|', $arr);
+
+echo $string;
+echo "\n";
+echo count($arr);
+echo "\n";
+
+/*
+tayfun|erbilen|udemy
+3
+*/
+
+/*
+if (is_array($arr)){
+    echo 'bu bir dizidir';
+} else {
+    echo 'bu bir dizi değildir!';
+}
+*/
+
+$arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+shuffle($arr);
+
+print_r($arr);
+
+/*
+Array
+(
+    [0] => 5
+    [1] => 4
+    [2] => 1
+    [3] => 10
+    [4] => 9
+    [5] => 6
+    [6] => 3
+    [7] => 8
+    [8] => 2
+    [9] => 7
+)
+*/
+
+$keys = ['ad', 'soyad'];
+$values = ['tayfun', 'erbilen'];
+
+$arr = array_combine($keys, $values);
+print_r($arr);
+
+/*
+Array
+(
+    [ad] => tayfun
+    [soyad] => erbilen
+)
+*/
+
+$arr = ['tayfun', 'erbilen', 'udemy', 'tayfun', 'udemy'];
+$arr2 = array_count_values($arr);
+
+print_r($arr2);
+
+/*
+Array
+(
+    [tayfun] => 2
+    [erbilen] => 1
+    [udemy] => 2
+)
+*/
+
+$arr = [
+    'ad' => 'tayfun',
+    'soyad' => 'erbilen',
+    'yas' => 24
+];
+$arr2 = array_flip($arr);
+
+print_r($arr2);
+
+/*
+Array
+(
+    [tayfun] => ad
+    [erbilen] => soyad
+    [24] => yas
+)
+*/
+
+$arr = [
+    'ad' => 'tayfun',
+    'a' => [
+        'b' => [
+            'c' => [
+                'd' => 'e',
+                'e' => 'f'
+            ]
+        ]
+    ]
+];
+
+
+if (array_key_exists('ad', $arr)){
+    echo 'ad anahtarı var!';
+} else {
+    echo 'ad anahtarı yok!';
+}
+
+function _array_key_exists($cur_key, $arr)
+{
+    foreach ($arr as $key => $val) {
+        if ($key == $cur_key) {
+            return true;
+        }
+        if (is_array($val)) {
+            return _array_key_exists($cur_key, $val);
+        }
+    }
+    return false;
+}
+
+/*
+ad anahtarı var!
+*/
+
+if (_array_key_exists('e', $arr)) {
+    echo 'c anahtarı var!';
+} else {
+    echo 'c anahtarı yok!';
+}
+
+/*
+c anahtarı var!
+*/
+
+
+```
+
+
+## Array Functions (2)
+
+```php
+
+<?php
+
+/*
+    array_map()
+    array_filter()
+    array_merge()
+    array_rand()
+    array_reverse()
+    array_search()
+    in_array()
+    array_shift()
+    array_pop()
+    array_slice()
+    array_sum()
+    array_product()
+    array_unique()
+*/
+
+function filtrele($val){
+    return $val . ' -';
+}
+
+$arr = [1,2,3,4,5];
+$arr2 = array_map('filtrele', $arr);
+$arr2 = array_map(function($val){
+    return $val . ' -';
+}, $arr);
+//print_r($arr2);
+
+$arr = [1,2,3,4,5];
+$arr2 = array_filter($arr, function($item){
+    return $item > 2 && $item < 5;
+});
+$arr2 = array_map(function($val){
+    if ($val > 2 && $val < 5){
+        return $val;
+    }
+}, $arr);
+//print_r($arr2);
+
+$arr1 = [1,2,3];
+$arr2 = [4,5,6];
+
+$arr = array_merge($arr1, $arr2);
+//print_r($arr);
+
+$arr = [
+    'ad' => 'tayfun',
+    'soyad' => 'erbilen',
+    'yas' => 24,
+    'site' => 'erbilen.net'
+];
+$random = array_rand($arr, 2);
+$values = array_map(function($key) use($arr){
+    return $arr[$key];
+}, $random);
+
+//print_r($values);
+
+$arr = [1,2,3,4,5];
+//print_r($arr);
+$arr = array_reverse($arr);
+//print_r($arr);
+
+$arr = [
+    'ad' => 'tayfun',
+    'soyad' => 'erbilen',
+    'a' => [
+        'b' => [
+            'c' => 'd'
+        ]
+    ]
+];
+
+$test = array_search('d', $arr);
+
+function _array_search($cur_val, $arr)
+{
+    foreach ($arr as $key => $val){
+        if ($val == $cur_val){
+            return true;
+        }
+        if (is_array($val)){
+            return _array_search($cur_val, $val);
+        }
+    }
+    return false;
+}
+
+$test = _array_search('d', $arr);
+//echo $test;
+
+$arr = [1,2,3,4];
+
+/*
+if (in_array('6', $arr))
+{
+    echo '6 değeri var';
+} else {
+    echo 'yok';
+}
+*/
+
+$arr = [1,2,3,4,5];
+//$ilk_eleman = array_shift($arr);
+$son_eleman = array_pop($arr);
+//print_r($arr);
+//echo $son_eleman;
+//echo $ilk_eleman;
+
+$arr = [1,2,3,4,5];
+
+// ilk 2 eleman hariç hepsi
+$arr2 = array_slice($arr, 2);
+//print_r($arr2);
+
+$arr3 = array_slice($arr, 2, 2);
+//print_r($arr3);
+
+$arr4 = array_slice($arr, -2);
+//print_r($arr4);
+
+$arr = [1,2,3,4,5];
+$toplam = array_sum($arr);
+//echo $toplam;
+
+$carpim = array_product($arr);
+//echo $carpim;
+
+$arr = ['tayfun','erbilen','tayfun','erbilen','udemy'];
+print_r($arr);
+$arr2 = array_unique($arr);
+print_r($arr2);
+
+```
+
+
+
+
+
 # Functions
 
 
@@ -242,8 +598,7 @@ while($num < 20) {
 - Function without parameter
 
 ```php
-function test()
-{
+function test() {
     return "test";
 }
 
