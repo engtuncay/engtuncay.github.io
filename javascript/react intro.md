@@ -1,3 +1,7 @@
+
+- [Component](#component)
+- [Adding New Component](#adding-new-component)
+
 # Component
 
 - App component is the root component and first door for the app.
