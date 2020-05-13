@@ -1,6 +1,24 @@
 
+- [Create-react-app 'in kuruluması](#create-react-app-in-kurulumas%c4%b1)
+- [React App uygulama kuruluşu](#react-app-uygulama-kurulu%c5%9fu)
 - [Component](#component)
 - [Adding New Component](#adding-new-component)
+
+
+# Create-react-app 'in kuruluması
+
+```js
+npm install create-react-app -g
+```
+
+
+
+# React App uygulama kuruluşu
+
+```js
+npm install create-react-app -g
+```
+
 
 # Component
 
