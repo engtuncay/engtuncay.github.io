@@ -30,21 +30,23 @@ Editor Uyguladığım Kısayollar
 | c+k,h    | Format Selection                  | .    |
 | .        | .                                 | .    |
 | c+s,j    | String ifadeyi birleştirir (idea) | .    |
-
+| .        | .                                 | .    | .     |
 
 ## Navigation
 
-| Shortcut     | Action                         | When | Extra        |
-| ------------ | ------------------------------ | ---- | ------------ |
-| a+left,right | file next or prev on tabs      | .    | c+pg.down/up |
-| C+-/c,s+-    | navigate back-forward          | .    | .            |
-| F12          | Go To Declaration              | .    | .            |
-| C+ p         | Go to File                     | .    | .            |
-| C+ m         | Go to Symbols (Method)         | .    | .            |
-| F2 / S+F2    | Sonraki/Önceki Vurgulanan Hata |      | .            |
-| .            | .                              | .    | .            |
-| .            | .                              | .    | .            |
-| .            | .                              | .    | .            |
+| Shortcut     | Action                         | When | Extra                  |
+| ------------ | ------------------------------ | ---- | ---------------------- |
+| a+left,right | file next or prev on tabs      | .    | c+pg.down/up           |
+| C+-/c,s+-    | navigate back-forward          | .    | .                      |
+| F12          | Go To Declaration              | .    | .                      |
+| C+ p         | Go to File                     | .    | .                      |
+| C+ m         | Go to Symbols (Method)         | .    | .                      |
+| F2 / S+F2    | Sonraki/Önceki Vurgulanan Hata |      | .                      |
+| c,a+k        | Bookmark Toggle                | .    |                        |
+| c,a+l        | Go to Next Bookmark            | .    | Öncesi Format document |
+| .            | .                              | .    | .                      |
+| .            | .                              | .    | .                      |
+| .            | .                              | .    | .                      |
 
 
 ## Configuration / Interface
