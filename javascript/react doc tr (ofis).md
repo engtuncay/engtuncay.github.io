@@ -3,9 +3,29 @@
   - [Elementlerin Render Edilmesi](#elementlerin-render-edilmesi)
   - [Bileşenler ve Prop'lar – React](#bileşenler-ve-proplar--react)
   - [State ve Yaşam Döngüsü – React](#state-ve-yaşam-döngüsü--react)
+  - [Olay Yönetimi – React](#olay-yönetimi--react)
+
+
+
 
 
 # Temel Kavramlar
+
+Temel Kavramlar 12 bölümden oluşur.
+
+1. Merhaba Dünya
+2. JSX'e Giriş
+3. Elementlerin Render Edilmesi
+4. Bileşenler ve Prop'lar
+5. State ve Yaşam Döngüsü
+6. Olay Yönetimi
+7. Koşullu Renderlama
+8. Listeler ve Anahtarlar
+9. Formlar
+10. State'i Yukarı Taşıma
+11. Bileşim vs Kalıtım
+12. React'te Düşünmek
+
 
 ## Elementlerin Render Edilmesi
 
@@ -182,8 +202,16 @@ Bu bölümde ise, Clock bileşenini nasıl sarmalayacağımıza ve tekrar kullan
 
 Öncelikle Clock’u, ayrı bir bileşen halinde sarmalayarak görüntüleyelim:
 
-function Clock(props) { return ( <div> <h1>Hello, world!</h1> <h2>It is {props.date.toLocaleTimeString()}.</h2> </div> ); } function tick() { ReactDOM.render( <Clock date={new Date()} />, document.getElementById('root') ); } setInterval(tick, 1000);
+```
+function Clock(props) { return ( <div> <h1>Hello, world!</h1> <h2>It is {props.date.toLocaleTimeString()}.</h2> </div> ); } 
 
+function tick() { 
+    ReactDOM.render( <Clock date={new Date()} />, document.getElementById('root')); 
+} 
+    
+setInterval(tick, 1000);
+
+```
 Güzel görünüyor ancak bu aşamada kritik bir gereksinimi atladık: Clock‘un kendi zamanlayıcısını ayarlaması ve her saniye kullanıcı arayüzünü güncellemesi işini kendi bünyesinde gerçekleştirmesi gerekiyordu.
 
 Aşağıdaki kodu bir kere yazdığımızda, Clock‘un artık kendi kendisini güncellemesini istiyoruz:
@@ -350,3 +378,64 @@ Bileşen ağacını, prop’lardan oluşan bir şelale olarak düşünebilirsini
 
 React uygulamalarında, bir bileşenin state’li veya state’siz olması, bir kodlama detayıdır ve zaman içerisinde değişkenlik gösterebilir. State’li bileşenler içerisinde, state’siz bileşenleri kullanabilirsiniz. Veya bu durumun tam tersi de geçerlidir.
 
+
+## Olay Yönetimi – React
+
+https://tr.reactjs.org/docs/handling-events.html
+
+React’teki olay yönetimi, DOM elementlerindeki olay yönetimi ile oldukça benzerdir. Sadece, bazı küçük sözdizimi farklılıkları bulunmaktadır:
+
+Olay isimleri, DOM’da lowercase iken, React’te camelCase olarak adlandırılır.
+DOM’da fonksiyon isimleri, ilgili olaya string olarak atanırken, JSX’te direkt fonksiyon olarak atanır.
+
+Örneğin HTML’de aşağıdaki gibi olan kod:
+
+<button onclick="activateLasers()"> Activate Lasers </button>
+React’te biraz daha farklıdır:
+
+<button onClick={activateLasers}> Activate Lasers </button>
+React’teki diğer bir farklılık ise, olaylardaki varsayılan davranışın false değeri döndürülerek engellenemiyor oluşudur. Bunun için preventDefault şeklinde açıkça yazarak tarayıcıya belirtmeniz gerekir. Örneğin düz bir HTML kodunda, bir <a> elementinin yeni bir sayfayı açmasını engellemek için aşağıdaki gibi yazabilirsiniz:
+
+<a href="#" onclick="console.log('The link was clicked.'); return false"> Click me </a>
+React’te ise varsayılan <a> elementi davranışını e.preventDefault() kodu ile engellemeniz gerekir:
+
+function ActionLink() { function handleClick(e) { e.preventDefault(); console.log('The link was clicked.'); } return ( <a href="#" onClick={handleClick}> Click me </a> ); }
+Burada e, bir sentetik olaydır. React, bu sentetik olayları W3C şartnamesine göre tanımlar. Bu sayede, tarayıcılar arası uyumsuzluk problemi oluşmaz. Bu konuda daha fazla bilgi edinmek için Sentetik Olaylar rehberini inceleyebilirsiniz.
+
+React ile kod yazarken, bir DOM elementi oluşturulduktan sonra ona bir dinleyici (listener) atamak için, addEventListener fonksiyonunu çağırmanıza gerek yoktur. Bunun yerine render fonksiyonunda, ilgili element ilk kez render olduğunda ona bir dinleyici (listener) atamanız doğru olacaktır.
+
+ES6 sınıfı kullanarak bir bileşen oluşturulduğunda, ilgili olayın tanımlanması için en yaygın yaklaşım, ilgili metodun o sınıf içerisinde oluşturulmasıdır. Örneğin aşağıdaki Toggle bileşeni, “ON” ve “OFF” durumlarının gerçekleştirilmesi için bir butonu render etmektedir:
+
+class Toggle extends React.Component { constructor(props) { super(props); this.state = {isToggleOn: true}; // Callback içerisinde `this` erişiminin çalışabilmesi için, `bind(this)` gereklidir this.handleClick = this.handleClick.bind(this); } handleClick() { this.setState(state => ({ isToggleOn: !state.isToggleOn })); } render() { return ( <button onClick={this.handleClick}> {this.state.isToggleOn ? 'ON' : 'OFF'} </button> ); } } ReactDOM.render( <Toggle />, document.getElementById('root') );
+JSX callback’lerinde this kullanırken dikkat etmeniz gerekmektedir. Çünkü JavaScript’te, sınıf metotları varsayılan olarak this‘e bağlı değillerdir. Bu nedenle, this.handleClick‘i bind(this) ile bağlamayı unutarak onClick‘e yazarsanız, fonksiyon çağrıldığında this değişkeni undefined hale gelecek ve hatalara sebep olacaktır.
+
+Bu durum, React’e özgü bir davranış biçimi değildir. Aslen, fonksiyonların JavaScript’te nasıl çalıştığı ile ilgilidir. Genellikle, onClick={this.handleClick} gibi bir metot, parantez kullanmadan çağırırken, o metodun bind edilmesi gerekir.
+
+Eğer sürekli her metot için bind eklemek istemiyorsanız, bunun yerine farklı yöntemler de kullanabilirsiniz. Örneğin, henüz deneysel bir özellik olan public class fields yöntemini kullanırsanız, callback’leri bağlamak için sınıf değişkenlerini kullanabilirsiniz:
+
+class LoggingButton extends React.Component { 
+
+    // Bu yazım şekli, `this`'in handleClick içerisinde bağlanmasını sağlar. 
+    // Uyarı: henüz *deneysel* bir özelliktir. 
+    handleClick = () => { console.log('this is:', this); } 
+
+    render() { return ( <button onClick={this.handleClick}> Click me </button> );}}
+
+Bu yöntem, Create React App ile oluşturulan geliştirim ortamında varsayılan olarak gelir. Böylece hiçbir ayarlama yapmadan kullanabilirsiniz.
+
+Eğer bu yöntemi kullanmak istemiyorsanız, callback içerisinde ok fonksiyonunu da kullanabilirsiniz:
+
+class LoggingButton extends React.Component { handleClick() { console.log('this is:', this); } render() { // Bu yazım şekli, `this`'in handleClick içerisinde bağlanmasını sağlar. return ( <button onClick={() => this.handleClick()}> Click me </button> ); } }
+
+Fakat bu yöntemin bir dezavantajı vardır. LoggingButton bileşeni her render edildiğinde, yeni bir callback oluşturulur. Birçok durumda bu olay bir sorun teşkil etmez. Ancak ilgili callback, prop aracılığıyla alt bileşenlere aktarılırsa, bu bileşenler fazladan render edilebilir. Bu tarz problemlerle karşılaşmamak için binding işleminin, ya sınıfın constructor’ında ya da class fields yöntemi ile yapılmasını öneririz.
+
+Olay Yöneticilerine Parametre Gönderimi
+
+Bir döngü içerisinde, olay fonksiyonuna fazladan parametre göndermek isteyebilirsiniz. Örneğin, bir satır ID’si için id parametresi, aşağıdaki kodlardan her ikisi de işinizi görecektir:
+
+<button onClick={(e) => this.deleteRow(id, e)}>Delete Row</button> 
+<button onClick={this.deleteRow.bind(this, id)}>Delete Row</button>
+
+Üstteki iki satır birbiriyle eş niteliktedir. Ve sırasıyla ok fonksiyonu ile Function.prototype.bind fonksiyonu kullanırlar.
+
+Her iki durum için de e parametresi, ID’den sonra ikinci parametre olarak aktarılacak bir React olayını temsil eder. Ok fonksiyonunda bu parametre açık bir şekilde tanımlanırken, bind fonksiyonunda ise otomatik olarak diğer parametreler ile birlikte gönderilir.
