@@ -52,7 +52,8 @@ Buna “root” (kök) düğüm denir. Çünkü içerisindeki her şey React DOM
 Genellikle React ile yazılan uygulamalar, sadece bir adet kök DOM düğümü içerirler. Eğer React’i mevcut uygulamanıza entegre ediyorsanız, birbirinden izole olacak şekilde dilediğiniz kadar kök DOM düğümüne sahip olabilirsiniz.
 
 Kök DOM düğümü içerisinde bir React elementini render etmek istiyorsanız, bu iki parametreyi de ReactDOM.render() metoduna geçirmeniz gereklidir:
-const element = <h1>Hello, world</h1>; ReactDOM.render(element, document.getElementById('root'));
+
+    const element = <h1>Hello, world</h1>; ReactDOM.render(element, document.getElementById('root'));
 
 Sayfada “Hello, world” mesajı görüntülenecektir.
 
