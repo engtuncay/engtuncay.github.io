@@ -153,13 +153,13 @@ Bu örnekte, hangi olayların gerçekleştiğine bir bakalım:
 
 Devamında React, {name: 'Sara'} prop’u ile Welcome bileşenini çağırıyor.
 
-Welcome bileşenimiz, sonuç olarak geriye bir <h1>Hello, Sara</h1> elementi döndürüyor.
+Welcome bileşenimiz, sonuç olarak geriye bir `<h1>Hello, Sara</h1>` elementi döndürüyor.
 
-React DOM, <h1>Hello, Sara</h1> ile eşleşmek için, DOM’ı arka planda efektif bir şekilde güncelliyor.
+React DOM, `<h1>Hello, Sara</h1>` ile eşleşmek için, DOM’ı arka planda efektif bir şekilde güncelliyor.
 
 Not: Bileşen isimlendirmelerinde daima büyük harfle başlayınız.
 
-Çünkü React, küçük harfle başlayan bileşenlere DOM etiketleri gibi davranır. Örneğin <div />, bir HTML div etiketini temsil eder, fakat <Welcome /> ise bir bileşeni temsil eder ve kodun etki alanında Welcome‘ın tanımlı olmasını gerektirir.
+Çünkü React, küçük harfle başlayan bileşenlere DOM etiketleri gibi davranır. Örneğin `<div />`, bir HTML div etiketini temsil eder, fakat `<Welcome />` ise bir bileşeni temsil eder ve kodun etki alanında Welcome‘ın tanımlı olmasını gerektirir.
 
 Bu isimlendirmenin nedeni hakkında detaylı bilgi edinmek için lütfen Derinlemesine JSX sayfasına bakınız.
 
