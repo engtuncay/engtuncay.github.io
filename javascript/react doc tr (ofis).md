@@ -1,9 +1,9 @@
 
 - [Temel Kavramlar](#temel-kavramlar)
-  - [Elementlerin Render Edilmesi](#elementlerin-render-edilmesi)
-  - [Bileşenler ve Prop'lar – React](#bileşenler-ve-proplar--react)
-  - [State ve Yaşam Döngüsü – React](#state-ve-yaşam-döngüsü--react)
-  - [Olay Yönetimi – React](#olay-yönetimi--react)
+  - [3 Elementlerin Render Edilmesi](#3-elementlerin-render-edilmesi)
+  - [4 Bilesenler ve Prop](#4-bilesenler-ve-prop)
+  - [5 State ve Yasam Dongusu](#5-state-ve-yasam-dongusu)
+  - [6 Olay Yonetimi](#6-olay-yonetimi)
 
 
 
@@ -27,13 +27,13 @@ Temel Kavramlar 12 bölümden oluşur.
 12. React'te Düşünmek
 
 
-## Elementlerin Render Edilmesi
+## 3 Elementlerin Render Edilmesi
 
 https://tr.reactjs.org/docs/rendering-elements.html
 
 Elementler, React uygulamalarının en küçük yapı birimidir.
 
-Bir element, ekranda neyi görmek istiyorsanız onu tasvir eder:
+*Bir element, ekranda neyi görmek istiyorsanız onu tasvir eder:*
 
     const element = <h1>Hello, world</h1>;
 
@@ -43,7 +43,7 @@ Not: “Bileşen” (component) konsepti daha yaygın olarak bilindiği için, a
 
 Bir Elementin DOM’a Render Edilmesi
 
-HTML dosyanızın herhangi bir yerinde <div> olduğunu düşünelim:
+HTML dosyanızın herhangi bir yerinde `<div>` olduğunu düşünelim:
 
     <div id="root"></div>
 
@@ -53,13 +53,14 @@ Genellikle React ile yazılan uygulamalar, sadece bir adet kök DOM düğümü i
 
 Kök DOM düğümü içerisinde bir React elementini render etmek istiyorsanız, bu iki parametreyi de ReactDOM.render() metoduna geçirmeniz gereklidir:
 
-    const element = <h1>Hello, world</h1>; ReactDOM.render(element, document.getElementById('root'));
+    const element = <h1>Hello, world</h1>; 
+    ReactDOM.render(element, document.getElementById('root'));
 
 Sayfada “Hello, world” mesajı görüntülenecektir.
 
-Render Edilmiş Elementin Güncellenmesi
+**Render Edilmiş Elementin Güncellenmesi**
 
-React elementleri immutable‘dır. Yani bir kez React elementi oluşturduktan sonra, o elementin alt elemanlarını veya özelliklerini değiştiremezsiniz. Bu nedenle element, bütün bir videonun tek bir karesi gibidir: arayüzün belirli bir andaki görüntüsünü temsil eder.
+*React elementleri immutable‘dır.* Yani bir kez React elementi oluşturduktan sonra, o elementin alt elemanlarını veya özelliklerini değiştiremezsiniz. Bu nedenle element, bütün bir videonun tek bir karesi gibidir: arayüzün belirli bir andaki görüntüsünü temsil eder.
 
 Bu zamana kadar edindiğimiz bilgiler ışığında, kullanıcı arayüzünün güncellenmesi için tek yolun, yeni bir element oluşturup, ReactDOM.render() metoduna aktarmak olduğunu biliyoruz.
 
@@ -67,14 +68,13 @@ Aşağıdaki saat örneğini ele alalım:
 
 ```js
 function tick() {
-  const element = (
-    <div>
-      <h1>Hello, world!</h1>
-      <h2>It is {new Date().toLocaleTimeString()}.</h2>
-    </div>
-  );
+  const element = (<div>
+    <h1>Hello, world!</h1>
+    <h2>It is {new Date().toLocaleTimeString()}.</h2>
+    </div>);
 
-ReactDOM.render(element, document.getElementById('root'));}
+    ReactDOM.render(element, document.getElementById('root'));
+}
 setInterval(tick, 1000);
 
 ```
@@ -96,7 +96,7 @@ Bütün UI ağacını her saniye bir görüntüleyen bir element oluşturmamıza
 Not : Deneyimlerimizden yola çıkarsak, kullanıcı arayüzünün zaman içerisinde nasıl değiştirileceğinden ziyade herhangi bir anda nasıl görünmesi gerektiğini düşünmek birçok hatanın oluşmasını engellemektedir.
 
 
-## Bileşenler ve Prop'lar – React
+## 4 Bilesenler ve Prop
 
 https://tr.reactjs.org/docs/components-and-props.html
 
@@ -115,16 +115,19 @@ Bu fonksiyon, girdi olarak “props” (properties) adındaki tek bir nesneyi al
 
 Fonksiyon yerine, bir ES6 sınıfı kullanarak da React bileşeni oluşturabilirsiniz:
 
+```JS
     class Welcome extends React.Component { 
         render() { 
             return <h1>Hello, {this.props.name}</h1>; 
-        } }
+        } 
+    }
 
+```
 Üstteki her iki bileşen de React’in bakış açısından birbirine eşittirler.
 
 Sınıf ve fonksiyon bileşenlerinin her birisi bazı ek özelliklere sahiptirler. Buna sonraki bölümlerde değineceğiz.
 
-Bir Bileşenin Render Edilmesi
+**Bir Bileşenin Render Edilmesi**
 
 Önceki bölümlerde, React elementi olarak sadece DOM elementlerini ele almıştık.
 
@@ -149,7 +152,7 @@ ReactDOM.render( element, document.getElementById('root') );
 
 Bu örnekte, hangi olayların gerçekleştiğine bir bakalım:
 
-    <Welcome name="Sara" /> elementi ile birlikte ReactDOM.render() fonksiyonunu çağırıyoruz.
+`<Welcome name="Sara" />` elementi ile birlikte ReactDOM.render() fonksiyonunu çağırıyoruz.
 
 Devamında React, {name: 'Sara'} prop’u ile Welcome bileşenini çağırıyor.
 
@@ -178,7 +181,7 @@ Eğer kullanıcı arayüzündeki bir eleman (Button, Panel, Avatar) uygulama iç
 Eğer bir bileşen (App, FeedStory, Comment) oldukça karmaşık hale geldiyse,
 Bu bileşen, içerisinden bileşenler çıkarmak için iyi bir adaydır diyebiliriz.
 
-Prop’lar ve Salt Okunurlar
+**Prop’lar ve Salt Okunurlar**
 
 Fonksiyon veya sınıf bileşeninden herhangi birini oluşturduğunuzda, bu bileşen kendi prop’larını asla değiştirmemelidir. Örneğin aşağıdaki sum fonksiyonunu ele alalım:
 
@@ -196,7 +199,7 @@ React, kod yazımında oldukça esnek olmasına rağmen, sadece bir tek kuralı 
 
 Tabii ki kullanıcı arayüzleri dinamiktir ve zaman içerisinde değişiklik gösterir. Sonraki bölümde, “state” (durum) adındaki yeni konsepte değineceğiz. State bu kurala sadık kalarak; kullanıcı etkileşimleri, ağ istekleri ve diğer şeylerden dolayı zaman içerisinde değişen arayüzün görüntülenmesi için, React bileşenlerinin kendi çıktılarını değiştirebilmesine izin verir.
 
-## State ve Yaşam Döngüsü – React
+## 5 State ve Yasam Dongusu
 
 https://tr.reactjs.org/docs/state-and-lifecycle.html
 
@@ -227,32 +230,48 @@ Bunu yapmak için, Clock bileşenine state eklememiz gerekiyor.
 
 State’ler, prop’larla benzerlik gösterir. Fakat sadece ilgili bileşene özeldir ve yalnızca o bileşen tarafından kontrol edilirler.
 
-Sınıf olarak oluşturulan bileşenlerin, fonksiyon bileşenlerine göre bazı ek özelliklerinin bulunduğundan bahsetmiştik. Bahsettiğimiz ek özellik yerel state değişkenidir ve sadece sınıf bileşenlerine özgüdür.
+Sınıf olarak oluşturulan bileşenlerin, fonksiyon bileşenlerine göre bazı ek özelliklerinin bulunduğundan bahsetmiştik. Bahsettiğimiz ek özellik **yerel state değişkenidir** ve sadece sınıf bileşenlerine özgüdür.
 
-Bir Fonksiyonun Sınıfa Dönüştürülmesi
+**Bir Fonksiyonun Sınıfa Dönüştürülmesi**
+
 Clock gibi bir fonksiyon bileşenini 5 adımda sınıf bileşenine dönüştürebilirsiniz:
 
 Öncelikle, fonksiyon ismiyle aynı isimde bir ES6 sınıfı oluşturun. Ve bu sınıfı React.Component‘tan türetin.
+
 Sınıfın içerisine, render() adında boş bir fonksiyon ekleyin.
 Fonksiyon bileşeni içerisindeki kodları render() metoduna taşıyın.
 render() metodu içerisindeki props yazan yerleri, this.props ile değiştirin.
 
 Son olarak, içi boşaltılmış fonksiyonu tamamen silin.
 
+```js
     class Clock extends React.Component { 
-        render() { return ( <div> <h1>Hello, world!</h1> <h2>It is {this.props.date.toLocaleTimeString()}.</h2> </div> ); } }
-
+        render() { return ( <div> <h1>Hello, world!</h1> 
+        <h2>It is {this.props.date.toLocaleTimeString()}.</h2> 
+        </div> ); 
+        } 
+    }
+```
 Önceden fonksiyon bileşeni olan Clock, artık bir sınıf bileşeni haline gelmiş oldu.
 
-Bu kodda render metodumuz, her güncelleme olduğunda yeniden çağrılacaktır. Fakat <Clock /> bileşenini aynı DOM düğümünde render ettiğimizden dolayı, Clock sınıfının yalnızca bir örneği kullanılacaktır. (singleton mı ???)
+Bu kodda render metodumuz, her güncelleme olduğunda yeniden çağrılacaktır. Fakat `<Clock />` bileşenini aynı DOM düğümünde render ettiğimizden dolayı, Clock sınıfının yalnızca bir örneği kullanılacaktır. (singleton mı ???)
 
-Bir Sınıfa Yerel State’in Eklenmesi
+**Bir Sınıfa Yerel State’in Eklenmesi**
 
 date değişkenini, props’tan state’e taşımamız gerekiyor. Bunu 3 adımda gerçekleştirebiliriz:
 
 render() metodundaki this.props.date‘i this.state.date ile değiştirelim:
 
-    class Clock extends React.Component { render() { return ( <div> <h1>Hello, world!</h1> <h2>It is {this.state.date.toLocaleTimeString()}.</h2> </div> ); } }
+```js
+    class Clock extends React.Component { 
+        render() { 
+            return (<div>
+            <h1>Hello, world!</h1> 
+            <h2>It is {this.state.date.toLocaleTimeString()}.</h2> 
+            </div>); 
+        } 
+    }
+```
 
 state‘in ilk kez oluşturulacağı yer olan sınıf constructor‘ını ekleyelim:
 
@@ -319,6 +338,7 @@ Clock bileşeninin çıktısı DOM’a eklendiğinde, yaşam döngüsündeki com
 Tarayıcı her saniyede bir tick() metodunu çağırır. tick() metodunda Clock bileşeni, kullanıcı arayüzünü güncellemek için setState() metodunu çağırır ve bu metoda mevcut tarih/saat değerini aktarır. setState()‘in çağrılması sayesinde React, state’in değiştiğini anlar ve ekranda neyin görüntüleneceğini anlamak için tekrar render() metodunu çağırır. Artık render() metodundaki this.state.date‘in değeri eski halinden farklı olduğundan dolayı, render çıktısı güncellenmiş zamanı içerecek demektir. Buna göre React, DOM’u ilgili şekilde günceller.
 
 Eğer Clock bileşeni, DOM’dan çıkarılırsa, yaşam döngüsündeki componentWillUnmount() metodu çağrılır ve tarayıcı tarafından zamanlayıcı durdurulmuş olur.
+
 State’in Doğru Kullanımı
 
 setState() hakkında bilmeniz gereken 3 şey bulunmaktadır.
@@ -344,12 +364,15 @@ this.props ve this.state, asenkron olarak güncellenebildiklerinden dolayı, son
 // Yanlış kullanım this.setState({ counter: this.state.counter + this.props.increment, });
 Bunu düzeltmek için, setState()‘in ikinci formunu kullanmamız gerekir. Bu formda setState() fonksiyonu, parametre olarak nesne yerine fonksiyon alır. Bu fonksiyon, ilk parametre olarak önceki state’i, ikinci parametre olarak da o anda güncellenen props değerini alır:
 
-// Doğru kullanım this.setState((state, props) => ({ counter: state.counter + props.increment }));
+    // Doğru kullanım 
+    this.setState((state, props) => ({ counter: state.counter + props.increment }));
+
 Yukarıda bir ok fonksiyonu kullandık. Fakat normal fonksiyonlarla da gayet çalışabilir:
 
-ok fonksiyonu = lambda fonksiyon
+to:ok fonksiyonu = lambda fonksiyon
 
-// Doğru kullanım this.setState(function(state, props) { return { counter: state.counter + props.increment }; });
+    // Doğru kullanım 
+    this.setState(function(state, props) { return { counter: state.counter + props.increment }; });
 
 **State Güncellemeleri Birleştirilir**
 
@@ -386,7 +409,7 @@ Bileşen ağacını, prop’lardan oluşan bir şelale olarak düşünebilirsini
 React uygulamalarında, bir bileşenin state’li veya state’siz olması, bir kodlama detayıdır ve zaman içerisinde değişkenlik gösterebilir. State’li bileşenler içerisinde, state’siz bileşenleri kullanabilirsiniz. Veya bu durumun tam tersi de geçerlidir.
 
 
-## Olay Yönetimi – React
+## 6 Olay Yonetimi 
 
 https://tr.reactjs.org/docs/handling-events.html
 
