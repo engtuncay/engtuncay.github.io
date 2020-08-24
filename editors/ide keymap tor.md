@@ -36,7 +36,7 @@ Editor Uyguladığım Kısayollar
 
 | Shortcut     | Action                         | When | Extra                  |
 | ------------ | ------------------------------ | ---- | ---------------------- |
-| a+left,right | file next or prev on tabs      | .    | c+pg.down/up           |
+| c+pg.down/up | file next or prev on tabs      | .    | a+left,right           |
 | C+- / c,s+-  | navigate back-forward          | .    | .                      |
 | F12          | Go To Declaration              | .    | .                      |
 | C+ p         | Go to File                     | .    | .                      |
