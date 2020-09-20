@@ -18,6 +18,11 @@
     - [Local Component](#local-component)
   - [4-5 Child Parent Emit](#4-5-child-parent-emit)
 
+Önsöz
+
+Bu öğreticide kaynak olarak Cem Gündüzoğlu Vue Js udemy kursu baz alınmıştır ve webden çeşitli kaynaklar kullanılmıştır.
+
+
 # B1
 
 ## 1-1 Instance
@@ -50,6 +55,32 @@
 </html>
 ```
 
+app.css içeriği 
+
+
+```css
+
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,700,700i&subset=latin-ext');
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+body {
+  font-family: 'Segoe UI Light';
+  font-size: 18px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+}
+
+.form-control:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.navbar {
+	margin-bottom: 20px;
+}
+
+```
 
 ## 1-2 Lifecycle
 
