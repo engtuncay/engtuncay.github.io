@@ -21,7 +21,13 @@
   - [4-1 Global vs Local Component](#4-1-global-vs-local-component)
     - [Global Component](#global-component)
     - [Local Component](#local-component)
+  - [4-2 Slots](#4-2-slots)
+  - [4-3 Props](#4-3-props)
+  - [4-4 Prop Validation](#4-4-prop-validation)
   - [4-5 Child Parent Emit](#4-5-child-parent-emit)
+  - [4-6 Refs Parents](#4-6-refs-parents)
+  - [4-7 Event Bus](#4-7-event-bus)
+  - [4-8 Inline Template](#4-8-inline-template)
 
 Önsöz
 
@@ -908,6 +914,176 @@ Template'de kullanımı
 <alert-count2></alert-count2>
 ```
 
+## 4-2 Slots
+
+```html
+
+<div id="app">
+    <alert>Merhaba</alert>
+    <alert>Nasılsın</alert>
+
+    <card>Lorem ipsum</card>
+    <card></card>
+
+    <card-with-header>
+        <template slot="header">Üye Girişi</template>
+
+        Kullanıcı adı-Şifre
+
+        <template slot="footer">
+            <button class="btn btn-sm btn-primary">Giriş Yap</button>
+        </template>
+    </card-with-header>
+
+</div>
+
+<script src="../assets/js/vue.js"></script>
+<script>
+    Vue.component('Alert', {
+        template: `
+            <div class="alert alert-success">
+                <slot></slot>
+            </div>`
+    });
+
+    Vue.component('Card', {
+        template: `
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-text">
+                        <slot>Merhaba</slot>
+                    </div>
+                </div>
+            </div>`
+    });
+
+    Vue.component('CardWithHeader', {
+        template: `
+            <div class="card">
+                <div class="card-header">
+                    <slot name="header">Başlık</slot>
+                </div>
+                <div class="card-body">
+                    <div class="card-text">
+                        <slot>İçerik</slot>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <slot name="footer">Alt kısım</slot>
+                </div>
+            </div>`
+    });
+
+    const app = new Vue({
+        el: '#app',
+        name: 'Uzaktan Kurs',
+        data: {}
+    })
+</script>
+
+
+```
+
+## 4-3 Props
+
+```html
+
+<div id="app">
+    <card-with-header
+        header="Üye Girişi"
+        :body="bodyIcerigi"
+        footer-button-text="Giriş yap"
+    >
+    </card-with-header>
+</div>
+
+<script src="../assets/js/vue.js"></script>
+<script>
+    Vue.component('CardWithHeader', {
+        props: ['header', 'body', 'footerButtonText'],
+        template: `
+            <div class="card">
+                <div class="card-header">
+                    {{ header }}
+                </div>
+                <div class="card-body">
+                    {{ body }}
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-sm btn-primary">{{ footerButtonText }}</button>
+                </div>
+            </div>`
+    });
+
+    const app = new Vue({
+        el: '#app',
+        name: 'Uzaktan Kurs',
+        data: {
+            bodyIcerigi: 'Kullanıcı adı-şifre'
+        }
+    })
+</script>
+
+
+```
+
+## 4-4 Prop Validation
+
+```html
+
+<div id="app">
+    <modal :id="modalId" :title="modalTitle" :body="modalBody"></modal>
+
+    <a href="javascript:" class="btn btn-primary" data-toggle="modal" data-target="#ornekModal">
+        Modal Aç
+    </a>
+</div>
+
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/bootstrap.min.js"></script>
+<script src="../assets/js/vue.js"></script>
+<script>
+    // type: String, Boolean, Array, Object
+    Vue.component('Modal', {
+        props: {
+            'id': { type: String, required: true },
+            'title': { type: String, required: false, default: 'Modal Title' },
+            'body': { type: String, required: false, default: '-' }
+        },
+        template: `
+            <div class="modal fade" :id="id" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header bg-primary text-white">
+                            <h5 class="modal-title">{{ title }}</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            {{ body }}
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                        </div>
+                    </div>
+                </div>
+            </div>`
+    });
+
+    const app = new Vue({
+        el: '#app',
+        name: 'Uzaktan Kurs',
+        data: {
+            modalId: 'ornekModal',
+            modalTitle: 'Örnek Başlık',
+            modalBody: 'Örnek İçerik'
+        }
+    })
+</script>
+
+```
+
 
 ## 4-5 Child Parent Emit 
 
@@ -934,4 +1110,305 @@ Child componentde onChange event trigger edilir.
 this.$emit('onChange', this.childMessage);
 ```
 
+```html
+<div id="app">
+    <parent></parent>
+</div>
+
+<script src="../assets/js/vue.js"></script>
+<script>
+    Vue.component('Parent', {
+        template: `
+            <div class="card text-white bg-secondary mb-3">
+                <div class="card-header">Parent</div>
+                <div class="card-body">
+                    Parent Message: {{ parentMessage }}
+                    <hr>
+                    <child @onChange="childChanged"></child>
+                </div>
+            </div>
+        `, // childChange fonksiyonu, onChange event'a observer oluyor.
+        data() {
+            return {
+                parentMessage: ''
+            }
+        },
+        methods: {
+            childChanged(msg) {
+                this.parentMessage = msg;
+            }
+        }
+    });
+
+    Vue.component('Child', {
+        template: `
+            <div class="card text-white bg-success mb-3">
+                <div class="card-header">Child</div>
+                <div class="card-body">
+                    Child Message: {{ childMessage }}
+                    <div class="form-inline">
+                        <input v-model="childMessage" class="form-control">
+                        <button @click="changeParentMessage" class="btn btn-warning">
+                            Change Parent Message (with this ref)
+                        </button>
+                        <button @click="changeParentMessage2" class="btn btn-warning">
+                            Change Parent Message (emit)
+                        </button>
+                    </div>
+                </div>
+            </div>
+        `,
+        data() {
+            return {
+                childMessage: ''
+            }
+        },
+        methods: {
+            changeParentMessage() {
+                this.$parent.$data.parentMessage = this.childMessage;
+            },
+            changeParentMessage2() {
+                this.$emit('onChange', this.childMessage);
+            }
+        }
+    })
+
+    const app = new Vue({
+        el: '#app',
+        name: 'Uzaktan Kurs',
+        data: {}
+    })
+</script>
+
+```
+
+## 4-6 Refs Parents
+
+```html
+
+<div id="app">
+    <parent></parent>
+</div>
+
+<script src="../assets/js/vue.js"></script>
+<script>
+    Vue.component('Parent', {
+        template: `
+            <div class="card text-white bg-secondary mb-3">
+                <div class="card-header">Parent</div>
+                <div class="card-body">
+                    <button @click="callChildMethod" class="btn btn-danger">
+                        Call Child Method
+                    </button>
+					<child ref="child1"></child>
+                </div>
+            </div>`,
+        methods: {
+            callChildMethod() {
+                this.$refs.child1.childMethod();
+            },
+            parentMethod() {
+                console.log('Parent method called...');
+            }
+        }
+    });
+
+    Vue.component('Child', {
+        template: `
+            <div class="card text-white bg-success mb-3">
+                <div class="card-header">Child</div>
+                <div class="card-body">
+                    <button @click="callParentMethod" class="btn btn-danger">
+                        Call Parent Method
+                    </button>
+                </div>
+            </div>`,
+        methods: {
+            childMethod() {
+                console.log('Child method called...');
+            },
+            callParentMethod() {
+                this.$parent.parentMethod();
+            }
+        }
+    });
+
+    const app = new Vue({
+        el: '#app',
+        name: 'Uzaktan Kurs',
+        data: {}
+    })
+</script>
+
+
+```
+
+## 4-7 Event Bus
+
+```html
+
+<div id="app">
+    <div class="row">
+        <card-item :item="sampleItem"></card-item>
+    </div>
+    <modal></modal>
+
+    <card-list :title="'Kurslar'" :cards="sampleItems"></card-list>
+</div>
+
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/bootstrap.min.js"></script>
+<script src="../assets/js/vue.js"></script>
+<script>
+    window.EventBus = new Vue();
+
+    Vue.component('CardItem', {
+        props: {
+            item: {required: true, default: {}}
+        },
+        template: `
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <div class="card" style="height: 400px">
+                    <img class="card-img-top img-fluid" :src="item.imageUrl" alt="Card image cap" style="height: 180px">
+                    <div class="card-body">
+                        <h3 class="card-title" v-text="item.title"></h3>
+                        <p class="card-text" v-text="item.description"></p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="javascript:" class="btn btn-primary" @click="showDetail">Detay</a>
+                    </div>
+                </div>
+            </div>`,
+        methods: {
+            showDetail() {
+                $('#itemModalDetail').modal();
+                window.EventBus.$emit('showDetailInModal', this.item);
+            }
+        }
+    });
+
+    Vue.component('Modal', {
+        props: {
+            title: {required: false, default: 'Modal Title'},
+            body: {required: false, default: 'Modal Body'}
+        },
+        template: `
+            <div class="modal fade" id="itemModalDetail" tabindex="-1" role="dialog" aria-labelledby="itemModalDetailLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header bg-primary text-white">
+                            <h5 class="modal-title">{{ title }}</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body" v-html="body">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                        </div>
+                    </div>
+                </div>
+            </div>`,
+        created() {
+            window.EventBus.$on('showDetailInModal', (item) => {
+                this.title = item.title;
+                this.body = item.detail;
+            });
+        }
+    });
+
+    Vue.component('CardList', {
+        props: {
+            title: { type: String, required: false, default: 'Card List' },
+            cards: { type: Array, required: true, default: [] }
+        },
+        template: `
+            <div class="card-list">
+                <h2>{{ title }}</h2>
+                <div class="row">
+                    <card-item :item="card" v-for="(card, index) in cards" :key="card.title"></card-item>
+                </div>
+            </div>`
+    });
+
+    const app = new Vue({
+        el: '#app',
+        name: 'Uzaktan Kurs',
+        data: {
+            sampleItem: {
+                imageUrl: '../assets/img/pic2.jpg',
+                title: 'Sample Title',
+                description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+                detail: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+            },
+            sampleItems: [
+            {
+                title: 'JavaScript Kursu',
+                description: 'JavaScript ile web uygulamaları yapın',
+                detail: 'JavaScript ile web uygulamaları yapın<br><b>Fiyatı:</b> 29',
+                price: 29,
+                imageUrl: '../assets/img/coverJS101.jpg'
+            }, {
+                title: 'Vue.js Kursu',
+                description: 'Vue.js ile web uygulamaları yapın',
+                detail: 'Vue.js ile web uygulamaları yapın<br><b>Fiyatı:</b> 39',
+                price: 39,
+                imageUrl: '../assets/img/coverVUE101.jpg'
+            }, {
+                title: 'Laravel Kursu',
+                description: 'Laravel ile web uygulamaları yapın',
+                detail: 'Laravel ile web uygulamaları yapın<br><b>Fiyatı:</b> 59',
+                price: 59,
+                imageUrl: '../assets/img/coverLRV101.jpg'
+            }, {
+                title: 'Ionic ile Mobil Uygulama Geliştirme Kursu',
+                description: 'Ionic ile mobil uygulamalar geliştirin',
+                detail: 'Ionic ile mobil uygulamalar geliştirin<br><b>Fiyatı:</b> 59',
+                price: 59,
+                imageUrl: '../assets/img/coverIONIC.jpg'
+            }]
+        }
+    })
+</script>
+
+```
+
+## 4-8 Inline Template
+
+```html
+
+<div id="app">
+    <course-progress inline-template>
+        <div>
+            <div class="progress">
+                <div class="progress-bar" :style="{ width: degree + '%' }">
+                    {{ degree }}
+                </div>
+            </div>
+            <hr>
+            <button @click="degree += 5" class="btn btn-primary">Increment</button>
+            <button @click="degree -= 5" class="btn btn-primary">Decrement</button>
+        </div>
+    </course-progress>
+</div>
+
+<script src="../assets/js/vue.js"></script>
+<script>
+    Vue.component('CourseProgress', {
+        data() {
+            return {
+                degree: 75
+            }
+        }
+    });
+
+    const app = new Vue({
+        el: '#app',
+        name: 'Uzaktan Kurs',
+        data: {}
+    })
+</script>
+
+```
 
