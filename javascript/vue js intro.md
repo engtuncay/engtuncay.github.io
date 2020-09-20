@@ -87,7 +87,7 @@ h1, h2, h3, h4, h5, h6 {
 
 ## 1-1 Instance
 
-Öğreticideki örneklerde kullanılan temel şablon ve vue instance oluşturulması aşağıdaki örnekte gösterildi.
+Vue constructor json objesi ile oluştururuz. json objesinde el , vue js 'ye container olacak elementi belirtiriz. Örnekte app id'li html elementi seçildi.
 
 ```html
 <div id="app"></div>
