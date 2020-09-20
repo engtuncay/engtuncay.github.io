@@ -9,6 +9,9 @@
   - [1-6 Listmodel](#1-6-listmodel)
   - [1-7 Events](#1-7-events)
   - [1-8 Conditionals](#1-8-conditionals)
+  - [1-9 Computed](#1-9-computed)
+  - [1-10 Watchers](#1-10-watchers)
+  - [1-11 Forms](#1-11-forms)
 - [B4 Component Structure](#b4-component-structure)
   - [4-1 Global vs Local Component](#4-1-global-vs-local-component)
     - [Global Component](#global-component)
@@ -351,6 +354,210 @@
             gostergizle() {
                 this.isVisibleDetaylar = !this.isVisibleDetaylar;
             }
+        }
+    })
+</script>
+
+```
+## 1-9 Computed
+
+```html
+
+<div id="app">
+    <input v-model="ad" class="form-control">
+    <input v-model="soyad" class="form-control">
+    <p>{{ adsoyad }}</p>
+    <hr>
+    <input v-model="urun_fiyati" class="form-control">
+    <p>{{ urun_kdv_fiyati }}</p>
+    <hr>
+    <p>{{ adsoyad2 }}</p>
+    <hr>
+    <p>{{ adsoyad }}</p>
+    <p>{{ adsoyad }}</p>
+    <p>{{ adsoyad }}</p>
+    <hr>
+    <p>{{ adsoyad3() }}</p>
+    <p>{{ adsoyad3() }}</p>
+    <p>{{ adsoyad3() }}</p>
+    <hr>
+    <ul>
+        <li v-for="kullanici in c_ile_baslayan_kullanicilar">
+            {{ kullanici}}
+        </li>
+    </ul>
+
+</div>
+
+<script src="../assets/js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        name: 'Uzaktan Kurs',
+        data: {
+            ad: 'cem',
+            soyad: 'gündüzoğlu',
+            urun_fiyati: 12,
+            kullanicilar: ['cem', 'esra', 'ceyda', 'murat', 'ebru']
+        },
+        methods: {
+            adsoyad3() {
+                console.log('Metot Çalıştı');
+                return this.ad + ' ' + this.soyad;
+            }
+        },
+        computed: {
+            adsoyad() {
+                console.log('Computed Çalıştı');
+                return this.ad + ' ' + this.soyad;
+            },
+            urun_kdv_fiyati() {
+                return this.urun_fiyati * 18 / 100;
+            },
+            adsoyad2: {
+                get: function() {
+                    return this.ad + ' ' + this.soyad;
+                },
+                set: function(value) {
+                    let parts = value.split(' ');
+                    this.ad = parts[0];
+                    this.soyad = parts[1];
+                }
+            },
+            c_ile_baslayan_kullanicilar() {
+                return this.kullanicilar.filter(k => k.startsWith('c'));
+            }
+        }
+    })
+</script>
+
+```
+
+## 1-10 Watchers
+
+```html
+<div id="app">
+    <form>
+        Odun:
+        <input type="number" v-model="odun" class="form-control col-2">
+
+        Taş:
+        <input type="number" v-model="tas" class="form-control col-2">
+
+        Toplam Kullanılan Malzeme: {{ toplam }}
+
+        Toplam Kullanılan Malzeme: {{ toplam2 }}
+    </form>
+</div>
+
+<script src="../assets/js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        name: 'Uzaktan Kurs',
+        data: {
+            odun: 0,
+            tas: 0,
+            toplam: 0
+        },
+        watch: {
+            odun(newValue, oldValue) {
+                console.log('Değerler:', oldValue, newValue);
+                this.toplam = parseInt(this.odun) + parseInt(this.tas);
+            },
+            tas(newValue, oldValue) {
+                console.log('Değerler:', oldValue, newValue);
+                this.toplam = parseInt(this.odun) + parseInt(this.tas);
+            }
+        },
+        computed: {
+            toplam2() {
+                return parseInt(this.odun) + parseInt(this.tas);
+            }
+        }
+    })
+</script>
+
+```
+
+## 1-11 Forms
+
+```html
+
+<div id="app">
+    <form action="">
+        <label>Adınız</label>
+        <input type="text" v-model="kullanici.ad" class="form-control col-4">
+
+        <label>Adres</label>
+        <textarea v-model="kullanici.adres" class="form-control col-4"></textarea>
+
+        <hr>
+
+        <label>
+            <input type="checkbox" v-model="kullanici.aktif_mi"> Aktif Mi
+        </label>
+        <pre class="form-text text-muted">{{ kullanici.aktif_mi }}</pre>
+
+        <hr>
+
+        <label>
+            <input type="checkbox" v-model="kullanici.secilen_roller" value="Yönetici"> Yönetici
+        </label>
+        <label>
+            <input type="checkbox" v-model="kullanici.secilen_roller" value="Editör"> Editör
+        </label>
+        <label>
+            <input type="checkbox" v-model="kullanici.secilen_roller" value="Müşteri"> Müşteri
+        </label>
+        <select v-model="kullanici.secilen_roller" class="form-control col-4" multiple>
+            <option>Yönetici</option>
+            <option>Editör</option>
+            <option>Müşteri</option>
+        </select>
+        <pre class="form-text text-muted">{{ kullanici.secilen_roller }}</pre>
+
+        <hr>
+
+        <label>
+            <input type="radio" v-model="kullanici.cinsiyet" value="E"> Erkek
+        </label>
+        <label>
+            <input type="radio" v-model="kullanici.cinsiyet" value="K"> Kadın
+        </label>
+        <pre class="form-text text-muted">{{ kullanici.cinsiyet }}</pre>
+
+        <hr>
+        <label>Doğum Yeri</label>
+        <select v-model="kullanici.dogum_yeri" class="form-control col-4">
+            <option value="">Seçiniz</option>
+            <option v-for="sehir in sehirler" :value="sehir.value">
+                {{ sehir.text }}
+            </option>
+        </select>
+        <pre class="form-text text-muted">{{ kullanici.dogum_yeri }}</pre>
+    </form>
+</div>
+
+<script src="../assets/js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        name: 'Uzaktan Kurs',
+        data: {
+            kullanici: {
+                ad: 'Cem',
+                adres: 'Ankara',
+                aktif_mi: false,
+                secilen_roller: [],
+                cinsiyet: 'E',
+                dogum_yeri: 6
+            },
+            sehirler: [
+                { text: 'Ankara', value: 6 },
+                { text: 'İstanbul', value: 34 },
+                { text: 'İzmir',  value: 35 }
+            ]
         }
     })
 </script>
