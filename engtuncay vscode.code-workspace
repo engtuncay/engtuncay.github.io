@@ -5,6 +5,7 @@
 		}
 	],
 	"settings": {
-		"git.autofetch": true
+		"git.autofetch": true,
+		"vue3snippets.enable-compile-vue-file-on-did-save-code": false
 	}
 }
