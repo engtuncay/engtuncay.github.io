@@ -22,7 +22,18 @@
 
 ## 1-1 Instance
 
-```js
+Öğreticideki örneklerde kullanılan temel şablon ve vue instance oluşturulması aşağıdaki örnekte gösterildi.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue.js</title>
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/app.css">
+</head>
+<body>
 <div id="app"></div>
 
 <script src="../assets/js/vue.js"></script>
@@ -35,6 +46,8 @@
         }
     })
 </script>
+</body>
+</html>
 ```
 
 
