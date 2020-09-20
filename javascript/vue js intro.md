@@ -1,6 +1,7 @@
 
 
-- [B1](#b1)
+- [B1 Vue Intro](#b1-vue-intro)
+- [B2 Vue Basic](#b2-vue-basic)
   - [1-1 Instance](#1-1-instance)
   - [1-2 Lifecycle](#1-2-lifecycle)
   - [1-3 Databinding](#1-3-databinding)
@@ -12,6 +13,10 @@
   - [1-9 Computed](#1-9-computed)
   - [1-10 Watchers](#1-10-watchers)
   - [1-11 Forms](#1-11-forms)
+  - [1-12 Form Validation](#1-12-form-validation)
+  - [1-12 Filters](#1-12-filters)
+  - [1-13 Custom Directive](#1-13-custom-directive)
+- [B3 Vue Cli](#b3-vue-cli)
 - [B4 Component Structure](#b4-component-structure)
   - [4-1 Global vs Local Component](#4-1-global-vs-local-component)
     - [Global Component](#global-component)
@@ -22,12 +27,9 @@
 
 Bu öğreticide kaynak olarak Cem Gündüzoğlu Vue Js udemy kursu baz alınmıştır ve webden çeşitli kaynaklar kullanılmıştır.
 
+# B1 Vue Intro
 
-# B1
-
-## 1-1 Instance
-
-Öğreticideki örneklerde kullanılan temel şablon ve vue instance oluşturulması aşağıdaki örnekte gösterildi.
+Öğreticideki örneklerde kullanılan temel şablon aşağıdaki örnekte gösterildi.
 
 ```html
 <!DOCTYPE html>
@@ -55,8 +57,7 @@ Bu öğreticide kaynak olarak Cem Gündüzoğlu Vue Js udemy kursu baz alınmı�
 </html>
 ```
 
-app.css içeriği 
-
+app.css içeriği
 
 ```css
 
@@ -81,6 +82,28 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 ```
+
+# B2 Vue Basic
+
+## 1-1 Instance
+
+Öğreticideki örneklerde kullanılan temel şablon ve vue instance oluşturulması aşağıdaki örnekte gösterildi.
+
+```html
+<div id="app"></div>
+
+<script src="../assets/js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        name: 'Uzaktan Kurs',
+        data: {
+            mesaj: 'Merhaba Vue!'
+        }
+    })
+</script>
+```
+
 
 ## 1-2 Lifecycle
 
@@ -607,6 +630,215 @@ h1, h2, h3, h4, h5, h6 {
 </script>
 
 ```
+
+## 1-12 Form Validation
+
+```html
+<div id="app">
+    <h2>Kullanıcı Kayıt Formu</h2>
+    <hr>
+    <div v-if="errors.length>0" class="alert alert-danger">
+        <p>Lütfen form verilerini düzeltiniz:</p>
+        <ul>
+            <li v-for="error in errors">{{ error }}</li>
+        </ul>
+    </div>
+
+    <form action="#" method="post" @submit="kaydet" novalidate="true">
+        <div class="form-group">
+            <label for="adsoyad">Ad Soyad</label>
+            <input type="text" id="adsoyad" v-model="adsoyad" class="form-control col-4">
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" v-model="email" class="form-control col-4">
+        </div>
+
+        <div class="form-group">
+            <label for="sifre">Şifre</label>
+            <input type="password" id="sifre" v-model="sifre" class="form-control col-4">
+        </div>
+
+        <div class="form-group">
+            <label for="sifre2">Şifre Tekrarı</label>
+            <input type="password" id="sifre2" v-model="sifre2" class="form-control col-4">
+        </div>
+
+        <div class="form-group">
+            <label>
+                <input type="checkbox" v-model="ilgi_alanlari" value="1"> Teknoloji
+            </label>
+            <label>
+                <input type="checkbox" v-model="ilgi_alanlari" value="2"> Sinema
+            </label>
+            <label>
+                <input type="checkbox" v-model="ilgi_alanlari" value="3"> Spor
+            </label>
+        </div>
+        <input type="submit" value="Kaydol" class="btn btn-primary">
+    </form>
+</div>
+
+<script src="../assets/js/jquery-2.2.4.min.js"></script>
+<script src="../assets/js/toastr.min.js"></script>
+<script src="../assets/js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        name: 'Uzaktan Kurs',
+        data: {
+            errors: [],
+            adsoyad: '',
+            sifre: '',
+            sifre2: '',
+            email: '',
+            ilgi_alanlari: []
+        },
+        methods: {
+            kaydet(e) {
+                e.preventDefault();
+                this.errors = [];
+                if (!this.adsoyad) this.errors.push('Adsoyad alanı gerekli');
+                if (!this.email) this.errors.push('Email alanı gerekli');
+                if (!this.validEmail(this.email)) this.errors.push('Email alanı geçerli değil');
+                if (!this.sifre && !this.sifre2) this.errors.push('Şifre alanı gerekli');
+                if (this.sifre !== this.sifre2) this.errors.push('Şifre ve tekrarı aynı olmalıdır');
+
+                if (this.errors.length === 0) {
+                    let msg = 'Form verileri kaydedildi.';
+                    console.log(msg);
+                    toastr.success(msg);
+                } else {
+                    console.log('Form hatalı');
+
+                    let msg = '';
+                    this.errors.forEach(value => {
+                        msg += value + "<br>";
+                    });
+                    toastr.error(msg);
+                }
+            },
+            validEmail:function(email) {
+                var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                return re.test(email);
+            }
+        }
+    })
+</script>
+
+```
+
+## 1-12 Filters
+
+```html
+<div id="app">
+    <p>{{ baslik | buyukharf }}</p>
+    <p>{{ baslik | kucukharf }}</p>
+    <p>{{ baslik | ilkharfbuyuk }}</p>
+    <p>{{ baslik | ilkharflerbuyuk }}</p>
+    <p>{{ baslik | terstenyaz }}</p>
+    <p>{{ baslik | truncate(8) }}</p>
+    <p>{{ baslik | terstenyaz | truncate(8) }}</p>
+    <p :title="baslik | terstenyaz">Tersten yaz filtresi</p>
+    <hr>
+    <input type="text" v-model.trim="baslik" class="form-control">
+    <pre class="alert alert-info">{{ baslik }}</pre>
+    <hr>
+    <input type="text" v-model.number="sayi" class="form-control">
+    <pre class="alert alert-info">{{ sayi+sayi }}</pre>
+</div>
+
+<script src="../assets/js/vue.js"></script>
+<script>
+    Vue.filter('terstenyaz', function(value) {
+        return value.toString().split('').reverse().join('');
+    });
+
+    Vue.filter('truncate', function(value, length) {
+        if (value.length < length) {
+            return value;
+        }
+        length = length - 3;
+
+        return value.substring(0, length) + '...';
+    });
+
+    const app = new Vue({
+        el: '#app',
+        name: 'Uzaktan Kurs',
+        data: {
+            baslik: 'lorem ipsum dolor sit amet',
+            sayi: 10
+        },
+        filters: {
+            buyukharf(value) {
+                return value.toString().toUpperCase();
+            },
+            kucukharf(value) {
+                return value.toString().toLowerCase();
+            },
+            ilkharfbuyuk(value) {
+                return value.toString().charAt(0).toUpperCase() + value.slice(1);
+            },
+            ilkharflerbuyuk(value) {
+                let kelimeler = value.toString().split(' ');
+                let donenDeger = '';
+                kelimeler.forEach(kelime => {
+                    donenDeger += kelime.toString().charAt(0).toUpperCase() + kelime.slice(1) + ' ';
+                });
+                return donenDeger;
+            }
+        }
+    })
+</script>
+
+```
+
+## 1-13 Custom Directive
+
+```html
+
+<div id="app">
+    <div v-alert="'success'">{{ baslik }}</div>
+    <div v-bg="{ type: 'info' }" class="p-2 mb-4 text-white">{{ baslik }}</div>
+    <input type="text" v-model="tarihsaat" class="form-control col-4">
+    <input type="text" v-model="tarihsaat" v-datetime:date="tarihsaat" class="form-control col-4">
+    <input type="text" v-model="tarihsaat" v-datetime:time="tarihsaat" class="form-control col-4">
+</div>
+
+<script src="../assets/js/vue.js"></script>
+<script>
+    Vue.directive('datetime', function(el, binding) {
+        if (binding.arg === 'date')
+            el.value = new Date(binding.value).toLocaleDateString();
+        else
+            el.value = new Date(binding.value).toLocaleTimeString();
+    });
+    
+    const app = new Vue({
+        el: '#app',
+        name: 'Uzaktan Kurs',
+        data: {
+            baslik: 'lorem ipsum dolar sit amet',
+            tarihsaat: '2018-06-24 10:12:00'
+        },
+        directives: {
+            alert: function(el, binding) {
+                el.setAttribute('class', 'alert alert-' + binding.value);
+            },
+            bg: function(el, binding) {
+                el.setAttribute('class', el.getAttribute('class') + ' bg-' + binding.value.type);
+            }
+        }
+    })
+</script>
+
+
+```
+
+
+# B3 Vue Cli
 
 
 # B4 Component Structure
