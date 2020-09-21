@@ -2,20 +2,20 @@
 
 - [B1 Vue Intro](#b1-vue-intro)
 - [B2 Vue Basic](#b2-vue-basic)
-  - [1-1 Instance](#1-1-instance)
-  - [1-2 Lifecycle](#1-2-lifecycle)
-  - [1-3 Databinding](#1-3-databinding)
-  - [1-4 Attribue Binding](#1-4-attribue-binding)
-  - [1-5 Class and Style Binding](#1-5-class-and-style-binding)
-  - [1-6 List Items with v-for](#1-6-list-items-with-v-for)
-  - [1-7 Events](#1-7-events)
-  - [1-8 Conditionals](#1-8-conditionals)
-  - [1-9 Computed](#1-9-computed)
-  - [1-10 Watchers](#1-10-watchers)
-  - [1-11 Forms](#1-11-forms)
-  - [1-12 Form Validation](#1-12-form-validation)
-  - [1-12 Filters](#1-12-filters)
-  - [1-13 Custom Directive](#1-13-custom-directive)
+  - [2-1 Instance](#2-1-instance)
+  - [2-2 Lifecycle](#2-2-lifecycle)
+  - [2-3 Data Binding](#2-3-data-binding)
+  - [2-4 Attribue Binding](#2-4-attribue-binding)
+  - [2-5 Class and Style Binding](#2-5-class-and-style-binding)
+  - [2-6 List Items with v-for](#2-6-list-items-with-v-for)
+  - [2-7 Events](#2-7-events)
+  - [2-8 Conditionals](#2-8-conditionals)
+  - [2-9 Computed](#2-9-computed)
+  - [2-10 Watchers](#2-10-watchers)
+  - [2-11 Forms](#2-11-forms)
+  - [2-12 Form Validation](#2-12-form-validation)
+  - [2-12 Filters](#2-12-filters)
+  - [2-13 Custom Directive](#2-13-custom-directive)
 - [B3 Vue Cli](#b3-vue-cli)
 - [B4 Component Structure](#b4-component-structure)
   - [4-1 Global vs Local Component](#4-1-global-vs-local-component)
@@ -28,6 +28,7 @@
   - [4-6 Refs Parents](#4-6-refs-parents)
   - [4-7 Event Bus](#4-7-event-bus)
   - [4-8 Inline Template](#4-8-inline-template)
+- [Shortcuts](#shortcuts)
 
 Önsöz
 
@@ -91,7 +92,7 @@ h1, h2, h3, h4, h5, h6 {
 
 # B2 Vue Basic
 
-## 1-1 Instance
+## 2-1 Instance
 
 Vue constructor json objesi ile oluştururuz. json objesinde el , vue js 'ye container olacak elementi belirtiriz. Örnekte app id'li html elementi seçildi.
 
@@ -111,7 +112,7 @@ Vue constructor json objesi ile oluştururuz. json objesinde el , vue js 'ye con
 ```
 
 
-## 1-2 Lifecycle
+## 2-2 Lifecycle
 
 ```html
 <div id="app">
@@ -154,7 +155,7 @@ Vue constructor json objesi ile oluştururuz. json objesinde el , vue js 'ye con
 </script>
 ```
 
-## 1-3 Databinding
+## 2-3 Data Binding
 
 ```html
 <div id="app">
@@ -194,7 +195,7 @@ Vue constructor json objesi ile oluştururuz. json objesinde el , vue js 'ye con
 
 ```
 
-## 1-4 Attribue Binding 
+## 2-4 Attribue Binding 
 
 Genel Kullanım
 
@@ -236,7 +237,7 @@ v-bind:title
 
 ```
 
-## 1-5 Class and Style Binding
+## 2-5 Class and Style Binding
 
 ```html
 
@@ -296,7 +297,7 @@ v-bind:title
 
 ```
 
-## 1-6 List Items with v-for
+## 2-6 List Items with v-for
 
 ```html
 
@@ -347,7 +348,7 @@ v-bind:title
 
 ```
 
-## 1-7 Events
+## 2-7 Events
 
 * v-on:eventName 
 * @eventName
@@ -408,9 +409,17 @@ v-on:keypress.enter
 
 ```
 
-## 1-8 Conditionals
+## 2-8 Conditionals
 
-* v-if="booleanCondition"
+* v-if="boolConditionOrBoolVar"
+* v-show="boolConditionOrBoolVar"
+
+**Örnekler**
+
+```
+v-if="isim.length>0"
+v-if="isVisibleDetaylar"
+```
 
 ```html
 
@@ -464,7 +473,7 @@ v-on:keypress.enter
 </script>
 
 ```
-## 1-9 Computed
+## 2-9 Computed
 
 ```html
 
@@ -538,7 +547,7 @@ v-on:keypress.enter
 
 ```
 
-## 1-10 Watchers
+## 2-10 Watchers
 
 ```html
 <div id="app">
@@ -585,7 +594,7 @@ v-on:keypress.enter
 
 ```
 
-## 1-11 Forms
+## 2-11 Forms
 
 ```html
 
@@ -669,7 +678,7 @@ v-on:keypress.enter
 
 ```
 
-## 1-12 Form Validation
+## 2-12 Form Validation
 
 ```html
 <div id="app">
@@ -767,7 +776,7 @@ v-on:keypress.enter
 
 ```
 
-## 1-12 Filters
+## 2-12 Filters
 
 ```html
 <div id="app">
@@ -833,7 +842,7 @@ v-on:keypress.enter
 
 ```
 
-## 1-13 Custom Directive
+## 2-13 Custom Directive
 
 ```html
 
@@ -1444,3 +1453,12 @@ this.$emit('onChange', this.childMessage);
 
 ```
 
+
+
+
+
+
+# Shortcuts
+
+* Var : Variable
+  
