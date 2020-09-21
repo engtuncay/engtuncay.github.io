@@ -31,7 +31,7 @@
 
 Önsöz
 
-Bu öğreticide kaynak olarak Cem Gündüzoğlu Vue Js udemy kursu baz alınmıştır ve webden çeşitli kaynaklar kullanılmıştır.
+Bu öğreticide kaynak olarak Cem Gündüzoğlu Vue Js udemy kursu baz alınmıştır ve webden çeşitli kaynaklar kullanılmıştır. Kursu tavsiye ederim.
 
 # B1 Vue Intro
 
@@ -195,6 +195,23 @@ Vue constructor json objesi ile oluştururuz. json objesinde el , vue js 'ye con
 ```
 
 ## 1-4 Attribue Binding 
+
+Genel Kullanım
+
+* v-bind:attributeName
+* :attributeName 
+
+"v-bind:" kısayolu ":" 'dır.
+
+**Örnekler**
+
+```
+v-bind:href
+v-bind:title
+:title
+:href
+:id
+```
 
 ```html
 <div id="app">
