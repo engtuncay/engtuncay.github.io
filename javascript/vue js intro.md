@@ -17,11 +17,11 @@
   - [2-12 Filters](#2-12-filters)
   - [2-13 Custom Directive](#2-13-custom-directive)
 - [B3 Vue Cli](#b3-vue-cli)
+  - [Cli Component Kullanımı](#cli-component-kullanımı)
 - [B4 Component Structure](#b4-component-structure)
   - [4-1 Global vs Local Component](#4-1-global-vs-local-component)
     - [Global Component](#global-component)
     - [Local Component](#local-component)
-    - [Cli Component Kullanımı](#cli-component-kullanımı)
   - [4-2 Slots](#4-2-slots)
   - [4-3 Props](#4-3-props)
   - [4-4 Prop Validation](#4-4-prop-validation)
@@ -890,75 +890,7 @@ v-if="isVisibleDetaylar"
 
 
 
-
-# B4 Component Structure
-
-
-## 4-1 Global vs Local Component
-
-### Global Component
-
-```js
-
-Vue.component('AlertCount', {
-        data() {
-            return {
-                count: 0
-            }
-        },
-        template: `
-            <div class="alert alert-success">
-                Merhaba
-                <button @click="count++" class="btn btn-sm btn-primary">
-                    {{ count }} kez tıkladın
-                </button>
-            </div>`
-    });
-
-```
-
-Template içinde kullanımı :
-
-```html
-<alert-count></alert-count>
-```
-
-### Local Component
-
-```js
-
-var AlertCount2 = {
-    data() {
-        return {
-            count: 0
-        }
-    },
-    template: `
-        <div class="alert alert-success">
-            Merhaba
-            <button @click="count++" class="btn btn-sm btn-primary">
-                {{ count }} kez tıkladın
-            </button>
-        </div>`
-};
-
-//... vue instance kayıt edilir
-const app = new Vue({
-        //...
-        components: {
-            'alert-count2': AlertCount2
-        }
-    });
-
-```
-
-Template'de kullanımı
-
-```html
-<alert-count2></alert-count2>
-```
-
-### Cli Component Kullanımı
+## Cli Component Kullanımı
 
 AlertCount.vue
 
@@ -1052,6 +984,75 @@ HelloWorld component
     }
 </style>
 
+```
+
+
+
+# B4 Component Structure
+
+
+## 4-1 Global vs Local Component
+
+### Global Component
+
+```js
+
+Vue.component('AlertCount', {
+        data() {
+            return {
+                count: 0
+            }
+        },
+        template: `
+            <div class="alert alert-success">
+                Merhaba
+                <button @click="count++" class="btn btn-sm btn-primary">
+                    {{ count }} kez tıkladın
+                </button>
+            </div>`
+    });
+
+```
+
+Template içinde kullanımı :
+
+```html
+<alert-count></alert-count>
+```
+
+### Local Component
+
+```js
+
+var AlertCount2 = {
+    data() {
+        return {
+            count: 0
+        }
+    },
+    template: `
+        <div class="alert alert-success">
+            Merhaba
+            <button @click="count++" class="btn btn-sm btn-primary">
+                {{ count }} kez tıkladın
+            </button>
+        </div>`
+};
+
+//... vue instance kayıt edilir
+const app = new Vue({
+        //...
+        components: {
+            'alert-count2': AlertCount2
+        }
+    });
+
+```
+
+Template'de kullanımı
+
+```html
+<alert-count2></alert-count2>
 ```
 
 
