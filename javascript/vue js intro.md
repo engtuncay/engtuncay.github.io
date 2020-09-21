@@ -21,6 +21,7 @@
   - [4-1 Global vs Local Component](#4-1-global-vs-local-component)
     - [Global Component](#global-component)
     - [Local Component](#local-component)
+    - [Cli Component Kullanımı](#cli-component-kullanımı)
   - [4-2 Slots](#4-2-slots)
   - [4-3 Props](#4-3-props)
   - [4-4 Prop Validation](#4-4-prop-validation)
@@ -888,6 +889,8 @@ v-if="isVisibleDetaylar"
 # B3 Vue Cli
 
 
+
+
 # B4 Component Structure
 
 
@@ -954,6 +957,103 @@ Template'de kullanımı
 ```html
 <alert-count2></alert-count2>
 ```
+
+### Cli Component Kullanımı
+
+AlertCount.vue
+
+```html
+<template>
+  <div class="alert alert-success">
+    Merhaba
+    <button @click="count++" class="btn btn-sm btn-primary">
+      {{ count }} kez tıkladın
+    </button>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      count: 0
+    }
+  }
+}
+</script>
+
+```
+
+App.Vue kullanımı
+
+```html
+
+<template>
+    <div id="app">
+        <img src="./assets/logo.png">
+        <hello msg="Welcome to Your Vue.js App"/>
+        <alert-count></alert-count>
+    </div>
+</template>
+
+<script>
+    import HelloWorld from './components/HelloWorld.vue'
+    import AlertCount from './components/AlertCount.vue'
+
+    export default {
+        name: 'app',
+        components: {
+            hello: HelloWorld,
+            'alert-count': AlertCount
+        }
+    }
+</script>
+
+
+```
+
+HelloWorld component
+
+```html
+<template>
+    <div>
+        <h1>{{ msg }}</h1>
+        <hr>
+    </div>
+</template>
+
+<script>
+    export default {
+        name: 'HelloWorld',
+        props: {
+            msg: String
+        }
+    }
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped lang="scss">
+    h3 {
+        margin: 40px 0 0;
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    li {
+        display: inline-block;
+        margin: 0 10px;
+    }
+
+    a {
+        color: #42b983;
+    }
+</style>
+
+```
+
 
 ## 4-2 Slots
 
@@ -1022,8 +1122,8 @@ Template'de kullanımı
     })
 </script>
 
-
 ```
+
 
 ## 4-3 Props
 
