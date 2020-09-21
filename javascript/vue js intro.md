@@ -6,8 +6,8 @@
   - [1-2 Lifecycle](#1-2-lifecycle)
   - [1-3 Databinding](#1-3-databinding)
   - [1-4 Attribue Binding](#1-4-attribue-binding)
-  - [1-5 Style Binding](#1-5-style-binding)
-  - [1-6 Listmodel](#1-6-listmodel)
+  - [1-5 Class and Style Binding](#1-5-class-and-style-binding)
+  - [1-6 List Items with v-for](#1-6-list-items-with-v-for)
   - [1-7 Events](#1-7-events)
   - [1-8 Conditionals](#1-8-conditionals)
   - [1-9 Computed](#1-9-computed)
@@ -236,7 +236,7 @@ v-bind:title
 
 ```
 
-## 1-5 Style Binding
+## 1-5 Class and Style Binding
 
 ```html
 
@@ -296,7 +296,7 @@ v-bind:title
 
 ```
 
-## 1-6 Listmodel
+## 1-6 List Items with v-for
 
 ```html
 
@@ -349,6 +349,19 @@ v-bind:title
 
 ## 1-7 Events
 
+* v-on:eventName 
+* @eventName
+  
+Not : "v-on:" = "@" 
+
+
+**Örnekler**
+
+```
+v-on:click or @click
+v-on:keypress.enter
+```
+
 ```html
 
 <div id="app">
@@ -396,6 +409,8 @@ v-bind:title
 ```
 
 ## 1-8 Conditionals
+
+* v-if="booleanCondition"
 
 ```html
 
