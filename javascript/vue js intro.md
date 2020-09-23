@@ -33,6 +33,11 @@
   - [Ex1](#ex1)
   - [Ex 2](#ex-2)
   - [Ex 3](#ex-3)
+- [B6 Vue Fetch from Api](#b6-vue-fetch-from-api)
+  - [6-1 Fetch Todos](#6-1-fetch-todos)
+  - [6-2 Vue Resources Todos](#6-2-vue-resources-todos)
+  - [6-3 Fetch Products](#6-3-fetch-products)
+  - [6-4 Fetch Omdb Api](#6-4-fetch-omdb-api)
 - [Shortcuts](#shortcuts)
 
 Önsöz
@@ -1897,6 +1902,235 @@ this.$emit('onChange', this.childMessage);
 
 
 ```
+
+# B6 Vue Fetch from Api
+
+## 6-1 Fetch Todos
+
+```html
+
+<div id="app">
+    <h2>Yapılacak Listesi ({{list.length}} kayıt)</h2>
+    <hr>
+    <div v-if="isLoading">Yükleniyor...</div>
+    <p v-if="list.length===0">Yapılacak yok.</p>
+    <table class="table table-bordered table-hover" v-if="list.length>0">
+        <thead>
+        <tr class="bg-success text-white">
+            <td>index</td>
+            <td>başlık</td>
+            <td>yapıldı</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-for="(item, index) in list">
+            <td>{{ index }}</td>
+            <td>{{ item.title }}</td>
+            <td>{{ item.completed }}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<script src="../assets/js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        name: 'Uzaktan Kurs',
+        data: {
+            isLoading: true,
+            list: []
+        },
+        created() {
+            fetch('https://jsonplaceholder.typicode.com/todos')
+                .then((res) => {
+                    return res.json();
+                })
+                .then((res) => {
+                    this.isLoading = false;
+                    this.list = res;
+                })
+        }
+    })
+</script>
+
+```
+
+## 6-2 Vue Resources Todos
+
+```html
+
+<div id="app">
+    <h2>Yapılacak Listesi ({{list.length}} kayıt)</h2>
+    <hr>
+    <div v-if="isLoading">Yükleniyor...</div>
+    <p v-if="list.length===0">Yapılacak yok.</p>
+    <table class="table table-bordered table-hover" v-if="list.length>0">
+        <thead>
+        <tr class="bg-success text-white">
+            <td>index</td>
+            <td>başlık</td>
+            <td>yapıldı</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-for="(item, index) in list">
+            <td>{{ index }}</td>
+            <td>{{ item.title }}</td>
+            <td>{{ item.completed }}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<script src="../assets/js/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        name: 'Uzaktan Kurs',
+        data: {
+            isLoading: true,
+            list: []
+        },
+        created() {
+            this.$http.get('https://jsonplaceholder.typicode.com/todos')
+                .then(res => {
+                    this.isLoading = false;
+                    this.list = res.body;
+                }, response => {
+                    // error callback
+                });
+        }
+    })
+</script>
+
+```
+
+## 6-3 Fetch Products
+
+```html
+
+<div id="app">
+    <h2>Ürünler</h2>
+    <hr>
+    <p v-if="!products.length">Ürün bulunamadı!</p>
+
+    <b>Toplam Adet:</b> {{products.length}},
+    <b>Toplam Tutar:</b> {{paymentTotal}},
+    <b>Toplam Kdv:</b> {{paymentTotalTax}}
+
+    <div class="row" v-if="products.length">
+        <div class="col-3" v-for="(item, index) in products">
+            <div class="card">
+                <img class="card-img-top" style="height: 230px;" :src="item.resim" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{ item.baslik }}</h5>
+                    <p class="card-text">
+                        <b>Kategori:</b> {{ item.kategori }},
+                        <b>Tutar:</b> {{ item.tutar }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../assets/js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        name: 'Uzaktan Kurs',
+        data: {
+            products: []
+        },
+        created() {
+            fetch('db-products.json')
+                .then((res) => {
+                    return res.json();
+                })
+                .then((res) => {
+                    this.products = res.products;
+                })
+        },
+        computed: {
+            paymentTotal() {
+                let total = 0;
+                this.products.forEach((product) => {
+                    total += parseFloat(product.tutar);
+                });
+                return total.toFixed(2);
+            },
+            paymentTotalTax() {
+                return (this.paymentTotal * 18 / 100).toFixed(2);
+            }
+        }
+    })
+</script>
+
+```
+
+## 6-4 Fetch Omdb Api
+
+```html
+
+<div id="app">
+    <div class="container">
+        <p v-if="isLoading">Yükleniyor.</p>
+        <h2>Filmler</h2>
+        <hr>
+        <form class="form-inline" @submit.prevent="true">
+            <input type="text" class="form-control col-4" v-model="search">
+            <button class="btn btn-primary" @click="searchFilm">Ara</button>
+        </form>
+        <table class="table table-hover" v-if="films.length">
+            <tr v-if="films.length">
+                <td colspan="2">{{films.length}} kayıt bulundu</td>
+            </tr>
+            <tr v-if="!films.length">
+                <td colspan="2">Kayıt yok</td>
+            </tr>
+            <tr v-for="(item, index) in films">
+                <td>
+                    <img class="img-responsive" v-bind:src="item.Poster" style="height: 150px">
+                </td>
+                <td>
+                    <h4>{{item.Title}} <small>{{item.Year}}</small></h4>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<script src="../assets/js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        name: 'Uzaktan Kurs',
+        data: {
+            isLoading: false,
+            search: '',
+            films: []
+        },
+        methods: {
+            searchFilm() {
+                this.isLoading = true;
+                fetch('http://www.omdbapi.com/?s=' + this.search +'&page=1&apikey=68ca10bc')
+                    .then((res) => {
+                        return res.json();
+                    })
+                    .then((res) => {
+                        this.films = res.Search;
+                        this.isLoading = false;
+                    })
+            }
+        }
+    })
+</script>
+
+```
+
+
 
 # Shortcuts
 
