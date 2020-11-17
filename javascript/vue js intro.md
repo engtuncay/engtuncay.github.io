@@ -17,6 +17,12 @@
   - [2-12 Filters](#2-12-filters)
   - [2-13 Custom Directive](#2-13-custom-directive)
 - [B3 Vue Cli](#b3-vue-cli)
+  - [Installation](#installation)
+  - [Create a Project](#create-a-project)
+  - [Project Template](#project-template)
+  - [Serve Project](#serve-project)
+  - [Install Modules](#install-modules)
+  - [Build Command](#build-command)
   - [Cli Component Kullanımı](#cli-component-kullanımı)
 - [B4 Component Structure](#b4-component-structure)
   - [4-1 Global vs Local Component](#4-1-global-vs-local-component)
@@ -897,6 +903,76 @@ v-if="isVisibleDetaylar"
 
 # B3 Vue Cli
 
+## Installation
+
+Vue cli komut satırı aracını yüklemek için
+
+```js
+npm install -g @vue/cli
+//or yarn
+yarn global add @vue/cli
+```
+After installing required packages you can use “vue” command globally and create new project. To test the installation is successfully finished run the following command:
+
+```js
+vue --version
+```
+It will show you the version of Vue. If you successfully see these information this means that Vue is now working globally in your system.
+
+vue versiyonunu bize verir.
+
+
+## Create a Project
+
+```js
+vue create vue-app
+```
+
+## Project Template
+
+Proje oluştururken yüklenecek eklentiler sorulur.
+
+**Example Template**
+
+babel
+css pre-processors -> SCSS/SASS ! , LESS , Stylus
+linter-formatter
+in dedicated config files->true
+
+preset(template) şablon manasına gelir
+
+## Serve Project
+
+Projemizi ayağa kaldırır , lokalde uygulama sunucusunu çalıştırır.
+
+```js
+yarn run serve
+// veya
+npm run serve
+```
+
+## Install Modules
+
+Package json dosyasındaki bağımlılıkları(kütüphaneleri) yüklemek için
+
+```js
+npm install === yarn 
+// Install is the default behavior of yarn.
+```
+
+
+## Build Command
+
+
+
+```js
+yarn build
+// veya
+npm build
+```
+
+
+
 
 
 ## Cli Component Kullanımı
@@ -953,7 +1029,7 @@ App.Vue kullanımı
 
 ```
 
-HelloWorld component
+- HelloWorld component
 
 ```html
 <template>
@@ -1004,8 +1080,9 @@ HelloWorld component
 
 ### Global Component
 
-```js
+- Component definition
 
+```js
 Vue.component('AlertCount', {
         data() {
             return {
@@ -1023,7 +1100,7 @@ Vue.component('AlertCount', {
 
 ```
 
-Template içinde kullanımı :
+- Component usage
 
 ```html
 <alert-count></alert-count>
@@ -1048,7 +1125,7 @@ var AlertCount2 = {
         </div>`
 };
 
-//... vue instance kayıt edilir
+//... vue objesinde(instance) component kayıt edilir
 const app = new Vue({
         //...
         components: {
@@ -1058,7 +1135,7 @@ const app = new Vue({
 
 ```
 
-Template'de kullanımı
+- Component Usage 
 
 ```html
 <alert-count2></alert-count2>
