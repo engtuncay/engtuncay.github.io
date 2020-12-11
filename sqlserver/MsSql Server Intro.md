@@ -1,7 +1,5 @@
 
 
-<!-- TOC -->
-
 - [SQL TEMEL SORGULAR](#sql-temel-sorgular)
   - [SELECT](#select)
   - [UPDATE](#update)
@@ -15,32 +13,26 @@
     - [Outer Apply Usage](#outer-apply-usage)
 - [SQL EXTENSIONS](#sql-extensions)
   - [Function](#function)
-    - [Scalar Function (Tek Değer Döndüren Fonksiyon)](#scalar-function-tek-de%C4%9Fer-d%C3%B6nd%C3%BCren-fonksiyon)
+    - [Scalar Function (Tek Değer Döndüren Fonksiyon)](#scalar-function-tek-değer-döndüren-fonksiyon)
     - [Tabular Function](#tabular-function)
-    - [Fonksiyonun Çağrılması](#fonksiyonun-%C3%A7a%C4%9Fr%C4%B1lmas%C4%B1)
-    - [Değişkene Değer Atama](#de%C4%9Fi%C5%9Fkene-de%C4%9Fer-atama)
-    - [Fonksiyondan değer atama](#fonksiyondan-de%C4%9Fer-atama)
+    - [Fonksiyonun Çağrılması](#fonksiyonun-çağrılması)
+    - [Değişkene Değer Atama](#değişkene-değer-atama)
+    - [Fonksiyondan değer atama](#fonksiyondan-değer-atama)
   - [Stored Procedure](#stored-procedure)
-  - [Cursor Tanımlama](#cursor-tan%C4%B1mlama)
-  - [Case When Yapısı](#case-when-yap%C4%B1s%C4%B1)
+  - [Cursor Tanımlama](#cursor-tanımlama)
+  - [Case When Yapısı](#case-when-yapısı)
   - [IIF YAPISI](#iif-yapisi)
   - [Temp Table](#temp-table)
-  - [Global Değişkenler](#global-de%C4%9Fi%C5%9Fkenler)
-  - [Çeşitli Komutlar](#%C3%A7e%C5%9Fitli-komutlar)
-    - [SET ANSI_NULLS ON](#set-ansinulls-on)
-    - [SET QUOTED_IDENTIFIER ON](#set-quotedidentifier-on)
+  - [Global Değişkenler](#global-değişkenler)
+  - [Çeşitli Komutlar](#çeşitli-komutlar)
+    - [SET ANSI_NULLS ON](#set-ansi_nulls-on)
+    - [SET QUOTED_IDENTIFIER ON](#set-quoted_identifier-on)
 - [TSQL](#tsql)
-  - [IF Kullanımı](#if-kullan%C4%B1m%C4%B1)
-- [SQL GÜVENLİK - KULLANICI SORGULAR](#sql-g%C3%BCvenli%CC%87k---kullanici-sorgular)
+  - [IF Kullanımı](#if-kullanımı)
+- [SQL GÜVENLİK - KULLANICI SORGULAR](#sql-güvenli̇k---kullanici-sorgular)
 - [SQL LOGGING](#sql-logging)
   - [RaiseError](#raiseerror)
-  - [Kayıt Edilen Sayısını Bastırma](#kay%C4%B1t-edilen-say%C4%B1s%C4%B1n%C4%B1-bast%C4%B1rma)
-
-<!-- /TOC -->
-
-
-
-[TOC]
+  - [Kayıt Edilen Sayısını Bastırma](#kayıt-edilen-sayısını-bastırma)
 
 # SQL TEMEL SORGULAR
 

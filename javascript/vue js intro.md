@@ -924,9 +924,13 @@ vue versiyonunu bize verir.
 
 ## Create a Project
 
+To create new project we will run this command vue create “project_name” in appropriate directory for your wishes. Let’s start by creating a new project by marking the project’s name as vue-app
+
 ```js
 vue create vue-app
 ```
+
+
 
 ## Project Template
 
