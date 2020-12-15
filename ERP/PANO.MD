@@ -56,8 +56,11 @@ Tinyint Kayit tip bilgisidir.
 
 
 ## Tur Tinyint Belge türü 
-0  – Satis 
-1- 1 - Alis 
+
+
+```
+0  - Satis 
+1  - Alis 
 2  - MIadeSaglam 
 3  - SIade 
 4  - MIadeBozuk 
@@ -68,12 +71,18 @@ Tinyint Kayit tip bilgisidir.
 9  - KonsinyeSatis 
 10 - KonsinyeAlis 
 
+```
 ## Stoktip Tinyint Stok tip bilgisidir
+
+```
 -1 - Cikis 
  0 - HareketYok
  1 - Giris  
 
+```
 ## Odemetip tinyint Ödeme tip bilgisidir
+
+```
 0 - Pesin 
 1 - Cek 
 2 - Senet 
@@ -83,8 +92,10 @@ Tinyint Kayit tip bilgisidir.
 6 - DBS 
 7 - HavaleEFT 
 
+```
 
 ## FiyatHesaplamaTipi Tinyint Fiyat hesaplama tip bilgisidir
+
 0 - Uygulama 
 1 - Satis 
 2 - Alis 
@@ -95,28 +106,33 @@ Tinyint Kayit tip bilgisidir.
 
 ## BYTDURUM 
 
+```
 0 - Aktif   
 1 - Pasif   
 2 - İptal   
 3 - Silindi   
 4 - Potansiyel Pasif   
 5 - Potansiyel Aktif 
-
+```
 
 ## AcikKapali Tinyint Belgenin açık/kapalı
+
+```
 0 - Acik 
 1 – Kapali 
+```
 
 ## Belgetip Tinyint Dış sistemden gelen belge tipidir. 
+
+```
 Fatura = 0 
 Siparis = 1 
 Irsaliye = 2 
+```
 
 ## Belgekod int 
 
 EnRoutePanorama sistemindeki Belge numarası değeridir. Dış sistemler bu numarayı bilemeyeceklerinden 
 değer göndermemelidir.  
-
-
 
 

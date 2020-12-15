@@ -44,6 +44,7 @@
   - [6-2 Vue Resources Todos](#6-2-vue-resources-todos)
   - [6-3 Fetch Products](#6-3-fetch-products)
   - [6-4 Fetch Omdb Api](#6-4-fetch-omdb-api)
+  - [6-5 Axios](#6-5-axios)
 - [Shortcuts](#shortcuts)
 
 Önsöz
@@ -52,7 +53,7 @@ Bu öğreticide kaynak olarak Cem Gündüzoğlu Vue Js udemy kursu baz alınmı�
 
 # B1 Vue Intro
 
-Öğreticideki örneklerde kullanılan temel şablon aşağıdaki örnekte gösterildi.
+Öğreticideki örneklerde kullanılan temel şablon aşağıda gösterilmektedir.
 
 ```html
 <!DOCTYPE html>
@@ -108,9 +109,10 @@ h1, h2, h3, h4, h5, h6 {
 
 # B2 Vue Basic
 
+
 ## 2-1 Instance
 
-Vue constructor json objesi ile oluştururuz. json objesinde el , vue js 'ye container olacak elementi belirtiriz. Örnekte app id'li html elementi seçildi.
+Vue objesini bir json objesiyle oluştururuz. Json objesinde "el" alanında (property) vuejs'ye container olacak html elementi belirtiriz. Örnekte app id'li html elementi container olarak seçildi.
 
 ```html
 <div id="app"></div>

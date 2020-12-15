@@ -1,36 +1,17 @@
 Editor Uyguladığım Kısayollar
 
-- [Ide - Torak Keymap](#ide---torak-keymap)
+- [Torak Keymap Universal](#torak-keymap-universal)
+  - [Navigation](#navigation)
   - [File](#file)
   - [Edit](#edit)
-  - [Navigation](#navigation)
   - [Configuration / Interface](#configuration--interface)
   - [Debug/Run](#debugrun)
 - [Vscode Default Shortcuts](#vscode-default-shortcuts)
 - [VsCode User Shortcuts](#vscode-user-shortcuts)
 - [Idea Default Shortcuts](#idea-default-shortcuts)
-- [Eclipse Shortcuts](#eclipse-shortcuts)
 
-# Ide - Torak Keymap
+# Torak Keymap Universal
 
-## File
-
-
-| Shortcut | Action | When | Extra |
-| -------- | ------ | ---- | ----- |
-| .        | .      | .    | .     |
-| .        | .      | .    | .     |
-
-
-## Edit
-
-| Shortcut | Action                            | When | Extra |
-| -------- | --------------------------------- | ---- | ----- |
-| c+k,f    | Format Document                   | .    |
-| c+k,h    | Format Selection                  | .    |
-| .        | .                                 | .    |
-| c+s,j    | String ifadeyi birleştirir (idea) | .    |
-| .        | .                                 | .    | .     |
 
 ## Navigation
 
@@ -47,6 +28,27 @@ Editor Uyguladığım Kısayollar
 | .            | .                              | .    | .                      |
 | .            | .                              | .    | .                      |
 | .            | .                              | .    | .                      |
+
+
+## File
+
+
+| Shortcut | Action | When | Extra |
+| -------- | ------ | ---- | ----- |
+| .        | .      | .    | .     |
+| .        | .      | .    | .     |
+
+
+## Edit
+
+| Shortcut | Action                            | When | Extra |
+| -------- | --------------------------------- | ---- | ----- |
+| c+k,f    | Format Document                   | .    |       |
+| c+k,h    | Format Selection                  | .    | .     |
+| .        | .                                 | .    | .     |
+| c+s,j    | String ifadeyi birleştirir (idea) | .    | .     |
+| .        | .                                 | .    | .     |
+
 
 
 ## Configuration / Interface
@@ -77,7 +79,6 @@ Editor Uyguladığım Kısayollar
 | -------- | ------ | ---- | ----- |
 | .        | .      | .    | .     |
 | .        | .      | .    | .     |
-
 
 
 
@@ -129,4 +130,4 @@ alt + shift
 | s + F2   | Önceki Vurgulanan Hata     |
 | ..       | ..                         |
 
-# Eclipse Shortcuts
+
