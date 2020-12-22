@@ -257,6 +257,23 @@ v-bind:title
 
 ## 2-5 Class and Style Binding
 
+**Class Binding Kullanımları**
+
+- :class="localVariable"
+- :class="'className'"
+- :class="[localVariable,'className']"
+- :class="{ 'badge badge-success': kullanici.rol == 'Admin', 'badge badge-warning': kullanici.rol == 'User' }"
+
+**Style Binding Kullanımlar**
+
+- :style="styleExample"
+  
+  styleExample tanımı `styleExample: { color: 'red', fontSize: '18px' }`
+
+
+
+**Örnek**
+
 ```html
 
 <div id="app">
