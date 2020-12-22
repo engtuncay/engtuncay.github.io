@@ -8,9 +8,9 @@
   - [2-4 Attribue Binding](#2-4-attribue-binding)
   - [2-5 Class and Style Binding](#2-5-class-and-style-binding)
   - [2-6 List Items with v-for](#2-6-list-items-with-v-for)
-  - [2-7 Events](#2-7-events)
-  - [2-8 Conditionals](#2-8-conditionals)
-  - [2-9 Computed](#2-9-computed)
+  - [2-7 Event Handling](#2-7-event-handling)
+  - [2-8 Conditional Rendering](#2-8-conditional-rendering)
+  - [2-9 Computed Property](#2-9-computed-property)
   - [2-10 Watchers](#2-10-watchers)
   - [2-11 Forms](#2-11-forms)
   - [2-12 Form Validation](#2-12-form-validation)
@@ -366,7 +366,7 @@ v-bind:title
 
 ```
 
-## 2-7 Events
+## 2-7 Event Handling
 
 * v-on:eventName 
 * @eventName
@@ -427,7 +427,7 @@ v-on:keypress.enter
 
 ```
 
-## 2-8 Conditionals
+## 2-8 Conditional Rendering
 
 * v-if="boolConditionOrBoolVar"
 * v-show="boolConditionOrBoolVar"
@@ -491,7 +491,7 @@ v-if="isVisibleDetaylar"
 </script>
 
 ```
-## 2-9 Computed
+## 2-9 Computed Property
 
 ```html
 
@@ -907,31 +907,29 @@ v-if="isVisibleDetaylar"
 
 ## Installation
 
-Vue cli komut satırı aracını yüklemek için
+Vue cli komut satırı aracının yüklenmesi :
 
 ```js
 npm install -g @vue/cli
 //or yarn
 yarn global add @vue/cli
 ```
-After installing required packages you can use “vue” command globally and create new project. To test the installation is successfully finished run the following command:
+
+After installing required packages you can use “vue” command globally and create new project. To test the installation is successfully finished, run the following command:
 
 ```js
 vue --version
 ```
+
 It will show you the version of Vue. If you successfully see these information this means that Vue is now working globally in your system.
-
-vue versiyonunu bize verir.
-
 
 ## Create a Project
 
-To create new project we will run this command vue create “project_name” in appropriate directory for your wishes. Let’s start by creating a new project by marking the project’s name as vue-app
+To create new project, we will run this command vue create “project_name” in appropriate directory for your wishes. Let’s start by creating a new project by marking the project’s name as vue-app
 
 ```js
 vue create vue-app
 ```
-
 
 
 ## Project Template
