@@ -2,31 +2,31 @@
 
 - [Introduction to Php](#introduction-to-php)
 - [Php Basic](#php-basic)
+  - [Basic PHP Syntax](#basic-php-syntax)
   - [Comment Line and Block](#comment-line-and-block)
   - [Data Types](#data-types)
   - [Constant Assignment](#constant-assignment)
   - [Data Type Casting](#data-type-casting)
   - [Operators and Math Object](#operators-and-math-object)
-  - [String Metodları](#string-metodlar%c4%b1)
-  - [Template Literal (String oluşturmada yeni standart)](#template-literal-string-olu%c5%9fturmada-yeni-standart)
+  - [String Metodları](#string-metodları)
+  - [Template Literal (String oluşturmada yeni standart)](#template-literal-string-oluşturmada-yeni-standart)
   - [Arrays](#arrays)
-  - [Obje Kavramı ve Oluşturma](#obje-kavram%c4%b1-ve-olu%c5%9fturma)
-  - [Zaman Objesi ve Metodları](#zaman-objesi-ve-metodlar%c4%b1)
+  - [Sınıf ve Obje (Class And Object)](#sınıf-ve-obje-class-and-object)
+  - [Zaman Objesi ve Metodları](#zaman-objesi-ve-metodları)
   - [Logical Operators](#logical-operators)
   - [If Statement](#if-statement)
   - [Ternary Operator](#ternary-operator)
   - [Switch Statement](#switch-statement)
   - [Loops - For,While,Do While](#loops---forwhiledo-while)
 - [Arrays](#arrays-1)
-  - [Array Intro](#array-intro)
   - [Array Functions (1)](#array-functions-1)
   - [Array Functions (2)](#array-functions-2)
 - [Functions](#functions)
   - [Functions](#functions-1)
   - [Anonymous Functions](#anonymous-functions)
-  - [get_args() function](#getargs-function)
+  - [get_args() function](#get_args-function)
   - [Recursive Functions](#recursive-functions)
-  - [function_exists](#functionexists)
+  - [function_exists](#function_exists)
   - [Yield Function](#yield-function)
   - [Static variable in a function](#static-variable-in-a-function)
   - [Php 7 Feature - Parameter ad Return Type](#php-7-feature---parameter-ad-return-type)
@@ -34,11 +34,11 @@
   - [Class Definition](#class-definition)
   - [Inheritance](#inheritance)
   - [Constructor](#constructor)
-  - [Yıkıcılar](#y%c4%b1k%c4%b1c%c4%b1lar)
+  - [Yıkıcılar](#yıkıcılar)
   - [Static Definition](#static-definition)
-  - [Interface (Arayüz) Kullanımı](#interface-aray%c3%bcz-kullan%c4%b1m%c4%b1)
-  - [Abstract Sınıf (Soyut Sınıf) Kullanımı](#abstract-s%c4%b1n%c4%b1f-soyut-s%c4%b1n%c4%b1f-kullan%c4%b1m%c4%b1)
-  - [Final Ön Tanımı](#final-%c3%96n-tan%c4%b1m%c4%b1)
+  - [Interface (Arayüz) Kullanımı](#interface-arayüz-kullanımı)
+  - [Abstract Sınıf (Soyut Sınıf) Kullanımı](#abstract-sınıf-soyut-sınıf-kullanımı)
+  - [Final Ön Tanımı](#final-ön-tanımı)
   - [Namespace nedir](#namespace-nedir)
 - [Form Values](#form-values)
 - [Post Variables](#post-variables)
@@ -46,8 +46,8 @@
   - [PDO Connection](#pdo-connection)
 - [Composer](#composer)
   - [Kurulumu](#kurulumu)
-  - [Kullanımı](#kullan%c4%b1m%c4%b1)
-  - [Composer Komutları](#composer-komutlar%c4%b1)
+  - [Kullanımı](#kullanımı)
+  - [Composer Komutları](#composer-komutları)
 - [EOD String sytax](#eod-string-sytax)
 - [INCREMENT](#increment)
 - [ARITHMETICS](#arithmetics)
@@ -58,6 +58,13 @@
 - [Kaynaklar](#kaynaklar)
 
 # Php Basic
+
+## Basic PHP Syntax
+
+* Every statement ends in a ;
+* Loops, ifs, and anything else with a block of code inside it have brackets {}
+* Variables start with \$
+* Everything is case sensitive
 
 ## Comment Line and Block
 
@@ -141,27 +148,39 @@ Sabit Tanımlama
 
 ## Arrays
 
+```php
+
+// String array
 $bestFriends = array('Joy', 'Willow', 'Ivy');
 
+// Accessing an element of array
 echo 'My Wife ' . $bestFriends[0];
 
+// Assignment an index of array
 $bestFriends[4] = 'Steve';
 
+// Iterating over array
 foreach ($bestFriends as $friend) {
     echo \$friend . ', ';
 }
 
+// Key-Value Array
 $customer = array('Name'=>$usersName, 'Street'=>$streetAddress, 'City'=>$cityAddress);
 
-echo "</br>";
-
+// Iterating over key-value array
 foreach ($customer as $key => $value) {
 	echo $key . ' : ' . \$value . "</br>";
 }
 
+// Combining two arrays
 $bestFriends = $bestFriends + $customer;
 
-## Obje Kavramı ve Oluşturma
+```
+
+
+## Sınıf ve Obje (Class And Object)
+
+
 
 ## Zaman Objesi ve Metodları
 
@@ -241,8 +260,6 @@ while($num < 20) {
 
 # Arrays
 
-
-## Array Intro
 
 
 
@@ -595,9 +612,10 @@ print_r($arr2);
 
 ## Functions
 
-- Function without parameter
+
 
 ```php
+// a function without parameter
 function test() {
     return "test";
 }
@@ -1441,45 +1459,40 @@ echo "3 + 4 = " . addNumbers(3, 4);
 
 - Above is the opening php tag. Include it in a normal html file (ending in
 - .php), and inject whatever code you want.
+  
+  
+  
   \*/
   // ^That was a multi-line comment. This line is a single-line comment.
   // Comments are completely ignored when running a .php file.
 
-* This file contains brief examples of valid php code. I'll break up the major
-* subsections by multi-line comments, and include smaller labels of what each
-* thing is and what it does. Other things to note:
-*
-* BASIC PHP SYNTAX
-*
-* - Every statement ends in a ;
-* - Loops, ifs, and anything else with a block of code inside it have brackets {}
-* - Variables start with \$
-* - Everything is case sensitive
-* \*/
-
-/\*
 
 - BASIC STUFF
   \*/
 
-// Print the words Hello World
-echo "Hello World";
+- Print the words Hello World
+    
+        echo "Hello World";
 
-// Create a variable and assign a value
-\$name = "John Doe";
+- Create a variable and assign a value
+    
+        $name = "John Doe";
 
-// Change the value of an existing variable
-\$name = "Adam Smith"; // HA! There is no difference!
+- Change the value of an existing variable
+    
+        $name = "Adam Smith"; // HA! There is no difference!
 
-// Variables can hold more than just strings
-\$number = 12;
+- Variables can hold more than just strings
+        
+        $number = 12;
 
-// Add two strings together and print
+- Add two strings together and print
 echo "My name is " . "Adam Smith";
 
-// Works with variables too
-echo "My name is " . $name;
-echo "My name is $name"; // shorter syntax, does the same thing
+- Works with variables too
+
+        echo "My name is " . $name;
+        echo "My name is $name"; // shorter syntax, does the same thing
 
 /\*
 
