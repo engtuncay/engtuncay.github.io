@@ -70,6 +70,8 @@
 
     // This is a single-line comment
 
+    # Tek satırlı yorum satırı
+
     /*
         This is a mult-line comment.
     */
@@ -81,7 +83,7 @@ Comments are completely ignored when running a php file.
 - Data Types and Assignment
 
 ```
-string "tayfun erbilen" 'tayfun erbilen'
+string "ali veli" veya 'ali veli'
 integer 500, 200
 double (Float) 5.5, 7.2
 boolean (true, false)
@@ -106,12 +108,14 @@ echo gettype($null); // NULL
 ## Constant Assignment
 
 - Sabit Değişkenler;
-  - define() fonksiyonu ile tanımlanır
-  - Türkçe karakterler içerebilir
-  - Sayı ile başlayamaz
-  - Harf ya da \_ işareti ile başlar
-  - Büyük-küçük harfe duyarlıdır
+  - define() fonksiyonu ile tanımlanır.
+  - Türkçe karakterler içerebilir.
+  - Sayı ile başlayamaz.
+  - Harf ya da _ işareti ile başlar.
+  - Büyük-küçük harfe duyarlıdır.
   - Veri türlerinde, Object hariç tüm veri türlerini kapsar.
+
+Örnekler
 
 ```php
 $tayfun = "tayfun erbilen";
