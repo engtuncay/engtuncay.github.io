@@ -8,16 +8,17 @@
   - [Constant Assignment](#constant-assignment)
   - [Data Type Casting](#data-type-casting)
   - [Operators and Math Object](#operators-and-math-object)
+  - [Logical Operators](#logical-operators)
+  - [If Statement](#if-statement)
+  - [Ternary (Short If) Operator](#ternary-short-if-operator)
+  - [Switch Statement](#switch-statement)
+  - [Loops - For,While,Do While](#loops---forwhiledo-while)
+- [String , Number, Array](#string--number-array)
   - [String Metodları](#string-metodları)
   - [Template Literal (String oluşturmada yeni standart)](#template-literal-string-oluşturmada-yeni-standart)
   - [Arrays](#arrays)
-  - [Sınıf ve Obje (Class And Object)](#sınıf-ve-obje-class-and-object)
+- [Sınıf ve Obje (Class And Object)](#sınıf-ve-obje-class-and-object)
   - [Zaman Objesi ve Metodları](#zaman-objesi-ve-metodları)
-  - [Logical Operators](#logical-operators)
-  - [If Statement](#if-statement)
-  - [Ternary Operator](#ternary-operator)
-  - [Switch Statement](#switch-statement)
-  - [Loops - For,While,Do While](#loops---forwhiledo-while)
 - [Arrays](#arrays-1)
   - [Array Functions (1)](#array-functions-1)
   - [Array Functions (2)](#array-functions-2)
@@ -95,7 +96,7 @@ NULL
 - gettype() fonksiyonu ile bir verinin türünü öğreniriz.
 
 ```php
-$string = "tayfun erbilen";
+$string = "ali veli";
 $int = 500;
 $float = 5.5;
 $bool = false;
@@ -118,18 +119,21 @@ echo gettype($null); // NULL
 Örnekler
 
 ```php
-$tayfun = "tayfun erbilen";
-//echo $tayfun;
+$ali = "ali veli";
+//echo $ali;
 
-define("tayfun", "tayfun erbilen");
-//define("Tayfun", "tayfun erbilen2");
+define("ali", "ali veli");
+//define("ali", "ali veli2");
 
-echo tayfun;
+echo ali;
 ```
 
 ## Data Type Casting
 
-    (double)(5 / 2);
+Örnek
+
+```php
+(double)(5 / 2);
 
 $randNum = 5;
 $refToNum = &$randNum;
@@ -137,77 +141,39 @@ $randNum = 100;
 
 echo '$refToNum = ' . $refToNum;
 
-## Operators and Math Object
-
-    + , - , * , / , % (modular arithmetic)
-
-Sabit Tanımlama
-
-    define('PI', 3.1415926);
-    echo "The value of PI is " . PI;
-
-## String Metodları
-
-## Template Literal (String oluşturmada yeni standart)
-
-## Arrays
-
-```php
-
-// String array
-$bestFriends = array('Joy', 'Willow', 'Ivy');
-
-// Accessing an element of array
-echo 'My Wife ' . $bestFriends[0];
-
-// Assignment an index of array
-$bestFriends[4] = 'Steve';
-
-// Iterating over array
-foreach ($bestFriends as $friend) {
-    echo \$friend . ', ';
-}
-
-// Key-Value Array
-$customer = array('Name'=>$usersName, 'Street'=>$streetAddress, 'City'=>$cityAddress);
-
-// Iterating over key-value array
-foreach ($customer as $key => $value) {
-	echo $key . ' : ' . \$value . "</br>";
-}
-
-// Combining two arrays
-$bestFriends = $bestFriends + $customer;
-
 ```
 
+## Operators and Math Object
 
-## Sınıf ve Obje (Class And Object)
+```php
++ , - , * , / , % (modular arithmetic)
 
+```
+Sabit Tanımlama
 
+```php
+define('PI', 3.1415926);
+echo "The value of PI is " . PI;
 
-## Zaman Objesi ve Metodları
-
-date_default_timezone_set('UTC');
-echo date('h:i:s:u a, l F jS Y e');
-
+```
 
 ## Logical Operators
 
 Operators that return a boolean
 
-| Operator | Meaning                           |     |
-| -------- | --------------------------------- | --- |
-| >        | Greater then                      | >=  |
-| <        | Less then                         | >=  |
-| ==       | Equal                             | =!  |
-| ===      | Equal value and type              |     |
-| &&       | And (Both things are true)        |     |
-| \|       | Or (One of these things are true) |     |
-| !        | Not Operator                      |     |
+| Operator | Meaning                           | Variations |
+| -------- | --------------------------------- | ---------- |
+| >        | Greater then                      | >=         |
+| <        | Less then                         | >=         |
+| ==       | Equal                             | =!         |
+| ===      | Equal value and type              |            |
+| &&       | And (Both things are true)        |            |
+| \|       | Or (One of these things are true) |            |
+| !        | Not Operator                      |            |
 
 ## If Statement
 
+Örnekler
 
 ```php
 if ( $numOfOranges < 26 ) {
@@ -219,7 +185,7 @@ if ( $numOfOranges < 26 ) {
 } 
 ```
 
-## Ternary Operator
+## Ternary (Short If) Operator
 
 ```php
 echo (15 > 10) ? 15 : 10; 
@@ -261,6 +227,59 @@ while($num < 20) {
 
 ```
 
+# String , Number, Array
+
+## String Metodları
+
+## Template Literal (String oluşturmada yeni standart)
+
+## Arrays
+
+Örnekler
+
+```php
+
+// String array
+$bestFriends = array('Joy', 'Willow', 'Ivy');
+
+// Accessing an element of array
+echo 'My Wife ' . $bestFriends[0];
+
+// Assignment an index of array
+$bestFriends[4] = 'Steve';
+
+// Iterating over array
+foreach ($bestFriends as $friend) {
+    echo \$friend . ', ';
+}
+
+// Key-Value Array
+$customer = array('Name'=>$usersName, 'Street'=>$streetAddress, 'City'=>$cityAddress);
+
+// Iterating over key-value array
+foreach ($customer as $key => $value) {
+	echo $key . ' : ' . \$value . "</br>";
+}
+
+// Combining two arrays
+$bestFriends = $bestFriends + $customer;
+
+```
+
+
+# Sınıf ve Obje (Class And Object)
+
+
+
+## Zaman Objesi ve Metodları
+
+```php
+date_default_timezone_set('UTC');
+echo date('h:i:s:u a, l F jS Y e');
+```
+
+
+
 
 # Arrays
 
@@ -287,8 +306,8 @@ while($num < 20) {
 */
 
 $arr = [
-    'ad' => 'tayfun',
-    'soyad' => 'erbilen',
+    'ad' => 'ali',
+    'soyad' => 'veli',
     'yas' => 24
 ];
 
@@ -297,8 +316,8 @@ print_r($arr);
 /* ** Output
  Array
 (
-    [ad] => tayfun
-    [soyad] => erbilen
+    [ad] => ali
+    [soyad] => veli
     [yas] => 24
 )
  */
@@ -308,15 +327,15 @@ var_dump($arr);
 /* ** Output
 array(3) {
   ["ad"]=>
-  string(6) "tayfun"
+  string(6) "ali"
   ["soyad"]=>
-  string(7) "erbilen"
+  string(7) "veli"
   ["yas"]=>
   int(24)
 }
 */
 
-$test = 'tayfun,erbilen,udemy';
+$test = 'ali,veli,udemy';
 $arr = explode(',', $test);
 
 print_r($arr);
@@ -324,8 +343,8 @@ print_r($arr);
 /*
 Array
 (
-    [0] => tayfun
-    [1] => erbilen
+    [0] => ali
+    [1] => veli
     [2] => udemy
 )
 */
@@ -338,7 +357,7 @@ echo count($arr);
 echo "\n";
 
 /*
-tayfun|erbilen|udemy
+ali|veli|udemy
 3
 */
 
@@ -372,7 +391,7 @@ Array
 */
 
 $keys = ['ad', 'soyad'];
-$values = ['tayfun', 'erbilen'];
+$values = ['ali', 'veli'];
 
 $arr = array_combine($keys, $values);
 print_r($arr);
@@ -380,12 +399,12 @@ print_r($arr);
 /*
 Array
 (
-    [ad] => tayfun
-    [soyad] => erbilen
+    [ad] => ali
+    [soyad] => veli
 )
 */
 
-$arr = ['tayfun', 'erbilen', 'udemy', 'tayfun', 'udemy'];
+$arr = ['ali', 'veli', 'udemy', 'ali', 'udemy'];
 $arr2 = array_count_values($arr);
 
 print_r($arr2);
@@ -393,15 +412,15 @@ print_r($arr2);
 /*
 Array
 (
-    [tayfun] => 2
-    [erbilen] => 1
+    [ali] => 2
+    [veli] => 1
     [udemy] => 2
 )
 */
 
 $arr = [
-    'ad' => 'tayfun',
-    'soyad' => 'erbilen',
+    'ad' => 'ali',
+    'soyad' => 'veli',
     'yas' => 24
 ];
 $arr2 = array_flip($arr);
@@ -411,14 +430,14 @@ print_r($arr2);
 /*
 Array
 (
-    [tayfun] => ad
-    [erbilen] => soyad
+    [ali] => ad
+    [veli] => soyad
     [24] => yas
 )
 */
 
 $arr = [
-    'ad' => 'tayfun',
+    'ad' => 'ali',
     'a' => [
         'b' => [
             'c' => [
@@ -518,10 +537,10 @@ $arr = array_merge($arr1, $arr2);
 //print_r($arr);
 
 $arr = [
-    'ad' => 'tayfun',
-    'soyad' => 'erbilen',
+    'ad' => 'ali',
+    'soyad' => 'veli',
     'yas' => 24,
-    'site' => 'erbilen.net'
+    'site' => 'veli.net'
 ];
 $random = array_rand($arr, 2);
 $values = array_map(function($key) use($arr){
@@ -536,8 +555,8 @@ $arr = array_reverse($arr);
 //print_r($arr);
 
 $arr = [
-    'ad' => 'tayfun',
-    'soyad' => 'erbilen',
+    'ad' => 'ali',
+    'soyad' => 'veli',
     'a' => [
         'b' => [
             'c' => 'd'
@@ -600,7 +619,7 @@ $toplam = array_sum($arr);
 $carpim = array_product($arr);
 //echo $carpim;
 
-$arr = ['tayfun','erbilen','tayfun','erbilen','udemy'];
+$arr = ['ali','veli','ali','veli','udemy'];
 print_r($arr);
 $arr2 = array_unique($arr);
 print_r($arr2);
@@ -647,7 +666,7 @@ $toplam = topla();
 
 ```php
 
-$ad = 'Tayfun';
+$ad = 'ali';
 
 /*
     global
@@ -661,9 +680,9 @@ function adsoyad($soyad)
     return $ad . ' ' . $soyad;
 }
 
-//echo adsoyad('Erbilen');
+//echo adsoyad('veli');
 
-$yazi = "tayfun";
+$yazi = "ali";
 
 //echo substr($yazi, 0, 10) . '..';
 
@@ -705,7 +724,7 @@ $test2 = function() use ($test){
 
 echo $test2();
 
-//echo $test('tayfun');
+//echo $test('ali');
 
 ```
 
@@ -732,7 +751,7 @@ $arr = [
 
 
 ```php
-$soyad = 'Erbilen';
+$soyad = 'veli';
 
 function filtrele($isim)
 {
@@ -740,7 +759,7 @@ function filtrele($isim)
     return $isim . ' ' . $soyad; 
 }
 
-$arr = ['Tayfun','Güner','Meltem','Zeynep'];
+$arr = ['ali','Güner','Meltem','Zeynep'];
 $arr = array_map(function($isim) use($soyad){
     return $isim . ' ' . $soyad; 
 }, $arr);
@@ -770,7 +789,7 @@ function test()
     echo func_get_arg(2);
 }
 
-test('tayfun', 'udemy', 'prototurk', '93academy');
+test('ali', 'udemy', 'prototurk', '93academy');
 
 // Output
 
@@ -851,8 +870,8 @@ function kategoriListele($kategoriler, $parent = 0)
 //echo kategoriListele($kategoriler);
 
 $arr = [
-    'ad' => 'tayfun',
-    'soyad' => 'erbilen',
+    'ad' => 'ali',
+    'soyad' => 'veli',
     'sporlar' => [
         'yuzme' => 'evet',
         'kosma' => 'hayır',
