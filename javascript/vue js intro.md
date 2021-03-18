@@ -132,6 +132,15 @@ Vue objesini bir json objesiyle oluştururuz. Json objesinde "el" alanında (pro
 
 ## 2-2 Lifecycle
 
+Lifecyle methods uygulamanın yaşam döngüsündeki bazı state değişimlerinde trigger edilen metodlar.
+
+Lifecycle
+- created : instance (vue) oluşturulunca tetikler.
+- mounted : dom'a eklenince tetikler.
+- updated : dom'u güncelleyince tetikler.
+- destroyed : instance silinince (pasiflenince) tetikler.
+
+
 ```html
 <div id="app">
     <span class="badge badge-success">{{ sayi }}</span>
@@ -149,6 +158,7 @@ Vue objesini bir json objesiyle oluştururuz. Json objesinde "el" alanında (pro
             sayi: 5
         },
 		methods: {
+            // button events
 			change() {
 				this.sayi = Math.floor(Math.random() * 49) + 1;
 			},
@@ -173,7 +183,29 @@ Vue objesini bir json objesiyle oluştururuz. Json objesinde "el" alanında (pro
 </script>
 ```
 
+```
+// First output
+Instance oluşturuldu.
+DOM'a eklendi
+DOM güncellendi
+
+// Change Event
+DOM güncellendi
+
+// Destroy Event (bundan sonra change event çalışmaz,sonlandığı için)
+Instance silindi
+```
+
 ## 2-3 Data Binding
+
+String Interpolation
+- {{ .. }} : içinde yazılan değeri basar. Text kullanılacaksa tırnak içinde ('text') kullanılır.
+
+Attribute şeklindeki yöntemler
+- v-text  : text olarak elementin içine yazar
+- v-html : html olarak elementin içine yazar
+- v-model[.number] : elementin değerini, belirtilen property'e bind eder
+- v-once : bir defa basıp ilgili variable değişirse güncellemez
 
 ```html
 <div id="app">
@@ -215,15 +247,15 @@ Vue objesini bir json objesiyle oluştururuz. Json objesinde "el" alanında (pro
 
 ## 2-4 Attribue Binding 
 
-Genel Kullanım
+Bir elementin attribute değerini bir değişkene bağlar (bind). Değişkenin değerini bu attribute'a atar (assign).
 
+Syntax
 * v-bind:attributeName
 * :attributeName 
 
 "v-bind:" kısayolu ":" 'dır.
 
 **Örnekler**
-
 ```
 v-bind:href
 v-bind:title
@@ -232,6 +264,7 @@ v-bind:title
 :id
 ```
 
+Örnek Uygulama
 ```html
 <div id="app">
     <p><a v-bind:href="linkSite" v-bind:title="linkAciklama">{{ linkAciklama }}</a></p>
@@ -257,19 +290,22 @@ v-bind:title
 
 ## 2-5 Class and Style Binding
 
+Bir elementin class attribute'na değer atamak için kullanılır. Direk string olarak verilecek tırnak içinde yazılır, tırnak içinde olmayanlar değişken olarak kabul edilirler.
+
 **Class Binding Kullanımları**
 
 - :class="localVariable"
-- :class="'className'"
+- :class=" 'className' "
 - :class="[localVariable,'className']"
 - :class="{ 'badge badge-success': kullanici.rol == 'Admin', 'badge badge-warning': kullanici.rol == 'User' }"
 
 **Style Binding Kullanımlar**
 
-- :style="styleExample"
+- :style="varStyleExample"
   
-  styleExample tanımı `styleExample: { color: 'red', fontSize: '18px' }`
+varStyleExample örnek 
 
+`varStyleExample = { color: 'red', fontSize: '18px' }`
 
 
 **Örnek**
