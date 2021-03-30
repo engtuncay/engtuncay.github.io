@@ -371,6 +371,14 @@ varStyleExample örnek
 ## 2-6 List Items with v-for
 
 ```html
+<!-- this tag repeats -->
+<tag v-for="(element,index) in arrayVar">
+    <!--  -->
+</tag>
+```
+
+
+```html
 
 <div id="app">
     <h1>Kullanıcılar ({{ kullanicilar.length }} kullanıcı)</h1>
@@ -407,12 +415,8 @@ varStyleExample örnek
                     id: 32,
                     isim: 'Esra',
                     rol: 'Admin'
-                },
-                {
-                    id: 54,
-                    isim: 'Ceyda',
-                    rol: 'User'
-                }]
+                }
+                ]
         }
     })
 </script>
