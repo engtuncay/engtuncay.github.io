@@ -1,15 +1,15 @@
 Editor Uyguladığım Kısayollar
 
-- [Torak Keymap Universal](#torak-keymap-universal)
+- [Custom Keymap By Tuncay Orak](#custom-keymap-by-tuncay-orak)
   - [Navigation](#navigation)
   - [File](#file)
   - [Edit](#edit)
   - [Configuration / Interface](#configuration--interface)
   - [Debug/Run](#debugrun)
 - [VsCode Special Shortcuts](#vscode-special-shortcuts)
-- [Idea Default Shortcuts](#idea-default-shortcuts)
+- [Idea Special Shortcuts](#idea-special-shortcuts)
 
-# Torak Keymap Universal
+# Custom Keymap By Tuncay Orak
 
 
 ## Navigation
@@ -73,6 +73,26 @@ Editor Uyguladığım Kısayollar
 | .        | .      | .    |
 
 
+# VsCode Special Shortcuts
+
+| Shortcut | Action              | When |Extra | 
+| -------- | ------------------- | ---- |-----|
+| c + -    | Close Active Editor |.     |.|
+| ..       | ..                  |.     |.|
+
+# Idea Special Shortcuts
+
+| Shortcut | Action              | When |Extra |
+| -------- | ------------------- | ---- |-----|
+| c,s + j  | String ifadeyi birleştirir |.|.|
+| F2       | Sonraki Vurgulanan Hata    |.|.|
+| s + F2   | Önceki Vurgulanan Hata     |.|.|
+| ..       | ..                         |.|.|
+| ..       | ..                  |.     |.|
+
+
+
+// Notes
 
 **Sample**
 
@@ -81,10 +101,7 @@ Editor Uyguladığım Kısayollar
 | .        | .      | .    | .     |
 | .        | .      | .    | .     |
 
-
-
 | s + F2 | Önceki Vurgulanan Hata | |
-
 
 c,s,a + keyboard key : second key binding if there is.
 
@@ -104,23 +121,3 @@ Kullanılacak Tuş Kombinasyonları
 ctrl + shift
 alt + sayılar
 alt + shift
-
-
-
-# VsCode Special Shortcuts
-
-| Shortcut | Action              | When |
-| -------- | ------------------- | ---- |
-| c + -    | Close Active Editor |
-| ..       | ..                  |
-
-# Idea Default Shortcuts
-
-| Shortcut | Action                     | When |
-| -------- | -------------------------- | ---- |
-| c,s + j  | String ifadeyi birleştirir |
-| F2       | Sonraki Vurgulanan Hata    |
-| s + F2   | Önceki Vurgulanan Hata     |
-| ..       | ..                         |
-
-
