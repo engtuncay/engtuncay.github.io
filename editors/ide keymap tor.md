@@ -56,11 +56,13 @@ Editor Uyguladığım Kısayollar
 
 | Shortcut | Action           | When | Extra |
 | -------- | ---------------- | ---- | ----- |
-| c+ş,s    | Settings         | .    | .     |
-| ctş,k    | Keymap           | .    | .     |
+| c,a + s  | Settings         | .    | .     |
+| c,a + d  | Keymap           | .    | .     |
+| c,s+s    | Toggle Side Bar  | .    | .     |
+| .        | .                | .    | .     |
+| .        | .                | .    | .     |
 | C+ş,i/o  | Zoom In/Out      | .    | .     |
 | C+ş,y/u  | Font Zoom in/out | .    | .     |
-| c,s+s    | Toggle Side Bar  | .    | .     |
 | .        | .                | .    | .     |
 
 
