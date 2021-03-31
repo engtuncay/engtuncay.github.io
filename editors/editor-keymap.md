@@ -1,6 +1,4 @@
-Editor Uyguladığım Kısayollar
-
-- [Custom Keymap By Tuncay Orak](#custom-keymap-by-tuncay-orak)
+- [Custom Keymap For Editors By Tuncay Orak](#custom-keymap-for-editors-by-tuncay-orak)
   - [Navigation](#navigation)
   - [File](#file)
   - [Edit](#edit)
@@ -9,7 +7,7 @@ Editor Uyguladığım Kısayollar
 - [VsCode Special Shortcuts](#vscode-special-shortcuts)
 - [Idea Special Shortcuts](#idea-special-shortcuts)
 
-# Custom Keymap By Tuncay Orak
+# Custom Keymap For Editors By Tuncay Orak
 
 
 ## Navigation
