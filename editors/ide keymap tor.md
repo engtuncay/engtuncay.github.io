@@ -6,8 +6,7 @@ Editor Uyguladığım Kısayollar
   - [Edit](#edit)
   - [Configuration / Interface](#configuration--interface)
   - [Debug/Run](#debugrun)
-- [Vscode Default Shortcuts](#vscode-default-shortcuts)
-- [VsCode User Shortcuts](#vscode-user-shortcuts)
+- [VsCode Special Shortcuts](#vscode-special-shortcuts)
 - [Idea Default Shortcuts](#idea-default-shortcuts)
 
 # Torak Keymap Universal
@@ -45,8 +44,10 @@ Editor Uyguladığım Kısayollar
 | -------- | --------------------------------- | ---- | ----- |
 | c+k,f    | Format Document                   | .    |       |
 | c+k,h    | Format Selection                  | .    | .     |
-| .        | .                                 | .    | .     |
+| c+k,u / c+k,c | Comment / Uncomment| .    | .     |
 | c+s,j    | String ifadeyi birleştirir (idea) | .    | .     |
+| .        | .                                 | .    | .     |
+| .        | .                                 | .    | .     |
 | .        | .                                 | .    | .     |
 
 
@@ -106,15 +107,7 @@ alt + shift
 
 
 
-
-# Vscode Default Shortcuts
-
-| Shortcut  | Action    | When |
-| --------- | --------- | ---- |
-| c+k , c+u | uncomment |
-| ..        | ..        |
-
-# VsCode User Shortcuts
+# VsCode Special Shortcuts
 
 | Shortcut | Action              | When |
 | -------- | ------------------- | ---- |
