@@ -25,7 +25,7 @@ Editor Uyguladığım Kısayollar
 | F2 / S+F2    | Sonraki/Önceki Vurgulanan Hata |      | .                      |
 | c,a+k        | Bookmark Toggle                | .    |                        |
 | c,a+l        | Go to Next Bookmark            | .    | Öncesi Format document |
-| .            | .                              | .    | .                      |
+| c,s+m            | Move Caret to Matching Brace (idea)  | .    | .                      |
 | .            | .                              | .    | .                      |
 | .            | .                              | .    | .                      |
 
