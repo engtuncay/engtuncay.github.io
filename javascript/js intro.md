@@ -2,51 +2,55 @@
 
 # Introduction to Javascript (tr:Javascript'e Giriş)
 
-- [Introduction to Javascript (tr:Javascript'e Giriş)](#introduction-to-javascript-trjavascripte-giri%c5%9f)
-  - [Vs Code Extension for Javascript (tr:Javascript için Vs Code Eklentileri )](#vs-code-extension-for-javascript-trjavascript-i%c3%a7in-vs-code-eklentileri)
+- [Introduction to Javascript (tr:Javascript'e Giriş)](#introduction-to-javascript-trjavascripte-giriş)
+  - [VS Code Extensions for Javascript](#vs-code-extensions-for-javascript)
 - [Core Concepts](#core-concepts)
-  - [Variable Assignment (tr:Değişken Tanımlama)](#variable-assignment-trde%c4%9fi%c5%9fken-tan%c4%b1mlama)
-  - [Data Type Casting (tr:Veri Tipini Değiştirme)](#data-type-casting-trveri-tipini-de%c4%9fi%c5%9ftirme)
-  - [Operatörler ve Math Objesi](#operat%c3%b6rler-ve-math-objesi)
-  - [String Metodları](#string-metodlar%c4%b1)
-  - [Template Literal - String oluşturmada yeni standart](#template-literal---string-olu%c5%9fturmada-yeni-standart)
-  - [Arraylerin Özellikleri](#arraylerin-%c3%96zellikleri)
-  - [Js de Obje Kavramı ve Oluşturma](#js-de-obje-kavram%c4%b1-ve-olu%c5%9fturma)
-  - [Js Zaman Objesi ve Metodları](#js-zaman-objesi-ve-metodlar%c4%b1)
-- [Js Temelleri (Bölüm 2)](#js-temelleri-b%c3%b6l%c3%bcm-2)
-  - [Karşılaştırma Operatörleri](#kar%c5%9f%c4%b1la%c5%9ft%c4%b1rma-operat%c3%b6rleri)
-  - [Mantıksal Bağlaçlar](#mant%c4%b1ksal-ba%c4%9fla%c3%a7lar)
+  - [Variable Assignment](#variable-assignment)
+  - [Data Type Casting](#data-type-casting)
+  - [Operators and Math Object](#operators-and-math-object)
+  - [String Metodları](#string-metodları)
+  - [Template Literal - String oluşturmada yeni standart](#template-literal---string-oluşturmada-yeni-standart)
+  - [Arraylerin Özellikleri](#arraylerin-özellikleri)
+  - [Js de Obje Kavramı ve Oluşturma](#js-de-obje-kavramı-ve-oluşturma)
+  - [Js Zaman Objesi ve Metodları](#js-zaman-objesi-ve-metodları)
+- [Js Temelleri (Bölüm 2)](#js-temelleri-bölüm-2)
+  - [Karşılaştırma Operatörleri](#karşılaştırma-operatörleri)
+  - [Mantıksal Bağlaçlar](#mantıksal-bağlaçlar)
   - [If Statement (if ifadesi)](#if-statement-if-ifadesi)
-  - [Switch - Case Yapısı](#switch---case-yap%c4%b1s%c4%b1)
+  - [Switch - Case Yapısı](#switch---case-yapısı)
   - [Fonksiyonlar, IIFE ve Anonim Fonksiyonlar](#fonksiyonlar-iife-ve-anonim-fonksiyonlar)
-  - [Döngüler - While,Do While,For](#d%c3%b6ng%c3%bcler---whiledo-whilefor)
+  - [Döngüler - While,Do While,For](#döngüler---whiledo-whilefor)
   - [Window Object](#window-object)
-  - [Kapsam (Scope) Kavramı - Function Scope, Global Scope, Block Scope](#kapsam-scope-kavram%c4%b1---function-scope-global-scope-block-scope)
+  - [Kapsam (Scope) Kavramı - Function Scope, Global Scope, Block Scope](#kapsam-scope-kavramı---function-scope-global-scope-block-scope)
 - [DOM](#dom)
   - [Document Objesi (Part 1)](#document-objesi-part-1)
   - [Document Object (Part 2)](#document-object-part-2)
-- [ES-6 Özellikleri](#es-6-%c3%96zellikleri)
-  - [For in ve For of Döngüleri](#for-in-ve-for-of-d%c3%b6ng%c3%bcleri)
+- [ES-6 Özellikleri](#es-6-özellikleri)
+  - [For in ve For of Döngüleri](#for-in-ve-for-of-döngüleri)
   - [ES6 Maps](#es6-maps)
   - [Referans Tipler Tekrar](#referans-tipler-tekrar)
-  - [Set (Kümeler)](#set-k%c3%bcmeler)
+  - [Set (Kümeler)](#set-kümeler)
 
 
-## Vs Code Extension for Javascript (tr:Javascript için Vs Code Eklentileri )
+## VS Code Extensions for Javascript 
+
+(tr:Javascript için Vs Code Eklentileri )
 
 # Core Concepts
 
-## Variable Assignment (tr:Değişken Tanımlama)
+## Variable Assignment
 
 - var,let,const
 
-        var : global assignemnt (tr:global atama)
-        let : local assignment (tr:yerel atama)
-        const : constant assignmet (tr:sabit atama)
+        var : global assignemnt 
+        let : local assignment 
+        const : constant assignmet
 
 - If we create a reference or array with const, we couldnt set it again, but we can change content of const object or const array. (tr:const referans bir obje veya array oluşturursak, yeni set edemeyiz, fakat mevcut içinde değişiklik yapabiliriz.)
 
-## Data Type Casting (tr:Veri Tipini Değiştirme)
+## Data Type Casting 
+
+(tr:Veri Tipini Değiştirme)
 
 - Veri tipini string e çevirme
 
@@ -72,19 +76,24 @@ undefined,string,fonksiyonu ve array'i number a çeviremeyiz.
 
 - Automatic Casting (Otomatik Çevirme)
 
-        const a = "Hello" + 34 // Hello34
-        // 34 ü stringe çevirdi.
+```js
+const a = "Hello" + 34 // Hello34
+// 34 stringe çevrildi.
+```
 
-## Operatörler ve Math Objesi
+## Operators and Math Object
 
-    let a = 20
-    let b = 10
+- Basic Operators
 
-    a + b
-    a - b
-    a * b
-    a % b  (mod işlemi)
+```js
+let a = 20
+let b = 10
 
+a + b
+a - b
+a * b
+a % b  (mod işlemi)
+```
 - Math objesi
 
 ```js
