@@ -118,112 +118,128 @@ Math.random() * 20 // 0-20 arasında sayı üretir
 Math.floor(Math.random()*20+1); // 1 ile 20 arasında değer üretir
 ```
 
-## String Metodları
+## String Methods
 
 - concatation
 
-        let a = "Ali" + " " + "Kaya"
+```js
+let a = "Ali" + " " + "Kaya"
 
-        a + = ":";
+a + = ":";
 
-        a.concat(" Sayın"); // a + " Sayın"
+a.concat(" Sayın"); // a + " Sayın"
 
-- Bazı metodlar
+```
+- Some methods
 
-        a.length
-        a.toLowerCase();
-        a.toUpperCase();
-
+```
+a.length
+a.toLowerCase();
+a.toUpperCase();
+```
 string değeri içindeki karakterlerin indexi 0 dan başlar.
 
-    a[0] // A verir
-
-// indexOf
+```js
+a[0] // A verir
+```
+-  indexOf
 
     a.indexOf("A") // 0
     a.indexOf("x") // -1
 
-// chatAt
+- charAt
     
     a.charAt(0) // A
 
-// split
+- split
 
     let degerler = "Ali,Veli,Kaya";
     degerler.split(","); // [Ali,Veli,Kaya]
 
-// replace
+- replace
 
     degerler.replace("Ali","Kemal") // Ali nin yerine Kemali koyar
 
-// includes
+- includes
 
-    degerler.includes("Veli") // true döner
+```js
+ degerler.includes("Veli") // true döner
 
+```
 
-## Template Literal - String oluşturmada yeni standart
+## Template Literal 
 
-    let name = "Ali Veli";
-    let department = "Bilişim"
+tr:String oluşturmada yeni standart
 
-    const a = `İsim:$(name)\nDepartment$(department)\n`
+```js
+let name = "Ali Veli";
+let department = "Bilişim"
 
-    const html = `<ul><li>$(name)<li><ul>`
+const a = `İsim:$(name)\nDepartment$(department)\n`
 
-- aritmetik işlem yapabiliriz.
+const html = `<ul><li>$(name)<li><ul>`
+```
+- Arithmetic operations can be done
     
-        $(10/4) 
+```js
+$(10/4) 
+```
 
-## Arraylerin Özellikleri
+## Array Features
 
-    const numbers= [15,2,5,6] // stringde ekleyebiliriz.
-    
-    const numbers = new Array(15,2,5,6)
 
-    const langs = ["Phyton","Java"]
+```js
 
-    // uzunluk
-    value = numbers.length;
+const numbers= [15,2,5,6] // stringde ekleyebiliriz.
 
-    // indeks ile erişim
-    value = numbers[0] // 15
-    value = numbers[numbers.length-1] // son elemana erişir
+const numbers = new Array(15,2,5,6)
 
-    numbers[0] = 152
+const langs = ["Phyton","Java"]
 
-    // index of
-    numbers.indexOf(5) // 2 verir
+// uzunluk
+value = numbers.length;
 
-    // array sonuna ekler
-    numbers.push(200)
+// indeks ile erişim
+value = numbers[0] // 15
+value = numbers[numbers.length-1] // son elemana erişir
 
-    // array başına ekleme
-    numbers.unshift(324)
+numbers[0] = 152
 
-    // arrayin sonundaki elemanı çıkarır
-    numbers.pop()
+// index of
+numbers.indexOf(5) // 2 verir
 
-    // arrayin başındaki elemanı çıkarır
-    numbers.shift()
+// array sonuna ekler
+numbers.push(200)
 
-    // arrayden eleman çıkarma indeks ile
-    numbers.splice(0,2) // indeks 0 ve 2 de olan elemanları çıkarır
+// array başına ekleme
+numbers.unshift(324)
 
-    // tersine çevirir
-    numbers.reverse()
+// arrayin sonundaki elemanı çıkarır
+numbers.pop()
 
-    // sıralama (string çevirererk göre yapar)
-    numbers.sort()
+// arrayin başındaki elemanı çıkarır
+numbers.shift()
 
-    // sayıları sıralama
-    numbers.sort(function(x,y){ // küçükten büyüğe
-        return x-y;
-    });
- 
-     
-    numbers.sort(function(x,y){ // büyükten küçüğe sırala
+// arrayden eleman çıkarma indeks ile
+numbers.splice(0,2) // indeks 0 ve 2 de olan elemanları çıkarır
+
+// tersine çevirir
+numbers.reverse()
+
+// sıralama (string çevirererk göre yapar)
+numbers.sort()
+
+// sayıları sıralama
+numbers.sort(function(x,y){ // küçükten büyüğe
     return x-y;
-    });
+});
+
+   
+numbers.sort(function(x,y){ // büyükten küçüğe sırala
+return x-y;
+});
+
+```
  
  ## Js de Obje Kavramı ve Oluşturma
  
