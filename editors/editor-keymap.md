@@ -1,5 +1,6 @@
 - [Custom Keymap For Editors By Tuncay Orak](#custom-keymap-for-editors-by-tuncay-orak)
-  - [Navigation](#navigation)
+  - [Navigation (within code)](#navigation-within-code)
+  - [Navigation (within ide parts)](#navigation-within-ide-parts)
   - [File](#file)
   - [Edit](#edit)
   - [Configuration / Interface](#configuration--interface)
@@ -12,11 +13,10 @@
 # Custom Keymap For Editors By Tuncay Orak
 
 
-## Navigation
+## Navigation (within code)
 
 | Shortcut   | Action                              | When | Extra                  |
 | ---------- | ----------------------------------- | ---- | ---------------------- |
-| c+pgd/pgu  | File Next Or Prev on Tabs           | .    | a+left,right           |
 | c+- / cs+- | Navigate back-forward               | .    | .                      |
 | F12        | Go To Declaration                   | .    | .                      |
 | c+p        | Go to File                          | .    | .                      |
@@ -25,12 +25,22 @@
 | ca+k       | Bookmark Toggle                     | .    |                        |
 | ca+l       | Go to Next Bookmark                 | .    | Öncesi Format document |
 | cs+m       | Move Caret to Matching Brace (idea) | .    | .                      |
-| c+j,t      | Open in Terminal                    | .    | .                      |
 | s+enter    | Go to below line (alt satıra geçer) | .    | .                      |
 | c+;        | Complete current statement          | .    | Ori cs+enter           |
-| Esc        | Go to Code Editor Pane              | idea | .                      |
+| .          | .                                   | .    | .                      |
 | .          | .                                   | .    | .                      |
 
+
+## Navigation (within ide parts)
+
+| Shortcut  | Action                    | When | Extra        |
+| --------- | ------------------------- | ---- | ------------ |
+| c+pgd/pgu | File Next Or Prev on Tabs | .    | a+left,right |
+| c+j,t     | Open in Terminal          | .    | .            |
+| Esc       | Go to Code Editor Pane    | idea | .            |
+| a+0       | Go to Terminal Pane       | idea | .            |
+| .         | .                         | .    | .            |
+| .         | .                         | .    | .            |
 
 ## File
 
