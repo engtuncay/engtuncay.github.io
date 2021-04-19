@@ -23,7 +23,7 @@
   - [Serve Project](#serve-project)
   - [Install Modules](#install-modules)
   - [Build Command](#build-command)
-  - [Cli Component Kullanımı](#cli-component-kullanımı)
+  - [Cli Projesinde Component Kullanımı](#cli-projesinde-component-kullanımı)
 - [B4 Component Structure](#b4-component-structure)
   - [4-1 Global vs Local Component](#4-1-global-vs-local-component)
     - [Global Component](#global-component)
@@ -995,16 +995,18 @@ Proje oluştururken yüklenecek eklentiler sorulur.
 
 **Example Template**
 
+```
 babel
 css pre-processors -> SCSS/SASS ! , LESS , Stylus
 linter-formatter
 in dedicated config files->true
+```
 
 preset(template) şablon manasına gelir
 
 ## Serve Project
 
-Projemizi ayağa kaldırır , lokalde uygulama sunucusunu çalıştırır.
+Projemizi ayağa kaldırır, lokalde uygulama sunucusunu çalıştırır.
 
 ```js
 yarn run serve
@@ -1035,8 +1037,9 @@ npm build
 
 
 
+## Cli Projesinde Component Kullanımı
 
-## Cli Component Kullanımı
+AlerCount component tanımı
 
 AlertCount.vue
 
@@ -1142,6 +1145,15 @@ App.Vue kullanımı
 ### Global Component
 
 - Component definition
+
+```js
+Vue.component( strComponentName, componentObj ); {
+``` 
+
+Methods and Properties of Component Object
+- data()
+- template
+
 
 ```js
 Vue.component('AlertCount', {
