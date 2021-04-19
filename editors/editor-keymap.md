@@ -4,27 +4,32 @@
   - [Edit](#edit)
   - [Configuration / Interface](#configuration--interface)
   - [Debug/Run](#debugrun)
+  - [Helper](#helper)
 - [VsCode Special Shortcuts](#vscode-special-shortcuts)
 - [Idea Special Shortcuts](#idea-special-shortcuts)
+  - [Coding ( Comment vs...)**](#coding--comment-vs)
 
 # Custom Keymap For Editors By Tuncay Orak
 
 
 ## Navigation
 
-| Shortcut     | Action                         | When | Extra                  |
-| ------------ | ------------------------------ | ---- | ---------------------- |
-| c+pg.down/up | file next or prev on tabs      | .    | a+left,right           |
-| C+- / c,s+-  | navigate back-forward          | .    | .                      |
-| F12          | Go To Declaration              | .    | .                      |
-| C+ p         | Go to File                     | .    | .                      |
-| C+ m         | Go to Symbols (Method)         | .    | .                      |
-| F2 / S+F2    | Sonraki/Önceki Vurgulanan Hata |      | .                      |
-| c,a+k        | Bookmark Toggle                | .    |                        |
-| c,a+l        | Go to Next Bookmark            | .    | Öncesi Format document |
-| c,s+m            | Move Caret to Matching Brace (idea)  | .    | .                      |
-| .            | .                              | .    | .                      |
-| .            | .                              | .    | .                      |
+| Shortcut   | Action                              | When | Extra                  |
+| ---------- | ----------------------------------- | ---- | ---------------------- |
+| c+pgd/pgu  | File Next Or Prev on Tabs           | .    | a+left,right           |
+| c+- / cs+- | Navigate back-forward               | .    | .                      |
+| F12        | Go To Declaration                   | .    | .                      |
+| c+p        | Go to File                          | .    | .                      |
+| c+m        | Go to Symbols (Method)              | .    | .                      |
+| F2 / s+F2  | Sonraki/Önceki Vurgulanan Hata      |      | .                      |
+| ca+k       | Bookmark Toggle                     | .    |                        |
+| ca+l       | Go to Next Bookmark                 | .    | Öncesi Format document |
+| cs+m       | Move Caret to Matching Brace (idea) | .    | .                      |
+| c+j,t      | Open in Terminal                    | .    | .                      |
+| s+enter    | Go to below line (alt satıra geçer) | .    | .                      |
+| c+;        | Complete current statement          | .    | Ori cs+enter           |
+| Esc        | Go to Code Editor Pane              | idea | .                      |
+| .          | .                                   | .    | .                      |
 
 
 ## File
@@ -38,15 +43,15 @@
 
 ## Edit
 
-| Shortcut | Action                            | When | Extra |
-| -------- | --------------------------------- | ---- | ----- |
-| c+k,f    | Format Document                   | .    |       |
-| c+k,h    | Format Selection                  | .    | .     |
-| c+k,u / c+k,c | Comment / Uncomment| .    | .     |
-| c+s,j    | String ifadeyi birleştirir (idea) | .    | .     |
-| .        | .                                 | .    | .     |
-| .        | .                                 | .    | .     |
-| .        | .                                 | .    | .     |
+| Shortcut      | Action                            | When | Extra |
+| ------------- | --------------------------------- | ---- | ----- |
+| c+k,f         | Format Document                   | .    |       |
+| c+k,h         | Format Selection                  | .    | .     |
+| c+k,u / c+k,c | Comment / Uncomment               | .    | .     |
+| c+s,j         | String ifadeyi birleştirir (idea) | .    | .     |
+| .             | .                                 | .    | .     |
+| .             | .                                 | .    | .     |
+| .             | .                                 | .    | .     |
 
 
 
@@ -54,13 +59,13 @@
 
 | Shortcut | Action           | When | Extra |
 | -------- | ---------------- | ---- | ----- |
-| c,a + s  | Settings         | .    | .     |
-| c,a + d  | Keymap           | .    | .     |
-| c,s+s    | Toggle Side Bar  | .    | .     |
+| ca+s     | Settings         | .    | .     |
+| ca+d     | Keymap           | .    | .     |
+| cs+s     | Toggle Side Bar  | .    | .     |
 | .        | .                | .    | .     |
 | .        | .                | .    | .     |
-| C+ş,i/o  | Zoom In/Out      | .    | .     |
-| C+ş,y/u  | Font Zoom in/out | .    | .     |
+| c+ş,i/o  | Zoom In/Out      | .    | .     |
+| c+ş,y/u  | Font Zoom in/out | .    | .     |
 | .        | .                | .    | .     |
 
 
@@ -69,8 +74,20 @@
 | Shortcut | Action | When | Extra |
 | -------- | ------ | ---- | ----- |
 | .        | .      | .    | .     |
-| .        | .      | .    |
-| .        | .      | .    |
+| .        | .      | .    | |
+
+
+## Helper
+
+| Shortcut | Action               | When | Extra   |
+| -------- | -------------------- | ---- | ------- |
+| c+j,l    | insert live template | .    | ori:c+j |
+| .        | .                    | .    |         |
+| .        | .                    | .    |         |
+
+
+
+
 
 
 # VsCode Special Shortcuts
@@ -103,7 +120,7 @@
 
 | s + F2 | Önceki Vurgulanan Hata | |
 
-c,s,a + keyboard key : second key binding if there is.
+csa + (keyboard key) , (second key binding if there is)
 
 c -> ctrl
 s -> shift
@@ -121,3 +138,16 @@ Kullanılacak Tuş Kombinasyonları
 ctrl + shift
 alt + sayılar
 alt + shift
+
+
+
+| Go To Symbol>Current Document | -- | C+A+c | --  | | 
+| Active Tool and Files |   | A+F7 |  | |
+| Show in Explorer / Solution | A+F1 | C+m+f  | | |
+
+
+## Coding ( Comment vs...)**
+| Toggle Comment |  C+k  |  | | | 
+| Find All References / Usages |  A+F7  |  | | | 
+| Quick Info | C+q | C+k C+ı  | | | 
+| Parameter Info |  | C+S+space  | | | 
