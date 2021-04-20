@@ -1,6 +1,6 @@
 - [Custom Keymap For Editors By Tuncay Orak](#custom-keymap-for-editors-by-tuncay-orak)
   - [Navigation (within code)](#navigation-within-code)
-  - [Navigation (within ide parts)](#navigation-within-ide-parts)
+  - [Navigation (within ide panels)](#navigation-within-ide-panels)
   - [File](#file)
   - [Edit](#edit)
   - [Configuration / Interface](#configuration--interface)
@@ -31,7 +31,7 @@
 | .          | .                                   | .    | .                      |
 
 
-## Navigation (within ide parts)
+## Navigation (within ide panels)
 
 | Shortcut  | Action                    | When | Extra        |
 | --------- | ------------------------- | ---- | ------------ |
