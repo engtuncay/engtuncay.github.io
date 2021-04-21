@@ -22,9 +22,13 @@
 | c+p        | Go to File                          | .    | .                      |
 | c+m        | Go to Symbols (Method)              | .    | .                      |
 | F2 / s+F2  | Sonraki/Önceki Vurgulanan Hata      |      | .                      |
-| ca+k       | Bookmark Toggle                     | .    |                        |
+| ...        | Bookmarking                         |      |                        |
+| ca+k       | Bookmark Toggle                     | .    | idea:f11               |
+| s+f11      | Show Bookmarks                      | idea |                        |
+| c+f11      | Bookmark Toggle with mnemonic       | idea |                        |
 | ca+l       | Go to Next Bookmark                 | .    | Öncesi Format document |
-| cs+m       | Move Caret to Matching Brace (idea) | .    | .                      |
+| ...        | .                                   | .    | .                      |
+| cs+m       | Move Caret to Matching Brace        | idea | .                      |
 | s+enter    | Go to below line (alt satıra geçer) | .    | .                      |
 | c+;        | Complete current statement          | .    | Ori cs+enter           |
 | .          | .                                   | .    | .                      |
