@@ -1,4 +1,4 @@
-
+Vue 2 - Tutorial
 
 - [B1 Vue Intro](#b1-vue-intro)
 - [B2 Vue Basic](#b2-vue-basic)
@@ -23,19 +23,18 @@
   - [Serve Project](#serve-project)
   - [Install Modules](#install-modules)
   - [Build Command](#build-command)
-  - [Cli Projesinde Component Kullanımı](#cli-projesinde-component-kullanımı)
 - [B4 Component Structure](#b4-component-structure)
   - [4-1 Global vs Local Component](#4-1-global-vs-local-component)
     - [Global Component](#global-component)
     - [Local Component](#local-component)
-  - [4-2 Slots](#4-2-slots)
+    - [Cli Projesinde Component Kullanımı](#cli-projesinde-component-kullanımı)
+  - [4-2 Slot Tag](#4-2-slot-tag)
   - [4-3 Props](#4-3-props)
   - [4-4 Prop Validation](#4-4-prop-validation)
   - [4-5 Child Parent Emit](#4-5-child-parent-emit)
   - [4-6 Refs Parents](#4-6-refs-parents)
   - [4-7 Event Bus](#4-7-event-bus)
   - [4-8 Inline Template](#4-8-inline-template)
-- [B5 Routing](#b5-routing)
   - [Ex1](#ex1)
   - [Ex 2](#ex-2)
   - [Ex 3](#ex-3)
@@ -71,7 +70,7 @@ Bu öğreticide kaynak olarak Cem Gündüzoğlu Vue Js udemy kursu baz alınmı�
 <script>
     const app = new Vue({
         el: '#app',
-        name: 'Uzaktan Kurs',
+        name: 'Vue App',
         data: {
             mesaj: 'Merhaba Vue!'
         }
@@ -87,6 +86,7 @@ app.css içeriği
 
 @import url('https://fonts.googleapis.com/css?family=Raleway:400,700,700i&subset=latin-ext');
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
 body {
   font-family: 'Segoe UI Light';
   font-size: 18px;
@@ -1037,106 +1037,6 @@ npm build
 
 
 
-## Cli Projesinde Component Kullanımı
-
-AlerCount component tanımı
-
-AlertCount.vue
-
-```html
-<template>
-  <div class="alert alert-success">
-    Merhaba
-    <button @click="count++" class="btn btn-sm btn-primary">
-      {{ count }} kez tıkladın
-    </button>
-  </div>
-</template>
-
-<script>
-export default {
-  data() {
-    return {
-      count: 0
-    }
-  }
-}
-</script>
-
-```
-
-App.Vue kullanımı
-
-```html
-
-<template>
-    <div id="app">
-        <img src="./assets/logo.png">
-        <hello msg="Welcome to Your Vue.js App"/>
-        <alert-count></alert-count>
-    </div>
-</template>
-
-<script>
-    import HelloWorld from './components/HelloWorld.vue'
-    import AlertCount from './components/AlertCount.vue'
-
-    export default {
-        name: 'app',
-        components: {
-            hello: HelloWorld,
-            'alert-count': AlertCount
-        }
-    }
-</script>
-
-
-```
-
-- HelloWorld component
-
-```html
-<template>
-    <div>
-        <h1>{{ msg }}</h1>
-        <hr>
-    </div>
-</template>
-
-<script>
-    export default {
-        name: 'HelloWorld',
-        props: {
-            msg: String
-        }
-    }
-</script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
-    h3 {
-        margin: 40px 0 0;
-    }
-
-    ul {
-        list-style-type: none;
-        padding: 0;
-    }
-
-    li {
-        display: inline-block;
-        margin: 0 10px;
-    }
-
-    a {
-        color: #42b983;
-    }
-</style>
-
-```
-
-
-
 # B4 Component Structure
 
 
@@ -1212,10 +1112,133 @@ const app = new Vue({
 
 ```html
 <alert-count2></alert-count2>
+
 ```
 
+### Cli Projesinde Component Kullanımı
 
-## 4-2 Slots
+- Vue uzantılı component dosyamızda üç blok bulunur.
+  - Template : html template
+  - Script : Js codes
+  - Style : style definitions
+
+
+**HelloWorld component**
+
+```html
+<template>
+    <div>
+        <h1>{{ msg }}</h1>
+        <hr>
+    </div>
+</template>
+
+<script>
+    export default {
+        name: 'HelloWorld',
+        props: {
+            msg: String
+        }
+    }
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped lang="scss">
+    h3 {
+        margin: 40px 0 0;
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    li {
+        display: inline-block;
+        margin: 0 10px;
+    }
+
+    a {
+        color: #42b983;
+    }
+</style>
+
+<!-- İkinci bir stil (global) tanımlanabilir.Tavsiye edilmez. -->
+<style>
+    // genel stil tanımları
+</style>
+
+```
+
+**AlerCount Component**
+
+AlertCount.vue
+
+```html
+<template>
+  <div class="alert alert-success">
+    Merhaba
+    <button @click="count++" class="btn btn-sm btn-primary">
+      {{ count }} kez tıkladın
+    </button>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      count: 0
+    }
+  }
+}
+</script>
+
+```
+
+- Vue app component i eklemek için import ile dosyayı ekliyoruz. Daha sonra da components tanımlamalarına component'in tag ismi ve import adını tanımlarız.
+
+- Component tanımı şu şekillerde yapılabilir
+  - hello: HelloWorld
+  - 'alert-count': AlertCount (tag isminde tire (-) varsa, tırnak içinde yazmamız gerekir.)
+  - HelloWorld  (bunu kullanabilmek için comp dosyasında name değeri olarak HelloWorld girilmesi lazım, ayrıca app dosyasında <HelloWorld> veya <hello-world> şeklinde kullanılabilir.) 
+  - HelloWorld : HelloWorld
+
+**App.Vue**
+
+```html
+
+<template>
+    <div id="app">
+        <img src="./assets/logo.png">
+        <!-- msg comp'nin prop'u -->
+        <hello msg="Welcome to Your Vue.js App"/>
+        <alert-count></alert-count>
+    </div>
+</template>
+
+<script>
+    import HelloWorld from './components/HelloWorld.vue'
+    import AlertCount from './components/AlertCount.vue'
+
+    export default {
+        name: 'app',
+        components: {
+            hello: HelloWorld,
+            'alert-count': AlertCount
+        }
+    }
+</script>
+
+
+```
+
+## 4-2 Slot Tag
+
+- alert component tag'inin içine yazılan değeri, component template tanımındaki slot tag içerisine yazılır. Comp tanımında slot etiketinin içerisine yazacağımız değer varsayılan değer olacaktır. ( Örnek card componenti <slot>Merhaba</slot>)
+
+- birden fazla slot açabiliriz. name attribute tanımlarız. Vue Appde bu slotları doldurmak için component etiketinden sonra <template slot="slotName">...</template> etiketini (tag) içine yazarız. (örnek card-with-header componenti)
+
 
 ```html
 
@@ -1286,6 +1309,18 @@ const app = new Vue({
 
 
 ## 4-3 Props
+
+Componentlere özellik ekleme.
+
+- Comp tanımında propsları belirtmeliyiz.
+    
+    props: ['header', 'body', 'footerButtonText']
+
+- Comp etiketinde bu özelliklere (attribute) değer ataması yaparız.
+
+- Comp template'inde string interpolation ile kullanırız. ({})
+
+
 
 ```html
 
@@ -1714,7 +1749,7 @@ this.$emit('onChange', this.childMessage);
 ```
 
 
-# B5 Routing
+-+-+09*/8# B5 vdesw2
 
 ## Ex1
 

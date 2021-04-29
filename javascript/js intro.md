@@ -8,9 +8,9 @@
   - [Variable Assignment](#variable-assignment)
   - [Data Type Casting](#data-type-casting)
   - [Operators and Math Object](#operators-and-math-object)
-  - [String Metodları](#string-metodları)
-  - [Template Literal - String oluşturmada yeni standart](#template-literal---string-oluşturmada-yeni-standart)
-  - [Arraylerin Özellikleri](#arraylerin-özellikleri)
+  - [String Methods](#string-methods)
+  - [Template Literal](#template-literal)
+  - [Array Features](#array-features)
   - [Js de Obje Kavramı ve Oluşturma](#js-de-obje-kavramı-ve-oluşturma)
   - [Js Zaman Objesi ve Metodları](#js-zaman-objesi-ve-metodları)
 - [Js Temelleri (Bölüm 2)](#js-temelleri-bölüm-2)
@@ -26,6 +26,9 @@
   - [Document Objesi (Part 1)](#document-objesi-part-1)
   - [Document Object (Part 2)](#document-object-part-2)
 - [ES-6 Özellikleri](#es-6-özellikleri)
+  - [Destructing](#destructing)
+  - [Spread](#spread)
+  - [Arrow Functions](#arrow-functions)
   - [For in ve For of Döngüleri](#for-in-ve-for-of-döngüleri)
   - [ES6 Maps](#es6-maps)
   - [Referans Tipler Tekrar](#referans-tipler-tekrar)
@@ -730,6 +733,157 @@ value = document.links[0].getAttribute("id");
 
 
 # ES-6 Özellikleri
+
+## Destructing
+
+- Bir objenin propertylerini değişkenlere dağıtabiliriz.
+
+```js
+const degerler = { deger1:'deger1', deger2:'deger2' }
+
+// destructing yaparak dağıtırız.
+const { deger1,deger2} = degerler;
+
+console.log(deger1,deger2);
+
+// Output
+// deger1 deger2
+
+// Bu şekilde de kullanılabilir
+
+const { deger1,deger2, deger4='deger4'} = degerler;
+console.log(deger1,deger2,deger4);
+
+// Output
+// deger1 deger2 deger4
+
+```
+
+- Arraylarde de kullanabiliriz.
+
+```js
+
+const degerler = [1,2,3];
+
+const [ deger1,deger2,deger3] = degerler;
+
+console.log(deger1,deger2,deger3);
+
+// Output
+// 1 2 3
+
+```
+
+- Bir objenin obje propertysinin , propertylerini de dağıtabiliriz.
+
+```js
+
+const degerler = {
+    deger3 : {
+        isim : 'mehmet'
+    }
+}
+
+const { deger3 : {isim} }  = degerler;
+console.log(isim);
+
+// Output
+// mehmet
+
+// Diger türlü kullanımı
+const { deger3 : {isim:name} }  = degerler;
+console.log(name);
+
+// Output
+// mehmet
+
+```
+
+## Spread
+
+Example
+
+```js
+
+const arr = [1,2,3];
+const arr2 = [arr,3,4,5];
+
+console.log(arr2);
+
+// Output 
+// [ [1,2,3],3,4,5 ]
+
+// Spread uygularsak
+
+const arr3 = [1,2,3];
+const arr4 = [...arr3,3,4,5];
+
+console.log(arr4);
+
+// Output 
+// [ 1,2,3,3,4,5 ]
+
+
+```
+
+Example
+
+```js
+
+const arr= ['a','b','c','d'];
+const [ deger1,deger2,...rest] = arr;
+
+console.log(rest)
+
+// Output
+// ['c','d']
+
+// Arrayi parçalayarak basmak istiyorsak
+
+console.log(...rest);
+
+// Output
+// c d
+
+```
+
+## Arrow Functions
+
+
+Example : eski tanımlama
+
+```js
+
+let myFunction = function () {
+    return 1;
+}
+
+console.log(myFunction());
+
+// Output
+// 1
+
+```
+
+- Arrow fn kullanarak yazımı
+
+```js
+
+let myFunction = (sayi1,sayi2) {
+    return sayi1+sayi2;
+}
+
+console.log(myFunction(11,4));
+
+// Output
+// 15
+
+
+
+```
+
+
+
 
 ## For in ve For of Döngüleri
 

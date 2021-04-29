@@ -61,7 +61,7 @@
 | ------------- | --------------------------------- | ---- | ----- |
 | c+k,f         | Format Document                   | .    |       |
 | c+k,h         | Format Selection                  | .    | .     |
-| c+k,u / c+k,c | Comment / Uncomment               | .    | .     |
+| c+k,u / c+k,c | Toggle Comment / Uncomment        | .    | .     |
 | c+s,j         | String ifadeyi birleştirir (idea) | .    | .     |
 | .             | .                                 | .    | .     |
 | .             | .                                 | .    | .     |
