@@ -3,6 +3,8 @@
 # Introduction to Javascript (tr:Javascript'e Giriş)
 
 - [Introduction to Javascript (tr:Javascript'e Giriş)](#introduction-to-javascript-trjavascripte-giriş)
+  - [Ecmascript](#ecmascript)
+  - [Webstormda Ecmascript Aktif Etme](#webstormda-ecmascript-aktif-etme)
   - [VS Code Extensions for Javascript](#vs-code-extensions-for-javascript)
 - [Core Concepts](#core-concepts)
   - [Variable Assignment](#variable-assignment)
@@ -35,6 +37,15 @@
   - [Set (Kümeler)](#set-kümeler)
 
 
+## Ecmascript
+
+Ecmascript , javasricptin bir spesifikasyonu.
+
+## Webstormda Ecmascript Aktif Etme
+
+Settings / Languages & Frameworks - Javascript penceresinden
+language versiondan ayarlarız.
+
 ## VS Code Extensions for Javascript 
 
 (tr:Javascript için Vs Code Eklentileri )
@@ -45,11 +56,57 @@
 
 - var,let,const
 
-        var : global assignemnt 
+        var : global assignment 
         let : local assignment 
         const : constant assignmet
 
 - If we create a reference or array with const, we couldnt set it again, but we can change content of const object or const array. (tr:const referans bir obje veya array oluşturursak, yeni set edemeyiz, fakat mevcut içinde değişiklik yapabiliriz.)
+
+Example
+
+```js
+let y = 10
+
+for(let i=0;i<10;i++) { 
+    // statements
+    var x = 10;
+}
+
+console.log(i); // Reference Error: i is not defined
+console.log(x); // 10
+
+```
+
+- var ile tanımlanan değişkenler tekrar tanımlanabilir. Bu da hataya sebep olabilir. let ile tanımlansaydı, hata verirdi.
+
+```js
+var x='foo';
+var x='bar';
+
+console.log(x); 
+
+// Output
+// bar
+
+```
+- const ile sabitleri tanımlarız, daha sonra değiştirmeyeceğimiz değişkenlere kullanırız.
+
+```js
+const pi = 3.14;
+
+```
+Example.2
+
+```js
+const arr1 = [1,3,5];
+arr1.push(7);
+console.log(arr1);
+
+const obj1 = { name:'Ali',surname:'Veli'};
+
+
+```
+
 
 ## Data Type Casting 
 
@@ -172,16 +229,20 @@ a[0] // A verir
 
 ## Template Literal 
 
-tr:String oluşturmada yeni standart
+String oluşturmada yeni standart
 
 ```js
 let name = "Ali Veli";
 let department = "Bilişim"
 
-const a = `İsim:$(name)\nDepartment$(department)\n`
+const a = `İsim:${name}\n Department ${department}\n`
 
-const html = `<ul><li>$(name)<li><ul>`
+const html = `<ul><li>${name}<li><ul>`
+
+
+
 ```
+
 - Arithmetic operations can be done
     
 ```js
