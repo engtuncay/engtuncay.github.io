@@ -1310,7 +1310,7 @@ export default {
 
 ## 4-3 Props
 
-Componentlere özellik ekleme.
+Componentlere özellik (attribute) ekleme.
 
 - Comp tanımında propsları belirtmeliyiz.
     
@@ -1320,8 +1320,10 @@ Componentlere özellik ekleme.
 
 - Comp template'inde string interpolation ile kullanırız. ({})
 
-
-
+- props değeri girilirken başına : eklersek degerin data'dan alınacağını belirtiriz. Örnekte (:body) propsunda kullanıldı.body propsun değeri data'daki bodyIcerigi değişkenin değerine eşit olur.
+  
+- html değeri bastırmak için comp template'inde değeri v-html attribute yazarız. Örneğin v-html="footer" ( footer props 'ın adı)
+  
 ```html
 
 <div id="app">
