@@ -1367,6 +1367,19 @@ Componentlere özellik (attribute) ekleme.
 
 ## 4-4 Prop Validation
 
+- component tanımında props property sinde belirtiriz. type (String,Boolean,Array,Object,Date,Function,Symbol) ve required validationları yapabiliriz.
+
+Örnek
+
+```js
+Vue.component('Modal', {
+props: { 'id': { type: String, required: true }, }
+//...
+});
+```
+
+- Örnek Uygulama
+
 ```html
 
 <div id="app">
@@ -1422,7 +1435,6 @@ Componentlere özellik (attribute) ekleme.
 
 ```
 
-
 ## 4-5 Child Parent Emit 
 
 * this/ref Yöntemiyle
@@ -1433,20 +1445,26 @@ this objesinin $parent property si üzerinden parent component'e ulaşırız.
 ```js
 this.$parent.$data.parentMessage = this.childMessage;
 ```
+![ParentChild](https://image.prntscr.com/image/RS1Q8z1IQaW6sk1kUmngYQ.png)
+
 
 * Emit Yöntemiyle
 
-Parent componentde onChange event'ına childChanged fonksiyonu eklenir.
+1- Parent component template'nde tanımlanan child component'e onChange event eklenir. Child component içerisinden burası (childChanged metodu) trigger edilecek.
 
 ```html
 <child @onChange="childChanged"></child>
 ```
 
-Child componentde onChange event trigger edilir.
+2- Child componentde onChange event trigger edilir. Örnekte Arguman olarak this.childMessage gönderiliyor.
 
 ```js
 this.$emit('onChange', this.childMessage);
 ```
+
+- Console'den app vue instance'dan parent ve child degerlerini görebiliriz.
+
+- Örnek Uygulama
 
 ```html
 <div id="app">
@@ -1462,6 +1480,7 @@ this.$emit('onChange', this.childMessage);
                 <div class="card-body">
                     Parent Message: {{ parentMessage }}
                     <hr>
+                    <h3>Child Comp</h3>
                     <child @onChange="childChanged"></child>
                 </div>
             </div>
@@ -1487,10 +1506,10 @@ this.$emit('onChange', this.childMessage);
                     <div class="form-inline">
                         <input v-model="childMessage" class="form-control">
                         <button @click="changeParentMessage" class="btn btn-warning">
-                            Change Parent Message (with this ref)
+                            Change Parent Message (by this ref)
                         </button>
                         <button @click="changeParentMessage2" class="btn btn-warning">
-                            Change Parent Message (emit)
+                            Change Parent Message (by emit)
                         </button>
                     </div>
                 </div>
