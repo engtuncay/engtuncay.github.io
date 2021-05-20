@@ -32,9 +32,11 @@ Vue 2 - Tutorial
   - [4-3 Props](#4-3-props)
   - [4-4 Prop Validation](#4-4-prop-validation)
   - [4-5 Child Parent Emit](#4-5-child-parent-emit)
-  - [4-6 Refs Parents](#4-6-refs-parents)
+  - [4-6 Parent to Child Invoke (Refs)](#4-6-parent-to-child-invoke-refs)
   - [4-7 Event Bus](#4-7-event-bus)
   - [4-8 Inline Template](#4-8-inline-template)
+  - [4-9 Ornek Uygulama - Envanter Takip Sistemi](#4-9-ornek-uygulama---envanter-takip-sistemi)
+- [B5](#b5)
   - [Ex1](#ex1)
   - [Ex 2](#ex-2)
   - [Ex 3](#ex-3)
@@ -1450,6 +1452,8 @@ this.$parent.$data.parentMessage = this.childMessage;
 
 * Emit Yöntemiyle
 
+![Emit Yöntimi](https://image.prntscr.com/image/5qYgnLWSROyKJYuDf8NzyA.png)
+
 1- Parent component template'nde tanımlanan child component'e onChange event eklenir. Child component içerisinden burası (childChanged metodu) trigger edilecek.
 
 ```html
@@ -1462,7 +1466,11 @@ this.$parent.$data.parentMessage = this.childMessage;
 this.$emit('onChange', this.childMessage);
 ```
 
-- Console'den app vue instance'dan parent ve child degerlerini görebiliriz.
+- Console'den app vue instance'dan parent ve child degerlerini görebiliriz. ($parent,$children) property 'silerine incelenebilir.
+  
+Örneğin app.$children[0] app'nin ilk componentine erişmiş oluruz.
+
+
 
 - Örnek Uygulama
 
@@ -1539,7 +1547,19 @@ this.$emit('onChange', this.childMessage);
 
 ```
 
-## 4-6 Refs Parents
+## 4-6 Parent to Child Invoke (Refs)
+
+- Parent içerisinde child metodu çağırma
+
+1. Parent template'inde child componente ref attibute tanımı yaparız. `<child ref="child1"></child>` Burada child componente reference olarak child1 verdik.
+
+2. Parent kodumuzda child componente ref ile erişim sağlarız. `this.$refs.child1.childMethod();`
+   
+- Child içerisinde parent methodu çağırma
+
+1. Child component kodunda `this.$parent.parentMethod()` şeklinde erişebiliriz.
+
+- Örnek Uygulama
 
 ```html
 
@@ -1602,8 +1622,36 @@ this.$emit('onChange', this.childMessage);
 
 ## 4-7 Event Bus
 
-```html
+- Herhangi bir component'deki değişikliği dinleyip, diger comp'larda reactive olarak işlemler yapmak istiyorsak kullanırız.
 
+- EventBus için Vue objesine ihtiyacımız. window objesine property olarak eklersek global olarak kullanabiliriz.
+
+```js
+window.EventBus = new Vue();
+
+```
+
+- Olayı trigger etmek için (emit ~ trigger), olayı trigger ederken deger (argüman) gönderebiliriz.
+
+```js
+window.EventBus.$emit('showDetailInModal', this.item);
+```
+
+- Olayı dinlemek için (componentin created life cycle ekleriz..) , item objesi trigger edilirken gönderilir.
+
+```js
+created() {
+    window.EventBus.$on('showDetailInModal', (item) => {
+    this.title = item.title;
+    this.body = item.detail;
+    });
+}
+```
+
+- Örnek Uygulama
+
+```html
+<!-- Main Template  -->
 <div id="app">
     <div class="row">
         <card-item :item="sampleItem"></card-item>
@@ -1613,6 +1661,7 @@ this.$emit('onChange', this.childMessage);
     <card-list :title="'Kurslar'" :cards="sampleItems"></card-list>
 </div>
 
+<!-- Script Block -->
 <script src="../assets/js/jquery.min.js"></script>
 <script src="../assets/js/bootstrap.min.js"></script>
 <script src="../assets/js/vue.js"></script>
@@ -1733,6 +1782,8 @@ this.$emit('onChange', this.childMessage);
 
 ## 4-8 Inline Template
 
+- Component template'ni template property si yerine, direk kullandığımız yerde tanımlayabiliriz.
+
 ```html
 
 <div id="app">
@@ -1768,9 +1819,15 @@ this.$emit('onChange', this.childMessage);
 </script>
 
 ```
+## 4-9 Ornek Uygulama - Envanter Takip Sistemi
 
 
--+-+09*/8# B5 vdesw2
+
+# B5
+
+-+-+09*/8# B5 vdesw2-+-+09*/8# B5 vdesw2
+
+
 
 ## Ex1
 
