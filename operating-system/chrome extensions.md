@@ -1,7 +1,4 @@
 
-
-
-
 Chrome Best Highlighter Tools
 
 Research Style
