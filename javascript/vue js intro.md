@@ -36,9 +36,16 @@ Vue 2 - Tutorial
   - [4-7 Event Bus](#4-7-event-bus)
   - [4-8 Inline Template](#4-8-inline-template)
   - [4-9 Ornek Uygulama - Envanter Takip Sistemi](#4-9-ornek-uygulama---envanter-takip-sistemi)
-- [B5](#b5)
-  - [Ex1](#ex1)
-  - [Ex 2](#ex-2)
+- [B5 Routing](#b5-routing)
+  - [Routing Installation](#routing-installation)
+  - [Router Tanimlama](#router-tanimlama)
+  - [Route Bağlantıları Verme](#route-bağlantıları-verme)
+  - [Aktif Route Baglantisini Tespit Etme](#aktif-route-baglantisini-tespit-etme)
+  - [Route Parametreleri](#route-parametreleri)
+  - [Programatik Route Degisimi](#programatik-route-degisimi)
+  - [Hash / History Modu](#hash--history-modu)
+  - [Router Full Example (1)](#router-full-example-1)
+  - [Router Full Ex 2](#router-full-ex-2)
   - [Ex 3](#ex-3)
 - [B6 Vue Fetch from Api](#b6-vue-fetch-from-api)
   - [6-1 Fetch Todos](#6-1-fetch-todos)
@@ -1823,13 +1830,232 @@ created() {
 
 
 
-# B5
+# B5 Routing
 
--+-+09*/8# B5 vdesw2-+-+09*/8# B5 vdesw2
+vid1 
+
+-  Sayfa içerisinde belirlediğimiz bir alana, gezinme sonucunda değişen url göre istedğimiz component i yüklediğimiz sisteme routing denir.
+
+Vue js <router-view> blogu içerisine yükler.
+
+Örneğin hakkımızda linkini tıkladığımız router-view blogu içerisine yüklenmesini istiyoruz.
+
+vid2
+
+## Routing Installation
+
+- Direct Download or Cdn
+
+<script src="/path/to/vue.js"></script>
+<script src="/path/to/vue-router.js"></script>
+
+- Npm ile
+
+```js
+npm install vue-router
+```
+
+
+## Router Tanimlama
+
+- index script alanında routes arrayi tanımlamamız gerekir.
+
+```js
+const routes = [
+    { path: '/', component: Page_Anasayfa },
+    { path: '/hakkimizda', component: Page_Hakkimizda },
+    { path: '/urunler', component: Page_Urunler },
+    { path: '/iletisim', component: Page_Iletisim },
+];
+
+```
+
+- demo yapmak için değişken üzerinden component dogrudan tanımlayabiliriz.
+
+```js
+const Page_Anasayfa = {
+        template: '<h1>Hoşgeldiniz</h1>'
+    };
+const Page_Hakkimizda = {
+        template: '<h1>Hakkımızda</h1>'
+};
+
+```
+
+- kütüphaneye devreye alırız. Yukarıda tanımladığımız routes tanımını vuerouter'a belirtiriz. 
+
+```js
+const router = new VueRouter({
+    routes
+})
+```
+
+- Vue app tanımımızda vue routerı belirtiriz.
+
+```js
+const app = new Vue({
+        router, /* or router:router */
+        /* other stuffs*/
+    })
+```
+
+- Sayfamızda router ile yüklediğimiz componentlerin nerede görüneceğini belirtiriz.
+
+```html
+<div id="app">
+<!-- other stuff -->
+    <router-view></router-view>
+<!-- other stuff -->
+</div>
+```
+
+uvd71
+
+## Route Bağlantıları Verme
+
+- Router Mod (#) Yöntemi
+  
+Baglantıları href="#/hakkimizda" şeklinde hedef verirsek açılır.
+
+- Router Link Yöntemi
+
+```html
+<router-link to="/hakkimizda" class="nav-link" active-class="active">Hakkımızda</router-link>
+```
+
+- RouterLink kullanılırken to attribute'nu :to şeklinde data binding de yapabiliriz.
+
+
+```html
+<router-link :to="urunlerAdresi" class="nav-link" active-class="active">Ürünler</router-link>
+```
+
+urunlerAdresi degiskenin degerini to attribute değeri olarak basar.
+
+- RouterLink 'to' attibute'na object olarak da tanımlayabiliriz.
+
+```html
+<router-link :to="{ path: 'iletisim' }" tag="span" class="nav-link" active-class="active">İletişim</router-link>
+```
+
+- routelink'te a dışında farklı bir html elemanına da render yapabilir.
+
+```html
+<router-link :to="{ path: 'iletisim' }" tag="span" class="nav-link" active-class="active">İletişim</router-link>
+```
+
+Router-Link componenti, bu linki <span> etiketiyle html'e basar.
+
+uvd72 end
+
+## Aktif Route Baglantisini Tespit Etme
+
+- RouterLink ile oluşturulan link tıklandığında otomatik olarak vue router-link-active classını ekler.
+
+```html
+<a class=".... router-link-active">Hakkımızda</a>
+```
+
+- router-link-active class ı yerine sadece active kullanmak istersek active-class olarak istediğimiz class ı belirtebiliriz.
+
+```html
+<router-link active-class="active">İletişim</router-link>
+```
+
+uvd-73
+
+## Route Parametreleri
+
+- Tarayıcıdan url olarak girilen örneğin urunler/detay/2 adresinde 2 route parametresidir.
+
+- routes tanımıda parametreleri belirtmemiz gerekir.
+
+```js
+ const routes = [
+        /*...*/
+        { path: '/urunler/detay/:id', component: Page_Urunler },
+    ];
+```
+
+- baglantilarimiza name de tanımlayabiliriz.
+
+```js
+const routes = [
+        /*...*/
+        { path: '/urunler/detay/:id', component: Page_Urunler, name: 'urun-detay' },
+    ];
+```
+
+- baglantı link verirken de parametreyi belirtmemiz gerekir. params property'sinde obje içerisinde id 1 olarak verildi.
+
+```html
+
+<router-link :to="{ name: 'urun-detay', params: { id: 1 } }" class="btn btn-primary">Detay</router-link>
+
+```
+
+- routerlink te verilen parametreyi component'de kullanabiliriz.
+
+```html
+<h1>Ürün {{ $route.params.id }} Detayı</h1>
+```
+
+uvd-74
+
+## Programatik Route Degisimi
+
+- router üzerinden geçişler için ileri ve geri yapabiliriz. Örnekte 1 geriye gidiş gösterildi.
+
+```js
+this.$router.go(-1);
+```
+
+- anasayfaya döndürmek için (açtırmak için)
+
+```js
+this.$router.push('/');
+```
+- router-link ismi üzerinden açtırılabilir
+
+```js
+this.$router.push({ name: 'urun-detay', params: { id: 2 } });
+```
+
+component de kullanımı
+
+```html
+const Page_Urun_Detay = {
+        template: `
+            <div>
+                <a href="#" class="btn btn-sm btn-primary float-right" @click="geriDon">Geri Dön</a>
+                <a href="#" class="btn btn-sm btn-primary float-right" @click="anasayfayaDon">Anasayfaya Dön</a>
+                <h1>Ürün {{ $route.params.id }} Detayı</h1>
+            </div>`,
+        methods: {
+            geriDon() {
+                this.$router.go(-1);
+            },
+            anasayfayaDon() {
+                this.$router.push('/');
+                //this.$router.push({ name: 'urun-detay', params: { id: 2 } });
+            }
+        }
+    };
+
+```
+
+uvd-75
+
+
+## Hash / History Modu
 
 
 
-## Ex1
+
+uvd-76
+
+
+## Router Full Example (1)
 
 ```html
 <div id="app">
@@ -1899,7 +2125,7 @@ created() {
 
 ```
 
-## Ex 2
+## Router Full Ex 2
 
 ```html
 <div id="app">
@@ -1988,6 +2214,7 @@ created() {
             }
         }
     };
+
     const Page_Iletisim = {
         template: '<h1>İletişim</h1>'
     };
