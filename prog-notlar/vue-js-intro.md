@@ -121,7 +121,7 @@ h1, h2, h3, h4, h5, h6 {
 
 ## 2-1 Instance
 
-Vue objesini bir json objesiyle oluştururuz. Json objesinde "el" alanında (property) vuejs'ye container olacak html elementi belirtiriz. Örnekte app id'li html elementi container olarak seçildi.
+Vue objesini oluştururak vue'yu aktif ederiz. Vue objesine parametre olarak gönderdiğimiz objede "el" alanında (property) vuejs'ye container olacak html elementi belirtiriz. Örnekte app id'li html elementi container olarak seçildi.
 
 ```html
 <div id="app"></div>
