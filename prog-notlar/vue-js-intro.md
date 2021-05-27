@@ -44,6 +44,11 @@ Vue 2 - Tutorial
   - [Route Parametreleri](#route-parametreleri)
   - [Programatik Route Degisimi](#programatik-route-degisimi)
   - [Hash / History Modu](#hash--history-modu)
+  - [Route Yönlendirme ve Alias Kullanımı](#route-yönlendirme-ve-alias-kullanımı)
+  - [İç içe Rut Tanımlama (Nested Route)](#i̇ç-içe-rut-tanımlama-nested-route)
+  - [Vue Cli ile Oluşturulan Projede Route Yapısının Kullanımı](#vue-cli-ile-oluşturulan-projede-route-yapısının-kullanımı)
+  - [Hatalı Route Tanımlarını Yakalama](#hatalı-route-tanımlarını-yakalama)
+  - [Route Değişimlerini İzleme](#route-değişimlerini-i̇zleme)
   - [Router Full Example (1)](#router-full-example-1)
   - [Router Full Ex 2](#router-full-ex-2)
   - [Ex 3](#ex-3)
@@ -53,7 +58,7 @@ Vue 2 - Tutorial
   - [6-3 Fetch Products](#6-3-fetch-products)
   - [6-4 Fetch Omdb Api](#6-4-fetch-omdb-api)
   - [6-5 Axios](#6-5-axios)
-- [Shortcuts](#shortcuts)
+- [Terimler ve Kısaltmalar](#terimler-ve-kısaltmalar)
 
 Önsöz
 
@@ -2049,11 +2054,228 @@ uvd-75
 
 ## Hash / History Modu
 
+- Normal routing işlemizde adresler "#" hash ile gösteriliyordu. History modu kullanınca hash'siz adres kullanılabilir.
 
+- History modunun aktif etmek için router objemizin argümanına mode özelliğini (property) tanımlamamız gerekir.
 
+```js
+const router = new Router({
+    /*...*/
+    mode: 'history'
+});
+```
+
+- Hash moduna almak için
+
+```js
+const router = new Router({
+    /*...*/
+    mode: 'hash'
+});
+```
+
+- History modunda dosya çalıştırarak test edemeyiz, lokal sunucuda test edebiliriz.
 
 uvd-76
 
+## Route Yönlendirme ve Alias Kullanımı
+
+- Rut tanımlarında yönlendirme de yapabiliriz. Aşağıda root dizini açıldığında iletisim sayfasına yönlenir.
+
+```js
+const routes = [
+        {
+            path: '/', component: Page_Anasayfa,
+            redirect: '/iletisim'
+        },
+        /* ... */
+        { path: '/iletisim', component: Page_Iletisim },
+    ];
+```
+
+- Aktif link gösterilirken burada hata olabilir. iletisim sayfasındayken anasayfa linkide aktif görünebilir. Bunu düzeltmek için "exact" özniteliği (attribute) kullanılır. Böylelikle adres "/" sonrasında bir şey gelirse routerlinki active özelliği almaz.
+
+```js
+<router-link to="/" class="nav-link" active-class="active" exact>Anasayfa</router-link>
+```
+
+- redirect özelliği kullanırken component özelliğini kullanmamız gerekmez.
+
+- redirect'i name özelliğine göre yapabiliriz.
+
+```js
+const routes = [
+        {
+            path: '/', component: Page_Anasayfa,
+            //redirect: '/iletisim'
+            redirect: { name: 'iletisim' }
+        },
+        /* ... */
+        { path: '/iletisim', component: Page_Iletisim, name: 'iletisim' },
+    ];
+```
+
+- mevcut adresinin yanında ikinci bir adresle rut tanımlayabiliriz. "/iletisim" ile açılıyorken , bir de "/communication" ile açılmasını sağlayabiliriz.
+
+```js
+const routes = [
+        /* ... */
+        { path: '/iletisim', component: Page_Iletisim, alias : '/communication' },
+    ];
+```
+
+uvd-77
+
+## İç içe Rut Tanımlama (Nested Route)
+
+- Örneğin hakkımızda sayfasını açtık. Bu sayfada da misyonumuz tıklayınca belli bir bölge misyonun açılmasını istiyoruz. Bunu nested route ile yaparız.
+
+- Örneğe göre hakkımızda component'in template'nde router-view etiketiyle alt rut alanını belirtiriz.
+
+```html
+    const Page_Hakkimizda = {
+        template: `
+            <!-- ... -->
+            <router-view></router-view>
+            <!-- .... -->
+            </div>`
+    };
+```
+
+- route tanımlamamızda alt rutların tanımını yaparız.
+
+```js
+const routes = [
+        /* ... */
+        {
+            path: '/hakkimizda',
+            component: Page_Hakkimizda,
+            children: [
+                { path: '', component: Page_Hakkimizda_Giris, name: 'hakkimizda-giris' },
+                { path: 'giris', component: Page_Hakkimizda_Giris, name: 'hakkimizda-giris' },
+                { path: 'sayfa1', component: Page_Hakkimizda_Sayfa1, name: 'hakkimizda-sayfa1' },
+                { path: 'sayfa2', component: Page_Hakkimizda_Sayfa2, name: 'hakkimizda-sayfa2' },
+            ]
+        },
+        /* ... */
+    ];
+```
+
+- Hakkımızda template'nde alt route linklerini ekleriz.
+
+```html
+<router-link to="/hakkimizda/giris">Hakkımızda Giriş</router-link>
+
+<router-link :to="{ name: 'hakkimizda-sayfa1' }">Sayfa 1</router-link>
+
+<router-link :to="{ name: 'hakkimizda-sayfa2' }">Sayfa 2</router-link>
+```
+
+- Alt rutlarımız için örnek template aşağıdadır.
+
+```html
+const Page_Hakkimizda_Giris = { template: '<div class="jumbotron">Hakkımızda</div>'};
+const Page_Hakkimizda_Sayfa1 = { template: '<div class="jumbotron">Sayfa 1</div>'};
+const Page_Hakkimizda_Sayfa2 = { template: '<div class="jumbotron">Sayfa 2</div>'};
+```
+
+uvd-78
+
+## Vue Cli ile Oluşturulan Projede Route Yapısının Kullanımı
+
+- Vue router cli projemize sonradan kurmak için:
+
+```bash
+npm install vue-router --save
+```
+
+- cli projede route objemizi ayrı bir dosyada tanımlarsak import ile çekebiliriz.
+
+```js
+import router from './router'
+```
+
+- Router'ı vue app aktif etmek için, Router sınıfını use ile kayıt ederiz.
+
+```js
+import Vue from 'vue'
+/* ... */
+import Router from 'vue-router'
+/*...*/
+Vue.use(Router)
+```
+
+- Örnek bir route objesi :
+
+```js
+const router = new Router({
+    routes: [
+        {
+            path: '/',
+            name: 'home',
+            component: Home
+        },
+        {
+            path: '/about',
+            name: 'about',
+            component: About
+        },
+        {
+            path: '/photos/:id',
+            name: 'photos',
+            component: Photos
+        },
+        {
+            path: '*',
+            component: NotFound,
+            //redirect: '/'
+        }
+    ]
+});
+```
+uvd-79
+
+## Hatalı Route Tanımlarını Yakalama
+
+- adres çubugunda olmayan bir sayfa erişmeye çalışıldığında belli bir yönlendirme yapabiliriz. Rut tanımlarının en sonuna  `path : '*'` şeklinde bir rut tanımlarsak bulamadığında bu rutu aktif eder.
+
+```js
+const router = new Router({
+    routes: [
+        /* diger rut tanımları */
+        /* en sona yazılacak */
+        {
+            path: '*',
+            component: NotFound,
+            //redirect: '/'
+        }
+    ]
+});
+```
+
+- Farklı bir sayfayada redirect özelliği ile yönlendirme yapılabilir
+
+```js
+const router = new Router({
+    routes: [
+        /* diger rut tanımları */
+        /* en sona yazılacak */
+        {
+            path: '*',
+            component: NotFound,
+            redirect: '/'
+        }
+    ]
+});
+```
+uvd-80
+
+
+## Route Değişimlerini İzleme
+
+
+
+uvd-81
 
 ## Router Full Example (1)
 
@@ -2777,7 +2999,18 @@ uvd-76
 
 
 
-# Shortcuts
+# Terimler ve Kısaltmalar
 
-* Var : Variable
+**Terimler**
+
+* Öznitelik : Attibute
+* Özellik : Property
+
+**Kısaltmalar**
+
+* var : Variable
+* str : String
+* obj : Object
+
+
   
