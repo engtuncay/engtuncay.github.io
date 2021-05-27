@@ -4,7 +4,7 @@ Vue 2 - Tutorial
 - [B2 Vue Basic](#b2-vue-basic)
   - [2-1 Instance](#2-1-instance)
   - [2-2 Lifecycle](#2-2-lifecycle)
-  - [2-3 Data Binding](#2-3-data-binding)
+  - [2-3 Data Binding (or code Binding)](#2-3-data-binding-or-code-binding)
   - [2-4 Attribue Binding](#2-4-attribue-binding)
   - [2-5 Class and Style Binding](#2-5-class-and-style-binding)
   - [2-6 List Items with v-for](#2-6-list-items-with-v-for)
@@ -48,10 +48,12 @@ Vue 2 - Tutorial
   - [İç içe Rut Tanımlama (Nested Route)](#i̇ç-içe-rut-tanımlama-nested-route)
   - [Vue Cli ile Oluşturulan Projede Route Yapısının Kullanımı](#vue-cli-ile-oluşturulan-projede-route-yapısının-kullanımı)
   - [Hatalı Route Tanımlarını Yakalama](#hatalı-route-tanımlarını-yakalama)
-  - [Route Değişimlerini İzleme](#route-değişimlerini-i̇zleme)
+  - [Route Degisimlerini izleme](#route-degisimlerini-izleme)
+  - [Route Navigation Guard](#route-navigation-guard)
   - [Router Full Example (1)](#router-full-example-1)
   - [Router Full Ex 2](#router-full-ex-2)
   - [Ex 3](#ex-3)
+  - [Ornek Proje Otobus Rez Sistemi](#ornek-proje-otobus-rez-sistemi)
 - [B6 Vue Fetch from Api](#b6-vue-fetch-from-api)
   - [6-1 Fetch Todos](#6-1-fetch-todos)
   - [6-2 Vue Resources Todos](#6-2-vue-resources-todos)
@@ -59,6 +61,7 @@ Vue 2 - Tutorial
   - [6-4 Fetch Omdb Api](#6-4-fetch-omdb-api)
   - [6-5 Axios](#6-5-axios)
 - [Terimler ve Kısaltmalar](#terimler-ve-kısaltmalar)
+- [Kaynaklar](#kaynaklar)
 
 Önsöz
 
@@ -210,16 +213,24 @@ DOM güncellendi
 Instance silindi
 ```
 
-## 2-3 Data Binding
+## 2-3 Data Binding (or code Binding)
 
-String Interpolation
-- {{ .. }} : içinde yazılan değeri basar. Text kullanılacaksa tırnak içinde ('text') kullanılır.
+- String interpolation `{{ /*...*/ }}`  kullanarak template içerisinde data binding yapabiliriz. : içinde yazılan değeri basar. Text kullanılacaksa tırnak içinde ('text') kullanılır.
 
-Attribute şeklindeki yöntemler
-- v-text  : text olarak elementin içine yazar
-- v-html : html olarak elementin içine yazar
-- v-model[.number] : elementin değerini, belirtilen property'e bind eder
-- v-once : bir defa basıp ilgili variable değişirse güncellemez
+```html
+<template>
+    <div>
+        {{ title }}
+    </div>
+</template>
+```
+
+- Html etiketinde kullanılan öznitelikler (attributes)
+
+1. v-text  : text olarak elementin içine yazar
+2. v-html : html olarak elementin içine yazar
+3. v-model[.number] : elementin değerini, belirtilen property'e bind eder
+4. v-once : bir defa basıp ilgili variable değişirse güncellemez
 
 ```html
 <div id="app">
@@ -267,7 +278,7 @@ Syntax
 * v-bind:attributeName
 * :attributeName 
 
-"v-bind:" kısayolu ":" 'dır.
+- "v-bind:" kısayolu ":" iki noktadır.
 
 **Örnekler**
 ```
@@ -2271,11 +2282,144 @@ const router = new Router({
 uvd-80
 
 
-## Route Değişimlerini İzleme
+## Route Degisimlerini izleme
+
+- url değişimleri izleyebilmek için componentin watch özelliğinin, $route özelliğini tanımlamamız gerekir. Örnek rut watch tanımı :
+
+```js
+<script>
+    export default {
+        data() {
+            /* ... */
+        },
+        watch: {
+            // rut değişimi olduğunda fetchData metodunu çalıştır.
+            $route: "fetchData"
+        },
+        methods: {
+            fetchData() {
+                /* ... */
+            }
+        }
+    }
+</script>
+```
+
+- Örnek olarak photos componenti aşağıdaki gibidir.
+
+```html
+//  Photos.vue
+<template>
+    <div class="container">
+        <h1>Photos</h1>
+        <div class="card" style="width: 18rem" v-if="photo">
+            <img :src="photo.url" class="card-img-top">
+            <div class="card-body">
+                <p class="card-text">{{ photo.title }}</p>
+            </div>
+        </div>
+    </div>
+</template>
 
 
+<script>
+    export default {
+        data() {
+            return {
+                photo: null
+            }
+        },
+        created() {
+            this.fetchData();
+        },
+        watch: {
+            $route: "fetchData"
+        },
+        methods: {
+            fetchData() {
+                fetch('http://jsonplaceholder.typicode.com/photos/' + this.$route.params.id)
+                    .then(response => response.json())
+                    .then(json => {
+                        this.photo = json;
+                    });
+            }
+        }
+
+    }
+</script>
+```
 
 uvd-81
+
+## Route Navigation Guard
+
+- Rut değişim yaparken öncesinde veya sonrasında bir kod çalıştırmak istiyorsak global navigation guard tanımlayabiliriz. Router objemizi tanımladıktan sonra tanımlayabiliriz.
+
+Bir route bağlantısına tıklandığı anda önce beforeEach , daha sonra beforeResolve guard tanımları çalıştırılır. Sonrasında tıklanan rut sayfası yüklenir ve yükleme tamamladıktan sonra afterEach guard tanımları çalıştırılır.
+
+```js
+const router = new Router(/*...*/);
+
+router.beforeEach((to, from, next) => {
+    // to : sonraki rut (gidilecek)
+    // from : önceki rut
+    // next geçiş metodu
+
+    /*...*/
+
+    // bir sonraki rut geçirmek için next metodunu çağırırız.
+    next();
+});
+
+router.beforeResolve((to, from, next) => {
+    /* ... */
+    });
+
+router.afterEach((to, from) => {
+    /* ... */
+    });
+```
+
+- Örnek uygulama olarak route geçişlerinde animasyon oluşturalım.
+
+```js
+npm install nprogress --save
+```
+
+- nprogress kütüphanesini route obje tanımladığımızda yerde kullanacağız. öncelikle import ederiz. beforeResolve durumunda (state) NProgress başlatırız, yükleme tamamlanınca NProgress i bitiririz.
+
+```js
+import NProgress from 'nprogress'
+
+const router = new Router(/*...*/);
+
+router.beforeResolve((to, from, next) => {
+    if (to.name) {
+        NProgress.start();
+    }
+    next();
+});
+
+router.afterEach((to, from) => {
+    NProgress.done();
+});
+
+
+```
+
+- App.vue içinde global stil dosyasını güncelleriz.
+
+```css
+@import '../node_modules/nprogress/nprogress.css';
+```
+
+- App.vue içinde bootstrap direk import ile stile ekleyebiliriz.
+
+```css
+@import 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css';
+```
+
+uvd-82
 
 ## Router Full Example (1)
 
@@ -2614,6 +2758,11 @@ uvd-81
 
 
 ```
+
+## Ornek Proje Otobus Rez Sistemi
+
+
+uvd-83
 
 # B6 Vue Fetch from Api
 
@@ -3013,4 +3162,14 @@ uvd-81
 * obj : Object
 
 
-  
+# Kaynaklar
+
+- Udemy Cem Gündüzoğlu Kursu (Vue.js ile Sıfırdan Uygulama Geliştirme)
+
+Kursu satın almanızı tavsiye ederim. Kaliteli ve güzel anlatım.
+
+- vue.js dökümantasyonu ()
+
+- genel web siteleri
+
+
