@@ -2761,6 +2761,61 @@ uvd-82
 
 ## Ornek Proje Otobus Rez Sistemi
 
+- Proje cli dan oluştururuz.
+
+```js
+vue create demo-otobus
+```
+
+- eski bir projenin üzerine yazıyorsanız:
+
+```js
+overwrite : eskisini siler yenisini yazar
+merge : birleştirme yapar
+
+```
+
+- kullanacağımız özellikler
+
+```text
+babel
+vue-router
+css preprocessor
+
+history mode:yex
+css preprocessor: scss/sass
+in dedicated config files
+```
+
+- şimdi çalıştırarak deneriz
+
+```
+npm run serve
+```
+
+- projemize bootstrap ekleriz
+
+```
+npm install bootstrap --save
+```
+
+- bootstrap global css 'e dahil (import) ederiz.
+
+```css
+/* App.vue */
+/* ... */
+<style lang="scss">
+/* ... */
+@import '~bootstrap/scss/bootstrap';
+</style>
+```
+
+- assets klasörünü src altında kullandığımızda img etiketinde yoluna "./assets/..." olarak belirtmemiz gerekir. public klasöründe olursa "assets/..." olarak yazabiliriz.
+
+
+
+
+
 
 uvd-83
 
