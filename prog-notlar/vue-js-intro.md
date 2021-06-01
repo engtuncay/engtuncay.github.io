@@ -2812,6 +2812,21 @@ npm install bootstrap --save
 
 - assets klasörünü src altında kullandığımızda img etiketinde yoluna "./assets/..." olarak belirtmemiz gerekir. public klasöründe olursa "assets/..." olarak yazabiliriz.
 
+**Sefer Arama Formunu Hazırlama**
+
+- router path parametrenin sonuna eklenen "?" soru işareti optional olduğunu belirtir.
+  
+
+```js
+{
+    path: '/koltuksecimi/:sefer_id?'
+    /* ... */
+}
+```
+
+
+
+
 
 
 

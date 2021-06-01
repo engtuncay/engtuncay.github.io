@@ -1,14 +1,18 @@
 
-
 # Introduction to Javascript (tr:Javascript'e Giriş)
 
 - [Introduction to Javascript (tr:Javascript'e Giriş)](#introduction-to-javascript-trjavascripte-giriş)
   - [Ecmascript](#ecmascript)
   - [Webstormda Ecmascript Aktif Etme](#webstormda-ecmascript-aktif-etme)
   - [VS Code Extensions for Javascript](#vs-code-extensions-for-javascript)
+  - [Chrome Js Test Page](#chrome-js-test-page)
+- [Helper Functions](#helper-functions)
+  - [JS Convention Github Repo](#js-convention-github-repo)
 - [Core Concepts](#core-concepts)
+  - [Data Types](#data-types)
   - [Variable Assignment](#variable-assignment)
   - [Data Type Casting](#data-type-casting)
+- [Naming and naming conventions for js var](#naming-and-naming-conventions-for-js-var)
   - [Operators and Math Object](#operators-and-math-object)
   - [String Methods](#string-methods)
   - [Template Literal](#template-literal)
@@ -35,6 +39,7 @@
   - [ES6 Maps](#es6-maps)
   - [Referans Tipler Tekrar](#referans-tipler-tekrar)
   - [Set (Kümeler)](#set-kümeler)
+- [Sources](#sources)
 
 
 ## Ecmascript
@@ -50,17 +55,64 @@ language versiondan ayarlarız.
 
 (tr:Javascript için Vs Code Eklentileri )
 
+
+## Chrome Js Test Page
+
+- Chrome developer tools console tekli komut girebiliyoruz. Daha uzun kod girmek istiyorsak, sources bölümüne gidip, sağ alttan network sekmesinin yanından snippets seçeriz. "+New Snippet" tıklayarak yeni test kod sayfası açabiliriz. Kodları çalıştırmak altta sağda run snippet düğmesine basarız.
+
+- chrome console deki cache temizlemek istersek , tanımladığımız değişkenleri vs , refresh buttonunda alt seçiminden hard reload ve cache temizlemeye tıklamamız gerekir.
+
+# Helper Functions
+
+- prompt : kullanıcıdan veri girişi alır
+
+```js
+var yourName = prompt("What is your name");
+```
+
+acweb-102
+
+## JS Convention Github Repo
+
+js code convetions 
+
+github rwaldron/idiomatic.js
+
+
+
 # Core Concepts
+
+## Data Types
+
+String : text , yazılardı. kod olarak yorumlanmayan içerik
+Number : sayılardır
+Boolean : true,false değeridir
+
+- typeof data nin tipinin gösterir
+
+```js
+
+typeof(23)
+// out
+// number
+typeof("Ali")
+// string
+typeof(true);
+// boolean
+
+```
 
 ## Variable Assignment
 
 - var,let,const
 
-        var : global assignment 
-        let : local assignment 
-        const : constant assignmet
+```
+var : global assignment 
+let : local assignment 
+const : constant assignmet
+```
 
-- If we create a reference or array with const, we couldnt set it again, but we can change content of const object or const array. (tr:const referans bir obje veya array oluşturursak, yeni set edemeyiz, fakat mevcut içinde değişiklik yapabiliriz.)
+const referansını bir objeye veya arraye bağlarsak, yeni bir değer atayamayız, fakat mevcut içinde değişiklik yapabiliriz.
 
 Example
 
@@ -104,7 +156,6 @@ console.log(arr1);
 
 const obj1 = { name:'Ali',surname:'Veli'};
 
-
 ```
 
 
@@ -140,6 +191,15 @@ undefined,string,fonksiyonu ve array'i number a çeviremeyiz.
 const a = "Hello" + 34 // Hello34
 // 34 stringe çevrildi.
 ```
+
+# Naming and naming conventions for js var
+
+- keyword kullanılamaz
+- sayı ile başlayamaz
+- harfler , sayılar, $ , _ dışında sembol kullanılamaz. (abc123$_)
+- advice : use camel case  ( userScoreNet )
+
+$$$ayweb-108 kaldım
 
 ## Operators and Math Object
 
@@ -1242,7 +1302,11 @@ myset.forEach(function(value){
 // {a:1,b:2}
 ```
 
+# Sources
 
+- Web
+
+- Dr.Angela Yu Udemy The Complete 2021 Web Dev. Course (ayweb)
 
 
 
