@@ -1,9 +1,22 @@
 
 
+- [Section](#section)
+  - [How to make your images "POP" with Photoshop](#how-to-make-your-images-pop-with-photoshop)
+  - [How to Retouch your photos with photoshop](#how-to-retouch-your-photos-with-photoshop)
+  - [How to Resize and save images for social media](#how-to-resize-and-save-images-for-social-media)
+- [Layers](#layers)
+  - [Layers in the real world vs in the digital word](#layers-in-the-real-world-vs-in-the-digital-word)
+  - [Discover the 12 differenty types of layers and 3 ways to customize them](#discover-the-12-differenty-types-of-layers-and-3-ways-to-customize-them)
+  - [Thoughts On Post Processing in Photoshop](#thoughts-on-post-processing-in-photoshop)
+- [ACR (Adobe Camera Raw) CC 2019](#acr-adobe-camera-raw-cc-2019)
+  - [Preferences](#preferences)
+  - [White Balance](#white-balance)
+  - [Histogram](#histogram)
 
 
 
 
+# Section
 
 ## How to make your images "POP" with Photoshop
 
@@ -64,3 +77,151 @@ Outline : çerçeve, dış çizgi
 - Layer taşımak için layer kilitli olmamalı.
 
 ## Discover the 12 differenty types of layers and 3 ways to customize them
+
+
+## Thoughts On Post Processing in Photoshop
+
+
+# ACR (Adobe Camera Raw) CC 2019
+
+## Preferences
+
+- Adobe Bridge Menüsünden Camera Raw Preferences tercihleri yapabiliriz.
+
+- Save image settings
+  - camera raw db : yedeklemesi , taşınması zor
+  - sidecar xmp files (recommended)
+
+- Apply sharpening to : Preview images only (recom)
+
+- Default image settinms
+  - Apply auto tone and color adjusment : false
+  - Apply auto mix when convertign to b&w : false
+-  Make defaults : true (ikiside)
+
+- Camera Raw Cache : purge cache (cache leri temizleyebiliriz)
+
+- Keyboard shortcuts : use legacy undo shortcuts : false
+
+**File Handling Secim**
+
+- Dng ile uğraşmıyorsan bunları false yapabilirsin.
+  - Ignore sidece ".xmp" files : false
+  -  update embedded jpeg previews : false
+  
+- Jpeg heic and tiff handling
+
+İkiside Auto open seçilmiş
+
+**Performance**
+
+- Grafik kartı varsa true yapın.
+
+- Raw Defaults : otomatik preset uygular
+
+**Workflow**
+
+- Resize to Fit
+
+w:1000 h:1000 pixels yaparız.
+
+longer edge convert it to 1000 , sonra da oranlar.
+
+resolution : 72 online için
+300 print için
+
+
+## White Balance
+
+- Eye dropper (I) seçerek natural gray tonu fotoda seçeriz , buna ps wb ayarlayabilir.
+
+
+## Histogram
+
+Editler top-down , left to right şeklinde yapmalıyız.
+
+I personalyy prefer to use the histogram as a means to determine what adjustments I need to make to the dynamic range of my image bec all that info is being represented in the hist.
+
+resimde görünen problemler
+
+- gölgeler çok karanlık ve birçok detayı kapatıyor (a lot of details in   
+- the highlights (parlak nokta) are showing detail in them but they are not very bright ( so overall image is kind of flat)
+
+- histogram on a graph versus pixels
+- hist rgb değerlerini gösteriyor fotonun
+
+- gri alanlar fotonun luminosity (parlaklık) gösteryor ( brightness and darkness of our image)
+
+- sagda solda boş alan varsa , bunlar bilgi eksikliğini gösteriyor
+
+histogram solda sağa farklı şeyleri gösteriyor
+
+blacks
+shadows (gri box ile vurgulanmış (highlighted))
+orta alan exposure
+onun sağı highlights
+uzak sağda white points 
+
+ideal olarak hiçbir gap olmamalı fotoda
+
+( a low key or a high key image ise olabilr boşluk)
+
+- boşluğu kaldırmamız lazım, dynamic range doğru bir şekilde set edebilmek için
+
+(clip:kırpmak-kesmek-vurmak-indirmek)
+
+- spikelar solda olunca fotodaki detaylar gözükmediğini gösterir.
+
+- önce soldaki boşluğu kapatırız, solda çerçeveden içe dogru çekeriz , whites değeri artar ( sola çektikçe fotoyu degrade eder.) (overedited olur.)
+
+- alt ile clipping mask görürüz. (dataların olduğu alanları gösterir.) / nwo your entire image has detail in the white point areas.??
+sağa çektikçe kırmızlık görünür, bu starting to clip data or losing detail in your white points. gösterir.
+
+- black de ise clipping mask da renkli bölgeler de kaybedilen dataları gösterir.
+
+- shadow kullanırken zoom yaptığımızda mavi alanlar dataların olduğunu gösterir. (gölgeye çok açarsak foto degrade olur, bilgiler kalitesiz bir şekilde görünür. alot of noise olur orada (kumlanma olur) and digital artifacts in the shadows.
+
+- we dont have any spikes in the exposure section so we dont need to reduce the exposure ( aksi takdirde bazı alanlar karanlık olacak , losing detail in the shadows)
+I dont want to go brighter bec then i ll start losing detail in the highlights.
+
+- contrast artırarak make the imgage pop a little bit more but i prefer using my tone curve versus the contrast lighter.
+
+- tone curve ile constrast üzerinde daha kontrole sahibiz.
+
+- we can adjust the contrast in the highlights in the shodows.
+
+- have less control over how much contrast is beign applied in certain areas of your image.
+  
+- highlights : this would be to bring back detail in the highlights or tone down the hightlights
+
+- Clarity : clarity makes your image appear to be sharper but it s not really a sharpening tool. what clarity does is it adds contrast to your image but its different versus the contrast slider and the tone curve. and this is how it s different. your contrast slider is applying adjustments globally. in other words, its applying contrast to your shadows your hightlights and your mid tones. clarity on the other hand is only applying contrast to the mid tones which gives it the appearance of sharpening your image , now you can also control the contrast of your midtones with your tone curve.
+
+highlight ve shadowların contrastı için tone curve kullanabiliriz.
+
+
+
+
+- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
