@@ -11,7 +11,8 @@
 - [ACR (Adobe Camera Raw) CC 2019](#acr-adobe-camera-raw-cc-2019)
   - [Preferences](#preferences)
   - [White Balance](#white-balance)
-  - [Histogram](#histogram)
+  - [Histogram and Dynamic Range Adjustments](#histogram-and-dynamic-range-adjustments)
+  - [Tone Curves in Ps Acr](#tone-curves-in-ps-acr)
 
 
 
@@ -136,7 +137,7 @@ resolution : 72 online için
 - Eye dropper (I) seçerek natural gray tonu fotoda seçeriz , buna ps wb ayarlayabilir.
 
 
-## Histogram
+## Histogram and Dynamic Range Adjustments
 
 Editler top-down , left to right şeklinde yapmalıyız.
 
@@ -198,7 +199,16 @@ I dont want to go brighter bec then i ll start losing detail in the highlights.
 
 highlight ve shadowların contrastı için tone curve kullanabiliriz.
 
+clarity için landscape fotolar için 10-15 değeri
+portrait fotos 5-8 değeri
 
+- Saturation ve vibrance renklerin doygunluğunu (saturation) oynar. saturation global değişiklik (edit) yaparken (shadows,highlights and mid-tones tümüne), vibrance sadece mid tones yapar. Contrast ve Clarity de olduğu gibi. Böylelikle vibrance oynadığımızda, fotomuzun sadece orta tonları (mid tones) etkilenecek. 
+
+saturation : doyma,canlılık,koyuluk (darkness)
+
+## Tone Curves in Ps Acr
+
+- 
 
 
 - 
