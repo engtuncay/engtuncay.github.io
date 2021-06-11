@@ -8,6 +8,11 @@
   - [Layers in the real world vs in the digital word](#layers-in-the-real-world-vs-in-the-digital-word)
   - [Discover the 12 differenty types of layers and 3 ways to customize them](#discover-the-12-differenty-types-of-layers-and-3-ways-to-customize-them)
   - [Thoughts On Post Processing in Photoshop](#thoughts-on-post-processing-in-photoshop)
+- [Color of Light](#color-of-light)
+  - [color of light](#color-of-light-1)
+  - [color management](#color-management)
+  - [calibratation](#calibratation)
+  - [Raw vs Jpeg](#raw-vs-jpeg)
 - [ACR (Adobe Camera Raw) CC 2019](#acr-adobe-camera-raw-cc-2019)
   - [Preferences](#preferences)
   - [White Balance](#white-balance)
@@ -81,6 +86,42 @@ Outline : çerçeve, dış çizgi
 
 
 ## Thoughts On Post Processing in Photoshop
+
+
+# Color of Light
+
+## color of light
+
+- All sources of light emit color of light and that color is dependent on the light source and intensity whether it s diffused
+
+- temperature of light is measured in Kelvin 0 - 9000
+
+2000k sunrise.     Warm colors 
+5500k-6000k direct sun
+7000k shade        cool colors
+8000k cloudy
+
+- insan gözü 7 ile on milyon arasında renk görür
+
+- monitor 16.7 milyon renk gösterir, rgb 256*256*256
+
+## color management
+
+Color workspace is a scale that help us define color relative to the way that we see rgb color values
+
+## calibratation
+
+Calibrate your monitor monthly
+
+Light is emitting a specific color based on the temperature of that color
+
+Color cast?
+
+## Raw vs Jpeg
+
+- raw dosyada exposure, white balance metadata olarak saklanır
+
+- raw capable of capturing a much higher dynamic range versus jpeg
 
 
 # ACR (Adobe Camera Raw) CC 2019
@@ -207,6 +248,8 @@ portrait fotos 5-8 değeri
 saturation : doyma,canlılık,koyuluk (darkness)
 
 ## Tone Curves in Ps Acr
+
+- the tone cure ve lens correction adjustments için preset hazırlanıp editler yapılmazdan önce tüm fotolara uygulanabilir.
 
 - 
 
