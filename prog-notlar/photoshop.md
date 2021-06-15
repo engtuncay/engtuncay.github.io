@@ -90,7 +90,7 @@ Outline : çerçeve, dış çizgi
 
 # Color of Light
 
-## color of light
+## Color of light
 
 - All sources of light emit color of light and that color is dependent on the light source and intensity whether it s diffused
 
@@ -122,7 +122,6 @@ Color cast?
 - raw dosyada exposure, white balance metadata olarak saklanır
 
 - raw capable of capturing a much higher dynamic range versus jpeg
-
 
 # ACR (Adobe Camera Raw) CC 2019
 
