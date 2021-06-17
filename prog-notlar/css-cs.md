@@ -350,6 +350,8 @@ vmax	Relative to 1% of viewport's* larger dimension
 Tip: The em and rem units are practical in creating perfectly scalable layout!
 * Viewport = the browser window size. If the viewport is 50cm wide, 1vw = 0.5cm.
 
+```
+
 Length Unit chro-expl-fire-safa-oper					
 em..pc			1.0	3.0	1.0	1.0	3.5  
 (em, ex, %, px, cm, mm, in, pt, pc) 
@@ -358,6 +360,8 @@ rem				4.0	9.0	3.6	4.1	11.6
 vh, vw			20.0	9.0	19.0	6.0	20.0
 vmin			20.0	12.0	19.0	6.0	20.0
 vmax			26.0	16.0	19.0	7.0	20.0
+
+```
 
 ## Box Models
 
@@ -384,7 +388,19 @@ height + padding + border = actual height of an element
 
 ## Height and Width Values (and units)
 
+- height and width are calculated according to box-model (content-box model or border-box model) With border-box model, they include padding and border. With content-box model, they specify only content area. (do not include padding, borders or margins.)
 
+The height and width properties may have the following values:
+
+```
+
+auto - This is default. The browser calculates the height and width
+length - Defines the height/width in px, cm etc.
+% - Defines the height/width in percent of the containing block
+initial - Sets the height/width to its default value
+inherit - The height/width will be inherited from its parent value
+
+```
 
 
 
