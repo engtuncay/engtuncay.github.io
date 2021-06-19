@@ -23,6 +23,8 @@
     - [Content-Box Model (Default)](#content-box-model-default)
     - [Border Box Model](#border-box-model)
   - [Height and Width Values (and units)](#height-and-width-values-and-units)
+  - [Max Width](#max-width)
+  - [All CSS Dimension Properties](#all-css-dimension-properties)
 
 
 # Selector
@@ -348,6 +350,7 @@ vmax	Relative to 1% of viewport's* larger dimension
 ```
 
 Tip: The em and rem units are practical in creating perfectly scalable layout!
+
 * Viewport = the browser window size. If the viewport is 50cm wide, 1vw = 0.5cm.
 
 ```
@@ -402,6 +405,49 @@ inherit - The height/width will be inherited from its parent value
 
 ```
 
+- Example : Set the height and width of a <div> element:
+
+```css
+div {
+  height: 200px;
+  width: 50%;
+  background-color: powderblue;
+}
+```
+
+## Max Width
+
+The max-width property is used to set the maximum width of an element. (max-genişliğini belirler, ekranda pencere genişlese dahi büyütmez.)
+
+The max-width can be specified in length values, like px, cm, etc., or in percent (%) of the containing block, or set to none (this is default. Means that there is no maximum width).
+
+Note: The value of the max-width property overrides width.
+
+Example
+This <div> element has a height of 100 pixels and a max-width of 500 pixels: 
+
+```css
+
+div {
+  max-width: 500px;,
+  height: 100px;
+  background-color: powderblue;
+}
+```
+
+## All CSS Dimension Properties
+
+```
+
+Property	Description
+height	Sets the height of an element
+width	Sets the width of an element 
+max-height	Sets the maximum height of an element
+max-width	Sets the maximum width of an element
+min-height	Sets the minimum height of an element
+min-width	Sets the minimum width of an element
+
+```
 
 
 
