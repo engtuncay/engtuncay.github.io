@@ -11,6 +11,7 @@
   - [JOINLER](#joinler)
     - [Outer Join Usage : Draft](#outer-join-usage--draft)
     - [Outer Apply Usage](#outer-apply-usage)
+    - [Cross Join (Cartesian Product of the joined tables)](#cross-join-cartesian-product-of-the-joined-tables)
 - [SQL EXTENSIONS](#sql-extensions)
   - [Function](#function)
     - [Scalar Function (Tek Değer Döndüren Fonksiyon)](#scalar-function-tek-değer-döndüren-fonksiyon)
@@ -29,6 +30,7 @@
     - [SET QUOTED_IDENTIFIER ON](#set-quoted_identifier-on)
 - [TSQL](#tsql)
   - [IF Kullanımı](#if-kullanımı)
+  - [WITH ile döngüsel sıralamalı tarih tablosu hazırlama](#with-ile-döngüsel-sıralamalı-tarih-tablosu-hazırlama)
 - [SQL GÜVENLİK - KULLANICI SORGULAR](#sql-güvenli̇k---kullanici-sorgular)
 - [SQL LOGGING](#sql-logging)
   - [RaiseError](#raiseerror)
@@ -42,17 +44,15 @@
 
 ### UPDATE JOIN
 
-```
+```sql
 Update Tb1 SET Tb1.Column1=100 FROM myTableA Tb1 
 LEFT JOIN myTableB Tb2 ON Tb1.ID=Tb2.ID
-
 ```
 
 Özet Syntax
-```
+```sql
 Update alias SET alias.col=... (select sorgusunun FROM ve devamı eklenir)
 ```
-
 
 
 ## DELETE
@@ -77,6 +77,7 @@ WHERE ...
 ## INSERT
 
 Syntax
+
 ```sql
 INSERT INTO table_name (column1, column2, column3, ...)
 VALUES (value1, value2, value3, ...);
@@ -108,8 +109,6 @@ VALUES ('Ahmet Sögüt', 'Ali Sögüt', 'Batıkent Mah', 'Gaziantep', '27000', '
 
 ### Outer Apply Usage
 
-
-
 The APPLY operator allows you to join two table expressions; the right table expression is processed every time for each row from the left table expression. As you might have guessed, the left table expression is evaluated first and then the right table expression is evaluated against each row of the left table expression for the final result set. The final result set contains all the selected columns from the left table expression followed by all the columns of the right table expression.(*source1)
 
 SQL Server APPLY operator has two variants; CROSS APPLY and OUTER APPLY
@@ -128,6 +127,38 @@ OUTER APPLY (SELECT TOP 1 ADRES1.adr_temsilci_kodu FROM [CARI_HESAP_ADRESLERI] A
 
 
 ````
+
+### Cross Join (Cartesian Product of the joined tables)
+
+The main idea of the CROSS JOIN is that it returns the Cartesian product of the joined tables. In the following tip, we will briefly explain the Cartesian product;
+
+Tip: What is the Cartesian Product?
+
+The Cartesian Product is a multiplication operation in the set theory that generates all ordered pairs of the given sets. Suppose that, A is a set and elements are {a,b} and B is a set and elements are {1,2,3}. The Cartesian Product of these two A and B is denoted AxB and the result will be like the following.
+
+AxB ={(a,1), (a,2), (a,3), (b,1), (b,2), (b,3)}
+
+Syntax
+The syntax of the CROSS JOIN in SQL will look like the below syntax:
+
+
+```sql
+SELECT ColumnName_1, 
+       ColumnName_2, 
+       ColumnName_N
+FROM [Table_1]
+CROSS JOIN [Table_2]
+
+```
+Or we can use the following syntax instead of the previous one. This syntax does not include the CROSS JOIN keyword; only we will place the tables that will be joined after the FROM clause and separated with a comma.
+
+```sql
+
+SELECT ColumnName_1, 
+       ColumnName_2, 
+       ColumnName_N
+FROM [Table_1],[Table_2]
+```
 
 
 # SQL EXTENSIONS
@@ -369,10 +400,12 @@ ELSE
   END
 ```
 
+Örnek
 ```sql
 declare @Toplam int
 --1- Bu bir kural değil ama standart olan ilk önce değişkeni tanımlamaktır.
-select @Toplam = count( * ) from Person.Contact where FirstName like '%b%'
+
+select @Toplam = count(*) from Person.Contact where FirstName like '%b%'
 --2- Burada tablomuzdaki FirstName kolonunda içinde b harfi olan kayıtların toplamını değişkene aktarıyoruz.
 
 if(@Toplam > 2000)
@@ -389,6 +422,7 @@ else
   end
 ```
 
+Örnek
 ```sql
 IF((SELECT COUNT( * ) FROM Person.Contact WHERE FirstName LIKE '%b%') > 2000)
 begin
@@ -396,6 +430,7 @@ begin
 end
 ```
 
+Örnek
 ```sql
 IF((SELECT COUNT( * ) FROM Production.Product WHERE ListPrice > 0 AND Color IS NOT NULL) > 100)
 BEGIN
@@ -406,6 +441,33 @@ BEGIN
   print 'Çok az kayıt var.'
 END
 ```
+
+## WITH ile döngüsel sıralamalı tarih tablosu hazırlama
+
+
+```sql
+WITH mycte AS ( 
+	SELECT CAST(@dtBas AS DATETIME) calc_date
+	UNION ALL
+	SELECT calc_date + 1
+	FROM mycte
+	WHERE calc_date + 1 <= @dtSon
+)
+
+SELECT *
+FROM mycte
+OPTION (MAXRECURSION 0)
+
+-- Output Sample (dtBas:20210701)
+-- 2021-07-01 00:00:00.000
+-- 2021-07-02 00:00:00.000
+-- 2021-07-03 00:00:00.000
+-- 2021-07-04 00:00:00.000
+-- 2021-07-05 00:00:00.000
+-- ...
+
+```
+
 
 
 # SQL GÜVENLİK - KULLANICI SORGULAR
@@ -425,16 +487,21 @@ DECLARE @minAmount int = 1;
 Raiserror('Total Amount should be less than %d and Greater than %d',@MaxAmount,@MinAmount)
 
 RAISERROR('SAYISI %d',@MUSTSAYI,0,1);
+
 ```
 
 **Ek Kaynak**
 
 https://docs.microsoft.com/en-us/sql/t-sql/language-elements/raiserror-transact-sql?view=sql-server-2017
 
+
 ## Kayıt Edilen Sayısını Bastırma
 
 
+```sql
+
 DELETE FROM STOK_HAREKETLERI where sth_evrakno_seri=@seri and sth_evrakno_sira=@sira and sth_evraktip = @sth_evraktip 
 PRINT  'STOK HAREKETLERİ - DELETED RECORDS :' + CAST( @@ROWCOUNT as varchar(10))
+```
 
 
