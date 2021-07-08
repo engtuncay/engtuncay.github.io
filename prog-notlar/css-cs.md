@@ -52,6 +52,8 @@ select elements based on tag, id, class
 
 * Grouping Selector : h1,h2,h3
 
+* Class chaining : .footer.center (elements that have footer and center classes,order is not important)
+
 ## Combinator selectors  
 
 * Descendant Selector (Nesil Seçici) (space): div p
@@ -74,7 +76,7 @@ selector:pseudo-class {
 ```
 
 
-```text
+```
 Selector	Example	       Example description
 
 :active	    a:active	   Selects the active link
@@ -153,11 +155,8 @@ selector::pseudo-element {
 
 ```
 
-
-Selector	Example	Example description
-
-
 ```text
+Selector	Example	Example description
 ::after	p::after	Insert something after the content of each <p> element
 ::before	p::before	Insert something before the content of each <p> element
 ::first-letter	p::first-letter	Selects the first letter of each <p> element
