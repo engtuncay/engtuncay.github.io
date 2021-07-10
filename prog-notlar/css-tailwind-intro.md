@@ -737,6 +737,7 @@ Use flex-nowrap to prevent flex items from wrapping, causing inflexible items to
   <div>3</div>
 </div>
 
+
 ```
 
 - Wrap Normally
@@ -744,17 +745,16 @@ Use flex-nowrap to prevent flex items from wrapping, causing inflexible items to
 Use flex-wrap to allow flex items to wrap:
 
 ```html
-<div class="flex flex-wrap">
-  <div>1</div>
-  <div>2</div>
-  <div>3</div>
+<div class="flex flex-wrap ...">
+  <div class="w-1/2 bg-red-200">1</div>
+  <div class="w-1/2 bg-yellow-50">2</div>
+  <div class="w-1/2 bg-yellow-300">3</div>
 </div>
 ```
 
 - Wrap reversed
 
 Use flex-wrap-reverse to wrap flex items in the reverse direction:
-
 
 ```html
 <div class="flex flex-wrap-reverse">
@@ -763,6 +763,8 @@ Use flex-wrap-reverse to wrap flex items in the reverse direction:
   <div>3</div>
 </div>
 ```
+
+Burada alttan devam etmesi yerine,satır atlamayı yukarı doğru yapar.
 
 - Responsive
 
@@ -779,13 +781,34 @@ To control how flex items wrap at a specific breakpoint, add a {screen}: prefix 
 Utilities for controlling how flex items both grow and shrink.
 
 ```
-Class Properties
+Class         Properties
 flex-1	      flex: 1 1 0%;
 flex-auto	    flex: 1 1 auto;
 flex-initial	flex: 0 1 auto;
 flex-none	    flex: none;
-
 ```
+
+- Note : "flex" 
+ 
+This is the shorthand for flex-grow, flex-shrink and flex-basis combined. The second and third parameters (flex-shrink and flex-basis) are optional. The default is 0 1 auto, but if you set it with a single number value, it’s like 1 0.
+
+```css
+.item {
+  flex: none | [ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ]
+}
+```
+
+- Note : "flex-basis"
+  
+This defines the default size of an element before the remaining space is distributed. It can be a length (e.g. 20%, 5rem, etc.) or a keyword. The auto keyword means “look at my width or height property” (which was temporarily done by the main-size keyword until deprecated). The content keyword means “size it based on the item’s content” – this keyword isn’t well supported yet, so it’s hard to test and harder to know what its brethren max-content, min-content, and fit-content do.
+
+```css
+.item {
+  flex-basis:  | auto; /* default auto */
+}
+```
+
+If set to 0, the extra space around content isn’t factored in. If set to auto, the extra space is distributed based on its flex-grow value.
 
 - Initial
 
@@ -873,6 +896,10 @@ To control how a flex item both grows and shrinks at a specific breakpoint, add 
   <!-- ... -->
 </div>
 ```
+
+- Source
+
+https://tailwindcss.com/docs/flex
 
 ## Flex Grow
 
@@ -965,6 +992,8 @@ Use flex-shrink to allow a flex item to shrink if needed:
   </div>
 </div>
 ```
+
+ortadaki blok küçülebilir ve de tekrar w-64 kadar büyüyebilir, fakat ondan sonra sabit kalır.
 
 - Don't shrink
 
