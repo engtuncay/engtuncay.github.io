@@ -1,4 +1,5 @@
 
+- [Code Play For Tailwind](#code-play-for-tailwind)
 - [LAYOUT](#layout)
   - [Container](#container)
   - [Box Decoration Break](#box-decoration-break)
@@ -6,7 +7,7 @@
   - [Display](#display)
   - [Floats](#floats)
   - [Clear](#clear)
-  - [Isolation](#isolation)
+  - [Isolation ???](#isolation-)
   - [Object Fit](#object-fit)
   - [Object Position](#object-position)
   - [Overflow](#overflow)
@@ -29,28 +30,34 @@
   - [Max Height](#max-height)
 
 
+# Code Play For Tailwind
+
+Tailwind denemelerine bu code play den yapabilirsiniz. Gayet kullanışlı.
+
+https://play.tailwindcss.com/
+
+
 # LAYOUT
 
 ## Container
 
 A component for fixing an element's width to the current breakpoint.
 
-Default class reference
-
-
 ```
-Class Breakpoint Properties
-container	None	width: 100%;
-sm (640px)	max-width: 640px;
-md (768px)	max-width: 768px;
-lg (1024px)	max-width: 1024px;
-xl (1280px)	max-width: 1280px;
-2xl (1536px)	max-width: 1536px;
+Class       Breakpoint    Properties
+container	  None	        width: 100%;
+"           sm (640px)    max-width: 640px;
+"           md (768px)	  max-width: 768px;
+"           lg (1024px)	  max-width: 1024px;
+"           xl (1280px)	  max-width: 1280px;
+"           2xl (1536px)	max-width: 1536px;
 ```
+
+Container en büyük ekranda alacağı max genişlik 1536px olur. 1536 üstünde margin degerleri oluşturur. Md ekranda (768-1024px) en geniş 768 px olur.
 
 **Usage**
 
-The container class sets the max-width of an element to match the min-width of the current breakpoint. This is useful if you’d prefer to design for a fixed set of screen sizes instead of trying to accommodate a fully fluid viewport.
+The container class sets the max-width of an element to match the min-width of the current breakpoint. This is useful if you’d prefer to design for a fixed set of screen sizes instead of trying to accommodate a **fully fluid viewport**.
 
 Note that unlike containers you might have used in other frameworks, Tailwind’s container does not center itself automatically and does not have any built-in horizontal padding.
 
@@ -76,31 +83,7 @@ If you’d like to center your containers by default or include default horizont
 
 The container class also includes responsive variants like md:container by default that allow you to make something behave like a container at only a certain breakpoint and up:
 
-**Customizing**
-
-* Centering by default
-
-To center containers by default, set the center option to true in the theme.container section of your config file:
-
-```js
-// tailwind.config.js
-module.exports = {
-  theme: {
-    container: {
-      center: true,
-    },
-  },
-}
-```
-
-* Horizontal padding
-
-* Disabling responsive variants
-
-* Disabling entirely (disabling container class)
-
-
-Source
+- Source
   
 https://tailwindcss.com/docs/container
 
@@ -129,7 +112,10 @@ Use the decoration-slice and decoration-clone utilities to control whether prope
 
 ![](https://image.prntscr.com/image/om5zoIXjQVWH9lv3cELOaw.png)
 
-**Responsive**
+- Responsive
+
+
+
 
 ## Box Sizing
 Utilities for controlling how the browser should calculate an element's total size.
@@ -139,7 +125,6 @@ Class Properties
 box-border	box-sizing: border-box;
 box-content	box-sizing: content-box;
 ```
-
 
 - Include borders and padding
 
@@ -180,39 +165,33 @@ To control the box-sizing at a specific breakpoint, add a {screen}: prefix to an
 For more information about Tailwind’s responsive design features, check out the Responsive Design documentation.
 (https://tailwindcss.com/docs/responsive-design)
 
-- Customizing
-
-Variants
-Disabling
-
-
 ## Display
 
 Utilities for controlling the display box type of an element.
 
-```css
+```
 Class Properties
-block	display: block;
-inline-block	display: inline-block;
-inline	display: inline;
-flex	display: flex;
-inline-flex	display: inline-flex;
-table	display: table;
-inline-table	display: inline-table;
-table-caption	display: table-caption;
-table-cell	display: table-cell;
-table-column	display: table-column;
+block	              display: block;
+inline-block	      display: inline-block;
+inline	            display: inline;
+flex	              display: flex;
+inline-flex	        display: inline-flex;
+table	              display: table;
+inline-table	      display: inline-table;
+table-caption	      display: table-caption;
+table-cell	        display: table-cell;
+table-column	      display: table-column;
 table-column-group	display: table-column-group;
 table-footer-group	display: table-footer-group;
 table-header-group	display: table-header-group;
-table-row-group	display: table-row-group;
-table-row	display: table-row;
-flow-root	display: flow-root;
-grid	display: grid;
-inline-grid	display: inline-grid;
-contents	display: contents;
-list-item	display: list-item;
-hidden	display: none;
+table-row-group	    display: table-row-group;
+table-row	          display: table-row;
+flow-root	          display: flow-root;
+grid	              display: grid;
+inline-grid	        display: inline-grid;
+contents	          display: contents;
+list-item	          display: list-item;
+hidden	            display: none;
 
 ```
 
@@ -221,14 +200,14 @@ hidden	display: none;
 Use block to create a block-level element.
 
 ```html
-<div class="space-y-4 ...">
-  <span class="block ...">1</span>
-  <span class="block ...">2</span>
-  <span class="block ...">3</span>
+<div class="space-y-3">
+  <span class="block bg-red-200">1</span>
+  <span class="block bg-red-200">2</span>
+  <span class="block bg-red-200 ">3</span>
 </div>
 ```
 
-- Flow-Root
+- Flow-Root ???
 
 Use flow-root to create a block-level element with its own block formatting context.
 
@@ -273,9 +252,9 @@ Use flex to create a block-level flex container.
 
 ```html
 <div class="flex space-x-4 ...">
-  <div class="flex-1 ...">1</div>
-  <div class="flex-1 ...">2</div>
-  <div class="flex-1 ...">3</div>
+  <div class="flex-1 bg-red-200 ...">1</div>
+  <div class="flex-1 bg-red-200 ...">2</div>
+  <div class="flex-1 bg-red-200 ...">3</div>
 </div>
 
 ```
@@ -286,9 +265,9 @@ Use inline-flex to create an inline flex container.
 
 ```html
 <div class="inline-flex space-x-4 ...">
-  <div class="flex-1 ...">1</div>
-  <div class="flex-1 ...">2</div>
-  <div class="flex-1 ...">3</div>
+  <div class="flex-1 bg-red-200 ...">1</div>
+  <div class="flex-1 bg-red-200 ...">2</div>
+  <div class="flex-1 bg-red-200 ...">3</div>
 </div>
 ```
 
@@ -334,6 +313,9 @@ Use contents to create a “phantom” container whose children act like direct 
 </div>
 ```
 
+Burada 2 ve 3 sanki üstteki parent ın child'ı gibi hareket eder.
+
+
 - Table
 
 Use the table, .table-row, .table-cell, .table-caption, .table-column, .table-column-group, .table-header-group, table-row-group, and .table-footer-group utilities to create elements that behave like their respective table elements.
@@ -377,13 +359,7 @@ To control the display property of an element at a specific breakpoint, add a {s
 </div>
 ```
 
-For more information about Tailwind’s responsive design features, check out the Responsive Design documentation.
-
-- Customizing 
-
-read doc
-
-Source
+- Source
 
 https://tailwindcss.com/docs/display
 
@@ -392,17 +368,18 @@ https://tailwindcss.com/docs/display
 Utilities for controlling the wrapping of content around an element.
 
 ```css
-Class Properties
+Class       Properties
 float-right	float: right;
 float-left	float: left;
 float-none	float: none;
 ```
+
 - Float right
 
 Use float-right to float an element to the right of its container.
 
 ```html
-<img class="float-right ..." src="path/to/image.jpg">
+<img class="float-right ..." src="http://via.placeholder.com/120x100">
 
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam venenatis et lorem sit amet vehicula. Etiam vel nibh nec nisi euismod mollis ultrices condimentum velit. Proin velit libero, interdum ac rhoncus sit amet, pellentesque ac turpis. Quisque ac luctus turpis, vel efficitur ante. Cras convallis risus vel vehicula dapibus. Donec eget neque fringilla, faucibus mi quis, porttitor magna. Cras pellentesque leo est, et luctus neque rutrum eu. Aliquam consequat velit sed sem posuere, vitae sollicitudin mi consequat. Mauris eget ipsum sed dui rutrum fringilla. Donec varius vehicula magna sit amet auctor. Ut congue vehicula lectus in blandit. Vivamus suscipit eleifend turpis, nec sodales sem vulputate a. Curabitur pulvinar libero viverra, efficitur odio eu, finibus justo. Etiam eu vehicula felis.</p>
 ```
@@ -426,9 +403,7 @@ To control the float of an element at a specific breakpoint, add a {screen}: pre
 
 ```
 
-For more information about Tailwind’s responsive design features, check out the Responsive Design documentation.
-
-Source
+- Source
 
 https://tailwindcss.com/docs/float
 
@@ -438,7 +413,7 @@ https://tailwindcss.com/docs/float
 Utilities for controlling the wrapping of content around an element.
 
 ```css
-Class Properties
+Class       Properties
 clear-left	clear: left;
 clear-right	clear: right;
 clear-both	clear: both;
@@ -450,11 +425,10 @@ clear-none	clear: none;
 
 Use clear-left to position an element below any preceding left-floated elements.
 
-for visual explanation, go to source 
-
 ```html
-<img class="float-left ..." src="path/to/image.jpg">
-<img class="float-right ..." src="path/to/image.jpg">
+<img class="float-left ..." src="http://via.placeholder.com/120x100">
+<img class="float-right ..." src="http://via.placeholder.com/120x100">
+
 <p class="clear-left ...">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam venenatis et lorem sit amet vehicula. Etiam vel nibh nec nisi euismod mollis ultrices condimentum velit. Proin velit libero, interdum ac rhoncus sit amet, pellentesque ac turpis. Quisque ac luctus turpis, vel efficitur ante. Cras convallis risus vel vehicula dapibus. Donec eget neque fringilla, faucibus mi quis, porttitor magna. Cras pellentesque leo est, et luctus neque rutrum eu. Aliquam consequat velit sed sem posuere, vitae sollicitudin mi consequat. Mauris eget ipsum sed dui rutrum fringilla. Donec varius vehicula magna sit amet auctor. Ut congue vehicula lectus in blandit. Vivamus suscipit eleifend turpis, nec sodales sem vulputate a. Curabitur pulvinar libero viverra, efficitur odio eu, finibus justo. Etiam eu vehicula felis.</p>
 ```
 
@@ -471,6 +445,7 @@ Use clear-both to position an element below all preceding floated elements.
 Use clear-none to reset any clears that are applied to an element. This is the default value for the clear property.
 
 - Responsive
+
 To control the clear property of an element at a specific breakpoint, add a {screen}: prefix to any existing clear utility. For example, use md:clear-left to apply the clear-left utility at only medium screen sizes and above.
 
 ```html
@@ -484,24 +459,28 @@ To control the clear property of an element at a specific breakpoint, add a {scr
 https://tailwindcss.com/docs/clear
 
 
-## Isolation
+## Isolation ???
 
 Utilities for controlling whether an element should explicitly create a new stacking context.
 
 ```txt
-Class   Properties
-isolate	  isolation: isolate;
-isolation-auto	  isolation: auto;
+Class           Properties
+isolate	        isolation: isolate;
+isolation-auto	isolation: auto;
 ```
 
 - Usage
+ 
 Use the isolate and isolation-auto utilities to control whether an element should explicitly create a new stacking context.
 
+```html
 <div class="isolate ...">
   <!-- ... -->
 </div>
+```
 
 - Responsive
+
 To control the isolation property at a specific breakpoint, add a {screen}: prefix to any existing isolation utility. For example, use md:isolation-auto to apply the isolation-auto utility at only medium screen sizes and above.
 
 ```html
@@ -515,13 +494,12 @@ To control the isolation property at a specific breakpoint, add a {screen}: pref
 Utilities for controlling how a replaced element's content should be resized.
 
 ```css
-Class
-Properties
-object-contain	object-fit: contain;
-object-cover	object-fit: cover;
-object-fill	object-fit: fill;
-object-none	object-fit: none;
-object-scale-down	object-fit: scale-down;
+Class               Properties
+object-contain	    object-fit: contain;
+object-cover	      object-fit: cover;
+object-fill	        object-fit: fill;
+object-none	        object-fit: none;
+object-scale-down	  object-fit: scale-down;
 ```
 
 - Contain
@@ -642,24 +620,24 @@ https://tailwindcss.com/docs/object-position
 
 Utilities for controlling how an element handles content that is too large for the container.
 
-```css
-Class Properties
-overflow-auto	overflow: auto;
-overflow-hidden	overflow: hidden;
-overflow-visible	overflow: visible;
-overflow-scroll	overflow: scroll;
-overflow-x-auto	overflow-x: auto;
-overflow-y-auto	overflow-y: auto;
-overflow-x-hidden	overflow-x: hidden;
-overflow-y-hidden	overflow-y: hidden;
+```
+Class               Properties
+overflow-auto	      overflow: auto;
+overflow-hidden	    overflow: hidden;
+overflow-visible	  overflow: visible;
+overflow-scroll	    overflow: scroll;
+overflow-x-auto	    overflow-x: auto;
+overflow-y-auto	    overflow-y: auto;
+overflow-x-hidden	  overflow-x: hidden;
+overflow-y-hidden	  overflow-y: hidden;
 overflow-x-visible	overflow-x: visible;
 overflow-y-visible	overflow-y: visible;
-overflow-x-scroll	overflow-x: scroll;
-overflow-y-scroll	overflow-y: scroll;
+overflow-x-scroll	  overflow-x: scroll;
+overflow-y-scroll	  overflow-y: scroll;
 
 ```
 
-devam ediyor
+devam ediyor @@@
 
 - Source 
 
@@ -671,7 +649,6 @@ https://tailwindcss.com/docs/overflow
 ## Flex Direction
 
 Utilities for controlling the direction of flex items.
-
 
 ```
 Class             Properties
