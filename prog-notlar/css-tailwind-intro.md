@@ -11,6 +11,8 @@
   - [Object Fit](#object-fit)
   - [Object Position](#object-position)
   - [Overflow](#overflow)
+  - [Overscroll Behavior](#overscroll-behavior)
+  - [Position](#position)
 - [FLEXBOX AND GRID](#flexbox-and-grid)
   - [Flex Direction](#flex-direction)
   - [Flex Wrap](#flex-wrap)
@@ -637,11 +639,150 @@ overflow-y-scroll	  overflow-y: scroll;
 
 ```
 
-devam ediyor @@@
+- Visible
+
+Use overflow-visible to prevent content within an element from being clipped. Note that any content that overflows the bounds of the element will then be visible.
+
+```html
+<div class="overflow-visible h-24 ...">Lorem ipsum dolor sit amet...</div>
+
+```
+
+- Auto
+
+Use overflow-auto to add scrollbars to an element in the event that its content overflows the bounds of that element. Unlike .overflow-scroll, which always shows scrollbars, this utility will only show them if scrolling is necessary.
+
+```html
+<div class="overflow-auto h-32 ...">Lorem ipsum dolor sit amet...</div>
+```
+
+- Hidden
+
+Use overflow-hidden to clip any content within an element that overflows the bounds of that element.
+
+```html
+<div class="overflow-hidden h-32 ...">Lorem ipsum dolor sit amet...</div>
+```
+
+
+- Scroll horizontally if needed
+
+Use overflow-x-auto to allow horizontal scrolling if needed.
+
+```html
+<div class="overflow-x-auto ...">QrLmmW69vMQD...</div>
+```
+
+- Scroll vertically if needed
+
+Use overflow-y-auto to allow vertical scrolling if needed.
+
+```html
+<div class="overflow-y-auto h-32 ...">Lorem ipsum dolor sit amet...</div>
+```
+
+- Scroll horizontally always
+
+Use overflow-x-scroll to allow horizontal scrolling and always show scrollbars unless always-visible scrollbars are disabled by the operating system
+
+```css
+<div class="overflow-x-scroll ...">QrLmmW69vMQD...</div>
+
+```
+
+- Scroll vertically always
+
+Use overflow-y-scroll to allow vertical scrolling and always show scrollbars unless always-visible scrollbars are disabled by the operating system.
+
+
+```html
+<div class="overflow-y-scroll h-32 ...">Lorem ipsum dolor sit amet...</div>
+
+```
+
+- Scroll in all directions
+
+Use overflow-scroll to add scrollbars to an element. Unlike .overflow-auto, which only shows scrollbars if they are necessary, this utility always shows them. Note that some operating systems (like macOS) hide unnecessary scrollbars regardless of this setting.
+
+```html
+<div class="overflow-scroll h-32 ...">Lorem ipsum dolor sit amet...</div>
+
+```
+
+- Responsive
+
+To apply an overflow utility only at a specific breakpoint, add a {screen}: prefix to the existing class name. For example, adding the class md:overflow-scroll to an element would apply the overflow-scroll utility at medium screen sizes and above.
+
+```html
+<div class="overflow-auto md:overflow-scroll ...">
+  Lorem ipsum dolor sit amet...
+</div>
+```
 
 - Source 
 
 https://tailwindcss.com/docs/overflow
+
+
+## Overscroll Behavior
+
+Utilities for controlling how the browser behaves when reaching the boundary of a scrolling area.
+
+```
+Class Properties
+overscroll-auto	      overscroll-behavior: auto;
+overscroll-contain	  overscroll-behavior: contain;
+overscroll-none	      overscroll-behavior: none;
+overscroll-y-auto	    overscroll-behavior-y: auto;
+overscroll-y-contain	overscroll-behavior-y: contain;
+overscroll-y-none	    overscroll-behavior-y: none;
+overscroll-x-auto	    overscroll-behavior-x: auto;
+overscroll-x-contain	overscroll-behavior-x: contain;
+overscroll-x-none	    overscroll-behavior-x: none;
+```
+
+## Position
+
+Utilities for controlling how an element is positioned in the DOM.
+
+```
+Class Properties
+static	  position: static;
+fixed	    position: fixed;
+absolute	position: absolute;
+relative	position: relative;
+sticky	  position: sticky;
+```
+
+
+- Static
+Use static to position an element according to the normal flow of the document.
+
+Any offsets will be ignored and the element will not act as a position reference for absolutely positioned children.
+
+```html
+<div class="static ...">
+  <p>Static parent</p>
+  <div class="absolute bottom-0 left-0 ...">
+    <p>Absolute child</p>
+  </div>
+</div>
+```
+
+
+- Relative
+
+Use relative to position an element according to the normal flow of the document.
+
+Offsets are calculated relative to the element’s normal position and the element will act as a position reference for absolutely positioned children.
+
+
+devam ediyor @@@
+
+- Source 
+
+https://tailwindcss.com/docs/position
+
 
 
 # FLEXBOX AND GRID
