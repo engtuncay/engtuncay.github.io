@@ -865,350 +865,126 @@ To change how an element is positioned only at a specific breakpoint, add a {scr
 
 ```
 
+- Source 
+
+https://tailwindcss.com/docs/position
+
 ## Top / Right / Bottom / Left
 
 Utilities for controlling the placement of positioned elements.
 
 ```
-Class
-Properties
-inset-0	      top: 0px;right: 0px;bottom: 0px;left: 0px;
--inset-0	    top: 0px;right: 0px;bottom: 0px;left: 0px;
+Class           Properties
+inset-0	        top: 0px;right: 0px;bottom: 0px;left: 0px;
 inset-x-0	    left: 0px;right: 0px;
--inset-x-0	  left: 0px;right: 0px;
 inset-y-0	    top: 0px;bottom: 0px;
--inset-y-0	  top: 0px;bottom: 0px;
 top-0	        top: 0px;
--top-0	      top: 0px;
-right-0	      right: 0px;
--right-0	    right: 0px;
+right-0	        right: 0px;
 bottom-0	    bottom: 0px;
--bottom-0	    bottom: 0px;
-left-0	      left: 0px;
--left-0	      left: 0px;
+left-0	        left: 0px;
+
 inset-px	    top: 1px;right: 1px;bottom: 1px;left: 1px;
 -inset-px	    top: -1px;right: -1px;bottom: -1px;left: -1px;
-inset-x-px	  left: 1px;right: 1px;
--inset-x-px	  left: -1px;right: -1px;
-inset-y-px	  top: 1px;bottom: 1px;
--inset-y-px	  top: -1px;bottom: -1px;
-top-px	      top: 1px;
--top-px	      top: -1px;
-right-px	    right: 1px;
--right-px	    right: -1px;
-bottom-px	    bottom: 1px;
--bottom-px	  bottom: -1px;
-left-px	      left: 1px;
--left-px	    left: -1px;
-inset-0.5	    top: 0.125rem;right: 0.125rem;bottom: 0.125rem;left: 0.125rem;
--inset-0.5	  top: -0.125rem;right: -0.125rem;bottom: -0.125rem;left: -0.125rem;
-inset-x-0.5	  left: 0.125rem;right: 0.125rem;-inset-x-0.5	left: -0.125rem;right: -0.125rem;
-inset-y-0.5	  top: 0.125rem;bottom: 0.125rem;
--inset-y-0.5	top: -0.125rem;bottom: -0.125rem;
-top-0.5	      top: 0.125rem;
--top-0.5	    top: -0.125rem;
-right-0.5	    right: 0.125rem;
--right-0.5	  right: -0.125rem;
-bottom-0.5	  bottom: 0.125rem;
--bottom-0.5	  bottom: -0.125rem;
-left-0.5	    left: 0.125rem;
--left-0.5	    left: -0.125rem;
-inset-1	      top: 0.25rem;right: 0.25rem;bottom: 0.25rem;left: 0.25rem;
--inset-1	    top: -0.25rem;right: -0.25rem;bottom: -0.25rem;left: -0.25rem;
-inset-x-1	    left: 0.25rem;right: 0.25rem;
--inset-x-1	  left: -0.25rem;right: -0.25rem;
-inset-y-1	    top: 0.25rem;bottom: 0.25rem;
--inset-y-1	  top: -0.25rem;bottom: -0.25rem;
-top-1	        top: 0.25rem;
--top-1	      top: -0.25rem;
-right-1	      right: 0.25rem;
--right-1	    right: -0.25rem;
-bottom-1	    bottom: 0.25rem;
--bottom-1	    bottom: -0.25rem;
-left-1	      left: 0.25rem;
--left-1	      left: -0.25rem;
-inset-1.5	    top: 0.375rem;right: 0.375rem;bottom: 0.375rem;left: 0.375rem;
--inset-1.5	top: -0.375rem;right: -0.375rem;bottom: -0.375rem;left: -0.375rem;
-inset-x-1.5	left: 0.375rem;
-right: 0.375rem;
--inset-x-1.5	left: -0.375rem;
-right: -0.375rem;
-inset-y-1.5	top: 0.375rem;
-bottom: 0.375rem;
--inset-y-1.5	top: -0.375rem;
-bottom: -0.375rem;
-top-1.5	top: 0.375rem;
--top-1.5	top: -0.375rem;
-right-1.5	right: 0.375rem;
--right-1.5	right: -0.375rem;
-bottom-1.5	bottom: 0.375rem;
--bottom-1.5	bottom: -0.375rem;
-left-1.5	left: 0.375rem;
--left-1.5	left: -0.375rem;
-inset-2	top: 0.5rem;
-right: 0.5rem;
-bottom: 0.5rem;
-left: 0.5rem;
--inset-2	top: -0.5rem;
-right: -0.5rem;
-bottom: -0.5rem;
-left: -0.5rem;
-inset-x-2	left: 0.5rem;
-right: 0.5rem;
--inset-x-2	left: -0.5rem;
-right: -0.5rem;
-inset-y-2	top: 0.5rem;
-bottom: 0.5rem;
--inset-y-2	top: -0.5rem;
-bottom: -0.5rem;
-top-2	top: 0.5rem;
--top-2	top: -0.5rem;
-right-2	right: 0.5rem;
--right-2	right: -0.5rem;
-bottom-2	bottom: 0.5rem;
--bottom-2	bottom: -0.5rem;
-left-2	left: 0.5rem;
--left-2	left: -0.5rem;
-inset-2.5	top: 0.625rem;
-right: 0.625rem;
-bottom: 0.625rem;
-left: 0.625rem;
--inset-2.5	top: -0.625rem;
-right: -0.625rem;
-bottom: -0.625rem;
-left: -0.625rem;
-inset-x-2.5	left: 0.625rem;
-right: 0.625rem;
--inset-x-2.5	left: -0.625rem;
-right: -0.625rem;
-inset-y-2.5	top: 0.625rem;
-bottom: 0.625rem;
--inset-y-2.5	top: -0.625rem;
-bottom: -0.625rem;
-top-2.5	top: 0.625rem;
--top-2.5	top: -0.625rem;
-right-2.5	right: 0.625rem;
--right-2.5	right: -0.625rem;
-bottom-2.5	bottom: 0.625rem;
--bottom-2.5	bottom: -0.625rem;
-left-2.5	left: 0.625rem;
--left-2.5	left: -0.625rem;
-inset-3	top: 0.75rem;
-right: 0.75rem;
-bottom: 0.75rem;
-left: 0.75rem;
--inset-3	top: -0.75rem;
-right: -0.75rem;
-bottom: -0.75rem;
-left: -0.75rem;
-inset-x-3	left: 0.75rem;
-right: 0.75rem;
--inset-x-3	left: -0.75rem;
-right: -0.75rem;
-inset-y-3	top: 0.75rem;
-bottom: 0.75rem;
--inset-y-3	top: -0.75rem;
-bottom: -0.75rem;
-top-3	top: 0.75rem;
--top-3	top: -0.75rem;
-right-3	right: 0.75rem;
--right-3	right: -0.75rem;
-bottom-3	bottom: 0.75rem;
--bottom-3	bottom: -0.75rem;
-left-3	left: 0.75rem;
--left-3	left: -0.75rem;
-inset-3.5	top: 0.875rem;
-right: 0.875rem;
-bottom: 0.875rem;
-left: 0.875rem;
--inset-3.5	top: -0.875rem;
-right: -0.875rem;
-bottom: -0.875rem;
-left: -0.875rem;
-inset-x-3.5	left: 0.875rem;
-right: 0.875rem;
--inset-x-3.5	left: -0.875rem;
-right: -0.875rem;
-inset-y-3.5	top: 0.875rem;
-bottom: 0.875rem;
--inset-y-3.5	top: -0.875rem;
-bottom: -0.875rem;
-top-3.5	top: 0.875rem;
--top-3.5	top: -0.875rem;
-right-3.5	right: 0.875rem;
--right-3.5	right: -0.875rem;
-bottom-3.5	bottom: 0.875rem;
--bottom-3.5	bottom: -0.875rem;
-left-3.5	left: 0.875rem;
--left-3.5	left: -0.875rem;
-inset-4	top: 1rem;
-right: 1rem;
-bottom: 1rem;
-left: 1rem;
--inset-4	top: -1rem;
-right: -1rem;
-bottom: -1rem;
-left: -1rem;
-inset-x-4	left: 1rem;
-right: 1rem;
--inset-x-4	left: -1rem;
-right: -1rem;
-inset-y-4	top: 1rem;
-bottom: 1rem;
--inset-y-4	top: -1rem;
-bottom: -1rem;
-top-4	top: 1rem;
--top-4	top: -1rem;
-right-4	right: 1rem;
--right-4	right: -1rem;
-bottom-4	bottom: 1rem;
--bottom-4	bottom: -1rem;
-left-4	left: 1rem;
--left-4	left: -1rem;
-inset-5	top: 1.25rem;
-right: 1.25rem;
-bottom: 1.25rem;
-left: 1.25rem;
--inset-5	top: -1.25rem;
-right: -1.25rem;
-bottom: -1.25rem;
-left: -1.25rem;
-inset-x-5	left: 1.25rem;
-right: 1.25rem;
--inset-x-5	left: -1.25rem;
-right: -1.25rem;
-inset-y-5	top: 1.25rem;
-bottom: 1.25rem;
--inset-y-5	top: -1.25rem;
-bottom: -1.25rem;
-top-5	top: 1.25rem;
--top-5	top: -1.25rem;
-right-5	right: 1.25rem;
--right-5	right: -1.25rem;
-bottom-5	bottom: 1.25rem;
--bottom-5	bottom: -1.25rem;
-left-5	left: 1.25rem;
--left-5	left: -1.25rem;
-inset-6	top: 1.5rem;
-right: 1.5rem;
-bottom: 1.5rem;
-left: 1.5rem;
--inset-6	top: -1.5rem;
-right: -1.5rem;
-bottom: -1.5rem;
-left: -1.5rem;
-inset-x-6	left: 1.5rem;
-right: 1.5rem;
--inset-x-6	left: -1.5rem;
-right: -1.5rem;
-inset-y-6	top: 1.5rem;
-bottom: 1.5rem;
--inset-y-6	top: -1.5rem;
-bottom: -1.5rem;
-top-6	top: 1.5rem;
--top-6	top: -1.5rem;
-right-6	right: 1.5rem;
--right-6	right: -1.5rem;
-bottom-6	bottom: 1.5rem;
--bottom-6	bottom: -1.5rem;
-left-6	left: 1.5rem;
--left-6	left: -1.5rem;
-inset-7	top: 1.75rem;
-right: 1.75rem;
-bottom: 1.75rem;
-left: 1.75rem;
--inset-7	top: -1.75rem;
-right: -1.75rem;
-bottom: -1.75rem;
-left: -1.75rem;
-inset-x-7	left: 1.75rem;
-right: 1.75rem;
--inset-x-7	left: -1.75rem;
-right: -1.75rem;
-inset-y-7	top: 1.75rem;
-bottom: 1.75rem;
--inset-y-7	top: -1.75rem;
-bottom: -1.75rem;
-top-7	top: 1.75rem;
--top-7	top: -1.75rem;
-right-7	right: 1.75rem;
--right-7	right: -1.75rem;
-bottom-7	bottom: 1.75rem;
--bottom-7	bottom: -1.75rem;
-left-7	left: 1.75rem;
--left-7	left: -1.75rem;
-inset-8	top: 2rem;
-right: 2rem;
-bottom: 2rem;
-left: 2rem;
--inset-8	top: -2rem;
-right: -2rem;
-bottom: -2rem;
-left: -2rem;
-inset-x-8	left: 2rem;
-right: 2rem;
--inset-x-8	left: -2rem;
-right: -2rem;
-inset-y-8	top: 2rem;
-bottom: 2rem;
--inset-y-8	top: -2rem;
-bottom: -2rem;
-top-8	top: 2rem;
--top-8	top: -2rem;
-right-8	right: 2rem;
--right-8	right: -2rem;
-bottom-8	bottom: 2rem;
--bottom-8	bottom: -2rem;
-left-8	left: 2rem;
--left-8	left: -2rem;
-inset-9	top: 2.25rem;
-right: 2.25rem;
-bottom: 2.25rem;
-left: 2.25rem;
--inset-9	top: -2.25rem;
-right: -2.25rem;
-bottom: -2.25rem;
-left: -2.25rem;
-inset-x-9	left: 2.25rem;
-right: 2.25rem;
--inset-x-9	left: -2.25rem;
-right: -2.25rem;
-inset-y-9	top: 2.25rem;
-bottom: 2.25rem;
--inset-y-9	top: -2.25rem;
-bottom: -2.25rem;
-top-9	top: 2.25rem;
--top-9	top: -2.25rem;
-right-9	right: 2.25rem;
--right-9	right: -2.25rem;
-bottom-9	bottom: 2.25rem;
--bottom-9	bottom: -2.25rem;
-left-9	left: 2.25rem;
--left-9	left: -2.25rem;
-inset-10	top: 2.5rem;
-right: 2.5rem;
-bottom: 2.5rem;
-left: 2.5rem;
--inset-10	top: -2.5rem;
-right: -2.5rem;
-bottom: -2.5rem;
-left: -2.5rem;
-inset-x-10	left: 2.5rem;
-right: 2.5rem;
--inset-x-10	left: -2.5rem;
-right: -2.5rem;
-inset-y-10	top: 2.5rem;
-bottom: 2.5rem;
--inset-y-10	top: -2.5rem;
-bottom: -2.5rem;
-top-10	top: 2.5rem;
--top-10	top: -2.5rem;
-right-10	right: 2.5rem;
--right-10	right: -2.5rem;
-bottom-10	bottom: 2.5rem;
--bottom-10	bottom: -2.5rem;
-left-10	left: 2.5rem;
--left-10	left: -2.5rem;
+inset-x-px	    left: 1px;right: 1px;
+-inset-x-px	    left: -1px;right: -1px;
+inset-y-px	    top: 1px;bottom: 1px;
+-inset-y-px	    top: -1px;bottom: -1px;
+
+
+// top right bottom left
+{trbl}-px	    {trbl}: 1px;
+-{trbl}-px	    {trbl}: -1px;
+
+// örnek
+top-px	        top: 1px;
+-top-px	        top: -1px;
+
+{-}inset-0.5	    top: 0.125rem;right: 0.125rem;bottom: 0.125rem;left: 0.125rem;
+{-}inset-x-0.5	    left: 0.125rem;right: 0.125rem;-inset-x-0.5	left: -0.125rem;right: -0.125rem;
+{-}inset-y-0.5	    top: 0.125rem;bottom: 0.125rem;
+
+
+// top right bottom left den biri gelir.
+{-}trbl-0.5	      trbl: 0.125rem; 
+{-}trbl-1	        trbl: 0.25rem;
+{-}trbl-1.5	      trbl: 0.375rem;
+{-}trbl-2	        trbl: 0.5rem;
+{-}trbl-2.5	top: 0.625rem;
+{-}trbl-3	top: 0.75rem;
+{-}trbl-3.5	top: 0.875rem;
+{-}trbl-4	top: 1rem;
+{-}trbl-5	top: 1.25rem;
+{-}trbl-6	top: 1.5rem;
+{-}trbl-7	top: 1.75rem;
+{-}trbl-8	top: 2rem;
+{-}trbl-9	top: 2.25rem;
+{-}trbl-10	top: 2.5rem;
+{-}trbl-11	top: 2.75rem;
+{-}trbl-12	top: 3rem;
+{-}trbl-14	top: 3.5rem;
+
+
+// top örneği
+{-}top-0.5	      top: 0.125rem; 
+{-}top-1	        top: 0.25rem;
+{-}top-1.5	      top: 0.375rem;
+{-}top-2	        top: 0.5rem;
+
+// - olduğunda değerlerinde başına - gelir
+{-}inset-1	      top: 0.25rem;right: 0.25rem;bottom: 0.25rem;left: 0.25rem;
+{-}inset-x-1	    left: 0.25rem;right: 0.25rem;
+{-}inset-y-1	    top: 0.25rem;bottom: 0.25rem;
+
+{-}inset-1.5	    top: 0.375rem;right: 0.375rem;bottom: 0.375rem;left: 0.375rem;
+{-}inset-x-1.5	left: 0.375rem;right: 0.375rem;
+{-}inset-y-1.5	top: 0.375rem;bottom: 0.375rem;
+
+{-}inset-2	top: 0.5rem;right: 0.5rem;bottom: 0.5rem;left: 0.5rem;
+{-}inset-x-2	left: 0.5rem;right: 0.5rem;
+{-}inset-y-2	top: 0.5rem;bottom: 0.5rem;
+
+{-}inset-2.5	top: 0.625rem;right: 0.625rem;bottom: 0.625rem;left: 0.625rem;
+{-}inset-x-2.5	left: 0.625rem;right: 0.625rem;
+{-}inset-y-2.5	top: 0.625rem;bottom: 0.625rem;
+
+{-}inset-3	top: 0.75rem;right: 0.75rem;bottom: 0.75rem;left: 0.75rem;
+{-}inset-x-3	left: 0.75rem;right: 0.75rem;
+{-}inset-y-3	top: 0.75rem;bottom: 0.75rem;
+
+{-}inset-3.5	top: 0.875rem;right: 0.875rem;bottom: 0.875rem;left: 0.875rem;
+{-}inset-x-3.5	left: 0.875rem;right: 0.875rem;
+{-}inset-y-3.5	top: 0.875rem;bottom: 0.875rem;
+
+
+{-}inset-4	top: 1rem;right: 1rem;bottom: 1rem;left: 1rem;
+{-}inset-x-4	left: 1rem;right: 1rem;
+{-}inset-y-4	top: 1rem;bottom: 1rem;
+
+{-}inset-5	top: 1.25rem;right: 1.25rem;bottom: 1.25rem;left: 1.25rem;
+{-}inset-x-5	left: 1.25rem;right: 1.25rem;
+{-}inset-y-5	top: 1.25rem;bottom: 1.25rem;
+
+{-}inset-6	top: 1.5rem;right: 1.5rem;bottom: 1.5rem;left: 1.5rem;
+{-}inset-x-6	left: 1.5rem;right: 1.5rem;
+{-}inset-y-6	top: 1.5rem;bottom: 1.5rem;
+
+inset-7	top: 1.75rem;right: 1.75rem;bottom: 1.75rem;left: 1.75rem;
+inset-x-7	left: 1.75rem;right: 1.75rem;
+inset-y-7	top: 1.75rem;bottom: 1.75rem;
+
+inset-8	top: 2rem;right: 2rem;bottom: 2rem;left: 2rem;
+inset-x-8	left: 2rem;right: 2rem;
+inset-y-8	top: 2rem;bottom: 2rem;
+
+inset-9	top: 2.25rem;right: 2.25rem;bottom: 2.25rem;left: 2.25rem;
+inset-x-9	left: 2.25rem;right: 2.25rem;
+inset-y-9	top: 2.25rem;bottom: 2.25rem;
+
+inset-10	top: 2.5rem;right: 2.5rem;bottom: 2.5rem;left: 2.5rem;
+inset-x-10	left: 2.5rem;right: 2.5rem;
+inset-y-10	top: 2.5rem;bottom: 2.5rem;
+
+
 inset-11	top: 2.75rem;
 right: 2.75rem;
 bottom: 2.75rem;
@@ -1225,14 +1001,7 @@ inset-y-11	top: 2.75rem;
 bottom: 2.75rem;
 -inset-y-11	top: -2.75rem;
 bottom: -2.75rem;
-top-11	top: 2.75rem;
--top-11	top: -2.75rem;
-right-11	right: 2.75rem;
--right-11	right: -2.75rem;
-bottom-11	bottom: 2.75rem;
--bottom-11	bottom: -2.75rem;
-left-11	left: 2.75rem;
--left-11	left: -2.75rem;
+
 inset-12	top: 3rem;
 right: 3rem;
 bottom: 3rem;
@@ -1273,14 +1042,7 @@ inset-y-14	top: 3.5rem;
 bottom: 3.5rem;
 -inset-y-14	top: -3.5rem;
 bottom: -3.5rem;
-top-14	top: 3.5rem;
--top-14	top: -3.5rem;
-right-14	right: 3.5rem;
--right-14	right: -3.5rem;
-bottom-14	bottom: 3.5rem;
--bottom-14	bottom: -3.5rem;
-left-14	left: 3.5rem;
--left-14	left: -3.5rem;
+
 inset-16	top: 4rem;
 right: 4rem;
 bottom: 4rem;
@@ -1577,10 +1339,8 @@ left: 16rem;
 right: -16rem;
 bottom: -16rem;
 left: -16rem;
-inset-x-64	left: 16rem;
-right: 16rem;
--inset-x-64	left: -16rem;
-right: -16rem;
+inset-x-64	left: 16rem;right: 16rem;
+-inset-x-64	left: -16rem;right: -16rem;
 inset-y-64	top: 16rem;
 bottom: 16rem;
 -inset-y-64	top: -16rem;
@@ -1693,158 +1453,48 @@ inset-3/4	top: 75%;
 right: 75%;
 bottom: 75%;
 left: 75%;
-inset-full	top: 100%;
-right: 100%;
-bottom: 100%;
-left: 100%;
--inset-1/2	top: -50%;
-right: -50%;
-bottom: -50%;
-left: -50%;
--inset-1/3	top: -33.333333%;
-right: -33.333333%;
-bottom: -33.333333%;
-left: -33.333333%;
--inset-2/3	top: -66.666667%;
-right: -66.666667%;
-bottom: -66.666667%;
+inset-full	top: 100%;right: 100%;bottom: 100%;left: 100%;
+-inset-1/2	top: -50%;right: -50%;bottom: -50%;left: -50%;
+-inset-1/3	top: -33.333333%;right: -33.333333%;bottom: -33.333333%;left: -33.333333%;
+-inset-2/3	top: -66.666667%;right: -66.666667%;bottom: -66.%;
 left: -66.666667%;
--inset-1/4	top: -25%;
-right: -25%;
-bottom: -25%;
-left: -25%;
--inset-2/4	top: -50%;
-right: -50%;
-bottom: -50%;
-left: -50%;
--inset-3/4	top: -75%;
-right: -75%;
-bottom: -75%;
-left: -75%;
--inset-full	top: -100%;
-right: -100%;
-bottom: -100%;
-left: -100%;
-inset-x-auto	left: auto;
-right: auto;
-inset-x-1/2	left: 50%;
-right: 50%;
-inset-x-1/3	left: 33.333333%;
-right: 33.333333%;
-inset-x-2/3	left: 66.666667%;
-right: 66.666667%;
-inset-x-1/4	left: 25%;
-right: 25%;
-inset-x-2/4	left: 50%;
-right: 50%;
-inset-x-3/4	left: 75%;
-right: 75%;
-inset-x-full	left: 100%;
-right: 100%;
--inset-x-1/2	left: -50%;
-right: -50%;
--inset-x-1/3	left: -33.333333%;
-right: -33.333333%;
--inset-x-2/3	left: -66.666667%;
-right: -66.666667%;
--inset-x-1/4	left: -25%;
-right: -25%;
--inset-x-2/4	left: -50%;
-right: -50%;
--inset-x-3/4	left: -75%;
-right: -75%;
--inset-x-full	left: -100%;
-right: -100%;
-inset-y-auto	top: auto;
-bottom: auto;
-inset-y-1/2	top: 50%;
-bottom: 50%;
-inset-y-1/3	top: 33.333333%;
-bottom: 33.333333%;
-inset-y-2/3	top: 66.666667%;
-bottom: 66.666667%;
-inset-y-1/4	top: 25%;
-bottom: 25%;
-inset-y-2/4	top: 50%;
-bottom: 50%;
-inset-y-3/4	top: 75%;
-bottom: 75%;
-inset-y-full	top: 100%;
-bottom: 100%;
--inset-y-1/2	top: -50%;
-bottom: -50%;
--inset-y-1/3	top: -33.333333%;
-bottom: -33.333333%;
--inset-y-2/3	top: -66.666667%;
-bottom: -66.666667%;
--inset-y-1/4	top: -25%;
-bottom: -25%;
--inset-y-2/4	top: -50%;
-bottom: -50%;
--inset-y-3/4	top: -75%;
-bottom: -75%;
--inset-y-full	top: -100%;
-bottom: -100%;
-top-auto	top: auto;
-top-1/2	top: 50%;
-top-1/3	top: 33.333333%;
-top-2/3	top: 66.666667%;
-top-1/4	top: 25%;
-top-2/4	top: 50%;
-top-3/4	top: 75%;
-top-full	top: 100%;
+-inset-1/4	top: -25%;right: -25%;bottom: -25%;left: -25%;
+-inset-2/4	top: -50%;right: -50%;bottom: -50%;left: -50%;
+-inset-3/4	top: -75%;right: -75%;bottom: -75%;left: -75%;
+-inset-full	top: -100%;right: -100%;bottom: -100%;left: -100%;
+
+{-}inset-x-auto	left: auto;right: auto;
+{-}inset-x-1/2	left: 50%;right: 50%;
+{-}inset-x-1/3	left: 33.333333%;right: 33.333333%;
+{-}inset-x-2/3	left: 66.666667%;right: 66.666667%;
+{-}inset-x-1/4	left: 25%;right: 25%;
+{-}inset-x-2/4	left: 50%;right: 50%;
+{-}inset-x-3/4	left: 75%;right: 75%;
+{-}inset-x-full	left: 100%;right: 100%;
+
+{-}inset-y-auto	top: auto;bottom: auto;
+{-}inset-y-1/2	top: 50%;bottom: 50%;
+{-}inset-y-1/3	top: 33.333333%;bottom: 33.333333%;
+{-}inset-y-2/3	top: 66.666667%;bottom: 66.666667%;
+{-}inset-y-1/4	top: 25%;bottom: 25%;
+{-}inset-y-2/4	top: 50%;bottom: 50%;
+{-}inset-y-3/4	top: 75%;bottom: 75%;
+{-}inset-y-full	top: 100%;bottom: 100%;
+
+// top bottom left right , - olursa değerin başına eksi gelir
+tblr-auto	top: auto;
+{-}tblr-1/2	top: 50%;
+{-}tblr-1/3	top: 33.333333%;
+{-}tblr-2/3	top: 66.666667%;
+{-}tblr-1/4	top: 25%;
+{-}tblr-2/4	top: 50%;
+{-}tblr-3/4	top: 75%;
+{-}tblr-full	top: 100%;
+
+// örnek
 -top-1/2	top: -50%;
--top-1/3	top: -33.333333%;
--top-2/3	top: -66.666667%;
--top-1/4	top: -25%;
--top-2/4	top: -50%;
--top-3/4	top: -75%;
 -top-full	top: -100%;
-right-auto	right: auto;
-right-1/2	right: 50%;
-right-1/3	right: 33.333333%;
-right-2/3	right: 66.666667%;
-right-1/4	right: 25%;
-right-2/4	right: 50%;
-right-3/4	right: 75%;
-right-full	right: 100%;
--right-1/2	right: -50%;
--right-1/3	right: -33.333333%;
--right-2/3	right: -66.666667%;
--right-1/4	right: -25%;
--right-2/4	right: -50%;
--right-3/4	right: -75%;
--right-full	right: -100%;
-bottom-auto	bottom: auto;
-bottom-1/2	bottom: 50%;
-bottom-1/3	bottom: 33.333333%;
-bottom-2/3	bottom: 66.666667%;
-bottom-1/4	bottom: 25%;
-bottom-2/4	bottom: 50%;
-bottom-3/4	bottom: 75%;
-bottom-full	bottom: 100%;
--bottom-1/2	bottom: -50%;
--bottom-1/3	bottom: -33.333333%;
--bottom-2/3	bottom: -66.666667%;
--bottom-1/4	bottom: -25%;
--bottom-2/4	bottom: -50%;
--bottom-3/4	bottom: -75%;
--bottom-full	bottom: -100%;
-left-auto	left: auto;
-left-1/2	left: 50%;
-left-1/3	left: 33.333333%;
-left-2/3	left: 66.666667%;
-left-1/4	left: 25%;
-left-2/4	left: 50%;
-left-3/4	left: 75%;
-left-full	left: 100%;
--left-1/2	left: -50%;
--left-1/3	left: -33.333333%;
--left-2/3	left: -66.666667%;
--left-1/4	left: -25%;
--left-2/4	left: -50%;
--left-3/4	left: -75%;
--left-full	left: -100%;
+
 ```
 
 
@@ -1856,6 +1506,7 @@ Combined with Tailwind’s padding and margin utilities, you’ll probably find 
 ```html
 <!-- Span top edge -->
 <div class="relative h-32 w-32 ...">
+  <!-- h-16 , fakat width değer verilmedi,inset-x-0 (left ve right 0) yapıldığı için containing block'unun tüm genişliğini kaplayacaktır -->
   <div class="absolute inset-x-0 top-0 h-16 ...">1</div>
 </div>
 
@@ -1917,15 +1568,15 @@ To position an element only at a specific breakpoint, add a {screen}: prefix to 
 Utilities for controlling the visibility of an element.
 
 ```html
-Class     Properties
-visible	  visibility: visible;
-invisible	visibility: hidden;
+Class       Properties
+visible     visibility: visible;
+invisible   visibility: hidden;
 
 ```
 
 - Invisible
 
-Use invisible to hide an element, but still maintain its place in the DOM, affecting the layout of other elements (compare with .hidden from the display documentation).
+Use invisible to hide an element, but *still maintain its place in the DOM*, affecting the layout of other elements (compare with .hidden from the display documentation).
 
 ```html
 <div class="flex justify-center space-x-4">
@@ -1962,14 +1613,14 @@ To apply a visibility utility only at a specific breakpoint, add a {screen}: pre
 Utilities for controlling the stack order of an element.
 
 ```
-Class Properties
-z-0	z-index: 0;
-z-10	z-index: 10;
-z-20	z-index: 20;
-z-30	z-index: 30;
-z-40	z-index: 40;
-z-50	z-index: 50;
-z-auto	z-index: auto;
+Class     Properties
+z-0       z-index: 0;
+z-10      z-index: 10;
+z-20      z-index: 20;
+z-30      z-index: 30;
+z-40      z-index: 40;
+z-50      z-index: 50;
+z-auto	  z-index: auto;
 
 ```
 
@@ -1998,13 +1649,6 @@ To control the z-index of an element at a specific breakpoint, add a {screen}: p
 ```
 
 
-
-
-devam ediyor @@@
-
-- Source 
-
-https://tailwindcss.com/docs/position
 
 
 
