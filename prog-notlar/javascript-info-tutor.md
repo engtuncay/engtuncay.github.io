@@ -38,9 +38,21 @@
     - [The typeof operator](#the-typeof-operator)
     - [Summary](#summary-3)
   - [Interaction: alert, prompt, confirm](#interaction-alert-prompt-confirm)
+    - [alert](#alert)
+    - [prompt](#prompt)
+    - [confirm](#confirm)
+    - [Summary](#summary-4)
   - [Type Conversions](#type-conversions)
-  - [Basic operators](#basic-operators)
-    - [Basic operators, maths](#basic-operators-maths)
+    - [String Conversion](#string-conversion)
+    - [Numeric Conversion](#numeric-conversion)
+    - [Boolean Conversion](#boolean-conversion)
+    - [Summary](#summary-5)
+  - [Basic operators, maths](#basic-operators-maths)
+    - [Terms: “unary”, “binary”, “operand”](#terms-unary-binary-operand)
+    - [Maths](#maths)
+      - [Remainder %](#remainder-)
+    - [Exponentiation **](#exponentiation-)
+      - [String concatenation with binary +](#string-concatenation-with-binary-)
   - [Comparisons](#comparisons)
 - [Fundamentals-2](#fundamentals-2)
 - [Sources](#sources)
@@ -1046,35 +1058,45 @@ The typeof operator allows us to see which type is stored in a variable.
 
 In the next chapters, we’ll concentrate on primitive values and once we’re familiar with them, we’ll move on to objects.
 
+https://javascript.info/types
+
 ## Interaction: alert, prompt, confirm
 
 As we’ll be using the browser as our demo environment, let’s see a couple of functions to interact with the user: alert, prompt and confirm.
 
-alert
+### alert
+
 This one we’ve seen already. It shows a message and waits for the user to press “OK”.
 
 For example:
 
+```js
 alert("Hello");
+
+```
 
 The mini-window with the message is called a modal window. The word “modal” means that the visitor can’t interact with the rest of the page, press other buttons, etc, until they have dealt with the window. In this case – until they press “OK”.
 
-prompt
+### prompt
+
 The function prompt accepts two arguments:
 
+```js
 result = prompt(title, [default]);
 
-with 
+```
 
 It shows a modal window with a text message, an input field for the visitor, and the buttons OK/Cancel.
 
-title
-The text to show the visitor.
-default
-An optional second parameter, the initial value for the input field.
+title : The text to show the visitor.
 
-Side note : The square brackets in syntax [...]
+default : An optional second parameter, the initial value for the input field.
+
+__________
+- Info:  The square brackets in syntax [...]
+
 The square brackets around default in the syntax above denote that the parameter is optional, not required.
+__________
 
 The visitor can type something in the prompt input field and press OK. Then we get that text in the result. Or they can cancel the input by pressing Cancel or hitting the Esc key, then we get null as the result.
 
@@ -1082,42 +1104,53 @@ The call to prompt returns the text from the input field or null if the input wa
 
 For instance:
 
+```js
 let age = prompt('How old are you?', 100);
 
 alert(`You are ${age} years old!`); // You are 100 years old!
 
-confirm
+```
+
+### confirm
+
 The syntax:
 
+```js
 result = confirm(question);
+
+```
+
 The function confirm shows a modal window with a question and two buttons: OK and Cancel.
 
 The result is true if OK is pressed and false otherwise.
 
 For example:
 
-
-
+```js
 let isBoss = confirm("Are you the boss?");
 
 alert( isBoss ); // true if OK is pressed
 
-Summary
+```
+
+### Summary
+
 We covered 3 browser-specific functions to interact with visitors:
 
-alert
-shows a message.
-prompt
-shows a message asking the user to input text. It returns the text or, if Cancel button or Esc is clicked, null.
+alert : shows a message.
 
-confirm
-shows a message and waits for the user to press “OK” or “Cancel”. It returns true for OK and false for Cancel/Esc.
+prompt : shows a message asking the user to input text. It returns the text or, if Cancel button or Esc is clicked, null.
+
+confirm : shows a message and waits for the user to press “OK” or “Cancel”. It returns true for OK and false for Cancel/Esc.
+
 All these methods are modal: they pause script execution and don’t allow the visitor to interact with the rest of the page until the window has been dismissed.
 
 There are two limitations shared by all the methods above:
 
-The exact location of the modal window is determined by the browser. Usually, it’s in the center.
-The exact look of the window also depends on the browser. We can’t modify it.
+1. The exact location of the modal window is determined by the browser. Usually, it’s in the center.
+
+2. The exact look of the window also depends on the browser. We can’t modify it.
+
 That is the price for simplicity. There are other ways to show nicer windows and richer interaction with the visitor, but if “bells and whistles” do not matter much, these methods work just fine.
 
 ## Type Conversions
@@ -1125,39 +1158,50 @@ That is the price for simplicity. There are other ways to show nicer windows and
 Most of the time, operators and functions automatically convert the values given to them to the right type.
 
 For example, alert automatically converts any value to a string to show it. Mathematical operations convert values to numbers.
+
 There are also cases when we need to explicitly convert a value to the expected type. 
 
-Note:
-Not talking about objects yet
+__________
+ - Note: Not talking about objects yet
+
 In this chapter, we won’t cover objects. For now we’ll just be talking about primitives.
 
 Later, after we learn about objects, in the chapter Object to primitive conversion we’ll see how objects fit in.
+__________
 
+### String Conversion
 
-String Conversion
 String conversion happens when we need the string form of a value.
 
 For example, alert(value) does it to show the value.
 
 We can also call the String(value) function to convert a value to a string:
 
+```js
 let value = true;
 alert(typeof value); // boolean
 
 value = String(value); // now value is a string "true"
 alert(typeof value); // string
 
+```
+
 String conversion is mostly obvious. A false becomes "false", null becomes "null", etc.
 
-Numeric Conversion
+### Numeric Conversion
+
 Numeric conversion happens in mathematical functions and expressions automatically.
 
 For example, when division / is applied to non-numbers:
 
+```js
 alert( "6" / "2" ); // 3, strings are converted to numbers
+
+```
 
 We can use the Number(value) function to explicitly convert a value to a number:
 
+```js
 let str = "123";
 alert(typeof str); // string
 
@@ -1165,34 +1209,45 @@ let num = Number(str); // becomes a number 123
 
 alert(typeof num); // number
 
+```
+
 Explicit conversion is usually required when we read a value from a string-based source like a text form but expect a number to be entered.
 
 If the string is not a valid number, the result of such a conversion is NaN. For instance:
 
+```js
 let age = Number("an arbitrary string instead of a number");
 
 alert(age); // NaN, conversion failed
 
+```
+
 Numeric conversion rules:
 
-Value	Becomes…
-undefined	NaN
-null	0
+```
+Value	    Becomes…
+undefined	    NaN
+null            0
 true and false	1 and 0
-string	Whitespaces from the start and end are removed. If the remaining string is empty, the result is 0. Otherwise, the number is “read” from the string. An error gives NaN.
+string	        Whitespaces from the start and end are removed. If the remaining string is empty, the result is 0. Otherwise, the number is “read” from the string. An error gives NaN.
+
+```
 
 Examples:
 
+```js
 alert( Number("   123   ") ); // 123
 alert( Number("123z") );      // NaN (error reading a number at "z")
 alert( Number(true) );        // 1
 alert( Number(false) );       // 0
 
+```
+
 Please note that null and undefined behave differently here: null becomes zero while undefined becomes NaN.
 
- Most mathematical operators also perform such conversion, we’ll see that in the next chapter. 
+Most mathematical operators also perform such conversion, we’ll see that in the next chapter. 
 
-Boolean Conversion
+### Boolean Conversion
 
 Boolean conversion is the simplest one.
 
@@ -1205,19 +1260,27 @@ Other values become true.
 
 For instance:
 
+```js
 alert( Boolean(1) ); // true
 alert( Boolean(0) ); // false
 
 alert( Boolean("hello") ); // true
 alert( Boolean("") ); // false
 
-Please note: the string with zero "0" is true
+```
+__________
+-Warn: Please note: the string with zero "0" is true
 Some languages (namely PHP) treat "0" as false. But in JavaScript, a non-empty string is always true.
 
+```js
 alert( Boolean("0") ); // true
 alert( Boolean(" ") ); // spaces, also true (any non-empty string is true)
 
-Summary
+```
+__________
+
+### Summary
+
 The three most widely used type conversions are to string, to number, and to boolean.
 
 String Conversion – Occurs when we output something. Can be performed with String(value). The conversion to string is usually obvious for primitive values.
@@ -1226,59 +1289,72 @@ Numeric Conversion – Occurs in math operations. Can be performed with Number(v
 
 The conversion follows the rules:
 
-
+```
 Value	Becomes…
 undefined	NaN
 null	0
 true / false	1 / 0
 string	The string is read “as is”, whitespaces from both sides are ignored. An empty string becomes 0. An error gives NaN.
 
+```
 
 Boolean Conversion – Occurs in logical operations. Can be performed with Boolean(value).
 
 Follows the rules:
 
+```
 Value	Becomes…
-0, null, undefined, NaN, ""	false
-any other value	true
+0, null, undefined, NaN, ""	    false
+any other value	                true
+
+```
 
 Most of these rules are easy to understand and memorize. The notable exceptions where people usually make mistakes are:
 
-undefined is NaN as a number, not 0.
-"0" and space-only strings like " " are true as a boolean.
+- undefined is NaN as a number, not 0.
+- "0" and space-only strings like " " are true as a boolean.
 
 Objects aren’t covered here. We’ll return to them later in the chapter Object to primitive conversion that is devoted exclusively to objects after we learn more basic things about JavaScript.
 
-## Basic operators
+https://javascript.info/type-conversions
 
-### Basic operators, maths
+## Basic operators, maths
 
 We know many operators from school. They are things like addition +, multiplication *, subtraction -, and so on.
 
 In this chapter, we’ll start with simple operators, then concentrate on JavaScript-specific aspects, not covered by school arithmetic.
 
-Terms: “unary”, “binary”, “operand”
+### Terms: “unary”, “binary”, “operand”
+
 Before we move on, let’s grasp some common terminology.
 
 An operand – is what operators are applied to. For instance, in the multiplication of 5 * 2 there are two operands: the left operand is 5 and the right operand is 2. Sometimes, people call these “arguments” instead of “operands”.
 
 An operator is unary if it has a single operand. For example, the unary negation - reverses the sign of a number:
 
+```js
 let x = 1;
 
 x = -x;
 alert( x ); // -1, unary negation was applied
 
+```
+
 An operator is binary if it has two operands. The same minus exists in binary form as well:
 
+```js
 let x = 1, y = 3;
 alert( y - x ); // 2, binary minus subtracts values
 
+```
+
 Formally, in the examples above we have two different operators that share the same symbol: the negation operator, a unary operator that reverses the sign, and the subtraction operator, a binary operator that subtracts one number from another.
 
-Maths
+### Maths
+
 The following math operations are supported:
 
+```
 Addition +,
 Subtraction -,
 Multiplication *,
@@ -1286,33 +1362,47 @@ Division /,
 Remainder %,
 Exponentiation **.
 
+```
+
 The first four are straightforward, while % and ** need a few words about them.
 
-Remainder %
+#### Remainder %
+
 The remainder operator %, despite its appearance, is not related to percents.
 
 The result of a % b is the remainder of the integer division of a by b.
 
 For instance:
 
+```js
 alert( 5 % 2 ); // 1, a remainder of 5 divided by 2
 alert( 8 % 3 ); // 2, a remainder of 8 divided by 3
 
-Exponentiation **
+```
+
+### Exponentiation **
+
 The exponentiation operator a ** b multiplies a by itself b times.
 
 For instance:
 
+```js
 alert( 2 ** 2 ); // 4  (2 multiplied by itself 2 times)
 alert( 2 ** 3 ); // 8  (2 * 2 * 2, 3 times)
 alert( 2 ** 4 ); // 16 (2 * 2 * 2 * 2, 4 times)
 
+```
+
 Mathematically, the exponentiation is defined for non-integer numbers as well. For example, a square root is an exponentiation by 1/2:
 
+```js
 alert( 4 ** (1/2) ); // 2 (power of 1/2 is the same as a square root)
 alert( 8 ** (1/3) ); // 2 (power of 1/3 is the same as a cubic root)
 
-String concatenation with binary +
+```
+
+#### String concatenation with binary +
+
 Let’s meet features of JavaScript operators that are beyond school arithmetics.
 
 Usually, the plus operator + sums numbers.
