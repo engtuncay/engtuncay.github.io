@@ -26,6 +26,15 @@
   - [Grid Template Columns](#grid-template-columns)
   - [Gap](#gap)
   - [Justify Content](#justify-content)
+  - [Justify Items](#justify-items)
+  - [Justify Self](#justify-self)
+  - [Align Content](#align-content)
+  - [Align Items](#align-items)
+  - [Align Self](#align-self)
+- [SPACING](#spacing)
+  - [Padding](#padding)
+  - [Margin](#margin)
+  - [Space Between](#space-between)
 - [SIZING](#sizing)
   - [Width](#width)
   - [Min-Width](#min-width)
@@ -33,6 +42,21 @@
   - [Height](#height)
   - [Min-Height](#min-height)
   - [Max Height](#max-height)
+- [Typography](#typography)
+  - [Font Family](#font-family)
+  - [Font Size](#font-size)
+  - [Font Smoothing](#font-smoothing)
+- [Backgrounds](#backgrounds)
+- [Borders](#borders)
+- [Effects](#effects)
+- [Filters](#filters)
+- [Tables](#tables)
+- [Transitions and Animations](#transitions-and-animations)
+- [Transforms](#transforms)
+- [Interactivity](#interactivity)
+- [SVG](#svg)
+- [Accesibility](#accesibility)
+- [Official Plugins](#official-plugins)
 
 
 # Code Play For Tailwind
@@ -1276,10 +1300,6 @@ To control the z-index of an element at a specific breakpoint, add a {screen}: p
 
 ```
 
-
-
-
-
 # FLEXBOX AND GRID
 
 ## Flex Direction
@@ -1724,7 +1744,7 @@ daha sonra devam edilecek @@@
 
 ## Gap
 
-Utilities for controlling gutters between grid and flexbox items.
+Utilities for controlling *gutters* between *grid and flexbox items*.
 
 ```
 Class Properties
@@ -1976,6 +1996,273 @@ To justify flex items at a specific breakpoint, add a {screen}: prefix to any ex
   <!-- ... -->
 </div>
 ```
+
+## Justify Items
+
+Utilities for controlling how grid items are aligned along their inline axis.
+
+```
+Class Properties
+justify-items-start	justify-items: start;
+justify-items-end	justify-items: end;
+justify-items-center	justify-items: center;
+justify-items-stretch	justify-items: stretch;
+```
+
+- Start
+
+Use justify-items-start to justify grid items against the start of their inline axis:
+
+```html
+<div class="grid justify-items-start ...">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+  <div>4</div>
+  <div>5</div>
+  <div>6</div>
+</div>
+```
+
+- End
+
+Use justify-items-end to justify grid items against the end of their inline axis:
+
+```html
+<div class="grid justify-items-end ...">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+  <div>4</div>
+  <div>5</div>
+  <div>6</div>
+</div>
+```
+
+- Center
+
+Use justify-items-center to justify grid items along their inline axis:
+
+
+- Stretch
+Use justify-items-stretch to stretch items along their inline axis:
+
+- Responsive
+
+To justify flex items at a specific breakpoint, add a {screen}: prefix to any existing utility class. For example, use md:justify-items-center to apply the justify-items-center utility at only medium screen sizes and above.
+
+```html
+<div class="justify-items-start md:justify-items-center">
+  <!-- ... -->
+</div>
+
+```
+
+https://tailwindcss.com/docs/justify-items
+
+## Justify Self
+
+Utilities for controlling how an individual grid item is aligned along its inline axis.
+
+```
+Class Properties
+justify-self-auto	justify-self: auto;
+justify-self-start	justify-self: start;
+justify-self-end	justify-self: end;
+justify-self-center	justify-self: center;
+justify-self-stretch	justify-self: stretch;
+
+```
+- Auto
+
+Use justify-self-auto to align an item based on the value of the grid’s justify-items property:
+
+```html
+<div class="grid justify-items-stretch ...">
+  <!-- ... -->
+  <div class="justify-self-auto ...">1</div>
+  <!-- ... -->
+  <!-- ... -->
+  <!-- ... -->
+  <!-- ... -->
+</div>
+```
+
+- Start
+
+Use justify-self-start to align a grid item to the start its inline axis:
+
+
+- Center
+
+Use justify-self-center to align a grid item along the center its inline axis:
+
+- End
+
+Use justify-self-end to align a grid item to the end its inline axis:
+
+
+- Stretch
+
+Use justify-self-stretch to stretch a grid item to fill the grid area on its inline axis:
+
+- Responsive
+
+To control the alignment of a grid item inside its grid area at a specific breakpoint, add a {screen}: prefix to any existing utility class. For example, use md:justify-self-end to apply the justify-self-end utility at only medium screen sizes and above.
+
+https://tailwindcss.com/docs/justify-self
+
+## Align Content
+
+Utilities for controlling how rows are positioned in multi-row flex and grid containers.
+
+```
+Class Properties
+content-center	align-content: center;
+content-start	align-content: flex-start;
+content-end	align-content: flex-end;
+content-between	align-content: space-between;
+content-around	align-content: space-around;
+content-evenly	align-content: space-evenly;
+
+```
+
+- Start
+
+Use content-start to pack rows in a container against the start of the cross axis:
+
+```html
+<div class="h-48 flex flex-wrap content-start ...">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+  <div>4</div>
+  <div>5</div>
+</div>
+```
+
+- Center
+
+Use content-center to pack rows in a container in the center of the cross axis:
+
+
+- End
+
+Use content-end to pack rows in a container against the end of the cross axis:
+
+- Space between
+
+Use content-between to distribute rows in a container such that there is an equal amount of space between each line:
+
+- Space around
+
+Use content-around to distribute rows in a container such that there is an equal amount of space around each line:
+
+- Space evenly
+
+Use content-evenly to distribute rows in a container such that there is an equal amount of space around each item, but also accounting for the doubling of space you would normally see between each item when using content-around:
+
+- Responsive
+To control the alignment of flex content at a specific breakpoint, add a {screen}: prefix to any existing utility class. For example, use md:content-around to apply the content-around utility at only medium screen sizes and above.
+
+```html
+<div class="content-start md:content-around ...">
+  <!-- ... -->
+</div>
+
+```
+
+https://tailwindcss.com/docs/align-content
+
+## Align Items
+
+Utilities for controlling how flex and grid items are positioned along a container's cross axis.
+
+```
+Class Properties
+items-start	align-items: flex-start;
+items-end	align-items: flex-end;
+items-center	align-items: center;
+items-baseline	align-items: baseline;
+items-stretch	align-items: stretch;
+
+```
+
+- Stretch
+
+Use items-stretch to stretch items to fill the container’s cross axis:
+
+```html
+<div class="flex items-stretch ...">
+  <div class="py-4">1</div>
+  <div class="py-12">2</div>
+  <div class="py-8">3</div>
+</div>
+```
+
+- Start
+
+Use items-start to align items to the start of the container’s cross axis:
+
+- Center
+
+Use items-center to align items along the center of the container’s cross axis:
+
+- End
+
+Use items-end to align items to the end of the container’s cross axis:
+
+- Baseline
+
+Use items-baseline to align items along the container’s cross axis such that all of their baselines align:
+
+
+- Responsive
+
+To control the alignment of flex items at a specific breakpoint, add a {screen}: prefix to any existing utility class. For example, use md:items-center to apply the items-center utility at only medium screen sizes and above.
+
+<div class="items-stretch md:items-center ...">
+  <!-- ... -->
+</div>
+
+https://tailwindcss.com/docs/align-items
+
+## Align Self
+
+Utilities for controlling how an individual flex or grid item is positioned along its container's cross axis.
+
+```
+Class Properties
+self-auto	align-self: auto;
+self-start	align-self: flex-start;
+self-end	align-self: flex-end;
+self-center	align-self: center;
+self-stretch	align-self: stretch;
+
+```
+
+- Auto
+
+Use self-auto to align an item based on the value of the container’s align-items property:
+
+```html
+<div class="flex items-stretch ...">
+  <div>1</div>
+  <div class="self-auto ...">2</div>
+  <div>3</div>
+</div>
+```
+
+@@@
+
+
+# SPACING
+
+## Padding
+
+## Margin
+
+## Space Between
 
 
 # SIZING
@@ -2401,4 +2688,36 @@ https://tailwindcss.com/docs/min-height
 
 ## Max Height
 
+@@@
+
+
+# Typography
+
+## Font Family
+
+## Font Size
+
+## Font Smoothing
+
+# Backgrounds
+
+# Borders
+
+# Effects
+
+# Filters
+
+# Tables
+
+# Transitions and Animations
+
+# Transforms
+
+# Interactivity
+
+# SVG
+
+# Accesibility
+
+# Official Plugins
 
