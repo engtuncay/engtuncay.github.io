@@ -19,17 +19,30 @@
     - [Comments](#comments)
     - [Use hotkeys!](#use-hotkeys)
   - [Use Strict](#use-strict)
+    - [The modern mode, "use strict"](#the-modern-mode-use-strict)
   - [Variables](#variables)
     - [A variable](#a-variable)
     - [Variable naming](#variable-naming)
-    - [Reserved names](#reserved-names)
     - [Constants](#constants)
+      - [Uppercase constants](#uppercase-constants)
+      - [Name things right](#name-things-right)
+      - [Summary](#summary-2)
   - [Data types](#data-types)
+    - [Number](#number)
+    - [BigInt](#bigint)
+    - [String](#string)
+    - [Boolean (logical type)](#boolean-logical-type)
+    - [The “null” value](#the-null-value)
+    - [The “undefined” value](#the-undefined-value)
+    - [Objects and Symbols](#objects-and-symbols)
+    - [The typeof operator](#the-typeof-operator)
+    - [Summary](#summary-3)
   - [Interaction: alert, prompt, confirm](#interaction-alert-prompt-confirm)
   - [Type Conversions](#type-conversions)
   - [Basic operators](#basic-operators)
     - [Basic operators, maths](#basic-operators-maths)
   - [Comparisons](#comparisons)
+- [Fundamentals-2](#fundamentals-2)
 - [Sources](#sources)
 
 
@@ -73,6 +86,7 @@ And then the machine code runs, pretty fast.
 The engine applies optimizations at each step of the process. It even watches the compiled script as it runs, analyzes the data that flows through it, and further optimizes the machine code based on that knowledge.
 
 ### What can in-browser JavaScript do?
+
 Modern JavaScript is a “safe” programming language. It does not provide low-level access to memory or CPU, because it was initially created for browsers which do not require it.
 
 JavaScript’s capabilities greatly depend on the environment it’s running in. For instance, Node.js supports functions that allow JavaScript to read/write arbitrary files, perform network requests, etc.
@@ -384,7 +398,8 @@ Later in the tutorial there will be a chapter Code quality that also explains ho
 
 ## Use Strict
 
-The modern mode, "use strict"
+### The modern mode, "use strict"
+
 For a long time, JavaScript evolved without compatibility issues. New features were added to the language while old functionality didn’t change.
 
 That had the benefit of never breaking existing code. But the downside was that any mistake or an imperfect decision made by JavaScript’s creators got stuck in the language forever.
@@ -461,8 +476,9 @@ As of now, we’ve got to know about use strict in general.
 
 Most of the time, a JavaScript application needs to work with information. Here are two examples:
 
-1 An online shop – the information might include goods being sold and a shopping cart.
-2 A chat application – the information might include users, messages, and much more.
+1. An online shop – the information might include goods being sold and a shopping cart.
+2. A chat application – the information might include users, messages, and much more.
+
 Variables are used to store this information.
 
 ### A variable
@@ -540,6 +556,22 @@ let user = 'John'
 
 Technically, all these variants do the same thing. So, it’s a matter of personal taste and aesthetics.
 
+- We can also declare two variables and copy data from one into the other.
+
+```js
+let hello = 'Hello world!';
+
+let message;
+
+// copy 'Hello world' from hello into message
+message = hello;
+
+// now two variables hold the same data
+alert(hello); // Hello world!
+alert(message); // Hello world!
+
+```
+
 - Note: Functional languages
 
 It’s interesting to note that there exist functional programming languages, like Scala or Erlang that forbid changing variable values.
@@ -586,11 +618,12 @@ let my-name; // hyphens '-' aren't allowed in the name
 
 ```
 
-Case matters
+- Info: Case matters
 
 Variables named apple and AppLE are two different variables.
 
-Non-Latin letters are allowed, but not recommended
+- Info: Non-Latin letters are allowed, but not recommended
+
 It is possible to use any language, including cyrillic letters or even hieroglyphs, like this:
 
 ```js
@@ -601,7 +634,7 @@ let 我 = '...';
 
 Technically, there is no error here. Such names are allowed, but there is an international convention to use English in variable names. Even if we’re writing a small script, it may have a long life ahead. People from other countries may need to read it some time.
 
-### Reserved names
+- Warn: Reserved names
 
 There is a list of reserved words, which cannot be used as variable names because they are used by the language itself.
 
@@ -609,34 +642,52 @@ For example: let, class, return, and function are reserved.
 
 The code below gives a syntax error:
 
+```js
 let let = 5; // can't name a variable "let", error!
 let return = 5; // also can't name it "return", error!
 
+```
+
+- Warn: An assignment without use strict
+
 Normally, we need to define a variable before using it. But in the old times, it was technically possible to create a variable by a mere assignment of the value without using let. This still works now if we don’t put use strict in our scripts to maintain compatibility with old scripts.
 
+```js
 // note: no "use strict" in this example
 num = 5; // the variable "num" is created if it didn't exist
 alert(num); // 5
 
+```
+
 This is a bad practice and would cause an error in strict mode:
+
+```js
 "use strict";
 num = 5; // error: num is not defined
+
+```
 
 ### Constants
 
 To declare a constant (unchanging) variable, use const instead of let:
 
+```js
 const myBirthday = '18.04.1982';
+
+```
 
 Variables declared using const are called “constants”. They cannot be reassigned. An attempt to do so would cause an error:
 
+```js
 const myBirthday = '18.04.1982';
 
 myBirthday = '01.01.2001'; // error, can't reassign the constant!
 
+```
+
 When a programmer is sure that a variable will never change, they can declare it with const to guarantee and clearly communicate that fact to everyone.
 
-Uppercase constants
+#### Uppercase constants
 
 There is a widespread practice to use constants as aliases for difficult-to-remember values that are known prior to execution.
 
@@ -644,6 +695,7 @@ Such constants are named using capital letters and underscores.
 
 For instance, let’s make constants for colors in so-called “web” (hexadecimal) format:
 
+```js
 const COLOR_RED = "#F00";
 const COLOR_GREEN = "#0F0";
 const COLOR_BLUE = "#00F";
@@ -653,23 +705,31 @@ const COLOR_ORANGE = "#FF7F00";
 let color = COLOR_ORANGE;
 alert(color); // #FF7F00
 
+```
+
 Benefits:
 
-COLOR_ORANGE is much easier to remember than "#FF7F00".
-It is much easier to mistype "#FF7F00" than COLOR_ORANGE.
-When reading the code, COLOR_ORANGE is much more meaningful than #FF7F00.
+- COLOR_ORANGE is much easier to remember than "#FF7F00".
+
+- It is much easier to mistype "#FF7F00" than COLOR_ORANGE.
+
+- When reading the code, COLOR_ORANGE is much more meaningful than #FF7F00.
 
 When should we use capitals for a constant and when should we name it normally? Let’s make that clear.
 
 For instance:
 
+```js
 const pageLoadTime = /* time taken by a webpage to load */;
+
+```
 
 The value of pageLoadTime is not known prior to the page load, so it’s named normally. But it’s still a constant because it doesn’t change after assignment.
 
 In other words, capital-named constants are only used as aliases for “hard-coded” values.
 
-Name things right
+#### Name things right
+
 Talking about variables, there’s one more extremely important thing.
 
 A variable name should have a clean, obvious meaning, describing the data that it stores.
@@ -689,12 +749,13 @@ Agree on terms within your team and in your own mind. If a site visitor is calle
 
 Sounds simple? Indeed it is, but creating descriptive and concise variable names in practice is not. Go for it.
 
-Summary
+#### Summary
+
 We can declare variables to store data by using the var, let, or const keywords.
 
-let – is a modern variable declaration.
-var – is an old-school variable declaration. Normally we don’t use it at all, but we’ll cover subtle differences from let in the chapter The old "var", just in case you need them.
-const – is like let, but the value of the variable can’t be changed.
+- let – is a modern variable declaration.
+- var – is an old-school variable declaration. Normally we don’t use it at all, but we’ll cover subtle differences from let in the chapter The old "var", just in case you need them.
+- const – is like let, but the value of the variable can’t be changed.
 
 Variables should be named in a way that allows us to easily understand what’s inside them.
 
@@ -706,50 +767,72 @@ There are eight basic data types in JavaScript. Here, we’ll cover them in gene
 
 We can put any type in a variable. For example, a variable can at one moment be a string and then store a number:
 
+```js
 // no error
 let message = "hello";
 message = 123456;
 
+```
+
 Programming languages that allow such things, such as JavaScript, are called “dynamically typed”, meaning that there exist data types, but variables are not bound to any of them.
 
-Number 
+### Number 
+
+```js
 let n = 123;
 n = 12.345;
+```
 
 There are many operations for numbers, e.g. multiplication *, division /, addition +, subtraction -, and so on.
 
 Besides regular numbers, there are so-called “special numeric values” which also belong to this data type: Infinity, -Infinity and NaN.
 
-Infinity represents the mathematical Infinity ∞. It is a special value that’s greater than any number.
+- Infinity represents the mathematical Infinity ∞. It is a special value that’s greater than any number.
 
 We can get it as a result of division by zero:
 
+```js
 alert( 1 / 0 ); // Infinity
+
+```
 
 Or just reference it directly:
 
+```js
 alert( Infinity ); // Infinity
 
-NaN represents a computational error. It is a result of an incorrect or an undefined mathematical operation, for instance:
+```
 
+- NaN represents a computational error. It is a result of an incorrect or an undefined mathematical operation, for instance:
+
+```js
 alert( "not a number" / 2 ); // NaN, such division is erroneous
+
+```
 
 NaN is sticky. Any further operation on NaN returns NaN:
 
+```js
 alert( "not a number" / 2 + 5 ); // NaN
+
+```
 
 So, if there’s a NaN somewhere in a mathematical expression, it propagates to the whole result.
 
-Mathematical operations are safe
+__________
+- Info: Mathematical operations are safe
+
 Doing maths is “safe” in JavaScript. We can do anything: divide by zero, treat non-numeric strings as numbers, etc.
 
 The script will never stop with a fatal error (“die”). At worst, we’ll get NaN as the result.
+__________
 
 Special numeric values formally belong to the “number” type. Of course they are not numbers in the common sense of this word.
 
 We’ll see more about working with numbers in the chapter Numbers.
 
-BigInt
+### BigInt
+
 In JavaScript, the “number” type cannot represent integer values larger than (2^253-1) (that’s 9007199254740991), or less than -(2^253-1) for negatives. It’s a technical limitation caused by their internal representation.
 
 For most purposes that’s quite enough, but sometimes we need really big numbers, e.g. for cryptography or microsecond-precision timestamps.
@@ -763,26 +846,34 @@ const bigInt = 1234567890123456789012345678901234567890n;
 
 As BigInt numbers are rarely needed, we don’t cover them here, but devoted them a separate chapter BigInt. Read it when you need such big numbers.
 
-Compatibility issues
-Right now, BigInt is supported in Firefox/Chrome/Edge/Safari, but not in IE.
+__________
+- Info : Compatibility issues
 
-String
+Right now, BigInt is supported in Firefox/Chrome/Edge/Safari, but not in IE.
+__________
+
+### String
+
 A string in JavaScript must be surrounded by quotes.
 
+```js
 let str = "Hello";
 let str2 = 'Single quotes are ok too';
 let phrase = `can embed another ${str}`;
 
+```
+
 In JavaScript, there are 3 types of quotes.
 
-Double quotes: "Hello".
-Single quotes: 'Hello'.
-Backticks: `Hello`.
+1. Double quotes: "Hello".
+2. Single quotes: 'Hello'.
+3. Backticks: `Hello`.
 
 Double and single quotes are “simple” quotes. There’s practically no difference between them in JavaScript.
 
 Backticks are “extended functionality” quotes. They allow us to embed variables and expressions into a string by wrapping them in ${…}, for example:
 
+```js
 let name = "John";
 
 // embed a variable
@@ -791,43 +882,61 @@ alert( `Hello, ${name}!` ); // Hello, John!
 // embed an expression
 alert( `the result is ${1 + 2}` ); // the result is 3
 
+```
+
 The expression inside ${…} is evaluated and the result becomes a part of the string. We can put anything in there: a variable like name or an arithmetical expression like 1 + 2 or something more complex.
 
 Please note that this can only be done in backticks. Other quotes don’t have this embedding functionality!
 
+```js
 alert( "the result is ${1 + 2}" ); // the result is ${1 + 2} (double quotes do nothing)
+
+```
 
 We’ll cover strings more thoroughly in the chapter Strings.
 
-There is no character type.
+__________
+- Info : There is no character type.
 In some languages, there is a special “character” type for a single character. For example, in the C language and in Java it is called “char”.
 
 In JavaScript, there is no such type. There’s only one type: string. A string may consist of zero characters (be empty), one character or many of them.
+__________
 
-Boolean (logical type)
+### Boolean (logical type)
+
 The boolean type has only two values: true and false.
 
 This type is commonly used to store yes/no values: true means “yes, correct”, and false means “no, incorrect”.
 
 For instance:
 
+```js
 let nameFieldChecked = true; // yes, name field is checked
 let ageFieldChecked = false; // no, age field is not checked
 
+```
+
 Boolean values also come as a result of comparisons:
 
+```js
 let isGreater = 4 > 1;
 
 alert( isGreater ); // true (the comparison result is "yes")
 
+```
+
 We’ll cover booleans more deeply in the chapter Logical operators.
 
-The “null” value
+### The “null” value
+
 The special null value does not belong to any of the types described above.
 
 It forms a separate type of its own which contains only the null value:
 
+```js
 let age = null;
+
+```
 
 In JavaScript, null is not a “reference to a non-existing object” or a “null pointer” like in some other languages.
 
@@ -835,19 +944,24 @@ It’s just a special value which represents “nothing”, “empty” or “va
 
 The code above states that age is unknown.
 
-The “undefined” value
+### The “undefined” value
+
 The special value undefined also stands apart. It makes a type of its own, just like null.
 
 The meaning of undefined is “value is not assigned”.
 
 If a variable is declared, but not assigned, then its value is undefined:
 
+```js
 let age;
 
 alert(age); // shows "undefined"
 
+```
+
 Technically, it is possible to explicitly assign undefined to a variable:
 
+```js
 let age = 100;
 
 // change the value to undefined
@@ -855,10 +969,11 @@ age = undefined;
 
 alert(age); // "undefined"
 
+```
 
 …But we don’t recommend doing that. Normally, one uses null to assign an “empty” or “unknown” value to a variable, while undefined is reserved as a default initial value for unassigned things.
 
-Objects and Symbols
+### Objects and Symbols
 
 The object type is special.
 
@@ -868,7 +983,8 @@ Being that important, objects deserve a special treatment. We’ll deal with the
 
 The symbol type is used to create unique identifiers for objects. We have to mention it here for the sake of completeness, but also postpone the details till we know objects.
 
-The typeof operator
+### The typeof operator
+
 The typeof operator returns the type of the argument. It’s useful when we want to process values of different types differently or just want to do a quick check.
 
 It supports two forms of syntax:
@@ -880,7 +996,7 @@ In other words, it works with parentheses or without them. The result is the sam
 
 The call to typeof x returns a string with the type name:
 
-
+```js
 typeof undefined // "undefined"
 
 typeof 0 // "number"
@@ -899,31 +1015,35 @@ typeof null // "object"  (2)
 
 typeof alert // "function"  (3)
 
+```
+
 The last three lines may need additional explanation:
 
-Math is a built-in object that provides mathematical operations. We will learn it in the chapter Numbers. Here, it serves just as an example of an object.
+1. Math is a built-in object that provides mathematical operations. We will learn it in the chapter Numbers. Here, it serves just as an example of an object.
 
-The result of typeof null is "object". That’s an officially recognized error in typeof behavior, coming from the early days of JavaScript and kept for compatibility. Definitely, null is not an object. It is a special value with a separate type of its own.
+2. The result of typeof null is "object". That’s an officially recognized error in typeof behavior, coming from the early days of JavaScript and kept for compatibility. Definitely, null is not an object. It is a special value with a separate type of its own.
 
-The result of typeof alert is "function", because alert is a function. We’ll study functions in the next chapters where we’ll also see that there’s no special “function” type in JavaScript. Functions belong to the object type. But typeof treats them differently, returning "function". That also comes from the early days of JavaScript. Technically, such behavior isn’t correct, but can be convenient in practice.
+3. The result of typeof alert is "function", because alert is a function. We’ll study functions in the next chapters where we’ll also see that there’s no special “function” type in JavaScript. Functions belong to the object type. But typeof treats them differently, returning "function". That also comes from the early days of JavaScript. Technically, such behavior isn’t correct, but can be convenient in practice.
 
-Summary
+### Summary
+
 There are 8 basic data types in JavaScript.
 
-number : for numbers of any kind: integer or floating-point, integers are limited by ±(253-1).
-bigint : is for integer numbers of arbitrary length.
-string for strings. : A string may have zero or more characters, there’s no separate single-character type.
-boolean : for true/false.
-null : for unknown values – a standalone type that has a single value null.
-undefined : for unassigned values – a standalone type that has a single value undefined.
-object : for more complex data structures.
-symbol for unique identifiers.
+- number : for numbers of any kind: integer or floating-point, integers are limited by ±(253-1).
+- bigint : is for integer numbers of arbitrary length.
+- string for strings. : A string may have zero or more characters, there’s no separate single-character type.
+- boolean : for true/false.
+- null : for unknown values – a standalone type that has a single value null.
+- undefined : for unassigned values – a standalone type that has a single value undefined.
+- object : for more complex data structures.
+- symbol for unique identifiers.
 
 The typeof operator allows us to see which type is stored in a variable.
 
-Two forms: typeof x or typeof(x).
-Returns a string with the name of the type, like "string".
-For null returns "object" – this is an error in the language, it’s not actually an object.
+- Two forms: typeof x or typeof(x).
+- Returns a string with the name of the type, like "string".
+- For null returns "object" – this is an error in the language, it’s not actually an object.
+
 In the next chapters, we’ll concentrate on primitive values and once we’re familiar with them, we’ll move on to objects.
 
 ## Interaction: alert, prompt, confirm
@@ -1701,6 +1821,8 @@ Strings are compared letter-by-letter in the “dictionary” order.
 When values of different types are compared, they get converted to numbers (with the exclusion of a strict equality check).
 The values null and undefined equal == each other and do not equal any other value.
 Be careful when using comparisons like > or < with variables that can occasionally be null/undefined. Checking for null/undefined separately is a good idea.
+
+# Fundamentals-2
 
 
 # Sources
