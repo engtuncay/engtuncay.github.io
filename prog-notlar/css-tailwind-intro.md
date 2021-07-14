@@ -112,7 +112,12 @@ If you’d like to center your containers by default or include default horizont
 
 The container class also includes responsive variants like md:container by default that allow you to make something behave like a container at only a certain breakpoint and up:
 
-- Source
+```html
+<!-- Full-width fluid until the `md` breakpoint, then lock to container -->
+<div class="md:container md:mx-auto">
+  <!-- ... -->
+</div>
+```
   
 https://tailwindcss.com/docs/container
 
