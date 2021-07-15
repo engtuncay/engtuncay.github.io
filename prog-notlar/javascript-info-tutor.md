@@ -24,9 +24,6 @@
     - [A variable](#a-variable)
     - [Variable naming](#variable-naming)
     - [Constants](#constants)
-      - [Uppercase constants](#uppercase-constants)
-      - [Name things right](#name-things-right)
-      - [Summary](#summary-2)
   - [Data types](#data-types)
     - [Number](#number)
     - [BigInt](#bigint)
@@ -36,20 +33,20 @@
     - [The “undefined” value](#the-undefined-value)
     - [Objects and Symbols](#objects-and-symbols)
     - [The typeof operator](#the-typeof-operator)
-    - [Summary](#summary-3)
+    - [Summary](#summary-2)
   - [Interaction: alert, prompt, confirm](#interaction-alert-prompt-confirm)
     - [alert](#alert)
     - [prompt](#prompt)
     - [confirm](#confirm)
-    - [Summary](#summary-4)
+    - [Summary](#summary-3)
   - [Type Conversions](#type-conversions)
     - [String Conversion](#string-conversion)
     - [Numeric Conversion](#numeric-conversion)
     - [Boolean Conversion](#boolean-conversion)
-    - [Summary](#summary-5)
+    - [Summary](#summary-4)
   - [Basic operators, maths](#basic-operators-maths)
     - [Terms: “unary”, “binary”, “operand”](#terms-unary-binary-operand)
-    - [Maths](#maths)
+    - [Math Operations](#math-operations)
     - [String concatenation with binary +](#string-concatenation-with-binary-)
     - [Numeric conversion, unary +](#numeric-conversion-unary-)
     - [Operator precedence](#operator-precedence)
@@ -65,14 +62,15 @@
     - [Comparison of different types](#comparison-of-different-types)
     - [Strict equality](#strict-equality)
     - [Comparison with null and undefined](#comparison-with-null-and-undefined)
-    - [Summary](#summary-6)
+    - [Summary](#summary-5)
 - [Fundamentals-2](#fundamentals-2)
 - [Sources](#sources)
 
+This tutorial is mostly prepared from javascript.info website. It is very good. Some sections may be changed or removed.
 
 # Fundamentals 1
 
-##  An Introduction to JavaScript
+## An Introduction to JavaScript
 
 ### What is JavaScript?
 
@@ -711,7 +709,7 @@ myBirthday = '01.01.2001'; // error, can't reassign the constant!
 
 When a programmer is sure that a variable will never change, they can declare it with const to guarantee and clearly communicate that fact to everyone.
 
-#### Uppercase constants
+**Uppercase constants**
 
 There is a widespread practice to use constants as aliases for difficult-to-remember values that are known prior to execution.
 
@@ -752,7 +750,7 @@ The value of pageLoadTime is not known prior to the page load, so it’s named n
 
 In other words, capital-named constants are only used as aliases for “hard-coded” values.
 
-#### Name things right
+**Name things right**
 
 Talking about variables, there’s one more extremely important thing.
 
@@ -773,7 +771,7 @@ Agree on terms within your team and in your own mind. If a site visitor is calle
 
 Sounds simple? Indeed it is, but creating descriptive and concise variable names in practice is not. Go for it.
 
-#### Summary
+**Summary**
 
 We can declare variables to store data by using the var, let, or const keywords.
 
@@ -1362,7 +1360,7 @@ alert( y - x ); // 2, binary minus subtracts values
 
 Formally, in the examples above we have two different operators that share the same symbol: the negation operator, a unary operator that reverses the sign, and the subtraction operator, a binary operator that subtracts one number from another.
 
-### Maths
+### Math Operations
 
 The following math operations are supported:
 
