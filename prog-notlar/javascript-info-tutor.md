@@ -80,6 +80,35 @@
   - [Function Expressions](#function-expressions)
   - [Arrow Functions](#arrow-functions)
   - [Javascript Specials](#javascript-specials)
+- [Code Quality](#code-quality)
+  - [Debugging in the browser](#debugging-in-the-browser)
+  - [Coding Style](#coding-style)
+  - [Comments](#comments-1)
+  - [Ninja Code](#ninja-code)
+  - [Automated testing with Mocha](#automated-testing-with-mocha)
+  - [Polyfills and transpilers](#polyfills-and-transpilers)
+- [Objects: the basics](#objects-the-basics)
+  - [Objects](#objects)
+  - [Object References and copying](#object-references-and-copying)
+  - [Garbage collection](#garbage-collection)
+  - [Object methods, "this"](#object-methods-this)
+  - [Constructor, operator "new"](#constructor-operator-new)
+  - [Optional chaining '?.'](#optional-chaining-)
+  - [Symbol Type](#symbol-type)
+  - [Object to primitive conversion](#object-to-primitive-conversion)
+- [Data Types](#data-types-1)
+  - [Methods of primitives](#methods-of-primitives)
+  - [Numbers](#numbers)
+  - [Strings](#strings)
+  - [Arrays](#arrays)
+  - [Array methods](#array-methods)
+  - [Iterables](#iterables)
+  - [Map and Set](#map-and-set)
+  - [WeakMap and WeakSet](#weakmap-and-weakset)
+  - [Object.keys, values, entries](#objectkeys-values-entries)
+  - [Destructing assignment](#destructing-assignment)
+  - [Date and Time](#date-and-time)
+  - [JSON Methods, toJSON](#json-methods-tojson)
 - [Sources](#sources)
 
 This tutorial is mostly prepared from javascript.info website. It is very good. Some sections may be changed or removed.
@@ -4246,6 +4275,80 @@ Details: see Functions, Arrow functions, the basics.
 More to come
 
 That was a brief list of JavaScript features. As of now we’ve studied only basics. Further in the tutorial you’ll find more specials and advanced features of JavaScript.
+
+# Code Quality
+
+## Debugging in the browser
+
+https://javascript.info/debugging-chrome
+
+## Coding Style
+
+https://javascript.info/coding-style
+
+## Comments
+
+https://javascript.info/comments
+
+## Ninja Code
+
+https://javascript.info/ninja-code
+
+## Automated testing with Mocha
+
+https://javascript.info/testing-mocha
+
+## Polyfills and transpilers
+
+https://javascript.info/polyfills
+
+
+# Objects: the basics
+
+## Objects
+
+## Object References and copying
+
+## Garbage collection
+
+## Object methods, "this"
+
+## Constructor, operator "new"
+
+## Optional chaining '?.'
+
+## Symbol Type
+
+## Object to primitive conversion
+
+# Data Types
+
+## Methods of primitives
+
+## Numbers
+
+## Strings
+
+## Arrays
+
+## Array methods
+
+## Iterables
+
+## Map and Set
+
+## WeakMap and WeakSet
+
+## Object.keys, values, entries
+
+## Destructing assignment
+
+## Date and Time
+
+## JSON Methods, toJSON
+
+
+
 
 
 # Sources
