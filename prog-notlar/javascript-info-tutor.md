@@ -50,17 +50,15 @@
   - [Basic operators, maths](#basic-operators-maths)
     - [Terms: “unary”, “binary”, “operand”](#terms-unary-binary-operand)
     - [Maths](#maths)
-      - [Remainder %](#remainder-)
-    - [Exponentiation **](#exponentiation-)
-      - [String concatenation with binary +](#string-concatenation-with-binary-)
-      - [Numeric conversion, unary +](#numeric-conversion-unary-)
-      - [Operator precedence](#operator-precedence)
-      - [Assignment](#assignment)
-      - [Chaining assignments](#chaining-assignments)
-      - [Modify-in-place](#modify-in-place)
-      - [Increment/decrement](#incrementdecrement)
-      - [Bitwise operators](#bitwise-operators)
-      - [Comma](#comma)
+    - [String concatenation with binary +](#string-concatenation-with-binary-)
+    - [Numeric conversion, unary +](#numeric-conversion-unary-)
+    - [Operator precedence](#operator-precedence)
+    - [Assignment](#assignment)
+    - [Chaining assignments](#chaining-assignments)
+    - [Modify-in-place](#modify-in-place)
+    - [Increment/decrement](#incrementdecrement)
+    - [Bitwise operators](#bitwise-operators)
+    - [Comma](#comma)
   - [Comparisons](#comparisons)
     - [Boolean is the result](#boolean-is-the-result)
     - [String comparison](#string-comparison)
@@ -1380,7 +1378,7 @@ Exponentiation **.
 
 The first four are straightforward, while % and ** need a few words about them.
 
-#### Remainder %
+**Remainder %**
 
 The remainder operator %, despite its appearance, is not related to percents.
 
@@ -1394,7 +1392,7 @@ alert( 8 % 3 ); // 2, a remainder of 8 divided by 3
 
 ```
 
-### Exponentiation **
+**Exponentiation ****
 
 The exponentiation operator a ** b multiplies a by itself b times.
 
@@ -1415,7 +1413,7 @@ alert( 8 ** (1/3) ); // 2 (power of 1/3 is the same as a cubic root)
 
 ```
 
-#### String concatenation with binary +
+### String concatenation with binary +
 
 Let’s meet features of JavaScript operators that are beyond school arithmetics.
 
@@ -1467,7 +1465,7 @@ alert( '6' / '2' ); // 3, converts both operands to numbers
 
 ```
 
-#### Numeric conversion, unary +
+### Numeric conversion, unary +
 
 The plus + exists in two forms: the binary form that we used above and the unary form.
 
@@ -1520,7 +1518,7 @@ From a mathematician’s standpoint, the abundance of pluses may seem strange. B
 
 Why are unary pluses applied to values before the binary ones? As we’re going to see, that’s because of their *higher precedence*.
 
-#### Operator precedence
+### Operator precedence
 
 If an expression has more than one operator, the execution order is defined by their precedence, or, in other words, the default priority order of operators.
 
@@ -1551,7 +1549,7 @@ Precedence	Name	  Sign
 
 As we can see, the “unary plus” has a priority of 17 which is higher than the 13 of “addition” (binary plus). That’s why, in the expression "+apples + +oranges", unary pluses work before the addition
 
-#### Assignment
+### Assignment
 
 Let’s note that an assignment = is also an operator. It is listed in the precedence table with the very low priority of 3.
 
@@ -1590,7 +1588,7 @@ Funny code, isn’t it? We should understand how it works, because sometimes we 
 
 Although, please don’t write the code like that. Such tricks definitely don’t make code clearer or readable.
 
-#### Chaining assignments
+### Chaining assignments
 
 Another interesting feature is the ability to chain assignments:
 
@@ -1618,7 +1616,7 @@ a = c;
 
 That’s easier to read, especially when eye-scanning the code fast.
 
-#### Modify-in-place
+### Modify-in-place
 
 We often need to apply an operator to a variable and store the new result in that same variable.
 
@@ -1655,7 +1653,7 @@ alert( n ); // 16  (right part evaluated first, same as n *= 8)
 
 ```
 
-#### Increment/decrement
+### Increment/decrement
 
 Increasing or decreasing a number by one is among the most common numerical operations.
 
@@ -1780,7 +1778,7 @@ counter++;
 
 ```
 
-#### Bitwise operators
+### Bitwise operators
 
 Bitwise operators treat arguments as *32-bit integer numbers* and work on the level of their binary representation.
 
@@ -1798,7 +1796,7 @@ The list of operators:
 
 These operators are used very rarely, when we need to fiddle with numbers on the very lowest (bitwise) level. We won’t need these operators any time soon, as web development has little use of them, but in some special areas, such as cryptography, they are useful. You can read the Bitwise Operators chapter on MDN when a need arises.
 
-#### Comma
+### Comma
 
 The comma operator , is one of the rarest and most unusual operators. Sometimes, it’s used to write shorter code, so we need to know it in order to understand what’s going on.
 
