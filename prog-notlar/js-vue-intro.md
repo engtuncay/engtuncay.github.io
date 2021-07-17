@@ -21,7 +21,8 @@ Vue 2 - Tutorial
   - [Create a Project](#create-a-project)
   - [Project Template](#project-template)
   - [Serve Project](#serve-project)
-  - [Install Modules](#install-modules)
+  - [Update modules in package.json](#update-modules-in-packagejson)
+  - [Adding new modules](#adding-new-modules)
   - [Build Command](#build-command)
 - [B4 Component Structure](#b4-component-structure)
   - [4-1 Global vs Local Component](#4-1-global-vs-local-component)
@@ -1018,7 +1019,7 @@ vue create vue-app
 
 Proje oluştururken yüklenecek eklentiler sorulur.
 
-**Example Template**
+**Example Preset Template**
 
 ```
 babel
@@ -1026,7 +1027,6 @@ css pre-processors -> SCSS/SASS ! , LESS , Stylus
 linter-formatter
 in dedicated config files->true
 ```
-
 preset(template) şablon manasına gelir
 
 ## Serve Project
@@ -1039,7 +1039,7 @@ yarn run serve
 npm run serve
 ```
 
-## Install Modules
+## Update modules in package.json
 
 Package json dosyasındaki bağımlılıkları(kütüphaneleri) yüklemek için
 
@@ -1047,6 +1047,10 @@ Package json dosyasındaki bağımlılıkları(kütüphaneleri) yüklemek için
 npm install === yarn 
 // Install is the default behavior of yarn.
 ```
+
+## Adding new modules 
+
+
 
 
 ## Build Command
