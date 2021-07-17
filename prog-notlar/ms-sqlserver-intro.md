@@ -31,6 +31,7 @@
 - [TSQL](#tsql)
   - [IF Kullanımı](#if-kullanımı)
   - [WITH ile döngüsel sıralamalı tarih tablosu hazırlama](#with-ile-döngüsel-sıralamalı-tarih-tablosu-hazırlama)
+  - [Convert Int To Date](#convert-int-to-date)
 - [SQL GÜVENLİK - KULLANICI SORGULAR](#sql-güvenli̇k---kullanici-sorgular)
 - [SQL LOGGING](#sql-logging)
   - [RaiseError](#raiseerror)
@@ -468,6 +469,24 @@ OPTION (MAXRECURSION 0)
 
 ```
 
+## Convert Int To Date
+
+```sql
+--Way 1
+Select cast(cast(20160729 as varchar(10)) as date)
+Returns
+
+--2016-07-29
+
+--Way 2
+Select cast(left(20160729,8) as date)
+```
+
+```sql
+select CONVERT(date,cast(20210717 as varchar(10)))
+
+--
+```
 
 
 # SQL GÜVENLİK - KULLANICI SORGULAR

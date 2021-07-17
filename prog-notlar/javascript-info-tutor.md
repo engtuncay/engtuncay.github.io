@@ -119,7 +119,7 @@
 
 This tutorial is mostly prepared from javascript.info website. It is very good. Some sections may be changed or removed.
 
-www.javascript.info
+http://www.javascript.info
 
 
 # Fundamentals 1
