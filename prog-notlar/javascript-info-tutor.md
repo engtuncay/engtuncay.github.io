@@ -4410,7 +4410,7 @@ An object can be created with figure brackets `{…}` with an optional list of *
 
 We can imagine an object as a cabinet with signed files. Every piece of data is stored in its file by the key. It's easy to find a file by its name or add/remove a file.
 
-![](/img/object.svg)
+![](./img/object.svg)
 
 An empty object ("empty cabinet") can be created using one of two syntaxes:
 
