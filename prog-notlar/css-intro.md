@@ -1,6 +1,7 @@
 
 - [Intro](#intro)
 - [Intro 2](#intro-2)
+  - [Color](#color)
 - [Layout](#layout)
   - [Flex](#flex)
     - [Properties for the Parent (flex container)](#properties-for-the-parent-flex-container)
@@ -29,6 +30,24 @@
 
 # Intro 2
 
+
+## Color
+
+
+**RGB**
+
+```css
+color: rgb(100,239,239);
+/* var ile kullanmak istersek*/
+color: rgb(var(--a72));
+```
+
+- alpha ile kullanmak istersek
+
+```css
+color: rgba(100,239,239,0.5);
+
+```
 
 
 # Layout

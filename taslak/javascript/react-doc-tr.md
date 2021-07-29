@@ -1,7 +1,5 @@
 
 
-
-
 ## JSX'e Giriş – React
 
 https://tr.reactjs.org/docs/introducing-jsx.html

@@ -1,6 +1,6 @@
 
-- [Create-react-app 'in kuruluması](#create-react-app-in-kurulumas%c4%b1)
-- [React App uygulama kuruluşu](#react-app-uygulama-kurulu%c5%9fu)
+- [Create-react-app 'in kuruluması](#create-react-app-in-kuruluması)
+- [React App uygulama kuruluşu](#react-app-uygulama-kuruluşu)
 - [Component](#component)
 - [Adding New Component](#adding-new-component)
 
@@ -65,7 +65,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Hello, React!</h1>
-        <FirstComponent />
+        <FirstComponent/>
       </div>
     );
   }
@@ -80,6 +80,7 @@ class App extends Component {
 
 // App.js
 class App extends Component {
+  
   const propsabit = "ilk prop örneği";
 
   render() {
@@ -93,8 +94,6 @@ class App extends Component {
 }
 
 ```
-
-
 
 - usage of prop variable in the component
 

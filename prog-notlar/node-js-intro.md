@@ -8,10 +8,11 @@
   - [45 Paket Nedir](#45-paket-nedir)
   - [46 Paket Yükleme ve Kullanma](#46-paket-yükleme-ve-kullanma)
   - [47 Yerel ve Global Paketler](#47-yerel-ve-global-paketler)
-  - [48  package.json ve güncelleme işlemleri](#48--packagejson-ve-güncelleme-işlemleri)
+  - [48 package.json ve güncelleme işlemleri](#48-packagejson-ve-güncelleme-işlemleri)
   - [49 Bağımlılık Yönetimi](#49-bağımlılık-yönetimi)
   - [50 Script Tanımlama](#50-script-tanımlama)
   - [51 Paket Kaldırma](#51-paket-kaldırma)
+- [Extra - Npm vs Yarn](#extra---npm-vs-yarn)
 - [Bölüm 12 - Express Framework](#bölüm-12---express-framework)
   - [66 Express Nedir](#66-express-nedir)
   - [67 Merhabe Express](#67-merhabe-express)
@@ -44,7 +45,7 @@ node app
 
 
 
-## 48  package.json ve güncelleme işlemleri
+## 48 package.json ve güncelleme işlemleri
 
 - package.json dosyasını detaylı (tanımlamaları teker teker sorar) oluşturmak için kullanılacak komut :
 
@@ -58,11 +59,10 @@ npm init
 npm init -y 
 ```
 
+- Örnek modül kurulumu (lokal olarak module klasörümüze ekler)
 
 
-Örnek modül kurulumu (lokal olarak module klasörümüze ekler)
-
-    npm install nodemailer --save
+npm install nodemailer --save
 
 Kurulan modüller package json da dependencies anahtarında bir obje ile tutulur.
 
@@ -102,33 +102,44 @@ tamamını güncelemek için
 
 ## 49 Bağımlılık Yönetimi
 
-canlı ortamda (production) kullanmayıp , geliştirme  (development) ortamında kullanmak için
+- Canlı ortamda (production) kullanmayıp , geliştirme  (development) ortamında kullanmak için
 
-    npm install gulp --save-dev
+```js
+npm install gulp --save-dev
+```
 
-Geliştirme ortamı modülleri devDependencies anahtarının objesine tanımlanır.
+- Geliştirme ortamı modülleri devDependencies anahtarının objesine tanımlanır.
 
 Not: Canlı ortamında kurmak için komut
 
-    npm install gulp --save
+```js
+npm install gulp --save
+```
 
 
 
 ## 50 Script Tanımlama
 
-    npm init -y 
+- Başlangıç package.json dosyası oluşturulur.
 
-ile başlangıç package.json dosyası oluşturulur.
+```js
+npm init -y 
+```
+
 
 ---
 
-package.json da scripts alanına aşapıdaki anahtar eklenir.
+- package.json da scripts alanına aşapıdaki anahtar eklenir.
 
-    "start" : "node app"
+```js
+"start" : "node app"
+```    
 
 Bu komutu çalıştırmak için aşağıdaki komutu yazarız.
 
-    npm run start 
+```js
+npm run start 
+```
 
 ## 51 Paket Kaldırma
 
@@ -164,6 +175,78 @@ package json dosyasından tanımını kaldırmasını istemezsek
     npm install nodemailer underscore --save 
 
 ---
+
+# Extra - Npm vs Yarn
+
+- npm install === yarn  
+ 
+Install is the default behavior of yarn.
+
+- npm install taco --save === yarn add taco
+
+The Taco package is saved to your package.json immediately.
+
+- npm uninstall taco --save === yarn remove taco
+
+--save can be defaulted in NPM by npm config set save true but this is non-obvious to most developers. Adding and removing from package.json is default in Yarn.
+
+- npm install taco --save-dev === yarn add taco --dev
+
+- npm update --save === yarn upgrade
+
+Great call on upgrade vs update, since that is exactly what it is doing! Version number moves, upgrade is happening!
+
+*WARNING* npm update --save seems to be kinda broken in 3.11
+
+- npm install taco@latest --save === yarn add taco
+
+- npm install taco --global === yarn global add taco
+
+
+- Developer paket yükleme
+
+```js
+npm i -D vue-svg-loader vue-template-compiler
+ 
+yarn add --dev vue-svg-loader vue-template-compiler
+```
+
+yarn komutunda --dev yerine -D kullanılabilir.
+
+
+As always, use global flag with care.
+
+You can use this to use yarn to update itself with 
+
+yarn self-update
+
+The packages are the same as on the NPM registry. Yarn is basically a new installer, where NPM structure and registry is the same.
+
+```js
+npm init === yarn init
+npm link === yarn link
+npm outdated === yarn outdated
+npm publish === yarn publish
+npm run === yarn run
+npm cache clean === yarn cache clean
+npm login === yarn login (and logout)
+npm test === yarn test
+npm install --production === yarn --production
+```
+
+- Things yarn has that NPM doesn’t
+
+I’m skipping the items that they warn against using like yarn clean
+
+yarn licenses ls — Allows you to inspect the licenses of your dependencies
+
+yarn licenses generate-disclaimer — Automatically create your license dependency disclaimer
+
+yarn why taco — Identify why ‘taco’ package is installed, detailing which other packages depend upon it (thanks Olivier Combe).
+
+- yarn upgrade-interactive 
+
+Allows you to selectively upgrade specific packages in a simple way
 
 # Bölüm 12 - Express Framework
 
