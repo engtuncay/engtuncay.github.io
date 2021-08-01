@@ -47,58 +47,63 @@ node app
 
 ## 48 package.json ve güncelleme işlemleri
 
-- package.json dosyasını detaylı (tanımlamaları teker teker sorar) oluşturmak için kullanılacak komut :
+- package.json dosyasını detaylı oluşturmak için kullanılacak komut (Tanımlamaları teker teker sorar) :
 
-```cmd
+```js
 npm init
 ```
 
 - varsayılan tanımlı package.json oluşturacak komut:
 
-```cmd
+```js
 npm init -y 
 ```
 
 - Örnek modül kurulumu (lokal olarak module klasörümüze ekler)
 
-
+```js
 npm install nodemailer --save
+```
 
-Kurulan modüller package json da dependencies anahtarında bir obje ile tutulur.
+Kurulan modüller package json da dependencies alanında tutulur.
 
-    "dependencies" : { "module":"versiyon" , ... }
+```js
+//....
+"dependencies" : { "module":"versiyon" , ... }
+```
 
----
+- Bağımlılıkları kurmak için komut :
 
-bağımlılıkları kurmak için komut :
+```js
+npm install
+// or
+yarn 
+// yarn default is install command
+```
 
-    npm install
+- Belli bir versiyonu kurmak için :
 
----
+```js
+npm install underscore@1.8.2
+```
 
-belli bir versiyonda kurmak için :
+- Son versiyonlarını listelemek için
 
-    npm install underscore@1.8.2
+```js
+npm outdated
+```
 
----
+- Son versiyona güncellemek için
 
-son versiyonlarını listelemek için
+```js
+npm update underscore
+```
 
-    npm outdated
+- Tamamını güncelemek için
 
----
-
-son versiyona güncellemek için
-
-    npm update underscore
-
----
-
-tamamını güncelemek için
-
-    npm update
-
----
+```js
+npm update
+```
 
 ## 49 Bağımlılık Yönetimi
 
