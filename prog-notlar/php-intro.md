@@ -15,11 +15,9 @@
   - [Loops - For,While,Do While](#loops---forwhiledo-while)
 - [String , Number, Array](#string--number-array)
   - [String Metodları](#string-metodları)
-  - [Template Literal (String oluşturmada yeni standart)](#template-literal-string-oluşturmada-yeni-standart)
-  - [Arrays](#arrays)
-- [Sınıf ve Obje (Class And Object)](#sınıf-ve-obje-class-and-object)
-  - [Zaman Objesi ve Metodları](#zaman-objesi-ve-metodları)
-- [Arrays](#arrays-1)
+  - [Template Literal (String Format)](#template-literal-string-format)
+- [Date And Time](#date-and-time)
+- [Arrays](#arrays)
   - [Array Functions (1)](#array-functions-1)
   - [Array Functions (2)](#array-functions-2)
 - [Functions](#functions)
@@ -41,22 +39,16 @@
   - [Abstract Sınıf (Soyut Sınıf) Kullanımı](#abstract-sınıf-soyut-sınıf-kullanımı)
   - [Final Ön Tanımı](#final-ön-tanımı)
   - [Namespace nedir](#namespace-nedir)
-- [Form Values](#form-values)
-- [Post Variables](#post-variables)
+- [GET, POST And Session](#get-post-and-session)
+  - [Post Variables](#post-variables)
 - [Database Connection](#database-connection)
   - [PDO Connection](#pdo-connection)
 - [Composer](#composer)
-  - [Kurulumu](#kurulumu)
-  - [Kullanımı](#kullanımı)
+  - [Installation](#installation)
+  - [Usage](#usage)
   - [Composer Komutları](#composer-komutları)
-- [EOD String sytax](#eod-string-sytax)
-- [INCREMENT](#increment)
-- [ARITHMETICS](#arithmetics)
-- [MULTI-DIMENSIONAL ARRAYS](#multi-dimensional-arrays)
-- [STRING FUNCTIONS & FORMATTING](#string-functions--formatting)
-- [Conversion Codes (printf)](#conversion-codes-printf)
-- [FUNCTION](#function)
 - [Kaynaklar](#kaynaklar)
+- [Düzenlenecek Notlar](#düzenlenecek-notlar)
 
 # Php Basic
 
@@ -69,13 +61,17 @@
 
 ## Comment Line and Block
 
-    // This is a single-line comment
 
-    # Tek satırlı yorum satırı
+```php
+// This is a single-line comment
 
-    /*
-        This is a mult-line comment.
-    */
+# Tek satırlı yorum satırı
+
+/*
+    This is a mult-line comment.
+*/
+
+```
 
 Comments are completely ignored when running a php file.
 
@@ -83,7 +79,7 @@ Comments are completely ignored when running a php file.
 
 - Data Types and Assignment
 
-```
+```php
 string "ali veli" veya 'ali veli'
 integer 500, 200
 double (Float) 5.5, 7.2
@@ -207,7 +203,7 @@ switch ($userName) {
         break;
 
     default :
-    	echo "Hello Valued Customer";
+    	echo "Hello Customer";
     	break;
 }
 ```
@@ -215,9 +211,11 @@ switch ($userName) {
 ## Loops - For,While,Do While
 
 ```php
+
 for($i = 1; $i <= 20; $i++) {
     // statements
 }
+
 
 $num = 0;
 
@@ -231,9 +229,19 @@ while($num < 20) {
 
 ## String Metodları
 
-## Template Literal (String oluşturmada yeni standart)
+## Template Literal (String Format)
 
-## Arrays
+
+
+# Date And Time
+
+```php
+date_default_timezone_set('UTC');
+echo date('h:i:s:u a, l F jS Y e');
+```
+
+
+# Arrays
 
 Örnekler
 
@@ -265,26 +273,6 @@ foreach ($customer as $key => $value) {
 $bestFriends = $bestFriends + $customer;
 
 ```
-
-
-# Sınıf ve Obje (Class And Object)
-
-
-
-## Zaman Objesi ve Metodları
-
-```php
-date_default_timezone_set('UTC');
-echo date('h:i:s:u a, l F jS Y e');
-```
-
-
-
-
-# Arrays
-
-
-
 
 
 ## Array Functions (1)
@@ -628,8 +616,6 @@ print_r($arr2);
 
 
 
-
-
 # Functions
 
 
@@ -819,36 +805,6 @@ $kategoriler = [
         'id' => 2,
         'parent' => 0,
         'ad' => 'Güncel'
-    ],
-    [
-        'id' => 3,
-        'parent' => 0,
-        'ad' => 'Blog'
-    ],
-    [
-        'id' => 4,
-        'parent' => 1,
-        'ad' => 'PHP Dersleri'
-    ],
-    [
-        'id' => 5,
-        'parent' => 1,
-        'ad' => 'CSS Dersleri'
-    ],
-    [
-        'id' => 6,
-        'parent' => 4,
-        'ad' => 'Fonksiyonlar'
-    ],
-    [
-        'id' => 7,
-        'parent' => 4,
-        'ad' => 'Değişken Kullanımı'
-    ],
-    [
-        'id' => 8,
-        'parent' => 6,
-        'ad' => 'Recursive Fonksiyonlar'
     ]
 ];
 
@@ -1192,7 +1148,7 @@ class Tolga extends Insan {
 
 ## Namespace nedir
 
-sınıfları bir araya toplayan kümedir.
+Sınıfları bir araya toplayan kümedir. Javada package, C#'da namespace benzeri bir yapıdır.
 
 ```php
 // namespace.php
@@ -1239,13 +1195,9 @@ echo ahmet::get();
 
 ---
 
+# GET, POST And Session 
 
-
----
-
-# Form Values
-
-# Post Variables
+## Post Variables
 
 ```php
 $usersName = $_POST['username'];
@@ -1257,7 +1209,41 @@ echo $streetAddress . "</br>";
 echo \$cityAddress . "</br></br>";
 ```
 
+- Remember, GET and POST are for getting data from the client.
 
+GET - visible in URL
+
+POST - not visible in URL
+
+- SESSION is for keeping data persistet between pages, for example, the ID of a logged in user.
+
+// Retrieve data from a GET method
+// (ie method="get" in an HTML form from the previous page.)
+$username = $_GET['username'];
+
+// Same thing for a POST method but use $_POST instead of $_GET
+$color = $_POST['favorite_color'];
+
+// Session works the same way except that you have to call...
+session_start();
+
+// ...before you can do anything.
+
+// also, session variables you set on your own, whereas GET and POST are set on the client side.
+
+$_SESSION['favorite_MLP_character'] = "PewDiePie";
+
+// The string between the []s (AKA the Key) can be whatever you want it to be,
+// and you can use that string whenever to retrieve or modify the value that
+// $_SESSION['string'] holds, even on a different page entirely.
+
+$pony = $_SESSION['favorite_MLP_character'];
+echo $pony; 
+// prints 'PewDiePie'
+
+// Each session is unique to that user. If you want to delete all session variables stored for this user, do this:
+
+session_unset();
 
 ---
 
@@ -1279,19 +1265,17 @@ try {
 
 
 
-
-
 ---
 
 # Composer
 
-## Kurulumu
+## Installation
 
 - Windows için composer setup indirilip kurulur.
 
 - Mac için
 
-## Kullanımı
+## Usage
 
 - composer ayar dosyası composer.json dosyası oluşturulur. Örnek composer.json dosyası :
 
@@ -1306,7 +1290,7 @@ try {
 }
 ```
 
-- require anahtarında gerekli bağımlılık yazılır.
+- require anahtarında gerekli bağımlılıklar yazılır.
 
 - bağımlılıklar https://packagist.org/ adresinden bulunabilir.
 
@@ -1318,9 +1302,9 @@ $ composer install
 $ composer update
 ```
 
-- bağımlıkları vendo klasörüne indirir.
+- bağımlıkları vendor klasörüne indirir.
 
-- projemiz kullanmak için aşağıdaki importu yapmamız gerekir.
+- projemizde kullanmak için aşağıdaki importu yapmamız gerekir.
 
 ```php
 include ('vendor/autoload.php');
@@ -1350,10 +1334,19 @@ veya
 * getcomposer.org detay komutları görebilirsiniz.
 
 
+# Kaynaklar
+
+- Udemy Tayfun Erbilen Kursu
+- Cheatsheets
 
 
+---
 
-# EOD String sytax
+
+# Düzenlenecek Notlar
+
+
+- EOD String sytax
 
 $str = <<<EOD
 	The customers name is
@@ -1364,7 +1357,7 @@ EOD;
 
     echo $str;
 
-# INCREMENT
+- INCREMENT
 
 \$randNum = 5;
 
@@ -1377,7 +1370,7 @@ echo \$randNum;
 
 
 
-# ARITHMETICS
+- ARITHMETICS
 
 if(5 == 10) {
 echo '5 = 10';
@@ -1392,7 +1385,7 @@ $numOfBananas = 36;
 
 
 
-# MULTI-DIMENSIONAL ARRAYS
+- MULTI-DIMENSIONAL ARRAYS
 
 \$customers = array(array('Derek', '123 Main', '15212'),
 array('Derek', '123 Main', '15212'),
@@ -1412,7 +1405,7 @@ echo '</br>';
 // ksort(\$yourArray) : sorts by the key
 // Put a r infront of the above to sort in reverse order
 
-# STRING FUNCTIONS & FORMATTING
+- STRING FUNCTIONS & FORMATTING
 
 \$randString = " Random String ";
 
@@ -1421,7 +1414,7 @@ echo strlen(ltrim("$randString")) . "</br>";
 echo strlen(rtrim("$randString")) . "</br>";
 echo strlen(trim("$randString")) . "</br>";
 
-# Conversion Codes (printf)
+- Conversion Codes (printf)
 
 echo "The randomString is $randString </br>";
 printf("The randomString is %s </br>", $randString);
@@ -1470,7 +1463,7 @@ $newString = str_replace("String", "Stuff", $randString);
 echo \$newString;
 echo "</br>";
 
-# FUNCTION
+- FUNCTION
 
 function addNumbers($num1, $num2) {
 return $num1 + $num2;
@@ -1517,10 +1510,8 @@ echo "My name is " . "Adam Smith";
         echo "My name is " . $name;
         echo "My name is $name"; // shorter syntax, does the same thing
 
-/\*
 
 - LOGIC STUFF
-  \*/
 
 // If statement
 if(1 < 2) {
@@ -1595,48 +1586,6 @@ for($number = 5; $number > 0; $number --) {
 \$number --;
 }
 
-/\*\*
-
-- GET, POST, and SESSION
--
-- Remember, GET and POST are for getting data from the client.
-- GET - visible in URL
-- POST - not visible in URL
--
-- SESSION is for keeping data persistet between pages, for example, the ID of
-- a logged in user.
--
-- TODO COOKIES
-  \*/
-
-// Retrieve data from a GET method
-// (ie method="get" in an HTML form from the previous page.)
-$username = $\_GET['username'];
-
-// Same thing for a POST method but use $_POST instead of $\_GET
-$color = $\_POST['favorite_color'];
-
-// Session works the same way except that you have to call...
-session_start();
-// ...before you can do anything.
-
-// also, session variables you set on your own, whereas GET and POST are set
-// on the client side.
-\$\_SESSION['favorite_MLP_character'] = "PewDiePie";
-
-// The string between the []s (AKA the Key) can be whatever you want it to be,
-// and you can use that string whenever to retrieve or modify the value that
-// \$\_SESSION['string'] holds, even on a different page entirely.
-
-$pony = $\_SESSION['favorite_MLP_character'];
-echo \$pony; // prints 'PewDiePie'
-
-// Each session is unique to that user. If you want to delete all session
-// variables stored for this user, do this:
-session_unset();
-
-/\*\*
-
 - WORKING WITH DATABASES
   \*/
 
@@ -1652,7 +1601,6 @@ $queryResult = $connection->query("SELECT \* FROM USERS;"); // Any query can go 
 
 
 
-# Kaynaklar
 
-- Udemy Tayfun Erbilen Kursu
-- Cheatsheets
+
+
