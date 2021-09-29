@@ -97,6 +97,14 @@ INSERT INTO Customers (CustomerName, ContactName, Address, City, PostalCode, Cou
 VALUES ('Ahmet Sögüt', 'Ali Sögüt', 'Batıkent Mah', 'Gaziantep', '27000', 'Turkey',10);
 ```
 
+- Insert with Select Query
+
+```sql
+INSERT INTO table1 ( column1, column2, someInt, someVarChar )
+SELECT  table2.column1, table2.column2, 8, 'some string etc.'
+FROM    table2
+WHERE   table2.ID = 7;
+```
 
 # SQL JOINLER
 
