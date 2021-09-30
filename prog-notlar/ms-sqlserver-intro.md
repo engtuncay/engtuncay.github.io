@@ -32,6 +32,7 @@
   - [IF Kullanımı](#if-kullanımı)
   - [WITH ile döngüsel sıralamalı tarih tablosu hazırlama](#with-ile-döngüsel-sıralamalı-tarih-tablosu-hazırlama)
   - [Convert Int To Date](#convert-int-to-date)
+  - [COALESCE (The first non-null value)](#coalesce-the-first-non-null-value)
 - [SQL GÜVENLİK - KULLANICI SORGULAR](#sql-güvenli̇k---kullanici-sorgular)
 - [SQL LOGGING](#sql-logging)
   - [RaiseError](#raiseerror)
@@ -495,6 +496,25 @@ select CONVERT(date,cast(20210717 as varchar(10)))
 
 --
 ```
+
+## COALESCE (The first non-null value)
+
+- Definition and Usage
+
+The COALESCE() function returns the first non-null value in a list.
+
+- Syntax
+
+COALESCE(val1, val2, ...., val_n)
+
+- Parameter Values , Parameter	Description
+
+val1, val2, val_n	Required. The values to test
+
+- Example
+
+SELECT COALESCE(NULL, NULL, NULL, 'W3Schools.com', NULL, 'Example.com');
+
 
 
 # SQL GÜVENLİK - KULLANICI SORGULAR
