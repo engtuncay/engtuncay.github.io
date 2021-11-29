@@ -2,7 +2,7 @@
 
 Java Fx Contents
 
-- [Temel Pencere Sistemi ( Stage (Sahne) and Scene (Dekor) )](#temel-pencere-sistemi--stage-sahne-and-scene-dekor)
+- [Temel Pencere Sistemi ( Stage (Sahne) and Scene (Dekor) )](#temel-pencere-sistemi--stage-sahne-and-scene-dekor-)
 	- [Stage](#stage)
 	- [Scene](#scene)
 	- [Layout Sistemleri](#layout-sistemleri)
@@ -114,11 +114,17 @@ panel.add(comp4)
 ```
 
 
+```java
+// **** Main Layouts
+// inset , css'deki padding yerine geçiyor
+// gap , mig container daki satır ve sütunların arasındaki boşluğu belirtir
+```
+
+
 
 # Observable Value List
 
 ## Converting Integer to ObservableValue<Integer> in javafx
-
 
 We use a ReadOnlyObjectWrapper<>(*integer value*); and store the value in a ObservableValue<Integer> reference.
 

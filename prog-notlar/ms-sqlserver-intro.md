@@ -22,6 +22,7 @@
   - [Stored Procedure](#stored-procedure)
   - [Cursor Tanımlama](#cursor-tanımlama)
   - [Case When Yapısı](#case-when-yapısı)
+    - [Case When Multiple Values](#case-when-multiple-values)
   - [IIF YAPISI](#iif-yapisi)
   - [Temp Table](#temp-table)
   - [Global Değişkenler](#global-değişkenler)
@@ -340,6 +341,24 @@ CASE
 END as wecs_system 
 ```
 
+### Case When Multiple Values
+
+```sql
+select
+chh.cha_evrakno_seri
+,chh.cha_evrakno_sira
+,chh.cha_evrak_tip
+,CASE WHEN chh.cha_evrak_tip IN (110,33) THEN sum(cha_meblag)/2 
+ELSE sum(cha_meblag) END AS cha_meblag
+,MIN(cha_tarihi)cha_tarihi
+,MIN(cha_belge_tarih)cha_belge_tarih
+,MIN(chh.cha_RECno) cha_RECno
+,MAX(chh.cha_aciklama) cha_aciklama
+,MAX(cha_belge_no) cha_belge_no
+FROM CARI_HESAP_HAREKETLERI chh
+GROUP BY chh.cha_evrakno_seri, chh.cha_evrakno_sira,chh.cha_evrak_tip
+
+```
 
 
 ## IIF YAPISI
