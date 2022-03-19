@@ -1,6 +1,7 @@
 
 - [Intro](#intro)
-  - [CSS Syntax](#css-syntax)
+- [CSS Syntax](#css-syntax)
+- [Selectors](#selectors)
   - [](#)
   - [Combinators (Birleştirici-İlişkilendirici)](#combinators-birleştirici-i̇lişkilendirici)
   - [Pseudo-classes (Elementin Durum Sınıfları)](#pseudo-classes-elementin-durum-sınıfları)
@@ -22,7 +23,8 @@ CSS describes how HTML elements are to be displayed on screen, paper, or in othe
 CSS saves a lot of work. It can control the layout of multiple web pages all at once
 External stylesheets are stored in CSS files
 
-## CSS Syntax
+# CSS Syntax
+
 A CSS rule-set consists of a selector and a declaration block.
 /*selector*/ { /*declaration-block*/ }
 
@@ -37,8 +39,9 @@ p {
 }
 ```
 
-Example explained:
- p is a selector in CSS (it points to the HTML element you want to style: <p> tag). color is a property, and red is the property value 
+**Example explained:**
+
+p is a selector in CSS (it points to the HTML element you want to style: <p> tag). color is a property, and red is the property value 
 
 The selector points to the HTML element you want to style.
 
@@ -48,6 +51,19 @@ Each declaration includes a CSS property name and a value, separated by a colon.
 
 Multiple CSS declarations are separated with semicolons, and declaration blocks are surrounded by curly braces.
 
+# Selectors
+
+CSS selectors are used to "find" (or select) the HTML elements you want to style.
+
+We can divide CSS selectors into five categories:
+
+* Simple selectors (select elements based on name, id, class)
+* Combinator selectors (select elements based on a specific relationship between them)
+* Pseudo-class selectors (select elements based on a certain state)
+* Pseudo-elements selectors (select and style a part of an element)
+* Attribute selectors (select elements based on an attribute or attribute value)
+
+## 
 
 Outline________________
 Simple Selectors
@@ -56,18 +72,6 @@ Simple Selectors
   Class Selector (.) 
   Grouping Selector (,) Birden fazla etiketi seçerek aynı stili veririz.
   Universal Selector (*)
-
-  
-## 
-
-CSS selectors are used to "find" (or select) the HTML elements you want to style.
-
-We can divide CSS selectors into five categories:
-Simple selectors (select elements based on name, id, class)
-Combinator selectors (select elements based on a specific relationship between them)
-Pseudo-class selectors (select elements based on a certain state)
-Pseudo-elements selectors (select and style a part of an element)
-Attribute selectors (select elements based on an attribute or attribute value)
 
 Element (Tag) Selector
 /*html-element-name*/ { /*declaration-block*/ }
