@@ -1,7 +1,6 @@
 **CSS Cheatsheet**
 
 - [Selector](#selector)
-  - [Selector Categories](#selector-categories)
   - [Simple Selectors](#simple-selectors)
   - [Combinator selectors](#combinator-selectors)
   - [Pseudo-classes](#pseudo-classes)
@@ -29,8 +28,6 @@
 
 # Selector
 
-## Selector Categories
-
 We can divide CSS selectors into five categories:
 
 * Simple selectors (select elements based on name, id, class)
@@ -38,7 +35,6 @@ We can divide CSS selectors into five categories:
 * Pseudo-class selectors (select elements based on a certain state)
 * Pseudo-elements selectors (select and style a part of an element)
 * Attribute selectors (select elements based on an attribute or attribute value)
-
 
 ## Simple Selectors
 
