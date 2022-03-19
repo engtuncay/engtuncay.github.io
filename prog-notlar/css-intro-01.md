@@ -2,7 +2,9 @@
 - [Intro](#intro)
 - [CSS Syntax](#css-syntax)
 - [Selectors](#selectors)
-  - [](#)
+  - [Simple Selectors](#simple-selectors)
+    - [Element (Tag) Selector](#element-tag-selector)
+    - [Id Selector](#id-selector)
   - [Combinators (Birleştirici-İlişkilendirici)](#combinators-birleştirici-i̇lişkilendirici)
   - [Pseudo-classes (Elementin Durum Sınıfları)](#pseudo-classes-elementin-durum-sınıfları)
   - [pseudo-elements](#pseudo-elements)
@@ -10,7 +12,7 @@
   - [How to add CSS (To a html page)](#how-to-add-css-to-a-html-page)
   - [Comments](#comments)
   - [Specifity](#specifity)
-  - [](#-1)
+  - [](#)
 
 
 
@@ -34,7 +36,7 @@ A CSS rule-set consists of a selector and a declaration block.
 
 **Example**
 
-In this example all <p> elements will be center-aligned, with a red text color:
+In this example all `<p>` elements will be center-aligned, with a red text color:
 
 ```css
 p {
@@ -45,7 +47,7 @@ p {
 
 **Example explained:**
 
-p is a selector in CSS (it points to the HTML element you want to style: <p> tag). color is a property, and red is the property value 
+p is a selector in CSS (it points to the HTML element you want to style: `<p>` tag). color is a property, and red is the property value 
 
 The selector points to the HTML element you want to style.
 
@@ -67,22 +69,23 @@ We can divide CSS selectors into five categories:
 * Pseudo-elements selectors (select and style a part of an element)
 * Attribute selectors (select elements based on an attribute or attribute value)
 
-## 
+## Simple Selectors 
 
-Outline________________
-Simple Selectors
-  Element(Tag) Selector (tag)
-  Id Selector (#)
-  Class Selector (.) 
-  Grouping Selector (,) Birden fazla etiketi seçerek aynı stili veririz.
-  Universal Selector (*)
+* Element(Tag) Selector (tag)
+* Id Selector (#)
+* Class Selector (.) 
+* Grouping Selector (,) Birden fazla etiketi seçerek aynı stili veririz.
+* Universal Selector (*)
 
-Element (Tag) Selector
+### Element (Tag) Selector
+
 /*html-element-name*/ { /*declaration-block*/ }
 
-Id Selector
+### Id Selector
 The id selector uses the id attribute of an HTML element to select a specific element.
+
 The id of an element is unique within a page, so the id selector is used to select one unique element!
+
 To select an element with a specific id, write a hash (#) character, followed by the id of the element.
 
 Example : The CSS rule below will be applied to the HTML element with id="idName": 
