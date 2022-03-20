@@ -13,10 +13,10 @@
     - [Child Selector (>)](#child-selector-)
     - [Adjacent Sibling Selector (+)](#adjacent-sibling-selector-)
     - [General Sibling Selector (~)](#general-sibling-selector-)
-    - [Combined Selectors](#combined-selectors)
+    - [Combining Selector](#combining-selector)
   - [Pseudo-classes](#pseudo-classes)
-  - [pseudo-elements](#pseudo-elements)
-  - [Attribute Selector[attribute] Selector](#attribute-selectorattribute-selector)
+  - [Pseudo Elements](#pseudo-elements)
+  - [Attribute Selector](#attribute-selector)
   - [How to add CSS (To a html page)](#how-to-add-css-to-a-html-page)
   - [Comments](#comments)
   - [Specifity](#specifity)
@@ -252,24 +252,39 @@ div ~ p {
 }
 ```
 
-### Combined Selectors
+### Combining Selector
 
-.a.b : hem a ve b sınıfı olan elementler
+It selects the elements which have all the selectors specified.
 
-All CSS Combinator Selectors
+hem a ve b sınıfı olan elementleri seçer
+It selects all elements which have both a and b classes
+
+```html
+<p class="a b">lorem ipsum </p>
+<style>
+.a.b {
+  color: red;
+}
+</style>
+```
+
+**All CSS Combinator Selectors**
 Selector | Example | Description
 --- | --- | ---
 element element | div p | Selects all `<p>` elements inside `<div>` elements (nesil seçici)
 element>element  | div > p  | all `<p>` elements where the parent is a `<div>` element (çocuk seçici)
 element+element	| div + p  | Selects the first `<p>` element that are placed immediately after `<div>` elements (takip eden kardeş seçici)
 element1`~`element2 | p ~ ul  | Selects every `<ul>` element that are preceded by a `<p>` element (genel kardeş seçici)
+selector1selector2 | .class1.class2 | Selects all elements which have both class1 and class2 classes
 
 
 ## Pseudo-classes 
 
-(tr:Elementin Durum Sınıfları) $$$
+(tr:Elementin Durum Sınıfları)
 
-A pseudo-class is used to define a special state of an element. (Html elementin özel bir durumuna (state) göre seçmemizi sağlar. Örneğin mouse ile üzerine gelme, tıklanmış link gibi...)
+A pseudo-class is used to define a special state of an element. 
+
+(tr:Html elementin özel bir durumuna (state) göre seçmemizi sağlar. Örneğin mouse ile üzerine gelme, tıklanmış link gibi... :)
 
 For example, it can be used to:
 
@@ -343,7 +358,9 @@ div:hover {
 
 **Simple Tooltip Hover**
 
-Hover over a `<div>` element to show a `<p>` element (like a tooltip): (hover olduğunda kendisinin veya combinator ile farklı bir elementin display özelliğini block yaparak gösterilmesini sağlayabiliriz.)
+Hover over a `<div>` element to show a `<p>` element (like a tooltip):
+
+(tr:hover olduğunda kendisinin veya combinator ile farklı bir elementin display özelliğini block yaparak gösterilmesini sağlayabiliriz.:)
 
 Example 
 
@@ -369,7 +386,7 @@ div:hover p {
 
 The :first-child pseudo-class matches a specified element that is the first child of another element.
 
-Match the first `<p>` element
+**Match the first `<p>` element**
 
 In the following example, the selector matches any `<p>` element that is the first child of any element:
 
@@ -381,9 +398,9 @@ p:first-child {
 }
 ```
 
-**Match the first <i> element in all `<p>` elements**
+**Match the first `<i>` element in all `<p>` elements**
 
-In the following example, the selector matches the first <i> element in all `<p>` elements:
+In the following example, the selector matches the first `<i>` element in all `<p>` elements:
 
 Example
 
@@ -393,22 +410,27 @@ p i:first-child {
 }
 ```
 
-**Match all <i> elements in all first child `<p>` elements**
+**Match all `<i>` elements in all first child `<p>` elements**
 
 In the following example, the selector matches all `<i>` elements in `<p>` elements that are the first child of another element:
 
 Example
 
+```css
 p:first-child i {
   color: blue;
 }
+```
 
-The :lang Pseudo-class
+**The :lang Pseudo-class**
+
 The :lang pseudo-class allows you to define special rules for different languages.
 
-In the example below, :lang defines the quotation marks for <q> elements with lang="no":
+In the example below, :lang defines the quotation marks for elements with lang="no":
 
 Example
+
+```html
 <html>
 <head>
 <style>
@@ -421,33 +443,33 @@ q:lang(no) {
   <p>Some text <q lang="no">A quote in a paragraph</q> Some text.</p>
 </body>
 </html>
+```
 
-Ref from W3Schools
 
 All CSS Pseudo Classes
+```
 Selector	Example	       Example description
-
 :active	    a:active	   Selects the active link
 
-:checked	input:checked	Selects every checked <input> element
+:checked	input:checked	Selects every checked `<input>`  element
 
-:disabled	input:disabled	Selects every disabled <input> element
+:disabled	input:disabled	Selects every disabled `<input>`  element
 
 :empty	    p:empty	       Selects every `<p>` element that has no children
 
-:enabled	input:enabled	Selects every enabled <input> element
+:enabled	input:enabled	Selects every enabled `<input>`  element
 
 :first-child	p:first-child	Selects every `<p>` elements that is the first child of its parent
 
 :first-of-type	p:first-of-type	Selects every `<p>` element that is the first `<p>` element of its parent
 
-:focus	input:focus	Selects the <input> element that has focus
+:focus	input:focus	Selects the `<input>`  element that has focus
 
 :hover	a:hover	Selects links on mouse over
 
-:in-range	input:in-range	Selects <input> elements with a value within a specified range
+:in-range	input:in-range	Selects `<input>`  elements with a value within a specified range
 
-:invalid	input:invalid	Selects all <input> elements with an invalid value
+:invalid	input:invalid	Selects all `<input>`  elements with an invalid value
 
 :lang(language)	p:lang(it)	Selects every `<p>` element with a lang attribute value starting with "it"
 
@@ -471,53 +493,63 @@ Selector	Example	       Example description
 
 :only-child	p:only-child	Selects every `<p>` element that is the only child of its parent
 
-:optional	input:optional	Selects <input> elements with no "required" attribute
+:optional	input:optional	Selects `<input>`  elements with no "required" attribute
 
-:out-of-range	input:out-of-range	Selects <input> elements with a value outside a specified range
+:out-of-range	input:out-of-range	Selects `<input>`  elements with a value outside a specified range
 
-:read-only	input:read-only	Selects <input> elements with a "readonly" attribute specified
+:read-only	input:read-only	Selects `<input>`  elements with a "readonly" attribute specified
 
-:read-write	input:read-write	Selects <input> elements with no "readonly" attribute
+:read-write	input:read-write	Selects `<input>`  elements with no "readonly" attribute
 
-:required	input:required	Selects <input> elements with a "required" attribute specified
+:required	input:required	Selects `<input>`  elements with a "required" attribute specified
 
 :root	root	Selects the document's root element
 
 :target	#news:target	Selects the current active #news element (clicked on a URL containing that anchor name)
 
-:valid	input:valid	Selects all <input> elements with a valid value
+:valid	input:valid	Selects all `<input>`  elements with a valid value
 
 :visited	a:visited	Selects all visited links
+```
 
-## pseudo-elements
+## Pseudo Elements
 
-A CSS pseudo-element is used to style specified parts of an element. ( Bir elementin belirli bir alanını stillendirmeye kullanılır. Örneğin elementin ilk harfi, ilk satırı ya da elementin öncesine veya sonrasına içerik ekleme )
+A CSS pseudo-element is used to style specified parts of an element. 
+
+(tr:Bir elementin belirli bir alanını stillendirmeye kullanılır. Örneğin elementin ilk harfi, ilk satırı ya da elementin öncesine veya sonrasına içerik ekleme :)
 
 For example, it can be used to:
-Style the first letter, or line, of an element
-Insert content before, or after, the content of an element
+- Style the first letter, or line, of an element
+- Insert content before, or after, the content of an element
 
 The syntax of pseudo-elements:
 
+```css
 selector::pseudo-element {
   property: value;
 }
+```
 
-The ::first-line Pseudo-element
+**The ::first-line Pseudo-element**
+
 The ::first-line pseudo-element is used to add a special style to the first line of a text.
 
 The following example formats the first line of the text in all `<p>` elements:
 
 Example 
+
+```css
 p::first-line {
   color: #ff0000;
   font-variant: small-caps;
 }
+```
 
 Note: The ::first-line pseudo-element can only be applied to block-level elements.
 
 The following properties apply to the ::first-line pseudo-element:
 
+```
 font properties
 color properties
 background properties
@@ -528,6 +560,7 @@ vertical-align
 text-transform
 line-height
 clear
+```
 
 Notice the double colon notation - ::first-line versus :first-line
 
@@ -537,21 +570,26 @@ The single-colon syntax was used for both pseudo-classes and pseudo-elements in 
 
 For backward compatibility, the single-colon syntax is acceptable for CSS2 and CSS1 pseudo-elements.
 
-The ::first-letter Pseudo-element
+**The ::first-letter Pseudo-element**
+
 The ::first-letter pseudo-element is used to add a special style to the first letter of a text.
 
 The following example formats the first letter of the text in all `<p>` elements: 
 
 Example
+
+```css
 p::first-letter {
   color: #ff0000;
   font-size: xx-large;
 }
+```
 
 Note: The ::first-letter pseudo-element can only be applied to block-level elements.
 
 The following properties apply to the ::first-letter pseudo- element: 
 
+```
 font properties
 color properties 
 background properties
@@ -564,68 +602,92 @@ text-transform
 line-height
 float
 clear
+```
 
-Pseudo-elements and CSS Classes
+**Pseudo-elements and CSS Classes**
+
 Pseudo-elements can be combined with CSS classes: 
 
 Example
+
+```css
 p.intro::first-letter {
   color: #ff0000;
   font-size: 200%;
 }
+```
 
 The example above will display the first letter of paragraphs with class="intro", in red and in a larger size.
 
-Multiple Pseudo-elements
+**Multiple Pseudo-elements**
+
 Several pseudo-elements can also be combined.
 
 In the following example, the first letter of a paragraph will be red, in an xx-large font size. The rest of the first line will be blue, and in small-caps. The rest of the paragraph will be the default font size and color:
 
 Example
+
+```css
 p::first-letter {
   color: #ff0000;
   font-size: xx-large;
 }
 
+
 p::first-line {
   color: #0000ff;
   font-variant: small-caps;
 }
+```
 
-The ::before Pseudo-element
+**The ::before Pseudo-element**
+
 The ::before pseudo-element can be used to insert some content before the content of an element.
 
-The following example inserts an image before the content of each <h1> element:
+The following example inserts an image before the content of each `<h1>` element:
 
 Example
+
+```css
 h1::before {
   content: url(smiley.gif);
 }
+```
 
-%2%
-The ::after Pseudo-element
+**The ::after Pseudo-element**
+
 The ::after pseudo-element can be used to insert some content after the content of an element.
 
-The following example inserts an image after the content of each <h1> element:
+The following example inserts an image after the content of each `<h1>` element:
 
 Example
+
+```css
 h1::after {
   content: url(smiley.gif);
 }
+```
 
-The ::selection Pseudo-element
+**The ::selection Pseudo-element**
+
 The ::selection pseudo-element matches the portion of an element that is selected by a user.
+
 The following CSS properties can be applied to ::selection: color, background, cursor, and outline.
 
 The following example makes the selected text red on a yellow background:
  
 Example
+
+```css
 ::selection {
   color: red;
   background: yellow;
 }
+```
 
 All CSS Pseudo Elements
+
+```
 Selector	Example	Example description
 ::after	p::after	Insert something after the content of each `<p>` element
 ::before	p::before	Insert something before the content of each `<p>` element
@@ -633,35 +695,44 @@ Selector	Example	Example description
 ::first-line	p::first-line	Selects the first line of each `<p>` element
 ::selection	p::selection	Selects the portion of an element that is selected by a user
 
+```
 
-## Attribute Selector[attribute] Selector
+## Attribute Selector
 
-[attribute] Selector
 The [attribute] selector is used to select elements with a specified attribute.
 
-The following example selects all <a> elements with a target attribute:
+The following example selects all `<a>` elements with a target attribute:
 
 Example
+
+```css
 a[target] {
   background-color: yellow;
 }
+```
 
-[attribute="value"] Selector
+**[attribute="value"] Selector**
+
 The [attribute="value"] selector is used to select elements with a specified attribute and value.
 
-The following example selects all <a> elements with a target="_blank" attribute:
+The following example selects all `<a>` elements with a target="_blank" attribute:
 
 Example
+
+```css
 a[target="_blank"] {
   background-color: yellow;
 }
+```
 
 [attribute~="value"] Selector
+
 The [attribute~="value"] selector is used to select elements with an attribute value containing a specified word.
 
 The following example selects all elements with a title attribute that contains a space-separated list of words, one of which is "flower":
 
 Example
+
 [title~="flower"] {
   border: 5px solid yellow;
 }
@@ -669,6 +740,7 @@ Example
 The example above will match elements with title="flower", title="summer flower", and title="flower new", but not title="my-flower" or title="flowers".
 
 [attribute|="value"] Selector
+
 The [attribute|="value"] selector is used to select elements with the specified attribute starting with the specified value.
 
 The following example selects all elements with a class attribute value that begins with "top":
@@ -676,11 +748,13 @@ The following example selects all elements with a class attribute value that beg
 Note: The value has to be a whole word, either alone, like class="top", or followed by a hyphen( - ), like class="top-text"! 
 
 Example
+
 [class|="top"] {
   background: yellow;
 }
 
 [attribute^="value"] Selector
+
 The [attribute^="value"] selector is used to select elements whose attribute value begins with a specified value.
 
 The following example selects all elements with a class attribute value that begins with "top":
@@ -692,6 +766,7 @@ Note: The value does not have to be a whole word! 
 }
 
 [attribute$="value"] Selector
+
 The [attribute$="value"] selector is used to select elements whose attribute value ends with a specified value.
 
 The following example selects all elements with a class attribute value that ends with "test":
@@ -699,11 +774,13 @@ The following example selects all elements with a class attribute value that end
 Note: The value does not have to be a whole word!  
 
 Example
+
 [class$="test"] {
   background: yellow;
 }
 
-[attribute*="value"] Selector
+**[attribute*="value"] Selector**
+
 The [attribute*="value"] selector is used to select elements whose attribute value contains a specified value.
 
 The following example selects all elements with a class attribute value that contains "te":
@@ -711,14 +788,18 @@ The following example selects all elements with a class attribute value that con
 Note: The value does not have to be a whole word!  
 
 Example
+
 [class*="te"] {
   background: yellow;
 }
 
-Styling Forms
+**Styling Forms**
+
 The attribute selectors can be useful for styling forms without class or ID:
 
 Example
+
+```css
 input[type="text"] {
   width: 150px;
   display: block;
@@ -731,10 +812,13 @@ input[type="button"] {
   margin-left: 35px;
   display: block;
 }
+```
 
 Tip: Visit our CSS Forms Tutorial for more examples on how to style forms with CSS. https://www.w3schools.com/css_form.asp
 
 All CSS Attribute Selectors
+
+```
 Selector	Example	Example description
 [attribute]	[target]	Selects all elements with a target attribute
 
@@ -750,6 +834,7 @@ Selector	Example	Example description
 
 [attribute*=value]	a[href*="w3schools"]	Selects every <a> element whose href attribute value contains the substring "w3schools"
 
+```
 
 ## How to add CSS (To a html page)
 
@@ -758,15 +843,18 @@ When a browser reads a style sheet, it will format the HTML document according t
 Three Ways to Insert CSS
 There are three ways of inserting a style sheet:
 
-External CSS
-Internal CSS
-Inline CSS
+- External CSS
+- Internal CSS
+- Inline CSS
 
-External CSS
+**External CSS**
+
 With an external style sheet, you can change the look of an entire website by changing just one file!
 
 Example
-External styles are defined within the <link> element, inside the <head> section of an HTML page:
+External styles are defined within the `<link>` element, inside the `<head>` section of an HTML page:
+
+```html
 <link rel="stylesheet" href="mystyle.css"> 
 
 <!DOCTYPE html>
@@ -781,6 +869,7 @@ External styles are defined within the <link> element, inside the <head> section
 
 </body>
 </html>
+```
 
 An external style sheet can be written in any text editor, and must be saved with a .css extension.
 
