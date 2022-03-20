@@ -5,7 +5,14 @@
   - [Simple Selectors](#simple-selectors)
     - [Element (Tag) Selector](#element-tag-selector)
     - [Id Selector](#id-selector)
+    - [Class Selector](#class-selector)
+    - [Universal Selector](#universal-selector)
+    - [Grouping Selector](#grouping-selector)
   - [Combinators (Birleştirici-İlişkilendirici)](#combinators-birleştirici-i̇lişkilendirici)
+    - [Descendant Selector  (Boşluk) (Nesil Seçici) (a b)](#descendant-selector--boşluk-nesil-seçici-a-b)
+    - [Child Selector (>) (Çocuk Seçici)](#child-selector--çocuk-seçici)
+    - [Adjacent Sibling Selector (+) (Takip eden kardeş seçici)](#adjacent-sibling-selector--takip-eden-kardeş-seçici)
+    - [General Sibling Selector (~) (Genel kardeş seçici)](#general-sibling-selector--genel-kardeş-seçici)
   - [Pseudo-classes (Elementin Durum Sınıfları)](#pseudo-classes-elementin-durum-sınıfları)
   - [pseudo-elements](#pseudo-elements)
   - [Attribute Selector[attribute] Selector](#attribute-selectorattribute-selector)
@@ -92,97 +99,128 @@ Example : The CSS rule below will be applied to the HTML element with id="idName
 #idName {  text-align: center;  color: red; }
 Note: An id name cannot start with a number!
 
-Class Selector
+### Class Selector
+
 Example In this example all HTML elements with class="center" will be red and center-aligned: 
- .center { text-align: center;  color: red; }
 
-Example In this example only <p> elements with class="center" will be red and center-aligned: 
-p.center { text-align: center;  color: red; }"
+```css
+.center { text-align: center;  color: red; }
+```
 
-HTML elements can also refer to more than one class. "
-Example In this example the <p> element will be styled according to class="center" and to class="large": 
+Example In this example only `<p>` elements with class="center" will be red and center-aligned: 
+
+```css
+p.center { text-align: center;  color: red; }
+```
+
+HTML elements can also refer to more than one class.
+
+Example In this example the `<p>` element will be styled according to class="center" and to class="large": 
+
+```css
 <p class="center large">This paragraph refers to two classes.</p>
+```
+
 Note: A class name cannot start with a number!
 
-Universal Selector
-Example The CSS rule below will affect every HTML element on the page:
-* {  text-align: center;  color: blue; }
+### Universal Selector
 
-Grouping Selector
+Example The CSS rule below will affect every HTML element on the page:
+
+```css
+* {  text-align: center;  color: blue; }
+```
+
+### Grouping Selector
+
 The grouping selector selects all the HTML elements with the same style definitions. ( Gruplamak için her seçici arasına virgül koyarak gruplama yaparız. Seçilen tüm html elementlerine aynı stil uygulanır.) 
 
 Example: In this example we have grouped the selectors ( h1,h2 and p): 
 
+```css
 h1, h2, p { text-align: center;  color: red; }
+```
 
+```
 All CSS Simple Selectors
-Selector 			: Example 		: Example description
-#id 					#firstname 		Selects the element with id="firstname"
-.class 				.intro 				Selects all elements with class="intro"
+Selector        :Example      :Example description
+#id             #firstname    Selects the element with id="firstname"
+.class          .intro        Selects all elements with class="intro"
 element.class 	p.intro 			Selects only <p> elements with class="intro"
-* 						* 						Selects all elements
-element 			p 						Selects all <p> elements
-element, element,.. div, p 		Selects all <div> elements and all <p> elements
+*               *             Selects all elements
+element         p             Selects all <p> elements
+element, element,.. div, p    Selects all <div> elements and all <p> elements
+
+```
 
 ## Combinators (Birleştirici-İlişkilendirici)
 
-Outline_______________
-
 Combinators ( İlişkilendiriciler )
-  Descendant Selector (Boşluk) (Nesil Seçici) (a b)
-  Child Selector (>) (Çocuk Seçici)
-  Adjacent Sibling Selector (+) (Takip eden kardeş seçici)
-  General Sibling Selector (~) (Genel kardeş seçici)
-  Combined Selector (birden fazla özelliğe sahip element seçici) (.a.b) (without space)
 
-
-Combinators (Birleştiriciler)
+* Descendant Selector (Boşluk) (Nesil Seçici) (a b)
+* Child Selector (>) (Çocuk Seçici)
+* Adjacent Sibling Selector (+) (Takip eden kardeş seçici)
+* General Sibling Selector (~) (Genel kardeş seçici)
+* Combined Selector (birden fazla özelliğe sahip element seçici) (.a.b) (without space)
 
 A combinator is something that explains the relationship between the selectors. ( Seçiciler arasında ilişki kurmamızı sağlar.)
 
 A CSS selector can contain more than one simple selector. Between the simple selectors, we can include a combinator.
 
-Descendant Selector  (Boşluk) (Nesil Seçici) (a b) 
+### Descendant Selector  (Boşluk) (Nesil Seçici) (a b) 
+
 The descendant selector matches all elements that are descendants of a specified element. ( nesilden gelen tüm elementleri (çocuk, torun,...) seçer )
 
-The following example selects all <p> elements inside <div> elements:  ( Div elements içerisinde bulunan tüm p elemanlarına uygulanır.) (div neslinden gelen tüm p'ler)
+The following example selects all `<p>` elements inside <div> elements:  ( Div elements içerisinde bulunan tüm p elemanlarına uygulanır.) (div neslinden gelen tüm p'ler)
 
 Example
+
+```css
 div p {
   background-color: yellow;
 }
+```
 
-Child Selector (>) (Çocuk Seçici)
+### Child Selector (>) (Çocuk Seçici)
+
 The child selector selects all elements that are the children of a specified element.
 
-The following example selects all <p> elements that are children of a <div> element:
+The following example selects all `<p>` elements that are children of a `<div>` element:
 
 Example
+
+```css
 div > p {
   background-color: yellow;
 }
 
-Torunu da dahil eder mi ?
+```
+
+**Torunu da dahil eder mi ?**
+
 Evet dahil eder. yani div>p>p varsa o da dahil olur. (inheritance dan dolayı mı?)
 
-Adjacent Sibling Selector (+) (Takip eden kardeş seçici)
+### Adjacent Sibling Selector (+) (Takip eden kardeş seçici)
+
 The adjacent sibling selector is used to select an element that is directly after another specific element. (Takip eden kardeş seçici)
 
 Sibling elements must have the same parent element, and "adjacent" means "immediately following".
 
-The following example selects the first <p> element that are placed immediately after <div> elements:
+The following example selects the first `<p>` element that are placed immediately after <div> elements:
 
 Example
 div + p {
   background-color: yellow;
 }
 
-General Sibling Selector (~) (Genel kardeş seçici)
+### General Sibling Selector (~) (Genel kardeş seçici)
+
 The general sibling selector selects all elements that are siblings of a specified element. (Genel kardeş seçici) (kendinden önce gelenlere uygulamaz, kendinden sonra gelen kardeşlere uygulanır.)
 
 The following example selects all <p> elements that are siblings of <div> elements: 
 
 Example
+
 div ~ p {
   background-color: yellow;
 }
@@ -292,16 +330,16 @@ div:hover p {
 The :first-child Pseudo-class
 
 The :first-child pseudo-class matches a specified element that is the first child of another element.
-Match the first <p> element
+Match the first `<p>` element
 
-In the following example, the selector matches any <p> element that is the first child of any element:
+In the following example, the selector matches any `<p>` element that is the first child of any element:
 
 Example
 p:first-child {
   color: blue;
 }
 
-Match the first <i> element in all <p> elements
+Match the first <i> element in all `<p>` elements
 In the following example, the selector matches the first <i> element in all <p> elements:
 
 Example
@@ -309,8 +347,8 @@ p i:first-child {
   color: blue;
 }
 
-Match all <i> elements in all first child <p> elements
-In the following example, the selector matches all <i> elements in <p> elements that are the first child of another element:
+Match all <i> elements in all first child `<p>` elements
+In the following example, the selector matches all <i> elements in `<p>` elements that are the first child of another element:
 
 Example
 p:first-child i {
