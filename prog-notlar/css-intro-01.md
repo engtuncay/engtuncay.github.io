@@ -8,18 +8,20 @@
     - [Class Selector](#class-selector)
     - [Universal Selector](#universal-selector)
     - [Grouping Selector](#grouping-selector)
-  - [Combinators (Birleştirici-İlişkilendirici)](#combinators-birleştirici-i̇lişkilendirici)
-    - [Descendant Selector  (Boşluk) (Nesil Seçici) (a b)](#descendant-selector--boşluk-nesil-seçici-a-b)
-    - [Child Selector (>) (Çocuk Seçici)](#child-selector--çocuk-seçici)
-    - [Adjacent Sibling Selector (+) (Takip eden kardeş seçici)](#adjacent-sibling-selector--takip-eden-kardeş-seçici)
-    - [General Sibling Selector (~) (Genel kardeş seçici)](#general-sibling-selector--genel-kardeş-seçici)
-  - [Pseudo-classes (Elementin Durum Sınıfları)](#pseudo-classes-elementin-durum-sınıfları)
+  - [Combinators (İlişkilendiriciler)](#combinators-i̇lişkilendiriciler)
+    - [Descendant Selector (Space) (Nesil Seçici) (a b)](#descendant-selector-space-nesil-seçici-a-b)
+    - [Child Selector (>)](#child-selector-)
+    - [Adjacent Sibling Selector (+)](#adjacent-sibling-selector-)
+    - [General Sibling Selector (~)](#general-sibling-selector-)
+    - [Combined Selectors](#combined-selectors)
+  - [Pseudo-classes](#pseudo-classes)
   - [pseudo-elements](#pseudo-elements)
   - [Attribute Selector[attribute] Selector](#attribute-selectorattribute-selector)
   - [How to add CSS (To a html page)](#how-to-add-css-to-a-html-page)
   - [Comments](#comments)
   - [Specifity](#specifity)
   - [](#)
+- [Sources](#sources)
 
 
 
@@ -78,17 +80,20 @@ We can divide CSS selectors into five categories:
 
 ## Simple Selectors 
 
-* Element(Tag) Selector (tag)
+* Element (Tag) Selector (tag)
 * Id Selector (#)
 * Class Selector (.) 
-* Grouping Selector (,) Birden fazla etiketi seçerek aynı stili veririz.
+* Grouping Selector (,)
 * Universal Selector (*)
 
 ### Element (Tag) Selector
 
+```css
 /*html-element-name*/ { /*declaration-block*/ }
+```
 
 ### Id Selector
+
 The id selector uses the id attribute of an HTML element to select a specific element.
 
 The id of an element is unique within a page, so the id selector is used to select one unique element!
@@ -96,18 +101,28 @@ The id of an element is unique within a page, so the id selector is used to sele
 To select an element with a specific id, write a hash (#) character, followed by the id of the element.
 
 Example : The CSS rule below will be applied to the HTML element with id="idName": 
+
+```css
 #idName {  text-align: center;  color: red; }
+```
+
 Note: An id name cannot start with a number!
 
 ### Class Selector
 
-Example In this example all HTML elements with class="center" will be red and center-aligned: 
+We can add class name to html elements. For example, pstyle class assigned to p tag. we can use pstyle class also for other html elements.
+
+```html
+<p class='pstyle'>...
+```
+
+In this example all HTML elements with class="center" will be red and center-aligned: 
 
 ```css
 .center { text-align: center;  color: red; }
 ```
 
-Example In this example only `<p>` elements with class="center" will be red and center-aligned: 
+In this example only `<p>` elements with class="center" will be red and center-aligned: 
 
 ```css
 p.center { text-align: center;  color: red; }
@@ -115,7 +130,7 @@ p.center { text-align: center;  color: red; }
 
 HTML elements can also refer to more than one class.
 
-Example In this example the `<p>` element will be styled according to class="center" and to class="large": 
+In this example the `<p>` element will be styled according to class="center" and to class="large": 
 
 ```css
 <p class="center large">This paragraph refers to two classes.</p>
@@ -125,17 +140,20 @@ Note: A class name cannot start with a number!
 
 ### Universal Selector
 
-Example The CSS rule below will affect every HTML element on the page:
+The CSS rule below will affect every HTML element on the page:
 
 ```css
-* {  text-align: center;  color: blue; }
+* {  
+  text-align: center;  
+  color: blue; 
+}
 ```
 
 ### Grouping Selector
 
-The grouping selector selects all the HTML elements with the same style definitions. ( Gruplamak için her seçici arasına virgül koyarak gruplama yaparız. Seçilen tüm html elementlerine aynı stil uygulanır.) 
+The grouping selector selects specified elements or selectors to give same style definitions. ( Gruplamak için her seçici arasına virgül koyarak gruplama yaparız. Seçilen tüm html elementlerine aynı stil uygulanır.) 
 
-Example: In this example we have grouped the selectors ( h1,h2 and p): 
+In this example we have grouped the selectors ( h1,h2 and p): 
 
 ```css
 h1, h2, p { text-align: center;  color: red; }
@@ -146,32 +164,31 @@ All CSS Simple Selectors
 Selector        :Example      :Example description
 #id             #firstname    Selects the element with id="firstname"
 .class          .intro        Selects all elements with class="intro"
-element.class 	p.intro 			Selects only <p> elements with class="intro"
+element.class 	p.intro 			Selects only `<p>` elements with class="intro"
 *               *             Selects all elements
-element         p             Selects all <p> elements
-element, element,.. div, p    Selects all <div> elements and all <p> elements
-
+element         p             Selects all `<p>` elements
+element, element,.. div, p    Selects all `<div>` elements and all `<p>` elements
 ```
 
-## Combinators (Birleştirici-İlişkilendirici)
+## Combinators (İlişkilendiriciler)
 
-Combinators ( İlişkilendiriciler )
+Combinators have five categories.
 
-* Descendant Selector (Boşluk) (Nesil Seçici) (a b)
-* Child Selector (>) (Çocuk Seçici)
-* Adjacent Sibling Selector (+) (Takip eden kardeş seçici)
-* General Sibling Selector (~) (Genel kardeş seçici)
-* Combined Selector (birden fazla özelliğe sahip element seçici) (.a.b) (without space)
+* Descendant Selector (Space) (tr:Nesil Seçici) (a b)
+* Child Selector (>) (tr:Çocuk Seçici)
+* Adjacent Sibling Selector (+) (tr:Takip eden kardeş seçici)
+* General Sibling Selector (~) (tr:Genel kardeş seçici)
+* Combined Selector (tr:birden fazla özelliğe sahip element seçici) (.a.b) (without space)
 
-A combinator is something that explains the relationship between the selectors. ( Seçiciler arasında ilişki kurmamızı sağlar.)
+A combinator is something that explains the relationship between the selectors. (tr:Seçiciler arasında ilişki kurmamızı sağlar.)
 
 A CSS selector can contain more than one simple selector. Between the simple selectors, we can include a combinator.
 
-### Descendant Selector  (Boşluk) (Nesil Seçici) (a b) 
+### Descendant Selector (Space) (Nesil Seçici) (a b) 
 
-The descendant selector matches all elements that are descendants of a specified element. ( nesilden gelen tüm elementleri (çocuk, torun,...) seçer )
+The descendant selector matches all elements that are descendants of a specified element. (tr:nesilden gelen tüm elementleri (çocuk, torun,...) seçer )
 
-The following example selects all `<p>` elements inside <div> elements:  ( Div elements içerisinde bulunan tüm p elemanlarına uygulanır.) (div neslinden gelen tüm p'ler)
+The following example selects all `<p>` elements inside `<div>` elements:  (tr:Div elements içerisinde bulunan tüm p elemanlarına uygulanır. div neslinden gelen tüm p'ler. )
 
 Example
 
@@ -181,7 +198,9 @@ div p {
 }
 ```
 
-### Child Selector (>) (Çocuk Seçici)
+### Child Selector (>) 
+
+(tr:Çocuk Seçici)
 
 The child selector selects all elements that are the children of a specified element.
 
@@ -193,81 +212,86 @@ Example
 div > p {
   background-color: yellow;
 }
-
 ```
 
 **Torunu da dahil eder mi ?**
 
-Evet dahil eder. yani div>p>p varsa o da dahil olur. (inheritance dan dolayı mı?)
+Evet dahil eder. yani div>p>p varsa o da dahil olur.
 
-### Adjacent Sibling Selector (+) (Takip eden kardeş seçici)
+### Adjacent Sibling Selector (+) 
 
-The adjacent sibling selector is used to select an element that is directly after another specific element. (Takip eden kardeş seçici)
+(tr:Takip eden kardeş seçici)
+
+The adjacent sibling selector is used to select an element that is directly after another specific element.
 
 Sibling elements must have the same parent element, and "adjacent" means "immediately following".
 
-The following example selects the first `<p>` element that are placed immediately after <div> elements:
+The following example selects the first `<p>` element that are placed immediately after `<div>` elements:
 
 Example
+
+```css
 div + p {
   background-color: yellow;
 }
+```
 
-### General Sibling Selector (~) (Genel kardeş seçici)
+### General Sibling Selector (~) 
 
-The general sibling selector selects all elements that are siblings of a specified element. (Genel kardeş seçici) (kendinden önce gelenlere uygulamaz, kendinden sonra gelen kardeşlere uygulanır.)
+(tr:Genel kardeş seçici)
 
-The following example selects all <p> elements that are siblings of <div> elements: 
+The general sibling selector selects all elements that are siblings of a specified element. (tr:kendinden önce gelenlere uygulamaz, kendinden sonra gelen kardeşlere uygulanır.)
+
+The following example selects all `<p>` elements that are siblings of `<div>` elements: 
 
 Example
 
+```css
 div ~ p {
   background-color: yellow;
 }
+```
 
-(by to)
-Combined Selectors
+### Combined Selectors
+
 .a.b : hem a ve b sınıfı olan elementler
 
-
 All CSS Combinator Selectors
-Selector  
-Example
-Description  
-element element	 
- div p 
-Selects all <p> elements inside <div> elements (nesil seçici)
-element>element 
- div > p 
-all <p> elements where the parent is a <div> element (çocuk seçici)
-element+element	 
- div + p 
-Selects the first <p> element that are placed immediately after <div> elements (takip eden kardeş seçici)
-element1~element2
- p ~ ul	 
-Selects every <ul> element that are preceded by a <p> element (genel kardeş seçici)
+Selector | Example | Description
+--- | --- | ---
+element element | div p | Selects all `<p>` elements inside `<div>` elements (nesil seçici)
+element>element  | div > p  | all `<p>` elements where the parent is a `<div>` element (çocuk seçici)
+element+element	| div + p  | Selects the first `<p>` element that are placed immediately after `<div>` elements (takip eden kardeş seçici)
+element1`~`element2 | p ~ ul  | Selects every `<ul>` element that are preceded by a `<p>` element (genel kardeş seçici)
 
 
-## Pseudo-classes (Elementin Durum Sınıfları)
+## Pseudo-classes 
+
+(tr:Elementin Durum Sınıfları) $$$
 
 A pseudo-class is used to define a special state of an element. (Html elementin özel bir durumuna (state) göre seçmemizi sağlar. Örneğin mouse ile üzerine gelme, tıklanmış link gibi...)
 
 For example, it can be used to:
 
-Style an element when a user mouses over it
-Style visited and unvisited links differently
-Style an element when it gets focus
+- Style an element when a user mouses over it
+- Style visited and unvisited links differently
+- Style an element when it gets focus
 
-Syntax
+**Syntax**
+
 The syntax of pseudo-classes:
 
+```css
 selector:pseudo-class {
   property: value;
 }
+```
 
-Anchor Pseudo-classes
+**Anchor Pseudo-classes**
+
 Links can be displayed in different ways:
 
+```css
 /* unvisited link */
 a:link {
   color: #FF0000;
@@ -287,36 +311,48 @@ a:hover {
 a:active {
   color: #0000FF;
 }
+```
 
-Note: a:hover MUST come after a:link and a:visited in the CSS definition in order to be effective! a:active MUST come after a:hover in the CSS definition in order to be effective! Pseudo-class names are not case-sensitive.
+Note: a:hover MUST come after a:link and a:visited in the CSS definition in order to be effective! 
 
-Pseudo-classes and CSS Classes
+a:active MUST come after a:hover in the CSS definition in order to be effective! Pseudo-class names are not case-sensitive.
+
+**Pseudo-classes and CSS Classes**
+
 Pseudo-classes can be combined with CSS classes:
 
 When you hover over the link in the example, it will change color:
 
 Example
+
+```css
 a.highlight:hover {
   color: #ff0000;
 }
+```
 
-Hover on <div>
-An example of using the :hover pseudo-class on a <div> element:
+**Hover on <div>**
 
+An example of using the :hover pseudo-class on a `<div>` element:
+
+```css
 div:hover {
   background-color: blue;
 }
+```
 
-Example
+**Simple Tooltip Hover**
 
-Simple Tooltip Hover
-Hover over a <div> element to show a <p> element (like a tooltip): (hover olduğunda kendisinin veya combinator ile farklı bir elementin display özelliğini block yaparak gösterilmesini sağlayabiliriz.)
+Hover over a `<div>` element to show a `<p>` element (like a tooltip): (hover olduğunda kendisinin veya combinator ile farklı bir elementin display özelliğini block yaparak gösterilmesini sağlayabiliriz.)
 
- Example 
+Example 
+
+```html
 <div>Hover over me to show the p element
   <p>Tada! Here I am!</p>
 </div>
 
+<style>
 p {
   display: none;
   background-color: yellow;
@@ -326,31 +362,43 @@ p {
 div:hover p {
   display: block;
 }
+</style>
+```
 
-The :first-child Pseudo-class
+**The :first-child Pseudo-class**
 
 The :first-child pseudo-class matches a specified element that is the first child of another element.
+
 Match the first `<p>` element
 
 In the following example, the selector matches any `<p>` element that is the first child of any element:
 
 Example
+
+```css
 p:first-child {
   color: blue;
 }
+```
 
-Match the first <i> element in all `<p>` elements
-In the following example, the selector matches the first <i> element in all <p> elements:
+**Match the first <i> element in all `<p>` elements**
+
+In the following example, the selector matches the first <i> element in all `<p>` elements:
 
 Example
+
+```css
 p i:first-child {
   color: blue;
 }
+```
 
-Match all <i> elements in all first child `<p>` elements
-In the following example, the selector matches all <i> elements in `<p>` elements that are the first child of another element:
+**Match all <i> elements in all first child `<p>` elements**
+
+In the following example, the selector matches all `<i>` elements in `<p>` elements that are the first child of another element:
 
 Example
+
 p:first-child i {
   color: blue;
 }
@@ -385,13 +433,13 @@ Selector	Example	       Example description
 
 :disabled	input:disabled	Selects every disabled <input> element
 
-:empty	    p:empty	       Selects every <p> element that has no children
+:empty	    p:empty	       Selects every `<p>` element that has no children
 
 :enabled	input:enabled	Selects every enabled <input> element
 
-:first-child	p:first-child	Selects every <p> elements that is the first child of its parent
+:first-child	p:first-child	Selects every `<p>` elements that is the first child of its parent
 
-:first-of-type	p:first-of-type	Selects every <p> element that is the first <p> element of its parent
+:first-of-type	p:first-of-type	Selects every `<p>` element that is the first `<p>` element of its parent
 
 :focus	input:focus	Selects the <input> element that has focus
 
@@ -401,27 +449,27 @@ Selector	Example	       Example description
 
 :invalid	input:invalid	Selects all <input> elements with an invalid value
 
-:lang(language)	p:lang(it)	Selects every <p> element with a lang attribute value starting with "it"
+:lang(language)	p:lang(it)	Selects every `<p>` element with a lang attribute value starting with "it"
 
-:last-child	p:last-child	Selects every <p> elements that is the last child of its parent
+:last-child	p:last-child	Selects every `<p>` elements that is the last child of its parent
 
-:last-of-type	p:last-of-type	Selects every <p> element that is the last <p> element of its parent
+:last-of-type	p:last-of-type	Selects every `<p>` element that is the last `<p>` element of its parent
 
 :link	a:link	Selects all unvisited links
 
-:not(selector)	:not(p)	Selects every element that is not a <p> element
+:not(selector)	:not(p)	Selects every element that is not a `<p>` element
 
-:nth-child(n)	p:nth-child(2)	Selects every <p> element that is the second child of its parent
+:nth-child(n)	p:nth-child(2)	Selects every `<p>` element that is the second child of its parent
 
-:nth-last-child(n)	p:nth-last-child(2)	Selects every <p> element that is the second child of its parent, counting from the last child
+:nth-last-child(n)	p:nth-last-child(2)	Selects every `<p>` element that is the second child of its parent, counting from the last child
 
-:nth-last-of-type(n)	p:nth-last-of-type(2)	Selects every <p> element that is the second <p> element of its parent, counting from the last child
+:nth-last-of-type(n)	p:nth-last-of-type(2)	Selects every `<p>` element that is the second `<p>` element of its parent, counting from the last child
 
-:nth-of-type(n)	p:nth-of-type(2)	Selects every <p> element that is the second <p> element of its parent
+:nth-of-type(n)	p:nth-of-type(2)	Selects every `<p>` element that is the second `<p>` element of its parent
 
-:only-of-type	p:only-of-type	Selects every <p> element that is the only <p> element of its parent
+:only-of-type	p:only-of-type	Selects every `<p>` element that is the only `<p>` element of its parent
 
-:only-child	p:only-child	Selects every <p> element that is the only child of its parent
+:only-child	p:only-child	Selects every `<p>` element that is the only child of its parent
 
 :optional	input:optional	Selects <input> elements with no "required" attribute
 
@@ -458,7 +506,7 @@ selector::pseudo-element {
 The ::first-line Pseudo-element
 The ::first-line pseudo-element is used to add a special style to the first line of a text.
 
-The following example formats the first line of the text in all <p> elements:
+The following example formats the first line of the text in all `<p>` elements:
 
 Example 
 p::first-line {
@@ -492,7 +540,7 @@ For backward compatibility, the single-colon syntax is acceptable for CSS2 and C
 The ::first-letter Pseudo-element
 The ::first-letter pseudo-element is used to add a special style to the first letter of a text.
 
-The following example formats the first letter of the text in all <p> elements: 
+The following example formats the first letter of the text in all `<p>` elements: 
 
 Example
 p::first-letter {
@@ -579,10 +627,10 @@ Example
 
 All CSS Pseudo Elements
 Selector	Example	Example description
-::after	p::after	Insert something after the content of each <p> element
-::before	p::before	Insert something before the content of each <p> element
-::first-letter	p::first-letter	Selects the first letter of each <p> element
-::first-line	p::first-line	Selects the first line of each <p> element
+::after	p::after	Insert something after the content of each `<p>` element
+::before	p::before	Insert something before the content of each `<p>` element
+::first-letter	p::first-letter	Selects the first letter of each `<p>` element
+::first-line	p::first-line	Selects the first line of each `<p>` element
 ::selection	p::selection	Selects the portion of an element that is selected by a user
 
 
@@ -960,5 +1008,8 @@ The universal selector and inherited values have a specificity of 0 - *, body * 
 
 ## 
 
+# Sources
+
+- https://www.w3schools.com/css/
 
 
