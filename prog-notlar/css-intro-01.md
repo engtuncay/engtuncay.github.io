@@ -1,6 +1,10 @@
 
+edited 20-03-2022
+
 - [Intro](#intro)
 - [CSS Syntax](#css-syntax)
+- [How to add CSS](#how-to-add-css)
+- [Comments](#comments)
 - [Selectors](#selectors)
   - [Simple Selectors](#simple-selectors)
     - [Element (Tag) Selector](#element-tag-selector)
@@ -8,8 +12,8 @@
     - [Class Selector](#class-selector)
     - [Universal Selector](#universal-selector)
     - [Grouping Selector](#grouping-selector)
-  - [Combinators (İlişkilendiriciler)](#combinators-i̇lişkilendiriciler)
-    - [Descendant Selector (Space) (Nesil Seçici) (a b)](#descendant-selector-space-nesil-seçici-a-b)
+  - [Combinators](#combinators)
+    - [Descendant Selector (Space) (a b)](#descendant-selector-space-a-b)
     - [Child Selector (>)](#child-selector-)
     - [Adjacent Sibling Selector (+)](#adjacent-sibling-selector-)
     - [General Sibling Selector (~)](#general-sibling-selector-)
@@ -17,15 +21,11 @@
   - [Pseudo-classes](#pseudo-classes)
   - [Pseudo Elements](#pseudo-elements)
   - [Attribute Selector](#attribute-selector)
-  - [How to add CSS (To a html page)](#how-to-add-css-to-a-html-page)
-  - [Comments](#comments)
-  - [Specifity](#specifity)
-  - [](#)
+- [Cascading Order](#cascading-order)
+- [Specifity](#specifity)
 - [Sources](#sources)
 
-
-
-# Intro 
+# Intro
 
 **What is CSS?**
 
@@ -65,6 +65,197 @@ The declaration block contains one or more declarations separated by semicolons.
 Each declaration includes a CSS property name and a value, separated by a colon.
 
 Multiple CSS declarations are separated with semicolons, and declaration blocks are surrounded by curly braces.
+
+
+# How to add CSS
+
+When a browser reads a style sheet, it will format the HTML document according to the information in the style sheet.
+
+Three Ways to Insert CSS
+There are three ways of inserting a style sheet:
+
+- External CSS
+- Internal CSS
+- Inline CSS
+
+**External CSS**
+
+With an external style sheet, you can change the look of an entire website by changing just one file!
+
+Example
+External styles are defined within the `<link>` element, inside the `<head>` section of an HTML page:
+
+```html
+<link rel="stylesheet" href="mystyle.css"> 
+
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="mystyle.css">
+</head>
+<body>
+
+<h1>This is a heading</h1>
+<p>This is a paragraph.</p>
+
+</body>
+</html>
+```
+
+An external style sheet can be written in any text editor, and must be saved with a .css extension.
+
+Here is how the "mystyle.css" file looks:
+
+"mystyle.css"
+```css
+body {
+  background-color: lightblue;
+}
+
+h1 {
+  color: navy;
+  margin-left: 20px;
+}
+```
+
+Note: Do not add a space between the property value and the unit (such as margin-left: 20 px;). The correct way is: margin-left: 20px;
+
+**Internal CSS**
+
+An internal style sheet may be used if one single HTML page has a unique style.
+
+The internal style is defined inside the `<style>` element, inside the head section.
+
+Example
+Internal styles are defined within the `<style>` element, inside the `<head>` section of an HTML page:
+
+```css
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  background-color: linen;
+}
+
+h1 {
+  color: maroon;
+  margin-left: 40px;
+}
+</style>
+</head>
+<body>
+
+<h1>This is a heading</h1>
+<p>This is a paragraph.</p>
+
+</body>
+</html>
+```
+
+**Inline CSS**
+
+An inline style may be used to apply a unique style for a single element.
+
+To use inline styles, add the style attribute to the relevant element. The style attribute can contain any CSS property.
+
+Example
+
+Inline styles are defined within the "style" attribute of the relevant element:
+
+```css
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1 style="color:blue;text-align:center;">This is a heading</h1>
+<p style="color:red;">This is a paragraph.</p>
+
+</body>
+</html>
+```
+
+Tip: An inline style loses many of the advantages of a style sheet (by mixing content with presentation). Use this method sparingly.
+
+**Multiple Style Sheets**
+
+If some properties have been defined for the same selector (element) in different style sheets, the value from the last read style sheet will be used. 
+
+Assume that an external style sheet has the following style for the `<h1>` element:
+
+(mystyle.css)
+
+```css
+h1 {
+  color: navy;
+}
+```
+
+Example
+If the internal style is defined after the link to the external style sheet, the `<h1>` elements will be "orange":
+
+```css
+<head>
+<link rel="stylesheet" type="text/css" href="mystyle.css">
+<style>
+h1 {
+  color: orange;
+}
+</style>
+</head>
+```
+
+Example
+
+However, if the internal style is defined before the link to the external style sheet, the `<h1>` elements will be "navy": 
+
+```css
+<head>
+<style>
+h1 {
+  color: orange;
+}
+</style>
+<link rel="stylesheet" type="text/css" href="mystyle.css">
+</head>
+```
+
+# Comments
+
+Comments are used to explain the code, and may help when you edit the source code at a later date.
+
+A CSS comment is placed inside the `<style>` element, and starts with /* and ends with */:
+
+```css
+/* This is a single-line comment */
+p {
+  color: red;
+}
+```
+
+You can add comments wherever you want in the code:
+
+Example
+
+```css
+p {
+  color: red;  /* Set text color to red */
+}
+```
+
+Comments can also span multiple lines: 
+
+Example
+```css
+/* This is
+a multi-line
+comment */
+
+p {
+  color: red;
+}
+```
+
 
 # Selectors
 
@@ -170,7 +361,9 @@ element         p             Selects all `<p>` elements
 element, element,.. div, p    Selects all `<div>` elements and all `<p>` elements
 ```
 
-## Combinators (İlişkilendiriciler)
+## Combinators
+
+(tr:İlişkilendiriciler:)
 
 Combinators have five categories.
 
@@ -184,9 +377,13 @@ A combinator is something that explains the relationship between the selectors. 
 
 A CSS selector can contain more than one simple selector. Between the simple selectors, we can include a combinator.
 
-### Descendant Selector (Space) (Nesil Seçici) (a b) 
+### Descendant Selector (Space) (a b) 
 
-The descendant selector matches all elements that are descendants of a specified element. (tr:nesilden gelen tüm elementleri (çocuk, torun,...) seçer )
+(tr:Nesil Seçici:)
+
+The descendant selector matches all elements that are descendants of a specified element. 
+
+(tr:nesilden gelen tüm elementleri (çocuk, torun,...) seçer..)
 
 The following example selects all `<p>` elements inside `<div>` elements:  (tr:Div elements içerisinde bulunan tüm p elemanlarına uygulanır. div neslinden gelen tüm p'ler. )
 
@@ -836,186 +1033,21 @@ Selector	Example	Example description
 
 ```
 
-## How to add CSS (To a html page)
+# Cascading Order
 
-When a browser reads a style sheet, it will format the HTML document according to the information in the style sheet.
-
-Three Ways to Insert CSS
-There are three ways of inserting a style sheet:
-
-- External CSS
-- Internal CSS
-- Inline CSS
-
-**External CSS**
-
-With an external style sheet, you can change the look of an entire website by changing just one file!
-
-Example
-External styles are defined within the `<link>` element, inside the `<head>` section of an HTML page:
-
-```html
-<link rel="stylesheet" href="mystyle.css"> 
-
-<!DOCTYPE html>
-<html>
-<head>
-<link rel="stylesheet" href="mystyle.css">
-</head>
-<body>
-
-<h1>This is a heading</h1>
-<p>This is a paragraph.</p>
-
-</body>
-</html>
-```
-
-An external style sheet can be written in any text editor, and must be saved with a .css extension.
-
-Here is how the "mystyle.css" file looks:
-
-"mystyle.css"
-body {
-  background-color: lightblue;
-}
-
-h1 {
-  color: navy;
-  margin-left: 20px;
-}
-
-Note: Do not add a space between the property value and the unit (such as margin-left: 20 px;). The correct way is: margin-left: 20px;
-
-Internal CSS
-An internal style sheet may be used if one single HTML page has a unique style.
-
-The internal style is defined inside the <style> element, inside the head section.
-
-Example
-Internal styles are defined within the <style> element, inside the <head> section of an HTML page:
-
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-body {
-  background-color: linen;
-}
-
-h1 {
-  color: maroon;
-  margin-left: 40px;
-}
-</style>
-</head>
-<body>
-
-<h1>This is a heading</h1>
-<p>This is a paragraph.</p>
-
-</body>
-</html>
-
-Inline CSS
-An inline style may be used to apply a unique style for a single element.
-
-To use inline styles, add the style attribute to the relevant element. The style attribute can contain any CSS property.
-
-Example
-Inline styles are defined within the "style" attribute of the relevant element:
-
-<!DOCTYPE html>
-<html>
-<body>
-
-<h1 style="color:blue;text-align:center;">This is a heading</h1>
-<p style="color:red;">This is a paragraph.</p>
-
-</body>
-</html>
-
-Tip: An inline style loses many of the advantages of a style sheet (by mixing content with presentation). Use this method sparingly.
-
-Multiple Style Sheets
-
-If some properties have been defined for the same selector (element) in different style sheets, the value from the last read style sheet will be used. 
-
-Assume that an external style sheet has the following style for the <h1> element:
-(mystyle.css)
-h1 {
-  color: navy;
-}
-
-Example
-If the internal style is defined after the link to the external style sheet, the <h1> elements will be "orange":
-
-<head>
-<link rel="stylesheet" type="text/css" href="mystyle.css">
-<style>
-h1 {
-  color: orange;
-}
-</style>
-</head>
-
-Example
-However, if the internal style is defined before the link to the external style sheet, the <h1> elements will be "navy": 
-
-<head>
-<style>
-h1 {
-  color: orange;
-}
-</style>
-<link rel="stylesheet" type="text/css" href="mystyle.css">
-</head>
-
-Cascading Order
 What style will be used when there is more than one style specified for an HTML element?
 
 All the styles in a page will "cascade" into a new "virtual" style sheet by the following rules, where number one has the highest priority:
 
-Inline style (inside an HTML element)
-External and internal style sheets (in the head section)
-Browser default
+- Inline style (inside an HTML element)
+- External and internal style sheets (in the head section)
+- Browser default
 
 So, an inline style has the highest priority, and will override external and internal styles and browser defaults.
 
+# Specifity
 
-## Comments
-
-Comments are used to explain the code, and may help when you edit the source code at a later date.
-
-A CSS comment is placed inside the <style> element, and starts with /* and ends with */:
-
-/* This is a single-line comment */
-p {
-  color: red;
-}
-
-You can add comments wherever you want in the code:
-
-Example
-p {
-  color: red;  /* Set text color to red */
-}
-
-Comments can also span multiple lines: 
-
-Example
-/* This is
-a multi-line
-comment */
-
-p {
-  color: red;
-}
-
-
-## Specifity
-
-What is Specificity?
+**What is Specificity?**
 
 If there are two or more conflicting CSS rules that point to the same element, the browser follows some rules to determine which one is most specific and therefore wins out.
 
@@ -1025,10 +1057,11 @@ The universal selector (*) has low specificity, while ID selectors are highly sp
 
 Note: Specificity is a common reason why your CSS-rules don't apply to some elements, although you think they should.
 
-Specificity Hierarchy
+**Specificity Hierarchy**
+
 Every selector has its place in the specificity hierarchy. There are four categories which define the specificity level of a selector:
 
-Inline styles - An inline style is attached directly to the element to be styled. Example: <h1 style="color: #ffffff;">.
+Inline styles - An inline style is attached directly to the element to be styled. Example: `<h1 style="color: #ffffff;">`.
 
 IDs - An ID is a unique identifier for the page elements, such as #navbar.
 
@@ -1036,7 +1069,8 @@ Classes, attributes and pseudo-classes - This category includes .classes, [attri
 
 Elements and pseudo-elements - This category includes element names and pseudo-elements, such as h1, div, :before and :after.
 
-How to Calculate Specificity?
+**How to Calculate Specificity?**
+
 Memorize how to calculate specificity!
 
 Start at 0, add 1000 for style attribute, add 100 for each ID, add 10 for each attribute, class or pseudo-class, add 1 for each element name or pseudo-element.
@@ -1044,6 +1078,8 @@ Start at 0, add 1000 for style attribute, add 100 for each ID, add 10 for each a
 Consider these three code fragments:
 
 Example
+
+```html
 A: h1
 B: #content h1
 C: <div id="content"><h1 style="color: #ffffff">Heading</h1></div>
@@ -1051,31 +1087,41 @@ C: <div id="content"><h1 style="color: #ffffff">Heading</h1></div>
 The specificity of A is 1 (one element)
 The specificity of B is 101 (one ID reference and one element)
 The specificity of C is 1000 (inline styling)
+```
 
 Since 1 < 101 < 1000, the third rule (C) has a greater level of specificity, and therefore will be applied.
 
 Specificity Rules
+
 Equal specificity: the latest rule counts - If the same rule is written twice into the external style sheet, then the lower rule in the style sheet is closer to the element to be styled, and therefore will be applied:
 
 Example
+
+```css
 h1 {background-color: yellow;}
 h1 {background-color: red;}
+```
 
 the latter rule is always applied.
 
 ID selectors have a higher specificity than attribute selectors - Look at the following three code lines:
 
 Example
+
+```css
 div#a {background-color: green;}
 #a {background-color: yellow;}
 div[id=a] {background-color: blue;}
-
+```
 the first rule is more specific than the other two, and will be applied.
 
 Contextual selectors are more specific than a single element selector - The embedded style sheet is closer to the element to be styled. So in the following situation
 
 Example
+
+```html
 From external CSS file:
+
 #content h1 {background-color: red;}
 
 In HTML file:
@@ -1084,18 +1130,21 @@ In HTML file:
   background-color: yellow;
 }
 </style>
+```
 
 the latter rule will be applied.
 
 A class selector beats any number of element selectors - a class selector such as .intro beats h1, p, div, etc:
 
 Example
+
+```css
 .intro {background-color: yellow;}
 h1 {background-color: red;}
 
-The universal selector and inherited values have a specificity of 0 - *, body * and similar have a zero specificity. Inherited values also have a specificity of 0.
+```
 
-## 
+The universal selector and inherited values have a specificity of 0 - *, body * and similar have a zero specificity. Inherited values also have a specificity of 0.
 
 # Sources
 
