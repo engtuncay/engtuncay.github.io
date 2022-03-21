@@ -1,5 +1,6 @@
 
 
+- [Reference Sources](#reference-sources)
 - [SQL TEMEL SORGULAR](#sql-temel-sorgular)
   - [SELECT](#select)
   - [UPDATE](#update)
@@ -30,6 +31,10 @@
     - [SET ANSI_NULLS ON](#set-ansi_nulls-on)
     - [SET QUOTED_IDENTIFIER ON](#set-quoted_identifier-on)
 - [TSQL](#tsql)
+  - [Sql Operators](#sql-operators)
+    - [Arithmetic Operators](#arithmetic-operators)
+    - [Logical Operators](#logical-operators)
+    - [Comparison Operators](#comparison-operators)
   - [IF Kullanımı](#if-kullanımı)
   - [WITH ile döngüsel sıralamalı tarih tablosu hazırlama](#with-ile-döngüsel-sıralamalı-tarih-tablosu-hazırlama)
   - [Convert Int To Date](#convert-int-to-date)
@@ -38,6 +43,14 @@
 - [SQL LOGGING](#sql-logging)
   - [RaiseError](#raiseerror)
   - [Kayıt Edilen Sayısını Bastırma](#kayıt-edilen-sayısını-bastırma)
+
+
+# Reference Sources
+
+- https://www.tutlane.com/tutorial/sql-server/sql-introduction
+
+
+
 
 # SQL TEMEL SORGULAR
 
@@ -416,6 +429,77 @@ CAST(@@ROWCOUNT as varchar(10))
 
 # TSQL 
 
+## Sql Operators
+
+In SQL, operator is a symbol which is used to specify a particular action that is performed on one or more expressions. Generally, we will use these operators in SQL statements to perform a logical or arithmetic or comparison operations. 
+
+In SQL we have a different type of operators available, those are 
+
+SQL Arithmetic Operators
+SQL Logical Operators
+SQL Comparison Operators
+SQL Assignment Operators
+
+### Arithmetic Operators
+
+In SQL, arithmetic operators are useful to perform mathematical operations like addition ( ), subtraction (-), multiplication (*), division (/), module (%) on SQL statements. In SQL, we have a different type of arithmetic operators available, those are 
+
+SQL Addition (+) Operator
+SQL Subtraction (-) Operator
+SQL Multiplication (*) Operator
+SQL Division (/) Operator
+SQL Modulus (-) Operator
+
+### Logical Operators
+
+In SQL, logical operators are useful to perform some conditional and comparison checks in SQL statements. In logical operators we have a different type of operators available, those are 
+
+AND Operator
+OR Operator
+LIKE Operator
+IN Operator
+BETWEEN Operator
+Exists Operator
+NOT Operator
+SOME Operator
+ALL Operator
+ANY Operator
+For more information related to logical operators in SQL server check following information
+
+```text
+Operator	Description
+AND	The AND operator in SQL is used to compare data with more than one condition. If all the conditions return TRUE then only it will display records.
+OR	The OR operator in SQL is used to compare data with more than one condition. If either of the condition is TRUE it will return data.
+ALL	The ALL operator in SQL returns true when value matches all values in a single column set of values. It’s like AND operator it will compare the value against all values in column.
+ANY	The Any operator in SQL returns true when the value matches any value in single column set of values. It’s like an OR operator and it will compare value against any value in the column.
+LIKE	The LIKE operator in SQL is used to search for character string with the specified pattern using wildcards in a column.
+IN	The IN operator in SQL is used to search for specified value matches any value in set of multiple values.
+BETWEEN	The BETWEEN operator in SQL is used to get values within a range.
+EXISTS	The EXISTS operator in SQL is used to show the result if the subquery returns data.
+NOT	The NOT operator in SQL is a negate operator that means it will show data for opposite of conditions that we mentioned in SQL statement.
+SOME	The SOME operator in SQL is used to compare value with a single column set of values returned by subquery. SOME must match at least one value in a subquery and that value must be preceded by comparison operators.
+
+```
+
+### Comparison Operators
+
+In SQL, the comparison operators are useful to compare one expression with another expression using mathematical operators like equal (=), greater than (>), less than (*), greater than or equal to (>=), less than or equal to (<=), not equal (<>), etc. on SQL statements. In SQL, we have a different type of comparison operators available those are 
+
+SQL Equal (=) Operator
+SQL Not Equal (!= or <>) Operator
+SQL Greater Than (>) Operator
+SQL Less Than (<) Operator
+SQL Greater Than or Equal To (>=) Operator
+SQL Less Than or Equal To (<=) Operator
+SQL Not Less Than (!<) Operator
+SQL Not Greater Than (!>) Operator
+
+Source : 
+
+https://www.tutlane.com/tutorial/sql-server/sql-comparison-operators
+
+
+
 ## IF Kullanımı
 
 ```sql
@@ -453,7 +537,7 @@ else
 
 Örnek
 ```sql
-IF((SELECT COUNT( * ) FROM Person.Contact WHERE FirstName LIKE '%b%') > 2000)
+IF((SELECT COUNT(*) FROM Person WHERE FirstName LIKE '%b%') > 2000)
 begin
   print '2000'den Fazla Kayıt Var!'
 end
@@ -461,7 +545,7 @@ end
 
 Örnek
 ```sql
-IF((SELECT COUNT( * ) FROM Production.Product WHERE ListPrice > 0 AND Color IS NOT NULL) > 100)
+IF((SELECT COUNT(*) FROM Production.Product WHERE ListPrice > 0 AND Color IS NOT NULL) > 100)
 BEGIN
   print 'Çok fazla kayıt var.'
 END
@@ -469,6 +553,11 @@ ELSE
 BEGIN
   print 'Çok az kayıt var.'
 END
+
+```
+
+```sql
+
 ```
 
 ## WITH ile döngüsel sıralamalı tarih tablosu hazırlama
