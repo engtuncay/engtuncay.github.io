@@ -1,14 +1,39 @@
 
-
+- [Colors](#colors)
+  - [CSS Color Names](#css-color-names)
+  - [CSS Background Color](#css-background-color)
+  - [CSS Text Color](#css-text-color)
+  - [CSS Border Color](#css-border-color)
+  - [CSS Color Values](#css-color-values)
+  - [RGB](#rgb)
+  - [Hex Colors](#hex-colors)
+  - [HSL](#hsl)
+  - [Backgrounds](#backgrounds)
+  - [CSS background-image](#css-background-image)
+  - [CSS background-repeat](#css-background-repeat)
+  - [CSS background-attachment](#css-background-attachment)
+  - [CSS background - Shorthand property](#css-background---shorthand-property)
+- [Text](#text)
+  - [Text Color](#text-color)
+  - [Text Alignment](#text-alignment)
+  - [](#)
+  - [Text Transformation](#text-transformation)
+  - [Text Indentation](#text-indentation)
+  - [Text Shadow](#text-shadow)
+- [Fonts](#fonts)
+  - [Fonts](#fonts-1)
+  - [CSS Web Safe Fonts](#css-web-safe-fonts)
+  - [Opacity / Transparency (Opaklık / Şeffaflık )](#opacity--transparency-opaklık--şeffaflık-)
 
 
 # Colors
 
-## 
+Source : https://www.w3schools.com/css/css_colors.asp
 
 Colors are specified using predefined color names, or RGB, HEX, HSL, RGBA, HSLA values.
 
-CSS Color Names
+## CSS Color Names
+
 In CSS, a color can be specified by using a predefined color name:
 
 Tomato
@@ -21,63 +46,81 @@ Violet
 LightGray
 
 CSS/HTML support 140 standard color names.
+
 https://www.w3schools.com/colors/colors_names.asp
 
-CSS Background Color
+## CSS Background Color
+
 You can set the background color for HTML elements:
 
 Example
+
 <h1 style="background-color:DodgerBlue;">Hello World</h1>
 <p style="background-color:Tomato;">Lorem ipsum...</p>
 
-CSS Text Color
+## CSS Text Color
+
 You can set the color of text:
 
 Example
+
 <h1 style="color:Tomato;">Hello World</h1>
 <p style="color:DodgerBlue;">Lorem ipsum...</p>
 <p style="color:MediumSeaGreen;">Ut wisi enim...</p>
 
-CSS Border Color
+## CSS Border Color
 
 You can set the color of borders:
 
 Example
+
 <h1 style="border:2px solid Tomato;">Hello World</h1>
 <h1 style="border:2px solid DodgerBlue;">Hello World</h1>
 <h1 style="border:2px solid Violet;">Hello World</h1>
 
-CSS Color Values
+## CSS Color Values
 
 In CSS, colors can also be specified using RGB values, HEX values, HSL values, RGBA values, and HSLA values:
 
 Same as color name "Tomato":
 
+```css
 rgb(255, 99, 71)
 #ff6347
 hsl(9, 100%, 64%)
+```
 
 Same as color name "Tomato", but 50% transparent:
 
+```css
 rgba(255, 99, 71, 0.5)
 hsla(9, 100%, 64%, 0.5)
+```
 
 Example
+
+Same as color name "Tomato":
+
 <h1 style="background-color:rgb(255, 99, 71);">...</h1>
 <h1 style="background-color:#ff6347;">...</h1>
 <h1 style="background-color:hsl(9, 100%, 64%);">...</h1>
 
+Same as color name "Tomato", but 50% transparent:
+
 <h1 style="background-color:rgba(255, 99, 71, 0.5);">...</h1>
 <h1 style="background-color:hsla(9, 100%, 64%, 0.5);">...</h1>
 
+
 Learn more about Color Values
+
 You will learn more about RGB, HEX and HSL in the next chapters.
 
-## 
+## RGB
 
 An RGB color value represents RED, GREEN, and BLUE light sources.
 
-RGB Value
+**RGB Value**
+
 In CSS, a color can be specified as an RGB value, using this formula:
 
 rgb(red, green, blue)
@@ -90,9 +133,10 @@ To display black, set all color parameters to 0, like this: rgb(0, 0, 0).
 
 To display white, set all color parameters to 255, like this: rgb(255, 255, 255).
 
- Shades of gray are often defined using equal values for all the 3 light sources: 
+Shades of gray are often defined using equal values for all the 3 light sources: 
 
-RGBA Value
+**RGBA Value**
+
 RGBA color values are an extension of RGB color values with an alpha channel - which specifies the opacity for a color.
 
 An RGBA color value is specified with:
@@ -101,7 +145,7 @@ rgba(red, green, blue, alpha)
 
 The alpha parameter is a number between 0.0 (fully transparent) and 1.0 (not transparent at all):
 
-rgba image 
+![](./img/css/rgba.jpg)
 
 ## Hex Colors
 
@@ -115,13 +159,15 @@ In CSS, a color can be specified using a hexadecimal value in the form:
 Where rr (red), gg (green) and bb (blue) are hexadecimal values between 00 and ff (same as decimal 0-255).
 
 For example, #ff0000 is displayed as red, because red is set to its highest value (ff) and the others are set to the lowest value (00).
+
 Examples
 
 
 
 
 
-3 Digit HEX Value
+**3 Digit HEX Value**
+
 Sometimes you will see a 3-digit hex code in the CSS source.
 
 The 3-digit hex code is a shorthand for some 6-digit hex codes.
@@ -137,6 +183,8 @@ The 3-digit hex code can only be used when both the values (RR, GG, and BB) are 
 Here is an example:
 
 Example
+
+```html
 body {
   background-color: #fc9; /* same as #ffcc99 */
 }
@@ -148,13 +196,14 @@ h1 {
 p {
   color: #b58; /* same as #bb5588 */
 }
+```
 
-
-## hsl
+## HSL
 
 A hexadecimal color is specified with: #RRGGBB, where the RR (red), GG (green) and BB (blue) hexadecimal integers specify the components of the color.
 
-HEX Value
+**HEX Value**
+
 In CSS, a color can be specified using a hexadecimal value in the form:
 
 #rrggbb
@@ -162,13 +211,13 @@ In CSS, a color can be specified using a hexadecimal value in the form:
 Where rr (red), gg (green) and bb (blue) are hexadecimal values between 00 and ff (same as decimal 0-255).
 
 For example, #ff0000 is displayed as red, because red is set to its highest value (ff) and the others are set to the lowest value (00).
+
 Examples
 
 
 
+**3 Digit HEX Value**
 
-
-3 Digit HEX Value
 Sometimes you will see a 3-digit hex code in the CSS source.
 
 The 3-digit hex code is a shorthand for some 6-digit hex codes.
@@ -184,6 +233,8 @@ The 3-digit hex code can only be used when both the values (RR, GG, and BB) are 
 Here is an example:
 
 Example
+
+```html
 body {
   background-color: #fc9; /* same as #ffcc99 */
 }
@@ -196,45 +247,53 @@ p {
   color: #b58; /* same as #bb5588 */
 }
 
+```
 
 ## Backgrounds
-
-  Backgrounds
 
 The CSS background properties are used to define the background effects for elements.
 
 In these chapters, you will learn about the following CSS background properties:
 
-background-color
-background-image
-background-repeat
-background-attachment
-background-position
+- background-color
+- background-image
+- background-repeat
+- background-attachment
+- background-position
 
 CSS background-color
+
 The background-color property specifies the background color of an element.
 
 Example
+
 The background color of a page is set like this:
 
+```html
 body {
   background-color: lightblue;
 }
+```
 
 With CSS, a color is most often specified by:
 
 a valid color name - like "red"
 a HEX value - like "#ff0000"
 an RGB value - like "rgb(255,0,0)"
+
 Look at CSS Color Values for a complete list of possible color values.
+
 https://www.w3schools.com/cssref/css_colors_legal.asp
 
 Other Elements
+
 You can set the background color for any HTML elements:
 
 Example
-Here, the <h1>, <p>, and <div> elements will have different background colors: 
 
+Here, the `<h1>`, `<p>`, and `<div>` elements will have different background colors: 
+
+```css
 h1 {
   background-color: green;
 }
@@ -247,20 +306,29 @@ p {
   background-color: yellow;
 }
 
-Opacity / Transparency ( Opaklık (Şeffaf olmayan) ve Şeffaflık (Transparanlık) )
+```
+
+Opacity / Transparency 
+
+(tr:Opaklık (Şeffaf olmayan) ve Şeffaflık (Transparanlık) :)
+
 The opacity property specifies the opacity/transparency of an element. It can take a value from 0.0 - 1.0. The lower value, the more transparent:
 
 Example
+
+```css
 div {
   background-color: green;
   opacity: 0.3;
 }
+```
 
-(!!!)
-Note: When using the opacity property to add transparency to the background of an element, all of its child elements inherit the same transparency. This can make the text inside a fully transparent element hard to read.
+(!!!) Note: When using the opacity property to add transparency to the background of an element, all of its child elements inherit the same transparency. This can make the text inside a fully transparent element hard to read.
 
-Transparency using RGBA
+**Transparency using RGBA**
+
 If you do not want to apply opacity to child elements, like in our example above, use RGBA color values. The following example sets the opacity for the background color and not the text:
+
 You learned from our CSS Colors Chapter, that you can use RGB as a color value. In addition to RGB, you can use an RGB color value with an alpha channel (RGBA) - which specifies the opacity for a color.
 
 An RGBA color value is specified with: rgba(red, green, blue, alpha). The alpha parameter is a number between 0.0 (fully transparent) and 1.0 (fully opaque).
@@ -268,9 +336,13 @@ An RGBA color value is specified with: rgba(red, green, blue, alpha). The alpha 
 Tip: You will learn more about RGBA Colors in our CSS Colors Chapter.
 
 Example
+
+```css
 div {
   background: rgba(0, 128, 0, 0.3) /* Green background with 30% opacity */
 }
+
+```
 
 ## CSS background-image
 
@@ -279,16 +351,22 @@ The background-image property specifies an image to use as the background of an 
 By default, the image is repeated so it covers the entire element.
 
 Example
+
 Set the background image for a page: 
+
+```css
 body {
   background-image: url("bgdesert.jpg");
 }
+
+```
 
 Note: When using a background image, use an image that does not disturb the text.
 
 The background image can also be set for specific elements, like the <p> element:
 
 Example
+
 p {
   background-image: url("paper.gif");
 }

@@ -8,8 +8,8 @@ edited 20-03-2022
 - [Selectors](#selectors)
   - [Simple Selectors](#simple-selectors)
     - [Element (Tag) Selector](#element-tag-selector)
-    - [Id Selector](#id-selector)
-    - [Class Selector](#class-selector)
+    - [Id Selector (#)](#id-selector-)
+    - [Class Selector (.)](#class-selector-)
     - [Universal Selector](#universal-selector)
     - [Grouping Selector](#grouping-selector)
   - [Combinators](#combinators)
@@ -283,7 +283,7 @@ We can divide CSS selectors into five categories:
 /*html-element-name*/ { /*declaration-block*/ }
 ```
 
-### Id Selector
+### Id Selector (#)
 
 The id selector uses the id attribute of an HTML element to select a specific element.
 
@@ -299,7 +299,7 @@ Example : The CSS rule below will be applied to the HTML element with id="idName
 
 Note: An id name cannot start with a number!
 
-### Class Selector
+### Class Selector (.)
 
 We can add class name to html elements. For example, pstyle class assigned to p tag. we can use pstyle class also for other html elements.
 
