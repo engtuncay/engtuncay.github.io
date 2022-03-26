@@ -1,31 +1,16 @@
 
 **CSS Element Size**
 
-
-
 - [CSS Units](#css-units)
-  - [Absolute Lengths](#absolute-lengths)
-  - [CSS Box Model](#css-box-model)
-- [Box Sizing ( border-box modal )](#box-sizing--border-box-modal-)
-- [Height / Width Values (and units)](#height--width-values-and-units)
+- [CSS Box Model](#css-box-model)
+- [Box Sizing (border-box model)](#box-sizing-border-box-model)
+- [Height , Width And Max-Width](#height--width-and-max-width)
 - [Max-Width And Auto Margin](#max-width-and-auto-margin)
 - [Borders](#borders)
-  - [](#)
-  - [](#-1)
-- [](#-2)
-  - [](#-3)
-  - [](#-4)
 - [Margin](#margin)
-  - [](#-5)
-  - [](#-6)
 - [Padding](#padding)
-  - [](#-7)
-  - [](#-8)
-  - [](#-9)
-  - [](#-10)
-  - [](#-11)
-  - [User Interface (Resizing)](#user-interface-resizing)
-  - [](#-12)
+- [CSS Outline](#css-outline)
+- [User Interface (Resizing)](#user-interface-resizing)
 
 # CSS Units
 
@@ -61,7 +46,7 @@ For some CSS properties, negative lengths are allowed.
 
 There are two types of length units: `absolute and relative`.
 
-## Absolute Lengths 
+**Absolute Lengths**
 
 (tr:mutlak ölçüler:)
 
@@ -112,7 +97,7 @@ Relative length units specify a length relative to another length property. Rela
 | vmin                              | 20.0	12.0	19.0	6.0	20.0  |
 | vmax                              | 26.0	16.0	19.0	7.0	20.0  |
 
-## CSS Box Model 
+# CSS Box Model 
 
 Source : https://www.w3schools.com/css/css_boxmodel.asp
 
@@ -124,16 +109,21 @@ The CSS box model is essentially a box that wraps around every HTML element. It 
 
 Explanation of the different parts:
 
-Content - The content of the box, where text and images appear
-Padding - Clears an area around the content. The padding is transparent
-Border - A border that goes around the padding and content
-Margin - Clears an area outside the border. The margin is transparent
+* Content - The content of the box, where text and images appear
+* Padding - Clears an area around the content. The padding is transparent
+* Border - A border that goes around the padding and content
+* Margin - Clears an area outside the border. The margin is transparent
 
 The box model allows us to add a border around elements, and to define space between elements. 
 
 There are two types box model (to)  : 
 * Content Box Model (default)
-* Modern Box Model (common)
+* Border Box Model (common)
+
+*Content Box Model tells that width and height include only content.*
+
+*Border Box Model tells that widht and height include content, padding and border.*
+
 
 *Example*
 
@@ -188,7 +178,7 @@ The total height of an element should be calculated like this:
 Total element height = height + padding (t,b) +   border (t,b) + margin (t,b)
 
 
-# Box Sizing ( border-box modal )
+# Box Sizing (border-box model)
 
 Source : https://www.w3schools.com/css/css3_box-sizing.asp
 
@@ -227,17 +217,21 @@ Example
 }
 ```
 
+![](./img/css/box-model-ex1.jpg)
+
 The box-sizing property solves this problem.
 
-With the CSS box-sizing Property
+**With the CSS box-sizing Property**
 
 The box-sizing property allows us to include the padding and border in an element's total width and height. ( border-box model )
 
 If you set box-sizing: border-box; on an element, padding and border are included in the width and height:
 
-Here is the same example as above, with box-sizing: border-box; added to both <div> elements:
+Here is the same example as above, with box-sizing: border-box; added to both `<div>` elements:
 
 Example
+
+```css
 .div1 {
   width: 300px;
   height: 100px;
@@ -253,6 +247,10 @@ Example
   box-sizing: border-box;
 }
 
+```
+
+![](./img/css/box-sizing-border-box.jpg)
+
 Since the result of using the box-sizing: border-box; is so much better, many developers want all elements on their pages to work this way.
 
 The code below ensures that all elements are sized in this more intuitive way. Many browsers already use box-sizing: border-box; for many form elements (but not all - which is why inputs and text areas look different at width: 100%;).
@@ -260,29 +258,41 @@ The code below ensures that all elements are sized in this more intuitive way. M
 Applying this to all elements is safe and wise:
 
 Example
+
+```css
 * {
   box-sizing: border-box;
 }
+```
 
-CSS Box Sizing Property
-Property	| Description
-box-sizing	| Defines how the width and height of an element are calculated: should they include padding and borders, or not. (bir elementin genişlik ve yüksekliğinin nasıl hesaplanacağını tanımlar)
+**CSS Box Sizing Property Ref**
 
-# Height / Width Values (and units)
+| Property   | Description                                                                                                     |
+| ---------- | --------------------------------------------------------------------------------------------------------------- |
+| box-sizing | Defines how the width and height of an element are calculated: should they include padding and borders, or not. |
 
-CSS Height and Width
+# Height , Width And Max-Width
+
+Source : https://www.w3schools.com/css/css_dimension.asp
+
+The CSS height and width properties are used to set the height and width of an element.
+
+The CSS max-width property is used to set the maximum width of an element.
+
 The height and width properties do not include padding, borders, or margins. It sets the height/width of the area inside the padding, border, and margin of the element. (content-box model)	
 
-CSS height and width Values
+**CSS height and width Values**
+
 The height and width properties may have the following values:
 
-auto - This is default. The browser calculates the height and width
-length - Defines the height/width in px, cm etc.
-% - Defines the height/width in percent of the containing block
-initial - Sets the height/width to its default value
-inherit - The height/width will be inherited from its parent value
+* auto - This is default. The browser calculates the height and width
+* length - Defines the height/width in px, cm etc.
+* % - Defines the height/width in percent of the containing block
+* initial - Sets the height/width to its default value
+* inherit - The height/width will be inherited from its parent value
 
-Example
+*Example*
+
 Set the height and width of a <div> element:
 
 div {
@@ -406,8 +416,6 @@ p.hidden {border-style: hidden;}
 p.mix {border-style: dotted dashed solid double;}
 Note: None of the OTHER CSS border properties (which you will learn more about in the next chapters) will have ANY effect unless the border-style property is set!
 
-## 
-
 CSS Border Width
 
 The border-width property specifies the width of the four borders.
@@ -456,9 +464,7 @@ p.three {
   border-width: 25px 10px 4px 35px; /* 25px top, 10px right, 4px bottom and 35px left */
 }
 
-## 
-
-CSS Border Color
+**CSS Border Color**
 
 The border-color property is used to set the color of the four borders.
 
@@ -526,8 +532,6 @@ p.one {
 }
 
 You can learn more about HEX, RGB and HSL values in our CSS Colors chapters.
-
-# 
 
 CSS Border - Individual Sides
 
@@ -597,8 +601,6 @@ p {
 
 The border-style property is used in the example above. However, it also works with border-width and border-color.
 
-## 
-
 CSS Border - Shorthand Property
 
 Like you saw in the previous page, there are many properties to consider when dealing with borders.
@@ -628,9 +630,8 @@ p {
   background-color: lightgrey;
 }
 
-## 
-
 CSS Rounded Borders
+
 The border-radius property is used to add rounded borders to an element:
 Example
 p {
@@ -680,8 +681,6 @@ border-width	Sets the width of the four borders
 end
 
 # Margin
-
-## 
 
 The CSS margin properties are used to create space around elements, outside of any defined borders
 
@@ -778,10 +777,8 @@ p.ex1 {
   margin-left: inherit;
 }
 
-
-## 
-
 Margin Collapse
+
 Top and bottom margins of elements are sometimes collapsed into a single margin that is equal to the largest of the two margins.
 
 This does not happen on left and right margins! Only top and bottom margins!
@@ -932,9 +929,7 @@ padding-left	Sets the left padding of an element
 padding-right	Sets the right padding of an element
 padding-top	Sets the top padding of an element
 
-## 
-
-CSS Outline
+# CSS Outline
 
 An outline is a line drawn outside the element's border.
 CSS Outline
@@ -953,6 +948,7 @@ Note: Outline differs from borders! Unlike border, the outline is drawn outside 
 CSS Outline Style
 The outline-style property specifies the style of the outline, and can have one of the following values:
 
+```css
 dotted - Defines a dotted outline
 dashed - Defines a dashed outline
 solid - Defines a solid outline
@@ -964,10 +960,13 @@ outset - Defines a 3D outset outline
 none - Defines no outline
 hidden - Defines a hidden outline
 The following example shows the different outline-style values:
+```
 
 Example
+
 Demonstration of the different outline styles:
 
+```css
 p.dotted {outline-style: dotted;}
 p.dashed {outline-style: dashed;}
 p.solid {outline-style: solid;}
@@ -976,11 +975,12 @@ p.groove {outline-style: groove;}
 p.ridge {outline-style: ridge;}
 p.inset {outline-style: inset;}
 p.outset {outline-style: outset;}
+```
+
 Note: None of the other outline properties (which you will learn more about in the next chapters) will have ANY effect unless the outline-style property is set!
 
-## 
-
 CSS Outline Width
+
 The outline-width property specifies the width of the outline, and can have one of the following values:
 
 thin (typically 1px)
@@ -1017,9 +1017,8 @@ p.ex4 {
   outline-width: 4px;
 }
 
-## 
-
 CSS Outline Width
+
 The outline-width property specifies the width of the outline, and can have one of the following values:
 
 thin (typically 1px)
@@ -1055,8 +1054,6 @@ p.ex4 {
   outline-color: red;
   outline-width: 4px;
 }
-
-## 
 
 CSS Outline - Shorthand property
 The outline property is a shorthand property for setting the following individual outline properties:
@@ -1073,9 +1070,8 @@ p.ex2 {outline: dotted red;}
 p.ex3 {outline: 5px solid yellow;}
 p.ex4 {outline: thick ridge pink;}
 
-## 
-
 CSS Outline Offset
+
 The outline-offset property adds space between an outline and the edge/border of an element. The space between an element and its outline is transparent.
 
 The following example specifies an outline 15px outside the border edge:
@@ -1098,6 +1094,7 @@ p {
 }
 
 All CSS Outline Properties
+
 Property	Description
 outline	A shorthand property for setting outline-width, outline-style, and outline-color in one declaration
 outline-color	Sets the color of an outline
@@ -1106,7 +1103,7 @@ outline-style	Sets the style of an outline
 outline-width	Sets the width of an outline
 
 
-## User Interface (Resizing)
+# User Interface (Resizing)
 
 CSS User Interface
 In this chapter you will learn about the following CSS user interface properties:
@@ -1175,6 +1172,6 @@ Property	Description
 outline-offset	Adds space between an outline and the edge or border of an element
 resize	Specifies whether or not an element is resizable by the user
 
-## 
+ 
 
 
