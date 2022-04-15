@@ -1,26 +1,37 @@
 
-- [Create-react-app 'in kuruluması](#create-react-app-in-kuruluması)
-- [React App uygulama kuruluşu](#react-app-uygulama-kuruluşu)
-- [Component](#component)
-- [Adding New Component](#adding-new-component)
+- [Usage of React Cli](#usage-of-react-cli)
+  - [Npx Installation](#npx-installation)
+  - [create-react-app module kurulumu](#create-react-app-module-kurulumu)
+  - [Create React App](#create-react-app)
+- [React Yapısı](#react-yapısı)
+  - [Component](#component)
+  - [Adding New Component](#adding-new-component)
 
 
-# Create-react-app 'in kuruluması
+# Usage of React Cli
 
-```js
+## Npx Installation
+
+```
+yarn global add npx
+```
+
+## create-react-app module kurulumu
+
+```
 npm install create-react-app -g
 ```
 
 
+## Create React App
 
-# React App uygulama kuruluşu
-
-```js
-npm install create-react-app -g
 ```
 
+```
 
-# Component
+# React Yapısı
+
+## Component
 
 - App component is the root component and first door for the app.
 
@@ -36,7 +47,7 @@ class App extends Component {
 }
 ```
 
-# Adding New Component
+## Adding New Component
 
 - We create firstComponent.js
 
@@ -72,7 +83,7 @@ class App extends Component {
 }
 ```
 
-# Prop Usage
+## Prop Usage
 
 - We assign variable to the App components.
 
