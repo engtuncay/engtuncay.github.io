@@ -2,6 +2,7 @@
 - [Js Refreshing](#js-refreshing)
   - [Destructing](#destructing)
   - [Reference and Primitive Types](#reference-and-primitive-types)
+  - [Array Functions](#array-functions)
 
 # Js Refreshing
 
@@ -46,10 +47,31 @@ console.log(person2.name); // Max
 
 ```
 
-- for copying an object spread operator is used.
+- For copying an object spread operator is used.
 
 ```js
 const person2 = { ...person};
 
 ```
+
+---
+**Concepts**
+
+- Mutable
+- Immutable
+
+---
+
+## Array Functions
+
+```js
+const numbers = [1,2,3]
+const doubleNum = numbers.map( (number) => number*2);
+console.log(numbers); // [1,2,3]
+console.log(doubleNum); // [2,4,6]
+
+```
+
+
+
 
