@@ -1,7 +1,7 @@
 
 - [Part 1](#part-1)
   - [Remix Proje Kurulumu](#remix-proje-kurulumu)
-  - [Smart Contract Compilation](#smart-contract-compilation)
+  - [Smart Contract Derlenmesi (Compilation)](#smart-contract-derlenmesi-compilation)
   - [Arrays](#arrays)
     - [1. Fixed-size Arrays](#1-fixed-size-arrays)
     - [2. Dynamically-sized arrays](#2-dynamically-sized-arrays)
@@ -10,12 +10,9 @@
 
 ## Remix Proje Kurulumu
 
-remix-project.org 'dan online ide veya desktop app kurulumu yaparak uygulayabiliriz.
+remix-project.org 'dan online ide'yi kullanarak veya desktop app kurulumu yaparak uygulayabiliriz.
 
-1. online ide
-2. desktop app
-
-- every source file should start with a comment indicating its license.
+- Her kaynak kodu lisans belirten bir yorum ile başlaması gerekir.
 
 ```js
 
@@ -23,13 +20,13 @@ remix-project.org 'dan online ide veya desktop app kurulumu yaparak uygulayabili
 
 ```
 
-- pragma check solidity compiler version
+- pragma ile hangi solidity compiler versiyonu kullanacağını belirtiriz.
 
 ```js
 pragma solidity 0.8.0;
 ```
 
-- contract example
+- örnek contract.
 
 ```js
 
@@ -43,8 +40,7 @@ contract Property {
 
 ```
 
-
-## Smart Contract Compilation
+## Smart Contract Derlenmesi (Compilation)
 
 - Remix ide'de sol taraftan solidity tabını seçeriz. versiyonu seçip , compile mycontract.sol (dosyanın ismi) buttonu tıklarız.
 
