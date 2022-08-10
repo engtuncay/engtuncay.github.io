@@ -4,7 +4,7 @@
 - [Php Basic](#php-basic)
   - [Basic PHP Syntax](#basic-php-syntax)
   - [Comment Line and Block](#comment-line-and-block)
-  - [Data Types](#data-types)
+  - [Data Types and Variables](#data-types-and-variables)
   - [Constant Assignment](#constant-assignment)
   - [Data Type Casting](#data-type-casting)
   - [Operators and Math Object](#operators-and-math-object)
@@ -13,7 +13,8 @@
   - [Ternary (Short If) Operator](#ternary-short-if-operator)
   - [Switch Statement](#switch-statement)
   - [Loops - For,While,Do While](#loops---forwhiledo-while)
-- [String , Number, Array](#string--number-array)
+- [Php Variables](#php-variables)
+  - [String concentation (Birleştirme)](#string-concentation-birleştirme)
   - [String Metodları](#string-metodları)
   - [Template Literal (String Format)](#template-literal-string-format)
 - [Date And Time](#date-and-time)
@@ -75,9 +76,9 @@
 
 Comments are completely ignored when running a php file.
 
-## Data Types
+## Data Types and Variables
 
-- Data Types and Assignment
+**Data Types**
 
 ```php
 string "ali veli" veya 'ali veli'
@@ -88,6 +89,21 @@ array (dizi)
 object (Nesne)
 NULL
 ```
+
+**Variables**
+
+- $ ile başlar.
+- $ sonra harf ile başlamalı.
+- Harf,Rakam ve Alt çizgi kullanılır.
+- 255 karakterden fazla olmamalı.
+  
+```php
+$adi = 'Ali';
+$sayi1 = 10;
+
+```
+
+**Veri Tipini Ögrenme**
 
 - gettype() fonksiyonu ile bir verinin türünü öğreniriz.
 
@@ -225,7 +241,25 @@ while($num < 20) {
 
 ```
 
-# String , Number, Array
+# Php Variables 
+
+
+
+## String concentation (Birleştirme)
+
+- Nokta '.' işareti ile string birleştirme yapılır.
+
+```php
+$adi = 'Ali';
+$sayi1 = 10;
+echo $adi . $sayi1;
+
+// Output
+// Ali10
+
+
+```
+
 
 ## String Metodları
 
