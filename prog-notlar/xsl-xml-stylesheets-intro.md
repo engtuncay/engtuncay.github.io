@@ -14,6 +14,13 @@
   - [How Does it Work?](#how-does-it-work)
   - [XSLT Browser Support](#xslt-browser-support)
   - [XSLT is a W3C Recommendation](#xslt-is-a-w3c-recommendation)
+- [XSLT - Transformation](#xslt---transformation)
+  - [Correct Style Sheet Declaration](#correct-style-sheet-declaration)
+  - [Start with a Raw XML Document](#start-with-a-raw-xml-document)
+  - [Create an XSL Style Sheet](#create-an-xsl-style-sheet)
+  - [Link the XSL Style Sheet to the XML Document](#link-the-xsl-style-sheet-to-the-xml-document)
+- [XSLT <xsl:template> Element](#xslt-xsltemplate-element)
+  - [The <xsl:template> Element](#the-xsltemplate-element)
 
 
 # Sources
@@ -191,3 +198,180 @@ All major browsers support XSLT and XPath.
 
 XSLT became a W3C Recommendation 16. November 1999.
 
+
+# XSLT - Transformation
+
+Example study: How to transform XML into XHTML using XSLT?
+
+The details of this example will be explained in the next chapter.
+
+## Correct Style Sheet Declaration
+
+The root element that declares the document to be an XSL style sheet is `<xsl:stylesheet>`  or  `<xsl:transform>` .
+
+Note: `<xsl:stylesheet>`  and `<xsl:transform>` are completely synonymous and either can be used!
+
+The correct way to declare an XSL style sheet according to the W3C XSLT Recommendation is:
+
+```xml
+<xsl:stylesheet version="1.0"
+xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+```
+
+or
+
+```xml
+<xsl:transform version="1.0"
+xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+```
+
+To get access to the XSLT elements, attributes and features we must declare the XSLT namespace at the top of the document.
+
+The xmlns:xsl="http://www.w3.org/1999/XSL/Transform" points to the official W3C XSLT namespace. If you use this namespace, you must also include the attribute version="1.0".
+
+## Start with a Raw XML Document
+
+We want to transform the following XML document ("cdcatalog.xml") into XHTML:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog>
+  <cd>
+    <title>Empire Burlesque</title>
+    <artist>Bob Dylan</artist>
+    <country>USA</country>
+    <company>Columbia</company>
+    <price>10.90</price>
+    <year>1985</year>
+  </cd>
+.
+.
+</catalog>
+
+```
+
+Viewing XML Files in browsers: Open the XML file (click on the link below) - The XML document will be displayed with color-coded root and child elements. Often, there is an arrow or plus/minus sign to the left of the elements that can be clicked to expand or collapse the element structure. Tip: To view the raw XML source, right-click in XML file and select "View Page Source"!
+
+https://www.w3schools.com/xml/cdcatalog.xml
+
+## Create an XSL Style Sheet
+
+Then you create an XSL Style Sheet ("cdcatalog.xsl") with a transformation template:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsl:stylesheet version="1.0"
+xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+<xsl:template match="/">
+  <html>
+  <body>
+  <h2>My CD Collection</h2>
+  <table border="1">
+    <tr bgcolor="#9acd32">
+      <th>Title</th>
+      <th>Artist</th>
+    </tr>
+    <xsl:for-each select="catalog/cd">
+    <tr>
+      <td><xsl:value-of select="title"/></td>
+      <td><xsl:value-of select="artist"/></td>
+    </tr>
+    </xsl:for-each>
+  </table>
+  </body>
+  </html>
+</xsl:template>
+
+</xsl:stylesheet>
+
+```
+
+## Link the XSL Style Sheet to the XML Document
+
+Add the XSL style sheet reference to your XML document ("cdcatalog.xml"):
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="cdcatalog.xsl"?>
+<catalog>
+  <cd>
+    <title>Empire Burlesque</title>
+    <artist>Bob Dylan</artist>
+    <country>USA</country>
+    <company>Columbia</company>
+    <price>10.90</price>
+    <year>1985</year>
+  </cd>
+.
+.
+</catalog>
+
+```
+
+If you have an XSLT compliant browser it will nicely transform your XML into XHTML.
+
+https://www.w3schools.com/xml/cdcatalog_with_xsl.xml
+
+The details of the example above will be explained in the next chapters.
+
+# XSLT <xsl:template> Element
+
+An XSL style sheet consists of one or more set of rules that are called templates.
+
+A template contains rules to apply when a specified node is matched.
+
+## The <xsl:template> Element
+
+The `<xsl:template>` element is used to build templates.
+
+The match attribute is used to associate a template with an XML element. The match attribute can also be used to define a template for the entire XML document. The value of the match attribute is an XPath expression (i.e. match="/" defines the whole document).
+
+((tr:associate:ilişkilendirmek))
+
+Ok, let's look at a simplified version of the XSL file from the previous chapter:
+
+Example
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0"
+xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+<xsl:template match="/">
+  <html>
+  <body>
+  <h2>My CD Collection</h2>
+  <table border="1">
+    <tr bgcolor="#9acd32">
+      <th>Title</th>
+      <th>Artist</th>
+    </tr>
+    <tr>
+      <td>.</td>
+      <td>.</td>
+    </tr>
+  </table>
+  </body>
+  </html>
+</xsl:template>
+
+</xsl:stylesheet>
+
+```
+
+**Example Explained**
+
+Since an XSL style sheet is an XML document, it always begins with the XML declaration: `<?xml version="1.0" encoding="UTF-8"?>`.
+
+The next element, `<xsl:stylesheet>`, defines that this document is an XSLT style sheet document (along with the version number and XSLT namespace attributes).
+
+The `<xsl:template>` element defines a template. The match="/" attribute associates the template with the root of the XML source document.
+
+The content inside the `<xsl:template>` element defines some HTML to write to the output.
+
+The last two lines define the end of the template and the end of the style sheet.
+
+The result from this example was a little disappointing, because no data was copied from the XML document to the output. In the next chapter you will learn how to use the `<xsl:value-of>` element to select values from the XML elements.
