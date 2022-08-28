@@ -922,7 +922,7 @@ a[target="_blank"] {
 }
 ```
 
-[attribute~="value"] Selector
+**[attribute~="value"] Selector**
 
 The [attribute~="value"] selector is used to select elements with an attribute value containing a specified word.
 
@@ -930,13 +930,15 @@ The following example selects all elements with a title attribute that contains 
 
 Example
 
+```css
 [title~="flower"] {
   border: 5px solid yellow;
 }
+```
 
 The example above will match elements with title="flower", title="summer flower", and title="flower new", but not title="my-flower" or title="flowers".
 
-[attribute|="value"] Selector
+**[attribute|="value"] Selector**
 
 The [attribute|="value"] selector is used to select elements with the specified attribute starting with the specified value.
 
