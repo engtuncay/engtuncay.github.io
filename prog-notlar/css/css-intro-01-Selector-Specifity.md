@@ -21,6 +21,10 @@ edited 20-03-2022
   - [Pseudo-classes](#pseudo-classes)
   - [Pseudo Elements](#pseudo-elements)
   - [Attribute Selector](#attribute-selector)
+    - [[attribute|="value"] Selector](#attributevalue-selector)
+    - [[attribute^="value"] Selector](#attributevalue-selector-1)
+    - [[attribute$="value"] Selector](#attributevalue-selector-2)
+    - [[attribute*="value"] Selector](#attributevalue-selector-3)
 - [Cascading Order](#cascading-order)
 - [Specifity](#specifity)
 - [Sources](#sources)
@@ -938,9 +942,9 @@ Example
 
 The example above will match elements with title="flower", title="summer flower", and title="flower new", but not title="my-flower" or title="flowers".
 
-**[attribute|="value"] Selector**
+### [attribute|="value"] Selector
 
-The [attribute|="value"] selector is used to select elements with the specified attribute starting with the specified value.
+The `[attribute|="value"]` selector is used to select elements with the specified attribute starting with the specified value.
 
 The following example selects all elements with a class attribute value that begins with "top":
 
@@ -948,11 +952,13 @@ Note: The value has to be a whole word, either alone, like class="top", or follo
 
 Example
 
+```css
 [class|="top"] {
   background: yellow;
 }
+```
 
-[attribute^="value"] Selector
+### [attribute^="value"] Selector
 
 The [attribute^="value"] selector is used to select elements whose attribute value begins with a specified value.
 
@@ -964,7 +970,7 @@ Note: The value does not have to be a whole word! 
   background: yellow;
 }
 
-[attribute$="value"] Selector
+### [attribute$="value"] Selector
 
 The [attribute$="value"] selector is used to select elements whose attribute value ends with a specified value.
 
@@ -974,11 +980,13 @@ Note: The value does not have to be a whole word!  
 
 Example
 
+```css
 [class$="test"] {
   background: yellow;
 }
+```
 
-**[attribute*="value"] Selector**
+### [attribute*="value"] Selector
 
 The [attribute*="value"] selector is used to select elements whose attribute value contains a specified value.
 
