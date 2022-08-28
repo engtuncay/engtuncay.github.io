@@ -7,7 +7,7 @@
       - [DISPLAY](#display)
       - [FLEX-DIRECTION](#flex-direction)
       - [FLEX-WRAP](#flex-wrap)
-      - [FLEX-FLOW (HP)](#flex-flow-hp)
+      - [FLEX-FLOW (SH)](#flex-flow-sh)
       - [JUSTIFY-CONTENT](#justify-content)
       - [ALIGN-ITEMS](#align-items)
       - [ALIGN-CONTENT](#align-content)
@@ -16,7 +16,7 @@
       - [FLEX-GROW](#flex-grow)
       - [FLEX-SHRINK](#flex-shrink)
       - [FLEX-BASIS](#flex-basis)
-      - [FLEX (HP)](#flex-hp)
+      - [FLEX (sh)](#flex-sh)
       - [ALIGN-SELF](#align-self)
   - [Examples](#examples)
   - [Flexbox Tricks - Articles](#flexbox-tricks---articles)
@@ -29,6 +29,7 @@ Source : https://css-tricks.com/snippets/css/a-guide-to-flexbox
 This complete guide explains everything about flexbox, focusing on all the different possible properties for the parent element (the flex container) and the child elements (the flex items). It also includes history, demos, patterns, and a browser support chart.
 
 hp -> helper property
+sh -> shorthand property
 
 ## BACKGROUND
 
@@ -99,8 +100,6 @@ This establishes the main-axis, thus defining the direction flex items are place
 - column: same as row but top to bottom
 - column-reverse: same as row-reverse but bottom to top
 
----
-
 #### FLEX-WRAP
 
 ![](./img/css/flex-wrap.jpg)
@@ -122,7 +121,7 @@ https://css-tricks.com/almanac/properties/f/flex-wrap/
 
 ---
 
-#### FLEX-FLOW (HP)
+#### FLEX-FLOW (SH)
 
 This is a shorthand for the flex-direction and flex-wrap properties, which together define the flex container’s main and cross axes. The default value is row nowrap.
 
@@ -147,25 +146,29 @@ This defines the alignment along the main axis. It helps distribute extra free s
 }
 ```
 
-- flex-start (default): items are packed toward the start of the flex-direction.
-- flex-end: items are packed toward the end of the flex-direction.
-- start: items are packed toward the start of the writing-mode direction.
-- end: items are packed toward the end of the writing-mode direction.
-- left: items are packed toward left edge of the container, unless that doesn’t make sense with the flex-direction, then it behaves like start.
-- right: items are packed toward right edge of the container, unless that doesn’t make sense with the flex-direction, then it behaves like end.
+@ flex-start (default): items are packed toward the start of the flex-direction.
 
-- center: items are centered along the line
+@ flex-end: items are packed toward the end of the flex-direction.
 
-- space-between: items are evenly distributed in the line; first item is on the start line, last item on the end line
+@ start: items are packed toward the start of the writing-mode direction.
 
-- space-around: items are evenly distributed in the line with equal space around them. Note that visually the spaces aren’t equal, since all the items have equal space on both sides. The first item will have one unit of space against the container edge, but two units of space between the next item because that next item has its own spacing that applies.
+@ end: items are packed toward the end of the writing-mode direction.
 
-- space-evenly: items are distributed so that the spacing between any two items (and the space to the edges) is equal.
+@ left: items are packed toward left edge of the container, unless that doesn’t make sense with the flex-direction, then it behaves like start.
 
-Note that that browser support for these values is nuanced. For example, space-between never got support from some versions of Edge, and start/end/left/right aren’t in Chrome yet. MDN has detailed charts. (https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content) The safest values are flex-start, flex-end, and center.
+@ right: items are packed toward right edge of the container, unless that doesn’t make sense with the flex-direction, then it behaves like end.
 
-(??) 
-There are also two additional keywords you can pair with these values: safe and unsafe. Using safe ensures that however you do this type of positioning, you can’t push an element such that it renders off-screen (e.g. off the top) in such a way the content can’t be scrolled too (called “data loss”). 
+@ center: items are centered along the line
+
+@ space-between: items are evenly distributed in the line; first item is on the start line, last item on the end line
+
+@ space-around: items are evenly distributed in the line with equal space around them. Note that visually the spaces aren’t equal, since all the items have equal space on both sides. The first item will have one unit of space against the container edge, but two units of space between the next item because that next item has its own spacing that applies.
+
+@ space-evenly: items are distributed so that the spacing between any two items (and the space to the edges) is equal.
+
+- Note that that browser support for these values is nuanced. For example, space-between never got support from some versions of Edge, and start/end/left/right aren’t in Chrome yet. MDN has detailed charts. (https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content) The safest values are flex-start, flex-end, and center.
+
+- Note : There are also two additional keywords you can pair with these values: safe and unsafe. Using safe ensures that however you do this type of positioning, you can’t push an element such that it renders off-screen (e.g. off the top) in such a way the content can’t be scrolled too (called “data loss”). 
 
 #### ALIGN-ITEMS
 
@@ -173,7 +176,7 @@ There are also two additional keywords you can pair with these values: safe and 
 
 This defines the default behavior for how flex items are laid out along **the cross axis** on the current line. Think of it as the justify-content version for the cross-axis (perpendicular to the main-axis). Aligning on the cross axis. 
 
-(tr:cross axis - flex parçaları karşıt eksende hizalama :)
+((cross axis - flex direction row ise yatayda nasıl hizalanacağını belirler.))
 
 ```css
 .container {
@@ -181,17 +184,19 @@ This defines the default behavior for how flex items are laid out along **the cr
 }
 
 ```
+
 **align-item values**
 
-- stretch (default): stretch to fill the container (still respect min-width/max-width)
-- flex-start / start / self-start: items are placed at the start of the cross axis. The difference between these is subtle, and is about respecting the flex-direction rules or the writing-mode rules.
-- flex-end / end / self-end: items are placed at the end of the cross axis. The difference again is subtle and is about respecting - flex-direction rules vs. writing-mode rules.
-- center: items are centered in the cross-axis
+@ stretch (default): stretch to fill the container (still respect min-width/max-width)
+  
+@ flex-start / start / self-start: items are placed at the start of the cross axis. The difference between these is subtle, and is about respecting the flex-direction rules or the writing-mode rules.
+
+@ flex-end / end / self-end: items are placed at the end of the cross axis. The difference again is subtle and is about respecting - flex-direction rules vs. writing-mode rules.
+
+@ center: items are centered in the cross-axis
 baseline: items are aligned such as their baselines align
 
-The safe and unsafe modifier keywords can be used in conjunction with all the rest of these keywords (although note browser support), and deal with helping you prevent aligning elements such that the content becomes inaccessible.
-
----
+The safe and unsafe modifier keywords can be used in conjunction with all the rest of these keywords (although note browser support), and deal with helping you prevent aligning elements such that the content becomes inaccessible. (??)
 
 #### ALIGN-CONTENT
 
@@ -275,7 +280,7 @@ This defines the default size of an element before the remaining space is distri
 If set to 0, the extra space around content isn’t factored in. If set to auto, the extra space is distributed based on its flex-grow value. See this graphic.
 
 ---
-#### FLEX (HP)
+#### FLEX (sh)
 
 This is the shorthand for flex-grow, flex-shrink and flex-basis combined. The second and third parameters (flex-shrink and flex-basis) are optional. The default is 0 1 auto, but if you set it with a single number value, it’s like 1 0.
 
