@@ -87,7 +87,7 @@ This establishes the main-axis, thus defining the direction flex items are place
 
 ![](./img/css/flex-direction.jpg)
 
-(tr:ana ekseni tanımlar, satır olunca yatay, sütun olunca dikey. Tek yönlü yerleşim kavramı... Flex elemanlarını, tek sütun yatay satırlar veya tek satır dikey sütunlar olarak düşünün (nowrap).:)
+(( ana ekseni tanımlar, satır olunca yatay, sütun olunca dikey. Tek yönlü yerleşim kavramı... Flex elemanlarını (nowrap durumunda), yatay satırlar veya dikey sütunlar olarak düşünün. ))
 
 ```css
 .container {
@@ -95,10 +95,13 @@ This establishes the main-axis, thus defining the direction flex items are place
 }
 ```
 
-- row (default): left to right in ltr; right to left in rtl
-- row-reverse: right to left in ltr; left to right in rtl
-- column: same as row but top to bottom
-- column-reverse: same as row-reverse but bottom to top
+@ row (default): left to right in ltr; right to left in rtl
+
+@ row-reverse: right to left in ltr; left to right in rtl
+
+@ column: same as row but top to bottom
+
+@ column-reverse: same as row-reverse but bottom to top
 
 #### FLEX-WRAP
 
