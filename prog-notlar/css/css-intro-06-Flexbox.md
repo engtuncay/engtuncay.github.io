@@ -11,6 +11,7 @@
       - [JUSTIFY-CONTENT](#justify-content)
       - [ALIGN-ITEMS](#align-items)
       - [ALIGN-CONTENT](#align-content)
+      - [gap, row-gap, column-gap](#gap-row-gap-column-gap)
     - [PROPERTIES FOR THE CHILDREN (FLEX ITEMS)](#properties-for-the-children-flex-items)
       - [ORDER](#order)
       - [FLEX-GROW](#flex-grow)
@@ -169,9 +170,11 @@ This defines the alignment along the main axis. It helps distribute extra free s
 
 - space-evenly: items are distributed so that the spacing between any two items (and the space to the edges) is equal.
 
-- **Note** that that browser support for these values is nuanced. For example, space-between never got support from some versions of Edge, and start/end/left/right aren’t in Chrome yet. MDN has detailed charts. (https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content) The safest values are flex-start, flex-end, and center.
+**Note**
 
-- Note : There are also two additional keywords you can pair with these values: safe and unsafe. Using safe ensures that however you do this type of positioning, you can’t push an element such that it renders off-screen (e.g. off the top) in such a way the content can’t be scrolled too (called “data loss”). 
+- Browser support for these values is nuanced. For example, space-between never got support from some versions of Edge, and start/end/left/right aren’t in Chrome yet. MDN has detailed charts. (https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content) The safest values are flex-start, flex-end, and center.
+
+- There are also two additional keywords you can pair with these values: safe and unsafe. Using safe ensures that however you do this type of positioning, you can’t push an element such that it renders off-screen (e.g. off the top) in such a way the content can’t be scrolled too (called “data loss”). 
 
 #### ALIGN-ITEMS
 
@@ -179,7 +182,7 @@ This defines the alignment along the main axis. It helps distribute extra free s
 
 This defines the default behavior for how flex items are laid out along **the cross axis** on the current line. Think of it as the justify-content version for the cross-axis (perpendicular to the main-axis). Aligning on the cross axis. 
 
-((cross axis - flex direction row ise yatayda nasıl hizalanacağını belirler.))
+((cross axis - flex direction row ise yatayda nasıl hizalanacağını belirtir.))
 
 ```css
 .container {
@@ -190,13 +193,13 @@ This defines the default behavior for how flex items are laid out along **the cr
 
 **align-item values**
 
-@ stretch (default): stretch to fill the container (still respect min-width/max-width)
+- stretch (default): stretch to fill the container (still respect min-width/max-width)
   
-@ flex-start / start / self-start: items are placed at the start of the cross axis. The difference between these is subtle, and is about respecting the flex-direction rules or the writing-mode rules.
+- flex-start / start / self-start: items are placed at the start of the cross axis. The difference between these is subtle, and is about respecting the flex-direction rules or the writing-mode rules.
 
-@ flex-end / end / self-end: items are placed at the end of the cross axis. The difference again is subtle and is about respecting - flex-direction rules vs. writing-mode rules.
+- flex-end / end / self-end: items are placed at the end of the cross axis. The difference again is subtle and is about respecting - flex-direction rules vs. writing-mode rules.
 
-@ center: items are centered in the cross-axis
+- center: items are centered in the cross-axis
 baseline: items are aligned such as their baselines align
 
 The safe and unsafe modifier keywords can be used in conjunction with all the rest of these keywords (although note browser support), and deal with helping you prevent aligning elements such that the content becomes inaccessible. (??)
@@ -225,6 +228,25 @@ Note: This property only takes effect on multi-line flexible containers (!!!), w
 - stretch: lines stretch to take up the remaining space
 
 The safe and unsafe modifier keywords can be used in conjunction with all the rest of these keywords (although note browser support), and deal with helping you prevent aligning elements such that the content becomes inaccessible.
+
+#### gap, row-gap, column-gap
+
+The gap property explicitly controls the space between flex items. It applies that spacing only between items not on the outer edges.
+
+```css
+.container {
+  display: flex;
+  ...
+  gap: 10px;
+  gap: 10px 20px; /* row-gap column gap */
+  row-gap: 10px;
+  column-gap: 20px;
+}
+```
+
+The behavior could be thought of as a minimum gutter, as if the gutter is bigger somehow (because of something like justify-content: space-between;) then the gap will only take effect if that space would end up smaller.
+
+It is not exclusively for flexbox, gap works in grid and multi-column layout as well.
 
 ### PROPERTIES FOR THE CHILDREN (FLEX ITEMS) 
 
