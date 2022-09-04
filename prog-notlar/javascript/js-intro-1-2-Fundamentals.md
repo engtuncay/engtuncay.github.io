@@ -55,12 +55,7 @@ Source : http://www.javascript.info
 
 ## Variables
 
-Most of the time, a JavaScript application needs to work with information. Here are two examples:
-
-1. An online shop – the information might include goods being sold and a shopping cart.
-2. A chat application – the information might include users, messages, and much more.
-
-Variables are used to store this information.
+Variables are used to store information.
 
 ### A variable
 
@@ -165,9 +160,9 @@ Though it may seem a little odd at first sight, these languages are quite capabl
 
 There are two limitations on variable names in JavaScript:
 
-The name must contain only letters, digits, or the symbols $ and _.
+- The name must contain only letters, digits, or the symbols $ and _.
 
-The first character must not be a digit.
+- The first character must not be a digit.
 
 Examples of valid names:
 
@@ -323,10 +318,10 @@ Please spend time thinking about the right name for a variable before declaring 
 
 Some good-to-follow rules are:
 
-Use human-readable names like userName or shoppingCart.
-Stay away from abbreviations or short names like a, b, c, unless you really know what you’re doing.
-Make names maximally descriptive and concise. Examples of bad names are data and value. Such names say nothing. It’s only okay to use them if the context of the code makes it exceptionally obvious which data or value the variable is referencing.
-Agree on terms within your team and in your own mind. If a site visitor is called a “user” then we should name related variables currentUser or newUser instead of currentVisitor or newManInTown.
+- Use human-readable names like userName or shoppingCart.
+- Stay away from abbreviations or short names like a, b, c, unless you really know what you’re doing.
+- Make names maximally descriptive and concise. Examples of bad names are data and value. Such names say nothing. It’s only okay to use them if the context of the code makes it exceptionally obvious which data or value the variable is referencing.
+- Agree on terms within your team and in your own mind. If a site visitor is called a “user” then we should name related variables currentUser or newUser instead of currentVisitor or newManInTown.
 
 Sounds simple? Indeed it is, but creating descriptive and concise variable names in practice is not. Go for it.
 
