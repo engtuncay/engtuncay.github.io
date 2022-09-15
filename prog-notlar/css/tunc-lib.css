@@ -2,12 +2,6 @@
   display: flex;
 }
 
-.flit {
-  /*flex-grow girilince işlemez*/
-  /*   width: 100px; */
-  flex-grow: 1;
-}
-
 .h200 {
   height: 200px;
 }
