@@ -40,13 +40,12 @@ Props For Flex Container |
 --- |
 flex-direction: [ row , row-reverse , column ,column-reverse ]; |
 flex-wrap: [ nowrap , wrap , wrap-reverse] ; |
-flex-flow: [ flex-direction , flex-wrap] ; <br> shorthand prop
+flex-flow: flex-direction , flex-wrap ; <br> shorthand prop
 
 
 # CODEPEN EXAMPLES
 
-- Template <br/> https://codepen.io/engtuncay/pen/vYjgOMy
-
+- CodePen My Template <br/> https://codepen.io/engtuncay/pen/dyeNGjQ
 
 
 # FLEXBOX
