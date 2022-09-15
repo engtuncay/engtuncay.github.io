@@ -1,0 +1,28 @@
+.flex {
+  display: flex;
+}
+
+.flit {
+  /*flex-grow girilince işlemez*/
+  /*   width: 100px; */
+  flex-grow: 1;
+}
+
+.h200 {
+  height: 200px;
+}
+
+.jc-fs {
+  justify-content: flex-start;
+}
+
+/*width:500px;*/
+/*   height: 200px; */
+
+.brd-outline {
+  outline: solid 1px red;
+}
+
+.brd-red {
+  border: solid 1px red;
+}
