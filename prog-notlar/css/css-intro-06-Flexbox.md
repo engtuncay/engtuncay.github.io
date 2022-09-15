@@ -1,4 +1,7 @@
 
+- [SOURCES](#sources)
+- [CHEATSHEET](#cheatsheet)
+- [CODEPEN EXAMPLES](#codepen-examples)
 - [FLEXBOX](#flexbox)
   - [BACKGROUND](#background)
   - [BASICS AND TERMINOLOGY](#basics-and-terminology)
@@ -23,9 +26,30 @@
   - [Flexbox Tricks - Articles](#flexbox-tricks---articles)
   - [More Information](#more-information)
  
-# FLEXBOX
+# SOURCES
 
-Source : https://css-tricks.com/snippets/css/a-guide-to-flexbox
+- https://css-tricks.com/snippets/css/a-guide-to-flexbox
+  
+# CHEATSHEET
+
+Tailwind     | Exp
+-------------|-------------
+Installation | display:flex
+
+Props For Flex Container |
+--- |
+flex-direction: [ row , row-reverse , column ,column-reverse ]; |
+flex-wrap: [ nowrap , wrap , wrap-reverse] ; |
+flex-flow: [ flex-direction , flex-wrap] ; <br> shorthand prop
+
+
+# CODEPEN EXAMPLES
+
+- Template <br/> https://codepen.io/engtuncay/pen/vYjgOMy
+
+
+
+# FLEXBOX
 
 This complete guide explains everything about flexbox, focusing on all the different possible properties for the parent element (the flex container) and the child elements (the flex items). It also includes history, demos, patterns, and a browser support chart.
 
