@@ -6,17 +6,19 @@
   height: 200px;
 }
 
+.h500 {
+  height: 500px;
+}
+
 .jc-fs {
   justify-content: flex-start;
 }
 
-/*width:500px;*/
-/*   height: 200px; */
-
-.brd-outline {
+.bor-outline-red {
   outline: solid 1px red;
 }
 
-.brd-red {
+.bor-red {
   border: solid 1px red;
 }
+
