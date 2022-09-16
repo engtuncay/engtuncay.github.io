@@ -184,13 +184,14 @@ The <script> tag contains JavaScript code which is automatically executed when t
 
 ### Modern markup
 
-The <script> tag has a few attributes that are rarely used nowadays but can still be found in old code:
+The `<script>` tag has a few attributes that are rarely used nowadays but can still be found in old code:
 
-The type attribute: <script type=…>
+The type attribute: `<script type=…>`
 
 The old HTML standard, HTML4, required a script to have a type. Usually it was type="text/javascript". It’s not required anymore. Also, the modern HTML standard totally changed the meaning of this attribute. Now, it can be used for JavaScript modules. But that’s an advanced topic, we’ll talk about modules in another part of the tutorial.
 
-The language attribute: <script language=…>
+The language attribute: `<script language=…>`
+
 This attribute was meant to show the language of the script. This attribute no longer makes sense because JavaScript is the default language. There is no need to use it.
 
 ### External scripts
@@ -201,7 +202,6 @@ Script files are attached to HTML with the src attribute:
 
 ```html
 <script src="/path/to/script.js"></script>
-
 ```
 
 Here, /path/to/script.js is an absolute path to the script from the site root. One can also provide a relative path from the current page. For instance, src="script.js" would mean a file "script.js" in the current folder.
@@ -233,10 +233,9 @@ That reduces traffic and makes pages faster.
 
 If src is set, the script content is ignored.
 
-A single <script> tag can’t have both the src attribute and code inside.
+A single `<script>` tag can’t have both the src attribute and code inside.
 
 This won’t work:
-
 
 ```html
 <script src="file.js">
@@ -245,7 +244,7 @@ This won’t work:
 
 ```
 
-We must choose either an external <script src="…"> or a regular <script> with code.
+We must choose either an external `<script src="…">` or a regular `<script>` with code.
 
 The example above can be split into two scripts to work:
 
@@ -259,7 +258,7 @@ The example above can be split into two scripts to work:
 
 ### Summary
 
-We can use a <script> tag to add JavaScript code to a page.
+We can use a `<script>` tag to add JavaScript code to a page.
 
 The type and language attributes are not required.
 
@@ -273,7 +272,7 @@ The first thing we’ll study is the building blocks of code.
 
 Statements are syntax constructs and commands that perform actions.
 
-We’ve already seen a statement, alert('Hello, world!'), which shows the message “Hello, world!”.
+We’ve already seen a statement, `alert('Hello, world!')`, which shows the message “Hello, world!”.
 
 We can have as many statements in our code as we want. Statements can be separated with a semicolon.
 

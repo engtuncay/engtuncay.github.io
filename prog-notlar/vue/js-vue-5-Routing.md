@@ -15,7 +15,7 @@
   - [Route Navigation Guard](#route-navigation-guard)
   - [Router Full Example (1)](#router-full-example-1)
   - [Router Full Ex 2](#router-full-ex-2)
-  - [Full Example (3)](#full-example-3)
+  - [Full Example 3](#full-example-3)
   - [Ornek Proje Otobus Rez Sistemi](#ornek-proje-otobus-rez-sistemi)
 
 # B5 Routing
@@ -137,7 +137,7 @@ Router-Link componenti, bu linki <span> etiketiyle html'e basar.
 
 ## Aktif Route Baglantisini Tespit Etme
 
-- RouterLink ile oluşturulan link tıklandığında otomatik olarak vue router-link-active classını ekler.
+- Vue, RouterLink ile oluşturulan link tıklandığında otomatik olarak router-link-active classını ekler.
 
 ```html
 <a class=".... router-link-active">Hakkımızda</a>
@@ -256,7 +256,7 @@ const router = new Router({
 });
 ```
 
-- History modunda dosya çalıştırarak test edemeyiz, lokal sunucuda test edebiliriz.
+- History modunu lokal sunucuda test edebiliriz, dosya çalıştırarak test edemeyiz.
 
 uvd-76
 
@@ -266,13 +266,13 @@ uvd-76
 
 ```js
 const routes = [
-        {
-            path: '/', component: Page_Anasayfa,
-            redirect: '/iletisim'
-        },
-        /* ... */
-        { path: '/iletisim', component: Page_Iletisim },
-    ];
+  {
+    path: '/', component: Page_Anasayfa,
+    redirect: '/iletisim'
+  },
+  /* ... */
+  { path: '/iletisim', component: Page_Iletisim },
+];
 ```
 
 - Aktif link gösterilirken burada hata olabilir. iletisim sayfasındayken anasayfa linkide aktif görünebilir. Bunu düzeltmek için "exact" özniteliği (attribute) kullanılır. Böylelikle adres "/" sonrasında bir şey gelirse routerlinki active özelliği almaz.
@@ -287,23 +287,23 @@ const routes = [
 
 ```js
 const routes = [
-        {
-            path: '/', component: Page_Anasayfa,
-            //redirect: '/iletisim'
-            redirect: { name: 'iletisim' }
-        },
-        /* ... */
-        { path: '/iletisim', component: Page_Iletisim, name: 'iletisim' },
-    ];
+  {
+    path: '/', component: Page_Anasayfa,
+    //redirect: '/iletisim'
+    redirect: { name: 'iletisim' }
+  },
+  /* ... */
+  { path: '/iletisim', component: Page_Iletisim, name: 'iletisim' },
+];
 ```
 
 - mevcut adresinin yanında ikinci bir adresle rut tanımlayabiliriz. "/iletisim" ile açılıyorken , bir de "/communication" ile açılmasını sağlayabiliriz.
 
 ```js
 const routes = [
-        /* ... */
-        { path: '/iletisim', component: Page_Iletisim, alias : '/communication' },
-    ];
+  /* ... */
+  { path: '/iletisim', component: Page_Iletisim, alias : '/communication' },
+];
 ```
 
 uvd-77
@@ -785,7 +785,7 @@ uvd-82
 
 ```
 
-## Full Example (3)
+## Full Example 3
 
 ```html
 
