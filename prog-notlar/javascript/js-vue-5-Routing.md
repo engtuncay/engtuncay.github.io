@@ -1,34 +1,51 @@
 
+- [B5 Routing](#b5-routing)
+  - [Routing Installation](#routing-installation)
+  - [Router Tanimlama](#router-tanimlama)
+  - [Route Bağlantıları Verme](#route-bağlantıları-verme)
+  - [Aktif Route Baglantisini Tespit Etme](#aktif-route-baglantisini-tespit-etme)
+  - [Route Parametreleri](#route-parametreleri)
+  - [Programatik Route Degisimi](#programatik-route-degisimi)
+  - [Hash / History Modu](#hash--history-modu)
+  - [Route Yönlendirme ve Alias Kullanımı](#route-yönlendirme-ve-alias-kullanımı)
+  - [İç içe Rut Tanımlama (Nested Route)](#i̇ç-içe-rut-tanımlama-nested-route)
+  - [Vue Cli ile Oluşturulan Projede Route Yapısının Kullanımı](#vue-cli-ile-oluşturulan-projede-route-yapısının-kullanımı)
+  - [Hatalı Route Tanımlarını Yakalama](#hatalı-route-tanımlarını-yakalama)
+  - [Route Degisimlerini izleme](#route-degisimlerini-izleme)
+  - [Route Navigation Guard](#route-navigation-guard)
+  - [Router Full Example (1)](#router-full-example-1)
+  - [Router Full Ex 2](#router-full-ex-2)
+  - [Full Example (3)](#full-example-3)
+  - [Ornek Proje Otobus Rez Sistemi](#ornek-proje-otobus-rez-sistemi)
 
 # B5 Routing
 
-vid1 
+ Sayfa içerisinde belirlediğimiz bir alana, gezinme sonucunda değişen url'ye göre istedğimiz component'i yüklediğimiz sisteme routing denir.
 
--  Sayfa içerisinde belirlediğimiz bir alana, gezinme sonucunda değişen url göre istedğimiz component i yüklediğimiz sisteme routing denir.
-
-Vue js <router-view> blogu içerisine yükler.
+Vue, route ile belirdiğimiz component'i `<router-view>` elementi içerisine yükler.
 
 Örneğin hakkımızda linkini tıkladığımız router-view blogu içerisine yüklenmesini istiyoruz.
-
-vid2
 
 ## Routing Installation
 
 - Direct Download or Cdn
 
+```html
 <script src="/path/to/vue.js"></script>
 <script src="/path/to/vue-router.js"></script>
+```
 
 - Npm ile
 
 ```js
 npm install vue-router
-```
 
+yarn 
+```
 
 ## Router Tanimlama
 
-- index script alanında routes arrayi tanımlamamız gerekir.
+- routes arrayi tanımlamamız gerekir.
 
 ```js
 const routes = [
@@ -44,15 +61,15 @@ const routes = [
 
 ```js
 const Page_Anasayfa = {
-        template: '<h1>Hoşgeldiniz</h1>'
-    };
+  template: '<h1>Hoşgeldiniz</h1>'
+};
 const Page_Hakkimizda = {
-        template: '<h1>Hakkımızda</h1>'
+  template: '<h1>Hakkımızda</h1>'
 };
 
 ```
 
-- kütüphaneye devreye alırız. Yukarıda tanımladığımız routes tanımını vuerouter'a belirtiriz. 
+- Yukarıda tanımladığımız routes değişkenini vuerouter'a tanımlarız. 
 
 ```js
 const router = new VueRouter({
@@ -69,7 +86,7 @@ const app = new Vue({
     })
 ```
 
-- Sayfamızda router ile yüklediğimiz componentlerin nerede görüneceğini belirtiriz.
+- Sayfamızda router-view elementini sayfamıza ekleriz. Router componetleri burada gösterilir.
 
 ```html
 <div id="app">
@@ -79,7 +96,7 @@ const app = new Vue({
 </div>
 ```
 
-uvd71
+--uvd71--
 
 ## Route Bağlantıları Verme
 
@@ -108,7 +125,7 @@ urunlerAdresi degiskenin degerini to attribute değeri olarak basar.
 <router-link :to="{ path: 'iletisim' }" tag="span" class="nav-link" active-class="active">İletişim</router-link>
 ```
 
-- routelink'te a dışında farklı bir html elemanına da render yapabilir.
+- routelink'te `<a>` dışında farklı bir html elemanına da render yapabiliriz.
 
 ```html
 <router-link :to="{ path: 'iletisim' }" tag="span" class="nav-link" active-class="active">İletişim</router-link>
@@ -116,7 +133,7 @@ urunlerAdresi degiskenin degerini to attribute değeri olarak basar.
 
 Router-Link componenti, bu linki <span> etiketiyle html'e basar.
 
-uvd72 end
+--uvd72--
 
 ## Aktif Route Baglantisini Tespit Etme
 
@@ -138,7 +155,7 @@ uvd-73
 
 - Tarayıcıdan url olarak girilen örneğin urunler/detay/2 adresinde 2 route parametresidir.
 
-- routes tanımıda parametreleri belirtmemiz gerekir.
+- routes tanımında parametreleri belirtmemiz gerekir.
 
 ```js
  const routes = [
@@ -191,7 +208,7 @@ this.$router.push('/');
 this.$router.push({ name: 'urun-detay', params: { id: 2 } });
 ```
 
-component de kullanımı
+- Component de kullanımı
 
 ```html
 const Page_Urun_Detay = {
@@ -768,7 +785,7 @@ uvd-82
 
 ```
 
-## Ex 3
+## Full Example (3)
 
 ```html
 
@@ -977,13 +994,5 @@ npm install bootstrap --save
     /* ... */
 }
 ```
-
-
-
-
-
-
-
-
 
 uvd-83

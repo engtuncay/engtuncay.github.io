@@ -1,8 +1,11 @@
 
 This tutorial is mostly prepared from javascript.info website. It is very good. Some sections may be changed or removed.
 
-Source : http://www.javascript.info
+**Source**
 
+http://www.javascript.info
+
+**Contents**
 
 - [Fundamentals 2](#fundamentals-2)
   - [Variables](#variables)
