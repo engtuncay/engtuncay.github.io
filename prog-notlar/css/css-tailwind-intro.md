@@ -1,5 +1,6 @@
 
 - [Code Play For Tailwind](#code-play-for-tailwind)
+- [CHEATSHEET](#cheatsheet)
 - [LAYOUT](#layout)
   - [Container](#container)
   - [Box Decoration Break](#box-decoration-break)
@@ -61,9 +62,13 @@
 
 # Code Play For Tailwind
 
-Tailwind denemelerine bu code play den yapabilirsiniz. Gayet kullanışlı.
+- Tailwind official Code Play <br/> https://play.tailwindcss.com/
 
-https://play.tailwindcss.com/
+- CodePen My Template <br/> https://codepen.io/engtuncay/pen/vYjgOMy
+
+
+# CHEATSHEET
+
 
 
 # LAYOUT
@@ -82,7 +87,7 @@ container	  None	        width: 100%;
 "           2xl (1536px)	max-width: 1536px;
 ```
 
-Container en büyük ekranda alacağı max genişlik 1536px olur. 1536 üstünde margin degerleri oluşturur. Md ekranda (768-1024px) en geniş 768 px olur.
+Container en büyük ekranda alacağı max genişlik 1536px olur. 1536 üstünde margin degerleri (boşluk) oluşturur. Md ekranda (768-1024px) en geniş 768 px olur.
 
 **Usage**
 
