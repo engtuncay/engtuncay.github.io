@@ -1,40 +1,50 @@
+
 (1)
-CSS Introduction
-CSS Syntax
-CSS How To
-CSS Comments
-CSS Selectors
-CSS Combinators
-CSS Pseudo-class
-CSS Pseudo-element
+Introduction
+Comments
+Selectors
+Combinators
+Pseudo-class
+Pseudo-element
 
 (2)
-CSS Colors
-CSS Backgrounds
-CSS Text
-CSS Fonts
+Colors
+Backgrounds
+Text
+Fonts
 
-CSS Links
-CSS Lists
-CSS Icons
+(3)
+Links
+Lists
+Icons
+
+(4)
+Units
+Box Model
+Borders
+Margins
+Padding
+Height/Width
+Outline
+User Interface (Resizing)
+
+
 CSS Tables
 
-CSS Borders
-CSS Margins
-CSS Padding
-CSS Height/Width
-CSS Box Model
-CSS Outline
-
-
+(5)
 CSS Display
-CSS Max-width
-CSS Position
-CSS Z-index
-CSS Overflow
-CSS Float
 CSS Inline-block
+CSS Position
+CSS Overflow
 CSS Align
+CSS Float
+
+CSS Max-width
+CSS Z-index
+
+(6)
+CSS Flexbox
+
 
 CSS Opacity
 CSS Navigation Bar
@@ -45,7 +55,7 @@ CSS Attr Selectors
 CSS Forms
 CSS Counters
 CSS Website Layout
-CSS Units
+
 CSS Specificity
 CSS !important
 CSS Math Functions
@@ -53,13 +63,12 @@ CSS Math Functions
 CSS Advanced
 CSS Rounded Corners
 CSS Border Images
-CSS Backgrounds
-CSS Colors
 CSS Color Keywords
 CSS Gradients
 CSS Shadows
 CSS Text Effects
 CSS Web Fonts
+
 CSS 2D Transforms
 CSS 3D Transforms
 CSS Transitions
@@ -75,7 +84,8 @@ CSS Pagination
 CSS Multiple Columns
 CSS User Interface
 CSS Variables
-CSS Box Sizing
+
+
 CSS Media Queries
 CSS MQ Examples
-CSS Flexbox
+

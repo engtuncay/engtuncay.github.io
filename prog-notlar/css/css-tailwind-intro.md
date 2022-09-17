@@ -75,19 +75,18 @@
 
 ## Container
 
-A component for fixing an element's width to the current breakpoint.
+A component for fixing an element's width to the current breakpoint (kesim noktası).
 
-```
-Class       Breakpoint    Properties
-container	  None	        width: 100%;
-"           sm (640px)    max-width: 640px;
-"           md (768px)	  max-width: 768px;
-"           lg (1024px)	  max-width: 1024px;
-"           xl (1280px)	  max-width: 1280px;
-"           2xl (1536px)	max-width: 1536px;
-```
+Class     | Breakpoint   | Properties
+----------|--------------|-------------------
+container | None         | width: 100%;
+"         | sm (640px)   | max-width: 640px;
+"         | md (768px)   | max-width: 768px;
+"         | lg (1024px)  | max-width: 1024px;
+"         | xl (1280px)  | max-width: 1280px;
+"         | 2xl (1536px) | max-width: 1536px;
 
-Container en büyük ekranda alacağı max genişlik 1536px olur. 1536 üstünde margin degerleri (boşluk) oluşturur. Md ekranda (768-1024px) en geniş 768 px olur.
+((Container en büyük ekranda alacağı max genişlik 1536px olur. 1536 üstünde margin degerleri (boşluk) oluşturur. Md ekranda (768-1024px) en geniş 768 px olur.))
 
 **Usage**
 

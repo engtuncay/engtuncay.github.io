@@ -1,7 +1,7 @@
 
 **CSS Element Size**
 
-- [CSS Units](#css-units)
+- [Units](#units)
 - [CSS Box Model](#css-box-model)
 - [Box Sizing (border-box model)](#box-sizing-border-box-model)
 - [Height , Width And Max-Width](#height--width-and-max-width)
@@ -12,15 +12,13 @@
 - [CSS Outline](#css-outline)
 - [User Interface (Resizing)](#user-interface-resizing)
 
-# CSS Units
-
-(tr:Birimler:)
+# Units
 
 Source : https://www.w3schools.com/css/css_units.asp
 
 CSS has several different units for expressing a length.
 
-Many CSS properties take "length" values, such as `width, margin, padding, font-size, etc`.
+Many CSS properties take "length" values, such as width, margin, padding, font-size, etc.
 
 Length is a number followed by a length unit, such as 10px, 2em, etc.
 
@@ -40,22 +38,20 @@ p {
 
 ```
 
-Note: A whitespace cannot appear between the number and the unit (birim ile sayı arasına boşluk konulmaz). However, if the value is 0, the unit can be omitted.
+Note: A whitespace cannot appear between the number and the unit. However, if the value is 0, the unit can be omitted.
 
 For some CSS properties, negative lengths are allowed.
 
-There are two types of length units: `absolute and relative`.
+There are two types of length units: absolute and relative.
 
 **Absolute Lengths**
 
-(tr:mutlak ölçüler:)
-
-The absolute length units are fixed and a length expressed in any of these will appear as exactly that size.
+The absolute length units are fixed and a length expressed in any of these will appear as exactly that size. ((mutlak ölçüler))
 
 Absolute length units are not recommended for use on screen, because screen sizes vary so much. However, they can be used if the output medium is known, such as for print layout.
 
 | Unit | Description                  |
-| ---- | ---------------------------- |
+|------|------------------------------|
 | cm   | centimeters                  |
 | mm   | millimeters                  |
 | in   | inches (1in = 96px = 2.54cm) |
@@ -64,16 +60,14 @@ Absolute length units are not recommended for use on screen, because screen size
 | pc   | picas (1pc = 12 pt)          |
 
 
-* Pixels (px) are relative to the viewing device. For low-dpi devices, 1px is one device pixel (dot) of the display. For printers and high resolution screens 1px implies multiple device pixels.
+--- Pixels (px) are relative to the viewing device. For low-dpi devices, 1px is one device pixel (dot) of the display. For printers and high resolution screens 1px implies multiple device pixels.
 
 **Relative Lengths** 
 
-(tr:Göreceli uzunluklar:)
-
-Relative length units specify a length relative to another length property. Relative length units scales better between different rendering mediums.
+Relative length units specify a length relative to another length property. Relative length units scales better between different rendering mediums. ((Göreceli uzunluklar))
 
 | Unit | Description                                                                               |
-| ---- | ----------------------------------------------------------------------------------------- |
+|------|-------------------------------------------------------------------------------------------|
 | em   | Relative to the font-size of the element (2em means 2 times the size of the current font) |
 | ex   | Relative to the x-height of the current font (rarely used)                                |
 | ch   | Relative to width of the "0" (zero)                                                       |
@@ -85,11 +79,13 @@ Relative length units specify a length relative to another length property. Rela
 | %    | Relative to the parent element (ebeveyn elementin %'si)                                   |
 
 **Tips**: 
+
 * The em and rem units are practical in creating perfectly scalable layout!
+
 * Viewport = the browser window size. If the viewport is 50cm wide, 1vw = 0.5cm.
 
 | Unit                              | chro-expl-fire-safa-oper |
-| --------------------------------- | ------------------------ |
+|-----------------------------------|--------------------------|
 | em, ex, %, px, cm, mm, in, pt, pc | 1.0	3.0	1.0	1.0	3.5      |
 | ch                                | 27.0	9.0	1.0	7.0	20.0    |
 | rem                               | 4.0	9.0	3.6	4.1	11.6     |
@@ -103,7 +99,7 @@ Source : https://www.w3schools.com/css/css_boxmodel.asp
 
 All HTML elements can be considered as boxes. In CSS, the term "box model" is used when talking about design and layout.
 
-The CSS box model is essentially a box that wraps around every HTML element. It consists of: margins, borders, padding, and the actual content. The image below illustrates the box model:
+The CSS box model is essentially a box that wraps around every HTML element. It consists of : margins, borders, padding, and the actual content. The image below illustrates the box model:
 
 ![](./img/css/box-model-1.jpg)
 
@@ -116,8 +112,10 @@ Explanation of the different parts:
 
 The box model allows us to add a border around elements, and to define space between elements. 
 
-There are two types box model (to)  : 
+There are two types box model (to)  :
+
 * Content Box Model (default)
+
 * Border Box Model (common)
 
 *Content Box Model tells that width and height include only content.*
@@ -268,7 +266,7 @@ Example
 **CSS Box Sizing Property Ref**
 
 | Property   | Description                                                                                                     |
-| ---------- | --------------------------------------------------------------------------------------------------------------- |
+|------------|-----------------------------------------------------------------------------------------------------------------|
 | box-sizing | Defines how the width and height of an element are calculated: should they include padding and borders, or not. |
 
 # Height , Width And Max-Width
