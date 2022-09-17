@@ -13,8 +13,6 @@
 
 The display property is the most important CSS property for controlling layout.
 
-**The display Property**
-8y7ç
 The display property specifies if/how an element is displayed.
 
 Every HTML element has a default display value depending on what type of element it is. The default display value for most elements is block or inline.
@@ -125,18 +123,104 @@ h1.hidden {
 
 **CSS Display/Visibility Properties**
 
-```
-Property	Description
-display	: Specifies how an element should be displayed
-visibility :Specifies whether or not an element should be visible ( false olduğunda layout da varmış gibi davranır, ama gözükmez.) 
+Property   | Description
+-----------|----------------------------------------------------------------------------------------------------------------------------
+display    | Specifies how an element should be displayed
+visibility | Specifies whether or not an element should be visible <br/> (false olduğunda layout da varmış gibi davranır, ama gözükmez.)
 
-```
 
 ## Inline Block
 
 Source : https://www.w3schools.com/css/css_inline-block.asp
 
+Compared to 'display: inline', the major difference is that display: 'inline-block' allows to set a width and height on the element.
 
+Also, with display: inline-block, the top and bottom margins/paddings are respected, but with display: inline they are not.
+
+Compared to display: block, the major difference is that display: inline-block does not add a line-break after the element, so the element can sit next to other elements.
+
+The following example shows the different behavior of display: inline, display: inline-block and display: block:
+
+```css
+span.a {
+  display: inline; /* the default for span */
+  width: 100px;
+  height: 100px;
+  padding: 5px;
+  border: 1px solid blue;
+  background-color: yellow;
+}
+
+span.b {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  padding: 5px;
+  border: 1px solid blue;
+  background-color: yellow;
+}
+
+span.c {
+  display: block;
+  width: 100px;
+  height: 100px;
+  padding: 5px;
+  border: 1px solid blue;
+  background-color: yellow;
+}
+```
+
+```html
+<h1>The display Property</h1>
+
+<h2>display: inline</h2>
+<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum consequat scelerisque elit sit amet consequat. Aliquam erat volutpat. <span class="a">Aliquam</span> <span class="a">venenatis</span> gravida nisl sit amet facilisis. Nullam cursus fermentum velit sed laoreet. </div>
+
+<h2>display: inline-block</h2>
+<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum consequat scelerisque elit sit amet consequat. Aliquam erat volutpat. <span class="b">Aliquam</span> <span class="b">venenatis</span> gravida nisl sit amet facilisis. Nullam cursus fermentum velit sed laoreet. </div>
+
+<h2>display: block</h2>
+<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum consequat scelerisque elit sit amet consequat. Aliquam erat volutpat. <span class="c">Aliquam</span> <span class="c">venenatis</span> gravida nisl sit amet facilisis. Nullam cursus fermentum velit sed laoreet. </div>
+```
+
+![](./img/css/display-inline1.png)
+
+![](./img/css/display-inline2.png)
+
+**Using inline-block to Create Navigation Links**
+
+One common use for display: inline-block is to display list items horizontally instead of vertically. The following example creates horizontal navigation links:
+
+```css
+.nav {
+  background-color: yellow;
+  list-style-type: none;
+  text-align: center; 
+  padding: 0;
+  margin: 0;
+}
+
+.nav li {
+  display: inline-block;
+  font-size: 20px;
+  padding: 20px;
+}
+```
+
+```html
+<h1>Horizontal Navigation Links</h1>
+<p>By default, list items are displayed vertically. In this example we use display: inline-block to display them horizontally (side by side).</p>
+<p>Note: If you resize the browser window, the links will automatically break when it becomes too crowded.</p>
+
+<ul class="nav">
+  <li><a href="#home">Home</a></li>
+  <li><a href="#about">About Us</a></li>
+  <li><a href="#clients">Our Clients</a></li>  
+  <li><a href="#contact">Contact Us</a></li>
+</ul>
+```
+
+![](./img/css/display-inline3.png)
 
 ## Position Property
 
