@@ -130,12 +130,11 @@ https://tailwindcss.com/docs/container
 
 Utilities for controlling how element fragments should be rendered across multiple lines, columns, or pages.
 
-```css
-Class Properties
-decoration-slice	box-decoration-break: slice;
-decoration-clone	box-decoration-break: clone;
+Class            | Properties
+-----------------|-----------------------------
+decoration-slice | box-decoration-break: slice;
+decoration-clone | box-decoration-break: clone;
 
-```
 
 **Usage**
 
@@ -156,13 +155,14 @@ Use the decoration-slice and decoration-clone utilities to control whether prope
 
 
 ## Box Sizing
+
 Utilities for controlling how the browser should calculate an element's total size.
 
-```css
-Class Properties
-box-border	box-sizing: border-box;
-box-content	box-sizing: content-box;
-```
+Class       | Properties
+------------|-------------------------
+box-border  | box-sizing: border-box;
+box-content | box-sizing: content-box;
+
 
 - Include borders and padding
 
