@@ -163,7 +163,6 @@ Class       | Properties
 box-border  | box-sizing: border-box;
 box-content | box-sizing: content-box;
 
-
 - Include borders and padding
 
 Use box-border to set an element’s box-sizing to border-box, telling the browser to include the element’s borders and padding when you give it a height or width.
