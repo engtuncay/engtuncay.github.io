@@ -133,11 +133,11 @@ visibility | Specifies whether or not an element should be visible <br/> (false 
 
 Source : https://www.w3schools.com/css/css_inline-block.asp
 
-Compared to 'display: inline', the major difference is that display: 'inline-block' allows to set a width and height on the element.
+Compared to 'display: inline', the major difference is that display: 'inline-block' allows to set a *width and height* on the element.
 
 Also, with display: inline-block, the top and bottom margins/paddings are respected, but with display: inline they are not.
 
-Compared to display: block, the major difference is that display: inline-block does not add a line-break after the element, so the element can sit next to other elements.
+Compared to display: block, the major difference is that display: inline-block *does not add a line-break* after the element, so the element can sit next to other elements.
 
 The following example shows the different behavior of display: inline, display: inline-block and display: block:
 
@@ -209,7 +209,7 @@ One common use for display: inline-block is to display list items horizontally i
 
 ```html
 <h1>Horizontal Navigation Links</h1>
-<p>By default, list items are displayed vertically. In this example we use display: inline-block to display them horizontally (side by side).</p>
+<p>By default, list items are displayed **vertically**. In this example we use display: inline-block to display them horizontally (side by side).</p>
 <p>Note: If you resize the browser window, the links will automatically break when it becomes too crowded.</p>
 
 <ul class="nav">
@@ -236,7 +236,7 @@ There are five different position values:
 - absolute 
 - sticky 
 
-(tr: static statik,relative göreceli,fixed sabit,absolute mutlak,sticky yapışkan :)
+((statik,göreceli,sabit,mutlak,yapışkan))
 
 Elements are then positioned using the top, bottom, left, and right properties. However, these properties will not work unless the position property is set first. They also work differently depending on the position value.
 
@@ -248,18 +248,17 @@ Static positioned elements are not affected by the top, bottom, left, and right 
 
 An element with position: static; is not positioned in any special way; it is always positioned according to the *normal flow* of the page: 
 
-(tr:static ,default pozisyonda olan elementlere , pozisyonlanmamış elementler denir, pozisyonlanmış elementler, static dışında değer olan elementlerdir. :)
+((static ,default pozisyonda olan elementlere , pozisyonlanmamış elementler denir, pozisyonlanmış elementler, static dışında değer olan elementlerdir.))
 
 Here is the CSS that is used:
 
 Example
 
-```html
+```css
 div.static {
   position: static;
   border: 3px solid #73AD21;
 }
-
 ```
 
 **position: relative;**
@@ -338,7 +337,7 @@ div.absolute {
 
 **position: sticky;**
 
-An element with position: sticky; is positioned based on the user's scroll position.
+An element with 'position: sticky;' is positioned based on the user's scroll position.
 
 A sticky element toggles between relative (normal flow) and fixed, depending on the scroll position. It is positioned relative until a given offset position is met in the viewport - then it "sticks" in place (like position:fixed).
 
@@ -379,18 +378,17 @@ An element with greater stack order is always in front of an element with a lowe
 
 Note: If two positioned elements overlap without a z-index specified, the element positioned last in the HTML code will be shown on top.
 
-```
 All CSS Positioning Properties
-Property	Description
-bottom	Sets the bottom margin edge for a positioned box
-clip	Clips an absolutely positioned element
-left	Sets the left margin edge for a positioned box
-position	Specifies the type of positioning for an element
-right	Sets the right margin edge for a positioned box
-top	Sets the top margin edge for a positioned box
-z-index	Sets the stack order of an element
+Property | Description
+---------|-------------------------------------------------
+bottom   | Sets the bottom margin edge for a positioned box
+clip     | Clips an absolutely positioned element
+left     | Sets the left margin edge for a positioned box
+position | Specifies the type of positioning for an element
+right    | Sets the right margin edge for a positioned box
+top      | Sets the top margin edge for a positioned box
+z-index  | Sets the stack order of an element
 
-```
 ## Overflow Property
 
 The CSS overflow property controls what happens to content that is too big to fit into an area.
@@ -414,22 +412,28 @@ By default, the overflow is visible, meaning that it is not clipped and it rende
 
 Example
 
+```css
 div {
   width: 200px;
   height: 50px;
   background-color: #eee;
   overflow: visible;
 }
+```
 
 **overflow: hidden**
 
-With the hidden value, the overflow is clipped, and the rest of the content is hidden:  (taşan yer kırpılır, içeriğin sonrası gizlenir.) 
+With the hidden value, the overflow is clipped, and the rest of the content is hidden:  
+
+((taşan yer kırpılır, içeriğin sonrası gizlenir.)) 
 
 Example
 
+```css
 div {
   overflow: hidden;
 }
+```
 
 **overflow: scroll**
 
@@ -437,9 +441,11 @@ Setting the value to scroll, the overflow is clipped and a scrollbar is added to
 
 Example
 
+```css
 div {
   overflow: scroll;
 }
+```
 
 **overflow: auto**
 
@@ -447,9 +453,11 @@ The auto value is similar to scroll, but it adds scrollbars only when necessary:
 
 Example
 
+```css
 div {
   overflow: auto;
 }
+```
 
 **overflow-x and overflow-y**
 
@@ -461,10 +469,12 @@ overflow-y specifies what to do with the top/bottom edges of the content.
 
 Example
 
+```css
 div {
   overflow-x: hidden; /* Hide horizontal scrollbar */
   overflow-y: scroll; /* Add vertical scrollbar */
 }
+```
 
 **All CSS Overflow Properties **
 
@@ -510,7 +520,6 @@ Example
   text-align: center;
   border: 3px solid green;
 }
-
 ```
 Tip: For more examples on how to align text, see the CSS Text chapter. https://www.w3schools.com/css_text.asp
 
@@ -684,7 +693,7 @@ The float property can have one of the following values:
 
 In its simplest use, the float property can be used to wrap text around images.
 
-Example - float: right;
+**Example - float: right;**
 
 The following example specifies that an image should float to the right in a text:
 
@@ -696,7 +705,7 @@ img {
 }
 ```
 
-Example - No float
+**Example - No float**
 
 In the following example the image will be displayed just where it occurs in the text (float: none;):
 
@@ -708,7 +717,7 @@ img {
 }
 ```
 
-Example - Float Next To Each Other
+**Example - Float Next To Each Other**
 
 Normally div elements will be displayed on top of each other. However, if we use float: left we can let elements float next to each other:
 
