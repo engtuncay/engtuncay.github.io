@@ -60,6 +60,7 @@
 - [Official Plugins](#official-plugins)
 
 
+
 # Code Play For Tailwind
 
 - Tailwind official Code Play <br/> https://play.tailwindcss.com/
@@ -90,11 +91,13 @@ container | None         | width: 100%;
 
 **Usage**
 
-The container class sets the max-width of an element to match the min-width of the current breakpoint. This is useful if you’d prefer to design for a fixed set of screen sizes instead of trying to accommodate a **fully fluid viewport**.
+The container class sets the *max-width* of an element to match the min-width of the current breakpoint. This is useful if you’d prefer to design for a fixed set of screen sizes instead of trying to accommodate a **fully fluid viewport**.
 
 Note that unlike containers you might have used in other frameworks, Tailwind’s container does not center itself automatically and does not have any built-in horizontal padding.
 
-* To center a container, use the mx-auto utility:
+**To center a container**
+
+To center a container, use the mx-auto utility (margin-x:auto):
 
 ```html
 <div class="container mx-auto">
@@ -102,7 +105,9 @@ Note that unlike containers you might have used in other frameworks, Tailwind’
 </div>
 ```
 
-* To add horizontal padding, use the px-{size} utilities:
+**To add horizontal padding**
+
+To add horizontal padding, use the px-{size} utilities:
 
 ```html
 <div class="container mx-auto px-4">
@@ -149,7 +154,7 @@ Use the decoration-slice and decoration-clone utilities to control whether prope
 
 ![](https://image.prntscr.com/image/om5zoIXjQVWH9lv3cELOaw.png)
 
-- Responsive
+**Responsive**
 
 
 
@@ -167,6 +172,10 @@ box-content | box-sizing: content-box;
 
 Use box-border to set an element’s box-sizing to border-box, telling the browser to include the element’s borders and padding when you give it a height or width.
 
+```
+element width = content + padding + border 
+```
+
 This means a 100px × 100px element with a 2px border and 4px of padding on all sides will be rendered as 100px × 100px, with an internal content area of 88px × 88px.
 
 Tailwind makes this the default for all elements in our preflight base styles.
@@ -177,9 +186,13 @@ Tailwind makes this the default for all elements in our preflight base styles.
 </div>
 ```
 
-- Exclude borders and padding
+**content-box model : Exclude borders and padding**
 
 Use box-content to set an element’s box-sizing to content-box, telling the browser to add borders and padding on top of the element’s specified width or height.
+
+```
+element width = content 
+```
 
 This means a 100px × 100px element with a 2px border and 4px of padding on all sides will actually be rendered as 112px × 112px, with an internal content area of 100px × 100px.
 
@@ -189,7 +202,7 @@ This means a 100px × 100px element with a 2px border and 4px of padding on all 
 </div>
 ```
 
-- Responsive
+**Responsive**
 
 To control the box-sizing at a specific breakpoint, add a {screen}: prefix to any existing box-sizing utility. For example, use md:box-content to apply the box-content utility at only medium screen sizes and above.
 
@@ -206,31 +219,30 @@ For more information about Tailwind’s responsive design features, check out th
 
 Utilities for controlling the display box type of an element.
 
-```
-Class Properties
-block	              display: block;
-inline-block	      display: inline-block;
-inline	            display: inline;
-flex	              display: flex;
-inline-flex	        display: inline-flex;
-table	              display: table;
-inline-table	      display: inline-table;
-table-caption	      display: table-caption;
-table-cell	        display: table-cell;
-table-column	      display: table-column;
-table-column-group	display: table-column-group;
-table-footer-group	display: table-footer-group;
-table-header-group	display: table-header-group;
-table-row-group	    display: table-row-group;
-table-row	          display: table-row;
-flow-root	          display: flow-root;
-grid	              display: grid;
-inline-grid	        display: inline-grid;
-contents	          display: contents;
-list-item	          display: list-item;
-hidden	            display: none;
+Class              | Properties
+-------------------|-----------------------------
+block              | display: block;
+inline-block       | display: inline-block;
+inline             | display: inline;
+flex               | display: flex;
+inline-flex        | display: inline-flex;
+table              | display: table;
+inline-table       | display: inline-table;
+table-caption      | display: table-caption;
+table-cell         | display: table-cell;
+table-column       | display: table-column;
+table-column-group | display: table-column-group;
+table-footer-group | display: table-footer-group;
+table-header-group | display: table-header-group;
+table-row-group    | display: table-row-group;
+table-row          | display: table-row;
+flow-root          | display: flow-root;
+grid               | display: grid;
+inline-grid        | display: inline-grid;
+contents           | display: contents;
+list-item          | display: list-item;
+hidden             | display: none;
 
-```
 
 - Block
 
@@ -350,7 +362,7 @@ Use contents to create a “phantom” container whose children act like direct 
 </div>
 ```
 
-Burada 2 ve 3 sanki üstteki parent ın child'ı gibi hareket eder.
+Burada 2 ve 3 sanki üstteki parent'ın child'ı gibi hareket eder.
 
 
 - Table
@@ -388,7 +400,7 @@ Use hidden to set an element to display: none and remove it from the page layout
 
 - Responsive
 
-To control the display property of an element at a specific breakpoint, add a {screen}: prefix to any existing display utility class. For example, use md:inline-flex to apply the inline-flex utility at only medium screen sizes and above.
+To control the display property of an element at a specific breakpoint, add a {screen}: prefix to any existing display utility class. For example, use md:inline-flex to apply the inline-flex utility at only medium screen sizes and *above*.
 
 ```html
 <div class="flex md:inline-flex ...">

@@ -13,7 +13,7 @@
   - [Ternary (Short If) Operator](#ternary-short-if-operator)
   - [Switch Statement](#switch-statement)
   - [Loops - For,While,Do While](#loops---forwhiledo-while)
-- [Php Variables](#php-variables)
+- [Php Variable](#php-variable)
   - [String concentation (Birleştirme)](#string-concentation-birleştirme)
   - [String Metodları](#string-metodları)
   - [Template Literal (String Format)](#template-literal-string-format)
@@ -80,10 +80,12 @@ Comments are completely ignored when running a php file.
 
 **Data Types**
 
+Veri tipleri ve örnek veriler
+
 ```php
 string "ali veli" veya 'ali veli'
 integer 500, 200
-double (Float) 5.5, 7.2
+double 5.5, 7.2
 boolean (true, false)
 array (dizi)
 object (Nesne)
@@ -241,7 +243,7 @@ while($num < 20) {
 
 ```
 
-# Php Variables 
+# Php Variable
 
 
 

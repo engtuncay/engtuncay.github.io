@@ -13,7 +13,7 @@
   - [Hatalı Route Tanımlarını Yakalama](#hatalı-route-tanımlarını-yakalama)
   - [Route Degisimlerini izleme](#route-degisimlerini-izleme)
   - [Route Navigation Guard](#route-navigation-guard)
-  - [Router Full Example (1)](#router-full-example-1)
+  - [Router Full Example (Simple Route Definition) (1)](#router-full-example-simple-route-definition-1)
   - [Router Full Ex 2](#router-full-ex-2)
   - [Full Example 3](#full-example-3)
   - [Ornek Proje Otobus Rez Sistemi](#ornek-proje-otobus-rez-sistemi)
@@ -524,9 +524,9 @@ uvd-81
 
 ## Route Navigation Guard
 
-- Rut değişim yaparken öncesinde veya sonrasında bir kod çalıştırmak istiyorsak global navigation guard tanımlayabiliriz. Router objemizi tanımladıktan sonra tanımlayabiliriz.
+Rut değişim yaparken öncesinde veya sonrasında bir kod çalıştırmak istiyorsak global navigation guard tanımlayabiliriz. Router objemizi tanımladıktan sonra tanımlayabiliriz.
 
-Bir route bağlantısına tıklandığı anda önce beforeEach , daha sonra beforeResolve guard tanımları çalıştırılır. Sonrasında tıklanan rut sayfası yüklenir ve yükleme tamamladıktan sonra afterEach guard tanımları çalıştırılır.
+Bir route bağlantısına tıklandığı anda önce beforeEach , daha sonra beforeResolve tanımları çalıştırılır. Sonrasında tıklanan rut sayfası yüklenir ve yükleme tamamladıktan sonra afterEach guard tanımları çalıştırılır.
 
 ```js
 const router = new Router(/*...*/);
@@ -551,7 +551,7 @@ router.afterEach((to, from) => {
     });
 ```
 
-- Örnek uygulama olarak route geçişlerinde animasyon oluşturalım.
+**Örnek uygulama olarak route geçişlerinde animasyon**
 
 ```js
 npm install nprogress --save
@@ -580,19 +580,19 @@ router.afterEach((to, from) => {
 
 - App.vue içinde global stil dosyasını güncelleriz.
 
-```css
+```js
 @import '../node_modules/nprogress/nprogress.css';
 ```
 
 - App.vue içinde bootstrap direk import ile stile ekleyebiliriz.
 
-```css
+```js
 @import 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css';
 ```
 
 uvd-82
 
-## Router Full Example (1)
+## Router Full Example (Simple Route Definition) (1)
 
 ```html
 <div id="app">
