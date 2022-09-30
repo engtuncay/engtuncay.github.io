@@ -2,6 +2,7 @@
 - [Part 1](#part-1)
   - [Remix Proje Kurulumu](#remix-proje-kurulumu)
   - [Smart Contract Derlenmesi (Compilation)](#smart-contract-derlenmesi-compilation)
+  - [ABI](#abi)
   - [Arrays](#arrays)
     - [1. Fixed-size Arrays](#1-fixed-size-arrays)
     - [2. Dynamically-sized arrays](#2-dynamically-sized-arrays)
@@ -59,6 +60,19 @@ obtained from bytecode;
 
 - Contract source code doesn’t have to be public. Most contracts are public to build trust.
 
+## ABI
+
+- Anyone that wants to interact with the contract must have access to the contract ABI. ABI is basically how you call functions in a contract and get data back;
+
+- ABI is list of contract’s function and arguments and it’s in JSON format. ABI is known at compile time.
+
+- ABI is generated from source code through compilation. If we don’t have the source code we can’t generate the contract ABI (or only from the bytecode using reverse engineering);
+
+- ABI bir nevi API gibidir. (to)
+
+Opcodes : EVM operational codes.
+
+- Decompile ederken byte code başına 0x koyarız.
 
 
 

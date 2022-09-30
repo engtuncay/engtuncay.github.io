@@ -70,8 +70,6 @@
 
 # CHEATSHEET
 
-
-
 # LAYOUT
 
 ## Container
@@ -416,12 +414,12 @@ https://tailwindcss.com/docs/display
 
 Utilities for controlling the wrapping of content around an element.
 
-```css
-Class       Properties
-float-right	float: right;
-float-left	float: left;
-float-none	float: none;
-```
+Class       | Properties
+------------|--------------
+float-right | float: right;
+float-left  | float: left;
+float-none  | float: none;
+
 
 - Float right
 
