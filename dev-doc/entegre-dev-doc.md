@@ -1,4 +1,7 @@
-**Özpaş Entegre Geliştirici Dökümantasyonu**
+
+<h1>Entegre Uygulaması Geliştirici Dökümantasyonu</h1>
+
+Java Fx ile geliştirdiğim uygulama için aldığım notlar. 
 
 - [Meta Datalar](#meta-datalar)
   - [FiColsEntegre - Entegre Sütun Objeleri](#ficolsentegre---entegre-sütun-objeleri)
@@ -73,6 +76,8 @@ getModView().getFxTableMig().setManaged(false);
 
 ## Pop Dialog - Info Warn Error
 
+Pop Dialog - Modal Dialog Örnekleri
+
 ## String deger Alan Dialog
 
 ```java
@@ -117,6 +122,7 @@ if (file != null) {
 
 # Table
 
+Tablo ile ilgili bilgiler
 
 # Formlar
 
@@ -211,11 +217,8 @@ public void actBtnEdit() {
 
 }
     
-    
-    
 EventHandler<KeyEvent> eventFilter = event -> {
 
-	//Loghelperr.getInstance(getClass()).debug(" Entered");
 	MkCARI_HESAP_HAREKETLERI mkCARI_hesap_hareketleri = FxEditorFactory.bindFormToEntityByFilterNode(getModView().getFxTableView().getFiTableColList(), MkCARI_HESAP_HAREKETLERI.class);
 
 	//mkCARI_hesap_hareketleri.setEmEvrakTip(getEmEvrakTipWindow());
@@ -228,6 +231,5 @@ EventHandler<KeyEvent> eventFilter = event -> {
 getModView().getFxTableView().setColFilterNodeEnterEvent(eventFilter);
     
 ```
-
 
 
