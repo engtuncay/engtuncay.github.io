@@ -11,7 +11,7 @@ Java Fx ile geliştirdiğim uygulama için aldığım notlar.
 - [Dialog Pencereleri](#dialog-pencereleri)
   - [Pop Dialog - Info Warn Error](#pop-dialog---info-warn-error)
   - [String deger Alan Dialog](#string-deger-alan-dialog)
-- [Ozpas Fx Component](#ozpas-fx-component)
+- [Special Components](#special-components)
   - [Şablon Exceli Oluşturma](#şablon-exceli-oluşturma)
   - [Excel Dosya Seçimi ve Yüklemesi](#excel-dosya-seçimi-ve-yüklemesi)
 - [Table](#table)
@@ -89,7 +89,7 @@ FxSimpleDialog fxSimpleDialog = FxSimpleDialog.buildTextFieldDialog("Tarih Girin
 
 ```
 
-# Ozpas Fx Component 
+# Special Components 
 
 ## Şablon Exceli Oluşturma
 
@@ -154,7 +154,7 @@ FiKeyBean formAsFiKeyBean = getFxFormMig().getFormAsFiKeyBean();
 ```java
 // grup Kodu
 listTableCols.add(FiTableColBuildHelper.build(EntegreField.akesTxGrupKod)
-    .buildColType(OzColType.String)
+  .buildColType(OzColType.String)
 	.buildEditorNodeClass(FxComboBoxSimple.class.getName())
 	.buildFnEditorRendererAfterFormLoad((o, node) -> {
 	    FiEntegreCompHelper.fillFxAktarimEslestirmeGrup((FxComboBoxSimple) node);
