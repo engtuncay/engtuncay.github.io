@@ -6,6 +6,7 @@
   - [Comment Line and Block](#comment-line-and-block)
   - [Data Types and Variables](#data-types-and-variables)
   - [Constant Assignment](#constant-assignment)
+  - [Sihirli Karakterler (magic characters)](#sihirli-karakterler-magic-characters)
   - [Data Type Casting](#data-type-casting)
   - [Operators and Math Object](#operators-and-math-object)
   - [Logical Operators](#logical-operators)
@@ -128,19 +129,53 @@ echo gettype($null); // NULL
   - Sayı ile başlayamaz.
   - Harf ya da _ işareti ile başlar.
   - Büyük-küçük harfe duyarlıdır.
-  - Veri türlerinde, Object hariç tüm veri türlerini kapsar.
+  - Veri türlerinde, Object hariç tüm veri türlerini kapsar. Sabitlere obje tanımlayamayız. Array tanımlayabiliriz.
 
 Örnekler
 
 ```php
-$ali = "ali veli";
-//echo $ali;
+define("author", "ali veli");
 
-define("ali", "ali veli");
-//define("ali", "ali veli2");
-
-echo ali;
+echo author;
+// Output
+// ali veli
 ```
+
+## Sihirli Karakterler (magic characters)
+
+- Sihirli karakterler çift tırnak ile kullanılır.
+
+```php
+/*
+Sihirli Karakterler
+  \t tab
+  \n new line
+
+  Tek başınayken özel anlamı alan karakterleri kullanmak için
+
+  \\ 
+  \$ 
+  \' 
+  \" 
+*/
+
+$test = "web\t\t\tsite\nerbilen  \\test\ ";
+
+$ad = "Tayfun";
+echo $test;
+echo "\$ad değişkeni $ad değerine eşittir";
+echo "Tayfun dedi ki: \"ben korkmam\"..";
+echo 'Tayfun dedi ki: \'ben korkmam\'..';
+
+// Output
+// web			site
+// erbilen  \test\ 
+// $ad değişkeni Tayfun değerine eşittir
+// Tayfun dedi ki: "ben korkmam"..
+// Tayfun dedi ki: 'ben korkmam'..
+
+```
+
 
 ## Data Type Casting
 
