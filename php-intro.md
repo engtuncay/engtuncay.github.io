@@ -7,13 +7,9 @@
   - [Comment Line and Block](#comment-line-and-block)
   - [Ekrana Yazdırma](#ekrana-yazdırma)
   - [Data Types and Variables](#data-types-and-variables)
-<<<<<<< HEAD
-  - [Constant Assignment](#constant-assignment)
-  - [Sihirli Karakterler (magic characters)](#sihirli-karakterler-magic-characters)
-=======
   - [Değişkenin Veri Tipini Ögrenme](#değişkenin-veri-tipini-ögrenme)
   - [Sabit Değişkenler (Constant Variables)](#sabit-değişkenler-constant-variables)
->>>>>>> 597c453d89f3d806d724df562150af16429473ac
+  - [Sihirli Karakterler (magic characters)](#sihirli-karakterler-magic-characters)
   - [Data Type Casting](#data-type-casting)
   - [Operators and Math Object](#operators-and-math-object)
   - [Logical Operators](#logical-operators)
@@ -178,29 +174,18 @@ echo gettype($null); // NULL
 
 ## Sabit Değişkenler (Constant Variables)
 
-<<<<<<< HEAD
-- Sabit Değişkenler;
-  - define() fonksiyonu ile tanımlanır.
-  - Türkçe karakterler içerebilir.
-  - Sayı ile başlayamaz.
-  - Harf ya da _ işareti ile başlar.
-  - Büyük-küçük harfe duyarlıdır.
-  - Veri türlerinde, Object hariç tüm veri türlerini kapsar. Sabitlere obje tanımlayamayız. Array tanımlayabiliriz.
-=======
-Sabit Değişkenler :
->>>>>>> 597c453d89f3d806d724df562150af16429473ac
+Sabit Değişkenler;
 
 - define() fonksiyonu ile tanımlanır. Türü object'tir.
 - Türkçe karakterler içerebilir.
 - Sayı ile başlayamaz.
 - Harf ya da _ işareti ile başlar.
 - Büyük-küçük harfe duyarlıdır.
-- Veri türlerinde, Object hariç tüm veri türlerini kapsar.
+- Veri türlerinde, Object hariç tüm veri türlerini kapsar. Sabitlere obje tanımlayamayız. Array tanımlayabiliriz.
 
 *Örnekler*
 
 ```php
-<<<<<<< HEAD
 define("author", "ali veli");
 
 echo author;
