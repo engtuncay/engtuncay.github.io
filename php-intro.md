@@ -3,9 +3,12 @@
 - [Introduction to Php](#introduction-to-php)
 - [Php Basic](#php-basic)
   - [Basic PHP Syntax](#basic-php-syntax)
+  - [Php Blogu](#php-blogu)
   - [Comment Line and Block](#comment-line-and-block)
+  - [Ekrana Yazdırma](#ekrana-yazdırma)
   - [Data Types and Variables](#data-types-and-variables)
-  - [Constant Assignment](#constant-assignment)
+  - [Değişkenin Veri Tipini Ögrenme](#değişkenin-veri-tipini-ögrenme)
+  - [Sabit Değişkenler (Constant Variables)](#sabit-değişkenler-constant-variables)
   - [Data Type Casting](#data-type-casting)
   - [Operators and Math Object](#operators-and-math-object)
   - [Logical Operators](#logical-operators)
@@ -60,13 +63,22 @@
 * Variables start with \$
 * Everything is case sensitive
 
+## Php Blogu
+
+```php
+<?php
+//....
+?>
+```
+
 ## Comment Line and Block
 
+3 farklı şekilde yorum satırı yazabiliriz.
 
 ```php
 // This is a single-line comment
 
-# Tek satırlı yorum satırı
+# Single-Line Comment
 
 /*
     This is a mult-line comment.
@@ -74,15 +86,42 @@
 
 ```
 
-Comments are completely ignored when running a php file.
+## Ekrana Yazdırma
+
+```php
+echo "test<br/>123";
+print "test<br/>123";
+```
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><?php echo "my sayfa" ?></title>
+</head>
+<body>
+  <?php 
+  //.....
+  ?>
+  <!-- short tag aktif edilmişse  -->
+  <?="my sayfa"?>
+</body>
+</html>
+```
+
+
 
 ## Data Types and Variables
 
-**Data Types**
+<h1>Veri Tipleri</h1>
 
-Veri tipleri ve örnek veriler
+String,Integer,Double,Boolean,Array,Object ve Null'dır.
 
 ```php
+Veri tipleri ve örnek veriler
 string "ali veli" veya 'ali veli'
 integer 500, 200
 double 5.5, 7.2
@@ -92,22 +131,26 @@ object (Nesne)
 NULL
 ```
 
-**Variables**
+<h1>Variables</h1>
 
-- $ ile başlar.
-- $ sonra harf ile başlamalı.
+- $ ile başlar ve sonrasında harf ya da (_) ile başlamalı.
 - Harf,Rakam ve Alt çizgi kullanılır.
 - 255 karakterden fazla olmamalı.
-  
+- Türkçe karakterler içerebilir.
+- case sensitive'dir
+- Atama operatörü (=) eşittir işaretidir.
+
+*Örnek*
+
 ```php
 $adi = 'Ali';
 $sayi1 = 10;
 
 ```
 
-**Veri Tipini Ögrenme**
+## Değişkenin Veri Tipini Ögrenme
 
-- gettype() fonksiyonu ile bir verinin türünü öğreniriz.
+gettype(myVar) fonksiyonu ile bir verinin türünü öğreniriz.
 
 ```php
 $string = "ali veli";
@@ -117,34 +160,46 @@ $bool = false;
 $array = array();
 $object = new stdClass;
 $null = NULL;
+echo gettype($float); // double
+echo "\n";
+echo gettype($bool); // boolean
+echo "\n";
+echo gettype($array); // array
+echo "\n";
+echo gettype($object); // object
+echo "\n";
 echo gettype($null); // NULL
 ```
 
-## Constant Assignment
+## Sabit Değişkenler (Constant Variables)
 
-- Sabit Değişkenler;
-  - define() fonksiyonu ile tanımlanır.
-  - Türkçe karakterler içerebilir.
-  - Sayı ile başlayamaz.
-  - Harf ya da _ işareti ile başlar.
-  - Büyük-küçük harfe duyarlıdır.
-  - Veri türlerinde, Object hariç tüm veri türlerini kapsar.
+Sabit Değişkenler :
 
-Örnekler
+- define() fonksiyonu ile tanımlanır. Türü object'tir.
+- Türkçe karakterler içerebilir.
+- Sayı ile başlayamaz.
+- Harf ya da _ işareti ile başlar.
+- Büyük-küçük harfe duyarlıdır.
+- Veri türlerinde, Object hariç tüm veri türlerini kapsar.
+
+*Örnekler*
 
 ```php
-$ali = "ali veli";
-//echo $ali;
+$myVar = "my variable local";
 
-define("ali", "ali veli");
-//define("ali", "ali veli2");
+define("myVar", "my var const");
 
-echo ali;
+echo $myVar + "\n";
+echo myVar;
+
+// Output
+// my variable local
+// my var const
 ```
 
 ## Data Type Casting
 
-Örnek
+*Örnek*
 
 ```php
 (double)(5 / 2);
