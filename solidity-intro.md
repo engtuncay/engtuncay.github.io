@@ -218,45 +218,178 @@ As smart contract code is executed on the EVM, it means that eventually this cod
 
 That is why Solidity is a more low-level language than commonly used JavaScript or C++.
 
+It is a high-level, statically typed programming language for implementing smart contracts.
+
+It is influenced by C++ and JavaScript and is designed for this virtual machine.
+
+However, it was stripped down as it doesn't include any unnecessary features.
+
+- Solidity is case sensitive, like any other programming language. 
+  
+- Every statement must end with a semicolon, just as in JavaScript or C++.
+
+- It uses curly braces to the delimit blocks of code.
+
+- Solidity uses C++ and JavaScript syntax for writing comments.
+
+Not : // is double forward slashes
+
+- There's a third type of comment in Solidity, called the NatSpec that is developed and promoted by Ethereum itself. This is a special form of comments in Solidity contracts used by developers when documenting contracts, functions, libraries, return values and more. You may use /// for a single line NatSpec, or /** ending with */ for a multi-line NatSpec comment. (beginning with two stars)
+
+- So an example `/// @notice Returns the price of the Property`. @notice is a predefined NatSpec tag that explains to the users what this tag does. There are more such tags defined.
+
+- Most of the classical control structures and loops are available in Solidity too. However, pay special attention to loops!
+
+Loops do not have a fixed number of iterations and for example, loops that depend on storage values have to be used carefully. They could hit the gas limit, causing the transaction to fail. For this reason, while and do-while loops are rarely used.
 
 ## Solidity Variables
 
-Variable Types:
+Solidity is a statically typed language like C++, Golang or Java, which means that the type of each variable needs to be specified when declaring the variable.
+
+There are two types of variables: state and local.
 
 1. State variables
 
+State variables are declared at the contract level after the name of the contract and are stored on the contract storage
+
 ● Declared at contract level;
 
-● Permanently stored in contract storage;
+● Permanently stored in contract storage (so on the blockchain);
+
+Saving state variables on the blockchain is not free and you have to pay gas. According to the Ethereum protocol, saving two 256 bits costs 20k units of gas.
+
+```js
+contract Property {
+  int public price;
+  string constant public location = "London";
+}
+```
+
+For example, price is a state variable. 
 
 ● Can be set as constants;
+
+To declare a constant, so a special variable whose value cannot be changed, use the constant keyword.
+
+I declared another state variable called location of type string that is constant. We suppose that the location of the property cannot change. It's mandatory to specify the value of the constant when declaring it. If you omit the value, you'll get a compiler error. This is an error: uninitialized constant variable.
+
+In Solidity, the concept of undefined or null values does not exist! When you declare new variables, they always have a default value depending on their type. For example, the default value of an int variable is zero.
+
+**Not:**
+
+If you try to change the value of a variable after you declare it, you'll get an error, for example, writing price=100
+it's not permitted in Solidity. There is a compilation error.
+
+```js
+contract Property {
+  int public price;
+  string constant public location = "London";
+
+  // price = 100; // this is not permitted in Solidity
+}
+```
+
+To change the default value of a state variable, there are three possibilities: 
+
+- using the contracts constructor, which is a special kind of function that gets automatically executed when deploying the contract; using a setter function or initializing the variable at declaration.
 
 ● Expensive to use, they cost gas;
 
 ● Initialized at declaration, using a constructor or after contract deployment by
 calling setters;
 
+Also, be aware that storage is not dynamically allocated. What I mean here is that the number of the state variables is fixed at compile time.
+
+This instance of the contract cannot have other state variables besides those already declared. So if I say I want to have another variable called owner in this instance, that won't be possible.
+
+I have to change the contract by declaring that new variable and then deploy a new instance.
+
+All variables must be declared before deploying the contract.
+
 2. Local variables
 
 ● Declared inside functions;
 
+Let's move on to local variables; these are variables that are declared and used inside functions and are kept on the stack, not on storage, so they don't save their values between different function calls.
+
+They don't cost gas they are free.
+
+Let's declare a dummy function with a local variable. 
+
+```js
+contract Property {
+  int public price;
+  string constant public location = "London";
+
+  // price = 100; // this is not permitted in Solidity
+
+  function f1 public pure returns(int) { 
+    int x = 5; 
+    x = x * 2; 
+    return x; 
+  } 
+}
+```
+
+I have declared the function pure because it doesn't touch the blockchain. It neither modifies the blockchain nor it reads from the blocks.
+
+X is a local variable that is free and is saved on the stack. Note that there are some types that reference the storage by default, even if they are declared inside the function, their strings, areas, structs and mappings.
+
 ● If using the memory keyword and are arrays or struct, they are allocated at runtime.
 Memory keyword can’t be used at contract level
 
+So if you want to create a local variable of type string, you have to use the memory key word to limit its lifetime to the function call and not be saved in the storage.
+
+Writing string s1=abc results in an error because string is a special type that by default is saved in storage.
+
+```js
+  function f1 public pure returns(int) { 
+    int x = 5; 
+    x = x * 2; 
+
+    string s1="abc"; // results an error
+
+    return x; 
+  } 
+}
+```
+
+This is an error! I'm adding the memory key word to save it in memory and now everything is fine.
+
+```js
+  function f1 public pure returns(int) { 
+    int x = 5; 
+    x = x * 2; 
+
+    string memory s1="abc";
+
+    return x; 
+  } 
+}
+```
+
 ## Where does EVM save data?
+
+So there are free zones where data can be stored: storage stack and memory. Let's come to a conclusion!
 
 1. Storage
 - Holds state variables;
 - Persistent and expensive (it costs gas);
 - Like a computer HDD;
 
+State variables are saved in the contract's storage, so on the Ethereum blockchain, and they cost gas. For example, saving 1 byte costs 5 units of gas. 
+
 2. Stack
+
+Functions and local variables are saved on the stack. if they are not reference types, and don’t cost gas. 
 
 - Holds local variables defined inside functions if they are not reference types (ex: int);
 
 - Free to be used (it doesn’t cost gas);
 
 3. Memory
+
+Functions, arguments and variables, declared inside functions that are reference types but are declared using the *memory* keyword, are saved in the memory and don't cost gas.
 
 - Holds local variables defined inside functions if they are reference types but declared
 with the memory keyword;
@@ -267,7 +400,13 @@ with the memory keyword;
 
 - Free to be used (it doesn’t cost gas);
 
-Reference Types: string, array, struct and mapping
+Reference Types are string, array, struct and mapping
+
+
+
+
+
+
 
 
 
