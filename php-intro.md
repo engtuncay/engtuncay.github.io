@@ -1,7 +1,7 @@
 <h1>Introduction to Php</h1> 
 
 - [Kaynaklar](#kaynaklar)
-- [Php Basic](#php-basic)
+- [Php Basic 1](#php-basic-1)
   - [Basic PHP Syntax](#basic-php-syntax)
   - [Php Blogu veya Elementi](#php-blogu-veya-elementi)
   - [Comment Line and Block](#comment-line-and-block)
@@ -11,7 +11,8 @@
   - [Sabit Değişkenler (Constant Variables)](#sabit-değişkenler-constant-variables)
   - [Sihirli Karakterler (magical characters)](#sihirli-karakterler-magical-characters)
   - [Data Type Casting](#data-type-casting)
-  - [Operators and Math Object](#operators-and-math-object)
+  - [Operators](#operators)
+- [Php Basic 2](#php-basic-2)
   - [Logical Operators](#logical-operators)
   - [If Statement](#if-statement)
   - [Ternary (Short If) Operator](#ternary-short-if-operator)
@@ -66,7 +67,7 @@
 - Php Cheatsheets
 
 
-# Php Basic
+# Php Basic 1
 
 ## Basic PHP Syntax
 
@@ -255,7 +256,7 @@ echo '$refToNum = ' . $refToNum;
 
 ```
 
-## Operators and Math Object
+## Operators
 
 ```php
 + , - , * , / , % (modular arithmetic)
@@ -268,6 +269,9 @@ define('PI', 3.1415926);
 echo "The value of PI is " . PI;
 
 ```
+# Php Basic 2
+
+Logical Operators, Switch and Loops in this section are ((bahsedildi.))
 
 ## Logical Operators
 
@@ -364,6 +368,7 @@ echo $adi . $sayi1;
 
 # Numbers
 
+Math object
 
 
 # Date And Time
