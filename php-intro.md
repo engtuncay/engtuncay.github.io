@@ -1,26 +1,26 @@
-# Introduction to Php
+<h1>Introduction to Php</h1> 
 
-- [Introduction to Php](#introduction-to-php)
+- [Kaynaklar](#kaynaklar)
 - [Php Basic](#php-basic)
   - [Basic PHP Syntax](#basic-php-syntax)
-  - [Php Blogu](#php-blogu)
+  - [Php Blogu veya Elementi](#php-blogu-veya-elementi)
   - [Comment Line and Block](#comment-line-and-block)
   - [Ekrana Yazdırma](#ekrana-yazdırma)
   - [Data Types and Variables](#data-types-and-variables)
   - [Değişkenin Veri Tipini Ögrenme](#değişkenin-veri-tipini-ögrenme)
   - [Sabit Değişkenler (Constant Variables)](#sabit-değişkenler-constant-variables)
-  - [Sihirli Karakterler (magic characters)](#sihirli-karakterler-magic-characters)
+  - [Sihirli Karakterler (magical characters)](#sihirli-karakterler-magical-characters)
   - [Data Type Casting](#data-type-casting)
   - [Operators and Math Object](#operators-and-math-object)
   - [Logical Operators](#logical-operators)
   - [If Statement](#if-statement)
   - [Ternary (Short If) Operator](#ternary-short-if-operator)
   - [Switch Statement](#switch-statement)
-  - [Loops - For,While,Do While](#loops---forwhiledo-while)
-- [Php Variable](#php-variable)
-  - [String concentation (Birleştirme)](#string-concentation-birleştirme)
-  - [String Metodları](#string-metodları)
+  - [Loops ( For, While, Do While)](#loops--for-while-do-while)
+- [String and Texts](#string-and-texts)
+  - [String concentation](#string-concentation)
   - [Template Literal (String Format)](#template-literal-string-format)
+- [Numbers](#numbers)
 - [Date And Time](#date-and-time)
 - [Arrays](#arrays)
   - [Array Functions (1)](#array-functions-1)
@@ -51,9 +51,20 @@
 - [Composer](#composer)
   - [Installation](#installation)
   - [Usage](#usage)
-  - [Composer Komutları](#composer-komutları)
-- [Kaynaklar](#kaynaklar)
+  - [Composer ile paket yükleme](#composer-ile-paket-yükleme)
+  - [Composer kendisini güncellemek için](#composer-kendisini-güncellemek-için)
+  - [Composer projesini klonlamak için](#composer-projesini-klonlamak-için)
+  - [Composer Documentation](#composer-documentation)
 - [Düzenlenecek Notlar](#düzenlenecek-notlar)
+
+
+
+# Kaynaklar
+
+- Udemy Tayfun Erbilen Php Kursu
+ 
+- Php Cheatsheets
+
 
 # Php Basic
 
@@ -64,7 +75,9 @@
 * Variables start with \$
 * Everything is case sensitive
 
-## Php Blogu
+## Php Blogu veya Elementi
+
+Html içerisine php kodu, php blogu ve elementi arasına yazılır.
 
 ```php
 <?php
@@ -188,14 +201,14 @@ Sabit Değişkenler;
 ```php
 define("author", "ali veli");
 
-echo author;
+echo author; // sabitleri $ işareti olmadan kullanırız.
 // Output
 // ali veli
 ```
 
-## Sihirli Karakterler (magic characters)
+## Sihirli Karakterler (magical characters)
 
-- Sihirli karakterler çift tırnak ile kullanılır.
+- Sihirli karakterler çift tırnak içinde kullanılabilir.
 
 ```php
 /*
@@ -203,7 +216,7 @@ Sihirli Karakterler
   \t tab
   \n new line
 
-  Tek başınayken özel anlamı alan karakterleri kullanmak için
+  Tek başınayken özel anlamı alan karakterleri kullanmak için başına slash getiririz.
 
   \\ 
   \$ 
@@ -225,21 +238,7 @@ echo 'Tayfun dedi ki: \'ben korkmam\'..';
 // $ad değişkeni Tayfun değerine eşittir
 // Tayfun dedi ki: "ben korkmam"..
 // Tayfun dedi ki: 'ben korkmam'..
-
-=======
-$myVar = "my variable local";
-
-define("myVar", "my var const");
-
-echo $myVar + "\n";
-echo myVar;
-
-// Output
-// my variable local
-// my var const
->>>>>>> 597c453d89f3d806d724df562150af16429473ac
 ```
-
 
 ## Data Type Casting
 
@@ -325,7 +324,7 @@ switch ($userName) {
 }
 ```
 
-## Loops - For,While,Do While
+## Loops ( For, While, Do While)
 
 ```php
 
@@ -342,13 +341,13 @@ while($num < 20) {
 
 ```
 
-# Php Variable
+# String and Texts
 
-
-
-## String concentation (Birleştirme)
+## String concentation 
 
 - Nokta '.' işareti ile string birleştirme yapılır.
+
+((concentation:birleştirme))
 
 ```php
 $adi = 'Ali';
@@ -361,10 +360,9 @@ echo $adi . $sayi1;
 
 ```
 
-
-## String Metodları
-
 ## Template Literal (String Format)
+
+# Numbers
 
 
 
@@ -1445,41 +1443,46 @@ $ composer update
 include ('vendor/autoload.php');
 ```
 
-## Composer Komutları
+## Composer ile paket yükleme
 
-Composer ile paket yükleme
+```bash
+composer require paket_adi
+# veya
+composer require paket_adi:paket_surumu
+```
 
-    composer require paket_adi
+*Örnek*
 
-veya
+```bash
+composer require tolgabulca/coremvc:dev-master
+```
+    
 
-    composer require paket_adi:paket_surumu
+## Composer kendisini güncellemek için
 
-Örnek
-
-    composer require tolgabulca/coremvc:dev-master
-
-- Composer kendisini güncellemek için
-
-        composer self-update
-
-- Composer projesini klonlamak için
-  composer create-project tolgabulca/coremvc:dev-master
-
-* getcomposer.org detay komutları görebilirsiniz.
+```bash
+composer self-update
+```
 
 
-# Kaynaklar
+## Composer projesini klonlamak için
+  
+```bash
+composer create-project tolgabulca/coremvc:dev-master
+```
 
-- Udemy Tayfun Erbilen Kursu
-- Cheatsheets
+## Composer Documentation
+
+- http://getcomposer.org detay komutları görebilirsiniz.
 
 
----
+
+
 
 
 # Düzenlenecek Notlar
 
+```php
 
 - EOD String sytax
 
@@ -1492,32 +1495,16 @@ EOD;
 
     echo $str;
 
-- INCREMENT
+- INCREMENTS
 
-\$randNum = 5;
+$randNum = 5;
 
-echo \$randNum += 10;
+echo $randNum += 10;
 echo "</br>";
 
 echo "++randNum = " . ++$randNum . "</br>";
 echo "randNum++ = " . $randNum++ . "</br>";
 echo \$randNum;
-
-
-
-- ARITHMETICS
-
-if(5 == 10) {
-echo '5 = 10';
-} else {
-echo '5 != 10';
-}
-
-$numOfOranges = 4;
-$numOfBananas = 36;
-
-
-
 
 
 - MULTI-DIMENSIONAL ARRAYS
@@ -1734,8 +1721,4 @@ $queryResult = $connection->query("SELECT \* FROM USERS;"); // Any query can go 
 
 ?>
 
-
-
-
-
-
+```
