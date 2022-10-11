@@ -7,10 +7,10 @@
   - [Comment Line and Block](#comment-line-and-block)
   - [Ekrana Yazdırma](#ekrana-yazdırma)
   - [Data Types and Variables](#data-types-and-variables)
-  - [Değişkenin Veri Tipini Ögrenme](#değişkenin-veri-tipini-ögrenme)
-  - [Sabit Değişkenler (Constant Variables)](#sabit-değişkenler-constant-variables)
-  - [Sihirli Karakterler (magical characters)](#sihirli-karakterler-magical-characters)
   - [Data Type Casting](#data-type-casting)
+  - [Checking Types of A Variable](#checking-types-of-a-variable)
+  - [Constants](#constants)
+  - [Sihirli Karakterler (magical characters)](#sihirli-karakterler-magical-characters)
   - [Operators](#operators)
 - [Php Basic 2](#php-basic-2)
   - [Logical Operators](#logical-operators)
@@ -163,9 +163,26 @@ $sayi1 = 10;
 
 ```
 
-## Değişkenin Veri Tipini Ögrenme
+## Data Type Casting
 
-gettype(myVar) fonksiyonu ile bir verinin türünü öğreniriz.
+((Veri Tipi Değiştirme))
+
+*Örnek*
+
+```php
+(double)(5 / 2);
+
+$randNum = 5;
+$refToNum = &$randNum;
+$randNum = 100;
+
+echo '$refToNum = ' . $refToNum;
+
+```
+
+## Checking Types of A Variable
+
+gettype(myVar) fonksiyonu ile bir verinin/değişikenin türünü öğreniriz.
 
 ```php
 $string = "ali veli";
@@ -186,9 +203,9 @@ echo "\n";
 echo gettype($null); // NULL
 ```
 
-## Sabit Değişkenler (Constant Variables)
+## Constants
 
-Sabit Değişkenler;
+Sabit değerler;
 
 - define() fonksiyonu ile tanımlanır. Türü object'tir.
 - Türkçe karakterler içerebilir.
@@ -206,6 +223,13 @@ echo author; // sabitleri $ işareti olmadan kullanırız.
 // Output
 // ali veli
 ```
+
+```php
+define('PI', 3.1415926);
+echo PI;
+```
+
+((Constant:Sabit))
 
 ## Sihirli Karakterler (magical characters)
 
@@ -241,34 +265,20 @@ echo 'Tayfun dedi ki: \'ben korkmam\'..';
 // Tayfun dedi ki: 'ben korkmam'..
 ```
 
-## Data Type Casting
 
-*Örnek*
-
-```php
-(double)(5 / 2);
-
-$randNum = 5;
-$refToNum = &$randNum;
-$randNum = 100;
-
-echo '$refToNum = ' . $refToNum;
-
-```
 
 ## Operators
 
-```php
-+ , - , * , / , % (modular arithmetic)
+Operator | Explanation
+---------|------------
+\+       | Sum
+\-       |
+\*       | Multiply
+\/       | Divide
+%        | Modular
 
-```
-Sabit Tanımlama
 
-```php
-define('PI', 3.1415926);
-echo "The value of PI is " . PI;
 
-```
 # Php Basic 2
 
 Logical Operators, Switch and Loops in this section are ((bahsedildi.))
