@@ -1,4 +1,17 @@
 
+- [B4 Component Structure](#b4-component-structure)
+  - [4-1 Global vs Local Component](#4-1-global-vs-local-component)
+    - [Global Component](#global-component)
+    - [Local Component](#local-component)
+    - [Cli Projesinde Component Kullanımı](#cli-projesinde-component-kullanımı)
+  - [4-2 Slot Tag](#4-2-slot-tag)
+  - [4-3 Props](#4-3-props)
+  - [4-4 Prop Validation](#4-4-prop-validation)
+  - [4-5 Child Parent Emit](#4-5-child-parent-emit)
+  - [4-6 Parent to Child Invoke (Refs)](#4-6-parent-to-child-invoke-refs)
+  - [4-7 Event Bus](#4-7-event-bus)
+  - [4-8 Inline Template](#4-8-inline-template)
+  - [4-9 Ornek Uygulama - Envanter Takip Sistemi](#4-9-ornek-uygulama---envanter-takip-sistemi)
 
 
 # B4 Component Structure
