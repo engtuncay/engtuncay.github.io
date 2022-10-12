@@ -13,6 +13,7 @@
   - [Solidity Basic Syntax](#solidity-basic-syntax)
   - [Solidity Variables](#solidity-variables)
   - [Where does EVM save data?](#where-does-evm-save-data)
+  - [Functions, Getter and Setter](#functions-getter-and-setter)
 
 # Sources
 
@@ -402,6 +403,98 @@ with the memory keyword;
 
 Reference Types are string, array, struct and mapping
 
+## Functions, Getter and Setter
+
+A function is an executable unit of code within a contract. Functions create the contract’s interface.
+
+Take a look at the functions defined in this contract.
+
+```js
+// SPDX-License-Identifier: GPL-3.0
+pragma solidity >=0.5.0 <0.9.0;
+
+contract Property {
+    uint256 private price;
+    address public owner;
+
+    function setPrice(uint _price) public {
+        price = _price;
+    }
+
+    function getPrice() view public returns (uint) {
+        return price;
+    }
+}
+```
+
+There’s a function called setPrice() which is a setter function because it sets or changes the value of a state variable and a function called getPrice() named getter because it gets or returns the value of a state variable.
+
+Let's talk about the syntax. To create a function, use the correct keyword function followed by the function name and a pair of parentheses. If the function has any parameters write then between parentheses, separated by a comma. By the way, the name of the parameter is _price to differentiate it from the state variable. So price is the state variable stored in the storage and _price is the function parameter stored in memory.
+
+Each function must have a visibility specifier that it is given after the parameter list. In this example, both functions are *public*, which means they are part of the contract interface and can be called internally from the same contract or externally from other contracts or applications.
+
+Other visibility specifiers are *private, internal, and external*. We will have a dedicated lecture on visibility specifiers later in this section.
+
+If the function is a *read-only* one that doesn't alter the storage in any way, it should be declared view or pure.
+
+Note that calling a setter function creates a transaction that needs to be mined and costs gas because it changes the blockchain. 
+
+And calling a getter function creates a call that happens instantly and doesn't cost gas because it doesn't alter the blockchain's state. And if the function returns a value that should be indicated using the returns keyboard and the types of the return values between parentheses with a comma between them; in this example, get price will return to a single value of type int.
+
+There are no compilation errors, so I'm deploying the contract. I've used the JavaScript virtual machine environment. 
+
+![](./img/sol/sol-deploy1.png)
+
+In the deployed contract section if we open up the contract, we'll see a button for each function. The buttons were created by the remix environmen; *getter functions* are *in blue* and *setter functions* in *orange*. If I click a button, it will call the corresponding function, so I'm clicking get price, a call was created and the default value for the price, which is zero was returned.
+
+Now I'm changing the price value, so I'm typing one hundred and clicking set price. A transaction was created and sent and the value of the state variable was changed. Now the price is 100.
+
+In fact, it wasn't really necessary to declare the price get function because the price state variable is public. When you declare a public variable, a getter function is *automatically created*.
+
+This is the getter function: price. It returns the value of the state variable.
+
+Let's change the visibility of the variable location to public. By the way, *the default visibility* for a variable is private. I'm erasing this instance and deploying the new contract.
+
+```js
+// SPDX-License-Identifier: GPL-3.0
+
+pragma solidity 0.8.0;
+
+contract Property {
+    int public price;
+    string public location = "London";
+
+    function setPrice(uint _price) public {
+        price = _price;
+    }
+
+    function getPrice() view public returns (uint) {
+        return price;
+    }
+}
+
+```
+
+Now, we see a new button called location that is in fact the guitar function that was automatically created for the public state variable.
+
+Let's create a setter function for location, as well.
+
+
+```js
+function set location (string memory _location ) public {
+  location = _location;
+}
+```
+
+_location is a local variable. The memory keyword is required because explicit data location for all variables of type array, string, struct, or mapping is now mandatory. It indicates that the variables will be stored in memory and not in storage.
+
+Now I'm deploying the contract. 
+
+This is the new instance and we see five buttons in the contract section: 3 are getters and the other 2 are setters. a getter was automatically created for price.
+
+Now, we can change the value of both state variables and get their values as well.
+
+I have changed the value of the location variable and I'm getting the new value.
 
 
 
