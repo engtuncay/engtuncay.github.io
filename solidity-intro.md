@@ -14,6 +14,7 @@
   - [Solidity Variables](#solidity-variables)
   - [Where does EVM save data?](#where-does-evm-save-data)
   - [Functions, Getter and Setter](#functions-getter-and-setter)
+  - [Constructor](#constructor)
 
 # Sources
 
@@ -495,6 +496,152 @@ This is the new instance and we see five buttons in the contract section: 3 are 
 Now, we can change the value of both state variables and get their values as well.
 
 I have changed the value of the location variable and I'm getting the new value.
+
+## Constructor
+
+Now, let's talk about the constructor! The constructor is a special function that is executed only once when the contract is created. The function is created with the constructor keyword, there's only one and it is optional.
+
+The constructor is used to initialize state variables when the contract is deployed by an externally owned account or by another contract.
+
+Let's create the constructor of the contract to initialize state variables.
+
+```js
+// SPDX-License-Identifier: GPL-3.0
+pragma solidity 0.8.0;
+
+contract Property {
+    int public price;
+    string public location;
+
+    constructor(int _price, string memory _location) {
+      price = _price;
+      location = _location;
+    }
+
+    function setPrice(int _price) public {
+        price = _price;
+    }
+
+    function getPrice() view public returns (int) {
+        return price;
+    }
+}
+
+```
+
+that's all: the state variable price will be initialized with the value of the _price parameter of the function; and the same location. It's not mandatory for the constructor to have arguments, but it's logical to initialize the state variables so it has two arguments. And the visibility of the constructor, which is normally public, should be ignored, starting with Solidity 0.7.
+
+When I deployed the contract, I'll specify two values for the constructors arguments, price and location,
+
+Let's deploy it!
+
+![](./img/sol/sol-constructor.png)
+
+So the price will be 100 and the location Paris.
+
+This is the transaction that has created the contract and this is the contract's interface.
+
+The constructor has initialized the state variables with the supplied values, so if I click price and location, I'll get those values.
+
+Paris and 100.
+
+It's common for a constructor to register the address of the account that creates the contract in a state variable.
+
+This is the admin of the contract or the owner, and in most cases, he has full access over the contract.
+
+So I'm declaring a new state variable at the contract level called owner of type address, which is a data type in Solidity and holds an account address.
+
+
+
+So address public owner.
+
+And in the constructor, I am adding owner msg.sender
+
+Let's look for a second at this line: owner msg.sender
+
+What does it do?It initializes the owner to the value of msg.sender where msg.sender is a global built-in
+
+variable. This variable always stores the address of the account that creates and sends the transaction.
+
+In this case, it's the address of the account that deploys the contract, because that's the only time
+
+when the constructor is called. Note that I don’t have to declare variable msg.sender because it’s
+
+built-in and always exists.
+
+I'm deploying the contract again, choosing another account, for example, the second one.
+
+The address of the account will be stored in msg.sender and it becomes the owner of the contract.
+
+I am deploying it.
+
+This is the new instance.
+
+And if I click the owner button, I'll get the address of that account; it was saved on the blockchain
+
+and I can further implement administrative functions of the contract, like selling the property
+
+functions that will be initialized only from the owner account.
+
+This address
+
+is the address of the second account.
+
+Note that the constructor cannot change the owner to a new address because the constructor is called
+
+only once when the contract is deployed.
+
+If you want to change the owner, you need another function that changes the state variable called
+
+owner.
+
+And probably that function can be called only by the current owner.
+
+Note that almost any contract like, for examplelike for example erc20 token contracts or contracts for decentralized
+
+finance, use this approach to register the owner that has special privileges.
+
+At the end let’s talk about initializing constant or immutable state variables. State variables can
+
+be declared as constant or immutable and in both cases, the variables cannot be modified
+
+after the contract has been deployed. For constant variables, the value has to be fixed at compile time
+
+so we need to set their values at declaration time,
+
+while for immutable, it can still be assigned at construction time.
+
+So if I declare a constant state variable, I also have to initialize it with a value.
+
+For example, int constant area = 100; if I don't initialize the constant with a value,
+
+I'll get an error.
+
+This is an error:
+
+uninitialized "constant" variable. If I declare the variable as being immutable, using the immutable
+
+keyword, the variable can be initialized
+
+the same as a constant at the declaration or in the constructor, but not after the contract was created.
+
+So I'm changing constant to immutable.
+
+There is no error!
+
+Another example would be if I wish no one to be able to change the owner, I can declare the variable
+
+immutable and initialize it in the constructor.
+
+So the owner is immutable and it is initialized in the constructor.
+
+After the contract,s deployment, no one will be able to change the variable,
+
+so the owner.
+
+Compared to regular state variables, the gas costs of constant and immutable variables are much lower.
+
+So this allows for local optimization.
 
 
 
