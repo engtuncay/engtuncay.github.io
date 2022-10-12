@@ -549,29 +549,40 @@ It's common for a constructor to register the address of the account that create
 
 This is the admin of the contract or the owner, and in most cases, he has full access over the contract.
 
-So I'm declaring a new state variable at the contract level called owner of type address, which is a data type in Solidity and holds an account address.
+So I'm declaring a new state variable at the contract level called *owner* of type *address*, which is a data type in Solidity and holds an account address.
 
+```js
+// SPDX-License-Identifier: GPL-3.0
+pragma solidity 0.8.0;
 
+contract Property {
+    int public price;
+    string public location;
+    address public owner;
 
-So address public owner.
+    constructor(int _price, string memory _location) {
+      price = _price;
+      location = _location;
+      owner = msg.sender;
+    }
 
-And in the constructor, I am adding owner msg.sender
+    function setPrice(int _price) public {
+        price = _price;
+    }
 
-Let's look for a second at this line: owner msg.sender
+    function getPrice() view public returns (int) {
+        return price;
+    }
+}
 
-What does it do?It initializes the owner to the value of msg.sender where msg.sender is a global built-in
+```
+Let's look for a second at this line: owner msg.sender in the constructor.
 
-variable. This variable always stores the address of the account that creates and sends the transaction.
+What does it do ? It initializes the owner to the value of msg.sender where msg.sender is a global built-in variable. This variable always stores the address of the account that creates and sends the transaction.
 
-In this case, it's the address of the account that deploys the contract, because that's the only time
+In this case, it's the address of the account that deploys the contract, because that's the only time when the constructor is called. Note that I don’t have to declare variable msg.sender because it’s built-in and always exists.
 
-when the constructor is called. Note that I don’t have to declare variable msg.sender because it’s
-
-built-in and always exists.
-
-I'm deploying the contract again, choosing another account, for example, the second one.
-
-The address of the account will be stored in msg.sender and it becomes the owner of the contract.
+I'm deploying the contract again, choosing another account, for example, the second one. The address of the account will be stored in msg.sender and it becomes the owner of the contract.
 
 I am deploying it.
 
