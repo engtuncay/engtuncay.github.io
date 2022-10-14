@@ -1,4 +1,4 @@
-
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
 - [Sources](#sources)
 - [Part 1](#part-1)
   - [Örnek Remix Projesi](#örnek-remix-projesi)
@@ -576,7 +576,7 @@ contract Property {
 }
 
 ```
-Let's look for a second at this line: owner msg.sender in the constructor.
+Let's look for a second at this line: `owner = msg.sender` in the constructor.
 
 What does it do ? It initializes the owner to the value of msg.sender where msg.sender is a global built-in variable. This variable always stores the address of the account that creates and sends the transaction.
 
