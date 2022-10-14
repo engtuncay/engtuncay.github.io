@@ -15,6 +15,7 @@
   - [Where does EVM save data?](#where-does-evm-save-data)
   - [Functions, Getter and Setter](#functions-getter-and-setter)
   - [Constructor](#constructor)
+  - [Variable Types : Booleans and Integers](#variable-types--booleans-and-integers)
 
 # Sources
 
@@ -541,9 +542,7 @@ So the price will be 100 and the location Paris.
 
 This is the transaction that has created the contract and this is the contract's interface.
 
-The constructor has initialized the state variables with the supplied values, so if I click price and location, I'll get those values.
-
-Paris and 100.
+The constructor has initialized the state variables with the supplied values, so if I click price and location, I'll get those values : Paris and 100.
 
 It's common for a constructor to register the address of the account that creates the contract in a state variable.
 
@@ -612,48 +611,144 @@ Note that almost any contract like, for examplelike for example erc20 token cont
 
 finance, use this approach to register the owner that has special privileges.
 
-At the end let’s talk about initializing constant or immutable state variables. State variables can
+At the end let’s talk about initializing constant or immutable state variables. State variables can be declared as constant or immutable and in both cases, the variables cannot be modified after the contract has been deployed. For constant variables, the value has to be fixed at compile time so we need to set their values at declaration time, while for immutable, it can still be assigned at construction time.
 
-be declared as constant or immutable and in both cases, the variables cannot be modified
+So if I declare a constant state variable, I also have to initialize it with a value. For example, 
 
-after the contract has been deployed. For constant variables, the value has to be fixed at compile time
 
-so we need to set their values at declaration time,
+```js
+contract Property {
+    int public price;
+    string public location;
+    address public owner;
+    int constant area = 100; 
+    /* ... */
+```
 
-while for immutable, it can still be assigned at construction time.
+if I don't initialize the constant with a value, I'll get an error.
 
-So if I declare a constant state variable, I also have to initialize it with a value.
+```js
+contract Property {
+    int public price;
+    string public location;
+    address public owner;
+    int constant area; 
+    /* ... */
+```
 
-For example, int constant area = 100; if I don't initialize the constant with a value,
+This is an error: uninitialized "constant" variable. 
 
-I'll get an error.
+If I declare the variable as being immutable, using the immutable keyword, the variable can be initialized the same as a constant at the declaration or in the constructor, but not after the contract was created.
 
-This is an error:
+```js
+contract Property {
+    int public price;
+    string public location;
+    address immutable public owner;
+    int immutable area; 
+    /* ... */
+```
 
-uninitialized "constant" variable. If I declare the variable as being immutable, using the immutable
+So I'm changing constant to immutable. There is no error!
 
-keyword, the variable can be initialized
+Another example would be if I wish no one to be able to change the owner, I can declare the variable immutable and initialize it in the constructor. So the owner is immutable and it is initialized in the constructor. After the contract's deployment, no one will be able to change the variable, so the owner.
 
-the same as a constant at the declaration or in the constructor, but not after the contract was created.
+Compared to regular state variables, the gas costs of constant and immutable variables are much lower. So this allows for local optimization.
 
-So I'm changing constant to immutable.
+```js
+//SPDX-License-Identifier: GPL-3.0
+ 
+pragma solidity >=0.5.0 <0.9.0;
+ 
+contract Property{
+    // declaring state variables saved in contract's storage
+    uint price; // by default is private
+    string public location;
+    
+    // can be initialized at declaration or in the constructor only
+    address immutable public owner; 
+    
+    // declaring a constant
+    int constant area = 100;
+    
+    // declaring the constructor
+    // is executed only once at contract's deployment
+    constructor(uint _price, string memory _location){
+        price = _price;
+        location = _location;
+        owner = msg.sender;  // initializing owner to the account's address that deploys the contract
+    }
+    
+    
+    // getter function, returns a state variable
+    // a function declared `view` does not alter the blockchain 
+    function getPrice() public view returns(uint){
+        return price;
+    }
+    
+    // setter function, sets a state variable
+    function setPrice(uint _price) public{
+        int a; // local variable saved on stack
+        a = 10;
+        price = _price;
+    }
+    
+    function setLocation(string memory _location) public{ //string types must be declared memory or storage
+        location = _location;
+    }
+    
+}
+```
 
-There is no error!
 
-Another example would be if I wish no one to be able to change the owner, I can declare the variable
+## Variable Types : Booleans and Integers
 
-immutable and initialize it in the constructor.
+● Solidity is a statically-typed language (variables type should be specified at
+declaration).
 
-So the owner is immutable and it is initialized in the constructor.
+Note that floating point numbers, such as float and double in other languages, are not yet supported in Solidity. If you want to perform calculations for a currency like ether and want to use floating point numbers, and then you should use a smaller denomination of ETH that will be represented as an integer.
 
-After the contract,s deployment, no one will be able to change the variable,
+Integers and booleans are also called value types because variables of these types will always be past to functions by value. This means that they are always copied when they are used as function arguments!
 
-so the owner.
+Value Types:
 
-Compared to regular state variables, the gas costs of constant and immutable variables are much lower.
+● Boolean variables: true and false
+  ○ Initialized by default with false.
 
-So this allows for local optimization.
+```js
+contract Property {
+  // 1. Boolean Type
+  bool public sold; 
+}
 
+```
+
+● Signed and Unsigned Integers of various sizes.
+  ○ int8 to int256, uint8 to uint256 in steps of 8.
+  ○ int8 is between -128 and +127, int16 is between -32768 and +32767 and so
+on.
+  ○ int is alias to int256 and uint is an alias to uint256.
+  ○ By default an int is initialized with zero.
+
+There are signed and unsigned integers of various sizes. To declare an unsigned integer that has only positive values
+use keywords uint8 to uint256 in steps of 8.
+
+So uint8 means an unsigned integer of 8 bits and the maximum value that can be represented on 8 bits is 2 to the power of 8 minus 1 and is equal to 255. And to declare a signed integer use keywords int8 to int256 in steps of 8.
+
+```js
+contract Property {
+  // 2. Integere type
+  uint8 public x = 255;
+ 
+}
+
+```
+This is the maximum value that can be stored in an uint8 variable.
+
+
+Note that uint is an alias to uint256 and int is an alias to int256.
+
+● There is no full support for float/double (fixed point numbers) in Solidity.
 
 
 

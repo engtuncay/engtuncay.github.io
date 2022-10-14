@@ -1,17 +1,19 @@
 
-- [Object references and copying](#object-references-and-copying)
+<h2>Objects 2 </h2>
+
+- [4.2 Object references and copying](#42-object-references-and-copying)
   - [Comparison by reference](#comparison-by-reference)
   - [Cloning and merging, Object.assign [#cloning-and-merging-object-assign]](#cloning-and-merging-objectassign-cloning-and-merging-object-assign)
   - [Nested cloning](#nested-cloning)
   - [Summary](#summary)
-- [Garbage collection](#garbage-collection)
+- [4.3 Garbage collection](#43-garbage-collection)
 - [Object methods and this keyword](#object-methods-and-this-keyword)
 - [Constructor, operator "new"](#constructor-operator-new)
 - [Optional chaining '?.'](#optional-chaining-)
 - [Symbol Type](#symbol-type)
 - [Object to primitive conversion](#object-to-primitive-conversion)
 
-# Object references and copying
+# 4.2 Object references and copying
 
 One of the fundamental differences of objects versus primitives is that objects are stored and copied "by reference", whereas primitive values: strings, numbers, booleans, etc -- are always copied "as a whole value".
 
@@ -277,7 +279,7 @@ All operations via copied references (like adding/removing properties) are perfo
 To make a "real copy" (a clone) we can use `Object.assign` for the so-called "shallow copy" (nested objects are copied by reference) or a "deep cloning" function, such as [_.cloneDeep(obj)](https://lodash.com/docs#cloneDeep).
 
 
-# Garbage collection
+# 4.3 Garbage collection
 
 Memory management in JavaScript is performed automatically and invisibly to us. We create primitives, objects, functions… All that takes memory.
 
