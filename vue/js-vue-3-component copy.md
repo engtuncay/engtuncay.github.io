@@ -1,9 +1,6 @@
 
 
-- [Component Communication](#component-communication)
-  - [Props Kullanımı](#props-kullanımı)
-  - [Prop Behavior and Changing Props](#prop-behavior-and-changing-props)
-- [B4 Component Structure (Vue 2)](#b4-component-structure-vue-2)
+- [B4 Component Structure](#b4-component-structure)
   - [4-1 Global vs Local Component](#4-1-global-vs-local-component)
     - [Global Component](#global-component)
     - [Local Component](#local-component)
@@ -18,137 +15,7 @@
   - [4-9 Ornek Uygulama - Envanter Takip Sistemi](#4-9-ornek-uygulama---envanter-takip-sistemi)
 
 
-# Component Communication
-
-## Props Kullanımı
-
-Props is short for properties
-
-- Propsları nasıl tanımlarız ve kullanırız ?
-
-Prop'lar component elementinde attribute olarak tanımladığımız değerlerdir. Burada friend-contact componentine name,phone-number ve email-address olarak üç tane props tanımladık.
-
-```html
-<!-- App.vue Component Template -->
-<template>
-  <section>
-    <header>
-      <h1>My Friends</h1>
-    </header>
-    <ul>
-      <friend-contact name="Ali" phone-number="0090555" email-address="ali@domain.com"></friend-contact>
-    </ul>
-  </section>
-</template>
-```
-
-You basically should make Vue aware of the attributes (props). In the simplest form, we define props property and pass an array,and in here, we should now specify all the props. We should use camel case notation in here. Vue automatically translates props defined like this
-
-```javascript
-// FriendContact.vue
-<script>
-export default {
-  props : ['name','phoneNumber','emailAddress'],
-  data() {
-    return {
-      /* ... */
-    };
-  },
-  methods: {
-    /* ... */
-  }
-};
-</script>
-```
-
-So, we could now refer to this with the "this" keyword. Here in the method if we needed it, we could refer to this phone number for example. 
-
-```javascript
-// FriendContact.vue
-<script>
-export default {
-  /* ... */ 
-  methods: {
-    toggleDetails() {
-      this.detailsAreVisible = !this.detailsAreVisible;
-      console.log(this.phoneNumber)
-    }
-  }
-};
-</script>
-```
-
-And indeed, in your HTML template, you should use this kebab case notation. (phone dash number)
-
-- Props lar string interpolation olarak kullanılır mı ? 
-
-Evet, kullanılır.
-
-```html
-<template>
-  <li>
-    <p>{{ phoneNumber }}</p>
-    <!-- ... -->
-  </li>
-</template>
-
-```
-
-- side note : data properties ve computed properties 'de props ile aynı isimde property tanımlamamalıyız.
-
-And therefore, as a side note, you should of course make sure that you don't have any name clashes there. If you define something as a prop, you shouldn't use the exact same name in your data properties or computed properties. That's just a side note.
-
-v92-end
-
-## Prop Behavior and Changing Props
-
-Props are super important and we use props for something which is also called *parent child communication*. We use props to communicate from the parent to the child. Parent comp. communicates with child comp. So to pass data from the parent to the child component
-
-Props typically should not be mutated. And what do I mean by that?
-
-Vue uses a concept which is called unidirectional data flow. Data passed from app to friend contact should only be changed in app, not in friend contact. We just pass data down to friend contact. And once the data is passed down, friend contact cannot change the data we manage an app view, So if we change data inside of friend contact like here, when I tried to change isFavorite, this is not allowed by Vue, because we violate this pattern of having a unidirectional data flow.
-
-Now, if we want to change this, there are two ways of doing that. 
-
-- The first way of doing it, is that we let the parent know that we'd like to change this. Then the parent can go ahead and change the data in itself and pass the updated data back to friend contact. That's a pattern we'll explore later.
-
-- The other approach is that we simply take the received data as the initial data, inside of friend contact, and then we changed that data instead of friend contact, but we are aware of the fact that we only change it there and that this won't affect the data in App.vue. To implement this pattern, all we need to do is we need to add a new data property in our component.
-
-```javascript
-// FriendContact.vue
-<script>
-export default {
-  props : ['name','phoneNumber','emailAddress','isFavorite'],
-  data() {
-    return {
-      /* ... */
-      friendIsFavorite : this.isFavorite
-    };
-  },
-  methods: {
-    /* ... */
-  }
-};
-</script>
-```
-
-v93-end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# B4 Component Structure (Vue 2)
+# B4 Component Structure
 
 ## 4-1 Global vs Local Component
 
@@ -231,6 +98,7 @@ const app = new Vue({
   - Template : html template
   - Script : Js codes
   - Style : style definitions
+
 
 **HelloWorld component**
 
