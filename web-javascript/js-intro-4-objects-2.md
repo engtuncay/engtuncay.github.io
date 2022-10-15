@@ -3,7 +3,7 @@
 
 - [4.2 Object references and copying](#42-object-references-and-copying)
   - [Comparison by reference](#comparison-by-reference)
-  - [Cloning and merging, Object.assign [#cloning-and-merging-object-assign]](#cloning-and-merging-objectassign-cloning-and-merging-object-assign)
+  - [Cloning and merging, Object.assign](#cloning-and-merging-objectassign)
   - [Nested cloning](#nested-cloning)
   - [Summary](#summary)
 - [4.3 Garbage collection](#43-garbage-collection)
@@ -36,7 +36,7 @@ Quite an obvious result, right?
 
 Objects are not like that.
 
-**A variable assigned to an object stores not the object itself, but its "address in memory" -- in other words "a reference" to it.**
+**A variable assigned to an object stores not the object itself, but its *"address in memory"* -- in other words *"a reference"* to it.**
 
 Let's look at an example of such a variable:
 
@@ -81,14 +81,10 @@ let user = { name: 'John' };
 
 let admin = user;
 
-*!*
 admin.name = 'Pete'; // changed by the "admin" reference
-*/!*
 
-alert(*!*user.name*/!*); // 'Pete', changes are seen from the "user" reference
+alert(user.name); // 'Pete', changes are seen from the "user" reference
 ```
-
-It's as if we had a cabinet with two keys and used one of them (`admin`) to get into it and make changes. Then, if we later use another key (`user`), we are still opening the same cabinet and can access the changed contents.
 
 ## Comparison by reference
 
@@ -115,7 +111,7 @@ alert( a == b ); // false
 
 For comparisons like `obj1 > obj2` or for a comparison against a primitive `obj == 5`, objects are converted to primitives. We'll study how object conversions work very soon, but to tell the truth, such comparisons are needed very rarely -- usually they appear as a result of a programming mistake.
 
-## Cloning and merging, Object.assign [#cloning-and-merging-object-assign]
+## Cloning and merging, Object.assign
 
 So, copying an object variable creates one more reference to the same object.
 
@@ -133,14 +129,12 @@ let user = {
   age: 30
 };
 
-*!*
 let clone = {}; // the new empty object
 
 // let's copy all user properties into it
 for (let key in user) {
   clone[key] = user[key];
 }
-*/!*
 
 // now clone is a fully independent object with the same content
 clone.name = "Pete"; // changed the data in it
@@ -168,10 +162,8 @@ let user = { name: "John" };
 let permissions1 = { canView: true };
 let permissions2 = { canEdit: true };
 
-*!*
 // copies all properties from permissions1 and permissions2 into user
 Object.assign(user, permissions1, permissions2);
-*/!*
 
 // now user = { name: "John", canView: true, canEdit: true }
 ```
@@ -194,14 +186,14 @@ let user = {
   age: 30
 };
 
-*!*
 let clone = Object.assign({}, user);
-*/!*
 ```
 
 It copies all properties of `user` into the empty object and returns it.
 
-There are also other methods of cloning an object, e.g. using the [spread syntax](info:rest-parameters-spread) `clone = {...user}`, covered later in the tutorial.
+- There are also other methods of cloning an object, e.g. using the [spread syntax]
+  
+(info:rest-parameters-spread) `clone = {...user}`, covered later in the tutorial.
 
 ## Nested cloning
 
@@ -251,15 +243,12 @@ An important side effect of storing objects as references is that an object decl
 
 For instance:
 
-```js run
+```js
 const user = {
   name: "John"
 };
 
-*!*
 user.name = "Pete"; // (*)
-*/!*
-
 alert(user.name); // Pete
 ```
 
