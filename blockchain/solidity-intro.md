@@ -16,6 +16,8 @@
   - [Functions, Getter and Setter](#functions-getter-and-setter)
   - [Constructor](#constructor)
   - [Variable Types : Booleans and Integers](#variable-types--booleans-and-integers)
+  - [29 SafeMath, Overflows and Underflows](#29-safemath-overflows-and-underflows)
+  - [Fixed-Size Arrays](#fixed-size-arrays)
 
 # Sources
 
@@ -739,16 +741,278 @@ So uint8 means an unsigned integer of 8 bits and the maximum value that can be r
 contract Property {
   // 2. Integere type
   uint8 public x = 255;
- 
+  int8 public y = -10;
 }
 
 ```
-This is the maximum value that can be stored in an uint8 variable.
+This is the maximum value that can be stored in an uint8 variable. (2^8=256)
 
-
-Note that uint is an alias to uint256 and int is an alias to int256.
+**Note that** uint is an alias to uint256 and int is an alias to int256.
 
 ● There is no full support for float/double (fixed point numbers) in Solidity.
+
+```js
+contract Property {
+  // 2. Integere type
+  uint8 public x = 256; // this is overlow.
+}
+```
+
+## 29 SafeMath, Overflows and Underflows
+
+Ethereum is used in many financial applications and an overflow or an underflow would have disastrous results. In April 2018 two types of vulnerabilities, called batchOverflow and proxyOverflow ,were. discovered in some ERC20 tokens that were built on Ethereum The result was that tokens valued at the billions of U.S. dollars were created from thin air.
+
+These are the details of such a transaction.
+
+Just take a look at the number of tokens that were transferred.
+
+In a response to that attack, many crypto exchanges suspended trading on all ERC20 tokens, causing a great deal of fear, uncertainty, and doubt in the crypto community.
+
+Let's take a closer look at how an overflow or underflow vulnerability works.
+
+So I have declared a state variable called x of type uint8, and I've initialized it with the maximum
+possible value for that type 255.
+
+```js
+contract Property {
+  // 2. Integere type
+  uint8 public x = 255;
+
+  function f1() public {
+    x+=1;
+  }
+}
+
+```
+
+Great, there is no error! The contract was compiled successfully and I'm deploying it. (solidity ver 5)
+
+Now I'm calling f1 that will increment x. The transaction was executed successfully, transaction minted and execution succeed. Now, if I click x, I'll get 0, which, of course, is not correct.
+
+So what happens when you have a limit of 255 and 
+
+255+1? 
+
+The number rolls over and so 255+1=0 . We call this an integer overflow.
+
+Just imagine this behavior in a financial application, you have 255$ on your account, someone sands you one dollar and then you'll have zero.
+
+For those who want to dive deeper into this, I'll attach to this letter of full technical breakdown of the batchOverlow Exploit.
+
+Let's go ahead and see how we can protect against such events. In Solidity the standard practice to avoid overflows was to use a library known as SafeMath. Safemath wraps each calculation in a series of checks to make sure that, for example, when a + b = c, c is greater than a and b. This was best practice for every smart contract that was coded professionally.
+
+For example, in the source code of BNB token in Etherium Network you can see how they use the SafeMath library for Math operations with safety checks.
+
+Starting with Solidity 0.8, the compiler includes checked arithmetic operations by default, and this makes unnecessary the use of SafeMath or similar libraries. Starting with Solidity 0.8 arithmetic operations revert on underflow and overflow. 
+
+Let's compile the same contract with a compiler version newer than 0.8 . So I’m changing the pragma to ^0.8.0 and of course, I'm selecting the corresponding compiler.
+
+The contract was compiled successfully and I'm deploying it. This is the new instance! I’m clicking x to get it’s value (which is 255) and then I am clicking f1 to increment x.
+
+And instead of creating a successful transaction that causes an overflow, the transaction has been reverted to the initial state.
+
+Look at this error. The transaction has been reverted to the initial state. So it didn't alter the variable, which is still 255. This is a big improvement.
+
+So now, by default, arithmetic operations are always checked; you can switch to *unchecked mode* using the unchecked keyword to obtain the previous behavior and you probably want to do that for old code and backward compatibility, like this: 
+
+
+```js
+contract Property {
+  // 2. Integere type
+  uint8 public x = 255;
+
+  function f1() public {
+    unchecked { x+=1 }; // this code will have the same behavior as in the previous compiler versus.
+  }
+}
+
+```
+## Fixed-Size Arrays
+
+Let's start talking about another data type called array. In programming, an array is a data type that
+
+stores an ordered sequence of elements. In Solidity
+
+there are two types of array: fixed-size and dynamically-sized arrays. A fixed-size
+
+array has a fixed number of elements that are specified at
+
+declaration and this type of array can not grow or shrink.
+
+On the other hand, a dynamically-sized array does not have a fixed no. of elements and it can shrink
+
+or grow dynamically at run-time.
+
+Let’s get started with fixed-size arrays. Array elements can be of any type, including int address mapping
+
+or struct.
+
+The only restriction is that all elements of array must be the same type.
+
+Let's declare an array that stores int values and has a size of 3.
+
+So uint a pair of square brackets
+
+3 the number of elements in the array public and the name of the array: numbers The array's public
+
+so a getter function was automatically created. I am deploying the contract to see the default value of
+
+the array elements.
+
+An array is an ordered sequence of elements, so each element is at a position or index in the array.
+
+Like in any other programming language in Solidity array indexing starts from 0 as well.
+
+So, the first element of the array is at index 0.
+
+This is the first element of the array and its default value is 0.
+
+This is the second element of the array at index 1 and the last element of the array at index 2.
+
+If you try to access an element of an array at an index that is negative, greater than or equal to
+
+the length of the array, you'll get an out of bounds error; for example
+
+give me the element at index 5 and I've got an error.
+
+To initialize an array with some specific values you can specify the values at the declaration or create
+
+a setter function that changes the elements of the array.
+
+So to initialize the array at declaration write: the name of the array equals and the elements between
+
+square brackets with a comma between them.
+
+For example [2, 3, 4]; by the way, this is an array literal.
+
+I'm deploying the new contract and I'm checking the values of the array, the element at index 0,
+
+the second element at index 1 is 3,
+
+and the last element at index 2 is, of course, 4. Now, I create a setter function to change the
+
+elements of the array.
+
+So function setElement, the function takes two parameters the index and the value and is a public
+
+one. And the function will change the element at the index with the value.
+
+So numbers[index] = value; OK, before deploying and testing the new function,
+
+let's talk about the length as well.
+
+An array has also a member called Length that stores the number of elements in the array.
+
+So I'm creating a new function that will return the length of the
+
+array function getLength()
+
+The function is public, it doesn't modify the blockchain so view and returns the length of the array,
+
+so a unit; and in the function's body, I'm writing return numbers, the name of the array.length
+
+the member.
+
+OK, of course, here is returns, not return.
+
+I'm deploying the new contract.
+
+This is the instance, and I want to see the number of elements in the array, so the length and the
+
+length is three.
+
+Now I'm changing the element at index 0.
+
+So index 0 and the element will be 100.
+
+I'm setting the element and now I'm getting the element at index 0 and it has returned 100.
+
+Great.
+
+As I said earlier, the elements of an array can be of any type, not just int Let's see a special type of array,
+
+that holds a sequence of bytes from 1 to up to 32.
+
+bytes1 public b1; bytes2 public b2; bytes3 public b3;
+
+And we have up to bytes32
+
+Bytes1, bytes 2, bytes 3 and so on, are solidity types. Let's deployed the contract and see what
+
+are the default values of the arrays of type bytes.
+
+I'm deploying it and I'm opening up the last contract's instance.
+
+This is b1, b2 and to b3. we see that the default value is zero, but it is shown in hexadecimal
+
+as the zero x prefix indicates. A byte consists of 8 bits and a hex digit
+
+occupies 4 bits,
+
+so a byte can be represented with 2 hexadecimal characters, 2 bytes with 4 hexadecimal, and so
+
+on.
+
+Now I'll create a new function that will change the elements of the array of type bytes.
+
+So function setBytesArrays()
+
+and public And inside the function, I say b1 = 'a'; b2 = 'ab'; b3 = 'abc';
+
+Great, I'm deploying the contract to test the new function.
+
+The contract was deployed successfully and I'm opening up the last instance.
+
+So I'm calling the setBytesArrays function.
+
+The transaction was successfully mined and I want to see the values of b1, b2 and b3.
+
+So b1 is 0x61, b2 is 0x6162 and b3 is 0x 616263.
+
+The characters were encoded in UTF-8, which is a superset of ASCII, and are shown as hexadecimal
+
+values.
+
+Let’s search for an ASCII table on Google to check it!
+
+Take a look here.
+
+the hex ASCII codes for a, b and c are 61, 62, and 63 like it’s shown when calling the function in Remix.
+
+We see here the ASCII code of a, b and c.
+
+Now, if an array is initialized with a value that does not occupy the entire space, padding is aided
+
+by default to the end.
+
+So I'm changing b3=z
+
+By the way, the ASCII code for z is 7A
+
+in hexadecimal.
+
+Keep in mind, 7A; and I am deploying the new contract.
+
+I'm clicking setBytesArrays to change the values, and I want to see the value of b3.
+
+And we 0x7a0000 the ASCII code for Z and then lots of zeros, this is the padding.
+
+Also note that using indexing you cannot modify single bytes in fixed bytes arrayes.
+
+So b3[0]
+
+This is the first byte or the byte at Index 0 cannot be modified.
+
+This is a compilation error.
+
+This is not permitted in Solidity; single bytes in fixed bytes arrays cannot be modified.
+
+If you see some older code, you should be aware that prior to version 0.8.0 byte
+
+used to be an alias for bytes1
+
+So byte is an alias for bytes1 in older code.
+
 
 
 
