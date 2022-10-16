@@ -4,9 +4,6 @@
   - [Örnek Remix Projesi](#örnek-remix-projesi)
   - [Smart Contract Derlenmesi (Compilation)](#smart-contract-derlenmesi-compilation)
   - [ABI](#abi)
-  - [Arrays](#arrays)
-    - [1. Fixed-size Arrays](#1-fixed-size-arrays)
-    - [2. Dynamically-sized arrays](#2-dynamically-sized-arrays)
 - [Master the Solidity Programming Language](#master-the-solidity-programming-language)
   - [Standards that Solidity use](#standards-that-solidity-use)
   - [Structure of a Smart Contract](#structure-of-a-smart-contract)
@@ -17,7 +14,8 @@
   - [Constructor](#constructor)
   - [Variable Types : Booleans and Integers](#variable-types--booleans-and-integers)
   - [29 SafeMath, Overflows and Underflows](#29-safemath-overflows-and-underflows)
-  - [Fixed-Size Arrays](#fixed-size-arrays)
+  - [30 Fixed-Size Arrays](#30-fixed-size-arrays)
+  - [Dynamically-sized arrays](#dynamically-sized-arrays)
 
 # Sources
 
@@ -98,37 +96,7 @@ Opcodes : EVM operational codes.
 
 Decompile ederken byte code başına 0x koyarız.
 
-## Arrays
 
-### 1. Fixed-size Arrays
-
-- Has a compile-time fixed size.
-
-- Can store any type (int, uint, address, struct etc).
-
-- bytes1, bytes2, …, bytes32 store a sequence of bytes.
-
-- Has member called length.
-
-### 2. Dynamically-sized arrays
-
-- byte[ ]
-
-- byte[ ] is an alias to bytes
-
-- string (UTF-8 encoding)
-
-- uint[ ], int[ ]
-
-- members: length and push
-
-There are 3 methods
-
-- length
-
-- push
-
-- pop
 
 
 ```js
@@ -827,87 +795,66 @@ contract Property {
 }
 
 ```
-## Fixed-Size Arrays
 
-Let's start talking about another data type called array. In programming, an array is a data type that
+## 30 Fixed-Size Arrays
 
-stores an ordered sequence of elements. In Solidity
+Let's start talking about another data type called array. In programming, an array is a data type that stores an ordered sequence of elements. In Solidity there are two types of array: 
 
-there are two types of array: fixed-size and dynamically-sized arrays. A fixed-size
+- fixed-size 
+- dynamically-sized arrays
 
-array has a fixed number of elements that are specified at
+A fixed-size array has a fixed number of elements that are specified at declaration and this type of array can not grow or shrink.
 
-declaration and this type of array can not grow or shrink.
+On the other hand, a dynamically-sized array does not have a fixed no. of elements and it can shrink or grow dynamically at run-time.
 
-On the other hand, a dynamically-sized array does not have a fixed no. of elements and it can shrink
+Let’s get started with fixed-size arrays. Array elements can be of any type, including int address mapping or struct. The only restriction is that all elements of array must be the same type. Let's declare an array that stores int values and has a size of 3.
 
-or grow dynamically at run-time.
+```js
+contract Property {
+  // 2. Integere type
+  uint[3] public numbers;
+}
 
-Let’s get started with fixed-size arrays. Array elements can be of any type, including int address mapping
+```
 
-or struct.
+3 the number of elements in the array public. The array is public so a getter function was automatically created. Like in any other programming language in Solidity array indexing starts from 0 as well. So, the first element of the array is at index 0. This is the first element of the array and its default value is 0.
 
-The only restriction is that all elements of array must be the same type.
+If you try to access an element of an array at an index that is negative, greater than or equal to the length of the array, you'll get an out of bounds error; for example give me the element at index 5 and I've got an error.
 
-Let's declare an array that stores int values and has a size of 3.
+To initialize an array with some specific values you can specify the values at the declaration or create a setter function that changes the elements of the array. 
 
-So uint a pair of square brackets
+So to initialize the array at declaration write: the name of the array equals and the elements between square brackets with a comma between them. For example [2, 3, 4]; by the way, this is an array literal.
 
-3 the number of elements in the array public and the name of the array: numbers The array's public
+```js
+contract Property {
+  // 2. Integere type
+  uint[3] public numbers = [2,3,4];
+}
 
-so a getter function was automatically created. I am deploying the contract to see the default value of
+```
 
-the array elements.
+I'm checking the values of the array, the element at index 0 is 2, the second element at index 1 is 3, and the last element at index 2 is, of course, 4. 
 
-An array is an ordered sequence of elements, so each element is at a position or index in the array.
+Now, I create a setter function to change the elements of the array. So function setElement, the function takes two parameters the index and the value and is a public one. And the function will change the element at the index with the value.
 
-Like in any other programming language in Solidity array indexing starts from 0 as well.
+```js
+contract Property {
+  // 2. Integere type
+  uint[3] public numbers = [2,3,4];
 
-So, the first element of the array is at index 0.
+  function setElement ( uint index, uint value) public {
+    numbers[index] = value;
+  }
 
-This is the first element of the array and its default value is 0.
+  function getLength() public view returns(uint) {
+    return number.length;
+  }
 
-This is the second element of the array at index 1 and the last element of the array at index 2.
+}
 
-If you try to access an element of an array at an index that is negative, greater than or equal to
+```
 
-the length of the array, you'll get an out of bounds error; for example
-
-give me the element at index 5 and I've got an error.
-
-To initialize an array with some specific values you can specify the values at the declaration or create
-
-a setter function that changes the elements of the array.
-
-So to initialize the array at declaration write: the name of the array equals and the elements between
-
-square brackets with a comma between them.
-
-For example [2, 3, 4]; by the way, this is an array literal.
-
-I'm deploying the new contract and I'm checking the values of the array, the element at index 0,
-
-the second element at index 1 is 3,
-
-and the last element at index 2 is, of course, 4. Now, I create a setter function to change the
-
-elements of the array.
-
-So function setElement, the function takes two parameters the index and the value and is a public
-
-one. And the function will change the element at the index with the value.
-
-So numbers[index] = value; OK, before deploying and testing the new function,
-
-let's talk about the length as well.
-
-An array has also a member called Length that stores the number of elements in the array.
-
-So I'm creating a new function that will return the length of the
-
-array function getLength()
-
-The function is public, it doesn't modify the blockchain so view and returns the length of the array,
+An array has also a member called Length that stores the number of elements in the array. So I added a new function that will return the length of the array function getLength(). The function is public, it doesn't modify the blockchain so view and returns the length of the array,
 
 so a unit; and in the function's body, I'm writing return numbers, the name of the array.length
 
@@ -1013,8 +960,33 @@ used to be an alias for bytes1
 
 So byte is an alias for bytes1 in older code.
 
+*Summary*
+
+- Has a compile-time fixed size.
+- Can store any type (int, uint, address, struct etc).
+- bytes1, bytes2, …, bytes32 store a sequence of bytes.
+- Has member called length.
 
 
+## Dynamically-sized arrays
+
+- byte[ ]
+
+- byte[ ] is an alias to bytes
+
+- string (UTF-8 encoding)
+
+- uint[ ], int[ ]
+
+- members: length and push
+
+There are 3 methods
+
+- length
+
+- push
+
+- pop
 
 
 
