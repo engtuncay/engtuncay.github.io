@@ -854,57 +854,35 @@ contract Property {
 
 ```
 
-An array has also a member called Length that stores the number of elements in the array. So I added a new function that will return the length of the array function getLength(). The function is public, it doesn't modify the blockchain so view and returns the length of the array,
-
-so a unit; and in the function's body, I'm writing return numbers, the name of the array.length
-
-the member.
+An array has also a member called Length that stores the number of elements in the array. So I added a new function that will return the length of the array function getLength(). The function is public, it doesn't modify the blockchain so view and returns the length of the array, so a unit; and in the function's body, I'm writing return numbers, the name of the array.length the member.
 
 OK, of course, here is returns, not return.
 
 I'm deploying the new contract.
 
-This is the instance, and I want to see the number of elements in the array, so the length and the
+This is the instance, and I want to see the number of elements in the array, so the length and the length is three.
 
-length is three.
-
-Now I'm changing the element at index 0.
-
-So index 0 and the element will be 100.
-
-I'm setting the element and now I'm getting the element at index 0 and it has returned 100.
+Now I'm changing the element at index 0. So index 0 and the element will be 100. I'm setting the element and now I'm getting the element at index 0 and it has returned 100.
 
 Great.
 
-As I said earlier, the elements of an array can be of any type, not just int Let's see a special type of array,
+As I said earlier, the elements of an array can be of any type, not just int Let's see a special type of array, that holds a sequence of bytes from 1 to up to 32. 
 
-that holds a sequence of bytes from 1 to up to 32.
-
-bytes1 public b1; bytes2 public b2; bytes3 public b3;
+bytes1 public b1; 
+bytes2 public b2; 
+bytes3 public b3;
 
 And we have up to bytes32
 
-Bytes1, bytes 2, bytes 3 and so on, are solidity types. Let's deployed the contract and see what
-
-are the default values of the arrays of type bytes.
+Bytes1, bytes 2, bytes 3 and so on, are solidity types. Let's deployed the contract and see what are the default values of the arrays of type bytes.
 
 I'm deploying it and I'm opening up the last contract's instance.
 
-This is b1, b2 and to b3. we see that the default value is zero, but it is shown in hexadecimal
-
-as the zero x prefix indicates. A byte consists of 8 bits and a hex digit
-
-occupies 4 bits,
-
-so a byte can be represented with 2 hexadecimal characters, 2 bytes with 4 hexadecimal, and so
-
-on.
+This is b1, b2 and to b3. we see that the default value is zero, but it is shown in hexadecimal as the zero x prefix indicates. A byte consists of 8 bits and a hex digit occupies 4 bits,so a byte can be represented with 2 hexadecimal characters, 2 bytes with 4 hexadecimal, and so on.
 
 Now I'll create a new function that will change the elements of the array of type bytes.
 
-So function setBytesArrays()
-
-and public And inside the function, I say b1 = 'a'; b2 = 'ab'; b3 = 'abc';
+So function setBytesArrays() and public And inside the function, I say b1 = 'a'; b2 = 'ab'; b3 = 'abc';
 
 Great, I'm deploying the contract to test the new function.
 
