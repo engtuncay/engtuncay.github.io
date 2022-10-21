@@ -1,4 +1,5 @@
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+<h1>Solidity</h1>
+
 - [Sources](#sources)
 - [Part 1](#part-1)
   - [Örnek Remix Projesi](#örnek-remix-projesi)
@@ -17,10 +18,16 @@
   - [30 Fixed-Size Arrays](#30-fixed-size-arrays)
   - [Dynamically-sized arrays](#dynamically-sized-arrays)
   - [Bytes and String Types](#bytes-and-string-types)
+  - [Structs and Enums](#structs-and-enums)
+  - [Enums](#enums)
 
 # Sources
 
 - Udemy Course , Master ethereum and solidity programming with real world apps , https://www.udemy.com/course/master-ethereum-and-solidity-programming-with-real-world-apps
+  
+I recommend to buy that course.
+
+
 
 # Part 1
 
@@ -965,7 +972,7 @@ bytes3 public b3;
  
 // changing an element of the array at a specific index
 function setElement(uint index, uint value) public{
-numbers[index] = value;
+  numbers[index] = value;
 }
  
 // returning the number of elements in the array
@@ -1196,80 +1203,298 @@ There are 3 methods
 
 We’ll go ahead with dynamic arrays and talk about bytes and string arrays. Variables of type bytes and string are special dynamic arrays.
 
-. String is equal to bytes but does not allow length or index access. A string is UTF-8 encoded in solidity.
+String is equal to bytes but does not allow length or index access. A string is UTF-8 encoded in solidity.
 
-I’m starting from this empty contract and I’m defining 2 dynamic arrays, one of type bytes and the other of type string.
+I’m defining 2 dynamic arrays, one of type bytes and the other of type string.
 
-, so bytes public b1 = 'abc'; and the array of type string public s1 = 'abc';
+```js
+contract BytesAndStrings {
+  bytes public b1 = 'abc';
+  string public s1 = 'abc';
+}
+```
 
+As a rule of thumb, use bytes for arbitrary-length raw byte data and string for arbitrary-length string UTF-8 encoded data. And I’m deploying the contract and checking the values of the arrays.
 
+b1 is 0x616263 and s1 is abc.
 
-As a rule of thumb, use bytes for arbitrary-length raw byte data and string for arbitrary-length string
+And we notice that the values of the bytes array are displayed in hexadecimal, 61, 62, and 63 being the hex ASCII codes for a, b and c. And the string is displayed normally as a UTF-8 encoded string.
 
-UTF-8 encoded data. And I’m deploying the contract and checking the values of the arrays.
+One difference between bytes and string is that we can not add elements to a string variable, as we can to a variable of type bytes.
 
-This is b1 and this is s1.
+```js
+contract BytesAndStrings {
+  bytes public b1 = 'abc';
+  string public s1 = 'abc';
 
-And we notice that the values of the bytes array are displayed in hexadecimal, 61, 62, and 63 being the hex
+  function addElement() public { 
+    b1.push('x'); 
+  }
+}
+```
 
-ASCII codes for a, b and c. And the string is displayed normally as a UTF-8 encoded string.
+I've added an element to the end of the byte's array, but if I try to do the same for the string array, I'll get an error.
 
-One difference between bytes and string is that we can not add elements to a string variable, as we can
-
-to a variable of type bytes.
-
-So I'm creating a functionaddElement(): function addElement() public{ and I'm writing b1
-
-.push let's say ('x'); I've added an element to the end of the byte's
-
-array, but if I try to do the same for the string array, I'll get an error.
-
-So as.push ('x') is an error.
-
-Member push not found or not visible after argument dependent
-
-look up in string storage; let's test it.
+if I write s1.push('x'), then i get an error : Member push not found or not visible after argument dependent look up in string storage;
 
 I'm deploying the contract and checking the b1 array.
 
-It was initialized with a, b, and c in hexadecimal, and I'm adding an element, the element ('x');
+It was initialized with a, b, and c in hexadecimal, and I'm adding an element, the element ('x'); 
 
-Now, the value of ('x'), which is 78 in hexadecimal, was added. Another particularity of byte's arrays is
+Now, the value of ('x'), which is 78 in hexadecimal, was added. (0x61626378)
 
-that it's possible to access the elements of the array using indexing.
+- Another particularity of byte's arrays is that it's possible to access the elements of the array using indexing.
 
-So function getEelement
+```js
+contract BytesAndStrings {
+  bytes public b1 = 'abc';
+  string public s1 = 'abc';
 
-(uint i) public view returns
+  function addElement() public { 
+    b1.push('x'); 
+  }
 
-(bytes1){
+  getEelement (uint i) public view returns (bytes1){
+    return b1[i];
+  }
 
-So the function will return an element of the array, which is a byte.
+}
+```
 
-So return b1[i]; I but if I try return s1[i]; I'll get an error Index access for string is
+So getElement function will return an element of the array, which is a byte. However if I try return s1[i]; I'll get an error : Index access for string is not possible.
 
-not possible.
+- Finally, we can get the length of a bytes array using the length member, but we can not get the the length of a string.
 
-And finally, we can get the length of a bytes array using the length member, but we can not get the
+```js
+contract BytesAndStrings {
+  bytes public b1 = 'abc';
+  string public s1 = 'abc';
 
-the length of a string.
+  function addElement() public { 
+    b1.push('x'); 
+  }
 
-function getLength()
+  getEelement (uint i) public view returns (bytes1){
+    return b1[i];
+  }
 
-public view returns (uint){
+  function getLength() public view returns (uint){
+    return b1.length;
+  }
 
-and return b1.length;
+}
+```
 
-This is possible, but I cannot return the length of a string, so return s1.length; will trigger
+This is possible, but I cannot return the length of a string, so return s1.length; will trigger an error: Member ‘length’ not found or not visible for strings.
 
-an error: Member ‘length’ not found or not visible for strings.
-
-Note that the bytes and strings are reference types, not of value types, and also pay attention
-
-that fixed size arrays use less gas than dynamic arrays.
+- Note that the bytes and strings are reference types, not of value types, and also pay attention that fixed size arrays use less gas than dynamic arrays.
 
 So they are better for the situations when the length of the array is known in advance.
 
+## Structs and Enums
+
+In the following lectures, we talk about structs, mappings, and enums. Structs provide a way to define new data types.
+
+It introduces a new complex data type that is composed of other elementary data types.
+
+Structs are used to represent a singular thing that has properties such as a car, a person, a request, an auction or a campaign. A struct can be declared outside or inside of a contract; declaring a struct outside of a contract allows it to be shared by multiple contacts.
+
+Let's declare such a struct: 
+
+```js
 
 
 
+
+```
+
+
+struct the name of the type, let's say instructor, a pair of curly braces
+
+and the elements of the struct uint age
+
+so an instructor has an agt string name;
+
+he has a name and an address.
+
+Of course, an Ethereum address addr;
+
+This is the new type and I'm creating two contracts in the same Solidity file: academy and school.
+
+So contract Academy, the first contract and the second one School Being declared outside of the contract
+
+I can declare a variable of type instructor, my newly created type in each contract.
+
+So, instructor, the type, public and the name of the variable academyInstructor and the same for the
+
+school contact: Instructor public schoolInstructor.
+
+Now I'm initializing the struct variable using the constructor.
+
+So constructor
+
+and the following parameters
+
+(uint _age, string memory _name){ and that's all; Academy instructor, so structe variable
+
+.age=_age the function parameter academyInstructor
+
+.name = _name; and the academy instructor
+
+.address
+
+in fact .addr
+
+This is the name of the member = msg.sender;
+
+So the address that deploys the contract.
+
+Before testing the contract, I'll declare a new function called changeInstructor to show you how
+
+to modify a struct variable.
+
+So function changeInstructorn and the parameters are (uint _age, string memory _
+
+name, address
+
+_addr)
+
+and the function is public{
+
+By default struct references storage. I'm creating a new temporary memory struct initializing it with
+
+the given values and copying it to the storage struct, the state variable of the contract.
+
+So I'm declaring a new memory variable of type struct Instructor memory let's say, myInstructor,
+
+the name of the variable =
+
+and this is how you initialize a struct variable.
+
+So the name of the struct instructor, a pair of parentheses, a semicolon, and inside the parentheses,
+
+a pair of curly braces, like this, and then age: _age, name: _name,
+
+and addr: _addr And a comma is not required after the last member initialization.
+
+And I'm copying the memory struct variable to the storage one, so academyInstructor the sorage variable
+
+= instructor;
+
+Now I'm testing it.
+
+I'm deploying the contract.
+
+I'm giving 2 arguments to the constructor, so age 30
+
+and the name, let's say Dan and I'm deploying it.
+
+OK, it was deployed.
+
+And I can click academyInstructor to see the struct.
+
+And this is the struct age=30 name=Dan and a addr is the address of the account
+
+that deployed the contract.
+
+It starts with capital Ab8
+
+Capitally Ab8
+
+Now, let's change the struct.
+
+So the new age 40, name will be Paul, and I'll paste a random Ethereum address.
+
+Let's take the address of this accont.
+
+You can write to the address between double quotes.
+
+And I'm clicking changeInstructor
+
+The transaction was executed successfully, and I want to see the new struct value.
+
+And it was changed, see the new values.
+
+So I've shown you how to declare, initialize and change a struct variable.
+
+Summary
+
+● A struct is a collection of key->value pairs;
+
+● A struct introduces a new complex data type, that is composed of elementary data types;
+
+● Structs are used to represent a singular thing that has properties such as a Car, a Person,
+a Request and so on and we use mappings to represent a collection of things like a
+collection of Cars, Requests etc;
+
+● A struct is saved in storage and if declared inside a function it references storage by default;
+
+Example:
+ 
+ struct Car{
+ string brand;
+ uint price;
+}
+
+
+## Enums
+
+Let's go ahead and talk about enums. Enums are one way of creating a user-defined type in Solidity.
+
+They are explicitly convertible to and from all integer types
+
+but implicit conversion is not allowed. By the way, the word enum stands for enumerate.
+
+Enums are especially useful when we need to specify the current state or flow of a smart contract.
+
+For instance, if a smart contract needs to be turned on in order to be ready to accept deposits from
+
+users.
+
+So let's create a new user defined type; the syntax is the same as in C language.
+
+I'll declare it in the contract, but enums can also be declared at the file level outside of a contract.
+
+So enum the name of the new user defined type, let's say State, and a pair of curly braces and between
+
+curly braces {Open, Closed, Unknown} Note that you don't need to end an enum with a semicolon
+
+Think of enums as user-defined types that contain human-readable names for a set of constants, called members.
+
+And I’m declaring a new public state variable of type state: let's say State the type public academyState
+
+and I'm initializing the variable this way
+
+= State.Open;
+
+And in the changeInstructor function, I'll test the academyState variable before modifying the instructor's
+
+data.
+
+So I'm changing the instructor's data only if the academy is open.
+
+So here I'm writing: if academyState = State.Open;
+
+A pair of curly braces and I am indenting this code, so the code below the if statement.
+
+OK, that was the syntax., We’ll use enums in every smart contract we’ll develop so you'll have
+
+opportunity to dive deeper into them.
+
+
+
+**Summary**
+
+● Enums are used to create user-defined types;
+
+● Enums are explicitly convertible to and from integer;
+
+● Enums are user defined types that contain human readable names for a set of constants,
+called members.
+
+Example:
+ enum State {Open, Closed, Active, Unknown}
+ State public academyState = State.Active;
+
+
+ 
