@@ -1,4 +1,5 @@
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+<h1>Solidity</h1>
+
 - [Sources](#sources)
 - [Part 1](#part-1)
   - [Örnek Remix Projesi](#örnek-remix-projesi)
@@ -16,10 +17,17 @@
   - [29 SafeMath, Overflows and Underflows](#29-safemath-overflows-and-underflows)
   - [30 Fixed-Size Arrays](#30-fixed-size-arrays)
   - [Dynamically-sized arrays](#dynamically-sized-arrays)
+  - [Bytes and String Types](#bytes-and-string-types)
+  - [Structs and Enums](#structs-and-enums)
+  - [Enums](#enums)
 
 # Sources
 
 - Udemy Course , Master ethereum and solidity programming with real world apps , https://www.udemy.com/course/master-ethereum-and-solidity-programming-with-real-world-apps
+  
+I recommend to buy that course.
+
+
 
 # Part 1
 
@@ -868,53 +876,64 @@ Great.
 
 As I said earlier, the elements of an array can be of any type, not just int Let's see a special type of array, that holds a sequence of bytes from 1 to up to 32. 
 
-bytes1 public b1; 
-bytes2 public b2; 
-bytes3 public b3;
+```js
+contract Property {
+  // 2. Integere type
+  uint[3] public numbers = [2,3,4];
 
-And we have up to bytes32
+  bytes1 public b1; 
+  bytes2 public b2; 
+  bytes3 public b3;
+  // .. upto bytes32
 
-Bytes1, bytes 2, bytes 3 and so on, are solidity types. Let's deployed the contract and see what are the default values of the arrays of type bytes.
+  function setElement (uint index, uint value) public {
+    numbers[index] = value;
+  }
+
+  function getLength() public view returns(uint) {
+    return number.length;
+  }
+
+}
+
+```
+
+And we have up to bytes3. bytes1, bytes2, bytes3 and so on, are solidity types. Let's deployed the contract and see what are the default values of the arrays of type bytes.
 
 I'm deploying it and I'm opening up the last contract's instance.
 
-This is b1, b2 and to b3. we see that the default value is zero, but it is shown in hexadecimal as the zero x prefix indicates. A byte consists of 8 bits and a hex digit occupies 4 bits,so a byte can be represented with 2 hexadecimal characters, 2 bytes with 4 hexadecimal, and so on.
+![](./img/sol/byte-def-value.png)
+
+This is b1, b2 and to b3. we see that the default value is zero, but it is shown in hexadecimal as 0x prefix indicates. A byte consists of 8 bits and a hex digit occupies 4 bits,so a byte can be represented with 2 hexadecimal characters, 2 bytes with 4 hexadecimal, and so on.
 
 Now I'll create a new function that will change the elements of the array of type bytes.
 
-So function setBytesArrays() and public And inside the function, I say b1 = 'a'; b2 = 'ab'; b3 = 'abc';
+```js
+  function setBytesArray() public {
+    b1= 'a';
+    b2= 'ab';
+    b3= 'abc';
 
-Great, I'm deploying the contract to test the new function.
+}
+```
 
-The contract was deployed successfully and I'm opening up the last instance.
-
-So I'm calling the setBytesArrays function.
+Great, I'm deploying the contract to test the new function. So I'm calling the setBytesArrays function.
 
 The transaction was successfully mined and I want to see the values of b1, b2 and b3.
 
+![](./img/sol/byte-values-utf8.png)
+
 So b1 is 0x61, b2 is 0x6162 and b3 is 0x 616263.
 
-The characters were encoded in UTF-8, which is a superset of ASCII, and are shown as hexadecimal
-
-values.
-
-Let’s search for an ASCII table on Google to check it!
-
-Take a look here.
-
-the hex ASCII codes for a, b and c are 61, 62, and 63 like it’s shown when calling the function in Remix.
+The characters were encoded in UTF-8, which is a superset of ASCII, and are shown as hexadecimal values.
 
 We see here the ASCII code of a, b and c.
 
-Now, if an array is initialized with a value that does not occupy the entire space, padding is aided
+![](./img/sol/byte-ascii-table.png)
 
-by default to the end.
+the hex ASCII codes for a, b and c are 61, 62, and 63 like it’s shown when calling the function in Remix.
 
-So I'm changing b3=z
-
-By the way, the ASCII code for z is 7A
-
-in hexadecimal.
+Now, if an array is initialized with a value that does not occupy the entire space, padding is aided by default to the end. So I'm changing b3='z'. By the way, the ASCII code for z is 7A in hexadecimal.
 
 Keep in mind, 7A; and I am deploying the new contract.
 
@@ -922,40 +941,252 @@ I'm clicking setBytesArrays to change the values, and I want to see the value of
 
 And we 0x7a0000 the ASCII code for Z and then lots of zeros, this is the padding.
 
-Also note that using indexing you cannot modify single bytes in fixed bytes arrayes.
+Also note that using indexing you cannot modify single bytes in fixed bytes arrayes. 
 
-So b3[0]
+So b3[0] This is the first byte or the byte at Index 0 cannot be modified.
 
-This is the first byte or the byte at Index 0 cannot be modified.
+![](./img/sol/byte-single-bytes-in-fixed-byte-arrays.png)
 
 This is a compilation error.
 
 This is not permitted in Solidity; single bytes in fixed bytes arrays cannot be modified.
 
-If you see some older code, you should be aware that prior to version 0.8.0 byte
-
-used to be an alias for bytes1
+If you see some older code, you should be aware that prior to version 0.8.0, byte used to be an alias for bytes1
 
 So byte is an alias for bytes1 in older code.
 
+```js
+//SPDX-License-Identifier: GPL-3.0
+ 
+pragma solidity >=0.5.0 <0.9.0;
+ 
+contract FixedSizeArrays{
+// declaring a fixed-size array of type uint with 3 elements
+uint[3] public numbers = [2, 3, 4];
+ 
+// declaring fixed-size arrays of type bytes
+bytes1 public b1;
+bytes2 public b2;
+bytes3 public b3;
+//.. up to bytes32
+ 
+// changing an element of the array at a specific index
+function setElement(uint index, uint value) public{
+  numbers[index] = value;
+}
+ 
+// returning the number of elements in the array
+function getLength() public view returns(uint){
+return numbers.length;
+}
+ 
+// setting bytes arrays
+function setBytesArray() public{
+b1 = 'a'; // => 0x61 (ASCII code of `a` in hex)
+b2 = 'ab'; // => 0x6162
+b3 = 'z'; // => 0x7A
+// b3[0] = 'a'; // ERROR => can not change individual bytes
+ 
+// byte is an alias for bytes1 on older code
+}
+}
+
+```
+
 *Summary*
+
+**Fixed-Size Arrays**
 
 - Has a compile-time fixed size.
 - Can store any type (int, uint, address, struct etc).
 - bytes1, bytes2, …, bytes32 store a sequence of bytes.
 - Has member called length.
 
-
 ## Dynamically-sized arrays
 
+Welcome back!
+
+In this lecture, we'll discuss dynamically-sized arrays. Dynamic arrays refer to arrays that do not have a predetermined size at the time of declaration. Their size is determined at runtime.
+
+Let’s create a dynamic array that holds elements of type uint. Note that a dynamic array can hold elements of any type.
+
+So the type uint a pair of square brackets, the visibility specified and the name of the array numbers.
+
+A dynamic array has 3 members: length, push, and pop.
+
+Let’s take them one by one! Length contains the number of elements in the array.
+
+Let's create a function that returns the number of elements in the array.
+
+
+
+
+
+So So function getLength() public view returns (uint){ and the function,s body is r return numbers
+
+.length its member
+
+Another member function of a dynamic array is push() and it appends an element to the end of the array.
+
+I'm creating such a function: function addElement
+
+(uint item) this is the element that will be appended in public{
+
+numbers.push(item);
+
+It's pushing the item to the end of the number's array.
+
+The contract was compiled successfully and I am deploying it.
+
+If a variable is public, like our dynamic, a getter function is automatically created.
+
+So let's see the length of the array.
+
+And there are no elements in the array, so its length is zero.
+
+Now I'm adding a few elements.
+
+10
+
+The second element, 20 and the third element, 30.
+
+Let's see its length and its length is three.
+
+Now let's fetch the elements of the array, the element at index 0, the element at index 1, end
+
+2. Great! If a variable is public, like our dynamical array, a getter function was
+
+automatically created.
+
+I've already used that getter when I've fetched the elements of the array, but we could optimize it by
+
+adding some tests; for example, at the moment, if I access some element using an index greater than
+
+or equal to the length of the array
+
+I'll get them out of bounds error.
+
+For example, I say give me the element at index 10 and I've got an error.
+
+The call failed.
+
+So I'm creating a new function, and an optimized one, called getElement: function getElement
+
+the parameters of the function is the index uint i
+
+so it will be talking to the element at index I public view returns(uint){ it returns an element of
+
+type uint. And inside the function, I'm writing if (i < numbers.length){
+
+So if there is a valid index or the index is less the the array's length then I'll return the element
+
+return
+
+numbers [i]; so the element at index i. There is an warning because I have to add an explicit return for
+
+all branches, or for all cold paths.
+
+So here, if i is equal to or greater than numbers.length I'll return 0,
+
+I have to return something.
+
+Let's test the new function. I'm deploying the new contract.
+
+I'm adding two elements and I'm trying to fetch an element from a nonexisting index ,or from an index greater
+
+than the array's size.
+
+So I'm saying give me the element at index 10.
+
+And there is no error.
+
+It returned 0.
+
+Another member of a dynamic array, except strings, which are a special type of dynamic array, is pop.
+
+Pop is a function that removes an element from the end of the array.
+
+I'm creating such a function, so function popElement
+
+public
+
+And inside the function numbers.pop
+
+I'm deploying the contract and testing the new function.
+
+This is the last instance.
+
+I'm adding a few elements 3,4,5,6
+
+and 7. There are five elements in the array and I want to pop or to remove the last element.
+
+The transaction was executed successfully and now there are four elements in the array, the last element,
+
+7 was removed.
+
+So the last element at index 3 is 6.
+
+Note that increasing the length of a storage array by calling push() has constant gas costs because storage is
+
+zero-initialized, while decreasing the length by calling pop() has a cost that depends on the “size” of the
+
+element being removed.
+
+Note that since Solidity 0.6 it’s not possible to resize storage arrays and array.length
+
+is read-only.
+
+The reason behind this is to prevent storage collisions of very large storage arrays.
+
+Besides the storage arrays we’ve just seen, there’s another kind of array called memory arrays. The keyword
+
+new creates a dynamic memory array;
+
+Let's create a function that uses a memory array.
+
+OK.
+
+So function f() public { and I'm declaring a memory uint
+
+a pair of square brackets [] memory y = new uint
+
+[](3);
+
+By the way, I can set the function mutability to pure because it doesn't use the blockchain. As opposed
+
+to storage arrays
+
+iIt is not possible to resize memory arrays
+
+so the push and pop member functions are not available.
+
+You either have to calculate the required size in advance or create a new memory array and copy every
+
+element.
+
+So I'm initializing the three elements of the array with some random values.
+
+So y[0] = 10; y[1] = 20; y[2] = 30;
+
+And I’m assigning the memory array to the storage array.
+
+All right, so numbers = y;
+
+Of course, if I do that, I have to remove the pure key word because the function modifies the blocking, modifies
+
+the state variable, so I'm removing it.
+
+We are taking a short break
+
+and in the next lecture, we'll discuss bytes and strings, which are special dynamic arrays.
+
+
+Summary
+
 - byte[ ]
-
 - byte[ ] is an alias to bytes
-
 - string (UTF-8 encoding)
-
 - uint[ ], int[ ]
-
 - members: length and push
 
 There are 3 methods
@@ -968,6 +1199,302 @@ There are 3 methods
 
 
 
+## Bytes and String Types
+
+We’ll go ahead with dynamic arrays and talk about bytes and string arrays. Variables of type bytes and string are special dynamic arrays.
+
+String is equal to bytes but does not allow length or index access. A string is UTF-8 encoded in solidity.
+
+I’m defining 2 dynamic arrays, one of type bytes and the other of type string.
+
+```js
+contract BytesAndStrings {
+  bytes public b1 = 'abc';
+  string public s1 = 'abc';
+}
+```
+
+As a rule of thumb, use bytes for arbitrary-length raw byte data and string for arbitrary-length string UTF-8 encoded data. And I’m deploying the contract and checking the values of the arrays.
+
+b1 is 0x616263 and s1 is abc.
+
+And we notice that the values of the bytes array are displayed in hexadecimal, 61, 62, and 63 being the hex ASCII codes for a, b and c. And the string is displayed normally as a UTF-8 encoded string.
+
+One difference between bytes and string is that we can not add elements to a string variable, as we can to a variable of type bytes.
+
+```js
+contract BytesAndStrings {
+  bytes public b1 = 'abc';
+  string public s1 = 'abc';
+
+  function addElement() public { 
+    b1.push('x'); 
+  }
+}
+```
+
+I've added an element to the end of the byte's array, but if I try to do the same for the string array, I'll get an error.
+
+if I write s1.push('x'), then i get an error : Member push not found or not visible after argument dependent look up in string storage;
+
+I'm deploying the contract and checking the b1 array.
+
+It was initialized with a, b, and c in hexadecimal, and I'm adding an element, the element ('x'); 
+
+Now, the value of ('x'), which is 78 in hexadecimal, was added. (0x61626378)
+
+- Another particularity of byte's arrays is that it's possible to access the elements of the array using indexing.
+
+```js
+contract BytesAndStrings {
+  bytes public b1 = 'abc';
+  string public s1 = 'abc';
+
+  function addElement() public { 
+    b1.push('x'); 
+  }
+
+  getEelement (uint i) public view returns (bytes1){
+    return b1[i];
+  }
+
+}
+```
+
+So getElement function will return an element of the array, which is a byte. However if I try return s1[i]; I'll get an error : Index access for string is not possible.
+
+- Finally, we can get the length of a bytes array using the length member, but we can not get the the length of a string.
+
+```js
+contract BytesAndStrings {
+  bytes public b1 = 'abc';
+  string public s1 = 'abc';
+
+  function addElement() public { 
+    b1.push('x'); 
+  }
+
+  getEelement (uint i) public view returns (bytes1){
+    return b1[i];
+  }
+
+  function getLength() public view returns (uint){
+    return b1.length;
+  }
+
+}
+```
+
+This is possible, but I cannot return the length of a string, so return s1.length; will trigger an error: Member ‘length’ not found or not visible for strings.
+
+- Note that the bytes and strings are reference types, not of value types, and also pay attention that fixed size arrays use less gas than dynamic arrays.
+
+So they are better for the situations when the length of the array is known in advance.
+
+## Structs and Enums
+
+In the following lectures, we talk about structs, mappings, and enums. Structs provide a way to define new data types.
+
+It introduces a new complex data type that is composed of other elementary data types.
+
+Structs are used to represent a singular thing that has properties such as a car, a person, a request, an auction or a campaign. A struct can be declared outside or inside of a contract; declaring a struct outside of a contract allows it to be shared by multiple contacts.
+
+Let's declare such a struct: 
+
+```js
 
 
 
+
+```
+
+
+struct the name of the type, let's say instructor, a pair of curly braces
+
+and the elements of the struct uint age
+
+so an instructor has an agt string name;
+
+he has a name and an address.
+
+Of course, an Ethereum address addr;
+
+This is the new type and I'm creating two contracts in the same Solidity file: academy and school.
+
+So contract Academy, the first contract and the second one School Being declared outside of the contract
+
+I can declare a variable of type instructor, my newly created type in each contract.
+
+So, instructor, the type, public and the name of the variable academyInstructor and the same for the
+
+school contact: Instructor public schoolInstructor.
+
+Now I'm initializing the struct variable using the constructor.
+
+So constructor
+
+and the following parameters
+
+(uint _age, string memory _name){ and that's all; Academy instructor, so structe variable
+
+.age=_age the function parameter academyInstructor
+
+.name = _name; and the academy instructor
+
+.address
+
+in fact .addr
+
+This is the name of the member = msg.sender;
+
+So the address that deploys the contract.
+
+Before testing the contract, I'll declare a new function called changeInstructor to show you how
+
+to modify a struct variable.
+
+So function changeInstructorn and the parameters are (uint _age, string memory _
+
+name, address
+
+_addr)
+
+and the function is public{
+
+By default struct references storage. I'm creating a new temporary memory struct initializing it with
+
+the given values and copying it to the storage struct, the state variable of the contract.
+
+So I'm declaring a new memory variable of type struct Instructor memory let's say, myInstructor,
+
+the name of the variable =
+
+and this is how you initialize a struct variable.
+
+So the name of the struct instructor, a pair of parentheses, a semicolon, and inside the parentheses,
+
+a pair of curly braces, like this, and then age: _age, name: _name,
+
+and addr: _addr And a comma is not required after the last member initialization.
+
+And I'm copying the memory struct variable to the storage one, so academyInstructor the sorage variable
+
+= instructor;
+
+Now I'm testing it.
+
+I'm deploying the contract.
+
+I'm giving 2 arguments to the constructor, so age 30
+
+and the name, let's say Dan and I'm deploying it.
+
+OK, it was deployed.
+
+And I can click academyInstructor to see the struct.
+
+And this is the struct age=30 name=Dan and a addr is the address of the account
+
+that deployed the contract.
+
+It starts with capital Ab8
+
+Capitally Ab8
+
+Now, let's change the struct.
+
+So the new age 40, name will be Paul, and I'll paste a random Ethereum address.
+
+Let's take the address of this accont.
+
+You can write to the address between double quotes.
+
+And I'm clicking changeInstructor
+
+The transaction was executed successfully, and I want to see the new struct value.
+
+And it was changed, see the new values.
+
+So I've shown you how to declare, initialize and change a struct variable.
+
+Summary
+
+● A struct is a collection of key->value pairs;
+
+● A struct introduces a new complex data type, that is composed of elementary data types;
+
+● Structs are used to represent a singular thing that has properties such as a Car, a Person,
+a Request and so on and we use mappings to represent a collection of things like a
+collection of Cars, Requests etc;
+
+● A struct is saved in storage and if declared inside a function it references storage by default;
+
+Example:
+ 
+ struct Car{
+ string brand;
+ uint price;
+}
+
+
+## Enums
+
+Let's go ahead and talk about enums. Enums are one way of creating a user-defined type in Solidity.
+
+They are explicitly convertible to and from all integer types
+
+but implicit conversion is not allowed. By the way, the word enum stands for enumerate.
+
+Enums are especially useful when we need to specify the current state or flow of a smart contract.
+
+For instance, if a smart contract needs to be turned on in order to be ready to accept deposits from
+
+users.
+
+So let's create a new user defined type; the syntax is the same as in C language.
+
+I'll declare it in the contract, but enums can also be declared at the file level outside of a contract.
+
+So enum the name of the new user defined type, let's say State, and a pair of curly braces and between
+
+curly braces {Open, Closed, Unknown} Note that you don't need to end an enum with a semicolon
+
+Think of enums as user-defined types that contain human-readable names for a set of constants, called members.
+
+And I’m declaring a new public state variable of type state: let's say State the type public academyState
+
+and I'm initializing the variable this way
+
+= State.Open;
+
+And in the changeInstructor function, I'll test the academyState variable before modifying the instructor's
+
+data.
+
+So I'm changing the instructor's data only if the academy is open.
+
+So here I'm writing: if academyState = State.Open;
+
+A pair of curly braces and I am indenting this code, so the code below the if statement.
+
+OK, that was the syntax., We’ll use enums in every smart contract we’ll develop so you'll have
+
+opportunity to dive deeper into them.
+
+
+
+**Summary**
+
+● Enums are used to create user-defined types;
+
+● Enums are explicitly convertible to and from integer;
+
+● Enums are user defined types that contain human readable names for a set of constants,
+called members.
+
+Example:
+ enum State {Open, Closed, Active, Unknown}
+ State public academyState = State.Active;
+
+
+ 
