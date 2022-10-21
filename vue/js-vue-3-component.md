@@ -311,10 +311,110 @@ we got a even more reusable component.
 
 ## Emitting Custom Events (Child => Parent Communication)
 
+FriendContact component toggle-favorite event'ını trigger edileceği tanımlanır (emit property de), herhangi bir yerden toggle-favorite trigger edilir. emit yaparken beraber gönderilecek argumanlar da belirtilir.
 
+*FriendContact.vue*
 
+```html
+<template>
+  <li>
+    <h2>{{ name }} {{ isFavorite ? '(Favorite)' : ''}}</h2>
+    <button @click="toggleFavorite">Toggle Favorite</button>
+    <!-- .... -->
+  </li>
+</template>
 
+<script>
+export default {
+  props: /* ... */,
+  },
+  emits: ['toggle-favorite'],
+  // emits: {
+  //   'toggle-favorite': function(id) {
+  //     if (id) {
+  //       return true;
+  //     } else {
+  //       console.warn('Id is missing!');
+  //       return false;
+  //     }
+  //   } 
+  // },
+  data() {
+    return {
+      detailsAreVisible: false
+    };
+  },
+  methods: {
+    toggleDetails() {
+      this.detailsAreVisible = !this.detailsAreVisible;
+    },
+    toggleFavorite() {
+      /* toggle-favorite event triggered */
+      this.$emit('toggle-favorite', this.id);
+    },
+  },
+};
+</script>
+```
 
+- App.vue içerisinde friend-contact component'i içerisinden toggle-favorite event'ını dinleme olacağı tanımlar. friend-contact component elementine event binding yaparak yönlendirme (binding) yapar.
+
+*App.vue*
+
+```html
+<template>
+  <section>
+    <header>
+      <h1>My Friends</h1>
+    </header>
+    <ul>
+      <friend-contact
+        v-for="friend in friends"
+        :key="friend.id"
+        :id="friend.id"
+        :name="friend.name"
+        :phone-number="friend.phone"
+        :email-address="friend.email"
+        :is-favorite="friend.isFavorite"
+        @toggle-favorite="toggleFavoriteStatus" 
+      ></friend-contact>
+    </ul>
+  </section>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      friends: [
+        {
+          id: 'manuel',
+          name: 'Manuel Lorenz',
+          phone: '0123 45678 90',
+          email: 'manuel@localhost.com',
+          isFavorite: true,
+        },
+        {
+          id: 'julie',
+          name: 'Julie Jones',
+          phone: '0987 654421 21',
+          email: 'julie@localhost.com',
+          isFavorite: false,
+        },
+      ],
+    };
+  },
+  methods: {
+    toggleFavoriteStatus(friendId) {
+      const identifiedFriend = this.friends.find(
+        (friend) => friend.id === friendId
+      );
+      identifiedFriend.isFavorite = !identifiedFriend.isFavorite;
+    },
+  },
+};
+</script>
+```
 
 
 
