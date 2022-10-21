@@ -3,6 +3,10 @@
 - [Component Communication](#component-communication)
   - [Props Kullanımı](#props-kullanımı)
   - [Prop Behavior and Changing Props](#prop-behavior-and-changing-props)
+  - [Validating Props (Required,Validation)](#validating-props-requiredvalidation)
+  - [Supported Prop Values](#supported-prop-values)
+  - [Dynamic Prop Values](#dynamic-prop-values)
+  - [Emitting Custom Events (Child => Parent Communication)](#emitting-custom-events-child--parent-communication)
 - [B4 Component Structure (Vue 2)](#b4-component-structure-vue-2)
   - [4-1 Global vs Local Component](#4-1-global-vs-local-component)
     - [Global Component](#global-component)
@@ -134,11 +138,178 @@ export default {
 
 v93-end
 
+## Validating Props (Required,Validation)
+
+Proplara detaylı şekilde tanımlama yapabiliriz. Tür kısıtı koyabiliriz.
+
+```javascript
+// FriendContact.vue
+<script>
+export default {
+  // props : ['name','phoneNumber','emailAddress','isFavorite'],
+  props : {
+    name: {
+      type: String,
+      required: true,
+    },  // instead of name: String,
+    phoneNumber : {
+      type: String,
+      required: true,
+    },
+    emailAddress: {
+      type: String,
+      required: true,
+    },
+    isFavorite : {
+      type: String,
+      required: false,
+      default:'0'
+      validator: function (value) {
+        return value==='1' || value==='0';
+      }
+    } 
+
+  }
+  data() {
+    return {
+      /* ... */
+      friendIsFavorite : this.isFavorite
+    };
+  },
+  methods: {
+    /* ... */
+  }
+};
+</script>
+```
+
+For example , if we dont give a email-address , we get error : missing required prop name.
 
 
+## Supported Prop Values
 
+In general, you can learn all about prop validation in the official docs: https://v3.vuejs.org/guide/component-props.html
 
+Specifically, the following value types (type property) are supported:
 
+String,Number,Boolean,Array,Object,Date,Function,Symbol
+
+But type can also be any constructor function (built-in ones like Date or custom ones).
+
+## Dynamic Prop Values
+
+We can also bind variable to prop value.
+
+*App.vue*
+
+```js
+<template>
+  <section>
+    <header>
+      <h1>My Friends</h1>
+    </header>
+    <ul>
+      <friend-contact
+        v-for="friend in friends"
+        :key="friend.id"
+        :name="friend.name"
+        :phone-number="friend.phone"
+        :email-address="friend.email"
+        :is-favorite="true" /* if we convert its prop type to boolean , we couldnt pass string value */
+      ></friend-contact>
+    </ul>
+  </section>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      friends: [
+        {
+          id: 'manuel',
+          name: 'Manuel Lorenz',
+          phone: '0123 45678 90',
+          email: 'manuel@localhost.com',
+        },
+        {
+          id: 'julie',
+          name: 'Julie Jones',
+          phone: '0987 654421 21',
+          email: 'julie@localhost.com',
+        },
+      ],
+    };
+  },
+};
+</script>
+```
+
+*FriendContact.vue*
+```html
+<template>
+  <li> <!-- prop values used in string interpolation -->
+    <h2>{{ name }} {{ friendIsFavorite ? '(Favorite)' : ''}}</h2>
+    <button @click="toggleFavorite">Toggle Favorite</button>
+    <button @click="toggleDetails">{{ detailsAreVisible ? 'Hide' : 'Show' }} Details</button>
+    <ul v-if="detailsAreVisible">
+      <li>
+        <strong>Phone:</strong>
+        {{ phoneNumber }}
+      </li>
+      <li>
+        <strong>Email:</strong>
+        {{ emailAddress }}
+      </li>
+    </ul>
+  </li>
+</template>
+
+<script>
+export default {
+  // props: ['name', 'phoneNumber', 'emailAddress', 'isFavorite'],
+  props: {
+    name: {
+      type: String,
+      required: true,
+    },
+    phoneNumber: {
+      type: String,
+      required: true
+    },
+    emailAddress: {
+      type: String,
+      required: true
+    },
+    isFavorite: {
+      type: Boolean,
+      required: false,
+      default: false,
+      // validator removed cos of boolean type
+    },
+  },
+  data() {
+    return {
+      detailsAreVisible: false,
+      friendIsFavorite: this.isFavorite,
+    };
+  },
+  methods: {
+    toggleDetails() {
+      this.detailsAreVisible = !this.detailsAreVisible;
+    },
+    // we updated here,now it is boolean.
+    toggleFavorite() {
+      this.friendIsFavorite = !this.friendIsFavorite;
+    },
+  },
+};
+</script>
+```
+
+we got a even more reusable component.
+
+## Emitting Custom Events (Child => Parent Communication)
 
 
 
