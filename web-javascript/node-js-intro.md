@@ -210,20 +210,20 @@ Great call on upgrade vs update, since that is exactly what it is doing! Version
 
 - Developer paket yükleme
 
-```js
+```bash
+# i -> install
 npm i -D vue-svg-loader vue-template-compiler
- 
-yarn add --dev vue-svg-loader vue-template-compiler
+# or (-D veya --dev kullanılır)
+yarn add -D vue-svg-loader vue-template-compiler
 ```
 
-yarn komutunda --dev yerine -D kullanılabilir.
-
-
-As always, use global flag with care.
+yarn komutunda -D yerine --dev kullanılabilir. As always, use global flag with care.
 
 You can use this to use yarn to update itself with 
 
+```bash
 yarn self-update
+```
 
 The packages are the same as on the NPM registry. Yarn is basically a new installer, where NPM structure and registry is the same.
 
@@ -241,7 +241,9 @@ npm install --production === yarn --production
 
 - Things yarn has that NPM doesn’t
 
-I’m skipping the items that they warn against using like yarn clean
+I’m skipping the items that they warn against using like 
+
+yarn clean
 
 yarn licenses ls — Allows you to inspect the licenses of your dependencies
 
@@ -252,6 +254,7 @@ yarn why taco — Identify why ‘taco’ package is installed, detailing which 
 - yarn upgrade-interactive 
 
 Allows you to selectively upgrade specific packages in a simple way
+
 
 # Bölüm 12 - Express Framework
 
