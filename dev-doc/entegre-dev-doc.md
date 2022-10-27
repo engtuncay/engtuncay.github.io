@@ -11,8 +11,6 @@ Java Fx ile geliştirdiğim uygulama için aldığım notlar.
 - [Dialog Pencereleri](#dialog-pencereleri)
   - [Pop Dialog - Info Warn Error](#pop-dialog---info-warn-error)
   - [String deger Alan Dialog](#string-deger-alan-dialog)
-- [Special Components](#special-components)
-  - [Şablon Exceli Oluşturma](#şablon-exceli-oluşturma)
   - [Excel Dosya Seçimi ve Yüklemesi](#excel-dosya-seçimi-ve-yüklemesi)
 - [Table](#table)
 - [Formlar](#formlar)
@@ -80,6 +78,8 @@ Pop Dialog - Modal Dialog Örnekleri
 
 ## String deger Alan Dialog
 
+*Örnek1*
+
 ```java
 FxSimpleDialog fxSimpleDialog = FxSimpleDialog.buildTextFieldDialog("Tarih Giriniz (yyyymmdd)");
 			//fxSimpleDialog.openAsDialogSync();
@@ -88,6 +88,28 @@ FxSimpleDialog fxSimpleDialog = FxSimpleDialog.buildTextFieldDialog("Tarih Girin
 			}
 
 ```
+
+*Örnek2*
+
+```java
+FxSimpleDialog fxSimpleDialog = new FxSimpleDialog(FxSimpleDialogType.TextFieldWithValidation);
+fxSimpleDialog.setTxInitialValue(selectedItemFiGen.getCha_belge_no());
+fxSimpleDialog.setMessageHeader("Yeni Belge Nosunu Giriniz;");
+fxSimpleDialog.openAsDialogSync();
+
+if (fxSimpleDialog.isClosedWithOk()) {
+
+  String txValue = fxSimpleDialog.getTxValue();
+  // Loghelper.get(getClass()).debug("belge no yeni:" + txValue);
+  FiMapParams fiMapParams = FiMapParams.build().buildPut(FiColsMikro.bui().cha_belge_no(), txValue);
+  Fdr fdr = new RepoCariHareketlerJdbi().upFiMapParamsByCandId(selectedItemFiGen, fiMapParams);
+
+  FxDialogShow.showDbResult2(fdr,() -> {
+    selectedItemFiGen.setCha_belge_no(txValue);
+    getFxTableView().refreshTableFiAsyn();
+  });
+
+}
 
 # Special Components 
 
@@ -157,9 +179,28 @@ listTableCols.add(FiTableColBuildHelper.build(EntegreField.akesTxGrupKod)
   .buildColType(OzColType.String)
 	.buildEditorNodeClass(FxComboBoxSimple.class.getName())
 	.buildFnEditorRendererAfterFormLoad((o, node) -> {
-	    FiEntegreCompHelper.fillFxAktarimEslestirmeGrup((FxComboBoxSimple) node);
-        })
+	    EhpCommonFnForComps.fillFxAktarimEslestirmeGrup((FxComboBoxSimple) node);
+    })
   );
+```
+
+```java
+// EhpFormCols
+public FiCol formEdmAyarGruplari_ApcTxGrup() {
+  FiCol fiCol = FiColsEntegre.bui().apcTxGrup();
+
+  fiCol.buildEditorNodeClass(FxComboBoxSimple.class.getName())
+      .buiFnEditorNodeRendererBeforeSettingValue((o, node) -> {
+        FxComboBoxSimple fxNode = (FxComboBoxSimple) node;
+
+        Fdr<List<EntAppConfig>> listFdr = new RepoEntAppConfig().selTxGrupDistinct2(MetaAppConfigs.bui().edmWebServiceUser().getApcGuid());
+
+        for (EntAppConfig entAppConfig : listFdr.getValueOr(new ArrayList<>())) {
+          fxNode.addComboItem(new ComboItem(entAppConfig.getApcTxGrup(),entAppConfig.getApcTxGrup()));
+        }
+      });
+  return fiCol;
+}
 ```
 			
 - Sor. Mer. Form Elemanı
@@ -170,7 +211,7 @@ listTableCols.add(FiTableColBuildHelper.build(EntegreField.akesTxSorMerKod)
   .buildColType(OzColType.String)
 	.buildEditorNodeClass(FxComboBoxSimple.class.getName())
 	.buildFnEditorRendererAfterFormLoad((o, node) -> {
-		FiEntegreCompHelper.fillFxComboSorMerDefaultNull((FxComboBoxSimple) node);
+		EhpCommonFnForComps.fillFxComboSorMerDefaultNull((FxComboBoxSimple) node);
 		})
 );
 ```

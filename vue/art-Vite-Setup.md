@@ -1,9 +1,9 @@
 
-<h1>Set up a Vue.js app running on Vite</h1>
+<h1>Setup Extensions For Vue 3 + Vite Project</h1>
 
-- [Set up a Vue.js app running on Vite](#set-up-a-vuejs-app-running-on-vite)
-  - [set up Vite](#set-up-vite)
-  - [set up Tailwind CSS](#set-up-tailwind-css)
+- [Setup Extensions For Vue 3 + Vite Project](#setup-extensions-for-vue-3--vite-project)
+  - [Set up Vite](#set-up-vite)
+  - [Set up Tailwind CSS](#set-up-tailwind-css)
   - [Install ESLint & Prettier](#install-eslint--prettier)
   - [Install Vue Router](#install-vue-router)
   - [Install Vuex](#install-vuex)
@@ -15,9 +15,9 @@ Source :
 - https://levelup.gitconnected.com/set-up-a-vue-app-running-on-vite-e816247a24e2
 
 
-## Set up a Vue.js app running on Vite
+## Setup Extensions For Vue 3 + Vite Project
 
-### set up Vite
+### Set up Vite
 
 kolchi kayn f [doc](https://vitejs.dev/guide/#getting-started),  
 
@@ -25,7 +25,7 @@ kolchi kayn f [doc](https://vitejs.dev/guide/#getting-started),
 $ npm init @vitejs/app
 ```
 
-### set up Tailwind CSS
+### Set up Tailwind CSS
 
 see [doc](https://tailwindcss.com/docs/guides/vue-3-vite)
 
@@ -100,17 +100,20 @@ module.exports = {
 ### Install Vue Router
 
 - For what! why we need Vue Router?
-- Vue Router is the official router for Vue.js. It deeply integrates with Vue.js core to make building Single Page Applications with Vue.js a breeze.
+
+Vue Router is the official router for Vue.js. It deeply integrates with Vue.js core to make building Single Page Applications with Vue.js a breeze.
 [see](https://router.vuejs.org/) for more...
 
 ```shell
 npm install vue-router@4
 ```
+
 Ps: we need version 4 for vue3
 
 [see commit changes](https://github.com/aymaneMx/first-vite-project/commit/30b2bc68daec971a14a3274bdb009d2f49d7f8ca)  
 
 - create `src/router/index.js` file with the following code where we will create the router, initiate it with a component called `Home` linked to the path `/` (yes, we will create the component in the coming steps):
+  
 ```js
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '/src/components/Home.vue'
@@ -130,7 +133,9 @@ const router = createRouter({
 
 export default router
 ```
+
 - in `App.vue` replace the `helloworld` component to `<router-view/>`.
+
 - Create a home component eg:
 ```html
 <template>
@@ -138,6 +143,7 @@ export default router
 </template>
 ```
 - import the router in `main.js` and use it before the app mounted!
+
 ```js
 import router from "./router/index"
 createApp(App).use(router).mount('#app')
@@ -149,7 +155,7 @@ createApp(App).use(router).mount('#app')
 
 It's basically a state management library, that you probably won't need it if you're building a simple app.
 
-```shell
+```bash
 $ npm install vuex@next --save
 ```
 
