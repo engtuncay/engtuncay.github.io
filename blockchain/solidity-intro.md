@@ -1293,101 +1293,62 @@ So they are better for the situations when the length of the array is known in a
 
 ## Structs and Enums
 
-In the following lectures, we talk about structs, mappings, and enums. Structs provide a way to define new data types.
+Structs provide a way to define new data types. It introduces a new complex data type that is composed of other elementary data types.
 
-It introduces a new complex data type that is composed of other elementary data types.
-
-Structs are used to represent a singular thing that has properties such as a car, a person, a request, an auction or a campaign. A struct can be declared outside or inside of a contract; declaring a struct outside of a contract allows it to be shared by multiple contacts.
+Structs are used to represent a singular thing that has properties such as a car, a person, a request, an auction or a campaign. A struct can be declared outside or inside of a contract; declaring a struct outside of a contract allows it to be *shared by multiple contacts*.
 
 Let's declare such a struct: 
 
 ```js
-
-
-
-
+struct Instructor {
+  uint age;
+  string name;
+  address addr;
+}
 ```
-
-
-struct the name of the type, let's say instructor, a pair of curly braces
-
-and the elements of the struct uint age
-
-so an instructor has an agt string name;
-
-he has a name and an address.
-
-Of course, an Ethereum address addr;
 
 This is the new type and I'm creating two contracts in the same Solidity file: academy and school.
 
-So contract Academy, the first contract and the second one School Being declared outside of the contract
+```js
+contract Academy {
+  Instructor public academyInstructor;
 
-I can declare a variable of type instructor, my newly created type in each contract.
+  constructor (uint _age, string memory _name) {
+    academyInstructor.age = _age;
+    academyInstructor.name = _name;
+    academyInstructor.addr = msg.sender;
+  }
 
-So, instructor, the type, public and the name of the variable academyInstructor and the same for the
+  function changeInstructor(uint _age, string memory _name, address _addr) public {
+    Instructor memory myInstructor = Instructor ( {
+      age : _age,
+      name : _name,
+      addr : _addr
+    });
 
-school contact: Instructor public schoolInstructor.
+    academyInstructor = myInstructor;
+  }
+}
 
-Now I'm initializing the struct variable using the constructor.
+contract School {
+    Instructor public schoolInstructor;
+}
+```
 
-So constructor
+I can declare a variable of type instructor, my newly created type in each contract. Now I'm initializing the struct variable using the constructor.
 
-and the following parameters
+By default struct references storage. I'm creating a new temporary memory struct initializing it with the given values and copying it to the storage struct, the state variable of the contract. So I'm declaring a new memory variable of type struct Instructor memory let's say, myInstructor,
 
-(uint _age, string memory _name){ and that's all; Academy instructor, so structe variable
+this is how you initialize a struct variable. And I'm copying the memory struct variable to the storage one.
 
-.age=_age the function parameter academyInstructor
+Now I'm testing it. I'm deploying the contract.
 
-.name = _name; and the academy instructor
 
-.address
 
-in fact .addr
 
-This is the name of the member = msg.sender;
 
-So the address that deploys the contract.
 
-Before testing the contract, I'll declare a new function called changeInstructor to show you how
-
-to modify a struct variable.
-
-So function changeInstructorn and the parameters are (uint _age, string memory _
-
-name, address
-
-_addr)
-
-and the function is public{
-
-By default struct references storage. I'm creating a new temporary memory struct initializing it with
-
-the given values and copying it to the storage struct, the state variable of the contract.
-
-So I'm declaring a new memory variable of type struct Instructor memory let's say, myInstructor,
-
-the name of the variable =
-
-and this is how you initialize a struct variable.
-
-So the name of the struct instructor, a pair of parentheses, a semicolon, and inside the parentheses,
-
-a pair of curly braces, like this, and then age: _age, name: _name,
-
-and addr: _addr And a comma is not required after the last member initialization.
-
-And I'm copying the memory struct variable to the storage one, so academyInstructor the sorage variable
-
-= instructor;
-
-Now I'm testing it.
-
-I'm deploying the contract.
-
-I'm giving 2 arguments to the constructor, so age 30
-
-and the name, let's say Dan and I'm deploying it.
+I'm giving 2 arguments to the constructor, so age 30 and the name, let's say Dan and I'm deploying it.
 
 OK, it was deployed.
 
