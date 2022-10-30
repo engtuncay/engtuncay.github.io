@@ -7,6 +7,7 @@
   - [Supported Prop Values](#supported-prop-values)
   - [Dynamic Prop Values](#dynamic-prop-values)
   - [Emitting Custom Events (Child => Parent Communication)](#emitting-custom-events-child--parent-communication)
+  - [Defining & Validating Custom Events](#defining--validating-custom-events)
 - [B4 Component Structure (Vue 2)](#b4-component-structure-vue-2)
   - [4-1 Global vs Local Component](#4-1-global-vs-local-component)
     - [Global Component](#global-component)
@@ -311,23 +312,29 @@ we got a even more reusable component.
 
 ## Emitting Custom Events (Child => Parent Communication)
 
-FriendContact component toggle-favorite event'ını trigger edileceği tanımlanır (emit property de), herhangi bir yerden toggle-favorite trigger edilir. emit yaparken beraber gönderilecek argumanlar da belirtilir.
+FriendContact component toggle-favorite event'ını trigger edileceği tanımlanır (emit property de).
+
+```js
+<script>
+export default {
+  emits: ['toggle-favorite'],
+  /*...*/
+  }
+```
+
+herhangi bir yerden toggle-favorite trigger edilir. emit yaparken beraber gönderilecek argumanlar da belirtilir.
 
 *FriendContact.vue*
 
 ```html
 <template>
-  <li>
-    <h2>{{ name }} {{ isFavorite ? '(Favorite)' : ''}}</h2>
+    <!-- ... -->
     <button @click="toggleFavorite">Toggle Favorite</button>
-    <!-- .... -->
-  </li>
 </template>
 
 <script>
 export default {
   props: /* ... */,
-  },
   emits: ['toggle-favorite'],
   // emits: {
   //   'toggle-favorite': function(id) {
@@ -339,15 +346,9 @@ export default {
   //     }
   //   } 
   // },
-  data() {
-    return {
-      detailsAreVisible: false
-    };
-  },
+  data() : /* ... */,
   methods: {
-    toggleDetails() {
-      this.detailsAreVisible = !this.detailsAreVisible;
-    },
+    /*...*/,
     toggleFavorite() {
       /* toggle-favorite event triggered */
       this.$emit('toggle-favorite', this.id);
@@ -416,6 +417,22 @@ export default {
 </script>
 ```
 
+
+- event trigger edilirken ikinci argüman, parametre olarak dinleyen metoda gönderilir.
+
+
+```js
+this.$emit('toggle-favorite', this.id);
+```
+
+```js
+   toggleFavoriteStatus(friendId) {
+    // ...
+    // not : burada frined objesi güncellenirse , otomatik olarak onu kullanan component de güncellenir.
+   }
+```
+
+## Defining & Validating Custom Events
 
 
 
