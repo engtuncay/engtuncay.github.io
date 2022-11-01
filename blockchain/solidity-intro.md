@@ -1341,44 +1341,9 @@ By default struct references storage. I'm creating a new temporary memory struct
 
 this is how you initialize a struct variable. And I'm copying the memory struct variable to the storage one.
 
-Now I'm testing it. I'm deploying the contract.
+Note : You can write to the address between double quotes like a string.
 
-
-
-
-
-
-I'm giving 2 arguments to the constructor, so age 30 and the name, let's say Dan and I'm deploying it.
-
-OK, it was deployed.
-
-And I can click academyInstructor to see the struct.
-
-And this is the struct age=30 name=Dan and a addr is the address of the account
-
-that deployed the contract.
-
-It starts with capital Ab8
-
-Capitally Ab8
-
-Now, let's change the struct.
-
-So the new age 40, name will be Paul, and I'll paste a random Ethereum address.
-
-Let's take the address of this accont.
-
-You can write to the address between double quotes.
-
-And I'm clicking changeInstructor
-
-The transaction was executed successfully, and I want to see the new struct value.
-
-And it was changed, see the new values.
-
-So I've shown you how to declare, initialize and change a struct variable.
-
-Summary
+*Summary*
 
 ● A struct is a collection of key->value pairs;
 
@@ -1391,38 +1356,60 @@ collection of Cars, Requests etc;
 ● A struct is saved in storage and if declared inside a function it references storage by default;
 
 Example:
- 
- struct Car{
- string brand;
- uint price;
+
+```js
+struct Car{
+  string brand;
+  uint price;
 }
+```
+ 
+
 
 
 ## Enums
 
-Let's go ahead and talk about enums. Enums are one way of creating a user-defined type in Solidity.
+Enums are one way of creating a user-defined type in Solidity. They are explicitly convertible to and from all integer types but implicit conversion is not allowed. By the way, the word enum stands for enumerate.
 
-They are explicitly convertible to and from all integer types
+Enums are especially useful when we need to specify the current state or flow of a smart contract. For instance, if a smart contract needs to be turned on in order to be ready to accept deposits from users.
 
-but implicit conversion is not allowed. By the way, the word enum stands for enumerate.
+So let's create a new user defined type; the syntax is the same as in C language. I'll declare it in the contract, but enums can also be declared at the file level outside of a contract.
 
-Enums are especially useful when we need to specify the current state or flow of a smart contract.
+```js
+contract Academy {
+  Instructor public academyInstructor;
 
-For instance, if a smart contract needs to be turned on in order to be ready to accept deposits from
+  enum State { Open,Closed,Unknown}
 
-users.
+  constructor (uint _age, string memory _name) {
+    academyInstructor.age = _age;
+    academyInstructor.name = _name;
+    academyInstructor.addr = msg.sender;
+  }
 
-So let's create a new user defined type; the syntax is the same as in C language.
+}
 
-I'll declare it in the contract, but enums can also be declared at the file level outside of a contract.
-
-So enum the name of the new user defined type, let's say State, and a pair of curly braces and between
-
-curly braces {Open, Closed, Unknown} Note that you don't need to end an enum with a semicolon
+```
 
 Think of enums as user-defined types that contain human-readable names for a set of constants, called members.
 
 And I’m declaring a new public state variable of type state: let's say State the type public academyState
+
+```js
+contract Academy {
+  Instructor public academyInstructor;
+
+  enum State { Open,Closed,Unknown}
+
+  constructor (uint _age, string memory _name) {
+    academyInstructor.age = _age;
+    academyInstructor.name = _name;
+    academyInstructor.addr = msg.sender;
+  }
+
+}
+
+```
 
 and I'm initializing the variable this way
 
