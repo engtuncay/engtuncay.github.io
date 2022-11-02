@@ -1,6 +1,9 @@
 Vue 2 - Tutorial
 
-- [B1 Vue Intro](#b1-vue-intro)
+
+- [Vue 3](#vue-3)
+  - [Event Handling](#event-handling)
+- [B1 Vue Intro (Vue 2)](#b1-vue-intro-vue-2)
 - [B2 Vue Basic](#b2-vue-basic)
   - [2-1 Instance](#2-1-instance)
   - [2-2 Lifecycle](#2-2-lifecycle)
@@ -20,9 +23,24 @@ Vue 2 - Tutorial
 
 Önsöz
 
-Bu öğreticide kaynak olarak Cem Gündüzoğlu Vue Js udemy kursu baz alınmıştır ve webden çeşitli kaynaklar kullanılmıştır. Kursu tavsiye ederim.
+- Bu öğreticide kaynak olarak Cem Gündüzoğlu Vue Js udemy kursu baz alınmıştır ve webden çeşitli kaynaklar kullanılmıştır. Kursu tavsiye ederim.
 
-# B1 Vue Intro
+# Vue 3
+
+## Event Handling
+
+*Example*
+
+```html
+<button @click="$emit('delete', id)">Delete</button>
+```
+
+
+
+
+
+
+# B1 Vue Intro (Vue 2)
 
 Öğreticideki örneklerde kullanılan temel şablon aşağıda gösterilmektedir.
 

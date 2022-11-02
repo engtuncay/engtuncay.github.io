@@ -8,6 +8,7 @@
   - [Dynamic Prop Values](#dynamic-prop-values)
   - [Emitting Custom Events (Child => Parent Communication)](#emitting-custom-events-child--parent-communication)
   - [Defining & Validating Custom Events](#defining--validating-custom-events)
+  - [Prop / Event Fallthrough & Binding All Props](#prop--event-fallthrough--binding-all-props)
 - [B4 Component Structure (Vue 2)](#b4-component-structure-vue-2)
   - [4-1 Global vs Local Component](#4-1-global-vs-local-component)
     - [Global Component](#global-component)
@@ -418,12 +419,14 @@ export default {
 ```
 
 
-- event trigger edilirken ikinci argüman, parametre olarak dinleyen metoda gönderilir.
+- event emit (trigger) edilirken ikinci argüman, parametre olarak dinleyen metoda gönderilir.
 
 
 ```js
 this.$emit('toggle-favorite', this.id);
 ```
+
+dinleyen metoddaki kod
 
 ```js
    toggleFavoriteStatus(friendId) {
@@ -432,7 +435,203 @@ this.$emit('toggle-favorite', this.id);
    }
 ```
 
+*Anothter emit example*
+
+```js
+this.$emit(
+  'add-contact',
+  this.enteredName,
+  this.enteredPhone,
+  this.enteredEmail
+);
+```
+
+
 ## Defining & Validating Custom Events
+
+Emits is the counterpart to props.
+
+In props you will define which props this component receives. In emits, you will define which custom events your component will eventually at some point emit. And you're doing this to document your component, to make it obvious to other developers, how your component works, and to which events they can listen. This is simply useful. It makes it easier to understand your component.
+
+Because otherwise I have to look through all your code to see that there is some code where you emit toggle-favorite.
+
+*FriendContact.vue*
+
+```html
+<template>
+    <!-- ... -->
+    <button @click="toggleFavorite">Toggle Favorite</button>
+</template>
+
+<script>
+export default {
+  props: /* ... */,
+  emits: ['toggle-favorite'],
+  // emits: {
+  //   'toggle-favorite': function(id) {
+  //     if (id) {
+  //       return true;
+  //     } else {
+  //       console.warn('Id is missing!');
+  //       return false;
+  //     }
+  //   } 
+  // },
+  data() : /* ... */,
+  methods: /*...*/,
+};
+</script>
+```
+
+- I'm doing that to make it obvious that "toggle-favorite" is an event that should be handled by a function that expects an ID. Because I will emit an ID here. You can then also add validation here to make sure that when the event is emitted, this data, which should be part of the event is not forgotten.
+
+*FriendContact.vue*
+
+```html
+<template>
+    <!-- ... -->
+    <button @click="toggleFavorite">Toggle Favorite</button>
+</template>
+
+<script>
+export default {
+  props: /* ... */,
+  emits: {
+    'toggle-favorite': function(id) {
+      if (id) {
+        return true;
+      } else {
+        console.warn('Id is missing!');
+        return false;
+      }
+    } 
+  },
+  data() : /* ... */,
+  methods: /*...*/,
+};
+</script>
+```
+
+emit yaparken id'yi göndermezse hata alınır burada.
+
+## Prop / Event Fallthrough & Binding All Props
+
+There are two advanced concepts you also should have heard about:
+
+- Prop Fallthrough
+- Binding All Props on a Component
+
+**Prop Fallthrough**
+
+You can set props (and listen to events) on a component which you haven't registered inside of that component.
+
+For example:
+
+BaseButton.vue
+
+```html
+<template>  
+  <button>
+    <slot></slot>
+  </button>
+</template>
+
+<script>export default {}</script>
+```
+
+This button component (which might exist to set up a button with some default styling) has no special props that would be registered.
+
+Yet, you can use it like this:
+
+
+```html
+<base-button type="submit" @click="doSomething">Click me</base-button>
+```
+
+Neither the type prop nor a custom click event are defined or used in the BaseButton component.
+
+Yet, this code would work.
+
+Because Vue has built-in support for prop (and event) "fallthrough".
+
+Props and events added on a custom component tag automatically fall through to the root component in the template of that component. In the above example, type and @click get added to the `<button>` in the BaseButton component.
+
+You can get access to these fallthrough props on a built-in $attrs property (e.g. this.$attrs).
+
+This can be handy to build "utility" or pure presentational components where you don't want to define all props and events individually.
+
+You'll see this in action the component course project ("Learning Resources App") later.
+
+You can learn more about this behavior here: https://v3.vuejs.org/guide/component-attrs.html
+
+**Binding all Props**
+
+There is another built-in feature/ behavior related to props.
+
+If you have this component:
+
+UserData.vue
+
+```html
+<template>
+  <h2>{‌{ firstname }} {‌{ lastname }}</h2>
+</template>
+ 
+<script>
+  export default {
+    props: ['firstname', 'lastname']
+  }
+</script>
+
+```
+You could use it like this:
+
+```html
+<template>
+  <user-data :firstname="person.firstname" :lastname="person.lastname"></user-data>
+</template>
+ 
+<script>
+  export default {
+    data() {
+      return {
+        person: { firstname: 'Max', lastname: 'Schwarz' }
+      };
+    }
+  }
+</script>
+```
+
+But if you have an object which holds the props you want to set as properties, you can also shorten the code a bit:
+
+```html
+<template>
+  <user-data v-bind="person"></user-data>
+</template>
+ 
+<script>
+  export default {
+    data() {
+      return {
+        person: { firstname: 'Max', lastname: 'Schwarz' }
+      };
+    }
+  }
+</script>
+
+```
+
+With v-bind="person" you pass all key-value pairs inside of person as props to the component. That of course requires person to be a JavaScript object.
+
+This is purely optional but it's a little convenience feature that could be helpful.
+
+
+
+
+
+
+
+
 
 
 
