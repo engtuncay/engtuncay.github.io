@@ -9,6 +9,8 @@
   - [Emitting Custom Events (Child => Parent Communication)](#emitting-custom-events-child--parent-communication)
   - [Defining & Validating Custom Events](#defining--validating-custom-events)
   - [Prop / Event Fallthrough & Binding All Props](#prop--event-fallthrough--binding-all-props)
+  - [Demo](#demo)
+  - [Demo 2](#demo-2)
 - [B4 Component Structure (Vue 2)](#b4-component-structure-vue-2)
   - [4-1 Global vs Local Component](#4-1-global-vs-local-component)
     - [Global Component](#global-component)
@@ -627,12 +629,34 @@ This is purely optional but it's a little convenience feature that could be help
 
 
 
+## Demo
+
+- Note: since a button is inside of a form when it's clicked, that form will be submitted. ((Eğer bir button form içinde ise tıklanırsa form submit edilir.))
+
+- Note : Now here in the script text, I'll export a default JavaScript object which will hold the configuration for this component.
+
+```html
+<script>
+  export default {} 
+</script>
+```
+
+- Note : yeni component'mizi app.vue içerisinde register etmeliyiz.
 
 
+## Demo 2
 
+- Remember : When binding to an event , you can either point at a method, execute a method or execute any other basic js code.
 
+```js
+<button @click="$emit('delete',id)">Delete</button>
+```
 
+- Js remove etmenin ayrı bir yolu, mevcut array'de filter yapıp yeni bir array oluşturmaktır.
 
+```js
+ this.friends = this.friends.filter( friend => friend.id !== friendId ) // burada true dönerse tutar, false döner remove eder,tutmaz.
+```
 
 
 # B4 Component Structure (Vue 2)

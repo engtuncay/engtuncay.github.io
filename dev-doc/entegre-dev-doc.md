@@ -158,8 +158,12 @@ Fdr fdr = FxEditorFactory.validateCols(listFiTableColWithFormValue);
 
 ## Form Kontrol Helper
 
+EhpFormCols.formKontrol() metodu true dönerse form dogru, false dönerse hata var demektir.
+
+false sonuç için ayrıca metodda uyarı popup düzenlendi.
+
 ```java
-if(new EhpFormCols().formKontrol(getFxFormRapor()))return;
+if(!new EhpFormCols().formKontrol(getFxFormRapor()))return;
 ```
 
 ## Form verilerinin fikeybean olarak almak
