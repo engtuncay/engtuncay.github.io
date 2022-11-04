@@ -20,6 +20,7 @@
   - [Bytes and String Types](#bytes-and-string-types)
   - [Structs and Enums](#structs-and-enums)
   - [Enums](#enums)
+  - [Mappings](#mappings)
 
 # Sources
 
@@ -1364,9 +1365,6 @@ struct Car{
 }
 ```
  
-
-
-
 ## Enums
 
 Enums are one way of creating a user-defined type in Solidity. They are explicitly convertible to and from all integer types but implicit conversion is not allowed. By the way, the word enum stands for enumerate.
@@ -1413,23 +1411,38 @@ contract Academy {
 
 and I'm initializing the variable this way
 
-= State.Open;
+```js
+contract Academy {
+  /* ... */
+  State public academyState = State.Open;
+}
 
-And in the changeInstructor function, I'll test the academyState variable before modifying the instructor's
+```
 
-data.
-
+And in the changeInstructor function, I'll test the academyState variable before modifying the instructor's data.
 So I'm changing the instructor's data only if the academy is open.
 
-So here I'm writing: if academyState = State.Open;
 
-A pair of curly braces and I am indenting this code, so the code below the if statement.
+```js
+contract Academy {
+  /* ... */
 
-OK, that was the syntax., We’ll use enums in every smart contract we’ll develop so you'll have
+  function changeInstructor(uint _age, string memory _name, address _addr) public {
+   
+    if (academyState = State.Open) {
+      Instructor memory myInstructor = Instructor ( {
+        age : _age,
+        name : _name,
+        addr : _addr
+      });
 
-opportunity to dive deeper into them.
+      academyInstructor = myInstructor;
+    }
 
+  }
+}
 
+```
 
 **Summary**
 
@@ -1441,8 +1454,152 @@ opportunity to dive deeper into them.
 called members.
 
 Example:
- enum State {Open, Closed, Active, Unknown}
- State public academyState = State.Active;
 
+```js
+enum State {Open, Closed, Active, Unknown}
+State public academyState = State.Active;
 
+```
+
+*Full Example*
+
+```js
+//SPDX-License-Identifier: GPL-3.0
  
+pragma solidity >=0.5.0 <0.9.0;
+ 
+// declaring a struct type outsite of a contract
+// can be used in any contract declard in this file
+struct Instructor{
+    uint age;
+    string name;
+    address addr;
+}
+ 
+contract Academy{
+    // declaring a state variabla of type Instructor
+    Instructor public academyInstructor;
+    
+    // declaring a new enum type
+    enum State {Open, Closed, Unknown}
+    
+    // declaring and initializing a new state variable of type State
+    State public academyState = State.Open;
+    
+    // initializing the struct in the constructor
+    constructor(uint _age, string memory _name){
+        academyInstructor.age = _age;
+        academyInstructor.name = _name;
+        academyInstructor.addr = msg.sender;
+    }
+    
+    // changing a struct state variable
+    function changeInstructor(uint _age, string memory _name, address _addr) public{
+        if (academyState == State.Open){
+            Instructor memory myInstructor = Instructor({
+                age: _age,
+                name: _name,
+                addr: _addr
+            }
+                );
+            academyInstructor = myInstructor;
+        }
+    }
+}
+ 
+ 
+// the struct can be used in any contract declared in this file
+contract School{
+    Instructor public schoolInstructor;
+}  
+```
+
+## Mappings
+
+If you are coming from other programming languages a solidity mapping is similar to a Python dictionary, a Go map, or Java HashMap.
+
+It’s a data structure that holds key->value pairs. All keys must have the same type and all values must have the same type as well.
+
+The keys can not be of types mapping, dynamic array, enum or struct, but the values can be of any type including mapping.
+
+A mapping is always saved in storage because it's a state variable. Even though you declare mappings inside functions they will be saved in storage, as well.
+
+The mappings advantage is that lookup time is constant no matter of size. This is in contrast to arrays that have linear search time.
+
+Also, note that a mapping is not iterable, we can’t iterate through a mapping using a for loop; Keys are not saved into the mapping. it's a hash table data structure.
+
+To get the value from the mapping, we provide the key. The key gets passed through a hashing function that outputs a predetermined index that returns the corresponding value of the mapping.
+
+And if we want the value of an unexisting key we get the default value for that type.
+
+I'm creating a new smart contract for an auction. In fact, this will be one of the hands on projects of this course. So contract auction; Ultimately, the users will bid an ETH value for a product or service and the highest bidder will win.
+
+```js
+//SPDX-License-Identifier: GPL-3.0
+ 
+pragma solidity >=0.5.0 <0.9.0;
+contract Auction{
+    
+    // declaring a variable of type mapping
+    // keys are of type address and values of type uint
+    mapping(address => uint) public bids;
+    
+    // initializing the mapping variable
+    // the key is the address of the account that calles the function
+    // and the value the value of wei sent when calling the function
+    function bid() payable public{
+        bids[msg.sender] = msg.value;
+    }
+}
+```
+
+So we have to store both the address of the bidder and the value he or she bid. So I'm declaring a new public variable of type mapping called bids.
+
+Our mapping will have the keys of typed address and the values of type uint. The values will be the amount of wei sent by each address to the contract.
+
+There are multiple ways for a smart contract to receive Ether and have one Ether balance. We will dive deeper into this later in this course.
+
+But for the moment, just remember that one way is to define a function with the *payable* function modifier. If there is a payable function, a user consent Ether to the contract by calling that function and the Ether sent will be added to the contract's balance.
+
+So We declared a function called bid(). That function is payable and public. Public is a function modifier, a keyword of the language and public. One more time remember that payable provides a mechanism for the contract to receive funds in Ether and inside the functions body, I'm adding `bids[msg.sender]= msg.value;` the mapping of images that send the address of the account that calls the function 
+
+Let me explain to you this line of code: msg.sender is the address that calls the function in a transaction and msg.value is the value in wei sent when calling the function. both msg.sender and msg.value are global predefined variables in Solidity.
+
+So in fact, I'm adding the key pair address value to the mapping. Or, the address that calls the function and the value sent are added to the mapping.
+
+Let's deploy the contract.
+
+At the beginning of the lecture, I've said that if you request the value of a nonexisting key, the mapping will not give an error, saying “key not found”, but will return the default value for the value type.
+
+So, If I take any ethereum address and paste it in the getter function that was automatically created here it will return 0, which is the default value of the uint type.
+
+And I’m pasting an ether address in Remix, in the bids getter function. And I am clicking bids! And it returned zero.
+
+Now, using the first account, I'm calling the bid function and sending 1000 wei. I'm entering 1000 in the value field and clicking bid. And the transaction was successful.
+
+Now, I want to check the value of the key, that is the address that has sent the transaction in the mapping. I'm copying the address and pasting it in the bids field and clicking bids and the value of the address is 1000.
+
+If I select another account and send another value, I'll get a similar result.
+
+I'm taking this one, I'm copying it to clipboard, sending 44 and bid, and I'm pasting the address in the bids field. And the value is 44, the value wei sent to the contract by calling the function.
+
+Mappings are so efficient in storing and looking up for a value of a key that almost every smart contract uses them.
+
+*Summary - Mappings*
+
+● It’s a data structure that holds key->value pairs. Its similar to Python Dictionaries, JS objects or Java HashMaps;
+
+● All keys must have the same type and all values must have the same type;
+
+● The keys can not be of types mapping, dynamic array, enum or struct. The values can be of any type including mapping;
+
+● Mapping is always saved in storage, its’ a state variable. Mappings declared inside functions are also saved in storage;
+
+● The mappings advantage is that lookup time is constant no matter mapping’s size.
+
+● A mapping is not iterable, we can’t iterate through a mapping using a for loop;
+
+● Keys are not saved into the mapping (its a hash table data structure). To get a value from the mapping we provide a key, the key gets passed through a hashing function, that outputs a predetermined index that returns the corresponding value from the mapping;
+
+● If we want the value of an unexisting key we get a default value;
+
