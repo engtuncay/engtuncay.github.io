@@ -34,8 +34,8 @@ CONTENT |
 [2-2 Conditions Loop Vs](./web-javascript/js-intro-2-2%20If%20And%20Loops.md-intro-1-3-Fundamentals.md) |
 [2-3 Functions](./web-javascript/js-intro-2-3%20Functions.mdintro-1-4-Functions.md) |
 [Code Quality](./web-javascript/js-intro-3%20Code%20Quality.md-code-quality.md) |
-[4-1 Objects-1](./web-javascript/js-intro-4%20Objects-1.mdtro-4-objects-1.md) |
-[4-2 Objects-2](./web-javascript/js-intro-4%20Objects-2.mdtro-4-objects-2.md) |
+[4-1 Objects-1](./web-javascript/js-intro-4%20Objects-1.md) |
+[4-2 Objects-2](./web-javascript/js-intro-4%20Objects-2.md) |
 [5 Advanced Data Types](./web-javascript/js-intro-5%20Advanced%20Data%20Types.md-data-types.md) |
 
 # Node Js
