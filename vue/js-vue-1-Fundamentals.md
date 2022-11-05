@@ -148,7 +148,7 @@ Lifecycle
             sayi: 5
         },
 		methods: {
-            // button events
+      // button events
 			change() {
 				this.sayi = Math.floor(Math.random() * 49) + 1;
 			},

@@ -24,15 +24,20 @@ export const baseData = 10;
 
 app.js
 ```js
+// default object is come as person.
 import person from './person.js'
 //or
 import prs from './person.js'
 
+// baseData variable is come from utility.js
 import {baseData} from './utility.js'
+// clean variable is come from utility.js
 import {clean} from './utility.js'
 ```
 
 **Class kullanımı**
+
+- ES6'da property değer ataması constructor içerisinden yapılabiliyordu. ES7'de direk atama yapılabiliyor.
 
 ```js
 class Person {
@@ -41,8 +46,7 @@ class Person {
 }
 ```
 
-- ES6'da propert değer ataması constructor içerisinden yapılabiliyordu. ES7'de direk atama yapılabiliyor.
-- method klasik şekilde de yazılabilir. (es6) , fakat kullanılmamalı.
+- Önceki örnekte method klasik şekilde de yazılabilir. (es6) , fakat kullanılmamalı.
 
 ```js
 myperson = new Person();
@@ -62,7 +66,7 @@ class Person extends Master {
 
 ```
 
--- code play de ES6/BABEL interpreter seçilmeli çalıştırmak için.
+- code play de ES6/BABEL interpreter seçilmeli çalıştırmak için.
 
 ## Spread And Rest Operator
 
@@ -80,8 +84,6 @@ function sortArgs(...args) {
   return args.sort();
 }
 ```
-
-
 
 ## Destructing
 
