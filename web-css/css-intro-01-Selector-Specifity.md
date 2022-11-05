@@ -1,6 +1,7 @@
 
 edited 20-03-2022
 
+- [Section Cheatsheet](#section-cheatsheet)
 - [Intro](#intro)
 - [CSS Syntax](#css-syntax)
 - [How to add CSS](#how-to-add-css)
@@ -28,6 +29,10 @@ edited 20-03-2022
 - [Cascading Order](#cascading-order)
 - [Specifity](#specifity)
 - [Sources](#sources)
+
+# Section Cheatsheet
+
+
 
 # Intro
 
@@ -75,7 +80,8 @@ Multiple CSS declarations are separated with semicolons, and declaration blocks 
 
 When a browser reads a style sheet, it will format the HTML document according to the information in the style sheet.
 
-Three Ways to Insert CSS
+*Three Ways to Insert CSS*
+
 There are three ways of inserting a style sheet:
 
 - External CSS
@@ -87,6 +93,7 @@ There are three ways of inserting a style sheet:
 With an external style sheet, you can change the look of an entire website by changing just one file!
 
 Example
+
 External styles are defined within the `<link>` element, inside the `<head>` section of an HTML page:
 
 ```html
@@ -110,7 +117,8 @@ An external style sheet can be written in any text editor, and must be saved wit
 
 Here is how the "mystyle.css" file looks:
 
-"mystyle.css"
+*mystyle.css*
+
 ```css
 body {
   background-color: lightblue;
@@ -122,7 +130,7 @@ h1 {
 }
 ```
 
-Note: Do not add a space between the property value and the unit (such as margin-left: 20 px;). The correct way is: margin-left: 20px;
+*Note:* Do not add a space between the property value and the unit (such as margin-left: 20 px;). The correct way is: margin-left: 20px;
 
 **Internal CSS**
 
@@ -133,7 +141,7 @@ The internal style is defined inside the `<style>` element, inside the head sect
 Example
 Internal styles are defined within the `<style>` element, inside the `<head>` section of an HTML page:
 
-```css
+```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -163,11 +171,9 @@ An inline style may be used to apply a unique style for a single element.
 
 To use inline styles, add the style attribute to the relevant element. The style attribute can contain any CSS property.
 
-Example
+*Example*
 
-Inline styles are defined within the "style" attribute of the relevant element:
-
-```css
+```html
 <!DOCTYPE html>
 <html>
 <body>
@@ -179,7 +185,7 @@ Inline styles are defined within the "style" attribute of the relevant element:
 </html>
 ```
 
-Tip: An inline style loses many of the advantages of a style sheet (by mixing content with presentation). Use this method sparingly.
+*Tip:* An inline style loses many of the advantages of a style sheet (by mixing content with presentation). Use this method sparingly.
 
 **Multiple Style Sheets**
 
@@ -187,7 +193,7 @@ If some properties have been defined for the same selector (element) in differen
 
 Assume that an external style sheet has the following style for the `<h1>` element:
 
-(mystyle.css)
+*mystyle.css*
 
 ```css
 h1 {
@@ -198,7 +204,7 @@ h1 {
 Example
 If the internal style is defined after the link to the external style sheet, the `<h1>` elements will be "orange":
 
-```css
+```html
 <head>
 <link rel="stylesheet" type="text/css" href="mystyle.css">
 <style>
