@@ -34,7 +34,7 @@ import UserInfo from './components/UserInfo.vue';
 
 export default {
   components: {
-    TheHeader, {  /* or 'the-header': TheHeader  */}
+    TheHeader, /* or 'the-header': TheHeader  */
     BadgeList,
     UserInfo
   },
