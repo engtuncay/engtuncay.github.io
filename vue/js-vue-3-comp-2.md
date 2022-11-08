@@ -1,6 +1,8 @@
 
 
 - [Global vs Local Components](#global-vs-local-components)
+- [Scoped Styles](#scoped-styles)
+- [Introducing slots](#introducing-slots)
 
 
 
@@ -41,6 +43,33 @@ export default {
   /* ... */
 }
 ```
+
+## Scoped Styles
+
+*Note:* Now maybe you remember that earlier in the course. I mentioned that no matter where you added your styling, it would always be treated as global styling that affects the entire app. 
+
+Vue component'imizde style etiketimize/elementine scoped attribute'ı ekleriz.
+
+```html
+<style scoped>
+section {
+  margin: 2rem auto;
+  max-width: 30rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  padding: 1rem;
+}
+
+section header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+</style>
+```
+
+## Introducing slots
+
 
 
 
