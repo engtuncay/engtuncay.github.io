@@ -3,6 +3,7 @@
 - [Global vs Local Components](#global-vs-local-components)
 - [Scoped Styles](#scoped-styles)
 - [Introducing slots](#introducing-slots)
+- [Named Slots](#named-slots)
 
 
 
@@ -69,6 +70,37 @@ section header {
 ```
 
 ## Introducing slots
+
+They allow us to receive HTML content which also may be using Vue features from outside of the component.
+
+Basically just like props but where props are meant to be used for data, which a component needs, slots are meant to be used for HTML code.
+
+*UserInfo.vue*
+```html
+<base-card>
+  <header>
+    <h3>{{ fullName }}</h3>
+    <base-badge :type="role" :caption="role.toUpperCase()"></base-badge>
+  </header>
+  <p>{{ infoText }}</p>
+</base-card>
+```
+
+*BaseCard.vue*
+```html
+<template>
+  <div>
+    <slot></slot>
+  </div>
+</template>
+
+<script>
+export default {
+}
+</script>
+```
+
+## Named Slots
 
 
 
