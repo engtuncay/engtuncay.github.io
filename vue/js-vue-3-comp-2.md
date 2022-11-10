@@ -1,11 +1,13 @@
 
 
+
+
 - [Global vs Local Components](#global-vs-local-components)
 - [Scoped Styles](#scoped-styles)
 - [Introducing slots](#introducing-slots)
 - [Named Slots](#named-slots)
-
-
+- [Slot Styles & Compilation](#slot-styles--compilation)
+- [More on Slots](#more-on-slots)
 
 
 ## Global vs Local Components
@@ -102,6 +104,102 @@ export default {
 
 ## Named Slots
 
+In the component, we defined two slots. one of them is named with 'header'
 
+*BaseCard.vue*
+```html
+<template>
+  <div>
+    <header>
+      <slot name="header"></slot>
+    </header>
+    <slot></slot>
+  </div>
+</template>
+
+<script>
+export default {};
+</script>
+```
+
+- Usage of the component that used named slots.
+
+*BadgeList.vue*
+```html
+<base-card>
+  <template v-slot:header> <!-- header slot content -->
+    <h2>Available Badges</h2>
+  </template>
+  <template v-slot:default> <!-- optional added v-slot attribute -->
+    <ul>
+      <li>
+        <base-badge type="admin" caption="ADMIN"></base-badge>
+      </li>
+      <li>
+        <base-badge type="author" caption="AUTHOR"></base-badge>
+      </li>
+    </ul>
+  </template>
+</base-card>
+```
+
+## Slot Styles & Compilation
+
+But Vue.js will analyze, compile and evaluate this template before it sends to content to the other component so to say. So therefore, here we have access
+to whatever is defined inside of UserInfo, and to styling defined here also affects this markup, but *not the markup of any component we might be sending our content to* (that is, styles is not valid for slot contents.).
+
+*UserInfo.vue*
+```html
+<base-card>
+  <template #header>
+    <h3>{{ fullName }}</h3>
+    <base-badge :type="role" :caption="role.toUpperCase()"></base-badge>
+  </template>
+  <template #default>
+    <p>{{ infoText }}</p>
+  </template>
+</base-card>
+```
+
+- Yani header alınının style'nı baseCard component'de yapar. header style tanımı baseCard component'de yapıldı.
+
+*BaseCard.vue*
+```html
+<template>
+  <div>
+    <header v-if="$slots.header">
+      <slot name="header">
+        <!-- <h2>The Default</h2> -->
+      </slot>
+    </header>
+    <slot></slot>
+  </div>
+</template>
+
+<script>
+export default {
+  mounted() {
+    console.log(this.$slots.header);
+  }
+};
+</script>
+
+<style scoped>
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+div {
+  margin: 2rem auto;
+  max-width: 30rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  padding: 1rem;
+}
+</style>
+```
+
+## More on Slots
 
 
