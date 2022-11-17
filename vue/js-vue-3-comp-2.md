@@ -8,6 +8,7 @@
 - [Named Slots](#named-slots)
 - [Slot Styles & Compilation](#slot-styles--compilation)
 - [More on Slots](#more-on-slots)
+- [Scoped slots](#scoped-slots)
 
 
 ## Global vs Local Components
@@ -150,38 +151,41 @@ to whatever is defined inside of UserInfo, and to styling defined here also affe
 
 *UserInfo.vue*
 ```html
-<base-card>
-  <template #header>
-    <h3>{{ fullName }}</h3>
-    <base-badge :type="role" :caption="role.toUpperCase()"></base-badge>
-  </template>
-  <template #default>
-    <p>{{ infoText }}</p>
-  </template>
-</base-card>
+<template>
+  <section>
+    <base-card>
+      <template v-slot:header>
+        <h3>{{ fullName }}</h3>
+        <base-badge :type="role" :caption="role.toUpperCase()"></base-badge>
+      </template>
+      <template v-slot:default>
+        <p>{{ infoText }}</p>
+      </template>
+    </base-card>
+  </section>
+</template>
+<script>
+export default {
+  props: ['fullName', 'infoText', 'role'],
+};
+</script>
 ```
 
-- Yani header alınının style'nı baseCard component'de yapar. header style tanımı baseCard component'de yapıldı.
+- Yani header alınının style tanımları baseCard component'da yapılmalı. header style tanımı baseCard component'de yapıldı.
 
 *BaseCard.vue*
 ```html
 <template>
   <div>
-    <header v-if="$slots.header">
-      <slot name="header">
-        <!-- <h2>The Default</h2> -->
-      </slot>
+    <header>
+      <slot name="header"></slot>
     </header>
     <slot></slot>
   </div>
 </template>
 
 <script>
-export default {
-  mounted() {
-    console.log(this.$slots.header);
-  }
-};
+export default {};
 </script>
 
 <style scoped>
@@ -202,4 +206,136 @@ div {
 
 ## More on Slots
 
+BaseCard componentini header slotu olmadan kullandığımızda source 'a header elementi ekler. Örnek aşağıdaki şekilde kullanırsak.
 
+*BaseCard.vue*
+```html
+<template>
+  <div>
+    <header>
+      <slot name="header">
+        <!-- <h2>The Default</h2> -->
+      </slot>
+    </header>
+    <slot></slot>
+  </div>
+</template>
+```
+
+- Bunu önlemek için header elementinde header slot olduğunda ekle şeklinde bir yapıya aşağıdaki şekilde yaparız.
+
+*BaseCard.vue*
+```html
+<template>
+  <div>
+    <header v-if="$slots.header">
+      <slot name="header">
+        <!-- <h2>The Default</h2> -->
+      </slot>
+    </header>
+    <slot></slot>
+  </div>
+</template>
+
+<script>
+export default {
+  mounted() {
+    // for information purposes
+    console.log(this.$slots.header);
+  }
+};
+</script>
+```
+
+- v-slot:header yerine #header şeklinde de kullanabiliriz.
+
+*UserInfo.vue*
+```html
+<template>
+  <section>
+    <base-card>
+      <template #header>
+        <!-- ... -->
+      </template>
+      <template #default>
+        <!-- ... -->
+      </template>
+    </base-card>
+  </section>
+</template>
+```
+
+## Scoped slots
+
+ßß Sorun
+
+li içerisinde slot bir alan kullandığımızda goal değişkenine , slotu kullanan componentde goal değişkenine nasıl ulaşacağız.
+
+*CourseGoals.vue*
+```html
+<template>
+  <ul>
+    <li v-for="goal in goals" :key="goal">
+      <slot></slot>
+    </li>
+  </ul>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      goals: ['Finish the course', 'Learn Vue'],
+    };
+  },
+};
+</script>
+```
+
+ßß Çözüm
+
+- slot elementine v-bind ile degiskeni bind ederiz. slot içerisine goal değişkenini item olarak bind et demiş oluruz.
+
+*CourseGoals.vue*
+```html
+<template>
+  <ul>
+    <li v-for="goal in goals" :key="goal">
+      <slot :item="goal" another-prop="..."></slot>
+    </li>
+  </ul>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      goals: ['Finish the course', 'Learn Vue'],
+    };
+  },
+};
+</script>
+```
+
+- bind edilen değişkene #default="slotProps" default slotu slotProps'a baglar. bunun üzerinden değişkenlere ulaşırız.
+
+*App.vue(partial)*
+```html
+<course-goals #default="slotProps">
+  <h2>{{ slotProps.item }}</h2>
+  <p>{{ slotProps['another-prop'] }}</p>
+</course-goals>
+```
+- Note
+
+template ile de kullanılabilir.
+
+*App.vue(partial)*
+```html
+<course-goals>
+  <template #default="slotProps">
+    <h2>{{ slotProps.item }}</h2>
+    <p>{{ slotProps['another-prop'] }}</p>
+  </template>
+</course-goals>
+```
