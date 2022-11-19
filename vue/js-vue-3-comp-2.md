@@ -11,6 +11,8 @@
 - [Scoped slots](#scoped-slots)
 - [Dynamic Components](#dynamic-components)
 - [Keeping Dynamic Components Alive](#keeping-dynamic-components-alive)
+- [Teleporting Elements](#teleporting-elements)
+- [Working with fragments](#working-with-fragments)
 
 
 ## Global vs Local Components
@@ -399,3 +401,106 @@ export default {
 
 ## Keeping Dynamic Components Alive
 
+Yukarıdaki örnekte dinamik component'i değiştirip, tekrar eski component'e dönersek text input ların içerisi sıfırlanıyordu. aynı kalmasını istersek keep-alive özel elementini kullanırız.
+
+*App.vue(partial)*
+```html
+<manage-goals v-if="selectedComponent === 'manage-goals'"></manage-goals>-->
+<keep-alive>
+  <component :is="selectedComponent"></component>
+</keep-alive>
+
+```
+
+böylelikle keep-alive component'in state'ni koruruz. arka planda vue destroy etmez.
+
+## Teleporting Elements
+
+eğer bir dialog penceresi kodlarımızında ortasında açarsak semantik olarak dogru olmaz. dogru olan body elementinin başında veya sonunda olmalı. bunu yapmak vue nun özel teleport elementini kullanırız. aşağıdaki örnek body'nin sonuna taşıyor dialog elementini.
+
+```html
+<template>
+  <div>
+    <h2>Manage Goals</h2>
+    <input type="text" ref="goal" />
+    <button @click="setGoal">Set Goal</button>
+    <teleport to="body">
+      <error-alert v-if="inputIsInvalid">
+        <h2>Input is invalid!</h2>
+        <p>Please enter at least a few characters...</p>
+        <button @click="confirmError">Okay</button>
+      </error-alert>
+    </teleport>
+  </div>
+</template>
+
+<script>
+import ErrorAlert from './ErrorAlert.vue';
+
+export default {
+  components: {
+    ErrorAlert
+  },
+  data() {
+    return {
+      inputIsInvalid: false
+    };
+  },
+  methods: {
+    setGoal() {
+      const enteredValue = this.$refs.goal.value;
+      if (enteredValue === '') {
+        this.inputIsInvalid = true;
+      }
+    },
+    confirmError() {
+      this.inputIsInvalid = false;
+    }
+  }
+}
+</script>
+```
+
+*ErrorAlert.vue*
+
+```html
+<template>
+  <dialog open>
+    <slot></slot>
+  </dialog>
+</template>
+
+<style scoped>
+dialog {
+  margin: 0;
+  position: fixed;
+  top: 20vh;
+  left: 30%;
+  width: 40%;
+  background-color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  padding: 1rem;
+}
+</style>
+```
+
+
+## Working with fragments
+
+önceki vue versiyonda bir component de sadece bir tane top element olurdu , bu da div olurdu. vue 3 ile beraber birden fazla top element olabiliyor.
+
+*ManageGoals.vue*
+```html
+<template>
+  <h2>Manage Goals</h2>
+  <input type="text" ref="goal" />
+  <button @click="setGoal">Set Goal</button>
+  <teleport to="body">
+    <error-alert v-if="inputIsInvalid">
+      <h2>Input is invalid!</h2>
+      <p>Please enter at least a few characters...</p>
+      <button @click="confirmError">Okay</button>
+    </error-alert>
+  </teleport>
+</template>
+```
