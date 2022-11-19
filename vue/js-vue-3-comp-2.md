@@ -9,6 +9,8 @@
 - [Slot Styles & Compilation](#slot-styles--compilation)
 - [More on Slots](#more-on-slots)
 - [Scoped slots](#scoped-slots)
+- [Dynamic Components](#dynamic-components)
+- [Keeping Dynamic Components Alive](#keeping-dynamic-components-alive)
 
 
 ## Global vs Local Components
@@ -339,3 +341,61 @@ template ile de kullanılabilir.
   </template>
 </course-goals>
 ```
+
+## Dynamic Components
+
+vue ya özel component elementi ile istediğimiz component'i dinamik olarak yerleştirebiliriz. hangi component'in yerleşeceğine is attribute ile belirlenir. burada is attribute na binding yapılmış.
+
+```html
+<template>
+  <div>
+    <the-header></the-header>
+    <!-- <TheHeader /> -->
+    <button @click="setSelectedComponent('active-goals')">Active Goals</button>
+    <button @click="setSelectedComponent('manage-goals')">Manage Goals</button>
+    <!-- old way -->
+    <!-- <active-goals v-if="selectedComponent === 'active-goals'"></active-goals>
+    <manage-goals v-if="selectedComponent === 'manage-goals'"></manage-goals>-->
+    <component :is="selectedComponent"></component>
+  </div>
+</template>
+<!-- partial config object -->
+<script>
+// imports
+export default {
+  components: {
+    TheHeader,
+    ActiveGoals,
+    ManageGoals,
+  },
+  data() {
+    return {
+      selectedComponent: 'active-goals'
+    };
+  },
+  methods: {
+    setSelectedComponent(cmp) {
+      this.selectedComponent = cmp;
+    },
+  },
+};
+</script>
+
+```
+
+*ManageGoals.vue*
+
+```html
+<template>
+  <div>
+    <h2>Manage Goals</h2>
+    <input type="text" />
+  </div>
+</template>
+```
+
+- Note : ManageGoals componentinde olduğu gibi vue'ya config object vermezsek, otomatik kendisi oluşturur.
+
+
+## Keeping Dynamic Components Alive
+
