@@ -13,6 +13,8 @@
 - [Keeping Dynamic Components Alive](#keeping-dynamic-components-alive)
 - [Teleporting Elements](#teleporting-elements)
 - [Working with fragments](#working-with-fragments)
+- [Vue Style Guide](#vue-style-guide)
+- [Folder Style](#folder-style)
 
 
 ## Global vs Local Components
@@ -504,3 +506,16 @@ dialog {
   </teleport>
 </template>
 ```
+
+## Vue Style Guide
+
+vue.js official documentation 'daki style guide mutlaka okunmalı. Strongly recommended kısmı daha öncelikli okunmalı.
+
+- Temel component'lerin başına Base veya App eklenmeli. BaseButton,BaseIcon,BaseTable veya AppButton, AppIcon gibi...
+
+- eğer component tek bir yerde kullanılıyorsa başına The konulmalı. 
+  
+
+## Folder Style
+
+- Componentleri ilgili dizinleri ayrıştırırsak daha düzenli olur. örneğin UI veya Base , Layout , cart , checkout (checkout ile ilgili comp'lar koyulur) gibi...
