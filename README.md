@@ -49,9 +49,10 @@ CONTENT |
 
 CONTENT |
 --- |
-[Fundamentals](./vue/js-vue-1-Fundamentals.md) |
+[Intro](./vue/js-vue-1-1-intro.md) |
+[Basics](./vue/js-vue-1-2-basics.md) |
 [Cli](./vue/js-vue-2-cli.md) |
-[Component](./vue/js-vue-3-component-1.md) |
+[Component-1](./vue/js-vue-3-component-1.md) |
 [Component-2](./vue/js-vue-3-component-2.md) |
 [Routing](./vue/js-vue-5-Routing.md) |
 [Fetch Api](./vue/js-vue-6-Fetch-Api.md) |
