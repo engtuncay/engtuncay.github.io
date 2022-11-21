@@ -1,6 +1,7 @@
 
+<h2>Component Communication - 1</h2>
 
-- [Component Communication](#component-communication)
+- [Component Communication (Vue 3)](#component-communication-vue-3)
   - [Props Kullanımı](#props-kullanımı)
   - [Prop Behavior and Changing Props](#prop-behavior-and-changing-props)
   - [Validating Props (Required,Validation)](#validating-props-requiredvalidation)
@@ -26,7 +27,7 @@
   - [4-9 Ornek Uygulama - Envanter Takip Sistemi](#4-9-ornek-uygulama---envanter-takip-sistemi)
 
 
-# Component Communication
+# Component Communication (Vue 3)
 
 ## Props Kullanımı
 
@@ -628,7 +629,6 @@ With v-bind="person" you pass all key-value pairs inside of person as props to t
 This is purely optional but it's a little convenience feature that could be helpful.
 
 
-
 ## Demo
 
 - Note: since a button is inside of a form when it's clicked, that form will be submitted. ((Eğer bir button form içinde ise tıklanırsa form submit edilir.))
@@ -642,7 +642,6 @@ This is purely optional but it's a little convenience feature that could be help
 ```
 
 - Note : yeni component'mizi app.vue içerisinde register etmeliyiz.
-
 
 ## Demo 2
 

@@ -1,5 +1,5 @@
 
-
+<h2>Advanced Component Communication</h2>
 
 
 - [Global vs Local Components](#global-vs-local-components)
