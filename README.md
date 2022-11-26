@@ -24,15 +24,15 @@ CONTENT |
 [Advanced](./web-css/css-intro-12-Advanced.md) |
 [Tailwind Intro](./web-css/css-tailwind-intro.md) |
 
-
 # Javascript Tutorial
 
 CONTENT |
 --- |
 [1-1 Intro and Syntax](./web-javascript/js-intro-1-1-intro-and-syntax.md) |
-[2-1 Data Types and Operators](./web-javascript/js-intro-2-1-data-types-and-operators.md) |
-[2-2 Conditions Loop Vs](./web-javascript/js-intro-2-2-if-and-loops.md) |
-[2-3 Functions](./web-javascript/js-intro-2-3-functions.md) |
+[2-1 Data Types and Operators](./web-javascript/js-intro-2-1-data-types.md) |
+[2-2 Operators](./web-javascript/js-intro-2-2-operators.md) |
+[2-3 Conditions Loop Vs](./web-javascript/js-intro-2-3-if-and-loops.md) |
+[2-4 Functions](./web-javascript/js-intro-2-js-intro-2-js-intro-2-4-functions.md) |
 [Code Quality](./web-javascript/js-intro-3-code-quality.md) |
 [4-1 Objects-1](./web-javascript/js-intro-4-objects-1.md) |
 [4-2 Objects-2](./web-javascript/js-intro-4-objects-2.md) |
