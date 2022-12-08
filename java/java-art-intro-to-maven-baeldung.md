@@ -1,6 +1,6 @@
 <h2>Source Link to the Article</h2>
 
-https://www.baeldung.com/jdbi
+https://www.baeldung.com/maven
 
 <h1>Apache Maven Tutorial</h1> 
 
