@@ -1553,15 +1553,13 @@ contract Auction{
 }
 ```
 
-So we have to store both the address of the bidder and the value he or she bid. So I'm declaring a new public variable of type mapping called bids.
+Our mapping will have the keys of typed address and the values of type uint. The values will be the amount of *wei* sent by each address to the contract.
 
-Our mapping will have the keys of typed address and the values of type uint. The values will be the amount of wei sent by each address to the contract.
+There are multiple ways for a smart contract to receive Ether and have one Ether balance. We will dive deeper into this later.
 
-There are multiple ways for a smart contract to receive Ether and have one Ether balance. We will dive deeper into this later in this course.
+But for the moment, just remember that one way is to define a function with the *payable* function modifier. If there is a payable function, a user *consent* Ether to the contract by calling that function and the Ether sent will be added to the contract's balance.
 
-But for the moment, just remember that one way is to define a function with the *payable* function modifier. If there is a payable function, a user consent Ether to the contract by calling that function and the Ether sent will be added to the contract's balance.
-
-So We declared a function called bid(). That function is payable and public. Public is a function modifier, a keyword of the language and public. One more time remember that payable provides a mechanism for the contract to receive funds in Ether and inside the functions body, I'm adding `bids[msg.sender]= msg.value;` the mapping of images that send the address of the account that calls the function 
+So we declared a function called bid(). That function is *payable* and *public*. Public is a function *modifier*, a keyword of the language. One more time remember that *payable* provides a mechanism for the contract to *receive funds* in Ether and inside the functions body, I'm adding `bids[msg.sender]= msg.value;` the mapping of images that send the address of the account that calls the function 
 
 Let me explain to you this line of code: msg.sender is the address that calls the function in a transaction and msg.value is the value in wei sent when calling the function. both msg.sender and msg.value are global predefined variables in Solidity.
 
