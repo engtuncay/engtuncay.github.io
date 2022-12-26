@@ -5,12 +5,16 @@ Java Fx ile geliştirdiğim uygulama için aldığım notlar.
 
 - [Meta Datalar](#meta-datalar)
   - [FiColsEntegre - Entegre Sütun Objeleri](#ficolsentegre---entegre-sütun-objeleri)
-  - [MetaEntConst](#metaentconst)
+  - [MetaEntConst (String vs sabitler)](#metaentconst-string-vs-sabitler)
 - [Layout](#layout)
   - [Hide Component](#hide-component)
+- [Module Oluşturma](#module-oluşturma)
+  - [Form Module](#form-module)
+  - [Table Module](#table-module)
 - [Dialog Pencereleri](#dialog-pencereleri)
   - [Pop Dialog - Info Warn Error](#pop-dialog---info-warn-error)
   - [String deger Alan Dialog](#string-deger-alan-dialog)
+  - [Form Dialog](#form-dialog)
   - [Excel Dosya Seçimi ve Yüklemesi](#excel-dosya-seçimi-ve-yüklemesi)
 - [Table](#table)
 - [Formlar](#formlar)
@@ -41,7 +45,7 @@ public FiCol aucTxValue() {
 }
 ```
 
-## MetaEntConst
+## MetaEntConst (String vs sabitler)
 
 String sabitler burada tutulur.
 
@@ -65,6 +69,17 @@ getModView().getFxTableMig().setManaged(false);
 
 ```
 
+# Module Oluşturma
+
+## Form Module
+
+
+
+## Table Module
+
+
+
+
 # Dialog Pencereleri
 
 İlgili Sınıflar
@@ -82,10 +97,10 @@ Pop Dialog - Modal Dialog Örnekleri
 
 ```java
 FxSimpleDialog fxSimpleDialog = FxSimpleDialog.buildTextFieldDialog("Tarih Giriniz (yyyymmdd)");
-			//fxSimpleDialog.openAsDialogSync();
-			if (fxSimpleDialog.isClosedWithOk()) {
-				String value = fxSimpleDialog.getTxValue();
-			}
+//fxSimpleDialog.openAsDialogSync();
+if (fxSimpleDialog.isClosedWithOk()) {
+  String value = fxSimpleDialog.getTxValue();
+}
 
 ```
 
@@ -98,17 +113,9 @@ fxSimpleDialog.setMessageHeader("Yeni Belge Nosunu Giriniz;");
 fxSimpleDialog.openAsDialogSync();
 
 if (fxSimpleDialog.isClosedWithOk()) {
-
+  // Dialogdaki değerin alınması
   String txValue = fxSimpleDialog.getTxValue();
-  // Loghelper.get(getClass()).debug("belge no yeni:" + txValue);
-  FiMapParams fiMapParams = FiMapParams.build().buildPut(FiColsMikro.bui().cha_belge_no(), txValue);
-  Fdr fdr = new RepoCariHareketlerJdbi().upFiMapParamsByCandId(selectedItemFiGen, fiMapParams);
-
-  FxDialogShow.showDbResult2(fdr,() -> {
-    selectedItemFiGen.setCha_belge_no(txValue);
-    getFxTableView().refreshTableFiAsyn();
-  });
-
+  // diger işlemler ....
 }
 
 # Special Components 
@@ -124,6 +131,49 @@ btnSablon.setOnAction(event -> { 
 );
 getModView().getFxMigToolbar().add(btnSablon);
 
+```
+
+## Form Dialog
+
+```java
+FxSimpleDialog fxSimpleDialog = new FxSimpleDialog();
+
+FiColList fiCols = new FiColList();
+
+fiCols.add(EhpFormCols.bui().formColLabelAciklama().buildHeader(String.format("%s kodlu %s ürünü için bilgileri giriniz.", stoKod, mkStokSelected.getSto_kisa_ismi())));
+fiCols.add(FiColsMikro.bui().sto_uretici_kodu());
+fiCols.add(EhpFormCols.bui().formColHesapSecim2("Satıcı Kodu",null, MetaMikroCariKodCins.CariK0.getValue()).buildFieldName(FiColsMikro.bui().sto_sat_cari_kod().getFieldName()));   //.bui().sto_sat_cari_kod());
+
+fxSimpleDialog.initFormDialog(fiCols, FormType.PlainFormV1);
+
+fxSimpleDialog.setPredValidateForm(fxFormMig3 -> {
+
+  if (fxFormMig3 == null) {
+    FxDialogShow.showPopWarn("Form Objesi boş geliyor.Sistem Yöneticinize danışın.");
+    return false;
+  }
+
+  FxFormMig3 fxFormMig = (FxFormMig3) fxFormMig3;
+
+  FiKeyBean formAsFiKeyBean = fxFormMig.getFormAsFiKeyBean();
+
+  String stoUreticiKodu = formAsFiKeyBean.getAsString(FiColsMikro.bui().sto_uretici_kodu());
+  String stoSaticiCariKodu = formAsFiKeyBean.getAsString(FiColsMikro.bui().sto_sat_cari_kod());
+
+  formAsFiKeyBean.putObj(FiColsMikro.bui().sto_kod(), stoKod);
+  Fdr fdrUpdate = new RepoMkStoklarJdbi(getConnProfile()).updateUreticiKoduAndUretCariKodu(formAsFiKeyBean);
+  FxDialogShow.showFdr1PopOrFailModal(fdrUpdate);
+
+  if (fdrUpdate.isTrueBoResult()) {
+    mkStokSelected.setSto_uretici_kodu(stoUreticiKodu);
+    mkStokSelected.setSto_sat_cari_kod(stoSaticiCariKodu);
+    getFxTableView().refreshTableFiAsyn();
+    return true;
+  }
+  return false;
+});
+
+fxSimpleDialog.openAsNonModal();
 ```
 
 
