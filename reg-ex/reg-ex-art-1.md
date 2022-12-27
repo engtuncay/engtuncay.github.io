@@ -1,4 +1,3 @@
-
 <h1>Regex tutorial — A quick cheatsheet by examples by Jonny Fox</h1> 
 
 Jun 23, 2017 6 min read
@@ -131,14 +130,14 @@ Patterns   | Explanation
 
 The quantifiers ( * + {}) are greedy operators, so they expand the match as far as they can through the provided text.
 
-For example, <.+> matches `<div>simple div</div> in This is a <div> simple div</div> test`. In order to catch only the div tag we can use a ? to make it lazy:
+For example, <.+> matches `<div>simple div</div>` in `This is a <div> simple div</div> test`. In order to catch only the div tag we can use a ? to make it lazy:
 
-`<.+?>            matches any character one or more times included inside < and >, expanding as needed -> Try it!`
+`<.+?>            matches any character one or more times included inside < and >, expanding as needed (Try it!)`
 
 Notice that a better solution should avoid the usage of . in favor of a more strict regex:
 
 ```txt
-<[^<>]+>         matches any character except < or > one or more times included inside < and > -> Try it!
+<[^<>]+>         matches any character except < or > one or more times included inside < and > (Try it!)
 ```
 
 # Advanced topics
@@ -157,19 +156,23 @@ It comes with its negation, \B. This matches all positions where \b doesn’t ma
 
 Patterns             | Explanation
 ---------------------|---------------------------------------------------------------------------------------------------------------------------------------
-([abc])\1            | using \1 it matches the same text that was matched by the first capturing group -> Try it!
-([abc])([de])\2\1    | we can use \2 (\3, \4, etc.) to identify the same text that was matched by the second (third, fourth, etc.) capturing group -> Try it!
-(?<foo>[abc])\k<foo> | we put the name foo to the group and we reference it later (\k<foo>). The result is the same of the first regex -> Try it!
+([abc])\1            | using \1 it matches the same text that was matched by the first capturing group (Try it!)
+([abc])([de])\2\1    | we can use \2 (\3, \4, etc.) to identify the same text that was matched by the second (third, fourth, etc.) capturing group (Try it!)
+`(?<foo>[abc])\k<foo>` | we put the name foo to the group and we reference it later (`\k<foo>`). The result is the same of the first regex (Try it!)
+
 Look-ahead and Look-behind — (?=) and (?<=)
-d(?=r)       |matches a d only if is followed by r, but r will not be part of the overall regex match -> Try it!
-(?<=r)d      |matches a d only if is preceded by an r, but r will not be part of the overall regex match -> Try it!
+
+Patterns  | Explanation
+----------|-----------------------------------------------------------------------------------------------------
+d(?=r)    | matches a d only if is followed by r, but r will not be part of the overall regex match (Try it!)
+`(?<=r)d` | matches a d only if is preceded by an r, but r will not be part of the overall regex match (Try it!)
 
 You can use also the negation operator!
 
 Patterns | Explanation
 ---------|----------------------------------------------------------------------------------------------------------
-d(?!r)   | matches a d only if is not followed by r, but r will not be part of the overall regex match -> Try it!
-(?<!r)d  | matches a d only if is not preceded by an r, but r will not be part of the overall regex match -> Try it!
+d(?!r)   | matches a d only if is not followed by r, but r will not be part of the overall regex match (Try it!)
+`(?<!r)d`  | matches a d only if is not preceded by an r, but r will not be part of the overall regex match (Try it!)
 
 # Summary
 
