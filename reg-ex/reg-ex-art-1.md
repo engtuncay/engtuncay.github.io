@@ -4,7 +4,9 @@ Jun 23, 2017 6 min read
 
 Link :
 
-https://medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285#:~:text=Regular%20expressions%20(regex%20or%20regexp,of%20ASCII%20or%20unicode%20characters).
+https://medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285
+
+Note : Some parts can be modified by engtuncay.
 
 UPDATE 10/2022: See further explanations/answers in story responses!
 
@@ -25,6 +27,7 @@ Check out the author's REGEX COOKBOOK article about the most commonly used (and 
   - [Boundaries — \\b and \\B](#boundaries--b-and-b)
   - [Back-references — \\1](#back-references--1)
 - [Summary](#summary)
+- [Remember These (Addittion by engtuncay)](#remember-these-addittion-by-engtuncay)
 
 # Introduction
 
@@ -73,7 +76,7 @@ a[bc]      |same as previous, but without capturing b or c
 
 Patterns | Explanation
 ---------|-----------------------------------------------------------------------------
-\d       | matches a single character that is *a digit* (Try it!)
+\d       | matches *a single digit* character (Try it!)
 \w       | matches a word character (alphanumeric character plus underscore) (Try it!)
 \s       | matches a whitespace character (includes tabs and line breaks)
 .        | matches any character (Try it!)
@@ -187,4 +190,49 @@ As you’ve seen, the application fields of regex can be multiple and I’m sure
 
 Have fun and do not forget to recommend the article if you liked the article from the link 💚
 
-https://medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285#:~:text=Regular%20expressions%20(regex%20or%20regexp,of%20ASCII%20or%20unicode%20characters).
+
+- Link
+
+https://medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285
+
+
+# Remember These (Addittion by engtuncay)
+
+- Disabling group and naming a group
+
+Patterns      | Explanation
+--------------|----------------------------------------------------
+a(?:bc)*      | using ?: we disable the capturing group (Try it!)
+`a(?<foo>bc)` | using `?<foo>` we put a name to the group (Try it!)
+
+
+- Character Classes
+  
+All shows a single character, quantifiers can be added after it.
+
+Patterns | Explanation
+---------|---------------------------------------------------------------------------
+\d       | matches *a single digit* character
+\w       | matches *a single word* character (alphanumeric character plus underscore)
+\s       | matches a *whitespace* character (includes tabs and line breaks)
+
+
+- In bracket expressions [], negation sign can be used.
+
+```text
+[^a-zA-Z] a string that has not a letter from a to z or from A to Z. In this case the ^ is used as negation of the expression
+```
+
+- default is greedy match, sometimes lazy match is needed.
+
+`<.+?>            matches any character one or more times included inside < and >, expanding as needed`
+
+Greedy example , preventing to behave greedy
+
+`<[^<>]+>         matches any character except < or > one or more times included inside < and >`
+
+- back references is not mostly needed.
+
+`([abc])\1 | using \1 it matches the same text that was matched by the first capturing group `
+
+
