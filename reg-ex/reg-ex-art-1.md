@@ -21,7 +21,7 @@ Check out the author's REGEX COOKBOOK article about the most commonly used (and 
 - [Flags](#flags)
 - [Intermediate topics](#intermediate-topics)
   - [Grouping and capturing — ()](#grouping-and-capturing--)
-  - [Bracket expressions — \[\]](#bracket-expressions)
+  - [Bracket expressions — \[\] (Ranges)](#bracket-expressions-ranges)
   - [Greedy and Lazy match](#greedy-and-lazy-match)
 - [Advanced topics](#advanced-topics)
   - [Boundaries — \\b and \\B](#boundaries--b-and-b)
@@ -119,7 +119,7 @@ This operator is very useful when we need to extract information from strings or
 
 If we choose to put a name to the groups (using (`?<foo>...`)) we will be able to retrieve the group values using the match result like a dictionary where the keys will be the name of each group.
 
-## Bracket expressions — []
+## Bracket expressions — [] (Ranges)
 
 Patterns   | Explanation
 -----------|-------------------------------------------------------------------------------
@@ -225,14 +225,33 @@ Patterns | Explanation
 
 - default is greedy match, sometimes lazy match is needed.
 
-`<.+?>            matches any character one or more times included inside < and >, expanding as needed`
+`<.+?> : matches any character one or more times included inside < and >, expanding as needed`
 
 Greedy example , preventing to behave greedy
 
-`<[^<>]+>         matches any character except < or > one or more times included inside < and >`
+`<[^<>]+> : matches any character except < or > one or more times included inside < and >`
+
+- Boundaries are like ^,$. They shows a position.
+
+\b represents an anchor like caret. \b assert position at a word boundary: (^\w|\w$|\W\w|\w\W). It shows start or end positions of a word.
+
+`\babc\b : performs a "whole words only" search`
 
 - back references is not mostly needed.
 
-`([abc])\1 | using \1 it matches the same text that was matched by the first capturing group `
+`([abc])\1 : using \1 it matches the same text that was matched by the first capturing group `
 
+- flags
+
+g modifier : *g*lobal. All matches (don't return after first match)
+
+m modifier: *m*ulti line. Causes ^ and $ to match the begin/end of each line (not only begin/end of string)
+
+i modifier: *i*nsensitive. Case insensitive match (ignores case of [a-zA-Z])
+
+s modifier: *s*ingle line. Dot matches newline characters
+
+u modifier: *u*nicode. Pattern strings are treated as UTF-16. Also causes escape sequences to match unicode characters
+
+x modifier: e*x*tended. Spaces and text after a # in the pattern are ignored
 
