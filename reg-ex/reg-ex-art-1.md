@@ -26,6 +26,8 @@ Check out the author's REGEX COOKBOOK article about the most commonly used (and 
 - [Advanced topics](#advanced-topics)
   - [Boundaries — \\b and \\B](#boundaries--b-and-b)
   - [Back-references — \\1](#back-references--1)
+  - [Lookarounds](#lookarounds)
+  - [Substitution](#substitution)
 - [Summary](#summary)
 - [Remember These (Addittion by engtuncay)](#remember-these-addittion-by-engtuncay)
 - [Cheatsheet](#cheatsheet)
@@ -177,6 +179,43 @@ Patterns | Explanation
 ---------|----------------------------------------------------------------------------------------------------------
 d(?!r)   | matches a d only if is not followed by r, but r will not be part of the overall regex match (Try it!)
 `(?<!r)d`  | matches a d only if is not preceded by an r, but r will not be part of the overall regex match (Try it!)
+
+
+## Lookarounds
+
+Patterns  | Explanation
+----------|--------------------------------------------------------------------------------------------------------------------------------
+(?=ABC)   | (positive lookahed) Matches a group after the main expression without including it in the result.
+(?!ABC)   | (negative lookahed) Matches a group after the main expression without including it in the result.
+(?<=ABC)  | (positive lookbehind) Matches a group before the main expression without including it in the result.
+(?<!=ABC) | (negative lookbehind) Specifies a group that can not match before the main expression (if it matches, the result is discarded).
+
+Örnek
+```java
+// Pattern 
+\d(?=px)
+
+// Text
+1pt 2px 3em 4px
+
+// Match Result
+2 ve 4 olur
+
+```
+
+## Substitution
+
+Short Meaining | Keywod | Meaning
+---------------|--------|----------------------------------------------------------------------------------------------------------
+match          | $&     | Inserts the matched text.
+capture group  | $1     | Inserts the results of the specified capture group. For example, $3 would insert the third capture group.
+before match       | $` | Inserts the portion of the source string that precedes the match.
+after match        | $' | Inserts the portion of the source string that follows the match.
+escaped $          | $$ | Inserts a dollar sign character ($).
+escaped characters | \n | For convenience, these escaped characters are supported in the Replace string in RegExr: \n, \r, \t, \\, and unicode escapes \uFFFF. This may vary in your deploy environment.
+
+
+
 
 # Summary
 
