@@ -216,7 +216,6 @@ escaped characters | \n | For convenience, these escaped characters are supporte
 
 
 
-
 # Summary
 
 As you’ve seen, the application fields of regex can be multiple and I’m sure that you’ve recognized at least one of these tasks among those seen in your developer career, here a quick list:
