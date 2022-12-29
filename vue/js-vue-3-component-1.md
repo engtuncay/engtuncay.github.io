@@ -7,9 +7,9 @@
   - [Validating Props (Required,Validation)](#validating-props-requiredvalidation)
   - [Supported Prop Values](#supported-prop-values)
   - [Dynamic Prop Values](#dynamic-prop-values)
-  - [Emitting Custom Events (Child => Parent Communication)](#emitting-custom-events-child--parent-communication)
-  - [Defining & Validating Custom Events](#defining--validating-custom-events)
-  - [Prop / Event Fallthrough & Binding All Props](#prop--event-fallthrough--binding-all-props)
+  - [Emitting Custom Events (Child =\> Parent Communication)](#emitting-custom-events-child--parent-communication)
+  - [Defining \& Validating Custom Events](#defining--validating-custom-events)
+  - [Prop / Event Fallthrough \& Binding All Props](#prop--event-fallthrough--binding-all-props)
   - [Demo](#demo)
   - [Demo 2](#demo-2)
 - [B4 Component Structure (Vue 2)](#b4-component-structure-vue-2)
@@ -113,9 +113,9 @@ v92-end
 
 Props are super important and we use props for something which is also called *parent child communication*. We use props to communicate from the parent to the child. Parent comp. communicates with child comp. So to pass data from the parent to the child component
 
-Props typically should not be mutated. And what do I mean by that?
+Props typically should not be mutated (changed). And what do I mean by that?
 
-Vue uses a concept which is called unidirectional data flow. Data passed from app to friend contact should only be changed in app, not in friend contact. We just pass data down to friend contact. And once the data is passed down, friend contact cannot change the data we manage an app view, So if we change data inside of friend contact like here, when I tried to change isFavorite, this is not allowed by Vue, because we violate this pattern of having a unidirectional data flow.
+Vue uses a concept which is called *unidirectional data flow*. Data passed from app to friend contact should only be changed in app, not in friend contact. We just pass data down to friend contact. And once the data is passed down, friend contact cannot change the data we manage an app view, So if we change data inside of friend contact like here, when I tried to change isFavorite, *this is not allowed by Vue*, because we violate this pattern of having a unidirectional data flow.
 
 Now, if we want to change this, there are two ways of doing that. 
 
