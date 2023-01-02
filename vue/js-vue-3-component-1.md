@@ -2,6 +2,7 @@
 <h2>Component Communication - 1</h2>
 
 - [Component Communication (Vue 3)](#component-communication-vue-3)
+  - [Comp Intro](#comp-intro)
   - [Props Kullanımı](#props-kullanımı)
   - [Prop Behavior and Changing Props](#prop-behavior-and-changing-props)
   - [Validating Props (Required,Validation)](#validating-props-requiredvalidation)
@@ -28,6 +29,23 @@
 
 
 # Component Communication (Vue 3)
+
+## Comp Intro
+
+- In a component, we export the component configuration object where we hold data about props,components,emits,data,methods...
+
+```html
+<template>
+  <!-- ... -->
+</template>
+<script>
+  export default {
+    props: /* ... */,
+    data(){ /* ... */ },
+
+  } 
+</script>
+```
 
 ## Props Kullanımı
 
@@ -197,13 +215,15 @@ In general, you can learn all about prop validation in the official docs: https:
 
 Specifically, the following value types (type property) are supported:
 
+```text
 String,Number,Boolean,Array,Object,Date,Function,Symbol
+```
 
-But type can also be any constructor function (built-in ones like Date or custom ones).
+But type can also be any constructor function (built-in ones like Date or custom ones). ($$md)
 
 ## Dynamic Prop Values
 
-We can also bind variable to prop value.
+We can also bind variable to prop value. (with binding operator(:))
 
 *App.vue*
 
@@ -314,9 +334,11 @@ export default {
 
 we got a even more reusable component.
 
+Try https://vue-ajcgnv.stackblitz.io
+
 ## Emitting Custom Events (Child => Parent Communication)
 
-FriendContact component toggle-favorite event'ını trigger edileceği tanımlanır (emit property de).
+FriendContact component konfigurasyon objesinin emit property'sinde toggle-favorite olayının emit edilebileceği (trigger) tanımlanır.
 
 ```js
 <script>
@@ -326,7 +348,7 @@ export default {
   }
 ```
 
-herhangi bir yerden toggle-favorite trigger edilir. emit yaparken beraber gönderilecek argumanlar da belirtilir.
+FriendContact comp'da herhangi bir yerden toggle-favorite emit(trigger) edilebilir. this objesinin $emit metodu kullanılarak `this.$emit('emitName', arguments)` event emit edilir. Emit yaparken beraber gönderilecek argumanlar da belirtilir.
 
 *FriendContact.vue*
 
@@ -362,53 +384,23 @@ export default {
 </script>
 ```
 
-- App.vue içerisinde friend-contact component'i içerisinden toggle-favorite event'ını dinleme olacağı tanımlar. friend-contact component elementine event binding yaparak yönlendirme (binding) yapar.
+- App.vue'da friend-contact elementinde toggle-favorite event'ını dinleme olacağı tanımlar. friend-contact elementinde emit olayına event binding yaparız.
 
 *App.vue*
 
 ```html
 <template>
-  <section>
-    <header>
-      <h1>My Friends</h1>
-    </header>
-    <ul>
+      <!-- ... -->
       <friend-contact
-        v-for="friend in friends"
-        :key="friend.id"
-        :id="friend.id"
-        :name="friend.name"
-        :phone-number="friend.phone"
-        :email-address="friend.email"
-        :is-favorite="friend.isFavorite"
+        /*...*/
         @toggle-favorite="toggleFavoriteStatus" 
       ></friend-contact>
-    </ul>
-  </section>
+      <!-- ... -->
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      friends: [
-        {
-          id: 'manuel',
-          name: 'Manuel Lorenz',
-          phone: '0123 45678 90',
-          email: 'manuel@localhost.com',
-          isFavorite: true,
-        },
-        {
-          id: 'julie',
-          name: 'Julie Jones',
-          phone: '0987 654421 21',
-          email: 'julie@localhost.com',
-          isFavorite: false,
-        },
-      ],
-    };
-  },
+  /* ... */
   methods: {
     toggleFavoriteStatus(friendId) {
       const identifiedFriend = this.friends.find(
@@ -421,24 +413,9 @@ export default {
 </script>
 ```
 
-
-- event emit (trigger) edilirken ikinci argüman, parametre olarak dinleyen metoda gönderilir.
-
-
-```js
-this.$emit('toggle-favorite', this.id);
-```
-
-dinleyen metoddaki kod
-
-```js
-   toggleFavoriteStatus(friendId) {
-    // ...
-    // not : burada frined objesi güncellenirse , otomatik olarak onu kullanan component de güncellenir.
-   }
-```
-
 *Anothter emit example*
+
+- You can send multiple arguments while emitting.
 
 ```js
 this.$emit(
@@ -448,7 +425,6 @@ this.$emit(
   this.enteredEmail
 );
 ```
-
 
 ## Defining & Validating Custom Events
 
@@ -470,16 +446,6 @@ Because otherwise I have to look through all your code to see that there is some
 export default {
   props: /* ... */,
   emits: ['toggle-favorite'],
-  // emits: {
-  //   'toggle-favorite': function(id) {
-  //     if (id) {
-  //       return true;
-  //     } else {
-  //       console.warn('Id is missing!');
-  //       return false;
-  //     }
-  //   } 
-  // },
   data() : /* ... */,
   methods: /*...*/,
 };
@@ -546,34 +512,29 @@ This button component (which might exist to set up a button with some default st
 
 Yet, you can use it like this:
 
-
 ```html
 <base-button type="submit" @click="doSomething">Click me</base-button>
 ```
 
-Neither the type prop nor a custom click event are defined or used in the BaseButton component.
-
-Yet, this code would work.
-
-Because Vue has built-in support for prop (and event) "fallthrough".
+Neither the type prop nor a custom click event are defined or used in the BaseButton component. Yet, this code would work. Because Vue has built-in support for prop (and event) "fallthrough".
 
 Props and events added on a custom component tag automatically fall through to the root component in the template of that component. In the above example, type and @click get added to the `<button>` in the BaseButton component.
 
-You can get access to these fallthrough props on a built-in $attrs property (e.g. this.$attrs).
+You can get access to these fallthrough props on a built-in `$attrs` property (e.g. `this.$attrs`).
 
 This can be handy to build "utility" or pure presentational components where you don't want to define all props and events individually.
 
-You'll see this in action the component course project ("Learning Resources App") later.
+You can learn more about this behavior here: 
 
-You can learn more about this behavior here: https://v3.vuejs.org/guide/component-attrs.html
+https://v3.vuejs.org/guide/component-attrs.html
 
-**Binding all Props**
+**Binding all Props (Binding Entity)**
 
-There is another built-in feature/ behavior related to props.
+There is another built-in feature/behavior related to props.
 
 If you have this component:
 
-UserData.vue
+*UserData.vue*
 
 ```html
 <template>
@@ -628,18 +589,9 @@ With v-bind="person" you pass all key-value pairs inside of person as props to t
 
 This is purely optional but it's a little convenience feature that could be helpful.
 
-
 ## Demo
 
 - Note: since a button is inside of a form when it's clicked, that form will be submitted. ((Eğer bir button form içinde ise tıklanırsa form submit edilir.))
-
-- Note : Now here in the script text, I'll export a default JavaScript object which will hold the configuration for this component.
-
-```html
-<script>
-  export default {} 
-</script>
-```
 
 - Note : yeni component'mizi app.vue içerisinde register etmeliyiz.
 
