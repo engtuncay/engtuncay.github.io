@@ -6,7 +6,7 @@
 - [Scoped Styles](#scoped-styles)
 - [Introducing slots](#introducing-slots)
 - [Named Slots](#named-slots)
-- [Slot Styles & Compilation](#slot-styles--compilation)
+- [Slot Styles \& Compilation](#slot-styles--compilation)
 - [More on Slots](#more-on-slots)
 - [Scoped slots](#scoped-slots)
 - [Dynamic Components](#dynamic-components)
@@ -23,7 +23,7 @@ Global components are registered to the main app object.
 
 *main.js*
 ```js
-const app = createApp(App);
+const app = createApp(App); // main application object
 
 // these are global components
 app.component('the-header', TheHeader);
@@ -36,7 +36,7 @@ Global components are used anywhere in your vue app - ie in any template.
 
 - Lokal components are registered to the component config object.
 
-Now components wants an object, and then we need a key-value pair, where the key is our custom HTML element. So TheHeader for example, the tag we wanna use for this element, so to say, and then the value is the imported component config object, we're pointing at.
+in the components property, an object is defined. The key of the object is our custom HTML element. So TheHeader for example, the tag we wanna use for this element, so to say, and then the value is the imported component config object.
 
 ```js
 <script>
@@ -56,7 +56,7 @@ export default {
 
 ## Scoped Styles
 
-*Note:* Now maybe you remember that earlier in the course. I mentioned that no matter where you added your styling, it would always be treated as global styling that affects the entire app. 
+*Note:* no matter where you added your styling, it would always be treated as global styling that affects the entire app unless it is defined with scoped attribute. 
 
 Vue component'imizde style etiketimize/elementine scoped attribute'ı ekleriz.
 
@@ -69,12 +69,7 @@ section {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   padding: 1rem;
 }
-
-section header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+/* ... */
 </style>
 ```
 
@@ -87,6 +82,7 @@ Basically just like props but where props are meant to be used for data, which a
 *UserInfo.vue*
 ```html
 <base-card>
+  <!-- base-card component content -->
   <header>
     <h3>{{ fullName }}</h3>
     <base-badge :type="role" :caption="role.toUpperCase()"></base-badge>
@@ -111,15 +107,17 @@ export default {
 
 ## Named Slots
 
-In the component, we defined two slots. one of them is named with 'header'
+You can give name to slots. In the component below, we defined two slots. one of them is named with 'header'
 
 *BaseCard.vue*
 ```html
 <template>
   <div>
     <header>
+      <!-- first slot -->
       <slot name="header"></slot>
     </header>
+    <!-- second slot -->
     <slot></slot>
   </div>
 </template>
@@ -129,7 +127,7 @@ export default {};
 </script>
 ```
 
-- Usage of the component that used named slots.
+- Usage of named slots.
 
 *BadgeList.vue*
 ```html
@@ -137,7 +135,7 @@ export default {};
   <template v-slot:header> <!-- header slot content -->
     <h2>Available Badges</h2>
   </template>
-  <template v-slot:default> <!-- optional added v-slot attribute -->
+  <template v-slot:default> <!-- v-slot:default is optional -->
     <ul>
       <li>
         <base-badge type="admin" caption="ADMIN"></base-badge>
@@ -152,8 +150,7 @@ export default {};
 
 ## Slot Styles & Compilation
 
-But Vue.js will analyze, compile and evaluate this template before it sends to content to the other component so to say. So therefore, here we have access
-to whatever is defined inside of UserInfo, and to styling defined here also affects this markup, but *not the markup of any component we might be sending our content to* (that is, styles is not valid for slot contents.).
+Vue.js will analyze, compile and evaluate this template before it sends to content to the other component so to say. So therefore, here we have access to whatever is defined inside of UserInfo, and to styling defined here also affects this markup, but *not the markup of any component we might be sending our content to* (that is, styles is not valid for slot contents.).
 
 *UserInfo.vue*
 ```html
@@ -177,7 +174,7 @@ export default {
 </script>
 ```
 
-- Yani header alınının style tanımları baseCard component'da yapılmalı. header style tanımı baseCard component'de yapıldı.
+Yani header alınının style tanımları baseCard component'inde yapılmalı. header style tanımı baseCard component'inde yapıldı.
 
 *BaseCard.vue*
 ```html
@@ -212,7 +209,7 @@ div {
 
 ## More on Slots
 
-BaseCard componentini header slotu olmadan kullandığımızda source 'a header elementi ekler. Örnek aşağıdaki şekilde kullanırsak.
+BaseCard componentini header slotu olmadan kullandığımızda source'a header elementi ekler. Örnek aşağıdaki şekilde kullanırsak.
 
 *BaseCard.vue*
 ```html
