@@ -2,7 +2,6 @@
 <h2>Component Communication - 1</h2>
 
 - [Component Communication (Vue 3)](#component-communication-vue-3)
-  - [Comp Intro](#comp-intro)
   - [Props Kullanımı](#props-kullanımı)
   - [Prop Behavior and Changing Props](#prop-behavior-and-changing-props)
   - [Validating Props (Required,Validation)](#validating-props-requiredvalidation)
@@ -29,23 +28,6 @@
 
 
 # Component Communication (Vue 3)
-
-## Comp Intro
-
-- In a component, we export the component configuration object where we hold data about props,components,emits,data,methods...
-
-```html
-<template>
-  <!-- ... -->
-</template>
-<script>
-  export default {
-    props: /* ... */,
-    data(){ /* ... */ },
-
-  } 
-</script>
-```
 
 ## Props Kullanımı
 
