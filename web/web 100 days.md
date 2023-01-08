@@ -1,7 +1,6 @@
 
 
 
-
 ## 15 Why Visual Studio Code
 
 Now we did set up Visual Studio Code and here's our HTML code from before opened in Visual Studio Code.
@@ -26,20 +25,5 @@ which it gives us,
 
 which also helps us avoid errors,
 
-because with that, for example,
+because with that, for example, it's more difficult for us to forget this important forward slash on the closing part of our element here of our HTML code.
 
-it's more difficult for us
-
-to forget this important forward slash
-
-on the closing part of our element here of our HTML code.
-
-So these are convenience features,
-
-some of the convenience features Visual Studio gives us,
-
-and these are some of the reasons why we switched to it.
-
-Now with that, though, let's take deeper into HTML
-
-and let's understand this code here in greater detail.
