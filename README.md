@@ -26,6 +26,8 @@ CONTENT |
 
 # Javascript Tutorial
 
+[Javascript Home](./web-javascript\README.md)
+
 CONTENT |
 --- |
 [1-1 Intro and Syntax](./web-javascript/js-intro-1-1-intro-and-syntax.md) |
