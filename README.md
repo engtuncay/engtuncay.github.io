@@ -26,7 +26,7 @@ CONTENT |
 
 # Javascript Tutorial
 
-[Javascript Home](./web-javascript\README.md)
+[Javascript Home](./web-javascript/README.md)
 
 CONTENT |
 --- |
