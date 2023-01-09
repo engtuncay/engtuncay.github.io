@@ -39,6 +39,7 @@ CONTENT |
 [4-1 Objects-1](./web-javascript/js-intro-4-objects-1.md) |
 [4-2 Objects-2](./web-javascript/js-intro-4-objects-2.md) |
 [5 Advanced Data Types](./web-javascript/js-intro-5-advanced-data-types.md) |
+[5 Advanced Data Types-2](./web-javascript/js-intro-5p2-advanced-data-types-2.md)
 
 # Node Js
 

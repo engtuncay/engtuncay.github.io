@@ -12,7 +12,8 @@ CONTENT |
 [Code Quality](./js-intro-3-code-quality.md) |
 [4-1 Objects-1](./js-intro-4-objects-1.md) |
 [4-2 Objects-2](./js-intro-4-objects-2.md) |
-[5 Advanced Data Types](./js-intro-5-advanced-data-types.md) 
+[5 Advanced Data Types-1](./js-intro-5-advanced-data-types.md)
+[5-2 Advanced Data Types-2](./js-intro-5p2-advanced-data-types-2.md)
 
 CONTENT |
 --- |
