@@ -11,6 +11,8 @@ Java Fx ile geliştirdiğim uygulama için aldığım notlar.
 - [Module Oluşturma](#module-oluşturma)
   - [Form Module](#form-module)
   - [Table Module](#table-module)
+- [Module Helper](#module-helper)
+  - [Listede eleman sayısı 1 den fazla var mı ortak kontolü](#listede-eleman-sayısı-1-den-fazla-var-mı-ortak-kontolü)
 - [Dialog Pencereleri](#dialog-pencereleri)
   - [Pop Dialog - Info Warn Error](#pop-dialog---info-warn-error)
   - [String deger Alan Dialog](#string-deger-alan-dialog)
@@ -24,6 +26,10 @@ Java Fx ile geliştirdiğim uygulama için aldığım notlar.
   - [Form Elements](#form-elements)
     - [ComboBox Element](#combobox-element)
 - [Db İşlemler](#db-i̇şlemler)
+  - [Oto Select Sorgular](#oto-select-sorgular)
+    - [Select Count Where Id In List (Toplu Kayıt Sayısı Kontrolü)](#select-count-where-id-in-list-toplu-kayıt-sayısı-kontrolü)
+  - [Oto Update Sorgular](#oto-update-sorgular)
+    - [Update Where Id In List (Toplu Güncelleme)](#update-where-id-in-list-toplu-güncelleme)
 - [Hata Çözümleri](#hata-çözümleri)
   - [Sorgularda Db Collation CS CI cakismasi](#sorgularda-db-collation-cs-ci-cakismasi)
 - [Karalama Notlar - İnceleneecek](#karalama-notlar---i̇nceleneecek)
@@ -38,8 +44,8 @@ Entegre sütun objeleri burada tutulur.
 örneğin;
 
 ```java
-public FiCol aucTxValue() {
-  FiCol fiCol = new FiCol("aucTxValue", "");
+public static FiCol aucTxValue() {
+  FiCol fiCol = new FiCol("aucTxValue", "Header");
   fiCol.buildColType(OzColType.String);
   return fiCol;
 }
@@ -77,6 +83,15 @@ getModView().getFxTableMig().setManaged(false);
 
 ## Table Module
 
+
+
+# Module Helper
+
+## Listede eleman sayısı 1 den fazla var mı ortak kontolü
+
+```java
+if (!EfxhpModHelper.checkKayitlarSecilmisMi(itemsChecked)) return;
+```
 
 
 
@@ -274,8 +289,47 @@ listTableCols.add(FiTableColBuildHelper.build(EntegreField.akesTxSorMerKod)
 # Db İşlemler
 
 
+## Oto Select Sorgular
+
+### Select Count Where Id In List (Toplu Kayıt Sayısı Kontrolü)
+
+Verilen Id listesindeki, kayıtların sayısını verir. Böylelikle olan kayıtlar 1 çıkar (çünkü aşağıdaki örnekte primary key alanını verdik), olmayanlar listeye de girmez (0 göstermez). Çoklu kayıtlarında tabloda olup olmadığı kontrol edilir.
+
+```java
+FiColList fiCols = new FiColList();
+fiCols.add(FiColsMikro.cheChaRecNo().buiColValue(listRecNo));
+
+String sqlQuery = FiQueryGenerator.selectQueryCountIdByFiColListWhereIdList(EnmCariHareketEk.class, fiCols);
+
+System.out.println(sqlQuery);
+
+// SELECT cheChaRecNo, count( cheChaRecNo ) lnCount
+// FROM EnmCariHareketEk
+// WHERE cheChaRecNo IN ( @cheChaRecNo )
+// GROUP BY cheChaRecNo
+```
+
+## Oto Update Sorgular
+
+### Update Where Id In List (Toplu Güncelleme)
+
+Verilen Id Listesindeki kayıtlara toplu güncelleme yapmak için kullanılır. Aşağıdaki örnekte id listesindeki kayıtların , txHesaplasmaOnayKodu ve cheDtLastUp alanları güncelleniyor.
+
+```java
+FiColList fiCols2 = new FiColList();
+
+fiCols2.add(FiColsMikro.cheChaRecNo().buiColValue(listRecNo));
+fiCols2.add(FiColsMikro.cheTxHesaplasmaOnayKodu().buiColValue("txHesaplasmaGrupKod"));
+fiCols2.add(FiColsMikro.cheDtLastup().buiColValue(new Date()));
+
+String sqlQuery2 = FiQueryGenerator.updateQueryWithFiColListByIdList(EnmCariHareketEk.class, fiCols2);
+
+System.out.println(sqlQuery2);
+
+// UPDATE EnmCariHareketEk SET cheTxHesaplasmaOnayKodu = @cheTxHesaplasmaOnayKodu, cheDtLastup = @cheDtLastup WHERE cheChaRecNo IN ( @cheChaRecNo )
 
 
+```
 
 
 # Hata Çözümleri

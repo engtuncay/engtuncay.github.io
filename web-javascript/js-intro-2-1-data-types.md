@@ -870,6 +870,3 @@ https://javascript.info/type-conversions
 # Sources
 
 * https://javascript.info/intro
-
-
-
