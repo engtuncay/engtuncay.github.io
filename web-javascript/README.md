@@ -14,6 +14,8 @@ CONTENT |
 [4-2 Objects-2](./js-intro-4-objects-2.md) |
 [5 Advanced Data Types-1](./js-intro-5-advanced-data-types.md)
 [5-2 Advanced Data Types-2](./js-intro-5p2-advanced-data-types-2.md)
+[9 Classes](./js-intro-09-1-Classes.md)
+[13 Modules](./js-intro-13-1-Modules.md)
 
 CONTENT |
 --- |
