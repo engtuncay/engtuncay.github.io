@@ -10,23 +10,21 @@ CONTENT |
 [2-3 Functions](./js-intro-2-3-functions.md) |
 [2-4 Functions](./js-intro-2-js-intro-2-4-functions.md) |
 [Code Quality](./js-intro-3-code-quality.md) |
-[4-1 Objects-1](./js-intro-4-objects-1.md) |
-[4-2 Objects-2](./js-intro-4-objects-2.md) |
-[5 Advanced Data Types-1](./js-intro-5-advanced-data-types.md)
-[5-2 Advanced Data Types-2](./js-intro-5p2-advanced-data-types-2.md)
+[4-1 Objects-1](./js-intro-04-1-objects.md) |
+[4-2 Objects-2](./js-intro-04-2-objects.md) |
+[5-1 Advanced Data Types-1](./js-intro-05-1-data-types-detail.md)
+[5-2 Advanced Data Types-2](./js-intro-05-2-data-types-detail.md)
 [9 Classes](./js-intro-09-1-Classes.md)
 [13 Modules](./js-intro-13-1-Modules.md)
 
-CONTENT |
---- |
+CONTENT |--- |
 [Node Js Intro](./node-js-intro.md) |
 
 <h2>Javascript.info Articles </h2> 
 
 <h3>05-Data Types</h3>
 
-CONTENT |
---- |
+CONTENT |--- |
 [Primitive Methods](./en.javascript.info-master/1-js/05-data-types/01-primitives-methods/article.md)
 [Number](./en.javascript.info-master/1-js/05-data-types/02-number/article.md)
 [String](./en.javascript.info-master/1-js/05-data-types/03-string/article.md)
