@@ -24,7 +24,8 @@ CONTENT |--- |
 
 <h3>05-Data Types</h3>
 
-CONTENT |--- |
+CONTENT |
+--- |
 [Primitive Methods](./en.javascript.info-master/1-js/05-data-types/01-primitives-methods/article.md)
 [Number](./en.javascript.info-master/1-js/05-data-types/02-number/article.md)
 [String](./en.javascript.info-master/1-js/05-data-types/03-string/article.md)
