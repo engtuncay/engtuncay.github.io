@@ -11,7 +11,7 @@ Java Fx ile geliştirdiğim uygulama için aldığım notlar.
 - [Module Oluşturma](#module-oluşturma)
   - [Form Module](#form-module)
   - [Table Module](#table-module)
-- [Module Helper](#module-helper)
+- [Module Helper (modüllerde kullanılacak yardımcı metodlar)](#module-helper-modüllerde-kullanılacak-yardımcı-metodlar)
   - [Listede eleman sayısı 1 den fazla var mı ortak kontolü](#listede-eleman-sayısı-1-den-fazla-var-mı-ortak-kontolü)
 - [Dialog Pencereleri](#dialog-pencereleri)
   - [Pop Dialog - Info Warn Error](#pop-dialog---info-warn-error)
@@ -30,8 +30,14 @@ Java Fx ile geliştirdiğim uygulama için aldığım notlar.
     - [Select Count Where Id In List (Toplu Kayıt Sayısı Kontrolü)](#select-count-where-id-in-list-toplu-kayıt-sayısı-kontrolü)
   - [Oto Update Sorgular](#oto-update-sorgular)
     - [Update Where Id In List (Toplu Güncelleme)](#update-where-id-in-list-toplu-güncelleme)
+- [Db Aktarım](#db-aktarım)
+  - [Lokal Aktarım Sablon 1](#lokal-aktarım-sablon-1)
+  - [Lokal Aktarım Sablon 2](#lokal-aktarım-sablon-2)
+- [FiQuery Metodları](#fiquery-metodları)
+  - [convertUserParamsToValue()](#convertuserparamstovalue)
 - [Hata Çözümleri](#hata-çözümleri)
   - [Sorgularda Db Collation CS CI cakismasi](#sorgularda-db-collation-cs-ci-cakismasi)
+- [Kısaltmalar](#kısaltmalar)
 - [Karalama Notlar - İnceleneecek](#karalama-notlar---i̇nceleneecek)
 
 
@@ -85,7 +91,7 @@ getModView().getFxTableMig().setManaged(false);
 
 
 
-# Module Helper
+# Module Helper (modüllerde kullanılacak yardımcı metodlar)
 
 ## Listede eleman sayısı 1 den fazla var mı ortak kontolü
 
@@ -172,10 +178,10 @@ fxSimpleDialog.setPredValidateForm(fxFormMig3 -> {
 
   FiKeyBean formAsFiKeyBean = fxFormMig.getFormAsFiKeyBean();
 
-  String stoUreticiKodu = formAsFiKeyBean.getAsString(FiColsMikro.bui().sto_uretici_kodu());
-  String stoSaticiCariKodu = formAsFiKeyBean.getAsString(FiColsMikro.bui().sto_sat_cari_kod());
+  String stoUreticiKodu = formAsFiKeyBean.getAsString(FiColsMikro.sto_uretici_kodu());
+  String stoSaticiCariKodu = formAsFiKeyBean.getAsString(FiColsMikro.sto_sat_cari_kod());
 
-  formAsFiKeyBean.putObj(FiColsMikro.bui().sto_kod(), stoKod);
+  formAsFiKeyBean.putObj(FiColsMikro.sto_kod(), stoKod);
   Fdr fdrUpdate = new RepoMkStoklarJdbi(getConnProfile()).updateUreticiKoduAndUretCariKodu(formAsFiKeyBean);
   FxDialogShow.showFdr1PopOrFailModal(fdrUpdate);
 
@@ -288,7 +294,6 @@ listTableCols.add(FiTableColBuildHelper.build(EntegreField.akesTxSorMerKod)
 
 # Db İşlemler
 
-
 ## Oto Select Sorgular
 
 ### Select Count Where Id In List (Toplu Kayıt Sayısı Kontrolü)
@@ -331,6 +336,64 @@ System.out.println(sqlQuery2);
 
 ```
 
+# Db Aktarım
+
+## Lokal Aktarım Sablon 1
+
+```java
+MikroAktarimConfig lokalAktarim2 = MikroAktarimConfig.instanceLokalAktarim();
+```
+
+```java
+public static MikroAktarimConfig instanceLokalAktarim() {
+		MikroAktarimConfig mikroAktarimConfig = new MikroAktarimConfig();
+		mikroAktarimConfig.setBoAutoEvrakSiraNo(true);
+		mikroAktarimConfig.setBoCariKartKontrolEnable(false);
+		mikroAktarimConfig.setBoYeniKartAcilisEnable(false);
+		mikroAktarimConfig.setBoSaticiNullable(true);
+		return mikroAktarimConfig;
+	}
+
+```
+
+## Lokal Aktarım Sablon 2 
+
+```java
+MikroAktarimConfig lokalAktarim2 = MikroAktarimConfig.instanceLokalAktarim2(dtTime);
+```
+
+```java
+public static MikroAktarimConfig instanceLokalAktarim2(Date dtAktarim) {
+		MikroAktarimConfig mikroAktarimConfig = MikroAktarimConfig.instanceLokalAktarim();
+		mikroAktarimConfig.setBoHizmetFatBaslikToplamlariniKontrolEtme(true);
+		mikroAktarimConfig.setBoKarsiKodNullableForFinans(true);
+		mikroAktarimConfig.setDtAktarim(dtAktarim);
+		mikroAktarimConfig.setDtLastUp(dtAktarim);
+
+		return mikroAktarimConfig;
+	}
+```
+
+# FiQuery Metodları
+
+## convertUserParamsToValue()
+
+Sorguda bulunan __userParam şeklindeki user parametrelerini bulur. Bu parametreler eğer mapParams'da var ise, değeri ile yer değiştirir.
+
+```java
+String sql = "--sq202212291130\n" +
+    "--$ver 1\n" +
+    "CREATE DATABASE __txDbName";
+
+FiKeyBean fkbQuery = new FiKeyBean();
+fkbQuery.putObj(FiColsEntegre.txDbName(), txDbName);
+
+FiQuery fiQuery = new FiQuery(sql, fkbQuery);
+fiQuery.convertUserParamsToValue();
+
+return jdUpdateBindMapMain(fiQuery);
+```
+
 
 # Hata Çözümleri
 
@@ -342,6 +405,15 @@ varchar alanın sonuna `collate Turkish_CS_AI` eklenir.
 LEFT JOIN MikroDB_V15_OZPAS.dbo.CARI_HESAP_HAREKETLERI chh 
     ON kko.cha_evrakno_seri = chh.cha_evrakno_seri collate Turkish_CS_AI
 ```
+
+# Kısaltmalar
+
+Kısaltma | Açıklama
+---------|----------------------------------------------------------
+Ntn      | Not Null (null değer dönmez, string ise boş string döner)
+Init     | Initialize (Referansın objesini oluşturur.)
+
+
 
 # Karalama Notlar - İnceleneecek
 
