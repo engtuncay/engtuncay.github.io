@@ -4,6 +4,12 @@
 
 - v2
 
+<h1>Objects 1 </h1>
+
+This tutorial is mostly prepared from javascript.info website. It is very good. Some sections may be changed or removed.
+
+Source : http://www.javascript.info
+
 - [Objects](#objects)
   - [Literals and properties](#literals-and-properties)
   - [Square brackets](#square-brackets)
