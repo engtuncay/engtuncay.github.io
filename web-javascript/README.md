@@ -17,7 +17,8 @@ CONTENT |
 [9 Classes](./js-intro-09-1-Classes.md)
 [13 Modules](./js-intro-13-1-Modules.md)
 
-CONTENT |--- |
+CONTENT |
+--- |
 [Node Js Intro](./node-js-intro.md) |
 
 <h2>Javascript.info Articles </h2> 
