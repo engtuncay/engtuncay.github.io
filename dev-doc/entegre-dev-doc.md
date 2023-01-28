@@ -410,8 +410,11 @@ LEFT JOIN MikroDB_V15_OZPAS.dbo.CARI_HESAP_HAREKETLERI chh
 
 Kısaltma | Açıklama
 ---------|----------------------------------------------------------
-Ntn      | Not Null (null değer dönmez, string ise boş string döner)
-Init     | Initialize (Referansın objesini oluşturur.)
+Ntn      | Not Null (null değer dönmez, string ise boş string döner) (metod isimlerinin sonuna yazılıyor)
+Init     | Initialize (Referansın objesini oluşturur.) (metod isminde)
+Vim      | view modal (Class isminde)
+Efxhp    | Entegre Fx Helper (on entfx project) (Class isminde)
+
 
 
 

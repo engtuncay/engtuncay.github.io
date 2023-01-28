@@ -1,5 +1,19 @@
 
 
+- Source : https://javascript.info/object-basics
+
+- v2
+
+- [Objects](#objects)
+  - [Literals and properties](#literals-and-properties)
+  - [Square brackets](#square-brackets)
+    - [Computed properties](#computed-properties)
+  - [Property value shorthand](#property-value-shorthand)
+  - [Property names limitations](#property-names-limitations)
+  - [Property existence test, "in" operator](#property-existence-test-in-operator)
+  - [The "for..in" loop](#the-forin-loop)
+    - [Ordered like an object](#ordered-like-an-object)
+  - [Summary](#summary)
 
 
 # Objects
