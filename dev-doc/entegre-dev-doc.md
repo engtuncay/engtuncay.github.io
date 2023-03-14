@@ -45,9 +45,11 @@ Java Fx ile geliştirdiğim uygulama için aldığım notlar.
 
 ## FiColsEntegre - Entegre Sütun Objeleri
 
-Entegre sütun objeleri burada tutulur.
+- FiColsEntegre : Entegre ile ilgili alanlar burada tutulur.
+  
+- FiColsMikro : Mikro alanları burada tutulur.
 
-örneğin;
+örnek alan objesi dönen metod :
 
 ```java
 public static FiCol aucTxValue() {
@@ -93,12 +95,15 @@ getModView().getFxTableMig().setManaged(false);
 
 # Module Helper (modüllerde kullanılacak yardımcı metodlar)
 
+EfxhpModHelper : sınıfı EntegreFx Module Helper : modüllerde kullanılacak ortak,yardımcı metodlar sunar.
+
 ## Listede eleman sayısı 1 den fazla var mı ortak kontolü
+
+Tablolu pencerelerde seçim yapılırken, 1 den fazla seçilme kontrolü.
 
 ```java
 if (!EfxhpModHelper.checkKayitlarSecilmisMi(itemsChecked)) return;
 ```
-
 
 
 # Dialog Pencereleri
@@ -340,9 +345,13 @@ System.out.println(sqlQuery2);
 
 ## Lokal Aktarım Sablon 1
 
+Mikroya entegreden veri ekleme ayarları için kullanılır. Cari Kart kontrolü yoktur, otomatik sıra numarası verir, yeni kart açılışı yoktur, satici boş geçilebilir.
+
 ```java
 MikroAktarimConfig lokalAktarim2 = MikroAktarimConfig.instanceLokalAktarim();
 ```
+
+- Lokal aktarım ayarları
 
 ```java
 public static MikroAktarimConfig instanceLokalAktarim() {
@@ -369,7 +378,6 @@ public static MikroAktarimConfig instanceLokalAktarim2(Date dtAktarim) {
 		mikroAktarimConfig.setBoKarsiKodNullableForFinans(true);
 		mikroAktarimConfig.setDtAktarim(dtAktarim);
 		mikroAktarimConfig.setDtLastUp(dtAktarim);
-
 		return mikroAktarimConfig;
 	}
 ```
