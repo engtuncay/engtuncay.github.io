@@ -1,6 +1,6 @@
 
 
-# B6 Vue Fetch from Api
+# B6 Vue Fetch from Api (Vue 2)
 
 ## 6-1 Fetch Todos
 

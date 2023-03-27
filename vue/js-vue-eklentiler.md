@@ -16,7 +16,7 @@ To help bridge the gap until everyone has updated, we also publish a PostCSS 7 c
 
 If you run into the error mentioned above, uninstall Tailwind and re-install using the compatibility build instead:
 
-```js
+```bash
 yarn remove tailwindcss postcss autoprefixer
 yarn add -D tailwindcss@npm:@tailwindcss/postcss7-compat postcss@^7 autoprefixer@^9
 ```
@@ -25,7 +25,7 @@ The compatibility build is identical to the main build in every way, so you aren
 
 Once the rest of your tools have added support for PostCSS 8, you can move off of the compatibility build by re-installing Tailwind and its peer-dependencies using the latest tag:
 
-```js
+```bash
 npm uninstall tailwindcss
 npm install -D tailwindcss@latest postcss@latest autoprefixer@latest
 ```

@@ -1,7 +1,7 @@
 
 
 
-# B11 - Servisler, Mixin ve Interceptor Yapısı
+# B11 - Servisler, Mixin ve Interceptor Yapısı (Vue 2)
 
 - Öncelikle servis dosyamızı oluştururuz. Burada örnek olarak api.service.js oluştururuz.
 

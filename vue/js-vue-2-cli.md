@@ -1,6 +1,15 @@
 
+- [B3 Vue Cli (Vue 2)](#b3-vue-cli-vue-2)
+  - [Installation](#installation)
+  - [Creating a Project](#creating-a-project)
+  - [Project Template](#project-template)
+  - [Serve Project](#serve-project)
+  - [Update modules in package.json](#update-modules-in-packagejson)
+  - [Adding new modules](#adding-new-modules)
+  - [Build Command](#build-command)
 
-# B3 Vue Cli
+
+# B3 Vue Cli (Vue 2)
 
 ## Installation
 
@@ -12,13 +21,13 @@ npm install -g @vue/cli
 yarn global add @vue/cli
 ```
 
-After installing required packages you can use “vue” command globally and create new project. To test the installation is successfully finished, run the following command:
+After installing required packages you can use “vue” command globally and create new project. To test the installation is successfully finished, run the following command for showing the version of Vue :
 
 ```js
 vue --version
 ```
 
-It will show you the version of Vue. If you successfully see these information this means that Vue is now working globally in your system.
+If you successfully see these information this means that Vue is now working globally in your system.
 
 ## Creating a Project
 
@@ -60,8 +69,10 @@ npm run serve
 Package json dosyasındaki bağımlılıkları(kütüphaneleri) yüklemek için
 
 ```js
-npm install === yarn 
-// Install is the default behavior of yarn.
+npm install 
+// or with Yarn (Install is the default behavior of yarn)
+yarn 
+
 ```
 
 ## Adding new modules 
@@ -78,6 +89,3 @@ yarn build
 // veya
 npm build
 ```
-
-
-

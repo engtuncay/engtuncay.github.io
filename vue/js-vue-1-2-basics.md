@@ -3,7 +3,7 @@ Vue 2 - Tutorial
 
 - [Sources](#sources)
 - [B1 Vue Intro (Vue 2)](#b1-vue-intro-vue-2)
-- [B2 Vue Basic](#b2-vue-basic)
+- [B2 Vue Basic (Vue 2)](#b2-vue-basic-vue-2)
   - [2-1 Instance](#2-1-instance)
   - [2-2 Lifecycle](#2-2-lifecycle)
   - [2-3 Data Binding (or code Binding)](#2-3-data-binding-or-code-binding)
@@ -88,8 +88,7 @@ h1, h2, h3, h4, h5, h6 {
 
 ```
 
-# B2 Vue Basic
-
+# B2 Vue Basic (Vue 2)
 
 ## 2-1 Instance
 

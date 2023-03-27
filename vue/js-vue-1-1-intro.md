@@ -7,7 +7,8 @@ Vue 2 - Tutorial
   - [Installation](#installation)
     - [Cdn Usage](#cdn-usage)
   - [Tavsiye Edilen Eklentiler](#tavsiye-edilen-eklentiler)
-  - [What You Learn](#what-you-learn)
+  - [What You Will Learn](#what-you-will-learn)
+  - [Try Vue Online​](#try-vue-online)
 
 Önsöz
 
@@ -23,7 +24,7 @@ Vue.js (Vue) is a JavaScript *framework* that makes building *interactive* and *
 
 ## Installation
 
-vuejs.org 'dan installation bölümüne bakılır. 
+vuejs.org 'dan installation bölümüne bakılır. (https://vuejs.org/guide/quick-start.html#creating-a-vue-application)
 
 
 ### Cdn Usage
@@ -111,13 +112,24 @@ Burada kullanılan vue özel fonksiyonları
 
 Note: default formmater kontrol edilmeli. prettier seçilmemişse, ayarlardan seçilince aktif olur.
 
-## What You Learn
+## What You Will Learn
 
 - Basics: Core Syntax, Templates, Directive, Data, Methods,Computed Props, Watchers
 
 - Intermediate : Components, Component Communication, Behind the Scenes, Forms, Http, Routing, Animations
 
 - Advanced : Vues, Authentication, Deployment , Optimization, Composition API, Re-using Code
+
+
+## Try Vue Online​
+
+To quickly get a taste of Vue, you can try it directly in our Playground. (https://sfc.vuejs.org/#eNo9j01qAzEMha+iapMWOjbdDm6gu96gG2/cjJJM8B+2nBaGuXvlpBMwtj4/JL234EfO6toIRzT1UObMexvpN6fCMNHRNc+w2AgwOXbPL/caoBC3EjcCCPU0wu6TvE/wlYqfnnZ3ae2PXHKMfiwQYArZOyYhAHN+2y9LnwLrarTQ7XeOuTFch5Am8u8WRbcoktGPbnzFOXS3Q3BZXWqKkuRmy/4L1eK4GbUoUTtbPDPnOmpdj4ee/1JVKictlSot8hxIUQ3Dd0k/lYoMtrglwfUPkXdoJg==)
+
+If you prefer a plain HTML setup without any build steps, you can use this JSFiddle as your starting point. (https://jsfiddle.net/yyx990803/2ke1ab0z/)
+
+If you are already familiar with Node.js and the concept of build tools, you can also try a complete build setup right within your browser on StackBlitz. (https://vite.new/vue)
+
+
 
 
 
