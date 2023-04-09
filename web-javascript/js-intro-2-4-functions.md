@@ -160,13 +160,16 @@ showMessage();
 alert( userName ); // *!*John*/!*, unchanged, the function did not access the outer variable
 ```
 
-```smart header="Global variables"
+**Global variables**
+
 Variables declared outside of any function, such as the outer `userName` in the code above, are called *global*.
 
 Global variables are visible from any function (unless shadowed by locals).
 
 It's a good practice to minimize the use of global variables. Modern code has few or no globals. Most variables reside in their functions. Sometimes though, they can be useful to store project-level data.
-```
+
+---
+
 
 ## Parameters
 
@@ -175,26 +178,25 @@ We can pass arbitrary data to functions using parameters.
 In the example below, the function has two parameters: `from` and `text`.
 
 ```js run
-function showMessage(*!*from, text*/!*) { // parameters: from, text
+function showMessage(from, text) { // parameters: from, text
   alert(from + ': ' + text);
 }
 
-*!*showMessage('Ann', 'Hello!');*/!* // Ann: Hello! (*)
-*!*showMessage('Ann', "What's up?");*/!* // Ann: What's up? (**)
+showMessage('Ann', 'Hello!'); // Ann: Hello! (*)
+showMessage('Ann', "What's up?"); // Ann: What's up? (**)
 ```
 
-When the function is called in lines `(*)` and `(**)`, the given values are copied to local variables `from` and `text`. Then the function uses them.
+When the function is called in lines `(*)` and `(**)`, the given values are copied to *local variables* `from` and `text`. Then the function uses them.
 
 Here's one more example: we have a variable `from` and pass it to the function. Please note: the function changes `from`, but the change is not seen outside, because a function always gets a copy of the value:
 
 ```js run
 function showMessage(from, text) {
 
-*!*
-  from = '*' + from + '*'; // make "from" look nicer
-*/!*
+from = '*' + from + '*'; // make "from" look nicer
 
-  alert( from + ': ' + text );
+alert( from + ': ' + text );
+
 }
 
 let from = "Ann";
@@ -216,6 +218,7 @@ We declare functions listing their parameters, then call them passing arguments.
 
 In the example above, one might say: "the function `showMessage` is declared with two parameters, then called with two arguments: `from` and `"Hello"`".
 
+(to:yollanan değişkenlere,argüman denir)
 
 ## Default values
 
@@ -232,7 +235,7 @@ That's not an error. Such a call would output `"*Ann*: undefined"`. As the value
 We can specify the so-called "default" (to use if omitted) value for a parameter in the function declaration, using `=`:
 
 ```js run
-function showMessage(from, *!*text = "no text given"*/!*) {
+function showMessage(from, text = "no text given") {
   alert( from + ": " + text );
 }
 
