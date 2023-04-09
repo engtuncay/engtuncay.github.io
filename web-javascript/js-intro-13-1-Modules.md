@@ -108,7 +108,6 @@ The browser automatically fetches and evaluates the imported module (and its imp
 If you try to open a web-page locally, via `file://` protocol, 
 you'll find that `import/export` directives don't work. Use a local web-server, such as [static-server](https://www.npmjs.com/package/static-server#getting-started) or use the "live server" capability of your editor, such as VS Code [Live Server Extension](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) to test modules.
 
---*LINK - tobecont
 
 ## Core module features
 
@@ -128,11 +127,25 @@ Modules always work in strict mode. E.g. assigning to an undeclared variable wil
 
 ### Module-level scope
 
-Each module has its own top-level scope. In other words, top-level variables and functions from a module are not seen in other scripts.
+Each module has its own top-level scope. In other words, top-level variables and functions from a module are not seen in other scripts (to:no global).
 
 In the example below, two scripts are imported, and `hello.js` tries to use `user` variable declared in `user.js`. It fails, because it's a separate module (you'll see the error in the console):
 
-[codetabs src="scopes" height="140" current="index.html"]
+```html
+<!doctype html>
+<script type="module" src="user.js"></script>
+<script type="module" src="hello.js"></script>
+```
+
+(user.js)
+```js
+let user = "John";
+```
+
+(hello.js)
+```js 
+alert(user); // no such variable (each module has independent variables)
+```
 
 Modules should `export` what they want to be accessible from outside and `import` what they need.
 
@@ -143,7 +156,21 @@ In other words, with modules we use import/export instead of relying on global v
 
 This is the correct variant:
 
-[codetabs src="scopes-working" height="140" current="hello.js"]
+```html
+<!doctype html>
+<script type="module" src="hello.js"></script>
+```
+
+(hello.js)
+```js
+import {user} from './user.js';
+
+document.body.innerHTML = user; // John
+```
+
+```js
+export let user = "John";
+```
 
 In the browser, if we talk about HTML pages, independent top-level scope also exists for each `<script type="module">`.
 
@@ -156,19 +183,20 @@ Here are two scripts on the same page, both `type="module"`. They don't see each
 </script>
 
 <script type="module">
-  *!*
   alert(user); // Error: user is not defined
-  */!*
 </script>
 ```
 
-```smart
+**Info**
+---
 In the browser, we can make a variable window-level global by explicitly assigning it to a `window` property, e.g. `window.user = "John"`. 
 
 Then all scripts will see it, both with `type="module"` and without it. 
 
 That said, making such global variables is frowned upon. Please try to avoid them.
-```
+
+---
+
 
 ### A module code is evaluated only the first time when imported
 
@@ -209,6 +237,7 @@ export let admin = {
   name: "John"
 };
 ```
+*Important*
 
 If this module is imported from multiple files, the module is only evaluated the first time, `admin` object is created, and then passed to all further importers.
 
@@ -223,21 +252,21 @@ admin.name = "Pete";
 import {admin} from './admin.js';
 alert(admin.name); // Pete
 
-*!*
 // Both 1.js and 2.js reference the same admin object
 // Changes made in 1.js are visible in 2.js
-*/!*
+
 ```
 
 As you can see, when `1.js` changes the `name` property in the imported `admin`, then `2.js` can see the new `admin.name`.
 
 That's exactly because the module is executed only once. Exports are generated, and then they are shared between importers, so if something changes the `admin` object, other modules will see that.
 
-**Such behavior is actually very convenient, because it allows us to *configure* modules.**
+*Such behavior is actually very convenient, because it allows us to *configure* modules.*
 
 In other words, a module can provide a generic functionality that needs a setup. E.g. authentication needs credentials. Then it can export a configuration object expecting the outer code to assign to it.
 
 Here's the classical pattern:
+
 1. A module exports some means of configuration, e.g. a configuration object.
 2. On the first import we initialize it, write to its properties. The top-level application script may do that.
 3. Further imports use the module.
@@ -274,7 +303,6 @@ import {sayHi} from './admin.js';
 sayHi(); // Ready to serve, *!*Pete*/!*!
 ```
 
-
 ### import.meta
 
 The object `import.meta` contains the information about the current module.
@@ -285,6 +313,7 @@ Its content depends on the environment. In the browser, it contains the URL of t
 <script type="module">
   alert(import.meta.url); // script URL
   // for an inline script - the URL of the current HTML-page
+  // Output : https://javascript.info/modules-intro
 </script>
 ```
 
@@ -314,7 +343,7 @@ You may want skip this section for now if you're reading for the first time, or 
 
 ### Module scripts are deferred
 
-Module scripts are *always* deferred, same effect as `defer` attribute (described in the chapter [](info:script-async-defer)), for both external and inline scripts.
+Module scripts are *always* deferred, same effect as `defer` attribute (described in the chapter [script-async-defer](https://javascript.info/script-async-defer), for both external and inline scripts.
 
 In other words:
 - downloading external module scripts `<script type="module" src="...">` doesn't block HTML processing, they load in parallel with other resources.
@@ -327,18 +356,14 @@ For instance:
 
 ```html run
 <script type="module">
-*!*
   alert(typeof button); // object: the script can 'see' the button below
-*/!*
   // as modules are deferred, the script runs after the whole page is loaded
 </script>
 
 Compare to regular script below:
 
 <script>
-*!*
   alert(typeof button); // button is undefined, the script can't see elements below
-*/!*
   // regular scripts run immediately, before the rest of the page is processed
 </script>
 
@@ -349,7 +374,9 @@ Please note: the second script actually runs before the first! So we'll see `und
 
 That's because modules are deferred, so we wait for the document to be processed. The regular script runs immediately, so we see its output first.
 
-When using modules, we should be aware that the HTML page shows up as it loads, and JavaScript modules run after that, so the user may see the page before the JavaScript application is ready. Some functionality may not work yet. We should put "loading indicators", or otherwise ensure that the visitor won't be confused by that.
+When using modules, we should be aware that the HTML page shows up as it loads, and JavaScript modules run after that, so the user may see the page before the JavaScript application is ready. Some functionality may not work yet. We should put "loading indicators", or otherwise ensure that the visitor won't be confused by that. 
+
+(to:html önce render edileceği için bazı yerler boş görünebilir, kullanıcının kafası karışmaması için loading göstergeleri eklemeliyiz.)
 
 ### Async works on inline scripts
 
@@ -357,7 +384,7 @@ For non-module scripts, the `async` attribute only works on external scripts. As
 
 For module scripts, it works on inline scripts as well.
 
-For example, the inline script below has `async`, so it doesn't wait for anything.
+For example, the inline script below has `async`, so it doesn't wait for anything. `<script async ...`"
 
 It performs the import (fetches `./analytics.js`) and runs when ready, even if the HTML document is not finished yet, or if other scripts are still pending.
 
@@ -366,7 +393,7 @@ That's good for functionality that doesn't depend on anything, like counters, ad
 ```html
 <!-- all dependencies are fetched (analytics.js), and the script runs -->
 <!-- doesn't wait for the document or other <script> tags -->
-<script *!*async*/!* type="module">
+<script async type="module">
   import {counter} from './analytics.js';
 
   counter.count();
@@ -378,26 +405,29 @@ That's good for functionality that doesn't depend on anything, like counters, ad
 External scripts that have `type="module"` are different in two aspects:
 
 1. External scripts with the same `src` run only once:
-    ```html
-    <!-- the script my.js is fetched and executed only once -->
-    <script type="module" src="my.js"></script>
-    <script type="module" src="my.js"></script>
-    ```
 
-2. External scripts that are fetched from another origin (e.g. another site) require [CORS](mdn:Web/HTTP/CORS) headers, as described in the chapter <info:fetch-crossorigin>. In other words, if a module script is fetched from another origin, the remote server must supply a header `Access-Control-Allow-Origin` allowing the fetch.
-    ```html
-    <!-- another-site.com must supply Access-Control-Allow-Origin -->
-    <!-- otherwise, the script won't execute -->
-    <script type="module" src="*!*http://another-site.com/their.js*/!*"></script>
-    ```
+```html
+<!-- the script my.js is fetched and executed only once -->
+<script type="module" src="my.js"></script>
+<script type="module" src="my.js"></script>
+```
 
-    That ensures better security by default.
+2. External scripts that are fetched from another origin (e.g. another site) require [CORS](mdn:Web/HTTP/CORS) headers, as described in the chapter [info:fetch-crossorigin](https://javascript.info/fetch-crossorigin). In other words, if a module script is fetched from another origin, the remote server must supply a header `Access-Control-Allow-Origin` allowing the fetch.
 
-### No "bare" modules allowed
+```html
+<!-- another-site.com must supply Access-Control-Allow-Origin -->
+<!-- otherwise, the script won't execute -->
+<script type="module" src="*!*http://another-site.com/their.js*/!*"></script>
+```
+
+That ensures better security by default.
+
+### No "bare" modules allowed (without import path)
 
 In the browser, `import` must get either a relative or absolute URL. Modules without any path are called "bare" modules. Such modules are not allowed in `import`.
 
 For instance, this `import` is invalid:
+
 ```js
 import {sayHi} from 'sayHi'; // Error, "bare" module
 // the module must have a path, e.g. './sayHi.js' or wherever the module is
@@ -465,6 +495,8 @@ When we use modules, each module implements the functionality and exports it. Th
 In production, people often use bundlers such as [Webpack](https://webpack.js.org) to bundle modules together for performance and other reasons.
 
 In the next chapter we'll see more examples of modules, and how things can be exported/imported.
+
+--*LINK - to be cont
 
 # Export and Import
 
