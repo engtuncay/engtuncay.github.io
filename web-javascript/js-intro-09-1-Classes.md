@@ -7,7 +7,6 @@
   
 <h2>9 - Classes</h2>
 
-
 - [Class basic syntax](#class-basic-syntax)
   - [The "class" syntax](#the-class-syntax)
   - [What is a class?](#what-is-a-class)
