@@ -1,6 +1,5 @@
 
-
-- Source : https://javascript.info/object-basics
+Sourcs : https://javascript.info/object-basics
 
 - v2
 

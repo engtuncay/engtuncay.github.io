@@ -13,9 +13,13 @@ Developer console
 Hello, world!
 Code structure
 The modern mode, "use strict"
-Variables
+
+2-1
+Variables 
 Data types
+
 Interaction: alert, prompt, confirm
+
 Type Conversions
 
 Basic operators, maths

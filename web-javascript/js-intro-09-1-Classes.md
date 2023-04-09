@@ -1,11 +1,13 @@
 
+<h2>9 - Classes</h2>
+
 <h3>Source</h3>
 
-- These are articles from Javascript.info 
+- These are articles from Javascript.info [Js Info - Class](https://javascript.info/class) 
 
 - Some additions may be added in some parts.
-  
-<h2>9 - Classes</h2>
+
+<h3>Contents</h3>
 
 - [Class basic syntax](#class-basic-syntax)
   - [The "class" syntax](#the-class-syntax)
@@ -51,12 +53,11 @@
   - [Summary](#summary-5)
 
 
-
 # Class basic syntax
 
-```quote author="Wikipedia"
-In object-oriented programming, a *class* is an extensible program-code-template for creating objects, providing initial values for state (member variables) and implementations of behavior (member functions or methods).
-```
+quote author="Wikipedia"
+
+> In object-oriented programming, a *class* is an extensible program-code-template for creating objects, providing initial values for state (member variables) and implementations of behavior (member functions or methods).
 
 In practice, we often need to create many objects of the same kind, like users, or goods or whatever.
 
@@ -109,11 +110,11 @@ When `new User("John")` is called:
 ...Then we can call object methods, such as `user.sayHi()`.
 
 
-```warn header="No comma between class methods"
+**Warn No comma between class methods**
 A common pitfall for novice developers is to put a comma between class methods, which would result in a syntax error.
 
 The notation here is not to be confused with object literals. Within the class, no commas are required.
-```
+---
 
 ## What is a class?
 
@@ -132,9 +133,8 @@ class User {
 }
 
 // proof: User is a function
-*!*
 alert(typeof User); // function
-*/!*
+
 ```
 
 What `class User {...}` construct really does is:
@@ -146,7 +146,7 @@ After `new User` object is created, when we call its method, it's taken from the
 
 We can illustrate the result of `class User` declaration as:
 
-![](class-user.svg)
+![](./img/class-user.svg)
 
 Here's the code to introspect it:
 
@@ -168,6 +168,8 @@ alert(User.prototype.sayHi); // the code of the sayHi method
 // there are exactly two methods in the prototype
 alert(Object.getOwnPropertyNames(User.prototype)); // constructor, sayHi
 ```
+
+--*LINK - to cont
 
 ## Not just a syntactic sugar
 

@@ -1,7 +1,7 @@
 
 <h3>Source</h3>
 
-- These are articles from Javascript.info 
+- These are articles from Javascript.info [Js Info - Modules](https://javascript.info/modules-intro#comments)
 
 - Some additions may be added in some parts.
   
