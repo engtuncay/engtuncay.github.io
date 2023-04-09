@@ -54,7 +54,7 @@ To name some (for historical reasons):
 
 Now all these slowly become a part of history, but we still can find them in old scripts.
 
-The language-level module system appeared in the standard in 2015, gradually evolved since then, and is now supported by all major browsers and in Node.js. So we'll study the modern JavaScript modules from now on.
+The language-level module system appeared in the standard in **2015**, gradually evolved since then, and is now supported by all major browsers and in Node.js. So we'll study the modern JavaScript modules from now on.
 
 ## What is a module?
 
@@ -86,19 +86,29 @@ sayHi('John'); // Hello, John!
 
 The `import` directive loads the module by path `./sayHi.js` relative to the current file, and assigns exported function `sayHi` to the corresponding variable.
 
-Let's run the example in-browser.
+Let's run the example in-browser. [ex](https://tor-web-js-info.stackblitz.io/module1.html)
 
 As modules support special keywords and features, we must tell the browser that a script should be treated as a module, by using the attribute `<script type="module">`.
 
 Like this:
 
-[codetabs src="say" height="140" current="index.html"]
+```html
+<!doctype html>
+<script type="module">
+  import {sayHi} from './say.js';
+
+  document.body.innerHTML = sayHi('John');
+</script>
+```
 
 The browser automatically fetches and evaluates the imported module (and its imports if needed), and then runs the script.
 
-```warn header="Modules work only via HTTP(s), not locally"
-If you try to open a web-page locally, via `file://` protocol, you'll find that `import/export` directives don't work. Use a local web-server, such as [static-server](https://www.npmjs.com/package/static-server#getting-started) or use the "live server" capability of your editor, such as VS Code [Live Server Extension](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) to test modules.
-```
+**Warn: Modules work only via HTTP(s), not locally**
+
+If you try to open a web-page locally, via `file://` protocol, 
+you'll find that `import/export` directives don't work. Use a local web-server, such as [static-server](https://www.npmjs.com/package/static-server#getting-started) or use the "live server" capability of your editor, such as VS Code [Live Server Extension](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) to test modules.
+
+--*LINK - tobecont
 
 ## Core module features
 
