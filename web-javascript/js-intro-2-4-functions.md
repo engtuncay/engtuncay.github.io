@@ -253,13 +253,14 @@ function showMessage(from, text = anotherFunction()) {
 }
 ```
 
-```smart header="Evaluation of default parameters"
+**smart header="Evaluation of default parameters"**
 In JavaScript, a default parameter is evaluated every time the function is called without the respective parameter.
 
 In the example above, `anotherFunction()` isn't called at all, if the `text` parameter is provided.
 
 On the other hand, it's independently called every time when `text` is missing.
-```
+
+---
 
 ### Alternative default parameters
 
@@ -271,11 +272,9 @@ We can check if the parameter is passed during the function execution, by compar
 function showMessage(text) {
   // ...
 
-*!*
   if (text === undefined) { // if the parameter is missing
     text = 'empty message';
   }
-*/!*
 
   alert(text);
 }
@@ -314,7 +313,7 @@ The simplest example would be a function that sums two values:
 
 ```js run no-beautify
 function sum(a, b) {
-  *!*return*/!* a + b;
+  return a + b;
 }
 
 let result = sum(1, 2);
@@ -328,13 +327,9 @@ There may be many occurrences of `return` in a single function. For instance:
 ```js run
 function checkAge(age) {
   if (age >= 18) {
-*!*
     return true;
-*/!*
   } else {
-*!*
     return confirm('Do you have permission from your parents?');
-*/!*
   }
 }
 
@@ -354,9 +349,7 @@ For example:
 ```js
 function showMovie(age) {
   if ( !checkAge(age) ) {
-*!*
     return;
-*/!*
   }
 
   alert( "Showing you the movie" ); // (*)
@@ -366,7 +359,9 @@ function showMovie(age) {
 
 In the code above, if `checkAge(age)` returns `false`, then `showMovie` won't proceed to the `alert`.
 
-````smart header="A function with an empty `return` or without it returns `undefined`"
+--*LINK tbc
+
+**A function with an empty `return` or without it returns `undefined`"**
 If a function does not return a value, it is the same as if it returns `undefined`:
 
 ```js run
@@ -384,15 +379,19 @@ function doNothing() {
 
 alert( doNothing() === undefined ); // true
 ```
-````
 
-````warn header="Never add a newline between `return` and the value"
+---
+
+
+**Warn : Never add a newline between `return` and the value**
+
 For a long expression in `return`, it might be tempting to put it on a separate line, like this:
 
 ```js
 return
  (some + long + expression + or + whatever * f(a) + f(b))
 ```
+
 That doesn't work, because JavaScript assumes a semicolon after `return`. That'll work the same as:
 
 ```js
@@ -412,7 +411,8 @@ return (
   )
 ```
 And it will work just as we expect it to.
-````
+
+---
 
 ## Naming a function [#function-naming]
 
@@ -615,7 +615,7 @@ let func = sayHi;
 Everything would work the same.
 
 
-````smart header="Why is there a semicolon at the end?"
+--smart header="Why is there a semicolon at the end?"
 You might wonder, why does Function Expression have a semicolon `;` at the end, but Function Declaration does not:
 
 ```js
@@ -631,7 +631,7 @@ let sayHi = function() {
 The answer is simple:
 - There's no need for `;` at the end of code blocks and syntax structures that use them like `if { ... }`, `for {  }`, `function f { }` etc.
 - A Function Expression is used inside the statement: `let sayHi = ...;`, as a value. It's not a code block, but rather an assignment. The semicolon `;` is recommended at the end of statements, no matter what the value is. So the semicolon here is not related to the Function Expression itself, it just terminates the statement.
-````
+--
 
 ## Callback functions
 
