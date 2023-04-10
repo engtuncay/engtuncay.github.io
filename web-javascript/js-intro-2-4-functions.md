@@ -19,7 +19,7 @@
   - [Default values](#default-values)
     - [Alternative default parameters](#alternative-default-parameters)
   - [Returning a value](#returning-a-value)
-  - [Naming a function \[#function-naming\]](#naming-a-function-function-naming)
+  - [Naming a function](#naming-a-function)
   - [Functions == Comments](#functions--comments)
   - [Summary](#summary)
 - [2-16 Function expressions](#2-16-function-expressions)
@@ -359,9 +359,8 @@ function showMovie(age) {
 
 In the code above, if `checkAge(age)` returns `false`, then `showMovie` won't proceed to the `alert`.
 
---*LINK tbc
-
 **A function with an empty `return` or without it returns `undefined`"**
+
 If a function does not return a value, it is the same as if it returns `undefined`:
 
 ```js run
@@ -382,7 +381,6 @@ alert( doNothing() === undefined ); // true
 
 ---
 
-
 **Warn : Never add a newline between `return` and the value**
 
 For a long expression in `return`, it might be tempting to put it on a separate line, like this:
@@ -395,7 +393,7 @@ return
 That doesn't work, because JavaScript assumes a semicolon after `return`. That'll work the same as:
 
 ```js
-return*!*;*/!*
+return ;
  (some + long + expression + or + whatever * f(a) + f(b))
 ```
 
@@ -414,7 +412,9 @@ And it will work just as we expect it to.
 
 ---
 
-## Naming a function [#function-naming]
+## Naming a function
+
+[#function-naming]
 
 Functions are actions. So their name is usually a verb. It should be brief, as accurate as possible and describe what the function does, so that someone reading the code gets an indication of what the function does.
 
@@ -441,7 +441,10 @@ checkPermission(..) // checks a permission, returns true/false
 
 With prefixes in place, a glance at a function name gives an understanding what kind of work it does and what kind of value it returns.
 
-```smart header="One function -- one action"
+--*LINK - tobecont
+
+**One function -- one action**
+
 A function should do exactly what is suggested by its name, no more.
 
 Two independent actions usually deserve two functions, even if they are usually called together (in that case we can make a 3rd function that calls those two).
@@ -453,15 +456,18 @@ A few examples of breaking this rule:
 - `checkPermission` -- would be bad if it displays the `access granted/denied` message (should only perform the check and return the result).
 
 These examples assume common meanings of prefixes. You and your team are free to agree on other meanings, but usually they're not much different. In any case, you should have a firm understanding of what a prefix means, what a prefixed function can and cannot do. All same-prefixed functions should obey the rules. And the team should share the knowledge.
-```
 
-```smart header="Ultrashort function names"
+---
+
+**Ultrashort function names**
+
 Functions that are used *very often* sometimes have ultrashort names.
 
 For example, the [jQuery](http://jquery.com) framework defines a function with `$`. The [Lodash](http://lodash.com/) library has its core function named `_`.
 
 These are exceptions. Generally function names should be concise and descriptive.
-```
+
+---
 
 ## Functions == Comments
 
@@ -492,7 +498,7 @@ The second variant uses an additional function `isPrime(n)` to test for primalit
 function showPrimes(n) {
 
   for (let i = 2; i < n; i++) {
-    *!*if (!isPrime(i)) continue;*/!*
+    if (!isPrime(i)) continue;
 
     alert(i);  // a prime
   }
