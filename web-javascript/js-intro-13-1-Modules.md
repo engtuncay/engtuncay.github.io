@@ -12,6 +12,7 @@
   - [Core module features](#core-module-features)
     - [Always "use strict"](#always-use-strict)
     - [Module-level scope](#module-level-scope)
+  - [**Info**](#info)
     - [A module code is evaluated only the first time when imported](#a-module-code-is-evaluated-only-the-first-time-when-imported)
     - [import.meta](#importmeta)
     - [In a module, "this" is undefined](#in-a-module-this-is-undefined)
@@ -19,7 +20,7 @@
     - [Module scripts are deferred](#module-scripts-are-deferred)
     - [Async works on inline scripts](#async-works-on-inline-scripts)
     - [External scripts](#external-scripts)
-    - [No "bare" modules allowed](#no-bare-modules-allowed)
+    - [No "bare" modules allowed (without import path)](#no-bare-modules-allowed-without-import-path)
     - [Compatibility, "nomodule"](#compatibility-nomodule)
   - [Build tools](#build-tools)
   - [Summary](#summary)
@@ -496,8 +497,6 @@ In production, people often use bundlers such as [Webpack](https://webpack.js.or
 
 In the next chapter we'll see more examples of modules, and how things can be exported/imported.
 
---*LINK - to be cont
-
 # Export and Import
 
 Export and import directives have several syntax variants.
@@ -512,20 +511,21 @@ For instance, here all exports are valid:
 
 ```js
 // export an array
-*!*export*/!* let months = ['Jan', 'Feb', 'Mar','Apr', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+export let months = ['Jan', 'Feb', 'Mar','Apr', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 // export a constant
-*!*export*/!* const MODULES_BECAME_STANDARD_YEAR = 2015;
+export const MODULES_BECAME_STANDARD_YEAR = 2015;
 
 // export a class
-*!*export*/!* class User {
+export class User {
   constructor(name) {
     this.name = name;
   }
 }
 ```
 
-%%smart header="No semicolons after export class/function"
+**No semicolons after export class/function**
+
 Please note that `export` before a class or a function does not make it a [function expression](info:function-expressions). It's still a function declaration, albeit exported.
 
 Most JavaScript style guides don't recommend semicolons after function and class declarations.
@@ -535,10 +535,8 @@ That's why there's no need for a semicolon at the end of `export class` and `exp
 ```js
 export function sayHi(user) {
   alert(`Hello, ${user}!`);
-} *!* // no ; at the end */!*
+} // no ; at the end
 ```
-
-%%
 
 ## Export apart from declarations
 
@@ -556,9 +554,8 @@ function sayBye(user) {
   alert(`Bye, ${user}!`);
 }
 
-*!*
 export {sayHi, sayBye}; // a list of exported variables
-*/!*
+
 ```
 
 ...Or, technically we could put `export` above functions as well.
@@ -569,21 +566,17 @@ Usually, we put a list of what to import in curly braces `import {...}`, like th
 
 ```js
 // 📁 main.js
-*!*
 import {sayHi, sayBye} from './say.js';
-*/!*
 
 sayHi('John'); // Hello, John!
 sayBye('John'); // Bye, John!
 ```
 
-But if there's a lot to import, we can import everything as an object using `import * as <obj>`, for instance:
+But if there's a lot to import, we can import everything as *an object* using `import * as <obj>`, for instance:
 
 ```js
 // 📁 main.js
-*!*
 import * as say from './say.js';
-*/!*
 
 say.sayHi('John');
 say.sayBye('John');
@@ -595,20 +588,21 @@ Well, there are few reasons.
 
 1. Modern build tools ([webpack](http://webpack.github.io) and others) bundle modules together and optimize them to speedup loading and remove unused stuff.
 
-    Let's say, we added a 3rd-party library `say.js` to our project with many functions:
-    ```js
-    // 📁 say.js
-    export function sayHi() { ... }
-    export function sayBye() { ... }
-    export function becomeSilent() { ... }
-    ```
+Let's say, we added a 3rd-party library `say.js` to our project with many functions:
 
-    Now if we only use one of `say.js` functions in our project:
-    ```js
-    // 📁 main.js
-    import {sayHi} from './say.js';
-    ```
-    ...Then the optimizer will see that and remove the other functions from the bundled code, thus making the build smaller. That is called "tree-shaking".
+```js
+// 📁 say.js
+export function sayHi() { ... }
+export function sayBye() { ... }
+export function becomeSilent() { ... }
+```
+
+Now if we only use one of `say.js` functions in our project:
+```js
+// 📁 main.js
+import {sayHi} from './say.js';
+```
+...Then the optimizer will see that and remove the other functions from the bundled code, thus making the build smaller. That is called *"tree-shaking"*.
 
 2. Explicitly listing what to import gives shorter names: `sayHi()` instead of `say.sayHi()`.
 3. Explicit list of imports gives better overview of the code structure: what is used and where. It makes code support and refactoring easier.
@@ -621,9 +615,7 @@ For instance, let's import `sayHi` into the local variable `hi` for brevity, and
 
 ```js
 // 📁 main.js
-*!*
 import {sayHi as hi, sayBye as bye} from './say.js';
-*/!*
 
 hi('John'); // Hello, John!
 bye('John'); // Bye, John!
@@ -647,8 +639,8 @@ Now `hi` and `bye` are official names for outsiders, to be used in imports:
 // 📁 main.js
 import * as say from './say.js';
 
-say.*!*hi*/!*('John'); // Hello, John!
-say.*!*bye*/!*('John'); // Bye, John!
+say.hi('John'); // Hello, John!
+say.bye('John'); // Bye, John!
 ```
 
 ## Export default
@@ -668,7 +660,7 @@ Put `export default` before the entity to export:
 
 ```js
 // 📁 user.js
-export *!*default*/!* class User { // just add "default"
+export default class User { // just add "default"
   constructor(name) {
     this.name = name;
   }
@@ -677,11 +669,11 @@ export *!*default*/!* class User { // just add "default"
 
 There may be only one `export default` per file.
 
-...And then import it without curly braces:
+...And then import it without *curly braces*:
 
 ```js
 // 📁 main.js
-import *!*User*/!* from './user.js'; // not {User}, just User
+import User from './user.js'; // not {User}, just User
 
 new User('John');
 ```
@@ -726,6 +718,8 @@ export class { // Error! (non-default export needs a name)
 }
 ```     
 
+--*LINK cont
+
 ### The "default" name
 
 In some situations the `default` keyword is used to reference the default export.
@@ -760,7 +754,7 @@ Here's how to import the default export along with a named one:
 
 ```js
 // 📁 main.js
-import {*!*default as User*/!*, sayHi} from './user.js';
+import {default as User, sayHi} from './user.js';
 
 new User('John');
 ```
