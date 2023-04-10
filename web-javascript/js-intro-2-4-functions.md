@@ -26,7 +26,7 @@
   - [Callback functions](#callback-functions)
   - [Function Expression vs Function Declaration](#function-expression-vs-function-declaration)
   - [Summary](#summary-1)
-- [2-17 Arrow functions, the basics](#2-17-arrow-functions-the-basics)
+- [2-17 Arrow functions](#2-17-arrow-functions)
   - [Multiline arrow functions](#multiline-arrow-functions)
   - [Summary](#summary-2)
 
@@ -575,16 +575,14 @@ function sayHi() {
   alert( "Hello" );
 }
 
-*!*
 alert( sayHi ); // shows the function code
-*/!*
 ```
 
 Please note that the last line does not run the function, because there are no parentheses after `sayHi`. There are programming languages where any mention of a function name causes its execution, but JavaScript is not like that.
 
 In JavaScript, a function is a value, so we can deal with it as a value. The code above shows its string representation, which is the source code.
 
-Surely, a function is a special value, in the sense that we can call it like `sayHi()`.
+Surely, a function is *a special value*, in the sense that we can call it like `sayHi()`.
 
 But it's still a value. So we can work with it like with other kinds of values.
 
@@ -598,7 +596,7 @@ function sayHi() {   // (1) create
 let func = sayHi;    // (2) copy
 
 func(); // Hello     // (3) run the copy (it works)!
-sayHi(); // Hello    //     this still works too (why wouldn't it)
+sayHi(); // Hello    // this still works too (why wouldn't it)
 ```
 
 Here's what happens above in detail:
@@ -621,7 +619,7 @@ let func = sayHi;
 Everything would work the same.
 
 
---smart header="Why is there a semicolon at the end?"
+**Why is there a semicolon at the end?**
 You might wonder, why does Function Expression have a semicolon `;` at the end, but Function Declaration does not:
 
 ```js
@@ -631,38 +629,36 @@ function sayHi() {
 
 let sayHi = function() {
   // ...
-}*!*;*/!*
+};
 ```
 
 The answer is simple:
 - There's no need for `;` at the end of code blocks and syntax structures that use them like `if { ... }`, `for {  }`, `function f { }` etc.
 - A Function Expression is used inside the statement: `let sayHi = ...;`, as a value. It's not a code block, but rather an assignment. The semicolon `;` is recommended at the end of statements, no matter what the value is. So the semicolon here is not related to the Function Expression itself, it just terminates the statement.
---
+
+---
 
 ## Callback functions
 
-Let's look at more examples of passing functions as values and using function expressions.
+Let's look at more examples of *passing functions as values* and using function expressions.
 
 We'll write a function `ask(question, yes, no)` with three parameters:
 
-`question`
-: Text of the question
+`question` : Text of the question
 
-`yes`
-: Function to run if the answer is "Yes"
+`yes` : Function to run if the answer is "Yes"
 
-`no`
-: Function to run if the answer is "No"
+`no` : Function to run if the answer is "No"
 
 The function should ask the `question` and, depending on the user's answer, call `yes()` or `no()`:
 
 ```js run
-*!*
+
 function ask(question, yes, no) {
   if (confirm(question)) yes()
   else no();
 }
-*/!*
+
 
 function showOk() {
   alert( "You agreed." );
@@ -690,27 +686,27 @@ function ask(question, yes, no) {
   else no();
 }
 
-*!*
 ask(
   "Do you agree?",
   function() { alert("You agreed."); },
   function() { alert("You canceled the execution."); }
 );
-*/!*
+
 ```
 
 Here, functions are declared right inside the `ask(...)` call. They have no name, and so are called *anonymous*. Such functions are not accessible outside of `ask` (because they are not assigned to variables), but that's just what we want here.
 
 Such code appears in our scripts very naturally, it's in the spirit of JavaScript.
 
-```smart header="A function is a value representing an \"action\""
+**A function is a value representing an \"action\"**
+
 Regular values like strings or numbers represent the *data*.
 
 A function can be perceived as an *action*.
 
 We can pass it between variables and run when we want.
-```
 
+---
 
 ## Function Expression vs Function Declaration
 
@@ -728,12 +724,12 @@ First, the syntax: how to differentiate between them in the code.
     ```
 - *Function Expression:* a function, created inside an expression or inside another syntax construct. Here, the function is created at the right side of the "assignment expression" `=`:
 
-    ```js
-    // Function Expression
-    let sum = function(a, b) {
-      return a + b;
-    };
-    ```
+```js
+// Function Expression
+let sum = function(a, b) {
+  return a + b;
+};
+```
 
 The more subtle difference is *when* a function is created by the JavaScript engine.
 
@@ -743,7 +739,7 @@ Once the execution flow passes to the right side of the assignment `let sum = fu
 
 Function Declarations are different.
 
-**A Function Declaration can be called earlier than it is defined.**
+**A Function Declaration can be called *earlier* than it is defined.**
 
 For example, a global Function Declaration is visible in the whole script, no matter where it is.
 
@@ -754,9 +750,7 @@ And after all Function Declarations are processed, the code is executed. So it h
 For example, this works:
 
 ```js run refresh untrusted
-*!*
 sayHi("John"); // Hello, John
-*/!*
 
 function sayHi(name) {
   alert( `Hello, ${name}` );
@@ -768,9 +762,7 @@ The Function Declaration `sayHi` is created when JavaScript is preparing to star
 ...If it were a Function Expression, then it wouldn't work:
 
 ```js run refresh untrusted
-*!*
 sayHi("John"); // error!
-*/!*
 
 let sayHi = function(name) {  // (*) no magic any more
   alert( `Hello, ${name}` );
@@ -782,6 +774,8 @@ Function Expressions are created when the execution reaches them. That would hap
 Another special feature of Function Declarations is their block scope.
 
 **In strict mode, when a Function Declaration is within a code block, it's visible everywhere inside that block. But not outside of it.**
+
+(to:code bloğu içerisindeki fonksiyon declaration'ı , o fonksiyon, sadece o kod blogunun içerisinde görünebilir.)
 
 For instance, let's imagine that we need to declare a function `welcome()` depending on the `age` variable that we get during runtime. And then we plan to use it some time later.
 
@@ -806,9 +800,8 @@ if (age < 18) {
 }
 
 // ...use it later
-*!*
 welcome(); // Error: welcome is not defined
-*/!*
+
 ```
 
 That's because a Function Declaration is only visible inside the code block in which it resides.
@@ -819,17 +812,13 @@ Here's another example:
 let age = 16; // take 16 as an example
 
 if (age < 18) {
-*!*
   welcome();               // \   (runs)
-*/!*
                            //  |
   function welcome() {     //  |  
     alert("Hello!");       //  |  Function Declaration is available
   }                        //  |  everywhere in the block where it's declared
                            //  |
-*!*
   welcome();               // /   (runs)
-*/!*
 
 } else {
 
@@ -840,10 +829,8 @@ if (age < 18) {
 
 // Here we're out of curly braces,
 // so we can not see Function Declarations made inside of them.
-
-*!*
 welcome(); // Error: welcome is not defined
-*/!*
+
 ```
 
 What can we do to make `welcome` visible outside of `if`?
@@ -871,9 +858,8 @@ if (age < 18) {
 
 }
 
-*!*
 welcome(); // ok now
-*/!*
+
 ```
 
 Or we could simplify it even further using a question mark operator `?`:
@@ -885,19 +871,19 @@ let welcome = (age < 18) ?
   function() { alert("Hello!"); } :
   function() { alert("Greetings!"); };
 
-*!*
 welcome(); // ok now
-*/!*
 ```
 
 
-```smart header="When to choose Function Declaration versus Function Expression?"
+**When to choose Function Declaration versus Function Expression?**
+
 As a rule of thumb, when we need to declare a function, the first to consider is Function Declaration syntax. It gives more freedom in how to organize our code, because we can call such functions before they are declared.
 
 That's also better for readability, as it's easier to look up `function f(…) {…}` in the code than `let f = function(…) {…};`. Function Declarations are more "eye-catching".
 
 ...But if a Function Declaration does not suit us for some reason, or we need a conditional declaration (we've just seen an example), then Function Expression should be used.
-```
+
+---
 
 ## Summary
 
@@ -911,7 +897,9 @@ In most cases when we need to declare a function, a Function Declaration is pref
 
 So we should use a Function Expression only when a Function Declaration is not fit for the task. We've seen a couple of examples of that in this chapter, and will see more in the future.
 
-# 2-17 Arrow functions, the basics
+# 2-17 Arrow functions
+
+[web](https://javascript.info/arrow-functions-basics) 
 
 There's another very simple and concise syntax for creating functions, that's often better than Function Expressions.
 
@@ -950,24 +938,23 @@ As you can, see `(a, b) => a + b` means a function that accepts two arguments na
 
 - If we have only one argument, then parentheses around parameters can be omitted, making that even shorter.
 
-    For example:
+For example:
 
-    ```js run
-    *!*
-    let double = n => n * 2;
-    // roughly the same as: let double = function(n) { return n * 2 }
-    */!*
+```js run
 
-    alert( double(3) ); // 6
-    ```
+let double = n => n * 2;
+// roughly the same as: let double = function(n) { return n * 2 }
+
+alert( double(3) ); // 6
+```
 
 - If there are no arguments, parentheses will be empty (but they should be present):
 
-    ```js run
-    let sayHi = () => alert("Hello!");
+```js run
+let sayHi = () => alert("Hello!");
 
-    sayHi();
-    ```
+sayHi();
+```
 
 Arrow functions can be used in the same way as Function Expressions.
 
@@ -998,23 +985,23 @@ Like this:
 ```js run
 let sum = (a, b) => {  // the curly brace opens a multiline function
   let result = a + b;
-*!*
+
   return result; // if we use curly braces, then we need an explicit "return" 
-*/!*
 };
 
 alert( sum(1, 2) ); // 3
 ```
 
-```smart header="More to come"
+**More to come**
 Here we praised arrow functions for brevity. But that's not all!
 
 Arrow functions have other interesting features.
 
-To study them in-depth, we first need to get to know some other aspects of JavaScript, so we'll return to arrow functions later in the chapter <info:arrow-functions>.
+To study them in-depth, we first need to get to know some other aspects of JavaScript, so we'll return to arrow functions later in the chapter  [info:arrow-functions](https://javascript.info/arrow-functions) .
 
 For now, we can already use arrow functions for one-line actions and callbacks.
-```
+
+---
 
 ## Summary
 
@@ -1022,3 +1009,5 @@ Arrow functions are handy for one-liners. They come in two flavors:
 
 1. Without curly braces: `(...args) => expression` -- the right side is an expression: the function evaluates it and returns the result.
 2. With curly braces: `(...args) => { body }` -- brackets allow us to write multiple statements inside the function, but we need an explicit `return` to return something.
+
+--end of chapter--
