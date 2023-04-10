@@ -2,6 +2,8 @@
 
 This tutorial is prepared from web resource and some additions from me.
 
+[Js Cheatsheet](./js-cheatsheet.md)
+
 CONTENT |
 --- |
 [1-1 Intro and Syntax](./js-intro-01-01-intro-and-syntax.md) |
