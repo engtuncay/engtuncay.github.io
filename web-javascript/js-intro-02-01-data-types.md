@@ -1,9 +1,9 @@
 
-<h2> 2-[4-5] - Variables - Data Types </h2>
+<h2> 2-1 Variables And Data Types </h2>
 
 <h3>Source</h3>
 
-- These are articles from Javascript.info [Js Info - Functions](https://javascript.info/function-basics) 
+- These are articles from Javascript.info [Js Info - Variables](https://javascript.info/variables) (2,4-5)
 
 - Some additions may be added in some parts.
 

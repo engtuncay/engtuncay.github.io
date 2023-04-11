@@ -5,9 +5,13 @@ Sourcs : https://javascript.info/object-basics
 
 <h1>Objects 1 </h1>
 
-This tutorial is mostly prepared from javascript.info website. It is very good. Some sections may be changed or removed.
+<h3>Sources</h3>
 
-Source : http://www.javascript.info
+- javascript.info website.  
+
+- Some sections may be changed or removed.
+
+<h3>Contents</h3>
 
 - [Objects](#objects)
   - [Literals and properties](#literals-and-properties)

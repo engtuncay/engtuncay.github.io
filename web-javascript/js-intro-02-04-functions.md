@@ -1,5 +1,5 @@
 
-<h2> 2-[15-16-17] - Functions </h2>
+<h2> 2- Functions [15-16-17] </h2>
 
 <h3>Source</h3>
 
