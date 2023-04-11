@@ -191,14 +191,14 @@ let accessAllowed = age > 18 ? true : false;
 
 But parentheses make the code more readable, so we recommend using them.
 
-````smart
+**Info**smart
 In the example above, you can avoid using the question mark operator because the comparison itself returns `true/false`:
 
 ```js
 // the same
 let accessAllowed = age > 18;
 ```
-````
+**Info**
 
 ## Multiple '?'
 
@@ -495,13 +495,13 @@ When all values are truthy, the last value is returned:
 alert( 1 && 2 && 3 ); // 3, the last one
 ```
 
-````smart header="Precedence of AND `&&` is higher than OR `||`"
+**Info**smart header="Precedence of AND `&&` is higher than OR `||`"
 The precedence of AND `&&` operator is higher than OR `||`.
 
 So the code `a && b || c && d` is essentially the same as if the `&&` expressions were in parentheses: `(a && b) || (c && d)`.
-````
+**Info**
 
-````warn header="Don't replace `if` with `||` or `&&`"
+**Warn : "Don't replace `if` with `||` or `&&`"**
 Sometimes, people use the AND `&&` operator as a "shorter way to write `if`".
 
 For instance:
@@ -523,7 +523,8 @@ if (x > 0) alert( 'Greater than zero!' );
 ```
 
 Although, the variant with `&&` appears shorter, `if` is more obvious and tends to be a little bit more readable. So we recommend using every construct for its purpose: use `if` if we want `if` and use `&&` if we want AND.
-````
+
+---
 
 
 ## ! (NOT)
@@ -787,7 +788,7 @@ while (i) { // when i becomes 0, the condition becomes falsy, and the loop stops
 }
 ```
 
-````smart header="Curly braces are not required for a single-line body"
+**Info**smart header="Curly braces are not required for a single-line body"
 If the loop body has a single statement, we can omit the curly braces `{…}`:
 
 ```js run
@@ -796,7 +797,7 @@ let i = 3;
 while (i) alert(i--);
 */!*
 ```
-````
+**Info**
 
 ## The "do..while" loop
 
@@ -881,7 +882,7 @@ if (i < 3) { alert(i); i++ }
 // ...finish, because now i == 3
 ```
 
-````smart header="Inline variable declaration"
+**Info**smart header="Inline variable declaration"
 Here, the "counter" variable `i` is declared right in the loop. This is called an "inline" variable declaration. Such variables are visible only inside the loop.
 
 ```js run
@@ -903,7 +904,7 @@ for (i = 0; i < 3; i++) { // use an existing variable
 alert(i); // 3, visible, because declared outside of the loop
 ```
 
-````
+**Info**
 
 
 ### Skipping parts
@@ -993,7 +994,7 @@ for (let i = 0; i < 10; i++) {
 
 For even values of `i`, the `continue` directive stops executing the body and passes control to the next iteration of `for` (with the next number). So the `alert` is only called for odd values.
 
-````smart header="The `continue` directive helps decrease nesting"
+**Info**smart header="The `continue` directive helps decrease nesting"
 A loop that shows odd values could look like this:
 
 ```js run
@@ -1009,9 +1010,9 @@ for (let i = 0; i < 10; i++) {
 From a technical point of view, this is identical to the example above. Surely, we can just wrap the code in an `if` block instead of using `continue`.
 
 But as a side-effect, this created one more level of nesting (the `alert` call inside the curly braces). If the code inside of `if` is longer than a few lines, that may decrease the overall readability.
-````
+**Info**
 
-````warn header="No `break/continue` to the right side of '?'"
+**Info**warn header="No `break/continue` to the right side of '?'"
 Please note that syntax constructs that are not expressions cannot be used with the ternary operator `?`. In particular, directives such as `break/continue` aren't allowed there.
 
 For example, if we take this code:
@@ -1034,7 +1035,7 @@ if (i > 5) {
 ...it stops working: there's a syntax error.
 
 This is just another reason not to use the question mark operator `?` instead of `if`.
-````
+**Info**
 
 ## Labels for break/continue
 
@@ -1098,7 +1099,7 @@ for (let i = 0; i < 3; i++) { ... }
 
 The `continue` directive can also be used with a label. In this case, code execution jumps to the next iteration of the labeled loop.
 
-````warn header="Labels do not allow to \"jump\" anywhere"
+**Info**warn header="Labels do not allow to \"jump\" anywhere"
 Labels do not allow us to jump into an arbitrary place in the code.
 
 For example, it is impossible to do this:
@@ -1120,7 +1121,7 @@ label: {
 ...Although, 99.9% of the time `break` used is inside loops, as we've seen in the examples above.
 
 A `continue` is only possible from inside a loop.
-````
+**Info**
 
 ## Summary
 
@@ -1225,7 +1226,7 @@ alert( 'Too big' );
 alert( "I don't know such values" );
 ```
 
-````smart header="Any expression can be a `switch/case` argument"
+**Info**smart header="Any expression can be a `switch/case` argument"
 Both `switch` and `case` allow arbitrary expressions.
 
 For example:
@@ -1246,7 +1247,7 @@ switch (+a) {
 }
 ```
 Here `+a` gives `1`, that's compared with `b + 1` in `case`, and the corresponding code is executed.
-````
+**Info**
 
 ## Grouping of "case"
 

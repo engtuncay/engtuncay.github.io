@@ -411,7 +411,7 @@ To summarize:
     alert( counter++ ); // 0
     ```
 
-````smart header="Increment/decrement among other operators"
+**Info**smart header="Increment/decrement among other operators"
 The operators `++/--` can be used inside expressions as well. Their precedence is higher than most other arithmetical operations.
 
 For instance:
@@ -439,7 +439,7 @@ let counter = 1;
 alert( 2 * counter );
 counter++;
 ```
-````
+**Info**
 
 ## Bitwise operators
 
@@ -591,7 +591,7 @@ alert( true == 1 ); // true
 alert( false == 0 ); // true
 ```
 
-````smart header="A funny consequence"
+**Info**smart header="A funny consequence"
 It is possible that at the same time:
 
 - Two values are equal.
@@ -610,7 +610,7 @@ alert(a == b); // true!
 ```
 
 From JavaScript's standpoint, this result is quite normal. An equality check converts values using the numeric conversion (hence `"0"` becomes `0`), while the explicit `Boolean` conversion uses another set of rules.
-````
+**Info**
 
 ## Strict equality
 

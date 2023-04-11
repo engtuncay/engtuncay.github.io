@@ -1,18 +1,17 @@
 
+<h2>13 - Modules (1-2-3)</h2>
+
 <h3>Source</h3>
 
 - These are articles from Javascript.info [Js Info - Modules](https://javascript.info/modules-intro#comments)
 
 - Some additions may be added in some parts.
-  
-<h2>13 - Modules</h2>
 
 - [Modules, introduction](#modules-introduction)
   - [What is a module?](#what-is-a-module)
   - [Core module features](#core-module-features)
     - [Always "use strict"](#always-use-strict)
     - [Module-level scope](#module-level-scope)
-  - [**Info**](#info)
     - [A module code is evaluated only the first time when imported](#a-module-code-is-evaluated-only-the-first-time-when-imported)
     - [import.meta](#importmeta)
     - [In a module, "this" is undefined](#in-a-module-this-is-undefined)
@@ -31,9 +30,9 @@
   - [Import "as"](#import-as)
   - [Export "as"](#export-as)
   - [Export default](#export-default)
-    - [The "default" name](#the-default-name)
+    - [The "default" name (export as default separately)](#the-default-name-export-as-default-separately)
     - [A word against default exports](#a-word-against-default-exports)
-  - [Re-export](#re-export)
+  - [Re-export and (export ... from) syntax](#re-export-and-export--from-syntax)
     - [Re-exporting the default export](#re-exporting-the-default-export)
   - [Summary](#summary-1)
 - [Dynamic imports](#dynamic-imports)
@@ -189,7 +188,9 @@ Here are two scripts on the same page, both `type="module"`. They don't see each
 ```
 
 **Info**
+
 ---
+
 In the browser, we can make a variable window-level global by explicitly assigning it to a `window` property, e.g. `window.user = "John"`. 
 
 Then all scripts will see it, both with `type="module"` and without it. 
@@ -720,7 +721,7 @@ export class { // Error! (non-default export needs a name)
 
 --*LINK cont
 
-### The "default" name
+### The "default" name (export as default separately)
 
 In some situations the `default` keyword is used to reference the default export.
 
@@ -803,7 +804,7 @@ Still, some teams consider it a serious drawback of default exports. So they pre
 
 That also makes re-export (see below) a little bit easier.
 
-## Re-export
+## Re-export and (export ... from) syntax
 
 "Re-export" syntax `export ... from ...` allows to import things and immediately export them (possibly under another name), like this:
 
@@ -893,15 +894,15 @@ We can come across two problems with it:
 
 1. `export User from './user.js'` won't work. That would lead to a syntax error.
 
-    To re-export the default export, we have to write `export {default as User}`, as in the example above.    
+  To re-export the default export, we have to write `export {default as User}`, as in the example above.    
 
 2. `export * from './user.js'` re-exports only named exports, but ignores the default one.
 
-    If we'd like to re-export both named and the default export, then two statements are needed:
-    ```js
-    export * from './user.js'; // to re-export named exports
-    export {default} from './user.js'; // to re-export the default export
-    ```
+  If we'd like to re-export both named and the default export, then two statements are needed:
+  ```js
+  export * from './user.js'; // to re-export named exports
+  export {default} from './user.js'; // to re-export the default export
+  ```
 
 Such oddities of re-exporting a default export are one of the reasons why some developers don't like default exports and prefer named ones.
 
@@ -967,7 +968,7 @@ First, we can't dynamically generate any parameters of `import`.
 The module path must be a primitive string, can't be a function call. This won't work:
 
 ```js
-import ... from *!*getModuleName()*/!*; // Error, only from "string" is allowed
+import ... from getModuleName(); // Error, only from "string" is allowed
 ```
 
 Second, we can't import conditionally or at run-time:
@@ -1047,12 +1048,42 @@ Here's the full example:
 
 [codetabs src="say" current="index.html"]
 
-```smart
-Dynamic imports work in regular scripts, they don't require `script type="module"`.
+```html
+<!doctype html>
+<script>
+  async function load() {
+    let say = await import('./say.js');
+    say.hi(); // Hello!
+    say.bye(); // Bye!
+    say.default(); // Module loaded (export default)!
+  }
+</script>
+<button onclick="load()">Click me</button>
 ```
 
-```smart
+```js
+// say.js
+export function hi() {
+  alert(`Hello`);
+}
+
+export function bye() {
+  alert(`Bye`);
+}
+
+export default function() {
+  alert("Module loaded (export default)!");
+}
+```
+
+**Note**
+Dynamic imports work in regular scripts, they don't require `script type="module"`.
+
+---
+
+**Note**
 Although `import()` looks like a function call, it's a special syntax that just happens to use parentheses (similar to `super()`).
 
 So we can't copy `import` to a variable or use `call/apply` with it. It's not a function.
-```
+
+---
