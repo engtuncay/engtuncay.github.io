@@ -1,5 +1,15 @@
 
-Fundamentals-3 If and Loops
+<h2> 2-3 Fundamentals-3 If and Loops Functions</h2>
+
+<h3>Source</h3>
+
+- These are articles from Javascript.info [Js Info - Functions](https://javascript.info/function-basics) 
+
+- Some additions may be added in some parts.
+
+* renewed
+
+<h3>Contents</h3>
 
 - [Conditional branching: if, '?'](#conditional-branching-if-)
   - [The "if" statement](#the-if-statement)

@@ -7,7 +7,7 @@ This tutorial is prepared from web resource and some additions from me.
 CONTENT |
 --- |
 [1-1 Intro and Syntax](./js-intro-01-01-intro-and-syntax.md) |
-[2-1 Data Types and Operators](./js-intro-02-01-data-types.md) |
+[2-1 Variables and Data Types](./js-intro-02-01-data-types.md) |
 [2-2 Operators](./js-intro-02-02-operators.md) |
 [2-3 Conditions Loop Vs](./js-intro-02-03-if-and-loops.md) |
 [2-4 Functions](./js-intro-02-04-functions.md) |
