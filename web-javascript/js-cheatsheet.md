@@ -17,7 +17,7 @@
   - Property keys must be strings or symbols (usually strings)
   - Values can be of any type.
 
-To access a property, we can use:
+To access a property
 - The dot notation: `obj.property`.
 - Square brackets notation `obj["property"]`. Square brackets allow to take the key from a variable, like `obj[varWithKey]`.
 
