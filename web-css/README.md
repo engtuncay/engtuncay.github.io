@@ -2,6 +2,7 @@
 
 This tutorial is prepared from web resources and some additions from me.
 
+Source : [W3Schools]()
 
 CONTENT |
 --- |
@@ -16,7 +17,11 @@ CONTENT |
 [Examples](./css-intro-10-Examples.md) |
 [Animation](./css-intro-11-Animation.md) |
 [Advanced](./css-intro-12-Advanced.md) |
-[Tailwind Intro](./css-tailwind-intro.md) |
 
+# Tailwind Tutorial
 
-
+CONTENT |
+--- |
+[Layout](./tw-layout.md) |
+[Tailwind Intro](./tailwind-intro.md) |
+[Tailwind CSS Tutorial for Beginners: A Guide to Get Started in 2023 by Louis Lazaris](./tailwind-article1.md) |
