@@ -1,7 +1,7 @@
 
 <h2>Component Communication - 1 (Vue 3)</h2>
 
-- [Component Communication (Vue 3)](#component-communication-vue-3)
+- [Component Communication (Props,Emits) (Vue 3)](#component-communication-propsemits-vue-3)
   - [Props Kullanımı](#props-kullanımı)
   - [Prop Behavior and Changing Props](#prop-behavior-and-changing-props)
   - [Validating Props (Required,Validation)](#validating-props-requiredvalidation)
@@ -13,7 +13,7 @@
   - [Demo](#demo)
   - [Demo 2](#demo-2)
 
-# Component Communication (Vue 3)
+# Component Communication (Props,Emits) (Vue 3)
 
 ## Props Kullanımı
 
@@ -44,14 +44,7 @@ You basically should make Vue aware of the attributes (props). In the simplest f
 <script>
 export default {
   props : ['name','phoneNumber','emailAddress'],
-  data() {
-    return {
-      /* ... */
-    };
-  },
-  methods: {
-    /* ... */
-  }
+  /* ... */
 };
 </script>
 ```
@@ -65,7 +58,7 @@ export default {
   /* ... */ 
   methods: {
     toggleDetails() {
-      this.detailsAreVisible = !this.detailsAreVisible;
+      /* ... */
       console.log(this.phoneNumber)
     }
   }
@@ -195,7 +188,7 @@ We can also bind variable to prop value. (with binding operator(:))
 
 *App.vue*
 
-```js
+```html
 <template>
   <section>
     <header>
@@ -302,34 +295,36 @@ export default {
 
 we got a even more reusable component.
 
-Try https://vue-ajcgnv.stackblitz.io
+[Try](https://vue-ajcgnv.stackblitz.io) 
 
 ## Emitting Custom Events (Child => Parent Communication)
 
-FriendContact component konfigurasyon objesinin emit property'sinde toggle-favorite olayının emit edilebileceği (trigger) tanımlanır.
+Component konfigurasyon objesine array türünde emits property'si eklenir. Bu arraye tetiklenecek olaylar text olarak girilir.
 
-```js
+*FriendContact component*
+```html
 <script>
 export default {
   emits: ['toggle-favorite'],
   /*...*/
   }
+</script>
 ```
 
-FriendContact comp'da herhangi bir yerden toggle-favorite emit(trigger) edilebilir. this objesinin $emit metodu kullanılarak `this.$emit('emitName', arguments)` event emit edilir. Emit yaparken beraber gönderilecek argumanlar da belirtilir.
+Component'in scriptinde bu olay tetiklenir. 
+
+```js
+this.$emit('toggle-favorite', this.id);
+```
+
+this objesinin $emit metodu kullanılarak `this.$emit('emitName', arguments)` event emit edilir. Emit yaparken beraber gönderilecek argumanlar da belirtilir.
 
 *FriendContact.vue*
-
 ```html
-<template>
-    <!-- ... -->
-    <button @click="toggleFavorite">Toggle Favorite</button>
-</template>
-
 <script>
 export default {
-  props: /* ... */,
   emits: ['toggle-favorite'],
+  // Another definition of emits
   // emits: {
   //   'toggle-favorite': function(id) {
   //     if (id) {
@@ -340,11 +335,10 @@ export default {
   //     }
   //   } 
   // },
-  data() : /* ... */,
   methods: {
     /*...*/,
-    toggleFavorite() {
-      /* toggle-favorite event triggered */
+    anyAction() {
+      /* toggle-favorite emits (event) triggered */
       this.$emit('toggle-favorite', this.id);
     },
   },
@@ -352,7 +346,9 @@ export default {
 </script>
 ```
 
-- App.vue'da friend-contact elementinde toggle-favorite event'ını dinleme olacağı tanımlar. friend-contact elementinde emit olayına event binding yaparız.
+- Parent templatinde component elementinde bu olaya event binding edilir. 
+
+App.vue'da friend-contact elementinde toggle-favorite event'ını dinleme olacağı tanımlar. friend-contact elementinde emit olayına event binding yaparız.
 
 *App.vue*
 
@@ -371,10 +367,7 @@ export default {
   /* ... */
   methods: {
     toggleFavoriteStatus(friendId) {
-      const identifiedFriend = this.friends.find(
-        (friend) => friend.id === friendId
-      );
-      identifiedFriend.isFavorite = !identifiedFriend.isFavorite;
+      /* ... */
     },
   },
 };
@@ -383,7 +376,7 @@ export default {
 
 *Anothter emit example*
 
-- You can send multiple arguments while emitting.
+- You can send multiple arguments while emitting in the child component.
 
 ```js
 this.$emit(
