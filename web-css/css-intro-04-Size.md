@@ -5,12 +5,33 @@
 - [CSS Box Model](#css-box-model)
 - [Box Sizing (border-box model)](#box-sizing-border-box-model)
 - [Height , Width And Max-Width](#height--width-and-max-width)
+  - [Setting max-width](#setting-max-width)
+- [All CSS Dimension Properties](#all-css-dimension-properties)
 - [Max-Width And Auto Margin](#max-width-and-auto-margin)
 - [Borders](#borders)
+  - [CSS Border Style](#css-border-style)
+  - [CSS Border Width](#css-border-width)
+  - [CSS Border - Shorthand Property](#css-border---shorthand-property)
+  - [CSS Rounded Borders](#css-rounded-borders)
+  - [All CSS Border Properties](#all-css-border-properties)
 - [Margin](#margin)
+  - [Margin - Individual Sides](#margin---individual-sides)
+  - [Margin - Shorthand Property](#margin---shorthand-property)
 - [Padding](#padding)
+  - [Padding - Individual Sides](#padding---individual-sides)
+  - [Padding - Shorthand Property](#padding---shorthand-property)
+  - [Padding and Element Width](#padding-and-element-width)
+  - [All CSS Padding Properties](#all-css-padding-properties)
 - [CSS Outline](#css-outline)
+  - [CSS Outline Style](#css-outline-style)
+  - [CSS Outline Width](#css-outline-width)
+  - [CSS Outline Width](#css-outline-width-1)
+  - [CSS Outline - Shorthand property](#css-outline---shorthand-property)
 - [User Interface (Resizing)](#user-interface-resizing)
+  - [CSS User Interface](#css-user-interface)
+  - [CSS Resizing](#css-resizing)
+  - [CSS Outline Offset](#css-outline-offset)
+  - [CSS User Interface Properties](#css-user-interface-properties)
 
 # Units
 
@@ -80,18 +101,18 @@ Relative length units specify a length relative to another length property. Rela
 
 **Tips**: 
 
-* The em and rem units are practical in creating perfectly scalable layout!
+* The em and rem units are practical in creating perfectly scalable layout !
 
 * Viewport = the browser window size. If the viewport is 50cm wide, 1vw = 0.5cm.
 
-| Unit                              | chro-expl-fire-safa-oper |
-|-----------------------------------|--------------------------|
-| em, ex, %, px, cm, mm, in, pt, pc | 1.0	3.0	1.0	1.0	3.5      |
-| ch                                | 27.0	9.0	1.0	7.0	20.0    |
-| rem                               | 4.0	9.0	3.6	4.1	11.6     |
-| vh, vw                            | 20.0	9.0	19.0	6.0	20.0   |
-| vmin                              | 20.0	12.0	19.0	6.0	20.0  |
-| vmax                              | 26.0	16.0	19.0	7.0	20.0  |
+| Unit                              | chro-expl-fire-safa-oper    |
+|-----------------------------------|-----------------------------|
+| em, ex, %, px, cm, mm, in, pt, pc | 1.0	- 3.0 -	1.0 -	1.0 -	3.5 |
+| ch                                | 27.0	9.0	1.0	7.0	20.0       |
+| rem                               | 4.0	9.0	3.6	4.1	11.6        |
+| vh, vw                            | 20.0	9.0	19.0	6.0	20.0      |
+| vmin                              | 20.0	12.0	19.0	6.0	20.0     |
+| vmax                              | 26.0	16.0	19.0	7.0	20.0     |
 
 # CSS Box Model 
 
@@ -115,13 +136,13 @@ The box model allows us to add a border around elements, and to define space bet
 There are two types box model (to)  :
 
 * Content Box Model (default)
+* Border Box Model (common) (recommended)
 
-* Border Box Model (common)
+Content Box Model tells that *width and height include only content*.
 
-*Content Box Model tells that width and height include only content.*
+Border Box Model tells that *widht and height include content, padding and border*.
 
-*Border Box Model tells that widht and height include content, padding and border.*
-
+(tor:border-box modelinde bir elementin genişliğinde veya yüksekliğinde border ve padding de dahil olur.)
 
 *Example*
 
@@ -145,7 +166,7 @@ In order to set the width and height of an element correctly in all browsers, yo
 *Important*: By default when you set the width and height properties of an element with CSS, you just set the width and height of *the content area*. To calculate the full size of an element, you must also add padding, borders and margins. (for content-box model)
 
 Example
-This <div> element will have a total width of 350px: 
+This `<div>` element will have a total width of 350px: 
 
 ```css
 div {
@@ -154,11 +175,12 @@ div {
   border: 5px solid gray;
   margin: 0;
 }
-```
-
-Here is the calculation:
 
 ```
+
+Here is the calculation (total width according to content box model):
+
+```text
 320px (width)
 + 20px (left + right padding)
 + 10px (left + right border)
@@ -167,22 +189,13 @@ Here is the calculation:
 
 ```
 
-The total width of an element should be calculated like this (content-box modal):
-
-Total element width = width (content) + padding(l,r) + border (l,r) + margin (l,r)
-
-The total height of an element should be calculated like this:
-
-Total element height = height + padding (t,b) +   border (t,b) + margin (t,b)
-
-
 # Box Sizing (border-box model)
 
 Source : https://www.w3schools.com/css/css3_box-sizing.asp
 
 The CSS box-sizing property allows us to include the padding and border in an element's total width and height. 
 
-(tr: padding ve border uzunluğunu elementin total genişlik ve yüksekliğine dahil etmemizi sağlar.:)
+(tor: padding ve border uzunluğunu elementin genişlik ve yüksekliğine dahil etmemizi sağlar.:)
 
 **Without the CSS box-sizing Property**
 
@@ -194,9 +207,9 @@ height + padding + border = actual height of an element
 
 This means: When you set the width/height of an element, the element often appears bigger than you have set (because the element's border and padding are added to the element's specified width/height).
 
-The following illustration shows two <div> elements with the same specified width and height:
+The following illustration shows two `<div>` elements with the same specified width and height:
 
-The two <div> elements above end up with different sizes in the result (because div2 has a padding specified):
+The two `<div>` elements above end up with different sizes in the result (because div2 has a padding specified):
 
 Example
 
@@ -291,53 +304,64 @@ The height and width properties may have the following values:
 
 *Example*
 
-Set the height and width of a <div> element:
+Set the height and width of a `<div>` element:
 
+```css
 div {
   height: 200px;
   width: 50%;
   background-color: powderblue;
 }
+```
 
-Example
-Set the height and width of another <div> element:
+*Example*
 
+Set the height and width of another `<div>` element:
+
+```css
 div {
   height: 100px;
   width: 500px;
   background-color: powderblue;
 }
+```
 
 Note: Remember that the height and width properties do not include padding, borders, or margins! They set the height/width of the area inside the padding, border, and margin of the element! (for the content-box model)
 
-Setting max-width
-The max-width property is used to set the maximum width of an element. (max-genişliğini belirler, ekranda pencere genişlese dahi büyütmez.
+## Setting max-width
+
+The max-width property is used to set the maximum width of an element. (max-genişliğini belirler, ekranda pencere genişlese dahi büyütmez. marjin alanı büyür.)
 
 The max-width can be specified in length values, like px, cm, etc., or in percent (%) of the containing block, or set to none (this is default. Means that there is no maximum width).
 
-The problem with the <div> above occurs when the browser window is smaller than the width of the element (500px). The browser then adds a horizontal scrollbar to the page.
+The problem with the `<div>` above occurs when the browser window is smaller than the width of the element (500px). The browser then adds a horizontal scrollbar to the page.
 
 Using max-width instead, in this situation, will improve the browser's handling of small windows.
 
 Note: The value of the max-width property overrides width.
 
 Example
-This <div> element has a height of 100 pixels and a max-width of 500 pixels: 
+This `<div>` element has a height of 100 pixels and a max-width of 500 pixels: 
 
+```css
 div {
   max-width: 500px;,
   height: 100px;
   background-color: powderblue;
 }
 
-All CSS Dimension Properties
-Property	Description
-height	Sets the height of an element
-width	Sets the width of an element 
-max-height	Sets the maximum height of an element
-max-width	Sets the maximum width of an element
-min-height	Sets the minimum height of an element
-min-width	Sets the minimum width of an element
+```
+
+# All CSS Dimension Properties
+
+Property   | Description
+-----------|--------------------------------------
+height     | Sets the height of an element
+width      | Sets the width of an element
+max-height | Sets the maximum height of an element
+max-width  | Sets the maximum width of an element
+min-height | Sets the minimum height of an element
+min-width  | Sets the minimum width of an element
 
 # Max-Width And Auto Margin
 
@@ -347,7 +371,8 @@ As mentioned in the previous chapter; a block-level element always takes up the 
 
 Setting the width of a block-level element will prevent it from stretching out to the edges of its container. Then, you can set the margins to auto, to horizontally center the element within its container. The element will take up the specified width, and the remaining space will be split equally between the two margins:
 
-Note: The problem with the <div> above occurs when the browser window is smaller than the width of the element. The browser then adds a horizontal scrollbar to the page.
+Note: The problem with the `<div>` above occurs when the browser window is smaller than the width of the element. The browser then adds a horizontal scrollbar to the page.
+
 (Browser tarayıcısı elementin genişliğinden küçükse problem ortaya çıkar. Böylece tarayıcı, pencerenin en altında sayfa scroll'u ekler.)
 
 Using max-width instead, in this situation, will improve the browser's handling of small windows. This is important when making a site usable on small devices: 
@@ -357,6 +382,7 @@ Tip: Resize the browser window to less than 500px wide, to see the difference be
 Here is an example of the two divs above:
 
 Example
+```css
 div.ex1 {
   width: 500px;
   margin: auto;
@@ -375,16 +401,22 @@ div.ex3 {
   margin: auto; 
   border: 3px solid #73AD21; 
 }
+
+```
+
 Try it : https://www.w3schools.com/css/tryit.asp?filename=trycss_max-width
 
 # Borders
 
 The CSS border properties allow you to specify the style, width, and color of an element's border.
-CSS Border Style
+
+## CSS Border Style
+
 The border-style property specifies what kind of border to display.
 
 The following values are allowed:
 
+```text
 dotted - Defines a dotted border
 dashed - Defines a dashed border
 solid - Defines a solid border
@@ -395,12 +427,15 @@ inset - Defines a 3D inset border. The effect depends on the border-color value
 outset - Defines a 3D outset border. The effect depends on the border-color value
 none - Defines no border
 hidden - Defines a hidden border
+```
 
 The border-style property can have from one to four values (for the top border, right border, bottom border, and the left border).
 
 Example
+
 Demonstration of the different border styles:
 
+```css
 p.dotted {border-style: dotted;}
 p.dashed {border-style: dashed;}
 p.solid {border-style: solid;}
@@ -412,17 +447,22 @@ p.outset {border-style: outset;}
 p.none {border-style: none;}
 p.hidden {border-style: hidden;}
 p.mix {border-style: dotted dashed solid double;}
+
+```
+
 Note: None of the OTHER CSS border properties (which you will learn more about in the next chapters) will have ANY effect unless the border-style property is set!
 
-CSS Border Width
+## CSS Border Width
 
 The border-width property specifies the width of the four borders.
 
 The width can be set as a specific size (in px, pt, cm, em, etc) or by using one of the three pre-defined values: thin, medium, or thick:
 
 Example
+
 Demonstration of the different border widths:
 
+```css
 p.one {
   border-style: solid;
   border-width: 5px;
@@ -442,11 +482,16 @@ p.four {
   border-style: dotted;
   border-width: thick;
 }
-Specific Side Widths
+
+```
+
+**Specific Side Widths**
 
 The border-width property can have from one to four values (for the top border, right border, bottom border, and the left border):
 
 Example
+
+```css
 p.one {
   border-style: solid;
   border-width: 5px 20px; /* 5px top and bottom, 20px on the sides */
@@ -461,6 +506,7 @@ p.three {
   border-style: solid;
   border-width: 25px 10px 4px 35px; /* 25px top, 10px right, 4px bottom and 35px left */
 }
+```
 
 **CSS Border Color**
 
@@ -472,12 +518,16 @@ name - specify a color name, like "red"
 HEX - specify a HEX value, like "#ff0000"
 RGB - specify a RGB value, like "rgb(255,0,0)"
 HSL - specify a HSL value, like "hsl(0, 100%, 50%)"
+
 transparent
+
 Note: If border-color is not set, it inherits the color of the element.
 
-Example
+*Example*
+
 Demonstration of the different border colors:
 
+```css
 p.one {
   border-style: solid;
   border-color: red;
@@ -492,91 +542,130 @@ p.three {
   border-style: dotted;
   border-color: blue;
 }
-Specific Side Colors
+
+```
+
+**Specific Side Colors**
+
 The border-color property can have from one to four values (for the top border, right border, bottom border, and the left border). 
 
-Example
+*Example*
+
+```css
 p.one {
   border-style: solid;
   border-color: red green blue yellow; /* red top, green right, blue bottom and yellow left */
 }
 
-HEX Values
+```
+
+**HEX Values**
+
 The color of the border can also be specified using a hexadecimal value (HEX):
 
 Example
+
+```css
 p.one {
   border-style: solid;
   border-color: #ff0000; /* red */
 }
 
-RGB Values
+```
+
+**RGB Values**
+
 Or by using RGB values:
 
 Example
 
+```css
 p.one {
   border-style: solid;
   border-color: rgb(255, 0, 0); /* red */
 }
 
-HSL Values
+```
+
+**HSL Values**
+
 You can also use HSL values:
 
 Example
+
+```css
 p.one {
   border-style: solid;
   border-color: hsl(0, 100%, 50%); /* red */
 }
+```
 
 You can learn more about HEX, RGB and HSL values in our CSS Colors chapters.
 
-CSS Border - Individual Sides
+*CSS Border - Individual Sides*
 
 From the examples on the previous pages, you have seen that it is possible to specify a different border for each side.
 
 In CSS, there are also properties for specifying each of the borders (top, right, bottom, and left):
 
 Example
+
+```css
 p {
   border-top-style: dotted;
   border-right-style: solid;
   border-bottom-style: dotted;
   border-left-style: solid;
 }
+
+```
+
 The example above gives the same result as this:
 
 Example
+
+```css
 p {
   border-style: dotted solid;
 }
+
+```
 
 So, here is how it works:
 
 If the border-style property has four values:
 
 border-style: dotted solid double dashed;
+
 top border is dotted
 right border is solid
 bottom border is double
 left border is dashed
+
 If the border-style property has three values:
 
 border-style: dotted solid double;
+
 top border is dotted
 right and left borders are solid
 bottom border is double
+
 If the border-style property has two values:
 
 border-style: dotted solid;
-top and bottom borders are dotted
-right and left borders are solid
+
+top and bottom borders are dotted, right and left borders are solid.
+
 If the border-style property has one value:
 
+```css
+/* all four borders are dotted */
 border-style: dotted;
-all four borders are dotted
+```
 
-Example
+*Example*
+
+```css
 /* Four values */
 p {
   border-style: dotted solid double dashed;
@@ -597,9 +686,11 @@ p {
   border-style: dotted;
 }
 
+```
+
 The border-style property is used in the example above. However, it also works with border-width and border-color.
 
-CSS Border - Shorthand Property
+## CSS Border - Shorthand Property
 
 Like you saw in the previous page, there are many properties to consider when dealing with borders.
 
@@ -612,95 +703,103 @@ border-style (required)
 border-color
 
 Example
+
+```css
 p {
   border: 5px solid red;
 }
+
+```
 You can also specify all the individual border properties for just one side:
 
 Left Border
+
+```css
 p {
   border-left: 6px solid red;
   background-color: lightgrey;
 }
+
+```
+
 Bottom Border
+
+```css
 p {
   border-bottom: 6px solid red;
   background-color: lightgrey;
 }
 
-CSS Rounded Borders
+```
+
+## CSS Rounded Borders
 
 The border-radius property is used to add rounded borders to an element:
+
 Example
+
+```css
 p {
   border: 2px solid red;
   border-radius: 5px;
 }
 
-More Examples
-All the top border properties in one declaration
-This example demonstrates a shorthand property for setting all of the properties for the top border in one declaration.
+```
 
-Set the style of the bottom border
-This example demonstrates how to set the style of the bottom border.
+*More Examples*
 
-Set the width of the left border
-This example demonstrates how to set the width of the left border.
+- All the top border properties in one declaration
+- Set the style of the bottom border
+- Set the width of the left border
+- Set the color of the four borders
+- Set the color of the right border
 
-Set the color of the four borders
-This example demonstrates how to set the color of the four borders. It can have from one to four colors.
+## All CSS Border Properties
 
-Set the color of the right border
-This example demonstrates how to set the color of the right border.
-
-All CSS Border Properties
+```text
 Property	Description
+
 border	Sets all the border properties in one declaration
-border-bottom	Sets all the bottom border properties in one declaration
-border-bottom-color	Sets the color of the bottom border
-border-bottom-style	Sets the style of the bottom border
-border-bottom-width	Sets the width of the bottom border
+
+border--[top|bottom|left|right]	Sets all the bottom/top/left/right border properties in one declaration
+border-[top|bottom|left|right]-color	Sets the color of the top/bottom/left/right border
+border-[top|bottom|left|right]-style	Sets the style of the bottom border
+border-[top|bottom|left|right]-width	Sets the width of the bottom border
+
 border-color	Sets the color of the four borders
-border-left	Sets all the left border properties in one declaration
-border-left-color	Sets the color of the left border
-border-left-style	Sets the style of the left border
-border-left-width	Sets the width of the left border
 border-radius	Sets all the four border-*-radius properties for rounded corners
-border-right	Sets all the right border properties in one declaration
-border-right-color	Sets the color of the right border
-border-right-style	Sets the style of the right border
-border-right-width	Sets the width of the right border
 border-style	Sets the style of the four borders
-border-top	Sets all the top border properties in one declaration
-border-top-color	Sets the color of the top border
-border-top-style	Sets the style of the top border
-border-top-width	Sets the width of the top border
 border-width	Sets the width of the four borders
-end
+
+```
 
 # Margin
 
 The CSS margin properties are used to create space around elements, outside of any defined borders
 
-Margin - Individual Sides
+## Margin - Individual Sides
+
 CSS has properties for specifying the margin for each side of an element:
 
-margin-top
-margin-right
-margin-bottom
-margin-left
+- margin-top
+- margin-right
+- margin-bottom
+- margin-left
 
 All the margin properties can have the following values:
 
-auto - the browser calculates the margin
-length - specifies a margin in px, pt, cm, etc.
-% - specifies a margin in % of the width of the containing element
-inherit - specifies that the margin should be inherited from the parent element
+* auto - the browser calculates the margin
+* length - specifies a margin in px, pt, cm, etc.
+* % - specifies a margin in % of the width of the containing element
+* inherit - specifies that the margin should be inherited from the parent element
+
 Tip: Negative values are allowed.
 
 Example
+
 Set different margins for all four sides of a <p> element:
 
+```css
 p {
   margin-top: 100px;
   margin-bottom: 100px;
@@ -708,7 +807,9 @@ p {
   margin-left: 80px;
 }
 
-Margin - Shorthand Property
+```
+
+## Margin - Shorthand Property
 
 To shorten the code, it is possible to specify all the margin properties in one property.
 
@@ -718,6 +819,7 @@ margin-top
 margin-right
 margin-bottom
 margin-left
+
 So, here is how it works:
 
 If the margin property has four values:
@@ -802,28 +904,33 @@ Common sense would seem to suggest that the vertical margin between the <h1> and
 # Padding
 
 Padding is used to create space around an element's content, inside of any defined borders.
-CSS Padding
+
 The CSS padding properties are used to generate space around an element's content, inside of any defined borders.
 
 With CSS, you have full control over the padding. There are properties for setting the padding for each side of an element (top, right, bottom, and left).
 
-Padding - Individual Sides
+## Padding - Individual Sides
+
 CSS has properties for specifying the padding for each side of an element:
 
-padding-top
-padding-right
-padding-bottom
-padding-left
+* padding-top
+* padding-right
+* padding-bottom
+* padding-left
+
 All the padding properties can have the following values:
 
-length - specifies a padding in px, pt, cm, etc.
-% - specifies a padding in % of the width of the containing element
-inherit - specifies that the padding should be inherited from the parent element
+* length - specifies a padding in px, pt, cm, etc.
+* % - specifies a padding in % of the width of the containing element
+* inherit - specifies that the padding should be inherited from the parent element
+
 Note: Negative values are not allowed.
 
-Example
+*Example*
+
 Set different padding for all four sides of a <div> element:  
 
+```css
 div {
   padding-top: 50px;
   padding-right: 30px;
@@ -831,96 +938,128 @@ div {
   padding-left: 80px;
 }
 
-Padding - Shorthand Property
+```
+
+## Padding - Shorthand Property
+
 To shorten the code, it is possible to specify all the padding properties in one property.
 
 The padding property is a shorthand property for the following individual padding properties:
 
-padding-top
-padding-right
-padding-bottom
-padding-left
+* padding-top
+* padding-right
+* padding-bottom
+* padding-left
+
 So, here is how it works:
 
 If the padding property has four values:
 
 padding: 25px 50px 75px 100px;
+
 top padding is 25px
 right padding is 50px
 bottom padding is 75px
 left padding is 100px
-Example
+
+*Example*
+
 Use the padding shorthand property with four values:
 
+```css
 div {
   padding: 25px 50px 75px 100px;
 }
+```
 
 If the padding property has three values:
 
 padding: 25px 50px 75px;
-top padding is 25px
-right and left paddings are 50px
-bottom padding is 75px
+
+top padding is 25px, right and left paddings are 50px, bottom padding is 75px.
+
 Example
 
 Use the padding shorthand property with three values: 
 
+```css
 div {
   padding: 25px 50px 75px;
 }
 
+```
+
 If the padding property has two values:
 
 padding: 25px 50px;
-top and bottom paddings are 25px
-right and left paddings are 50px
 
-Example
+top and bottom paddings are 25px, right and left paddings are 50px
+
+*Example*
+
 Use the padding shorthand property with two values: 
 
+```css
 div {
   padding: 25px 50px;
 }
 
+```
+
 If the padding property has one value:
 
 padding: 25px;
+
 all four paddings are 25px
 
-Example
+*Example*
+
 Use the padding shorthand property with one value: 
 
+```css
 div {
   padding: 25px;
 }
 
-Padding and Element Width
+```
+
+## Padding and Element Width
+
 The CSS width property specifies the width of the element's content area. The content area is the portion inside the padding, border, and margin of an element (the box model).
 
 So, if an element has a specified width, the padding added to that element will be added to the total width of the element. This is often an undesirable result.
 
-Example
-Here, the <div> element is given a width of 300px. However, the actual width of the <div> element will be 350px (300px + 25px of left padding + 25px of right padding):
+*Example*
 
+Here, the `<div>` element is given a width of 300px. However, the actual width of the `<div>` element will be 350px (300px + 25px of left padding + 25px of right padding):
+
+```css
 div {
   width: 300px;
   padding: 25px;
 }
 
+```
+
 To keep the width at 300px, no matter the amount of padding, you can use the box-sizing property. This causes the element to maintain its width; if you increase the padding, the available content space will decrease.
 
 Example
+
 Use the box-sizing property to keep the width at 300px, no matter the amount of padding:
 
+```css
 div {
   width: 300px;
   padding: 25px;
   box-sizing: border-box;
 }
 
-All CSS Padding Properties
+```
+
+## All CSS Padding Properties
+
 Property	Description
+
 padding	A shorthand property for setting all the padding properties in one declaration
 padding-bottom	Sets the bottom padding of an element
 padding-left	Sets the left padding of an element
@@ -929,24 +1068,22 @@ padding-top	Sets the top padding of an element
 
 # CSS Outline
 
-An outline is a line drawn outside the element's border.
-CSS Outline
-An outline is a line that is drawn around elements, OUTSIDE the borders, to make the element "stand out".
+An outline is a line drawn outside the element's border to make the element "stand out".
+
 CSS has the following outline properties:
 
-outline-style
-outline-color
-outline-width
-outline-offset
-outline
-Note: Outline di
+- outline-style
+- outline-color
+- outline-width
+- outline-offset
 
 Note: Outline differs from borders! Unlike border, the outline is drawn outside the element's border, and may overlap other content. Also, the outline is NOT a part of the element's dimensions; the element's total width and height is not affected by the width of the outline.
 
-CSS Outline Style
+## CSS Outline Style
+
 The outline-style property specifies the style of the outline, and can have one of the following values:
 
-```css
+```text
 dotted - Defines a dotted outline
 dashed - Defines a dashed outline
 solid - Defines a solid outline
@@ -977,16 +1114,64 @@ p.outset {outline-style: outset;}
 
 Note: None of the other outline properties (which you will learn more about in the next chapters) will have ANY effect unless the outline-style property is set!
 
-CSS Outline Width
+## CSS Outline Width
 
 The outline-width property specifies the width of the outline, and can have one of the following values:
 
-thin (typically 1px)
-medium (typically 3px)
-thick (typically 5px)
+- thin (typically 1px)
+- medium (typically 3px)
+- thick (typically 5px)
+- A specific size (in px, pt, cm, em, etc)
+
+The following example shows some outlines with different widths:
+
+*Example*
+
+```css
+p.ex1 {
+  border: 1px solid black;
+  outline-style: solid;
+  outline-color: red;
+  outline-width: thin;
+}
+
+p.ex2 {
+  border: 1px solid black;
+  outline-style: solid;
+  outline-color: red;
+  outline-width: medium;
+}
+
+p.ex3 {
+  border: 1px solid black;
+  outline-style: solid;
+  outline-color: red;
+  outline-width: thick;
+}
+
+p.ex4 {
+  border: 1px solid black;
+  outline-style: solid;
+  outline-color: red;
+  outline-width: 4px;
+}
+```
+
+
+## CSS Outline Width
+
+The outline-width property specifies the width of the outline, and can have one of the following values:
+
+- thin (typically 1px)
+- medium (typically 3px)
+- thick (typically 5px)
+
 A specific size (in px, pt, cm, em, etc)
+
 The following example shows some outlines with different widths:
 Example
+
+```css
 p.ex1 {
   border: 1px solid black;
   outline-style: solid;
@@ -1015,45 +1200,10 @@ p.ex4 {
   outline-width: 4px;
 }
 
-CSS Outline Width
+```
 
-The outline-width property specifies the width of the outline, and can have one of the following values:
+## CSS Outline - Shorthand property
 
-thin (typically 1px)
-medium (typically 3px)
-thick (typically 5px)
-A specific size (in px, pt, cm, em, etc)
-The following example shows some outlines with different widths:
-Example
-p.ex1 {
-  border: 1px solid black;
-  outline-style: solid;
-  outline-color: red;
-  outline-width: thin;
-}
-
-p.ex2 {
-  border: 1px solid black;
-  outline-style: solid;
-  outline-color: red;
-  outline-width: medium;
-}
-
-p.ex3 {
-  border: 1px solid black;
-  outline-style: solid;
-  outline-color: red;
-  outline-width: thick;
-}
-
-p.ex4 {
-  border: 1px solid black;
-  outline-style: solid;
-  outline-color: red;
-  outline-width: 4px;
-}
-
-CSS Outline - Shorthand property
 The outline property is a shorthand property for setting the following individual outline properties:
 
 outline-width
@@ -1103,52 +1253,74 @@ outline-width	Sets the width of an outline
 
 # User Interface (Resizing)
 
-CSS User Interface
+## CSS User Interface
+
 In this chapter you will learn about the following CSS user interface properties:
 
-resize
-outline-offset
+* resize
+* outline-offset
 
-CSS Resizing
+## CSS Resizing
+
 The resize property specifies if (and how) an element should be resizable by the user.
+
 The following example lets the user resize only the width of a <div> element:
 
 Example
+
+```css
 div {
   resize: horizontal;
   overflow: auto;
 }
 
+```
+
 The following example lets the user resize only the height of a <div> element:
 
 Example
+
+```css
 div {
   resize: vertical;
   overflow: auto;
 }
 
+```
+
 The following example lets the user resize both the height and width of a <div> element:
 
 Example
+
+```css
 div {
   resize: both;
   overflow: auto;
 }
 
+```
+
 In many browsers, <textarea> is resizable by default. Here, we have used the resize property to disable the resizability:
 
 Example
+
+```css
 textarea {
   resize: none;
 }
 
-CSS Outline Offset
+```
+
+## CSS Outline Offset
+
 The outline-offset property adds space between an outline and the edge or border of an element.
 Note: Outline differs from borders! Unlike border, the outline is drawn outside the element's border, and may overlap other content. Also, the outline is NOT a part of the element's dimensions; the element's total width and height is not affected by the width of the outline.
 
 The following example uses the outline-offset property to add space between the border and the outline:
 
 Example
+
+```css
 div.ex1 {
   margin: 20px;
   border: 1px solid black;
@@ -1163,10 +1335,14 @@ div.ex2 {
   outline-offset: 5px;
 }
 
-CSS User Interface Properties
+```
+
+## CSS User Interface Properties
+
 The following table lists all the user interface properties:
 
 Property	Description
+
 outline-offset	Adds space between an outline and the edge or border of an element
 resize	Specifies whether or not an element is resizable by the user
 
