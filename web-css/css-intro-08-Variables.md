@@ -9,7 +9,7 @@
 
 The var() function is used to insert the value of a CSS variable.
 
-CSS variables have access to the DOM, which means that you can create variables with local or global scope, change the variables with JavaScript, and change the variables based on media queries. (!!!) 
+CSS variables have access to the DOM, which means that you can create variables with *local* or *global* scope, change the variables with JavaScript, and change the variables based on media queries.
 
 A good way to use CSS variables is when it comes to the colors of your design. Instead of copy and paste the same colors over and over again, you can place them in variables.
 
@@ -45,23 +45,22 @@ The var() function is used to insert the value of a CSS variable.
 
 The syntax of the var() function is as follows:
 
-var(name, default value)
+`var(name, default value)`
 
-Value	Description
+Value | Description
+------|-----------------------------------------------------------------
+name  | Required. The variable name (must start with two dashes)
+value | Optional. The fallback value (used if the variable is not found)
 
-name	Required. The variable name (must start with two dashes)
-
-value	Optional. The fallback value (used if the variable is not found)
-
-Note: The variable name must begin with two dashes (--) and it is case sensitive!
+Note: The variable name must begin with two dashes (--) and it is *case sensitive* !
 
 ## How var() Works
 
-First of all: CSS variables can have a global or local scope.
+First of all: CSS variables can have a *global* or *local* scope.
 
 Global variables can be accessed/used through the entire document, while local variables can be used only inside the selector where it is declared.
 
-To create a variable with global scope, declare it inside the :root selector. The :root selector matches the document's root element.
+To create a variable with global scope, declare it inside the *:root* selector. The :root selector matches the document's root element.
 
 To create a variable with local scope, declare it inside the selector that is going to use it.
 
@@ -79,6 +78,7 @@ Example
 
 body { 
   background-color: var(--blue); 
+
 /* burada tanımlanırsa local scope */
 }
 
@@ -98,15 +98,15 @@ button {
 }
 ```
 
-Advantages of using var() are:
+**Advantages of using var() are**
 
-makes the code easier to read (more understandable)
+- makes the code easier to read (more understandable)
 
-makes it much easier to change the color values
+- makes it much easier to change the color values
 
 To change the blue and white color to a softer blue and white, you just need to change the two variable values:
 
-Example
+*Example*
 
 ```css
 :root {
@@ -136,13 +136,10 @@ button {
 
 The numbers in the table specify the first browser version that fully supports the var() function.
 
-Function
+Function | Compability
+---------|----------------------------------------------
+var()    | chr 49.0 edge	15.0 fire	31.0	saf 9.1	ope 36.0
 
-var()				chr 49.0 edge	15.0 fire	31.0	saf 9.1	ope 36.0
 
-CSS var() Function
-
-Property	Description
-
-var()	Inserts the value of a CSS variable
+-- end --
 
