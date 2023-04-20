@@ -1,5 +1,4 @@
 
-- [SOURCES](#sources)
 - [CHEATSHEET](#cheatsheet)
 - [CODEPEN EXAMPLES](#codepen-examples)
 - [FLEXBOX](#flexbox)
@@ -26,21 +25,22 @@
   - [Flexbox Tricks - Articles](#flexbox-tricks---articles)
   - [More Information](#more-information)
  
-# SOURCES
+
+**SOURCES**
 
 - https://css-tricks.com/snippets/css/a-guide-to-flexbox
   
 # CHEATSHEET
 
-Tailwind     | Exp
+Topic        | Exp
 -------------|-------------
 Installation | display:flex
 
-Props For Flex Container |
---- |
-flex-direction: [ row , row-reverse , column ,column-reverse ]; |
-flex-wrap: [ nowrap , wrap , wrap-reverse] ; |
-flex-flow: flex-direction , flex-wrap ; <br> shorthand prop
+Props For Flex Container   | Exp
+---------------------------|-----------------------------------------------
+flex-direction             | [ row , row-reverse , column ,column-reverse ]
+flex-wrap                  | [ nowrap , wrap , wrap-reverse]
+flex-flow (shorthand prop) | flex-direction , flex-wrap
 
 
 # CODEPEN EXAMPLES

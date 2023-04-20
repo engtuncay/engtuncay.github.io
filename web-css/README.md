@@ -9,8 +9,8 @@ CONTENT |
 [1- Selector and Specifity](./css-intro-01-Selector-Specifity.md) |
 [2- Color, Text And Font](./css-intro-02-Color-Text-Font.md) |
 [3- Links, Lists, Icons](./css-intro-03-Links-Lists-Icons.md) |
-[4- Size, Margin,Border,Padding and etc..](./css-intro-04-Size.md) |
-[5-Layout](./css-intro-05-Layout.md) |
+[4- Size,Margin,Border,Padding,Outline](./css-intro-04-Size.md) |
+[5- Layout (Display,Position,Overflow,Align,Float)](./css-intro-05-Layout.md) |
 [6- Flexbox](./css-intro-06-Flexbox.md) |
 [7- Grid](./css-intro-07-Grid.md) |
 [8- Variables](./css-intro-08-Variables.md) |

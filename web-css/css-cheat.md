@@ -2,7 +2,7 @@
 
 - [Selector](#selector)
   - [Simple Selectors](#simple-selectors)
-  - [Combinator selectors](#combinator-selectors)
+  - [Combinator selectors ](#combinator-selectors)
   - [Pseudo-classes](#pseudo-classes)
   - [Pseudo Elements](#pseudo-elements)
   - [Attribute Selectors](#attribute-selectors)
@@ -195,20 +195,20 @@ a[target="_blank"] {
 
 
 ```text
-Selector	Example	Example description
+Selector	Example	(Example description)
 [attribute]	[target]	Selects all elements with a target attribute
 
-[attribute=value]	[target=_blank]	Selects all elements with target="_blank"
+[attribute=value]	[target=_blank]	Selects all elements with (*equals*) target="_blank"
 
-[attribute~=value]	[title~=flower]	Selects all elements with a title attribute containing the word "flower"
+[attribute~=value]	[title~=flower]	Selects all elements with a title attribute *containing* the word "flower"
 
-[attribute|=value]	[lang|=en]	Selects all elements with a lang attribute value starting with "en"
+[attribute|=value]	[lang|=en]	Selects all elements with a lang attribute value *starting with* "en"
 
-[attribute^=value]	a[href^="https"]	Selects every <a> element whose href attribute value begins with "https"
+[attribute^=value]	a[href^="https"]	Selects every <a> element whose href attribute value *begins with* "https"
 
-[attribute$=value]	a[href$=".pdf"]	Selects every <a> element whose href attribute value ends with ".pdf"
+[attribute$=value]	a[href$=".pdf"]	Selects every <a> element whose href attribute value *ends with* ".pdf"
 
-[attribute*=value]	a[href*="w3schools"]	Selects every <a> element whose href attribute value contains the substring "w3schools"
+[attribute*=value]	a[href*="w3schools"]	Selects every <a> element whose href attribute value *contains* the substring "w3schools"
 ```
 
 
@@ -216,16 +216,16 @@ Selector	Example	Example description
 
 * There are three ways of inserting a style sheet:
 
-External CSS
+- External CSS
 
-Internal CSS
+- Internal CSS
 
-Inline CS
+- Inline CS
 
 
 ## External Css
 
-- Html'de head alanına link etiketi ile harici dosyadan yükleme yaparız.
+- Html'de head alanına link etiketi ile harici dosyadan yükleme yaparız. rel attribute'na stylesheet olarak belirtiriz. href attribute'nda dosyanın adresini belirtiriz. aynı dizindeyse direk dosya ismini yazarız.
 
 ```html
 
@@ -253,7 +253,7 @@ body {
 
 ## Inline Css
 
-- Html etiketinin style attribute'na yazabiliriz.
+Html etiketinin style attribute'na elementin stil özelliklerini yazabiliriz.
 
 ```html
 <h1 style="color:blue;text-align:center;">This is a heading</h1>
