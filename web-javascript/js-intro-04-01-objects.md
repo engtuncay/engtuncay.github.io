@@ -1,4 +1,4 @@
-
+l
 Sourcs : https://javascript.info/object-basics
 
 - v2
