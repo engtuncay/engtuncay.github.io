@@ -34,9 +34,9 @@ app.component('user-info', UserInfo);
 
 Global components are used anywhere in your vue app - ie in any template.
 
-- Lokal components are registered to the component config object.
+- Local components are expressed in the component config object.
 
-in the components property, an object is defined. The key of the object is our custom HTML element. So TheHeader for example, the tag we wanna use for this element, so to say, and then the value is the imported component config object.
+Components property is an object which has a key defines  our custom HTML element and a value which is the imported component config object. So TheHeader for example, the tag for that component should be the-header.
 
 ```js
 <script>
@@ -56,9 +56,11 @@ export default {
 
 ## Scoped Styles
 
-*Note:* no matter where you added your styling, it would always be treated as global styling that affects the entire app unless it is defined with scoped attribute. 
+**Note:** 
 
-Vue component'imizde style etiketimize/elementine scoped attribute'ı ekleriz.
+No matter where you added your styling, it would always be treated as global styling that affects the entire app unless it is defined with scoped attribute. 
+
+(tor:Vue component'imizde style etiketine scoped attribute eklemezsek stiller global olarak kabul eder. Her yerde geçerli olur.)
 
 ```html
 <style scoped>
@@ -75,14 +77,14 @@ section {
 
 ## Introducing slots
 
-They allow us to receive HTML content which also may be using Vue features from outside of the component.
+They allow us to receive HTML content which also may be using *Vue features from outside of the component*.
 
-Basically just like props but where props are meant to be used for data, which a component needs, slots are meant to be used for HTML code.
+Basically just like props but where *props* are meant to be used *for data* which a component needs, slots are meant to be used for *HTML code*.
 
 *UserInfo.vue*
 ```html
 <base-card>
-  <!-- base-card component content -->
+  <!-- below base-card component content -->
   <header>
     <h3>{{ fullName }}</h3>
     <base-badge :type="role" :caption="role.toUpperCase()"></base-badge>
@@ -94,13 +96,14 @@ Basically just like props but where props are meant to be used for data, which a
 *BaseCard.vue*
 ```html
 <template>
-  <div>
+  <div class="bg-red-300">
     <slot></slot>
   </div>
 </template>
 
 <script>
 export default {
+  /* ... */
 }
 </script>
 ```
@@ -108,6 +111,8 @@ export default {
 ## Named Slots
 
 You can give name to slots. In the component below, we defined two slots. one of them is named with 'header'
+
+- Definition of named slots
 
 *BaseCard.vue*
 ```html
@@ -127,15 +132,17 @@ export default {};
 </script>
 ```
 
-- Usage of named slots.
+- Usage of named slots `v-slot:[slotName]`.
 
 *BadgeList.vue*
 ```html
 <base-card>
-  <template v-slot:header> <!-- header slot content -->
+  <!-- header slot content -->
+  <template v-slot:header> 
     <h2>Available Badges</h2>
   </template>
-  <template v-slot:default> <!-- v-slot:default is optional -->
+  <!-- v-slot:default is optional -->
+  <template v-slot:default> 
     <ul>
       <li>
         <base-badge type="admin" caption="ADMIN"></base-badge>
@@ -150,7 +157,7 @@ export default {};
 
 ## Slot Styles & Compilation
 
-Vue.js will analyze, compile and evaluate this template before it sends to content to the other component so to say. So therefore, here we have access to whatever is defined inside of UserInfo, and to styling defined here also affects this markup, but *not the markup of any component we might be sending our content to* (that is, styles is not valid for slot contents.).
+Vue.js will analyze, compile and evaluate this template before it sends to content to the other component.So therefore, here we have access to whatever is defined inside of UserInfo, and to styling defined here also affects this markup, but *not the markup of any component we might be sending our content to* (that is, styles is not valid for slot contents.).
 
 *UserInfo.vue*
 ```html
@@ -174,7 +181,7 @@ export default {
 </script>
 ```
 
-Yani header alınının style tanımları baseCard component'inde yapılmalı. header style tanımı baseCard component'inde yapıldı.
+(tor:Yani header slot alanının style tanımları baseCard component'inde yapılmalı.)
 
 *BaseCard.vue*
 ```html
@@ -209,7 +216,7 @@ div {
 
 ## More on Slots
 
-BaseCard componentini header slotu olmadan kullandığımızda source'a header elementi ekler. Örnek aşağıdaki şekilde kullanırsak.
+BaseCard componentini header slotu olmadan kullandığımızda sayfa kaynağına (source) header elementi ekler. Örnek aşağıdaki şekilde kullanırsak.
 
 *BaseCard.vue*
 ```html
@@ -250,7 +257,7 @@ export default {
 </script>
 ```
 
-- v-slot:header yerine #header şeklinde de kullanabiliriz.
+- `v-slot:header` yerine `#header` şeklinde de kullanabiliriz.
 
 *UserInfo.vue*
 ```html
@@ -270,9 +277,7 @@ export default {
 
 ## Scoped slots
 
-ßß Sorun
-
-li içerisinde slot bir alan kullandığımızda goal değişkenine , slotu kullanan componentde goal değişkenine nasıl ulaşacağız.
+- Problem : for döngüsü kullanılan bir element içerisinde slot bir alan kullandığımızda döngü değişkenine, slotu kullanan componentde nasıl ulaşacağız ?
 
 *CourseGoals.vue*
 ```html
@@ -295,9 +300,9 @@ export default {
 </script>
 ```
 
-ßß Çözüm
+*Çözüm*
 
-- slot elementine v-bind ile degiskeni bind ederiz. slot içerisine goal değişkenini item olarak bind et demiş oluruz.
+slot elementine v-bind ile degiskeni bind ederiz. slot içerisine goal değişkenini item olarak bind et demiş oluruz.
 
 *CourseGoals.vue*
 ```html
@@ -320,7 +325,7 @@ export default {
 </script>
 ```
 
-- bind edilen değişkene #default="slotProps" default slotu slotProps'a baglar. bunun üzerinden değişkenlere ulaşırız.
+- bind edilen değişkene #default="slotProps" default slotu slotProps'a baglar. bunun üzerinden değişkenlere ulaşırız.???
 
 *App.vue(partial)*
 ```html
@@ -329,7 +334,7 @@ export default {
   <p>{{ slotProps['another-prop'] }}</p>
 </course-goals>
 ```
-- Note
+**Note**
 
 template ile de kullanılabilir.
 
