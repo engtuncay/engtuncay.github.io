@@ -162,10 +162,6 @@ For example, #ff0000 is displayed as red, because red is set to its highest valu
 
 Examples
 
-
-
-
-
 **3 Digit HEX Value**
 
 Sometimes you will see a 3-digit hex code in the CSS source.

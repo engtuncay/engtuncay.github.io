@@ -367,12 +367,16 @@ The z-index property specifies the stack order of an element (which element shou
 An element can have a positive or negative stack order:
 
 Example
+
+```css
 img {
   position: absolute;
   left: 0px;
   top: 0px;
   z-index: -1;
 }
+
+```
 
 An element with greater stack order is always in front of an element with a lower stack order. 
 

@@ -1,7 +1,6 @@
 
 edited 20-03-2022
 
-- [Section Cheatsheet](#section-cheatsheet)
 - [Intro](#intro)
 - [CSS Syntax](#css-syntax)
 - [How to add CSS](#how-to-add-css)
@@ -15,24 +14,20 @@ edited 20-03-2022
     - [Grouping Selector](#grouping-selector)
   - [Combinators](#combinators)
     - [Descendant Selector (Space) (a b)](#descendant-selector-space-a-b)
-    - [Child Selector (>)](#child-selector-)
+    - [Child Selector (\>)](#child-selector-)
     - [Adjacent Sibling Selector (+)](#adjacent-sibling-selector-)
     - [General Sibling Selector (~)](#general-sibling-selector-)
     - [Combining Selector](#combining-selector)
   - [Pseudo-classes](#pseudo-classes)
   - [Pseudo Elements](#pseudo-elements)
   - [Attribute Selector](#attribute-selector)
-    - [[attribute|="value"] Selector](#attributevalue-selector)
-    - [[attribute^="value"] Selector](#attributevalue-selector-1)
-    - [[attribute$="value"] Selector](#attributevalue-selector-2)
-    - [[attribute*="value"] Selector](#attributevalue-selector-3)
+    - [\[attribute|="value"\] Selector](#attributevalue-selector)
+    - [\[attribute^="value"\] Selector](#attributevalue-selector-1)
+    - [\[attribute$="value"\] Selector](#attributevalue-selector-2)
+    - [\[attribute\*="value"\] Selector](#attributevalue-selector-3)
 - [Cascading Order](#cascading-order)
 - [Specifity](#specifity)
 - [Sources](#sources)
-
-# Section Cheatsheet
-
-
 
 # Intro
 
