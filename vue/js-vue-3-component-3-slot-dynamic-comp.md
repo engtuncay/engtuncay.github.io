@@ -348,6 +348,8 @@ template ile de kullanılabilir.
 </course-goals>
 ```
 
+--*LINK TBC
+
 ## Dynamic Components
 
 vue ya özel component elementi ile istediğimiz component'i dinamik olarak yerleştirebiliriz. hangi component'in yerleşeceğine is attribute ile belirlenir. burada is attribute na binding yapılmış.
