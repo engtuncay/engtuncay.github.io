@@ -719,7 +719,7 @@ export class { // Error! (non-default export needs a name)
 }
 ```     
 
---*LINK cont
+--*LINK TBC
 
 ### The "default" name (export as default separately)
 

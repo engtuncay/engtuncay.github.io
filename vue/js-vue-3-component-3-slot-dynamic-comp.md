@@ -284,7 +284,7 @@ export default {
 <template>
   <ul>
     <li v-for="goal in goals" :key="goal">
-      <slot></slot>
+      <slot><!-- parent elementde goal değişkenini kullanmak istiyoruz. --></slot>
     </li>
   </ul>
 </template>
@@ -302,14 +302,15 @@ export default {
 
 *Çözüm*
 
-slot elementine v-bind ile degiskeni bind ederiz. slot içerisine goal değişkenini item olarak bind et demiş oluruz.
+- Slot elementine v-bind ile degiskeni bind ederiz. slot içerisine goal değişkenini item olarak bind et demiş oluruz.
 
 *CourseGoals.vue*
 ```html
 <template>
   <ul>
     <li v-for="goal in goals" :key="goal">
-      <slot :item="goal" another-prop="..."></slot>
+      <!-- parent elementine item ve another-prop değişkenini yoluyoruz. -->
+      <slot :item="goal" :another-prop="..."></slot>
     </li>
   </ul>
 </template>
@@ -325,7 +326,9 @@ export default {
 </script>
 ```
 
-- bind edilen değişkene #default="slotProps" default slotu slotProps'a baglar. bunun üzerinden değişkenlere ulaşırız.???
+- Parent component, slot'a bind edilen değişkene nasıl ulaşacak ?
+
+Parent component içerisindeki component elementinde #default attribune verilen isimdeki objeye bind edilir. Aşağıdaki örnekte "slotProps" objesine değişkenler bind edilir. slotProps objesinden değişkenlere ulaşırız.
 
 *App.vue(partial)*
 ```html
@@ -336,7 +339,7 @@ export default {
 ```
 **Note**
 
-template ile de kullanılabilir.
+- component elementinde slot alanı, template ile belirtirlerken de #default kullanılabilir.
 
 *App.vue(partial)*
 ```html
@@ -348,11 +351,11 @@ template ile de kullanılabilir.
 </course-goals>
 ```
 
---*LINK TBC
+
 
 ## Dynamic Components
 
-vue ya özel component elementi ile istediğimiz component'i dinamik olarak yerleştirebiliriz. hangi component'in yerleşeceğine is attribute ile belirlenir. burada is attribute na binding yapılmış.
+Vue ya özel component elementi ile istediğimiz component'i dinamik olarak yerleştirebiliriz. hangi component'in yerleşeceğine is attribute ile belirlenir. burada is attribute na binding yapılmış.
 
 ```html
 <template>
@@ -367,9 +370,10 @@ vue ya özel component elementi ile istediğimiz component'i dinamik olarak yerl
     <component :is="selectedComponent"></component>
   </div>
 </template>
-<!-- partial config object -->
+
 <script>
 // imports
+/* ... */
 export default {
   components: {
     TheHeader,
@@ -390,6 +394,7 @@ export default {
 </script>
 
 ```
+*ManageGoals componenti*
 
 *ManageGoals.vue*
 
@@ -404,25 +409,25 @@ export default {
 
 - Note : ManageGoals componentinde olduğu gibi vue'ya config object vermezsek, otomatik kendisi oluşturur.
 
-
 ## Keeping Dynamic Components Alive
 
 Yukarıdaki örnekte dinamik component'i değiştirip, tekrar eski component'e dönersek text input ların içerisi sıfırlanıyordu. aynı kalmasını istersek keep-alive özel elementini kullanırız.
 
 *App.vue(partial)*
+
 ```html
-<manage-goals v-if="selectedComponent === 'manage-goals'"></manage-goals>-->
+<manage-goals v-if="selectedComponent === 'manage-goals'"></manage-goals>
 <keep-alive>
   <component :is="selectedComponent"></component>
 </keep-alive>
 
 ```
 
-böylelikle keep-alive component'in state'ni koruruz. arka planda vue destroy etmez.
+Böylelikle keep-alive, component'in state'ni koruruz. arka planda vue destroy etmez.
 
 ## Teleporting Elements
 
-eğer bir dialog penceresi kodlarımızında ortasında açarsak semantik olarak dogru olmaz. dogru olan body elementinin başında veya sonunda olmalı. bunu yapmak vue nun özel teleport elementini kullanırız. aşağıdaki örnek body'nin sonuna taşıyor dialog elementini.
+Eğer bir dialog penceresi kodlarımızın ortasında açarsak semantik olarak dogru olmaz. Dogru olan body elementinin başında veya sonunda olmalı. bunu yapmak vue nun özel teleport elementini kullanırız. aşağıdaki örnek body'nin sonuna taşıyor dialog elementini.
 
 ```html
 <template>
@@ -490,12 +495,12 @@ dialog {
 </style>
 ```
 
-
 ## Working with fragments
 
-önceki vue versiyonda bir component de sadece bir tane top element olurdu , bu da div olurdu. vue 3 ile beraber birden fazla top element olabiliyor.
+Önceki vue versiyonda bir component de sadece bir tane top element olurdu , bu da div olurdu. vue 3 ile beraber birden fazla top element olabiliyor.
 
 *ManageGoals.vue*
+
 ```html
 <template>
   <h2>Manage Goals</h2>
@@ -513,7 +518,7 @@ dialog {
 
 ## Vue Style Guide
 
-vue.js official documentation 'daki style guide mutlaka okunmalı. Strongly recommended kısmı daha öncelikli okunmalı.
+Vue.js official documentation 'daki style guide mutlaka okunmalı. Strongly recommended kısmı daha öncelikli okunmalı.
 
 - Temel component'lerin başına Base veya App eklenmeli. BaseButton,BaseIcon,BaseTable veya AppButton, AppIcon gibi...
 
@@ -523,3 +528,5 @@ vue.js official documentation 'daki style guide mutlaka okunmalı. Strongly reco
 ## Folder Style
 
 - Componentleri ilgili dizinleri ayrıştırırsak daha düzenli olur. örneğin UI veya Base , Layout , cart , checkout (checkout ile ilgili comp'lar koyulur) gibi...
+
+-- end --

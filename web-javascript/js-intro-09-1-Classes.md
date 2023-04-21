@@ -11,6 +11,7 @@
 
 - [Class basic syntax](#class-basic-syntax)
   - [The "class" syntax](#the-class-syntax)
+  - [The notation here is not to be confused with object literals. Within the class, no commas are required.](#the-notation-here-is-not-to-be-confused-with-object-literals-within-the-class-no-commas-are-required)
   - [What is a class?](#what-is-a-class)
   - [Not just a syntactic sugar](#not-just-a-syntactic-sugar)
   - [Class Expression](#class-expression)
@@ -169,7 +170,7 @@ alert(User.prototype.sayHi); // the code of the sayHi method
 alert(Object.getOwnPropertyNames(User.prototype)); // constructor, sayHi
 ```
 
---*LINK - to cont
+--*LINK - TBC
 
 ## Not just a syntactic sugar
 
