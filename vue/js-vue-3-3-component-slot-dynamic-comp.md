@@ -1,12 +1,11 @@
 
 <h2>Advanced Component Communication</h2>
 
-
 - [Global vs Local Components](#global-vs-local-components)
 - [Scoped Styles](#scoped-styles)
 - [Introducing slots](#introducing-slots)
 - [Named Slots](#named-slots)
-- [Slot Styles \& Compilation](#slot-styles--compilation)
+- [Slot Styles and Compilation](#slot-styles-and-compilation)
 - [More on Slots](#more-on-slots)
 - [Scoped slots](#scoped-slots)
 - [Dynamic Components](#dynamic-components)
@@ -14,7 +13,7 @@
 - [Teleporting Elements](#teleporting-elements)
 - [Working with fragments](#working-with-fragments)
 - [Vue Style Guide](#vue-style-guide)
-- [Folder Style](#folder-style)
+  - [Folder Style](#folder-style)
 
 
 ## Global vs Local Components
@@ -155,7 +154,7 @@ export default {};
 </base-card>
 ```
 
-## Slot Styles & Compilation
+## Slot Styles and Compilation
 
 Vue.js will analyze, compile and evaluate this template before it sends to content to the other component.So therefore, here we have access to whatever is defined inside of UserInfo, and to styling defined here also affects this markup, but *not the markup of any component we might be sending our content to* (that is, styles is not valid for slot contents.).
 
@@ -257,12 +256,13 @@ export default {
 </script>
 ```
 
-- `v-slot:header` yerine `#header` şeklinde de kullanabiliriz.
+- Parent comp'de slot alanlarını belirtmek için `v-slot:header` yerine `#header` şeklinde de kullanabiliriz !!!
 
 *UserInfo.vue*
 ```html
 <template>
   <section>
+    <!-- base-card componentine slot alanlarının içerikleri -->
     <base-card>
       <template #header>
         <!-- ... -->
@@ -277,9 +277,9 @@ export default {
 
 ## Scoped slots
 
-- Problem : for döngüsü kullanılan bir element içerisinde slot bir alan kullandığımızda döngü değişkenine, slotu kullanan componentde nasıl ulaşacağız ?
+- Problem : Child comp'de for döngüsü kullanılan bir element içerisinde slot bir alan kullandığımızda döngü değişkenine, slotu içeriğini belirten parent componentde döngü değişkenine nasıl ulaşacağız ?
 
-*CourseGoals.vue*
+*CourseGoals.vue* child component (imports slot content)
 ```html
 <template>
   <ul>
@@ -302,7 +302,7 @@ export default {
 
 *Çözüm*
 
-- Slot elementine v-bind ile degiskeni bind ederiz. slot içerisine goal değişkenini item olarak bind et demiş oluruz.
+- Child comp'de slot elementine v-bind ile degiskeni bind ederiz. slot içerisine goal değişkenini item olarak bind etmiş oluruz.
 
 *CourseGoals.vue*
 ```html
@@ -339,7 +339,7 @@ Parent component içerisindeki component elementinde #default attribune verilen 
 ```
 **Note**
 
-- component elementinde slot alanı, template ile belirtirlerken de #default kullanılabilir.
+- Parent comp'da, child component elementinde slot alanı, template ile belirtirlerken de #default kullanılabilir.
 
 *App.vue(partial)*
 ```html
@@ -350,8 +350,6 @@ Parent component içerisindeki component elementinde #default attribune verilen 
   </template>
 </course-goals>
 ```
-
-
 
 ## Dynamic Components
 
@@ -394,8 +392,6 @@ export default {
 </script>
 
 ```
-*ManageGoals componenti*
-
 *ManageGoals.vue*
 
 ```html
@@ -407,7 +403,10 @@ export default {
 </template>
 ```
 
-- Note : ManageGoals componentinde olduğu gibi vue'ya config object vermezsek, otomatik kendisi oluşturur.
+**Note** 
+
+ManageGoals componentinde olduğu gibi vue'ya config object vermezsek, otomatik kendisi oluşturur.
+
 
 ## Keeping Dynamic Components Alive
 
@@ -522,10 +521,10 @@ Vue.js official documentation 'daki style guide mutlaka okunmalı. Strongly reco
 
 - Temel component'lerin başına Base veya App eklenmeli. BaseButton,BaseIcon,BaseTable veya AppButton, AppIcon gibi...
 
-- eğer component tek bir yerde kullanılıyorsa başına The konulmalı. 
+- Eğer component tek bir yerde kullanılıyorsa başına The konulmalı. 
   
 
-## Folder Style
+### Folder Style
 
 - Componentleri ilgili dizinleri ayrıştırırsak daha düzenli olur. örneğin UI veya Base , Layout , cart , checkout (checkout ile ilgili comp'lar koyulur) gibi...
 
