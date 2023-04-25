@@ -8,7 +8,7 @@
   - [Install Vue Router](#install-vue-router)
   - [Install Vuex](#install-vuex)
 
-Source : 
+**Sources**
 
 - https://github.com/aymaneMx/vite-app
 
@@ -30,18 +30,18 @@ $ npm init @vitejs/app
 see [doc](https://tailwindcss.com/docs/guides/vue-3-vite)
 
 ```bash
-npm install -D tailwindcss@latest postcss@latest autoprefixer@latest
-# or
 yarn add --dev tailwindcss@latest postcss@latest autoprefixer@latest
+# or
+npm install -D tailwindcss@latest postcss@latest autoprefixer@latest
 ```
 
-create config file:
+- Step 2 : create config file:
 
 ```shell
 $ npx tailwindcss init -p
 ```
 
-include Tailwind in your CSS
+- Step 3 : Include Tailwind in your CSS
 
 ```css
 /* ./src/index.css */
@@ -50,12 +50,13 @@ include Tailwind in your CSS
 @tailwind utilities;
 ```
 
-Finally, ensure your CSS file is being imported in your ./src/main.js file:
+- Step 4 : Finally, ensure your CSS file is being imported in your ./src/main.js file:
 
 ```js
 // src/main.js
 import { createApp } from 'vue'
 import App from './App.vue'
+// This line !!!
 import './index.css'
 
 createApp(App).mount('#app')
