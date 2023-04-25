@@ -1,6 +1,6 @@
 
 - [Component Introduction](#component-introduction)
-  - [Example Application Without CLI](#example-application-without-cli)
+  - [Example Vue Application Without CLI](#example-vue-application-without-cli)
   - [File based Component](#file-based-component)
   - [Multiple Vue Apps vs Multiple Components](#multiple-vue-apps-vs-multiple-components)
 
@@ -12,8 +12,7 @@
 # Component Introduction 
 
 
-
-## Example Application Without CLI
+## Example Vue Application Without CLI
 
 *index.html*
 
@@ -105,11 +104,6 @@ app.component('friend-contact', {
 app.mount('#app');
 ```
 
-
-
-
-
-
 ## File based Component
 
 - In a component, we export the component configuration object where we hold data about props,components,emits,data,methods...
@@ -120,15 +114,12 @@ app.mount('#app');
 </template>
 <script>
   export default {
-    props: /* ... */,
-    data(){ /* ... */ },
+    props: [],
+    data(){ return { /* ... */ } },
 
   } 
 </script>
 ```
-
-
-
 
 ## Multiple Vue Apps vs Multiple Components
 

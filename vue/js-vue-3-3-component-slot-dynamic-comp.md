@@ -156,7 +156,9 @@ export default {};
 
 ## Slot Styles and Compilation
 
-Vue.js will analyze, compile and evaluate this template before it sends to content to the other component.So therefore, here we have access to whatever is defined inside of UserInfo, and to styling defined here also affects this markup, but *not the markup of any component we might be sending our content to* (that is, styles is not valid for slot contents.).
+Vue.js will analyze, compile and evaluate this template before it sends to content to the other component.So therefore, here we have access to whatever is defined inside of UserInfo, and to styling defined here also affects this markup, but *not the markup of any component we might be sending our content to* (that is, styles are not valid for slot contents.).
+
+(tor:Yani header slot alanının style tanımları, baseCard component'inde (child component'de) yapılmalı. Parent comp'de geçerli degil.)
 
 *UserInfo.vue*
 ```html
@@ -179,8 +181,6 @@ export default {
 };
 </script>
 ```
-
-(tor:Yani header slot alanının style tanımları baseCard component'inde yapılmalı.)
 
 *BaseCard.vue*
 ```html

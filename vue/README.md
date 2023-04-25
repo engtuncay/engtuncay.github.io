@@ -3,9 +3,9 @@
 
 This tutorial is prepared from web resource and some additions from me.
 
-CONTENT |
---- |
-[1-1 Intro](./js-vue-1-1-intro.md) |
+CONTENT |Note|
+--- |---|
+[1-1 Intro](./js-vue-1-1-intro.md) | 
 [1-2 Basics](./js-vue-1-2-basics.md) |
 [2-1 Cli](./js-vue-2-cli.md) |
 [3-1 Component 1 (Configuration)](./js-vue-3-1-component.md) |
