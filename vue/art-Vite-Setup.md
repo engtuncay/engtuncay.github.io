@@ -4,7 +4,7 @@
 - [Setup Extensions For Vue 3 + Vite Project](#setup-extensions-for-vue-3--vite-project)
   - [Set up Vite](#set-up-vite)
   - [Set up Tailwind CSS](#set-up-tailwind-css)
-  - [Install ESLint & Prettier](#install-eslint--prettier)
+  - [Install ESLint \& Prettier](#install-eslint--prettier)
   - [Install Vue Router](#install-vue-router)
   - [Install Vuex](#install-vuex)
 
@@ -19,7 +19,7 @@ Source :
 
 ### Set up Vite
 
-kolchi kayn f [doc](https://vitejs.dev/guide/#getting-started),  
+[doc](https://vitejs.dev/guide/#getting-started),  
 
 ```shell
 $ npm init @vitejs/app
@@ -32,7 +32,7 @@ see [doc](https://tailwindcss.com/docs/guides/vue-3-vite)
 ```bash
 npm install -D tailwindcss@latest postcss@latest autoprefixer@latest
 # or
-yarn install -D tailwindcss@latest postcss@latest autoprefixer@latest
+yarn add --dev tailwindcss@latest postcss@latest autoprefixer@latest
 ```
 
 create config file:
