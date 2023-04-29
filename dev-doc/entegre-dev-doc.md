@@ -16,6 +16,8 @@ Java Fx ile geliştirdiğim uygulama için aldığım notlar.
 - [Dialog Pencereleri](#dialog-pencereleri)
   - [Pop Dialog - Info Warn Error](#pop-dialog---info-warn-error)
   - [String deger Alan Dialog](#string-deger-alan-dialog)
+- [Special Components](#special-components)
+  - [Şablon Exceli Oluşturma](#şablon-exceli-oluşturma)
   - [Form Dialog](#form-dialog)
   - [Excel Dosya Seçimi ve Yüklemesi](#excel-dosya-seçimi-ve-yüklemesi)
 - [Table](#table)
@@ -30,6 +32,7 @@ Java Fx ile geliştirdiğim uygulama için aldığım notlar.
     - [Select Count Where Id In List (Toplu Kayıt Sayısı Kontrolü)](#select-count-where-id-in-list-toplu-kayıt-sayısı-kontrolü)
   - [Oto Update Sorgular](#oto-update-sorgular)
     - [Update Where Id In List (Toplu Güncelleme)](#update-where-id-in-list-toplu-güncelleme)
+  - [FiQuery](#fiquery)
 - [Db Aktarım](#db-aktarım)
   - [Lokal Aktarım Sablon 1](#lokal-aktarım-sablon-1)
   - [Lokal Aktarım Sablon 2](#lokal-aktarım-sablon-2)
@@ -144,6 +147,8 @@ if (fxSimpleDialog.isClosedWithOk()) {
   // diger işlemler ....
 }
 
+```
+
 # Special Components 
 
 ## Şablon Exceli Oluşturma
@@ -201,6 +206,55 @@ fxSimpleDialog.setPredValidateForm(fxFormMig3 -> {
 
 fxSimpleDialog.openAsNonModal();
 ```
+
+*Örnek 2 - Form Dialog* 
+
+```java
+		FxSimpleDialog fxSimpleDialog = new FxSimpleDialog();
+
+		FiColList fiCols = new FiColList();
+
+		fiCols.add(FiColsEntegre.echTxEttn());
+		fiCols.add(FiColsEntegre.cha_belge_no().buiHeader("Fatura No"));
+		fiCols.add(EfxhpFormCols.bui().formEdmAyarGruplariApcTxGrup(getConnProfile()));
+
+		fxSimpleDialog.setupFormDialog(fiCols, FormType.PlainFormV1);
+
+		fxSimpleDialog.setPredValidateForm(fxFormMig3 -> {
+
+			if (fxFormMig3 == null) {
+				FxDialogShow.showPopWarn("Form Objesi boş geliyor.Sistem Yöneticinize danışın.");
+				return false;
+			}
+
+			FxFormMig3 fxFormMig = (FxFormMig3) fxFormMig3;
+			FiKeyBean formAsFiKeyBean = fxFormMig.getFormAsFkb();
+
+			String echTxEttn = formAsFiKeyBean.getAsString(FiColsEntegre.echTxEttn());
+			String chaBelgeNo = formAsFiKeyBean.getAsString(FiColsEntegre.cha_belge_no());
+
+			if (FiString.isEmpty(echTxEttn) && FiString.isEmpty(chaBelgeNo)) {
+				FxDialogShow.showPopWarn("Lütfen Ettn veya Fatura No Giriniz");
+				return false;
+			}
+
+			MolEdmWebService molEdmWebService = new MolEdmWebService(getConnProfile());
+			molEdmWebService.reqLogin(formAsFiKeyBean.getAsString(FiColsEntegre.apcTxGrup()));
+
+			List<EdmCariHareketBaslik> edmCariHareketBasliks = new ArrayList<>();
+			EdmCariHareketBaslik edmCariHareketBaslik = new EdmCariHareketBaslik();
+			edmCariHareketBaslik.setEchTxEttn(echTxEttn);
+			edmCariHareketBaslik.setCha_belge_no(chaBelgeNo);
+			edmCariHareketBasliks.add(edmCariHareketBaslik);
+			Fdr<EdmResponse> edmResponseFdr = molEdmWebService.markEdmEvrak(edmCariHareketBasliks, MetaEdmMark.unread().getTxKey());
+			FxDialogShow.showFdr1PopOrFailModal(edmResponseFdr);
+
+			if (edmResponseFdr.isTrueBoResult()) return true;
+			return false;
+		});
+		fxSimpleDialog.openAsDialogSync();
+```
+
 
 
 ## Excel Dosya Seçimi ve Yüklemesi
@@ -340,6 +394,10 @@ System.out.println(sqlQuery2);
 
 
 ```
+
+## FiQuery
+
+
 
 # Db Aktarım
 

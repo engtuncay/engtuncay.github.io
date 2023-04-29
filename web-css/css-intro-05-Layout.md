@@ -1,9 +1,26 @@
 
 - [Layout](#layout)
   - [Display Property](#display-property)
-  - [Inline Block](#inline-block)
+    - [Block-level Elements](#block-level-elements)
+    - [Inline Elements](#inline-elements)
+    - [None](#none)
+    - [Override The Default Display Value](#override-the-default-display-value)
+    - [Inline Block](#inline-block)
+    - [All Display - Visibility Properties](#all-display---visibility-properties)
   - [Position Property](#position-property)
+    - [static position](#static-position)
+    - [relative position](#relative-position)
+    - [fixed position](#fixed-position)
+    - [absolute position](#absolute-position)
+    - [sticky position](#sticky-position)
+  - [Overlapping Elements](#overlapping-elements)
   - [Overflow Property](#overflow-property)
+    - [overflow: visible](#overflow-visible)
+    - [overflow: hidden](#overflow-hidden)
+    - [overflow: scroll](#overflow-scroll)
+    - [overflow: auto](#overflow-auto)
+    - [overflow-x and overflow-y](#overflow-x-and-overflow-y)
+    - [All Overflow Properties](#all-overflow-properties)
   - [Align](#align)
   - [Float and Clear](#float-and-clear)
 
@@ -17,7 +34,7 @@ The display property specifies if/how an element is displayed.
 
 Every HTML element has a default display value depending on what type of element it is. The default display value for most elements is block or inline.
 
-**Block-level Elements**
+### Block-level Elements
 
 A block-level element always starts on a new line and takes up the full width available (stretches out to the left and right as far as it can). (! Block-Level element yeni satırdan başlar, sola ve sağa genişliği max alabildiğince alır. Sonraki gelen element de yeni satırdan başlar.) 
 
@@ -33,7 +50,7 @@ Examples of block-level elements:
 <section>
 ```
 
-**Inline Elements**
+### Inline Elements
 
 An inline element does not start on a new line and only takes up as much width as necessary.
 
@@ -46,13 +63,40 @@ Examples of inline elements:
 
 ```
 
-**Display: none;**
+### None
 
-display: none; is commonly used with JavaScript to hide and show elements without deleting and recreating them. Take a look at our last example on this page if you want to know how this can be achieved.
+`display: none;` is commonly used with JavaScript to hide and show elements without deleting and recreating them. Take a look at our last example on this page if you want to know how this can be achieved.
 
-The `<script>` element uses display: none; as default. 
+The `<script>` element uses `display: none;` as default. 
 
-**Override The Default Display Value**
+**Hide an Element - display:none or visibility:hidden**
+
+Hiding an element can be done by setting the display property to none. The element will be hidden, and the page will be displayed as if the element is not there: 
+
+(tr: display özelliği none olan element sayfada hiç yokmuş gibi davranır.:)
+
+*Example*
+
+```css
+h1.hidden {
+  display: none;
+}
+```
+
+`visibility:hidden`; also hides an element. However, the element will still *take up the same space as before*. The element will be hidden, but still *affect the layout*. 
+
+(tr:visibility özelliği hidden olan element, gizlenir, fakat layout da sanki oradaymış gibi davranır.:) 
+
+*Example*
+
+```css
+h1.hidden {
+  visibility: hidden;
+}
+
+```
+
+### Override The Default Display Value
 
 As mentioned, every element has a default display value. However, you can override this.
 
@@ -60,7 +104,7 @@ Changing an inline element to a block element, or vice versa, can be useful for 
 
 A common example is making inline `<li>` elements for horizontal menus:
 
-Example
+*Example*
 
 ```css
 li {
@@ -68,11 +112,13 @@ li {
 }
 ```
 
-Note: Setting the display property of an element only changes how the element is displayed, NOT what kind of element it is. So, an inline element with display: block; is not allowed to have other block elements inside it.
+**Note**
+
+Setting the display property of an element only changes how the element is displayed, NOT what kind of element it is. So, an inline element with display: block; is not allowed to have other block elements inside it.
 
 The following example displays `<span>` elements as block elements:
 
-Example
+*Example*
 
 ```css
 span {
@@ -83,7 +129,7 @@ span {
 
 The following example displays `<a>` elements as block elements:
 
-Example
+*Example*
 
 ```css
 a {
@@ -92,44 +138,7 @@ a {
 
 ```
 
-**Hide an Element - display:none or visibility:hidden?**
-
-Hiding an element can be done by setting the display property to none. The element will be hidden, and the page will be displayed as if the element is not there: 
-
-(tr:hidden element sayfada hiç yokmuş gibi davranır.:)
-
-Example
-
-```css
-h1.hidden {
-  display: none;
-}
-```
-
-visibility:hidden; also hides an element.
-
-However, the element will still take up the same space as before. The element will be hidden, but still affect the layout: 
-
-(tr:visibility hidden olunca elementi gizler, fakat layout da sanki oradaymış gibi davranır.:) 
-
-Example
-
-```css
-h1.hidden {
-  visibility: hidden;
-}
-
-```
-
-**CSS Display/Visibility Properties**
-
-Property   | Description
------------|----------------------------------------------------------------------------------------------------------------------------
-display    | Specifies how an element should be displayed
-visibility | Specifies whether or not an element should be visible <br/> (false olduğunda layout da varmış gibi davranır, ama gözükmez.)
-
-
-## Inline Block
+### Inline Block
 
 Source : https://www.w3schools.com/css/css_inline-block.asp
 
@@ -222,6 +231,13 @@ One common use for display: inline-block is to display list items horizontally i
 
 ![](./img/css/display-inline3.png)
 
+### All Display - Visibility Properties
+
+Property   | Description
+-----------|----------------------------------------------------------------------------------------------------------------------------
+display    | Specifies how an element should be displayed
+visibility | Specifies whether or not an element should be visible <br/> (false olduğunda layout da varmış gibi davranır, ama gözükmez.)
+
 ## Position Property
 
 Source : https://www.w3schools.com/css/css_positioning.asp
@@ -240,7 +256,7 @@ There are five different position values:
 
 Elements are then positioned using the top, bottom, left, and right properties. However, these properties will not work unless the position property is set first. They also work differently depending on the position value.
 
-**position: static;**
+### static position
 
 HTML elements are positioned static by default.
 
@@ -261,7 +277,7 @@ div.static {
 }
 ```
 
-**position: relative;**
+### relative position
 
 An element with position: relative; is positioned relative to its normal position.
 
@@ -282,7 +298,7 @@ div.relative {
 
 ```
 
-**position: fixed;**
+### fixed position
 
 An element with position: fixed; is positioned relative to the *viewport*, which means it always stays in the same place even if the page is scrolled. The top, right, bottom, and left properties are used to position the element.
 
@@ -304,7 +320,7 @@ div.fixed {
 }
 ```
 
-**position: absolute **
+### absolute position
 
 An element with position: absolute; is positioned according to positioned ancestor.
 
@@ -335,7 +351,7 @@ div.absolute {
 
 ```
 
-**position: sticky;**
+### sticky position
 
 An element with 'position: sticky;' is positioned based on the user's scroll position.
 
@@ -358,15 +374,11 @@ div.sticky {
 
 ```
 
-**Overlapping Elements**
+## Overlapping Elements
 
-When elements are positioned, they can overlap other elements.
+When elements are positioned, they can overlap other elements. The z-index property specifies the stack order of an element (which element should be placed in front of, or behind, the others). An element can have a positive or negative stack order:
 
-The z-index property specifies the stack order of an element (which element should be placed in front of, or behind, the others).
-
-An element can have a positive or negative stack order:
-
-Example
+*Example*
 
 ```css
 img {
@@ -410,7 +422,7 @@ Note: The overflow property only works for *block elements with a specified heig
 
 Note: In OS X Lion (on Mac), scrollbars are hidden by default and only shown when being used (even though "overflow:scroll" is set).
 
-**overflow: visible**
+### overflow: visible
 
 By default, the overflow is visible, meaning that it is not clipped and it renders outside the element's box:
 
@@ -425,7 +437,7 @@ div {
 }
 ```
 
-**overflow: hidden**
+### overflow: hidden
 
 With the hidden value, the overflow is clipped, and the rest of the content is hidden:  
 
@@ -439,7 +451,7 @@ div {
 }
 ```
 
-**overflow: scroll**
+### overflow: scroll
 
 Setting the value to scroll, the overflow is clipped and a scrollbar is added to scroll inside the box. Note that this will add a scrollbar both horizontally and vertically (even if you do not need it):
 
@@ -451,11 +463,11 @@ div {
 }
 ```
 
-**overflow: auto**
+### overflow: auto
 
 The auto value is similar to scroll, but it adds scrollbars only when necessary:
 
-Example
+*Example*
 
 ```css
 div {
@@ -463,7 +475,7 @@ div {
 }
 ```
 
-**overflow-x and overflow-y**
+### overflow-x and overflow-y
 
 The overflow-x and overflow-y properties specifies whether to change the overflow of content just horizontally or vertically (or both):
 
@@ -471,7 +483,7 @@ overflow-x specifies what to do with the left/right edges of the content.
 
 overflow-y specifies what to do with the top/bottom edges of the content.
 
-Example
+*Example*
 
 ```css
 div {
@@ -480,7 +492,7 @@ div {
 }
 ```
 
-**All CSS Overflow Properties **
+### All Overflow Properties
 
 Property | Description
 --- | ---
@@ -746,5 +758,4 @@ div {
 }
 
 ```
-
 
