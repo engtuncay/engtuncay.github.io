@@ -38,7 +38,7 @@ Every HTML element has a default display value depending on what type of element
 
 A block-level element always starts on a new line and takes up the full width available (stretches out to the left and right as far as it can). (! Block-Level element yeni satırdan başlar, sola ve sağa genişliği max alabildiğince alır. Sonraki gelen element de yeni satırdan başlar.) 
 
-Examples of block-level elements:
+Important block-level elements:
 
 ```html
 <div>
@@ -50,18 +50,166 @@ Examples of block-level elements:
 <section>
 ```
 
+```html
+<address>
+Contact information.
+
+<article>
+Article content.
+
+<aside>
+Aside content.
+
+<blockquote>
+Long ("block") quotation.
+
+<details>
+Disclosure widget.
+
+<dialog>
+Dialog box.
+
+<dd>
+Describes a term in a description list.
+
+<div>
+Document division.
+
+<dl>
+Description list.
+
+<dt>
+Description list term.
+
+<fieldset>
+Field set label.
+
+<figcaption>
+Figure caption.
+
+<figure>
+Groups media content with a caption (see <figcaption>).
+
+<footer>
+Section or page footer.
+
+<form>
+Input form.
+
+h1, h2, h3, h4, h5, h6
+Heading levels 1-6.
+
+<header>
+Section or page header.
+
+<hgroup>
+Groups header information.
+
+<hr>
+Horizontal rule (dividing line).
+
+<li>
+List item.
+
+<main>
+Contains the central content unique to this document.
+
+<nav>
+Contains navigation links.
+
+<ol>
+Ordered list.
+
+<p>
+Paragraph.
+
+<pre>
+Preformatted text.
+
+<section>
+Section of a web page.
+
+<table>
+Table.
+
+<ul>
+Unordered list.
+```
+
+Source : https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements
+
+
 ### Inline Elements
 
 An inline element does not start on a new line and only takes up as much width as necessary.
 
-Examples of inline elements:
+Importan inline elements:
 
 ```html
 <span>
 <a>
 <img>
+```
+
+```html
+<a>
+<abbr>
+<acronym>
+<audio> (if it has visible controls)
+<b>
+<bdi>
+<bdo>
+<big>
+<br>
+<button>
+<canvas>
+<cite>
+<code>
+<data>
+<del>
+<dfn>
+<em>
+<embed>
+<i>
+<iframe>
+<img>
+<input>
+<ins>
+<kbd>
+<label>
+<map>
+<mark>
+<meter>
+<noscript>
+<object>
+<output>
+<picture>
+<progress>
+<q>
+<ruby>
+<s>
+<samp>
+<script>
+<select>
+<slot>
+<small>
+<span>
+<strong>
+<sub>
+<sup>
+<svg>
+<template>
+<textarea>
+<time>
+<u>
+<tt>
+<var>
+<video>
+<wbr>
 
 ```
+
+Source : https://developer.mozilla.org/en-US/docs/Web/HTML/Inline_elements
 
 ### None
 
