@@ -45,10 +45,13 @@ Important block-level elements:
 <h1> - <h6>
 <p>
 <form>
-<header>
-<footer>
-<section>
+<ol> - <ul> - <li>
+<hr>
+<table>  
+<header> - <footer> - <section>
 ```
+
+All block level elements :
 
 ```html
 <address>
@@ -149,7 +152,13 @@ Importan inline elements:
 <span>
 <a>
 <img>
+<input>
+<button>
+<label>
+<br>
 ```
+
+All inline elements :
 
 ```html
 <a>
