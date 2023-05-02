@@ -275,17 +275,6 @@ span {
 
 ```
 
-The following example displays `<a>` elements as block elements:
-
-*Example*
-
-```css
-a {
-  display: block;
-}
-
-```
-
 ### Inline Block
 
 Source : https://www.w3schools.com/css/css_inline-block.asp
