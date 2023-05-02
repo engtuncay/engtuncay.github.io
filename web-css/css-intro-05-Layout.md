@@ -13,7 +13,8 @@
     - [fixed position](#fixed-position)
     - [absolute position](#absolute-position)
     - [sticky position](#sticky-position)
-  - [Overlapping Elements](#overlapping-elements)
+  - [Overlapping Elements (z-index)](#overlapping-elements-z-index)
+  - [All CSS Positioning Properties](#all-css-positioning-properties)
   - [Overflow Property](#overflow-property)
     - [overflow: visible](#overflow-visible)
     - [overflow: hidden](#overflow-hidden)
@@ -22,6 +23,15 @@
     - [overflow-x and overflow-y](#overflow-x-and-overflow-y)
     - [All Overflow Properties](#all-overflow-properties)
   - [Align](#align)
+    - [Center Align Elements](#center-align-elements)
+    - [Center Align Text](#center-align-text)
+    - [Center an Image](#center-an-image)
+    - [Left and Right Align - Using position](#left-and-right-align---using-position)
+    - [Left and Right Align - Using float](#left-and-right-align---using-float)
+    - [Center Vertically - Using padding](#center-vertically---using-padding)
+    - [Center Vertically - Using line-height](#center-vertically---using-line-height)
+    - [Center Vertically - Using position and transform](#center-vertically---using-position-and-transform)
+    - [Center Vertically - Using Flexbox](#center-vertically---using-flexbox)
   - [Float and Clear](#float-and-clear)
 
 # Layout
@@ -522,7 +532,7 @@ div.sticky {
 
 ```
 
-## Overlapping Elements
+## Overlapping Elements (z-index)
 
 When elements are positioned, they can overlap other elements. The z-index property specifies the stack order of an element (which element should be placed in front of, or behind, the others). An element can have a positive or negative stack order:
 
@@ -540,18 +550,18 @@ img {
 
 An element with greater stack order is always in front of an element with a lower stack order. 
 
-Note: If two positioned elements overlap without a z-index specified, the element positioned last in the HTML code will be shown on top.
+**Note !!!** 
 
-All CSS Positioning Properties
-Property | Description
----------|-------------------------------------------------
-bottom   | Sets the bottom margin edge for a positioned box
-clip     | Clips an absolutely positioned element
-left     | Sets the left margin edge for a positioned box
-position | Specifies the type of positioning for an element
-right    | Sets the right margin edge for a positioned box
-top      | Sets the top margin edge for a positioned box
-z-index  | Sets the stack order of an element
+If two positioned elements overlap without a z-index specified, the element positioned last in the HTML code will be shown on top.
+
+## All CSS Positioning Properties
+
+Property              | Description
+----------------------|----------------------------------------------------------------
+position              | Specifies the type of positioning for an element
+top/bottom/left/right | Sets the top/bottom/left/right margin edge for a positioned box
+clip                  | Clips an absolutely positioned element
+z-index               | Sets the stack order of an element
 
 ## Overflow Property
 
@@ -566,15 +576,19 @@ The overflow property has the following values:
 - scroll - The overflow is clipped, and a scrollbar is added to see the rest of the content
 - auto - Similar to scroll, but it adds scrollbars only when necessary
 
-Note: The overflow property only works for *block elements with a specified height*.
+**Note !!!** 
 
-Note: In OS X Lion (on Mac), scrollbars are hidden by default and only shown when being used (even though "overflow:scroll" is set).
+The overflow property only works for *block elements with a specified height*.
+
+**Note** 
+
+In OS X Lion (on Mac), scrollbars are hidden by default and only shown when being used (even though "overflow:scroll" is set).
 
 ### overflow: visible
 
 By default, the overflow is visible, meaning that it is not clipped and it renders outside the element's box:
 
-Example
+*Example*
 
 ```css
 div {
@@ -652,15 +666,11 @@ overflow-y | Specifies what to do with the top/bottom edges of the content if it
 
 ## Align
 
-**Center Align Elements**
+### Center Align Elements
 
-To horizontally center a block element (like `<div>`), use `margin: auto;`
+To horizontally center a block element (like `<div>`), use `margin: auto;`. Setting the width of the element will prevent it from stretching out to the edges of its container. The element will then take up the specified width, and the remaining space will be split equally between the two margins.
 
-Setting the width of the element will prevent it from stretching out to the edges of its container.
-
-The element will then take up the specified width, and the remaining space will be split equally between the two margins:
-
-Example
+*Example*
 
 ```css
 .center {
@@ -671,13 +681,15 @@ Example
 }
 ```
 
-Note: Center aligning has no effect if the width property is not set (or set to 100%).
+**Note:!!!** 
 
-**Center Align Text**
+Center aligning has no effect if the width property is not set (or set to 100%).
 
-To just center the text inside an element, use text-align: center;
+### Center Align Text
 
-Example
+To just center the text inside an element, use `text-align: center;`
+
+*Example*
 
 ```css
 .center {
@@ -685,13 +697,16 @@ Example
   border: 3px solid green;
 }
 ```
-Tip: For more examples on how to align text, see the CSS Text chapter. https://www.w3schools.com/css_text.asp
 
-**Center an Image**
+**Tip:** 
 
-To center an image, set left and right margin to auto and make it into a block element:
+For more examples on how to align text, see the CSS Text chapter. https://www.w3schools.com/css_text.asp
 
-Example
+### Center an Image
+
+To center an image, set left and right margin to auto and make it into a block element.
+
+*Example*
 
 ```css
 img {
@@ -702,11 +717,11 @@ img {
 }
 ```
 
-**Left and Right Align - Using position**
+### Left and Right Align - Using position
 
 One method for aligning elements is to use position: absolute;:
 
-Example
+*Example*
 
 ```css
 .right {
@@ -718,13 +733,17 @@ Example
 }
 ```
 
-Note: Absolute positioned elements are removed from the normal flow, and can overlap elements.
+(tor:right 0 dediğimiz için sağ ile boşluğunu 0 yapar ve sağa yaslanmış olur.)
 
-**Left and Right Align - Using float**
+**Note:!!!** 
 
-Another method for aligning elements is to use the float property:
+Absolute positioned elements are removed from the normal flow, and can overlap elements.
 
-Example
+### Left and Right Align - Using float
+
+Another method for aligning elements is to use the float property.
+
+*Example*
 
 ```css
 .right {
@@ -735,11 +754,13 @@ Example
 }
 ```
 
-Note: If an element is taller than the element containing it, and it is floated, it will overflow outside of its container. You can use the "clearfix" hack to fix this (see example below).
+**Note:!!!** 
+
+If an element is taller than the element containing it, and it is floated, it will overflow outside of its container. You can use the "clearfix" hack to fix this (see example below).
 
 **The clearfix Hack**
 
-Then we can add overflow: auto; to the containing element to fix this problem:
+Then we can add `overflow: auto;` to the containing element to fix this problem:
 
 Example
 
@@ -749,11 +770,11 @@ Example
 }
 ```
 
-**Center Vertically - Using padding**
+### Center Vertically - Using padding
 
 There are many ways to center an element vertically in CSS. A simple solution is to use top and bottom padding:
 
-Example
+*Example*
 
 ```css
 .center {
@@ -762,9 +783,9 @@ Example
 }
 ```
 
-To center both vertically and horizontally, use padding and text-align: center:
+- To center both vertically and horizontally, use padding and text-align: center:
 
-Example
+*Example*
 
 ```css
 .center {
@@ -774,11 +795,11 @@ Example
 }
 ```
 
-**Center Vertically - Using line-height**
+### Center Vertically - Using line-height
 
 Another trick is to use the line-height property with a value that is equal to the height property:
 
-Example
+*Example*
 
 ```css
 .center {
@@ -796,7 +817,7 @@ Example
 }
 ```
 
-**Center Vertically - Using position & transform**
+### Center Vertically - Using position and transform
 
 If padding and line-height are not options, another solution is to use positioning and the transform property:
 
@@ -818,13 +839,13 @@ Example
 }
 ```
 
-Tip: You will learn more about the transform property in our 2D Transforms Chapter.
+*Tip:* You will learn more about the transform property in our 2D Transforms Chapter.
 
-**Center Vertically - Using Flexbox**
+### Center Vertically - Using Flexbox
 
-You can also use flexbox to center things. Just note that flexbox is not supported in IE10 and earlier versions:
+You can also use flexbox to center things.
 
-Example
+*Example*
 
 ```css
 .center {
@@ -861,8 +882,6 @@ In its simplest use, the float property can be used to wrap text around images.
 
 The following example specifies that an image should float to the right in a text:
 
-Example
-
 ```css
 img {
   float: right;
@@ -873,7 +892,7 @@ img {
 
 In the following example the image will be displayed just where it occurs in the text (float: none;):
 
-Example
+*Example*
 
 ```css
 img {
