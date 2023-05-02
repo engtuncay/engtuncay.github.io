@@ -277,8 +277,6 @@ span {
 
 ### Inline Block
 
-Source : https://www.w3schools.com/css/css_inline-block.asp
-
 Compared to 'display: inline', the major difference is that display: 'inline-block' allows to set a *width and height* on the element.
 
 Also, with display: inline-block, the top and bottom margins/paddings are respected, but with display: inline they are not.
@@ -315,6 +313,8 @@ span.c {
   background-color: yellow;
 }
 ```
+
+![](./img/css/inline-block-1.jpg)
 
 ```html
 <h1>The display Property</h1>
@@ -367,6 +367,8 @@ One common use for display: inline-block is to display list items horizontally i
 ```
 
 ![](./img/css/display-inline3.png)
+
+Source : https://www.w3schools.com/css/css_inline-block.asp
 
 ### All Display - Visibility Properties
 
