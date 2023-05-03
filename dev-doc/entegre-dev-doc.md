@@ -33,6 +33,7 @@ Java Fx ile geliştirdiğim uygulama için aldığım notlar.
   - [Oto Update Sorgular](#oto-update-sorgular)
     - [Update Where Id In List (Toplu Güncelleme)](#update-where-id-in-list-toplu-güncelleme)
   - [FiQuery](#fiquery)
+    - [FiQueryTools metodlar](#fiquerytools-metodlar)
 - [Db Aktarım](#db-aktarım)
   - [Lokal Aktarım Sablon 1](#lokal-aktarım-sablon-1)
   - [Lokal Aktarım Sablon 2](#lokal-aktarım-sablon-2)
@@ -396,6 +397,47 @@ System.out.println(sqlQuery2);
 ```
 
 ## FiQuery
+
+### FiQueryTools metodlar
+
+```
+
+activateParamsMain : mapParams bulunan parametreleri aktive eder. (sadece dolu olanlar aktif edilsin belirtilirse, dolu olanlar aktive edilir,boş olanları ise pasif eder.)
+
+activateOptParamMain : tek bir tane opt param'ı aktif etmek için
+deActivateOptParamMain : tek bir tane opt param'ı deaktif etmek için
+
+activateNamedParamsMain
+
+activateSqlAtParamMain
+activateAndUpdateOptParam
+
+deactivateSqlAtParamMain
+deActivateAllOptParams
+
+makeMultiParamTemplate
+
+convertSqlForMultiParamByTemplate
+convertSqlForMultiParamByTemplate2
+
+convertSqlParamToListJdbiParamMain
+convertSqlParamToCommentMain
+convertSqlParamToJdbiParamMain
+
+convertListParamToMultiParams
+
+stoj
+fixSqlProblems
+
+checkParamsEmpty
+checkOptParamExist
+findParamsOptional
+findParams
+
+getMultiParamStartIndex
+
+
+```
 
 
 
