@@ -3,11 +3,11 @@ Sourcs : https://javascript.info/object-basics
 
 - v2
 
-<h1>Objects 1 </h1>
+<h1>Objects - 1 </h1>
 
 <h3>Sources</h3>
 
-- javascript.info website.  
+- www.javascript.info website.  
 
 - Some sections may be changed or removed.
 
@@ -27,26 +27,22 @@ Sourcs : https://javascript.info/object-basics
 
 # Objects
 
-As we know from the chapter <info:types>, there are eight data types in JavaScript. Seven of them are called "primitive", because their values contain only a single thing (be it a string or a number or whatever).
+As we know from the chapter `<info:types>`, there are eight data types in JavaScript. Seven of them are called "primitive", because their values contain *only a single thing* (be it a string or a number or whatever).
 
-In contrast, objects are used to store keyed collections of various data and more complex entities. In JavaScript, objects penetrate almost every aspect of the language. So we must understand them first before going in-depth anywhere else.
+In contrast, objects are used to store *keyed collections* of various data and more complex entities. In JavaScript, objects penetrate almost every aspect of the language. So we must understand them first before going in-depth anywhere else.
 
-An object can be created with figure brackets `{…}` with an optional list of *properties*. A property is a "key: value" pair, where `key` is a string (also called a "property name"), and `value` can be anything.
+(tor:Primitive->a single thing,Object->Keyed Collection)
 
-We can imagine an object as a cabinet with signed files. Every piece of data is stored in its file by the key. It's easy to find a file by its name or add/remove a file.
+An object can be created with *figure brackets* `{…}` with an optional list of *properties*. A property is a "key: value" pair, where `key` is a string (also called a "property name"), and `value` can be anything.
 
-![](object.svg)
-
-An empty object ("empty cabinet") can be created using one of two syntaxes:
+An empty object can be created using one of two syntaxes:
 
 ```js
 let user = new Object(); // "object constructor" syntax
 let user = {};  // "object literal" syntax
 ```
 
-![](object-user-empty.svg)
-
-Usually, the figure brackets `{...}` are used. That declaration is called an *object literal*.
+Usually, the figure brackets `{ /*..*/ }` are used. That declaration is called an *object literal*.
 
 ## Literals and properties
 
@@ -60,6 +56,15 @@ let user = {     // an object
 ```
 
 A property has a key (also known as "name" or "identifier") before the colon `":"` and a value to the right of it.
+
+(tor:)
+Property consist of two parts 
+- key/name/identifier
+- value
+
+---
+
+--*LINK - tbc
 
 In the `user` object, there are two properties:
 
