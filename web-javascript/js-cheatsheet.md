@@ -53,10 +53,16 @@ let sayHi = function() {
 };
 ```
 
+```js
+let func = function(arg1, arg2, ..., argN) {
+  return expression;
+};
+```
+
 ## Calling Function
 
 ```js
-  sayHi();
+sayHi();
 ```
 
 ## Arrow Function
@@ -65,13 +71,8 @@ let sayHi = function() {
 let func = (arg1, arg2, ..., argN) => expression
 ```
 
-```js
-let func = function(arg1, arg2, ..., argN) {
-  return expression;
-};
-```
+[Detail](./js-intro-02-04-functions.md)
 
-[detail](./js-intro-02-04-functions.md)
 
 # Modules
 
