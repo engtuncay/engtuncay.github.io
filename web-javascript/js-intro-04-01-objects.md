@@ -1,15 +1,12 @@
-l
-Sourcs : https://javascript.info/object-basics
-
-- v2
-
 <h1>Objects - 1 </h1>
 
 <h3>Sources</h3>
 
-- www.javascript.info website.  
+- https://javascript.info/object-basics
 
 - Some sections may be changed or removed.
+
+- v2
 
 <h3>Contents</h3>
 
@@ -17,8 +14,8 @@ Sourcs : https://javascript.info/object-basics
   - [Literals and properties](#literals-and-properties)
   - [Square brackets](#square-brackets)
     - [Computed properties](#computed-properties)
-  - [Property value shorthand](#property-value-shorthand)
-  - [Property names limitations](#property-names-limitations)
+  - [Property value shorthand (same key and value situation)](#property-value-shorthand-same-key-and-value-situation)
+  - [Property names limitations (reserved words)](#property-names-limitations-reserved-words)
   - [Property existence test, "in" operator](#property-existence-test-in-operator)
   - [The "for..in" loop](#the-forin-loop)
     - [Ordered like an object](#ordered-like-an-object)
@@ -58,24 +55,13 @@ let user = {     // an object
 A property has a key (also known as "name" or "identifier") before the colon `":"` and a value to the right of it.
 
 (tor:)
-Property consist of two parts 
+Property consists of two parts 
 - key/name/identifier
 - value
 
 ---
 
---*LINK - tbc
-
-In the `user` object, there are two properties:
-
-1. The first property has the name `"name"` and the value `"John"`.
-2. The second one has the name `"age"` and the value `30`.
-
-The resulting `user` object can be imagined as a cabinet with two signed files labeled "name" and "age".
-
-![user object](object-user.svg)
-
-We can add, remove and read files from it any time.
+We can add, remove and read properties from it any time.
 
 Property values are accessible using the dot notation:
 
@@ -85,23 +71,21 @@ alert( user.name ); // John
 alert( user.age ); // 30
 ```
 
-The value can be of any type. Let's add a boolean one:
+The value can be of any type. 
+
+- Let's add a boolean one:
 
 ```js
 user.isAdmin = true;
 ```
 
-![user object 2](object-user-isadmin.svg)
-
-To remove a property, we can use `delete` operator:
+- To remove a property, we can use `delete` operator:
 
 ```js
 delete user.age;
 ```
 
-![user object 3](object-user-delete.svg)
-
-We can also use multiword property names, but then they must be quoted:
+- We can also use *multiword* property names, but then they must be quoted:
 
 ```js
 let user = {
@@ -111,17 +95,16 @@ let user = {
 };
 ```
 
-![](object-user-props.svg)
+- The last property in the list may end with a comma:
 
-
-The last property in the list may end with a comma:
 ```js
 let user = {
   name: "John",
-  age: 30*!*,*/!*
+  age: 30,
 }
 ```
-That is called a "trailing" or "hanging" comma. Makes it easier to add/remove/move around properties, because all lines become alike.
+
+That is called a *"trailing"* or *"hanging"* comma. Makes it easier to add/remove/move around properties, because all lines become alike.
 
 ## Square brackets
 
@@ -136,7 +119,7 @@ JavaScript doesn't understand that. It thinks that we address `user.likes`, and 
 
 The dot requires the key to be a valid variable identifier. That implies: contains no spaces, doesn't start with a digit and doesn't include special characters (`$` and `_` are allowed).
 
-There's an alternative "square bracket notation" that works with any string:
+There's an alternative *"square bracket notation"* that works with any string:
 
 ```js run
 let user = {};
@@ -153,7 +136,7 @@ delete user["likes birds"];
 
 Now everything is fine. Please note that the string inside the brackets is properly quoted (any type of quotes will do).
 
-Square brackets also provide a way to obtain the property name as the result of any expression -- as opposed to a literal string -- like from a variable as follows:
+- Square brackets also provide a way to obtain the property name as the result of any expression -- as opposed to a literal string -- like from a variable as follows:
 
 ```js
 let key = "likes birds";
@@ -192,7 +175,7 @@ alert( user.key ) // undefined
 
 ### Computed properties
 
-We can use square brackets in an object literal, when creating an object. That's called *computed properties*.
+We can use *square brackets* in an object literal, when creating an object. That's called *computed properties*.
 
 For instance:
 
@@ -200,19 +183,18 @@ For instance:
 let fruit = prompt("Which fruit to buy?", "apple");
 
 let bag = {
-*!*
   [fruit]: 5, // the name of the property is taken from the variable fruit
-*/!*
 };
 
 alert( bag.apple ); // 5 if fruit="apple"
 ```
 
-The meaning of a computed property is simple: `[fruit]` means that the property name should be taken from `fruit`.
+The meaning of a computed property is simple: `[fruit]` means that the property name should be taken from `fruit` variable.
 
 So, if a visitor enters `"apple"`, `bag` will become `{apple: 5}`.
 
-Essentially, that works the same as:
+Essentially, that works the same as (...But looks nicer.) :
+
 ```js run
 let fruit = prompt("Which fruit to buy?", "apple");
 let bag = {};
@@ -221,9 +203,7 @@ let bag = {};
 bag[fruit] = 5;
 ```
 
-...But looks nicer.
-
-We can use more complex expressions inside square brackets:
+- We can use more complex expressions inside square brackets:
 
 ```js
 let fruit = 'apple';
@@ -236,7 +216,7 @@ Square brackets are much more powerful than the dot notation. They allow any pro
 
 So most of the time, when property names are known and simple, the dot is used. And if we need something more complex, then we switch to square brackets.
 
-## Property value shorthand
+## Property value shorthand (same key and value situation)
 
 In real code we often use existing variables as values for property names.
 
@@ -271,7 +251,7 @@ function makeUser(name, age) {
 }
 ```
 
-We can use both normal properties and shorthands in the same object:
+- We can use both normal properties and shorthands in the same object:
 
 ```js
 let user = {
@@ -281,7 +261,7 @@ let user = {
 ```
 
 
-## Property names limitations
+## Property names limitations (reserved words)
 
 As we already know, a variable cannot have a name equal to one of language-reserved words like "for", "let", "return" etc.
 
@@ -298,7 +278,7 @@ let obj = {
 alert( obj.for + obj.let + obj.return );  // 6
 ```
 
-In short, there are no limitations on property names. They can be any strings or symbols (a special type for identifiers, to be covered later).
+In short, there are *no limitations* on property names. They can be any strings or symbols (a special type for identifiers, to be covered later).
 
 Other types are automatically converted to strings.
 
@@ -314,7 +294,7 @@ alert( obj["0"] ); // test
 alert( obj[0] ); // test (same property)
 ```
 
-There's a minor gotcha with a special property named `__proto__`. We can't set it to a non-object value:
+- There's a minor gotcha with a special property named `__proto__`. We can't set it to a *non-object* value:
 
 ```js run
 let obj = {};
@@ -324,21 +304,21 @@ alert(obj.__proto__); // [object Object] - the value is an object, didn't work a
 
 As we see from the code, the assignment to a primitive `5` is ignored.
 
-We'll cover the special nature of `__proto__` in [subsequent chapters](info:prototype-inheritance), and suggest the [ways to fix](info:prototype-methods) such behavior.
+We'll cover the special nature of `__proto__` in [subsequent chapters] `(info:prototype-inheritance)`, and suggest the [ways to fix] `(info:prototype-methods)` such behavior.
 
 ## Property existence test, "in" operator
 
-A notable feature of objects in JavaScript, compared to many other languages, is that it's possible to access any property. There will be no error if the property doesn't exist!
+A notable feature of objects in JavaScript, compared to many other languages, is that it's possible to access any property. There will be no error if the property *doesn't exist !*
 
 Reading a non-existing property just returns `undefined`. So we can easily test whether the property exists:
 
 ```js run
 let user = {};
 
-alert( user.noSuchProperty === undefined ); // true means "no such property"
+alert( user.noSuchProperty === undefined ); // true means there is "no such property"
 ```
 
-There's also a special operator `"in"` for that.
+- There's also a special operator `"in"` for that.
 
 The syntax is:
 ```js
@@ -362,10 +342,10 @@ If we omit quotes, that means a variable, it should contain the actual name to b
 let user = { age: 30 };
 
 let key = "age";
-alert( *!*key*/!* in user ); // true, property "age" exists
+alert( key in user ); // true, property "age" exists
 ```
 
-Why does the `in` operator exist? Isn't it enough to compare against `undefined`?
+- (!) Why does the `in` operator exist? Isn't it enough to compare against `undefined`?
 
 Well, most of the time the comparison with `undefined` works fine. But there's a special case when it fails, but `"in"` works correctly.
 
@@ -436,11 +416,10 @@ let codes = {
   "1": "USA"
 };
 
-*!*
 for (let code in codes) {
   alert(code); // 1, 41, 44, 49
 }
-*/!*
+
 ```
 
 The object may be used to suggest a list of options to the user. If we're making a site mainly for German audience then we probably want `49` to be the first.
@@ -452,7 +431,8 @@ But if we run the code, we see a totally different picture:
 
 The phone codes go in the ascending sorted order, because they are integers. So we see `1, 41, 44, 49`.
 
-````smart header="Integer properties? What's that?"
+**Note : "Integer properties? What's that?"**
+
 The "integer property" term here means a string that can be converted to-and-from an integer without a change.
 
 So, "49" is an integer property name, because when it's transformed to an integer number and back, it's still the same. But "+49" and "1.2" are not:
@@ -463,7 +443,7 @@ alert( String(Math.trunc(Number("49"))) ); // "49", same, integer property
 alert( String(Math.trunc(Number("+49"))) ); // "49", not same "+49" ⇒ not integer property
 alert( String(Math.trunc(Number("1.2"))) ); // "1", not same "1.2" ⇒ not integer property
 ```
-````
+---
 
 ...On the other hand, if the keys are non-integer, then they are listed in the creation order, for instance:
 
@@ -474,9 +454,7 @@ let user = {
 };
 user.age = 25; // add one more
 
-*!*
 // non-integer properties are listed in the creation order
-*/!*
 for (let prop in user) {
   alert( prop ); // name, surname, age
 }
@@ -504,7 +482,7 @@ Now it works as intended.
 
 ## Summary
 
-Objects are associative arrays with several special features.
+Objects are *associative arrays* with several special features.
 
 They store properties (key-value pairs), where:
 - Property keys must be strings or symbols (usually strings).
@@ -521,7 +499,7 @@ Additional operators:
 
 What we've studied in this chapter is called a "plain object", or just `Object`.
 
-There are many other kinds of objects in JavaScript:
+There are many *other kinds of objects* in JavaScript:
 
 - `Array` to store ordered data collections,
 - `Date` to store the information about the date and time,
@@ -531,3 +509,5 @@ There are many other kinds of objects in JavaScript:
 They have their special features that we'll study later. Sometimes people say something like "Array type" or "Date type", but formally they are not types of their own, but belong to a single "object" data type. And they extend it in various ways.
 
 Objects in JavaScript are very powerful. Here we've just scratched the surface of a topic that is really huge. We'll be closely working with objects and learning more about them in further parts of the tutorial.
+
+-- end --
