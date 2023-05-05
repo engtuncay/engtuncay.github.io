@@ -52,8 +52,6 @@ Source : http://www.javascript.info
   - [Summary](#summary-6)
 
 
-
-
 # Object references and copying
 
 One of the fundamental differences of objects versus primitives is that objects are stored and copied "by reference", whereas primitive values: strings, numbers, booleans, etc -- are always copied "as a whole value".
