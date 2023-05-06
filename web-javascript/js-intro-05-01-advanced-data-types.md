@@ -121,6 +121,8 @@ But, these features come with a cost!
 
 Objects are "heavier" than primitives. They require additional resources to support the internal machinery.
 
+--*LINK - tbc
+
 ## A primitive as an object
 
 Here's the paradox faced by the creator of JavaScript:
