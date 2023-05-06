@@ -402,7 +402,7 @@ System.out.println(sqlQuery2);
 
 ```
 
-activateParamsMain : mapParams bulunan parametreleri aktive eder. (sadece dolu olanlar aktif edilsin belirtilirse, dolu olanlar aktive edilir,boş olanları ise pasif eder.)
+activateParamsMain : mapParams bulunan parametreleri aktive eder(eğer yorum satırına alınmışsa). (sadece dolu olanlar aktif edilsin belirtilirse, dolu olanlar aktive edilir,boş olanları ise pasif eder.)
 
 activateOptParamMain : tek bir tane opt param'ı aktif etmek için
 deActivateOptParamMain : tek bir tane opt param'ı deaktif etmek için
@@ -410,9 +410,10 @@ deActivateOptParamMain : tek bir tane opt param'ı deaktif etmek için
 activateNamedParamsMain
 
 activateSqlAtParamMain
+deactivateSqlAtParamMain
+
 activateAndUpdateOptParam
 
-deactivateSqlAtParamMain
 deActivateAllOptParams
 
 makeMultiParamTemplate
