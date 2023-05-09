@@ -21,7 +21,7 @@
 
 [doc](https://vitejs.dev/guide/#getting-started),  
 
-```shell
+```bash
 $ npm init @vitejs/app
 ```
 
