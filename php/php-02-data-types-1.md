@@ -1,23 +1,6 @@
 <h1>Introduction to Php</h1> 
 
 - [Kaynaklar](#kaynaklar)
-- [Php Basic 1](#php-basic-1)
-  - [Basic PHP Syntax](#basic-php-syntax)
-  - [Php Blogu veya Elementi](#php-blogu-veya-elementi)
-  - [Comment Line and Block](#comment-line-and-block)
-  - [Ekrana Yazdırma](#ekrana-yazdırma)
-  - [Data Types and Variables](#data-types-and-variables)
-  - [Data Type Casting](#data-type-casting)
-  - [Checking Types of A Variable](#checking-types-of-a-variable)
-  - [Constants](#constants)
-  - [Sihirli Karakterler (magical characters)](#sihirli-karakterler-magical-characters)
-  - [Operators](#operators)
-- [Php Basic 2](#php-basic-2)
-  - [Logical Operators](#logical-operators)
-  - [If Statement](#if-statement)
-  - [Ternary (Short If) Operator](#ternary-short-if-operator)
-  - [Switch Statement](#switch-statement)
-  - [Loops ( For, While, Do While)](#loops--for-while-do-while)
 - [String and Texts](#string-and-texts)
   - [String concentation](#string-concentation)
   - [Template Literal (String Format)](#template-literal-string-format)
@@ -29,9 +12,9 @@
 - [Functions](#functions)
   - [Functions](#functions-1)
   - [Anonymous Functions](#anonymous-functions)
-  - [get_args() function](#get_args-function)
+  - [get\_args() function](#get_args-function)
   - [Recursive Functions](#recursive-functions)
-  - [function_exists](#function_exists)
+  - [function\_exists](#function_exists)
   - [Yield Function](#yield-function)
   - [Static variable in a function](#static-variable-in-a-function)
   - [Php 7 Feature - Parameter ad Return Type](#php-7-feature---parameter-ad-return-type)
@@ -66,302 +49,13 @@
  
 - Php Cheatsheets
 
-
-# Php Basic 1
-
-## Basic PHP Syntax
-
-* Every statement ends in a ;
-* Loops, ifs, and anything else with a block of code inside it have brackets {}
-* Variables start with \$
-* Everything is case sensitive
-
-## Php Blogu veya Elementi
-
-Html içerisine php kodu, php blogu ve elementi arasına yazılır.
-
-```php
-<?php
-//....
-?>
-```
-
-## Comment Line and Block
-
-3 farklı şekilde yorum satırı yazabiliriz.
-
-```php
-// This is a single-line comment
-
-# Single-Line Comment
-
-/*
-    This is a mult-line comment.
-*/
-
-```
-
-## Ekrana Yazdırma
-
-```php
-echo "test<br/>123";
-print "test<br/>123";
-```
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><?php echo "my sayfa" ?></title>
-</head>
-<body>
-  <?php 
-  //.....
-  ?>
-  <!-- short tag aktif edilmişse  -->
-  <?="my sayfa"?>
-</body>
-</html>
-```
-
-
-
-## Data Types and Variables
-
-<h1>Veri Tipleri</h1>
-
-String,Integer,Double,Boolean,Array,Object ve Null'dır.
-
-```php
-Veri tipleri ve örnek veriler
-string "ali veli" veya 'ali veli'
-integer 500, 200
-double 5.5, 7.2
-boolean (true, false)
-array (dizi)
-object (Nesne)
-NULL
-```
-
-<h1>Variables</h1>
-
-- $ ile başlar ve sonrasında harf ya da (_) ile başlamalı.
-- Harf,Rakam ve Alt çizgi kullanılır.
-- 255 karakterden fazla olmamalı.
-- Türkçe karakterler içerebilir.
-- case sensitive'dir
-- Atama operatörü (=) eşittir işaretidir.
-
-*Örnek*
-
-```php
-$adi = 'Ali';
-$sayi1 = 10;
-
-```
-
-## Data Type Casting
-
-((Veri Tipi Değiştirme))
-
-*Örnek*
-
-```php
-(double)(5 / 2);
-
-$randNum = 5;
-$refToNum = &$randNum;
-$randNum = 100;
-
-echo '$refToNum = ' . $refToNum;
-
-```
-
-## Checking Types of A Variable
-
-gettype(myVar) fonksiyonu ile bir verinin/değişikenin türünü öğreniriz.
-
-```php
-$string = "ali veli";
-$int = 500;
-$float = 5.5;
-$bool = false;
-$array = array();
-$object = new stdClass;
-$null = NULL;
-echo gettype($float); // double
-echo "\n";
-echo gettype($bool); // boolean
-echo "\n";
-echo gettype($array); // array
-echo "\n";
-echo gettype($object); // object
-echo "\n";
-echo gettype($null); // NULL
-```
-
-## Constants
-
-Sabit değerler;
-
-- define() fonksiyonu ile tanımlanır. Türü object'tir.
-- Türkçe karakterler içerebilir.
-- Sayı ile başlayamaz.
-- Harf ya da _ işareti ile başlar.
-- Büyük-küçük harfe duyarlıdır.
-- Veri türlerinde, Object hariç tüm veri türlerini kapsar. Sabitlere obje tanımlayamayız. Array tanımlayabiliriz.
-
-*Örnekler*
-
-```php
-define("author", "ali veli");
-
-echo author; // sabitleri $ işareti olmadan kullanırız.
-// Output
-// ali veli
-```
-
-```php
-define('PI', 3.1415926);
-echo PI;
-```
-
-((Constant:Sabit))
-
-## Sihirli Karakterler (magical characters)
-
-- Sihirli karakterler çift tırnak içinde kullanılabilir.
-
-```php
-/*
-Sihirli Karakterler
-  \t tab
-  \n new line
-
-  Tek başınayken özel anlamı alan karakterleri kullanmak için başına slash getiririz.
-
-  \\ 
-  \$ 
-  \' 
-  \" 
-*/
-
-$test = "web\t\t\tsite\nerbilen  \\test\ ";
-
-$ad = "Tayfun";
-echo $test;
-echo "\$ad değişkeni $ad değerine eşittir";
-echo "Tayfun dedi ki: \"ben korkmam\"..";
-echo 'Tayfun dedi ki: \'ben korkmam\'..';
-
-// Output
-// web			site
-// erbilen  \test\ 
-// $ad değişkeni Tayfun değerine eşittir
-// Tayfun dedi ki: "ben korkmam"..
-// Tayfun dedi ki: 'ben korkmam'..
-```
-
-
-
-## Operators
-
-Operator | Explanation
----------|------------
-\+       | Sum
-\-       |
-\*       | Multiply
-\/       | Divide
-%        | Modular
-
-
-
-# Php Basic 2
-
-Logical Operators, Switch and Loops in this section are ((bahsedildi.))
-
-## Logical Operators
-
-Operators that return a boolean
-
-| Operator | Meaning                           | Variations |
-| -------- | --------------------------------- | ---------- |
-| >        | Greater then                      | >=         |
-| <        | Less then                         | >=         |
-| ==       | Equal                             | =!         |
-| ===      | Equal value and type              |            |
-| &&       | And (Both things are true)        |            |
-| \|       | Or (One of these things are true) |            |
-| !        | Not Operator                      |            |
-
-## If Statement
-
-Örnekler
-
-```php
-if ( $numOfOranges < 26 ) {
-    echo '5% Discount';
-} else if ( ($numOfOranges < 31) ) {
-    echo '10% Discount';
-} else {
-    echo '15% Discount';
-} 
-```
-
-## Ternary (Short If) Operator
-
-```php
-echo (15 > 10) ? 15 : 10; 
-// Output
-// 15
-```
-
-
-## Switch Statement
-
-```php
-switch ($userName) {
-    case "Marry" :
-        echo "Hello Marry";
-        break;
-
-    case "John" :
-    	echo "Hello John";
-        break;
-
-    default :
-    	echo "Hello Customer";
-    	break;
-}
-```
-
-## Loops ( For, While, Do While)
-
-```php
-
-for($i = 1; $i <= 20; $i++) {
-    // statements
-}
-
-
-$num = 0;
-
-while($num < 20) {
-    // statements
-}
-
-```
-
 # String and Texts
 
 ## String concentation 
 
-- Nokta '.' işareti ile string birleştirme yapılır.
+- '.' işareti ile string birleştirme yapılır.
 
-((concentation:birleştirme))
+(tor:concentation:birleştirme)
 
 ```php
 $adi = 'Ali';
@@ -371,10 +65,11 @@ echo $adi . $sayi1;
 // Output
 // Ali10
 
-
 ```
 
 ## Template Literal (String Format)
+
+
 
 # Numbers
 
@@ -391,7 +86,7 @@ echo date('h:i:s:u a, l F jS Y e');
 
 # Arrays
 
-Örnekler
+*Examples*
 
 ```php
 
@@ -1508,7 +1203,7 @@ live at $streetAddress
 	in $cityAddress</br>
 EOD;
 
-    echo $str;
+echo $str;
 
 - INCREMENTS
 
@@ -1683,9 +1378,6 @@ else {
 echo "Not used because we've already found a matching condition above.";
 }
 
-/\*
-
-\*/
 
 // Sample Uses of Logical Evaluators
 
@@ -1700,7 +1392,6 @@ echo !($name === "Minchow"); // Returns True as long as $name is not "Minchow"
 echo !($number > 12); // Returns True if number is not greater than 12.
 //This^ could be rewritten as $number <= 12
 
-/\*\*
 
 - LOOPS
   \*/
@@ -1724,7 +1415,6 @@ for($number = 5; $number > 0; $number --) {
 }
 
 - WORKING WITH DATABASES
-  \*/
 
 // Connect to database, store conneciton info in $mysqli
 $connection = new mysqli("hostname", "user", "password", "database_name");
