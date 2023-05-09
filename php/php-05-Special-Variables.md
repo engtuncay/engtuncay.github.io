@@ -1,15 +1,7 @@
 
 - [GET, POST And Session](#get-post-and-session)
   - [Post Variables](#post-variables)
-- [Database Connection](#database-connection)
-  - [PDO Connection](#pdo-connection)
-- [Composer](#composer)
-  - [Installation](#installation)
-  - [Usage](#usage)
-  - [Composer ile paket yükleme](#composer-ile-paket-yükleme)
-  - [Composer kendisini güncellemek için](#composer-kendisini-güncellemek-için)
-  - [Composer projesini klonlamak için](#composer-projesini-klonlamak-için)
-  - [Composer Documentation](#composer-documentation)
+
 
 # GET, POST And Session 
 
