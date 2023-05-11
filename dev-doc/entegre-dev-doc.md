@@ -3,6 +3,7 @@
 
 Java Fx ile geliştirdiğim uygulama için aldığım notlar. 
 
+- [Kısaltmalar](#kısaltmalar)
 - [Meta Datalar](#meta-datalar)
   - [FiColsEntegre - Entegre Sütun Objeleri](#ficolsentegre---entegre-sütun-objeleri)
   - [MetaEntConst (String vs sabitler)](#metaentconst-string-vs-sabitler)
@@ -41,9 +42,18 @@ Java Fx ile geliştirdiğim uygulama için aldığım notlar.
   - [convertUserParamsToValue()](#convertuserparamstovalue)
 - [Hata Çözümleri](#hata-çözümleri)
   - [Sorgularda Db Collation CS CI cakismasi](#sorgularda-db-collation-cs-ci-cakismasi)
-- [Kısaltmalar](#kısaltmalar)
 - [Karalama Notlar - İnceleneecek](#karalama-notlar---i̇nceleneecek)
 
+
+# Kısaltmalar
+
+Kısaltma | Açıklama
+---------|-----------------------------------------------------------------------------------------------
+Ntn      | Not Null (null değer dönmez, string ise boş string döner) (metod isimlerinin sonuna yazılıyor)
+Init     | Initialize (Referansın objesini oluşturur.) (metod isminde)
+Vim      | view modal (Class isminde)
+Efxhp    | Entegre Fx Helper (on entfx project) (Class isminde)
+Esr      | EntegreServer
 
 # Meta Datalar
 
@@ -515,14 +525,6 @@ LEFT JOIN MikroDB_V15_OZPAS.dbo.CARI_HESAP_HAREKETLERI chh
     ON kko.cha_evrakno_seri = chh.cha_evrakno_seri collate Turkish_CS_AI
 ```
 
-# Kısaltmalar
-
-Kısaltma | Açıklama
----------|----------------------------------------------------------
-Ntn      | Not Null (null değer dönmez, string ise boş string döner) (metod isimlerinin sonuna yazılıyor)
-Init     | Initialize (Referansın objesini oluşturur.) (metod isminde)
-Vim      | view modal (Class isminde)
-Efxhp    | Entegre Fx Helper (on entfx project) (Class isminde)
 
 
 
