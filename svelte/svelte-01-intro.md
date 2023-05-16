@@ -19,15 +19,15 @@ https://svelte.dev/tutorial/basics
   - [a. Declaring props](#a-declaring-props)
 
 
+# Introduction
+
+## a. What is Svelte?
+
 Welcome to the Svelte tutorial. 
 
 This will teach you everything you need to know to build fast, small web applications easily.
 
 You can also consult the API docs and the examples, or — if you're impatient to start hacking on your machine locally — the 60-second quickstart.
-
-# Introduction
-
-## a. What is Svelte?
 
 Svelte is a tool for building fast web applications.
 
@@ -326,7 +326,7 @@ In any real application, you'll need to pass data from one component down to its
 
 ```js
 <script>
-	export let answer;
+export let answer;
 </script>
 
 ```
