@@ -161,3 +161,32 @@ $ npm install vuex@next --save
 ```
 
 see [doc](https://vuex.vuejs.org/guide/#the-simplest-store) for more.
+
+
+
+# Setup Vite with Template
+
+- yarn
+
+```bash
+yarn create vite my-vue-app --template vue
+```
+
+
+
+See create-vite for more details on each supported template: vanilla, vanilla-ts, vue, vue-ts, react, react-ts, react-swc, react-swc-ts, preact, preact-ts, lit, lit-ts, svelte, svelte-ts.
+
+- npm 6.x
+
+```bash
+npm create vite@latest my-vue-app --template vue
+```
+
+- npm 7+, extra double-dash is needed:
+
+```bash
+npm create vite@latest my-vue-app -- --template vue
+```
+
+
+
