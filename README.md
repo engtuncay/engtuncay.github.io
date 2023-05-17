@@ -6,8 +6,10 @@
 
 [Node Tutors](./web-javascript/README.md)
 
+[Svelte Tutors](./svelte/readme.md)
+
+[Php Tutors](./php/readme.md)
+
 [Vue Tutors](./vue/README.md)
 
 [React Tutors](./react/README.md)
-
-[Php Tutors](./php/readme.md)

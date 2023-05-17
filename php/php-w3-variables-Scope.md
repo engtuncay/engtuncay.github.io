@@ -13,6 +13,8 @@
 
 # PHP Variables
 
+Source : https://www.w3schools.com/php/php_variables.asp
+
 Variables are "containers" for storing information.
 
 ## Creating (Declaring) PHP Variables
@@ -32,11 +34,13 @@ $y = 10.5;
 
 After the execution of the statements above, the variable $txt will hold the value Hello world!, the variable $x will hold the value 5, and the variable $y will hold the value 10.5.
 
-Note: When you assign a text value to a variable, put quotes around the value.
+*Note:* When you assign a text value to a variable, put quotes around the value.
 
-Note: Unlike other programming languages, PHP has no command for declaring a variable. It is created the moment you first assign a value to it.
+*Note:* Unlike other programming languages, PHP has no command for declaring a variable. It is created the moment you first assign a value to it.
 
 Think of variables as containers for storing data.
+
+--*LINK - TBC
 
 ## PHP Variables
 
@@ -323,3 +327,4 @@ print $x + $y;
 ?>
 
 ```
+
