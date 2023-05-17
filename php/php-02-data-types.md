@@ -1,8 +1,9 @@
 <h1>Introduction to Php</h1> 
 
-- [String and Texts](#string-and-texts)
+- [Php Strings (W3S)](#php-strings-w3s)
   - [String concentation](#string-concentation)
-  - [Template Literal (String Format)](#template-literal-string-format)
+  - [Template Literal (Format Strings)](#template-literal-format-strings)
+  - [String functions](#string-functions)
 - [Php Numbers (W3S)](#php-numbers-w3s)
   - [Integers](#integers)
   - [Floats](#floats)
@@ -15,7 +16,11 @@
   - [Array Functions (1)](#array-functions-1)
   - [Array Functions (2)](#array-functions-2)
 
-# String and Texts
+# Php Strings (W3S)
+
+A string is a sequence of characters, like "Hello world!".
+
+In this chapter we will look at some commonly used functions to manipulate strings.
 
 ## String concentation 
 
@@ -27,13 +32,95 @@
 $adi = 'Ali';
 $sayi1 = 10;
 echo $adi . $sayi1;
-
 // Output
 // Ali10
 
 ```
 
-## Template Literal (String Format)
+## Template Literal (Format Strings)
+
+
+## String functions
+
+- strlen() - Return the Length of a String
+
+The PHP strlen() function returns the length of a string.
+
+*Example*
+
+Return the length of the string "Hello world!":
+
+```php
+<?php
+echo strlen("Hello world!"); // outputs 12
+?>
+
+```
+
+- str_word_count() - Count Words in a String
+
+The PHP str_word_count() function counts the number of words in a string.
+
+*Example*
+
+```php
+<?php
+echo str_word_count("Hello world!"); // outputs 2
+?>
+
+```
+
+- strrev() - Reverse a String
+
+The PHP strrev() function reverses a string.
+
+Example
+
+```php
+<?php
+echo strrev("Hello world!"); // outputs !dlrow olleH
+?>
+
+```
+
+- strpos() - Search For a Text Within a String
+
+The PHP strpos() function searches for a specific text within a string. If a match is found, the function returns the character position of the first match. If no match is found, it will return FALSE.
+
+*Example*
+
+Search for the text "world" in the string "Hello world!":
+
+```php
+<?php
+echo strpos("Hello world!", "world"); // outputs 6
+?>
+
+```
+
+**Tip**: The first character position in a string is 0 (not 1).
+
+- str_replace() - Replace Text Within a String
+
+The PHP str_replace() function replaces some characters with some other characters in a string.
+
+Example
+
+Replace the text "world" with "Dolly":
+
+```php
+<?php
+echo str_replace("world", "Dolly", "Hello world!"); // outputs Hello Dolly!
+?>
+
+```
+
+Complete PHP String Reference (https://www.w3schools.com/php/php_ref_string.asp)
+
+For a complete reference of all string functions, go to our complete PHP String Reference.
+
+The PHP string reference contains description and example of use, for each function!
+
 
 # Php Numbers (W3S)
 
@@ -45,7 +132,7 @@ In this chapter we will look in depth into *Integers, Floats, and Number Strings
 
 One thing to notice about PHP is that it provides automatic data type conversion.
 
-So, if you assign an integer value to a variable, the type of that variable will automatically be an integer. Then, if you assign a string to the same variable, the type will change to a string.
+So, if you assign an integer value to a variable, the type of that variable will automatically be an integer. Then, if you assign a string to the same variable, the type will change to a string (dynamic type).
 
 This automatic conversion can sometimes break your code.
 
@@ -133,9 +220,9 @@ PHP has the following functions to check if a numeric value is finite or infinit
 - is_finite()
 - is_infinite()
 
-However, the PHP var_dump() function returns the data type and value:
+However, the PHP var_dump() function returns the *data type* and *value*:
 
-Example
+*Example*
 
 Check if a numeric value is finite or infinite:
 
@@ -144,7 +231,8 @@ Check if a numeric value is finite or infinite:
 $x = 1.9e411;
 var_dump($x);
 ?>
-
+//---Output---
+// float(INF)
 ```
 
 ## NaN
@@ -607,4 +695,7 @@ $arr2 = array_unique($arr);
 print_r($arr2);
 
 ```
+
+
+
 
