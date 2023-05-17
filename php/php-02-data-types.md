@@ -37,7 +37,7 @@ echo $adi . $sayi1;
 
 # Php Numbers (W3S)
 
-Source : https://www.w3schools.com/php/php_numbers.asp
+Source : <a href="https://www.w3schools.com/php/php_numbers.asp" target="_blank">W3Schools</a> 
 
 In this chapter we will look in depth into *Integers, Floats, and Number Strings*.
 
