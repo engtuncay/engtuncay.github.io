@@ -13,7 +13,7 @@ https://svelte.dev/tutorial/basics
 - [2 Reactivity](#2-reactivity)
   - [a. Assignments](#a-assignments)
   - [b. Declarations](#b-declarations)
-  - [c Statements](#c-statements)
+  - [c. Statements](#c-statements)
   - [d. Updating arrays and objects](#d-updating-arrays-and-objects)
 - [3 Props](#3-props)
   - [a. Declaring props](#a-declaring-props)
@@ -239,7 +239,7 @@ Let's use doubled in our markup:
 
 Of course, you could just write {count * 2} in the markup instead — you don't have to use reactive values. Reactive values become particularly valuable when you need to reference them multiple times, or you have values that depend on other reactive values.
 
-## c Statements
+## c. Statements
 
 We're not limited to declaring reactive values — we can also run arbitrary statements reactively. For example, we can log the value of count whenever it changes:
 
@@ -354,14 +354,20 @@ We can easily specify default values for props in Nested.svelte:
 
 If we now add a second component without an answer prop, it will fall back to the default:
 
+```html
 <Nested answer={42}/>
 <Nested/>
+
+```
 
 ## c. Spread Props
 
 If you have an object of properties, you can 'spread' them onto a component instead of specifying each one:
 
+```html
 <Info {...pkg}/>
+
+```
 
 Conversely, if you need to reference all the props that were passed into a component, including ones that weren't declared with export, you can do so by accessing $$props directly. It's not generally recommended, as it's difficult for Svelte to optimise, but it's useful in rare cases.
 
@@ -373,6 +379,7 @@ HTML doesn't have a way of expressing logic, like conditionals and loops. Svelte
 
 To conditionally render some markup, we wrap it in an if block:
 
+```html
 {#if user.loggedIn}
 	<button on:click={toggle}>
 		Log out
@@ -385,12 +392,15 @@ To conditionally render some markup, we wrap it in an if block:
 	</button>
 {/if}
 
+```
+
 Try it — update the component, and click on the buttons.
 
 ## b. Else blocks
 
 Since the two conditions — if user.loggedIn and if !user.loggedIn — are mutually exclusive, we can simplify this component slightly by using an else block:
 
+```html
 {#if user.loggedIn}
 	<button on:click={toggle}>
 		Log out
@@ -401,12 +411,15 @@ Since the two conditions — if user.loggedIn and if !user.loggedIn — are mutu
 	</button>
 {/if}
 
+```
+
 A # character always indicates a block opening tag. A / character always indicates a block closing tag. A : character, as in {:else}, indicates a block continuation tag. Don't worry — you've already learned almost all the syntax Svelte adds to HTML.
 
 ## c. Else-if blocks
 
 Multiple conditions can be 'chained' together with else if:
 
+```html
 {#if x > 10}
 	<p>{x} is greater than 10</p>
 {:else if 5 > x}
@@ -415,10 +428,13 @@ Multiple conditions can be 'chained' together with else if:
 	<p>{x} is between 5 and 10</p>
 {/if}
 
+```
+
 ## d. Each blocks
 
 If you need to loop over lists of data, use an each block:
 
+```html
 <ul>
 	{#each cats as cat}
 		<li><a target="_blank" href="https://www.youtube.com/watch?v={cat.id}" rel="noreferrer">
@@ -426,15 +442,21 @@ If you need to loop over lists of data, use an each block:
 		</a></li>
 	{/each}
 </ul>
+
+```
+
 The expression (cats, in this case) can be any array or array-like object (i.e. it has a length property). You can loop over generic iterables with each [...iterable].
 
 You can get the current index as a second argument, like so:
 
+```html
 {#each cats as cat, i}
 	<li><a target="_blank" href="https://www.youtube.com/watch?v={cat.id}" rel="noreferrer">
 		{i + 1}: {cat.name}
 	</a></li>
 {/each}
+
+```
 
 If you prefer, you can use destructuring — each cats as { id, name } — and replace cat.id and cat.name with id and name.
 
@@ -448,9 +470,13 @@ Instead, we'd like to remove only the first <Thing> component and its DOM node, 
 
 To do that, we specify a unique identifier (or "key") for the each block:
 
+```html
 {#each things as thing (thing.id)}
 	<Thing name={thing.name}/>
 {/each}
+
+```
+
 Here, (thing.id) is the key, which tells Svelte how to figure out which DOM node to change when the component updates.
 
 You can use any object as the key, as Svelte uses a Map internally — in other words you could do (thing) instead of (thing.id). Using a string or number is generally safer, however, since it means identity persists without referential equality, for example when updating with fresh data from an API server.
@@ -459,6 +485,7 @@ You can use any object as the key, as Svelte uses a Map internally — in other 
 
 Most web applications have to deal with asynchronous data at some point. Svelte makes it easy to await the value of promises directly in your markup:
 
+```html
 {#await promise}
 	<p>...waiting</p>
 {:then number}
@@ -466,10 +493,17 @@ Most web applications have to deal with asynchronous data at some point. Svelte 
 {:catch error}
 	<p style="color: red">{error.message}</p>
 {/await}
+
+```
+
 Only the most recent promise is considered, meaning you don't need to worry about race conditions.
 
 If you know that your promise can't reject, you can omit the catch block. You can also omit the first block if you don't want to show anything until the promise resolves:
 
+```html
 {#await promise then number}
 	<p>the number is {number}</p>
 {/await}
+
+```
+
