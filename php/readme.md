@@ -1,13 +1,18 @@
 
 Php Tutorial
 
+<h3></h3>
+
+- https://www.w3schools.com/php/default.asp
+
+
 Content                                                                      | Note
 -----------------------------------------------------------------------------|-----
 [Intro- Install - Syntax - Comments](./php-w3-intro.md)                      | 🆗
 [Variables - Scope - Echo / Print - Data Types](./php-w3-variables-Scope.md) |
-[Data Types](./php-w3-data-types.md)                                         |
-[String - Numbers - Math - Constants - Date](./php-w3-string-number-math-constant-date.md) |
-Operators                                                                    |
+[Data Types](./php-w3-data-types.md)                                         | 🆗
+[String - Numbers - Math - Constants - Date](./php-w3-string-number-math-constant-date.md) | 
+Operators                                                                    | 
 If/Else/Elseif - Switch - Loops                                              |
 Functions                                                                    |
 Arrays                                                                       |
