@@ -7,7 +7,7 @@ https://svelte.dev/tutorial/basics
   - [a. DOM events](#a-dom-events)
   - [b. Inline handlers](#b-inline-handlers)
   - [c. Event modifiers](#c-event-modifiers)
-  - [d. Component events](#d-component-events)
+  - [d. Component events (Event Dispatcher)](#d-component-events-event-dispatcher)
   - [e. Event forwarding](#e-event-forwarding)
   - [f. DOM event forwarding](#f-dom-event-forwarding)
 - [6 Bindings](#6-bindings)
@@ -77,7 +77,7 @@ The full list of modifiers:
 
 You can chain modifiers together, e.g. on:click|once|capture={...}.
 
-## d. Component events
+## d. Component events (Event Dispatcher)
 
 Components can also dispatch events. To do so, they must create an event dispatcher. Update Inner.svelte:
 

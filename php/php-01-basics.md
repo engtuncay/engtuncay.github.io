@@ -1,6 +1,5 @@
 <h1>Introduction to Php</h1> 
 
-- [Kaynaklar](#kaynaklar)
 - [Php Basic 1](#php-basic-1)
   - [Basic PHP Syntax](#basic-php-syntax)
   - [Html Php Elementi](#html-php-elementi)
@@ -22,12 +21,13 @@
   - [Loops ( For, While, Do While)](#loops--for-while-do-while)
 
 
-# Kaynaklar
+<h2>Kaynaklar</h2> 
 
 - Udemy Tayfun Erbilen Php Kursu
  
 - Php Cheatsheets
 
+- W3School
 
 # Php Basic 1
 
