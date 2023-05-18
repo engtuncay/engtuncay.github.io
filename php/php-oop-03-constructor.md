@@ -2,6 +2,7 @@
 - [PHP OOP - Constructor](#php-oop---constructor)
 - [PHP OOP - Destructor](#php-oop---destructor)
 - [PHP OOP - Access Modifiers](#php-oop---access-modifiers)
+- [PHP OOP - Class Constants](#php-oop---class-constants)
 
 
 # PHP OOP - Constructor
@@ -167,4 +168,53 @@ $mango->set_weight('300'); // ERROR
 
 ```
 
+# PHP OOP - Class Constants
+
+*PHP - Class Constants*
+
+Constants cannot be changed once it is declared.
+
+Class constants can be useful if you need to define some constant data within a class.
+
+A class constant is declared inside a class with the const keyword.
+
+Class constants are *case-sensitive*. However, it is recommended to name the constants in *all uppercase letters*.
+
+We can access a constant from outside the class by using the class name followed by the scope resolution operator (::) followed by the constant name, like here:
+
+Example
+
+```php
+<?php
+class Goodbye {
+  const LEAVING_MESSAGE = "Thank you for visiting W3Schools.com!";
+}
+
+echo Goodbye::LEAVING_MESSAGE;
+?>
+
+```
+
+Or, we can access a constant from inside the class by using the `self` keyword followed by the scope resolution operator (::) followed by the constant name, like here:
+
+Example
+
+```php
+<?php
+class Goodbye {
+  
+  const LEAVING_MESSAGE = "Thank you for visiting W3Schools.com!";
+  
+  public function byebye() {
+    echo self::LEAVING_MESSAGE;
+  }
+}
+
+$goodbye = new Goodbye();
+$goodbye->byebye();
+?>
+
+```
+
 --end--
+

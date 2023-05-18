@@ -9,7 +9,7 @@ Php Tutorial
 Content                                                                             | Note
 ------------------------------------------------------------------------------------|-----
 [Intro- Install - Syntax - Comments](./php-w3-01-intro.md)                          | 🆗
-[Variables - Scope - Echo / Print - Data Types](./php-w3-02-variables.md)           |
+[Variables - Scope - Echo / Print ](./php-w3-02-variables.md)                       |
 [Data Types](./php-w3-03-data-types.md)                                             | 🆗
 [String - Numbers - Math - Constants - Date](./php-w3-04-string-and-other-types.md) |
 Operators                                                                           |
@@ -23,20 +23,16 @@ RegEx                                                                           
 
 Php OOP
 
-Content                                                                       | Note
-------------------------------------------------------------------------------|-----
-[1 What is OOP](./php-oop-01-intro.md)                                        | 🆗
-[2 Classes/Objects](./php-oop-02-classes.md)                                  | 🆗
-[3 Constructor - Destructor - Access Modifiers ](./php-oop-03-constructor.md) | 🆗
-Inheritance                                                                   |
-Constants                                                                     |
-Abstract Classes                                                              |
-Interfaces                                                                    |
-Traits                                                                        |
-Static Methods - Properties                                                   |
-Namespaces                                                                    |
-Iterables                                                                     |
-
+Content                                                                                         | Note
+------------------------------------------------------------------------------------------------|-----
+[1 What is OOP](./php-oop-01-intro.md)                                                          | 🆗
+[2 Classes/Objects](./php-oop-02-classes.md)                                                    | 🆗
+[3 Constructor - Destructor - Access Modifiers - Class Constants ](./php-oop-03-constructor.md) | 🆗
+[4 Inheritance - Abstract Classes - Interfaces ](./php-oop-04-inheritance.md)                   | 🆗
+[5 Traits](./php-oop-05-traits.md)                                                              |
+[6 Static Methods - Properties](./php-oop-06-static-method-props.md)                            |
+[7 Namespaces](./php-oop-07-namespaces.md)                                                      |
+[8 Iterables](./php-oop-08-iterables.md)                                                        |
 
 
 Old content
