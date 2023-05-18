@@ -30,9 +30,9 @@ Content                                                                         
 [3 Constructor - Destructor - Access Modifiers - Class Constants ](./php-oop-03-constructor.md) | 🆗
 [4 Inheritance - Abstract Classes - Interfaces ](./php-oop-04-inheritance.md)                   | 🆗
 [5 Traits](./php-oop-05-traits.md)                                                              | 🆗
-[6 Static Methods - Properties](./php-oop-06-static-method-props.md)                            |
-[7 Namespaces](./php-oop-07-namespaces.md)                                                      |
-[8 Iterables](./php-oop-08-iterables.md)                                                        |
+[6 Static Methods - Properties](./php-oop-06-static-method-props.md)                            | 🆗
+[7 Namespaces](./php-oop-07-namespaces.md)                                                      | 🆗
+[8 Iterables](./php-oop-08-iterables.md)                                                        | 🆗
 
 
 Old content
