@@ -6,8 +6,8 @@ Php Tutorial
 - https://www.w3schools.com/php/default.asp
 
 
-Content                                                                             | Note
-------------------------------------------------------------------------------------|-----
+Content                                                                               | Note
+--------------------------------------------------------------------------------------|-----
 [1 Intro- Install - Syntax - Comments](./php-w3-01-intro.md)                          | 🆗
 [2 Variables - Scope - Echo / Print ](./php-w3-02-variables.md)                       |
 [3 Data Types](./php-w3-03-data-types.md)                                             | 🆗
@@ -17,8 +17,8 @@ Content                                                                         
 7 Functions                                                                           |
 8 Arrays                                                                              |
 9 Superglobals                                                                        |
-10 RegEx                                                                               |
-[](./php-w3)                                                                        |
+10 RegEx                                                                              |
+[](./php-w3)                                                                          |
 
 Php OOP
 
@@ -38,7 +38,7 @@ Php Advanced Topics
 Content                                | Note
 ---------------------------------------|-----
 PHP Date and Time                      |
-[PHP Include](./php-adv-02-include.md) |
+[PHP Include](./php-adv-02-include.md) | 🆗
 PHP File Handling                      |
 PHP File Open/Read                     |
 PHP File Create/Write                  |
@@ -50,8 +50,7 @@ PHP Filters Advanced                   |
 PHP Callback Functions                 |
 PHP JSON                               |
 PHP Exceptions                         |
-
-[Php Mysql Tutor](./php-mysql-tutor.md)
+[Php Mysql](./php-mysql-tutor.md)      |
 
 
 

@@ -2,6 +2,11 @@
 
 This tutorial is prepared from web resource and some additions from me.
 
+Sources
+
+- http://www.javascript.info
+
+
 [Js Cheatsheet](./js-cheatsheet.md)
 
 CONTENT |Note|
