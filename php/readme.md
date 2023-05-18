@@ -6,19 +6,19 @@ Php Tutorial
 - https://www.w3schools.com/php/default.asp
 
 
-Content                                                                                    | Note
--------------------------------------------------------------------------------------------|-----
-[Intro- Install - Syntax - Comments](./php-w3-intro.md)                                    | 🆗
-[Variables - Scope - Echo / Print - Data Types](./php-w3-variables-Scope.md)               |
-[Data Types](./php-w3-data-types.md)                                                       | 🆗
-[String - Numbers - Math - Constants - Date](./php-w3-string-number-math-constant-date.md) |
-Operators                                                                                  |
-If/Else/Elseif - Switch - Loops                                                            |
-Functions                                                                                  |
-Arrays                                                                                     |
-Superglobals                                                                               |
-RegEx                                                                                      |
-[](./php-w3)                                                                               |
+Content                                                                             | Note
+------------------------------------------------------------------------------------|-----
+[Intro- Install - Syntax - Comments](./php-w3-01-intro.md)                          | 🆗
+[Variables - Scope - Echo / Print - Data Types](./php-w3-02-variables.md)           |
+[Data Types](./php-w3-03-data-types.md)                                             | 🆗
+[String - Numbers - Math - Constants - Date](./php-w3-04-string-and-other-types.md) |
+Operators                                                                           |
+If/Else/Elseif - Switch - Loops                                                     |
+Functions                                                                           |
+Arrays                                                                              |
+Superglobals                                                                        |
+RegEx                                                                               |
+[](./php-w3)                                                                        |
 
 
 Php OOP
