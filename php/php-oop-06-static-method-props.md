@@ -1,4 +1,8 @@
 
+- [PHP OOP - Static Methods](#php-oop---static-methods)
+- [PHP OOP - Static Properties](#php-oop---static-properties)
+
+
 # PHP OOP - Static Methods
 
 *PHP - Static Methods*

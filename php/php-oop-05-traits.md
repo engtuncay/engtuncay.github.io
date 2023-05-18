@@ -6,29 +6,40 @@
 
 PHP only supports single inheritance: a child class can inherit only from one single parent.
 
-So, what if a class needs to inherit multiple behaviors? OOP traits solve this problem.
+So, what if a class needs to inherit *multiple behaviors*? OOP traits solve this problem.
 
 Traits are used to declare methods that can be used in multiple classes. Traits can have methods and abstract methods that can be used in multiple classes, and the methods can have any access modifier (public, private, or protected).
 
 Traits are declared with the trait keyword:
 
-SyntaxGet your own PHP Server
+Syntax
+
+```php
 <?php
 trait TraitName {
   // some code...
 }
 ?>
+
+```
+
 To use a trait in a class, use the use keyword:
 
 Syntax
+
+```php
 <?php
 class MyClass {
   use TraitName;
 }
 ?>
+
+```
 Let's look at an example:
 
 Example
+
+```php
 <?php
 trait message1 {
 public function msg1() {
@@ -42,16 +53,26 @@ class Welcome {
 
 $obj = new Welcome();
 $obj->msg1();
+
+//---Output---
+// OOP is fun!
 ?>
-Example Explained
+
+```
+
+*Example Explained*
+
 Here, we declare one trait: message1. Then, we create a class: Welcome. The class uses the trait, and all the methods in the trait will be available in the class.
 
 If other classes need to use the msg1() function, simply use the message1 trait in those classes. This reduces code duplication, because there is no need to redeclare the same method over and over again.
 
-PHP - Using Multiple Traits
+## PHP - Using Multiple Traits
+
 Let's look at another example:
 
 Example
+
+```php
 <?php
 trait message1 {
   public function msg1() {
@@ -81,5 +102,14 @@ $obj2 = new Welcome2();
 $obj2->msg1();
 $obj2->msg2();
 ?>
-Example Explained
+
+//---Output---
+// OOP is fun! 
+// OOP is fun! OOP reduces code duplication!
+```
+
+*Example Explained*
+
 Here, we declare two traits: message1 and message2. Then, we create two classes: Welcome and Welcome2. The first class (Welcome) uses the message1 trait, and the second class (Welcome2) uses both message1 and message2 traits (multiple traits are separated by comma).
+
+--end--
