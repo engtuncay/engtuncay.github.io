@@ -352,6 +352,56 @@ try {
 require_once './pdo-db-conn.php';
 ```
 
+
+*mysqli-db-conn.php*
+
+```php
+<?php
+$servername = "localhost";
+$username = "username";
+$password = "password";
+$dbname = "myDB";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+?>
+```
+
+- To connect to myDb , only needs one line
+
+```php
+require_once './mysqli-db-conn.php';
+```
+
+- mysqli procedural
+
+*mysqlip-db-conn.php*
+
+```php
+<?php
+$servername = "localhost";
+$username = "username";
+$password = "password";
+$dbname = "myDB";
+
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+// Check connection
+if (!$conn) {
+  die("Connection failed: " . mysqli_connect_error());
+}
+?>
+```
+
+```php
+require_once './mysqlip-db-conn.php';
+```
+
+
 # PHP MySQL Create Table
 
 A database table has its own unique name and consists of columns and rows.
@@ -393,17 +443,7 @@ Example (MySQLi Object-oriented)
 
 ```php
 <?php
-$servername = "localhost";
-$username = "username";
-$password = "password";
-$dbname = "myDB";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
+require_once './mysqli-db-conn.php';
 
 // sql to create table
 $sql = "CREATE TABLE MyGuests (
@@ -429,17 +469,7 @@ Example (MySQLi Procedural)
 
 ```php
 <?php
-$servername = "localhost";
-$username = "username";
-$password = "password";
-$dbname = "myDB";
-
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-// Check connection
-if (!$conn) {
-  die("Connection failed: " . mysqli_connect_error());
-}
+require_once './mysqli-db-conn.php';
 
 // sql to create table
 $sql = "CREATE TABLE MyGuests (
@@ -522,17 +552,7 @@ Example (MySQLi Object-oriented)
 
 ```php
 <?php
-$servername = "localhost";
-$username = "username";
-$password = "password";
-$dbname = "myDB";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
+require_once './mysqli-db-conn.php';
 
 $sql = "INSERT INTO MyGuests (firstname, lastname, email)
 VALUES ('John', 'Doe', 'john@example.com')";
@@ -552,17 +572,7 @@ Example (MySQLi Procedural)
 
 ```php
 <?php
-$servername = "localhost";
-$username = "username";
-$password = "password";
-$dbname = "myDB";
-
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-// Check connection
-if (!$conn) {
-  die("Connection failed: " . mysqli_connect_error());
-}
+require_once './mysqlip-db-conn.php';
 
 $sql = "INSERT INTO MyGuests (firstname, lastname, email)
 VALUES ('John', 'Doe', 'john@example.com')";
@@ -609,6 +619,7 @@ If we perform an INSERT or UPDATE on a table with an AUTO_INCREMENT field, we ca
 
 In the table "MyGuests", the "id" column is an AUTO_INCREMENT field:
 
+```sql
 CREATE TABLE MyGuests (
 id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 firstname VARCHAR(30) NOT NULL,
@@ -617,22 +628,15 @@ email VARCHAR(50),
 reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 )
 
+```
+
 The following examples are equal to the examples from the previous page (PHP Insert Data Into MySQL), except that we have added one single line of code to retrieve the ID of the last inserted record. We also echo the last inserted ID:
 
 Example (MySQLi Object-oriented)
 
+```php
 <?php
-$servername = "localhost";
-$username = "username";
-$password = "password";
-$dbname = "myDB";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
+require_once './mysqli-db-conn.php';
 
 $sql = "INSERT INTO MyGuests (firstname, lastname, email)
 VALUES ('John', 'Doe', 'john@example.com')";
@@ -647,19 +651,14 @@ if ($conn->query($sql) === TRUE) {
 $conn->close();
 ?>
 
-Example (MySQLi Procedural)
-<?php
-$servername = "localhost";
-$username = "username";
-$password = "password";
-$dbname = "myDB";
+```
 
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-// Check connection
-if (!$conn) {
-  die("Connection failed: " . mysqli_connect_error());
-}
+
+Example (MySQLi Procedural)
+
+```php
+<?php
+require_once './mysqlip-db-conn.php';
 
 $sql = "INSERT INTO MyGuests (firstname, lastname, email)
 VALUES ('John', 'Doe', 'john@example.com')";
@@ -674,17 +673,15 @@ if (mysqli_query($conn, $sql)) {
 mysqli_close($conn);
 ?>
 
+```
+
 Example (PDO)
+
+```php
 <?php
-$servername = "localhost";
-$username = "username";
-$password = "password";
-$dbname = "myDBPDO";
+require_once './pdo-db-conn.php';
 
 try {
-  $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-  // set the PDO error mode to exception
-  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   $sql = "INSERT INTO MyGuests (firstname, lastname, email)
   VALUES ('John', 'Doe', 'john@example.com')";
   // use exec() because no results are returned
@@ -698,25 +695,21 @@ try {
 $conn = null;
 ?>
 
+```
+
 # PHP MySQL Insert Multiple Records
-Insert Multiple Records Into MySQL Using MySQLi and PDO
+
+*Insert Multiple Records Into MySQL Using MySQLi and PDO*
+
 Multiple SQL statements must be executed with the mysqli_multi_query() function.
 
 The following examples add three new records to the "MyGuests" table:
 
-Example (MySQLi Object-oriented)Get your own PHP Server
-<?php
-$servername = "localhost";
-$username = "username";
-$password = "password";
-$dbname = "myDB";
+Example (MySQLi Object-oriented)
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
+```php
+<?php
+require_once './mysqli-db-conn.php';
 
 $sql = "INSERT INTO MyGuests (firstname, lastname, email)
 VALUES ('John', 'Doe', 'john@example.com');";
@@ -734,21 +727,15 @@ if ($conn->multi_query($sql) === TRUE) {
 $conn->close();
 ?>
 
+```
+
 Note that each SQL statement must be separated by a semicolon.
 
 Example (MySQLi Procedural)
-<?php
-$servername = "localhost";
-$username = "username";
-$password = "password";
-$dbname = "myDB";
 
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-// Check connection
-if (!$conn) {
-  die("Connection failed: " . mysqli_connect_error());
-}
+```php
+<?php
+require_once './mysqlip-db-conn.php';
 
 $sql = "INSERT INTO MyGuests (firstname, lastname, email)
 VALUES ('John', 'Doe', 'john@example.com');";
@@ -766,20 +753,17 @@ if (mysqli_multi_query($conn, $sql)) {
 mysqli_close($conn);
 ?>
 
+```
+
 The PDO way is a little bit different:
 
 Example (PDO)
+
+```php
 <?php
-$servername = "localhost";
-$username = "username";
-$password = "password";
-$dbname = "myDBPDO";
+require_once './pdo-db-conn.php';
 
 try {
-  $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-  // set the PDO error mode to exception
-  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
   // begin the transaction
   $conn->beginTransaction();
   // our SQL statements
@@ -802,39 +786,39 @@ try {
 $conn = null;
 ?>
 
+```
+
 # PHP MySQL Prepared Statements
+
 Prepared statements are very useful against SQL injections.
 
-Prepared Statements and Bound Parameters
+*Prepared Statements and Bound Parameters*
+
 A prepared statement is a feature used to execute the same (or similar) SQL statements repeatedly with high efficiency.
 
 Prepared statements basically work like this:
 
-Prepare: An SQL statement template is created and sent to the database. Certain values are left unspecified, called parameters (labeled "?"). Example: INSERT INTO MyGuests VALUES(?, ?, ?)
-The database parses, compiles, and performs query optimization on the SQL statement template, and stores the result without executing it
-Execute: At a later time, the application binds the values to the parameters, and the database executes the statement. The application may execute the statement as many times as it wants with different values
+- Prepare: An SQL statement template is created and sent to the database. Certain values are left unspecified, called parameters (labeled "?"). Example: INSERT INTO MyGuests VALUES(?, ?, ?)
+
+- The database parses, compiles, and performs query optimization on the SQL statement template, and stores the result without executing it
+
+- Execute: At a later time, the application binds the values to the parameters, and the database executes the statement. The application may execute the statement as many times as it wants with different values
+
 Compared to executing SQL statements directly, prepared statements have three main advantages:
 
-Prepared statements reduce parsing time as the preparation on the query is done only once (although the statement is executed multiple times)
-Bound parameters minimize bandwidth to the server as you need send only the parameters each time, and not the whole query
-Prepared statements are very useful against SQL injections, because parameter values, which are transmitted later using a different protocol, need not be correctly escaped. If the original statement template is not derived from external input, SQL injection cannot occur.
-Prepared Statements in MySQLi
+- Prepared statements reduce parsing time as the preparation on the query is done only once (although the statement is executed multiple times)
+- Bound parameters minimize bandwidth to the server as you need send only the parameters each time, and not the whole query
+- Prepared statements are very useful against SQL injections, because parameter values, which are transmitted later using a different protocol, need not be correctly escaped. If the original statement template is not derived from external input, SQL injection cannot occur.
+
+*Prepared Statements in MySQLi*
+
 The following example uses prepared statements and bound parameters in MySQLi:
 
-Example (MySQLi with Prepared Statements)Get your own PHP Server
+Example (MySQLi with Prepared Statements)
+
+```php
 <?php
-$servername = "localhost";
-$username = "username";
-$password = "password";
-$dbname = "myDB";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
+require_once './mysqli-db-conn.php';
 
 // prepare and bind
 $stmt = $conn->prepare("INSERT INTO MyGuests (firstname, lastname, email) VALUES (?, ?, ?)");
@@ -862,43 +846,47 @@ $stmt->close();
 $conn->close();
 ?>
 
+```
+
 Code lines to explain from the example above:
 
 "INSERT INTO MyGuests (firstname, lastname, email) VALUES (?, ?, ?)"
+
 In our SQL, we insert a question mark (?) where we want to substitute in an integer, string, double or blob value.
 
 Then, have a look at the bind_param() function:
 
+```php
 $stmt->bind_param("sss", $firstname, $lastname, $email);
+
+```
+
 This function binds the parameters to the SQL query and tells the database what the parameters are. The "sss" argument lists the types of data that the parameters are. The s character tells mysql that the parameter is a string.
 
 The argument may be one of four types:
 
-i - integer
-d - double
-s - string
-b - BLOB
+- i - integer
+- d - double
+- s - string
+- b - BLOB
+
 We must have one of these for each parameter.
 
 By telling mysql what type of data to expect, we minimize the risk of SQL injections.
 
 Note: If we want to insert any data from external sources (like user input), it is very important that the data is sanitized and validated.
 
-Prepared Statements in PDO
+*Prepared Statements in PDO*
+
 The following example uses prepared statements and bound parameters in PDO:
 
 Example (PDO with Prepared Statements)
+
+```php
 <?php
-$servername = "localhost";
-$username = "username";
-$password = "password";
-$dbname = "myDBPDO";
+require_once './pdo-db-conn.php';
 
 try {
-  $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-  // set the PDO error mode to exception
-  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
   // prepare sql and bind parameters
   $stmt = $conn->prepare("INSERT INTO MyGuests (firstname, lastname, email)
   VALUES (:firstname, :lastname, :email)");
@@ -931,32 +919,35 @@ try {
 $conn = null;
 ?>
 
+```
+
 # PHP MySQL Select Data
-Select Data From a MySQL Database
+
+*Select Data From a MySQL Database*
+
 The SELECT statement is used to select data from one or more tables:
 
+```sql
 SELECT column_name(s) FROM table_name
+```
+
 or we can use the * character to select ALL columns from a table:
 
+```sql
 SELECT * FROM table_name
+```
+
 To learn more about SQL, please visit our SQL tutorial.
 
 Select Data With MySQLi
+
 The following example selects the id, firstname and lastname columns from the MyGuests table and displays it on the page:
 
 Example (MySQLi Object-oriented)Get your own PHP Server
-<?php
-$servername = "localhost";
-$username = "username";
-$password = "password";
-$dbname = "myDB";
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
+```php
+<?php
+require_once './mysqli-db-conn.php';
 
 $sql = "SELECT id, firstname, lastname FROM MyGuests";
 $result = $conn->query($sql);
@@ -971,6 +962,9 @@ if ($result->num_rows > 0) {
 }
 $conn->close();
 ?>
+
+```
+
 Code lines to explain from the example above:
 
 First, we set up an SQL query that selects the id, firstname and lastname columns from the MyGuests table. The next line of code runs the query and puts the resulting data into a variable called $result.
@@ -982,18 +976,10 @@ If there are more than zero rows returned, the function fetch_assoc() puts all t
 The following example shows the same as the example above, in the MySQLi procedural way:
 
 Example (MySQLi Procedural)
-<?php
-$servername = "localhost";
-$username = "username";
-$password = "password";
-$dbname = "myDB";
 
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-// Check connection
-if (!$conn) {
-  die("Connection failed: " . mysqli_connect_error());
-}
+```php
+<?php
+require_once './mysqlip-db-conn.php';
 
 $sql = "SELECT id, firstname, lastname FROM MyGuests";
 $result = mysqli_query($conn, $sql);
@@ -1009,21 +995,16 @@ if (mysqli_num_rows($result) > 0) {
 
 mysqli_close($conn);
 ?>
+
+```
+
 You can also put the result in an HTML table:
 
 Example (MySQLi Object-oriented)
-<?php
-$servername = "localhost";
-$username = "username";
-$password = "password";
-$dbname = "myDB";
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
+```php
+<?php
+require_once './mysqli-db-conn.php';
 
 $sql = "SELECT id, firstname, lastname FROM MyGuests";
 $result = $conn->query($sql);
@@ -1040,13 +1021,21 @@ if ($result->num_rows > 0) {
 }
 $conn->close();
 ?>
+
+```
+
 Select Data With PDO (+ Prepared Statements)
+
 The following example uses prepared statements.
 
 It selects the id, firstname and lastname columns from the MyGuests table and displays it in an HTML table:
 
 Example (PDO)
+
+```php
 <?php
+require_once './pdo-db-conn.php';
+
 echo "<table style='border: solid 1px black;'>";
 echo "<tr><th>Id</th><th>Firstname</th><th>Lastname</th></tr>";
 
@@ -1068,14 +1057,8 @@ class TableRows extends RecursiveIteratorIterator {
   }
 }
 
-$servername = "localhost";
-$username = "username";
-$password = "password";
-$dbname = "myDBPDO";
-
 try {
-  $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
   $stmt = $conn->prepare("SELECT id, firstname, lastname FROM MyGuests");
   $stmt->execute();
 
@@ -1091,31 +1074,29 @@ $conn = null;
 echo "</table>";
 ?>
 
+```
+
 # PHP MySQL Use The ORDER BY Clause
-Select and Order Data From a MySQL Database
+
+*Select and Order Data From a MySQL Database*
+
 The ORDER BY clause is used to sort the result-set in ascending or descending order.
 
 The ORDER BY clause sorts the records in ascending order by default. To sort the records in descending order, use the DESC keyword.
 
 SELECT column_name(s) FROM table_name ORDER BY column_name(s) ASC|DESC 
+
 To learn more about SQL, please visit our SQL tutorial.
 
-Select and Order Data With MySQLi
+*Select and Order Data With MySQLi*
+
 The following example selects the id, firstname and lastname columns from the MyGuests table. The records will be ordered by the lastname column:
 
-Example (MySQLi Object-oriented)Get your own PHP Server
-<?php
-$servername = "localhost";
-$username = "username";
-$password = "password";
-$dbname = "myDB";
+Example (MySQLi Object-oriented)
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
+```php
+<?php
+require_once './mysqli-db-conn.php';
 
 $sql = "SELECT id, firstname, lastname FROM MyGuests ORDER BY lastname";
 $result = $conn->query($sql);
@@ -1130,6 +1111,9 @@ if ($result->num_rows > 0) {
 }
 $conn->close();
 ?>
+
+```
+
 Code lines to explain from the example above:
 
 First, we set up the SQL query that selects the id, firstname and lastname columns from the MyGuests table. The records will be ordered by the lastname column. The next line of code runs the query and puts the resulting data into a variable called $result.
@@ -1141,18 +1125,10 @@ If there are more than zero rows returned, the function fetch_assoc() puts all t
 The following example shows the same as the example above, in the MySQLi procedural way:
 
 Example (MySQLi Procedural)
-<?php
-$servername = "localhost";
-$username = "username";
-$password = "password";
-$dbname = "myDB";
 
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-// Check connection
-if (!$conn) {
-  die("Connection failed: " . mysqli_connect_error());
-}
+```php
+<?php
+require_once './mysqlip-db-conn.php';
 
 $sql = "SELECT id, firstname, lastname FROM MyGuests ORDER BY lastname";
 $result = mysqli_query($conn, $sql);
@@ -1168,21 +1144,16 @@ if (mysqli_num_rows($result) > 0) {
 
 mysqli_close($conn);
 ?>
+
+```
+
 You can also put the result in an HTML table:
 
 Example (MySQLi Object-oriented)
-<?php
-$servername = "localhost";
-$username = "username";
-$password = "password";
-$dbname = "myDB";
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
+```php
+<?php
+require_once './mysqli-db-conn.php';
 
 $sql = "SELECT id, firstname, lastname FROM MyGuests ORDER BY lastname";
 $result = $conn->query($sql);
@@ -1199,13 +1170,21 @@ if ($result->num_rows > 0) {
 }
 $conn->close();
 ?>
+
+```
+
 Select Data With PDO (+ Prepared Statements)
+
 The following example uses prepared statements.
 
 Here we select the id, firstname and lastname columns from the MyGuests table. The records will be ordered by the lastname column, and it will be displayed in an HTML table:
 
 Example (PDO)
+
+```php
 <?php
+require_once './pdo-db-conn.php';
+
 echo "<table style='border: solid 1px black;'>";
 echo "<tr><th>Id</th><th>Firstname</th><th>Lastname</th></tr>";
 
@@ -1227,14 +1206,7 @@ class TableRows extends RecursiveIteratorIterator {
   }
 }
 
-$servername = "localhost";
-$username = "username";
-$password = "password";
-$dbname = "myDBPDO";
-
 try {
-  $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   $stmt = $conn->prepare("SELECT id, firstname, lastname FROM MyGuests ORDER BY lastname");
   $stmt->execute();
 
@@ -1249,6 +1221,8 @@ try {
 $conn = null;
 echo "</table>";
 ?>
+
+```
 
 # PHP MySQL Use The WHERE Clause
 
