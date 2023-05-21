@@ -1392,10 +1392,13 @@ To learn more about SQL, please visit our SQL tutorial.
 
 Let's look at the "MyGuests" table:
 
+```text
 id	firstname	lastname	email	reg_date
 1	John	Doe	john@example.com	2014-10-22 14:26:15
 2	Mary	Moe	mary@example.com	2014-10-23 10:22:30
 3	Julie	Dooley	julie@example.com	2014-10-26 10:48:23
+
+```
 
 The following examples delete the record with id=3 in the "MyGuests" table:
 
@@ -1440,17 +1443,12 @@ mysqli_close($conn);
 ```
 
 Example (PDO)
+
+```php
 <?php
-$servername = "localhost";
-$username = "username";
-$password = "password";
-$dbname = "myDBPDO";
+require_once './pdo-db-conn.php';
 
 try {
-  $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-  // set the PDO error mode to exception
-  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
   // sql to delete a record
   $sql = "DELETE FROM MyGuests WHERE id=3";
 
@@ -1464,43 +1462,50 @@ try {
 $conn = null;
 ?>
 
+```
+
 After the record is deleted, the table will look like this:
 
+```
 id	firstname	lastname	email	reg_date
 1	John	Doe	john@example.com	2014-10-22 14:26:15
 2	Mary	Moe	mary@example.com	2014-10-23 10:22:30
 
+```
+
 # PHP MySQL Update Data
-Update Data In a MySQL Table Using MySQLi and PDO
+
+*Update Data In a MySQL Table Using MySQLi and PDO*
+
 The UPDATE statement is used to update existing records in a table:
 
+```sql
 UPDATE table_name
 SET column1=value, column2=value2,...
 WHERE some_column=some_value 
+
+```
+
 Notice the WHERE clause in the UPDATE syntax: The WHERE clause specifies which record or records that should be updated. If you omit the WHERE clause, all records will be updated!
 
 To learn more about SQL, please visit our SQL tutorial.
 
 Let's look at the "MyGuests" table:
 
+```text
 id	firstname	lastname	email	reg_date
 1	John	Doe	john@example.com	2014-10-22 14:26:15
 2	Mary	Moe	mary@example.com	2014-10-23 10:22:30
+
+```
+
 The following examples update the record with id=2 in the "MyGuests" table:
 
-Example (MySQLi Object-oriented)Get your own PHP Server
-<?php
-$servername = "localhost";
-$username = "username";
-$password = "password";
-$dbname = "myDB";
+Example (MySQLi Object-oriented)
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
+```php
+<?php
+require_once './mysqli-db-conn.php';
 
 $sql = "UPDATE MyGuests SET lastname='Doe' WHERE id=2";
 
@@ -1513,19 +1518,13 @@ if ($conn->query($sql) === TRUE) {
 $conn->close();
 ?>
 
-Example (MySQLi Procedural)
-<?php
-$servername = "localhost";
-$username = "username";
-$password = "password";
-$dbname = "myDB";
+```
 
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-// Check connection
-if (!$conn) {
-  die("Connection failed: " . mysqli_connect_error());
-}
+Example (MySQLi Procedural)
+
+```php
+<?php
+require_once './mysqlip-db-conn.php';
 
 $sql = "UPDATE MyGuests SET lastname='Doe' WHERE id=2";
 
@@ -1538,18 +1537,15 @@ if (mysqli_query($conn, $sql)) {
 mysqli_close($conn);
 ?>
 
+```
+
 Example (PDO)
+
+```php
 <?php
-$servername = "localhost";
-$username = "username";
-$password = "password";
-$dbname = "myDBPDO";
+require_once './pdo-db-conn.php';
 
 try {
-  $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-  // set the PDO error mode to exception
-  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
   $sql = "UPDATE MyGuests SET lastname='Doe' WHERE id=2";
 
   // Prepare statement
@@ -1567,21 +1563,32 @@ try {
 $conn = null;
 ?>
 
+```
+
 After the record is updated, the table will look like this:
 
+```text
 id	firstname	lastname	email	reg_date
 1	John	Doe	john@example.com	2014-10-22 14:26:15
 2	Mary	Doe	mary@example.com	2014-10-23 10:22:30
 
+```
+
 # PHP MySQL Limit Data Selections
-Limit Data Selections From a MySQL Database
+
+*Limit Data Selections From a MySQL Database*
+
 MySQL provides a LIMIT clause that is used to specify the number of records to return.
 
 The LIMIT clause makes it easy to code multi page results or pagination with SQL, and is very useful on large tables. Returning a large number of records can impact on performance.
 
 Assume we wish to select all records from 1 - 30 (inclusive) from a table called "Orders". The SQL query would then look like this:
 
+```php
 $sql = "SELECT * FROM Orders LIMIT 30";
+
+```
+
 When the SQL query above is run, it will return the first 30 records.
 
 What if we want to select records 16 - 25 (inclusive)?
@@ -1590,9 +1597,17 @@ Mysql also provides a way to handle this: by using OFFSET.
 
 The SQL query below says "return only 10 records, start on record 16 (OFFSET 15)":
 
+```php
 $sql = "SELECT * FROM Orders LIMIT 10 OFFSET 15";
+
+```
+
 You could also use a shorter syntax to achieve the same result:
 
+```php
 $sql = "SELECT * FROM Orders LIMIT 15, 10";
+
+```
+
 Notice that the numbers are reversed when you use a comma.
 
