@@ -16,9 +16,9 @@ Content                                                                         
 6 If/Else/Elseif - Switch - Loops                                                     |
 7 Functions                                                                           |
 8 Arrays                                                                              |
-9 Superglobals                                                                        |
+[9 Superglobals](./php-w3-09-superglobals.md)|
 10 RegEx                                                                              |
-[](./php-w3)                                                                          |
+
 
 Php OOP
 
