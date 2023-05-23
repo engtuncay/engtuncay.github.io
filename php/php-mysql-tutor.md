@@ -522,7 +522,7 @@ $conn = null;
 
 *Insert Data Into MySQL Using MySQLi and PDO*
 
-After a database and a table have been created, we can start adding data in them.
+After a database and a table have been created, we can start adding data in them. For PDO, `$conn->exec($sql);` exec metod is used.
 
 Here are some syntax rules to follow:
 
