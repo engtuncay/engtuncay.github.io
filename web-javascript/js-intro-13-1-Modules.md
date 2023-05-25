@@ -7,12 +7,11 @@
 
 - Some additions may be added in some parts.
 
+<h3>Content</h3>
+
 - [Modules, introduction](#modules-introduction)
   - [What is a module?](#what-is-a-module)
   - [Core module features](#core-module-features)
-    - [Always "use strict"](#always-use-strict)
-    - [Module-level scope](#module-level-scope)
-    - [A module code is evaluated only the first time when imported](#a-module-code-is-evaluated-only-the-first-time-when-imported)
     - [import.meta](#importmeta)
     - [In a module, "this" is undefined](#in-a-module-this-is-undefined)
   - [Browser-specific features](#browser-specific-features)
@@ -37,6 +36,8 @@
   - [Summary](#summary-1)
 - [Dynamic imports](#dynamic-imports)
   - [The import() expression](#the-import-expression)
+
+
 
 # Modules, introduction
 
@@ -84,9 +85,11 @@ alert(sayHi); // function...
 sayHi('John'); // Hello, John!
 ```
 
-The `import` directive loads the module by path `./sayHi.js` relative to the current file, and assigns exported function `sayHi` to the corresponding variable.
+The `import` directive loads the module by path `./sayHi.js` relative to the current file, and assigns exported function `sayHi` to the corresponding variable (`{sayHi}`). (tor:köşeli parentez için karşılık gelen variable atar.)
 
-Let's run the example in-browser. [ex](https://tor-web-js-info.stackblitz.io/module1.html)
+Let's run the example in-browser. [Live Ex](https://codesandbox.io/s/tor-js-demo-9bzgfg?file=/module1.html)
+
+*Module Mode Script*
 
 As modules support special keywords and features, we must tell the browser that a script should be treated as a module, by using the attribute `<script type="module">`.
 
@@ -103,11 +106,11 @@ Like this:
 
 The browser automatically fetches and evaluates the imported module (and its imports if needed), and then runs the script.
 
-**Warn: Modules work only via HTTP(s), not locally**
+**Warn!!: Modules work only via HTTP(s), not locally**
 
-If you try to open a web-page locally, via `file://` protocol, 
-you'll find that `import/export` directives don't work. Use a local web-server, such as [static-server](https://www.npmjs.com/package/static-server#getting-started) or use the "live server" capability of your editor, such as VS Code [Live Server Extension](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) to test modules.
+If you try to open a web-page locally, via `file://` protocol, you'll find that `import/export` directives don't work. Use a local web-server, such as [static-server](https://www.npmjs.com/package/static-server#getting-started) or use the "live server" capability of your editor, such as VS Code [Live Server Extension](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) to test modules.
 
+---
 
 ## Core module features
 
@@ -115,7 +118,7 @@ What's different in modules, compared to "regular" scripts?
 
 There are core features, valid both for browser and server-side JavaScript.
 
-### Always "use strict"
+*Always "use strict"*
 
 Modules always work in strict mode. E.g. assigning to an undeclared variable will give an error.
 
@@ -125,9 +128,9 @@ Modules always work in strict mode. E.g. assigning to an undeclared variable wil
 </script>
 ```
 
-### Module-level scope
+*Module-level scope (no global variable)*
 
-Each module has its own top-level scope. In other words, top-level variables and functions from a module are not seen in other scripts (to:no global).
+Each module has its own top-level scope. In other words, top-level variables and functions from a module are not seen in other scripts (tor:no global).
 
 In the example below, two scripts are imported, and `hello.js` tries to use `user` variable declared in `user.js`. It fails, because it's a separate module (you'll see the error in the console):
 
@@ -150,9 +153,12 @@ alert(user); // no such variable (each module has independent variables)
 Modules should `export` what they want to be accessible from outside and `import` what they need.
 
 - `user.js` should export the `user` variable.
+
 - `hello.js` should import it from `user.js` module.
 
 In other words, with modules we use import/export instead of relying on global variables.
+
+*Import script as module mode*
 
 This is the correct variant:
 
@@ -187,22 +193,19 @@ Here are two scripts on the same page, both `type="module"`. They don't see each
 </script>
 ```
 
-**Info**
-
----
+*Info : window-level global*
 
 In the browser, we can make a variable window-level global by explicitly assigning it to a `window` property, e.g. `window.user = "John"`. 
 
 Then all scripts will see it, both with `type="module"` and without it. 
 
-That said, making such global variables is frowned upon. Please try to avoid them.
+That said, making such global variables is frowned upon. Please try to avoid them. (tor:frown upon hoşgörmemek,ayıplamak)
 
 ---
 
+- A module code is evaluated only the first time when imported
 
-### A module code is evaluated only the first time when imported
-
-If the same module is imported into multiple other modules, its code is executed only once, upon the first import. Then its exports are given to all further importers.
+If the same module is imported into multiple other modules, its code is *executed only once*, upon the first import. Then its exports are given to all further importers.
 
 The one-time evaluation has important consequences, that we should be aware of. 
 
@@ -239,7 +242,8 @@ export let admin = {
   name: "John"
 };
 ```
-*Important*
+
+*Important : what if same exported identifier (variable,reference etc) is used in multiple modules*
 
 If this module is imported from multiple files, the module is only evaluated the first time, `admin` object is created, and then passed to all further importers.
 
@@ -304,6 +308,8 @@ import {sayHi} from './admin.js';
 
 sayHi(); // Ready to serve, *!*Pete*/!*!
 ```
+
+--*LINK - TBC
 
 ### import.meta
 
@@ -1076,13 +1082,13 @@ export default function() {
 }
 ```
 
-**Note**
+*Note :*
 
 Dynamic imports work in regular scripts, they don't require `script type="module"`.
 
 ---
 
-**Note**
+*Note :*
 
 Although `import()` looks like a function call, it's a special syntax that just happens to use parentheses (similar to `super()`).
 
@@ -1090,4 +1096,4 @@ So we can't copy `import` to a variable or use `call/apply` with it. It's not a 
 
 ---
 
---end of chapter--
+--end--
