@@ -11,6 +11,9 @@
   - [NaN](#nan)
   - [Numerical Strings](#numerical-strings)
   - [Casting Strings and Floats to Integers](#casting-strings-and-floats-to-integers)
+- [PHP Math](#php-math)
+  - [Random Numbers](#random-numbers)
+- [PHP Constants](#php-constants)
 - [Date And Time](#date-and-time)
 - [Arrays](#arrays)
   - [Array Functions (1)](#array-functions-1)
@@ -312,8 +315,195 @@ echo $int_cast;
 
 ```
 
+# PHP Math
 
+PHP has a set of math functions that allows you to perform mathematical tasks on numbers.
 
+*PHP pi() Function*
+
+The pi() function returns the value of PI:
+
+Example
+
+```php
+<?php
+echo(pi()); // returns 3.1415926535898
+?>
+
+```
+
+*PHP min() and max() Functions*
+
+The min() and max() functions can be used to find the lowest or highest value in a list of arguments:
+
+Example
+
+```php
+<?php
+echo(min(0, 150, 30, 20, -8, -200));  // returns -200
+echo(max(0, 150, 30, 20, -8, -200));  // returns 150
+?>
+
+```
+
+*PHP abs() Function*
+
+The abs() function returns the absolute (positive) value of a number:
+
+Example
+
+```php
+<?php
+echo(abs(-6.7));  // returns 6.7
+?>
+
+```
+
+*PHP sqrt() Function*
+
+The sqrt() function returns the square root of a number:
+
+Example
+
+```php
+<?php
+echo(sqrt(64));  // returns 8
+?>
+
+```
+
+*PHP round() Function*
+
+The round() function rounds a floating-point number to its nearest integer:
+
+Example
+
+```php
+<?php
+echo(round(0.60));  // returns 1
+echo(round(0.49));  // returns 0
+?>
+
+```
+
+## Random Numbers
+
+The rand() function generates a random number:
+
+Example
+
+```php
+<?php
+echo(rand());
+?>
+
+```
+
+To get more control over the random number, you can add the optional min and max parameters to specify the lowest integer and the highest integer to be returned.
+
+For example, if you want a random integer between 10 and 100 (inclusive), use rand(10, 100):
+
+Example
+
+```php
+<?php
+echo(rand(10, 100));
+?>
+
+```
+
+# PHP Constants
+
+Constants are like variables except that once they are defined they cannot be changed or undefined.
+
+*PHP Constants*
+
+A constant is an identifier (name) for a simple value. The value cannot be changed during the script.
+
+A valid constant name starts with a letter or underscore (no $ sign before the constant name).
+
+Note: Unlike variables, constants are automatically global across the entire script.
+
+*Create a PHP Constant*
+
+To create a constant, use the define() function.
+
+Syntax
+
+```php
+define(name, value, case-insensitive)
+
+```
+
+Parameters:
+
+- name: Specifies the name of the constant
+- value: Specifies the value of the constant
+- case-insensitive: Specifies whether the constant name should be case-insensitive. Default is false
+
+Example
+
+Create a constant with a case-sensitive name:
+
+```php
+<?php
+define("GREETING", "Welcome to W3Schools.com!");
+echo GREETING;
+?>
+
+```
+
+Example
+
+Create a constant with a case-insensitive name:
+
+```php
+<?php
+define("GREETING", "Welcome to W3Schools.com!", true);
+echo greeting;
+?>
+
+```
+
+*PHP Constant Arrays*
+
+In PHP7, you can create an Array constant using the define() function.
+
+Example
+
+Create an Array constant:
+
+```php
+<?php
+define("cars", [
+  "Alfa Romeo",
+  "BMW",
+  "Toyota"
+]);
+echo cars[0];
+?>
+
+```
+
+*Constants are Global*
+
+Constants are automatically global and can be used across the entire script.
+
+Example
+
+This example uses a constant inside a function, even if it is defined outside the function:
+
+```php
+<?php
+define("GREETING", "Welcome to W3Schools.com!");
+
+function myTest() {
+  echo GREETING;
+}
+myTest();
+?>
+
+```
 
 # Date And Time
 
@@ -695,7 +885,3 @@ $arr2 = array_unique($arr);
 print_r($arr2);
 
 ```
-
-
-
-

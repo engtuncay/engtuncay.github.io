@@ -39,11 +39,11 @@ Content                                | Note
 ---------------------------------------|-----
 PHP Date and Time                      |
 [PHP Include](./php-adv-02-include.md) | 🆗
-PHP File Handling                      |
-PHP File Open/Read                     |
-PHP File Create/Write                  |
-PHP File Upload                        |
-PHP Cookies                            |
+File Handling                      |
+File Open/Read                     |
+File Create/Write                  |
+File Upload                        |
+Cookies                            |
 PHP Sessions                           |
 PHP Filters                            |
 PHP Filters Advanced                   |
@@ -68,6 +68,55 @@ Content                                              | Note
 [7 Composer](./php-07-Composer.md)                   |
 
 
-**Sources**
+PHP XML
 
-- W3School
+PHP XML Parsers
+PHP SimpleXML Parser
+PHP SimpleXML - Get
+PHP XML Expat
+PHP XML DOM
+
+PHP - AJAX
+
+AJAX Intro
+AJAX PHP
+AJAX Database
+AJAX XML
+AJAX Live Search
+AJAX Poll
+
+PHP Examples
+PHP Examples
+PHP Compiler
+PHP Quiz
+PHP Exercises
+PHP Certificate
+
+PHP Reference
+PHP Overview
+PHP Array
+PHP Calendar
+PHP Date
+PHP Directory
+PHP Error
+PHP Exception
+PHP Filesystem
+PHP Filter
+PHP FTP
+PHP JSON
+PHP Keywords
+PHP Libxml
+PHP Mail
+PHP Math
+PHP Misc
+PHP MySQLi
+PHP Network
+PHP Output Control
+PHP RegEx
+PHP SimpleXML
+PHP Stream
+PHP String
+PHP Variable Handling
+PHP XML Parser
+PHP Zip
+PHP Timezones

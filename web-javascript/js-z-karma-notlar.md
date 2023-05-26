@@ -722,11 +722,14 @@ Document Object Model
 
 - Document objesi , window objesinin bir propertisidir / alanıdır.
 
-        // ikis de aynı objesi gösterir
-        console.log ( window.document )
-        console.log ( this.document )
+```js
+// ikis de aynı objesi gösterir
+console.log ( window.document )
+console.log ( this.document )
+```
 
-- Örnek 2
+*Örnek 2*
+
 ```js
 let value;
 value= document;
