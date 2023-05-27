@@ -15,8 +15,8 @@ Content                                                                         
 5 Operators                                                                           |
 6 If/Else/Elseif - Switch - Loops                                                     |
 7 Functions                                                                           |
-8 Arrays                                                                              |
-[9 Superglobals](./php-w3-09-superglobals.md)|
+[8 Arrays](./php-w3-08-arrays.md)                                                     | 🆗
+[9 Superglobals](./php-w3-09-superglobals.md)                                         |
 10 RegEx                                                                              |
 
 
@@ -39,18 +39,19 @@ Content                                | Note
 ---------------------------------------|-----
 PHP Date and Time                      |
 [PHP Include](./php-adv-02-include.md) | 🆗
-File Handling                      |
-File Open/Read                     |
-File Create/Write                  |
-File Upload                        |
-Cookies                            |
+File Handling                          |
+File Open/Read                         |
+File Create/Write                      |
+File Upload                            |
+Cookies                                |
 PHP Sessions                           |
 PHP Filters                            |
 PHP Filters Advanced                   |
 PHP Callback Functions                 |
 PHP JSON                               |
 PHP Exceptions                         |
-[Php Mysql](./php-mysql-tutor.md)      |
+[Php Mysql-Pdo](./php-mysql-tutor-pdo.md)      |
+[Php Mysql-Mysqli-Pdo](./php-mysql-tutor.md)      |
 
 
 

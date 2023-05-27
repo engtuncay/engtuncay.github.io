@@ -1,0 +1,535 @@
+
+- [PHP Arrays](#php-arrays)
+- [PHP Array Functions](#php-array-functions)
+- [Array Examples](#array-examples)
+  - [Array Declaration](#array-declaration)
+  - [Array Functions (1)](#array-functions-1)
+  - [Array Functions (2)](#array-functions-2)
+
+Source : https://www.w3schools.com/php/php_arrays.asp
+
+# PHP Arrays
+
+An array stores multiple values in one single variable:
+
+Example
+
+```php
+<?php
+$cars = array("Volvo", "BMW", "Toyota");
+echo "I like " . $cars[0] . ", " . $cars[1] . " and " . $cars[2] . ".";
+?>
+
+```
+
+*What is an Array?*
+
+An array is a special variable, which can hold more than one value at a time.
+
+If you have a list of items (a list of car names, for example), storing the cars in single variables could look like this:
+
+```php
+$cars1 = "Volvo";
+$cars2 = "BMW";
+$cars3 = "Toyota";
+
+```
+
+However, what if you want to loop through the cars and find a specific one? And what if you had not 3 cars, but 300?
+
+The solution is to create an array!
+
+An array can hold many values under a single name, and you can access the values by referring to an index number.
+
+*Create an Array in PHP*
+
+In PHP, the array() function is used to create an array:
+
+```php
+array();
+
+```
+
+In PHP, there are three types of arrays:
+
+- Indexed arrays - Arrays with a numeric index
+- Associative arrays - Arrays with named keys
+- Multidimensional arrays - Arrays containing one or more arrays
+
+*Get The Length of an Array - The count() Function*
+
+The count() function is used to return the length (the number of elements) of an array:
+
+Example
+
+```php
+<?php
+$cars = array("Volvo", "BMW", "Toyota");
+echo count($cars);
+?>
+
+```
+
+# PHP Array Functions
+
+The array functions allow you to access and manipulate arrays.
+
+Simple and multi-dimensional arrays are supported.
+
+*PHP Array Functions*
+
+Function	| Description
+--|--|
+array()	| Creates an array
+array_change_key_case()	| Changes all keys in an array to lowercase or uppercase
+array_chunk()	| Splits an array into chunks of arrays
+array_column()| 	Returns the values from a single column in the input array
+array_combine()| 	Creates an array by using the elements from one "keys" array and one "values" array
+array_count_values()| 	Counts all the values of an array
+array_diff()| 	Compare arrays, and returns the differences (compare values only)
+array_diff_assoc()| 	Compare arrays, and returns the differences (compare keys and values)
+array_diff_key()	| Compare arrays, and returns the differences (compare keys only)
+array_diff_uassoc()| 	Compare arrays, and returns the differences (compare keys and values, using a user-defined key comparison function)
+array_diff_ukey()	| Compare arrays, and returns the differences (compare keys only, using a user-defined key comparison function)
+array_fill()	| Fills an array with values
+array_fill_keys()	|  Fills an array with values, specifying keys
+array_filter()	| Filters the values of an array using a callback function
+array_flip()	| Flips/Exchanges all keys with their associated values in an array
+array_intersect()| 	Compare arrays, and returns the matches (compare values only)
+array_intersect_assoc()| 	Compare arrays and returns the matches (compare keys and values)
+array_intersect_key()	| Compare arrays, and returns the matches (compare keys only)
+array_intersect_uassoc()	| Compare arrays, and returns the matches (compare keys and values, using a user-defined key comparison function)
+array_intersect_ukey()	| Compare arrays, and returns the matches (compare keys only, using a user-defined key comparison function)
+array_key_exists()	| Checks if the specified key exists in the array
+array_keys()	| Returns all the keys of an array
+array_map()	| Sends each value of an array to a user-made function, which returns new values
+array_merge()	| Merges one or more arrays into one array
+array_merge_recursive()| 	Merges one or more arrays into one array recursively
+array_multisort()	| Sorts multiple or multi-dimensional arrays
+array_pad()	| Inserts a specified number of items, with a specified value, to an array
+array_pop()	| Deletes the last element of an array
+array_product()| 	Calculates the product of the values in an array
+array_push()	| Inserts one or more elements to the end of an array
+array_rand()	| Returns one or more random keys from an array
+array_reduce()	| Returns an array as a string, using a user-defined function
+array_replace()	| Replaces the values of the first array with the values from following arrays
+array_replace_recursive()| 	Replaces the values of the first array with the values from following arrays recursively
+array_reverse()| 	Returns an array in the reverse order
+array_search()| 	Searches an array for a given value and returns the key
+array_shift()	| Removes the first element from an array, and returns the value of the removed element
+array_slice()	| Returns selected parts of an array
+array_splice()| 	Removes and replaces specified elements of an array
+array_sum()| 	Returns the sum of the values in an array
+array_udiff()	| Compare arrays, and returns the differences (compare values only, using a user-defined key comparison function)
+array_udiff_assoc()| 	Compare arrays, and returns the differences (compare keys and values, using a built-in function to compare the keys and a user-defined function to compare the values)
+array_udiff_uassoc()| 	Compare arrays, and returns the differences (compare keys and values, using two user-defined key comparison functions)
+array_uintersect()| 	Compare arrays, and returns the matches (compare values only, using a user-defined key comparison function)
+array_uintersect_assoc()| 	Compare arrays, and returns the matches (compare keys and values, using a built-in function to compare the keys and a user-defined function to compare the values)
+array_uintersect_uassoc()| 	Compare arrays, and returns the matches (compare keys and values, using two user-defined key comparison functions)
+array_unique()	| Removes duplicate values from an array
+array_unshift()	| Adds one or more elements to the beginning of an array
+array_values()	| Returns all the values of an array
+array_walk()	| Applies a user function to every member of an array
+array_walk_recursive()| 	Applies a user function recursively to every member of an array
+arsort()	| Sorts an associative array in descending order, according to the value
+asort()	| Sorts an associative array in ascending order, according to the value
+compact()| 	Create array containing variables and their values
+count()	| Returns the number of elements in an array
+current()| 	Returns the current element in an array
+each()	| Deprecated from PHP 7.2. Returns the current key and value pair from an array
+end()	| Sets the internal pointer of an array to its last element
+extract()	| Imports variables into the current symbol table from an array
+in_array()	| Checks if a specified value exists in an array
+key()	| Fetches a key from an array
+krsort()	| Sorts an associative array in descending order, according to the key
+ksort()	| Sorts an associative array in ascending order, according to the key
+list()	| Assigns variables as if they were an array
+natcasesort()	| Sorts an array using a case insensitive "natural order" algorithm
+natsort()	| Sorts an array using a "natural order" algorithm
+next()	| Advance the internal array pointer of an array
+pos()	| Alias of current()
+prev()	| Rewinds the internal array pointer
+range()	| Creates an array containing a range of elements
+reset()	| Sets the internal pointer of an array to its first element
+rsort()	| Sorts an indexed array in descending order
+shuffle()	| Shuffles an array
+sizeof()	| Alias of count()
+sort()	| Sorts an indexed array in ascending order
+uasort()	| Sorts an array by values using a user-defined comparison function and maintains the index association
+uksort()| 	Sorts an array by keys using a user-defined comparison function
+usort()	| Sorts an array by values using a user-defined comparison function
+
+
+# Array Examples
+
+## Array Declaration
+
+*Examples*
+
+```php
+
+// String array
+$bestFriends = array('Joy', 'Willow', 'Ivy');
+
+// Accessing an element of array
+echo 'My Wife ' . $bestFriends[0];
+
+// Assignment an index of array
+$bestFriends[4] = 'Steve';
+
+// Iterating over array
+foreach ($bestFriends as $friend) {
+    echo \$friend . ', ';
+}
+
+// Key-Value Array
+$customer = array('Name'=>$usersName, 'Street'=>$streetAddress, 'City'=>$cityAddress);
+
+// Iterating over key-value array
+foreach ($customer as $key => $value) {
+	echo $key . ' : ' . \$value . "</br>";
+}
+
+// Combining two arrays
+$bestFriends = $bestFriends + $customer;
+
+```
+
+## Array Functions (1)
+
+```php
+/*
+    print_r()
+    var_dump()
+    explode()
+    implode()
+    count()
+    is_array()
+    shuffle()
+    array_combine()
+    array_count_values()
+    array_flip()
+    array_key_exists()
+*/
+
+$arr = [
+    'ad' => 'ali',
+    'soyad' => 'veli',
+    'yas' => 24
+];
+
+print_r($arr);
+
+/* --Output--
+Array
+(
+    [ad] => ali
+    [soyad] => veli
+    [yas] => 24
+)
+
+*/
+
+var_dump($arr);
+
+/* --Output--
+array(3) {
+  ["ad"]=>
+  string(6) "ali"
+  ["soyad"]=>
+  string(7) "veli"
+  ["yas"]=>
+  int(24)
+}
+*/
+
+$test = 'ali,veli,udemy';
+$arr = explode(',', $test);
+
+print_r($arr);
+
+/*
+Array
+(
+    [0] => ali
+    [1] => veli
+    [2] => udemy
+)
+*/
+
+$string = implode('|', $arr);
+
+echo $string;
+echo "\n";
+echo count($arr);
+echo "\n";
+
+/*
+ali|veli|udemy
+3
+*/
+
+/*
+if (is_array($arr)){
+    echo 'bu bir dizidir';
+} else {
+    echo 'bu bir dizi değildir!';
+}
+*/
+
+$arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+shuffle($arr);
+
+print_r($arr);
+
+/*
+Array
+(
+    [0] => 5
+    [1] => 4
+    [2] => 1
+    [3] => 10
+    [4] => 9
+    [5] => 6
+    [6] => 3
+    [7] => 8
+    [8] => 2
+    [9] => 7
+)
+*/
+
+$keys = ['ad', 'soyad'];
+$values = ['ali', 'veli'];
+
+$arr = array_combine($keys, $values);
+print_r($arr);
+
+/*
+Array
+(
+    [ad] => ali
+    [soyad] => veli
+)
+*/
+
+$arr = ['ali', 'veli', 'udemy', 'ali', 'udemy'];
+$arr2 = array_count_values($arr);
+
+print_r($arr2);
+
+/*
+Array
+(
+    [ali] => 2
+    [veli] => 1
+    [udemy] => 2
+)
+*/
+
+$arr = [
+    'ad' => 'ali',
+    'soyad' => 'veli',
+    'yas' => 24
+];
+$arr2 = array_flip($arr);
+
+print_r($arr2);
+
+/*
+Array
+(
+    [ali] => ad
+    [veli] => soyad
+    [24] => yas
+)
+*/
+
+$arr = [
+    'ad' => 'ali',
+    'a' => [
+        'b' => [
+            'c' => [
+                'd' => 'e',
+                'e' => 'f'
+            ]
+        ]
+    ]
+];
+
+
+if (array_key_exists('ad', $arr)){
+    echo 'ad anahtarı var!';
+} else {
+    echo 'ad anahtarı yok!';
+}
+
+function _array_key_exists($cur_key, $arr)
+{
+    foreach ($arr as $key => $val) {
+        if ($key == $cur_key) {
+            return true;
+        }
+        if (is_array($val)) {
+            return _array_key_exists($cur_key, $val);
+        }
+    }
+    return false;
+}
+
+/*
+ad anahtarı var!
+*/
+
+if (_array_key_exists('e', $arr)) {
+    echo 'c anahtarı var!';
+} else {
+    echo 'c anahtarı yok!';
+}
+
+/*
+c anahtarı var!
+*/
+
+
+```
+
+
+## Array Functions (2)
+
+```php
+
+<?php
+
+/*
+    array_map()
+    array_filter()
+    array_merge()
+    array_rand()
+    array_reverse()
+    array_search()
+    in_array()
+    array_shift()
+    array_pop()
+    array_slice()
+    array_sum()
+    array_product()
+    array_unique()
+*/
+
+function filtrele($val){
+    return $val . ' -';
+}
+
+$arr = [1,2,3,4,5];
+$arr2 = array_map('filtrele', $arr);
+$arr2 = array_map(function($val){
+    return $val . ' -';
+}, $arr);
+//print_r($arr2);
+
+$arr = [1,2,3,4,5];
+$arr2 = array_filter($arr, function($item){
+    return $item > 2 && $item < 5;
+});
+$arr2 = array_map(function($val){
+    if ($val > 2 && $val < 5){
+        return $val;
+    }
+}, $arr);
+//print_r($arr2);
+
+$arr1 = [1,2,3];
+$arr2 = [4,5,6];
+
+$arr = array_merge($arr1, $arr2);
+//print_r($arr);
+
+$arr = [
+    'ad' => 'ali',
+    'soyad' => 'veli',
+    'yas' => 24,
+    'site' => 'veli.net'
+];
+$random = array_rand($arr, 2);
+$values = array_map(function($key) use($arr){
+    return $arr[$key];
+}, $random);
+
+//print_r($values);
+
+$arr = [1,2,3,4,5];
+//print_r($arr);
+$arr = array_reverse($arr);
+//print_r($arr);
+
+$arr = [
+    'ad' => 'ali',
+    'soyad' => 'veli',
+    'a' => [
+        'b' => [
+            'c' => 'd'
+        ]
+    ]
+];
+
+$test = array_search('d', $arr);
+
+function _array_search($cur_val, $arr)
+{
+    foreach ($arr as $key => $val){
+        if ($val == $cur_val){
+            return true;
+        }
+        if (is_array($val)){
+            return _array_search($cur_val, $val);
+        }
+    }
+    return false;
+}
+
+$test = _array_search('d', $arr);
+//echo $test;
+
+$arr = [1,2,3,4];
+
+/*
+if (in_array('6', $arr))
+{
+    echo '6 değeri var';
+} else {
+    echo 'yok';
+}
+*/
+
+$arr = [1,2,3,4,5];
+//$ilk_eleman = array_shift($arr);
+$son_eleman = array_pop($arr);
+//print_r($arr);
+//echo $son_eleman;
+//echo $ilk_eleman;
+
+$arr = [1,2,3,4,5];
+
+// ilk 2 eleman hariç hepsi
+$arr2 = array_slice($arr, 2);
+//print_r($arr2);
+
+$arr3 = array_slice($arr, 2, 2);
+//print_r($arr3);
+
+$arr4 = array_slice($arr, -2);
+//print_r($arr4);
+
+$arr = [1,2,3,4,5];
+$toplam = array_sum($arr);
+//echo $toplam;
+
+$carpim = array_product($arr);
+//echo $carpim;
+
+$arr = ['ali','veli','ali','veli','udemy'];
+print_r($arr);
+$arr2 = array_unique($arr);
+print_r($arr2);
+
+```
