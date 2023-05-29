@@ -1,4 +1,8 @@
 
+<h2>Php PDO - Mysql Tutorial</h2>
+
+Source : 
+
 - [PHP MySQL Database](#php-mysql-database)
 - [PHP Connect to MySQL](#php-connect-to-mysql)
   - [Open a Connection to MySQL](#open-a-connection-to-mysql)
@@ -16,6 +20,7 @@
 - [PHP MySQL Delete Data](#php-mysql-delete-data)
 - [PHP MySQL Update Data](#php-mysql-update-data)
 - [PHP MySQL Limit Data Selections](#php-mysql-limit-data-selections)
+
 
 
 # PHP MySQL Database
@@ -57,7 +62,9 @@ We can query a database for specific information and have a recordset returned.
 
 Look at the following query (using standard SQL):
 
+```sql
 SELECT LastName FROM Employees
+```
 
 The query above selects all the data in the "LastName" column from the "Employees" table.
 
@@ -119,7 +126,31 @@ For installation details, go to: http://php.net/manual/en/pdo.installation.php
 
 Before we can access data in the MySQL database, we need to be able to connect to the server:
 
-Example (MySQLi Object-Oriented)
+Example (PDO)
+
+```php
+<?php
+$servername = "localhost";
+$username = "username";
+$password = "password";
+
+try {
+  $conn = new PDO("mysql:host=$servername;dbname=myDB", $username, $password);
+  // set the PDO error mode to exception
+  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  echo "Connected successfully";
+} catch(PDOException $e) {
+  echo "Connection failed: " . $e->getMessage();
+}
+?>
+
+```
+
+Note: In the PDO example above we have also specified a database (myDB). PDO require a valid database to connect to. If no database is specified, an exception is thrown.
+
+*Tip:* A great benefit of PDO is that it has an exception class to handle any problems that may occur in our database queries. If an exception is thrown within the try{ } block, the script stops executing and flows directly to the first catch(){ } block.
+
+*Example (MySQLi Object-Oriented)*
 
 ```php
 <?php
@@ -171,57 +202,30 @@ echo "Connected successfully";
 
 ```
 
-Example (PDO)
-
-```php
-<?php
-$servername = "localhost";
-$username = "username";
-$password = "password";
-
-try {
-  $conn = new PDO("mysql:host=$servername;dbname=myDB", $username, $password);
-  // set the PDO error mode to exception
-  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  echo "Connected successfully";
-} catch(PDOException $e) {
-  echo "Connection failed: " . $e->getMessage();
-}
-?>
-
-```
-
-Note: In the PDO example above we have also specified a database (myDB). PDO require a valid database to connect to. If no database is specified, an exception is thrown.
-
-*Tip:* A great benefit of PDO is that it has an exception class to handle any problems that may occur in our database queries. If an exception is thrown within the try{ } block, the script stops executing and flows directly to the first catch(){ } block.
-
 ## Close the Connection
 
 The connection will be closed automatically when the script ends. To close the connection before, use the following:
 
 ```php
+
+//PDO:
+$conn = null;
+
 //MySQLi Object-Oriented:
 $conn->close();
 
 //MySQLi Procedural:
 mysqli_close($conn);
 
-//PDO:
-$conn = null;
-
 ```
 
 # PHP Create a MySQL Database
 
-A database consists of one or more tables.
+A database consists of one or more tables. You will need special CREATE privileges to create or to delete a MySQL database.
 
-You will need special CREATE privileges to create or to delete a MySQL database.
-
-*Create a MySQL Database Using MySQLi and PDO*
+*Create a MySQL Database Using PDO*
 
 The CREATE DATABASE statement is used to create a database in MySQL.
-
-The following examples create a database named "myDB":
 
 *Example (PDO)*
 
@@ -261,7 +265,7 @@ Tip: A great benefit of PDO is that it has *exception class* to handle any probl
 $servername = "localhost";
 $username = "root";
 $password = "password";
-$dbName = "myDB";
+$dbName = "myDBPDO";
 ?>
 ```
 
@@ -511,7 +515,7 @@ Compared to executing SQL statements directly, prepared statements have three ma
 
 - Prepared statements reduce parsing time as the preparation on the query is done only once (although the statement is executed multiple times)
 - Bound parameters minimize bandwidth to the server as you need send only the parameters each time, and not the whole query
-- Prepared statements are very useful against SQL injections, because parameter values, which are transmitted later using a different protocol, need not be correctly escaped. If the original statement template is not derived from external input, SQL injection cannot occur.
+- Prepared statements are very useful *against SQL injections*, because parameter values, which are transmitted later using a different protocol, need not be *correctly escaped*. If the original statement template is not derived from external input, SQL injection cannot occur.
 
 *Prepared Statements in PDO*
 

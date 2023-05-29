@@ -1,10 +1,10 @@
 
 - [PHP Arrays](#php-arrays)
-- [PHP equivalent for Java's Map and List?](#php-equivalent-for-javas-map-and-list)
 - [Array Examples](#array-examples)
-  - [Array Declaration](#array-declaration)
-  - [Array Functions (1)](#array-functions-1)
-  - [Array Functions (2)](#array-functions-2)
+  - [Array Examples (1) (Declaration)](#array-examples-1-declaration)
+  - [Array Examples (2)](#array-examples-2)
+  - [Array Examples (3)](#array-examples-3)
+- [PHP equivalent for Java's Map and List?](#php-equivalent-for-javas-map-and-list)
 - [PHP Array Functions](#php-array-functions)
 
 Source : https://www.w3schools.com/php/php_arrays.asp
@@ -73,67 +73,9 @@ echo count($cars);
 
 ```
 
-# PHP equivalent for Java's Map and List?
-
-Source : https://stackoverflow.com/questions/10597996/searching-for-php-equivalent-for-javas-map-and-list
-
-What's about in PHP for these cases ?
-
-```java
-// In Java case 1:
-
-Map m1 = new LinkedHashMap();
-List l1 = new LinkedList();
-m1.put("key1","val1");
-m1.put("key2","val2");
-l1.add(m1);
-
-// In java case 2
-
-List l1 = new LinkedList();
-l1.add("val1");
-l1.add("val2");
-l1.add("val3");
-
-```
-
-*Answer*
-
-In PHP, arrays serve as all types of containers. They can be used as maps, lists and sets.
-
-Linked list functionality is provided through the *reset/prev/current/next/end* functions; have a look at the "see also" section of the docs to make sure you don't miss any of them.
-
-For map functionality you just index into the array directly; but keep in mind that array keys in PHP can only be strings or integers, and also that most of the time mixing both in the same array is not the right thing to do (although there is no technical reason not to, and there are cases where it makes sense).
-
-Normally you would use arrays for both cases:
-
-```php
-
-// In PHP case 1:
-
-$m1 = array();
-$l1 = array();
-$m1['key1'] = 'val1';
-$m1['key2'] = 'val2';
-$l1[] = $m1;
-
-// In PHP case 2
-
-$l1 = array();
-$l1[] = "val1";
-$l1[] = "val2";
-$l1[] = "val3";
-
-```
-
-Then, to go through elements of the list, you can use foreach or reset/prev/current/next/end set of functions.
-
-If using PHP5, you can also look at SPL data structures. (http://us3.php.net/manual/en/spl.datastructures.php)
-
-
 # Array Examples
 
-## Array Declaration
+## Array Examples (1) (Declaration)
 
 *Examples*
 
@@ -166,23 +108,27 @@ $bestFriends = $bestFriends + $customer;
 
 ```
 
-## Array Functions (1)
+## Array Examples (2)
 
 ```php
+<?php
+// Array Examples 2
+
 /*
-    print_r()
-    var_dump()
-    explode()
-    implode()
-    count()
-    is_array()
-    shuffle()
-    array_combine()
-    array_count_values()
-    array_flip()
-    array_key_exists()
+print_r()
+var_dump()
+explode()
+implode()
+count()
+is_array()
+shuffle()
+array_combine()
+array_count_values()
+array_flip()
+array_key_exists()
 */
 
+// Associative Array
 $arr = [
     'ad' => 'ali',
     'soyad' => 'veli',
@@ -191,50 +137,54 @@ $arr = [
 
 print_r($arr);
 
-/* --Output--
-Array
-(
-    [ad] => ali
-    [soyad] => veli
-    [yas] => 24
-)
+// --Output--
+// Array ( [ad] => ali [soyad] => veli [yas] => 24 )
 
-*/
+echo "<br/><br/>var_dump(\$arr)<br/>";
 
 var_dump($arr);
 
 /* --Output--
 array(3) {
-  ["ad"]=>
-  string(6) "ali"
-  ["soyad"]=>
-  string(7) "veli"
-  ["yas"]=>
-  int(24)
+["ad"]=>
+string(6) "ali"
+["soyad"]=>
+string(7) "veli"
+["yas"]=>
+int(24)
 }
 */
+
+echo "<br/><br/>Assoc Array'e element ekleme<br/>";
+
+$arr += ['cinsiyet' => 'erken'];
+print_r($arr);
+
+// Alernative Way
+// $data += array($category => $question);
+
+// Alt.Way (array_push ile assoc eleman ekleme)
+// array_push($data, array($category => $question));
+// Normal eleman ekleme (indeksli array için)
+// array_push($data,$question);
+
+//echo "<br/><br/> <br/>";
+
+echo "<br/><br/>Explode Örnek<br/>";
 
 $test = 'ali,veli,udemy';
 $arr = explode(',', $test);
 
 print_r($arr);
 
-/*
-Array
-(
-    [0] => ali
-    [1] => veli
-    [2] => udemy
-)
-*/
+// Array ( [0] => ali [1] => veli [2] => udemy )
 
 $string = implode('|', $arr);
 
-echo $string;
-echo "\n";
-echo count($arr);
-echo "\n";
+echo $string ."<br/>";
+echo count($arr) . "<br/>";
 
+// --Output--
 /*
 ali|veli|udemy
 3
@@ -242,9 +192,9 @@ ali|veli|udemy
 
 /*
 if (is_array($arr)){
-    echo 'bu bir dizidir';
+echo 'bu bir dizidir';
 } else {
-    echo 'bu bir dizi değildir!';
+echo 'bu bir dizi değildir!';
 }
 */
 
@@ -256,16 +206,16 @@ print_r($arr);
 /*
 Array
 (
-    [0] => 5
-    [1] => 4
-    [2] => 1
-    [3] => 10
-    [4] => 9
-    [5] => 6
-    [6] => 3
-    [7] => 8
-    [8] => 2
-    [9] => 7
+[0] => 5
+[1] => 4
+[2] => 1
+[3] => 10
+[4] => 9
+[5] => 6
+[6] => 3
+[7] => 8
+[8] => 2
+[9] => 7
 )
 */
 
@@ -278,8 +228,8 @@ print_r($arr);
 /*
 Array
 (
-    [ad] => ali
-    [soyad] => veli
+[ad] => ali
+[soyad] => veli
 )
 */
 
@@ -291,9 +241,9 @@ print_r($arr2);
 /*
 Array
 (
-    [ali] => 2
-    [veli] => 1
-    [udemy] => 2
+[ali] => 2
+[veli] => 1
+[udemy] => 2
 )
 */
 
@@ -309,9 +259,9 @@ print_r($arr2);
 /*
 Array
 (
-    [ali] => ad
-    [veli] => soyad
-    [24] => yas
+[ali] => ad
+[veli] => soyad
+[24] => yas
 )
 */
 
@@ -328,7 +278,7 @@ $arr = [
 ];
 
 
-if (array_key_exists('ad', $arr)){
+if (array_key_exists('ad', $arr)) {
     echo 'ad anahtarı var!';
 } else {
     echo 'ad anahtarı yok!';
@@ -364,8 +314,7 @@ c anahtarı var!
 
 ```
 
-
-## Array Functions (2)
+## Array Examples (3)
 
 ```php
 
@@ -387,17 +336,21 @@ c anahtarı var!
     array_unique()
 */
 
+// 
 function filtrele($val){
     return $val . ' -';
 }
 
 $arr = [1,2,3,4,5];
 $arr2 = array_map('filtrele', $arr);
+
+// Ex2
 $arr2 = array_map(function($val){
     return $val . ' -';
 }, $arr);
 //print_r($arr2);
 
+// array_filter
 $arr = [1,2,3,4,5];
 $arr2 = array_filter($arr, function($item){
     return $item > 2 && $item < 5;
@@ -504,6 +457,65 @@ $arr2 = array_unique($arr);
 print_r($arr2);
 
 ```
+
+# PHP equivalent for Java's Map and List?
+
+Source : https://stackoverflow.com/questions/10597996/searching-for-php-equivalent-for-javas-map-and-list
+
+What's about in PHP for these cases ?
+
+```java
+// In Java case 1:
+
+Map m1 = new LinkedHashMap();
+List l1 = new LinkedList();
+m1.put("key1","val1");
+m1.put("key2","val2");
+l1.add(m1);
+
+// In java case 2
+
+List l1 = new LinkedList();
+l1.add("val1");
+l1.add("val2");
+l1.add("val3");
+
+```
+
+*Answer*
+
+In PHP, arrays serve as all types of containers. They can be used as maps, lists and sets.
+
+Linked list functionality is provided through the *reset/prev/current/next/end* functions; have a look at the "see also" section of the docs to make sure you don't miss any of them.
+
+For map functionality you just index into the array directly; but keep in mind that array keys in PHP can only be strings or integers, and also that most of the time mixing both in the same array is not the right thing to do (although there is no technical reason not to, and there are cases where it makes sense).
+
+Normally you would use arrays for both cases:
+
+```php
+
+// In PHP case 1:
+
+$m1 = array();
+$l1 = array();
+$m1['key1'] = 'val1';
+$m1['key2'] = 'val2';
+$l1[] = $m1;
+
+// In PHP case 2
+
+$l1 = array();
+$l1[] = "val1";
+$l1[] = "val2";
+$l1[] = "val3";
+
+```
+
+Then, to go through elements of the list, you can use foreach or reset/prev/current/next/end set of functions.
+
+If using PHP5, you can also look at SPL data structures. (http://us3.php.net/manual/en/spl.datastructures.php)
+
+
 
 # PHP Array Functions
 

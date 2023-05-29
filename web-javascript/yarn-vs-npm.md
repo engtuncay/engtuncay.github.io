@@ -8,6 +8,8 @@ source: https://yarnpkg.com/en/docs/migrating-from-npm
 
 # npm vs Yarn Command Translation Cheat Sheet
 
+- yarn uses double dash (--dev) for command special arguments
+
 | npm                                       | yarn                            | npm short        |
 |-------------------------------------------|---------------------------------|------------------|
 | `npm --v`                                 | `yarn --version`                |                  |
