@@ -79,12 +79,14 @@ You can chain modifiers together, e.g. on:click|once|capture={...}.
 
 ## d. Component events (Event Dispatcher)
 
-Components can also dispatch events. To do so, they must create an event dispatcher. Update Inner.svelte:
+Components can also dispatch events. To do so, they must create an event dispatcher. Update Inner.svelte: (tor:dispatch:gönder-,sevket-)
 
+*inner.svelte*
 ```html
 <script>
 	import { createEventDispatcher } from 'svelte';
 
+  // createEventDispatcher() must be called to get dispatch object
 	const dispatch = createEventDispatcher();
 
 	function sayHello() {
@@ -95,18 +97,37 @@ Components can also dispatch events. To do so, they must create an event dispatc
 </script>
 
 ```
+*app.svelte*
+```html
+<script>
+	import Inner from './Inner.svelte';
 
-createEventDispatcher must be called when the component is first instantiated — you can't do it later inside e.g. a setTimeout callback. This links dispatch to the component instance.
+	function handleMessage(event) {
+		alert(event.detail.text);
+	}
+</script>
 
-Notice that the App component is listening to the messages dispatched by Inner component thanks to the on:message directive. This directive is an attribute prefixed with on: followed by the event name that we are dispatching (in this case, message).
+<Inner on:message={handleMessage}/>
+```
+---
 
-Without this attribute, messages would still be dispatched, but the App would not react to it. You can try removing the on:message attribute and pressing the button again.
+*Note :* createEventDispatcher must be called when the component is first instantiated — you can't do it later inside e.g. a setTimeout callback. This links dispatch to the component instance.
 
-You can also try changing the event name to something else. For instance, change dispatch('message') to dispatch('myevent') in Inner.svelte and change the attribute name from on:message to on:myevent in the App.svelte component.
+---
+
+Notice that the App component is listening to the messages dispatched by *Inner component* thanks to the on:message directive. This directive is an attribute *prefixed* with "on:" followed by the event name that we are dispatching (in this case, message).
+
+Without this attribute, messages would still be dispatched, but the App would not react to it. You can try removing the "on:message" attribute and pressing the button again.
+
+---
+
+*Try :* You can also try changing the event name to something else. For instance, change dispatch('message') to dispatch('myevent') in inner.svelte component and change the attribute name from on:message to on:myevent in the App.svelte component.
+
+---
 
 ## e. Event forwarding
 
-Unlike DOM events, component events don't bubble. If you want to listen to an event on some deeply nested component, the intermediate components must forward the event.
+Unlike DOM events, component events don't bubble. If you want to listen to an event on some deeply nested component, the intermediate components must forward the event. (tor:bubble:köpür-,fokurda-)
 
 In this case, we have the same App.svelte and Inner.svelte as in the previous chapter, but there's now an Outer.svelte component that contains `<Inner/>`.
 
@@ -143,7 +164,7 @@ But that's a lot of code to write, so Svelte gives us an equivalent shorthand �
 
 Event forwarding works for DOM events too.
 
-We want to get notified of clicks on our <CustomButton> — to do that, we just need to forward click events on the <button> element in CustomButton.svelte:
+We want to get notified of clicks on our `<CustomButton> `— to do that, we just need to forward click events on the `<button>` element in CustomButton.svelte:
 
 ```html
 <button on:click>
@@ -255,7 +276,7 @@ We can also use bind:value with `<select>` elements. Update line 20:
 
 ```
 
-Note that the <option> values are objects rather than strings. Svelte doesn't mind.
+Note that the `<option>` values are objects rather than strings. Svelte doesn't mind.
 
 Because we haven't set an initial value of selected, the binding will set it to the default value (the first in the list) automatically. Be careful though — until the binding is initialised, selected remains undefined, so we can't blindly reference e.g. selected.id in the template. If your use case allows it, you could also set an initial value to bypass this problem.
 

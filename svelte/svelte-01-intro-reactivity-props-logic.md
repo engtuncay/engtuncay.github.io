@@ -8,7 +8,7 @@ https://svelte.dev/tutorial/basics
   - [b. Adding Data](#b-adding-data)
   - [c. Dynamic Attributes](#c-dynamic-attributes)
   - [d Styling](#d-styling)
-  - [e Nested Components](#e-nested-components)
+  - [e Nested Components (parent - child components )](#e-nested-components-parent---child-components-)
   - [f. Making an app](#f-making-an-app)
 - [2 Reactivity](#2-reactivity)
   - [a. Assignments](#a-assignments)
@@ -134,18 +134,19 @@ Just like in HTML, you can add a `<style>` tag to your component. Let's add some
 ```
 Importantly, these rules are *scoped to the component*. You won't accidentally change the style of `<p>` elements elsewhere in your app, as we'll see in the next step.
 
-## e Nested Components
+## e Nested Components (parent - child components )
 
 It would be impractical to put your entire app in a single component. Instead, we can import components from other files and then use them as though we were including elements.
 
-We now present you 2 files in the editor on the right (upper bar) to click on, App.svelte and Nested.svelte.
+We now present you 2 files: App.svelte and Nested.svelte.
 
-Each .svelte file holds a component that is a reusable self-contained block of code that encapsulates HTML, CSS, and JavaScript that belong together.
+Each .svelte file holds a component that is a *reusable self-contained block of code* that encapsulates HTML, CSS, and JavaScript that belong together.
 
 Let's add a `<script>` tag to App.svelte that imports the file (our component) Nested.svelte into our app...
 
 ```html
 <script>
+  // importing component
 	import Nested from './Nested.svelte';
 </script>
 
@@ -155,11 +156,12 @@ Let's add a `<script>` tag to App.svelte that imports the file (our component) N
 
 ```html
 <p>This is a paragraph.</p>
+<!-- using component in the template -->
 <Nested/>
 
 ```
 
-Notice that even though Nested.svelte has a `<p>` element, the styles from App.svelte don't leak in.
+Notice that even though Nested.svelte has a `<p>` element, the styles from App.svelte don't leak in. (tor:leak in=sız-)
 
 Also notice that the component name Nested is capitalised. This convention has been adopted to allow us to differentiate between user-defined components and regular HTML tags.
 
