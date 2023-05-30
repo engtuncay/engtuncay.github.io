@@ -1,7 +1,5 @@
 # Javascript Tutorial
 
-This tutorial is prepared from web resource and some additions from me.
-
 Sources
 
 - http://www.javascript.info
@@ -23,6 +21,10 @@ CONTENT |Note|
 [5-2 Advanced Data Types-2](./js-intro-05-02-advanced-data-types-2.md)
 [9 Classes](./js-intro-09-1-Classes.md)
 [13 Modules](./js-intro-13-1-Modules.md)
+
+[Javascript W3 Tutorial](./w3/readme.md)
+
+# Node Tutorial
 
 CONTENT |
 --- |
