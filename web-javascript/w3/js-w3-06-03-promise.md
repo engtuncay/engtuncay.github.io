@@ -11,9 +11,11 @@ Source : https://www.w3schools.com/js/js_promise.asp
 
 "Consuming code" is code that must wait for the result
 
+A Promise is a JavaScript object that links producing code and consuming code
+
 ---
 
-A Promise is a JavaScript object that links producing code and consuming code
+
 
 *JavaScript Promise Object*
 
