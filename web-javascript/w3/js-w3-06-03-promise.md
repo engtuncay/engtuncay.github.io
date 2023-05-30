@@ -1,6 +1,7 @@
 
-
 # JavaScript Promises
+
+Source : https://www.w3schools.com/js/js_promise.asp
 
 "I Promise a Result!"
 
@@ -56,26 +57,35 @@ When a Promise object is "fulfilled", the result is a value.
 
 When a Promise object is "rejected", the result is an error object.
 
-myPromise.state	myPromise.result
-"pending"	undefined
-"fulfilled"	a result value
-"rejected"	an error object
-You cannot access the Promise properties state and result.
+myPromise.state | myPromise.result
+----------------|-----------------
+"pending"       | undefined
+"fulfilled"     | a result value
+"rejected"      | an error object
+
+Info: You cannot access the Promise properties state and result.
 
 You must use a Promise method to handle promises.
 
-Promise How To
+*Promise How To*
+
 Here is how to use a Promise:
 
+```js
 myPromise.then(
   function(value) { /* code if successful */ },
   function(error) { /* code if some error */ }
 );
+
+```
+
 Promise.then() takes two arguments, a callback for success and another for failure.
 
 Both are optional, so you can add a callback for success or failure only.
 
 Example
+
+```js
 function myDisplayer(some) {
   document.getElementById("demo").innerHTML = some;
 }
@@ -83,7 +93,7 @@ function myDisplayer(some) {
 let myPromise = new Promise(function(myResolve, myReject) {
   let x = 0;
 
-// The producing code (this may take some time)
+  // The producing code (this may take some time)
 
   if (x == 0) {
     myResolve("OK");
@@ -97,20 +107,31 @@ myPromise.then(
   function(error) {myDisplayer(error);}
 );
 
-JavaScript Promise Examples
+```
+
+*JavaScript Promise Examples*
+
 To demonstrate the use of promises, we will use the callback examples from the previous chapter:
 
-Waiting for a Timeout
-Waiting for a File
-Waiting for a Timeout
-Example Using Callback
+- Waiting for a Timeout
+- Waiting for a File
+
+*Waiting for a Timeout*
+
+**Example Using Callback
+
+```js
 setTimeout(function() { myFunction("I love You !!!"); }, 3000);
 
 function myFunction(value) {
   document.getElementById("demo").innerHTML = value;
 }
 
-Example Using Promise
+```
+
+**Example Using Promise
+
+```js
 let myPromise = new Promise(function(myResolve, myReject) {
   setTimeout(function() { myResolve("I love You !!"); }, 3000);
 });
@@ -119,8 +140,13 @@ myPromise.then(function(value) {
   document.getElementById("demo").innerHTML = value;
 });
 
-Waiting for a file
-Example using Callback
+```
+
+*Waiting for a file*
+
+**Example using Callback
+
+```js
 function getFile(myCallback) {
   let req = new XMLHttpRequest();
   req.open('GET', "mycar.html");
@@ -136,7 +162,11 @@ function getFile(myCallback) {
 
 getFile(myDisplayer);
 
-Example using Promise
+```
+
+**Example using Promise
+
+```js
 let myPromise = new Promise(function(myResolve, myReject) {
   let req = new XMLHttpRequest();
   req.open('GET', "mycar.htm");
@@ -154,3 +184,5 @@ myPromise.then(
   function(value) {myDisplayer(value);},
   function(error) {myDisplayer(error);}
 );
+
+```
