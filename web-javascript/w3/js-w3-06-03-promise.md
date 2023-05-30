@@ -3,11 +3,15 @@
 
 Source : https://www.w3schools.com/js/js_promise.asp
 
+---
+
 "I Promise a Result!"
 
 "Producing code" is code that can take some time
 
 "Consuming code" is code that must wait for the result
+
+---
 
 A Promise is a JavaScript object that links producing code and consuming code
 
@@ -186,3 +190,22 @@ myPromise.then(
 );
 
 ```
+
+# Recommended Articles
+
+- Usage of Promise.resolve()
+
+https://stackoverflow.com/questions/26711243/promise-resolve-vs-new-promiseresolve
+
+
+- Promise Concept
+
+https://medium.com/frontend-development-with-js/promise-4-promise-kavram%C4%B1-3aa01c4d4807
+
+- Why and When to use Promise.resolve()
+
+https://stackoverflow.com/questions/54723849/why-and-when-to-use-promise-resolve
+
+- How to Determine to promisefy a function 
+
+https://stackoverflow.com/questions/45683984/javascript-how-to-determine-whether-to-promisefy-a-function
