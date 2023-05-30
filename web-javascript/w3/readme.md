@@ -1,7 +1,7 @@
 
 <h1>W3 Javascript Content</h1>
 
-- [JS Tutorial (1)](#js-tutorial-1)
+- [JS Core (1)](#js-core-1)
 - [JS Versions (2)](#js-versions-2)
 - [JS Objects (3)](#js-objects-3)
 - [JS Functions (4)](#js-functions-4)
@@ -18,7 +18,7 @@
 - [JS References (15)](#js-references-15)
 
 
-# JS Tutorial (1)
+# JS Core (1)
 
 |Topic
 |---
