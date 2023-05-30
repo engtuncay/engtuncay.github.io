@@ -1,9 +1,27 @@
 
 <h1>W3 Javascript Content</h1>
 
+- [JS Tutorial (1)](#js-tutorial-1)
+- [JS Versions (2)](#js-versions-2)
+- [JS Objects (3)](#js-objects-3)
+- [JS Functions (4)](#js-functions-4)
+- [JS Classes (5)](#js-classes-5)
+- [JS Async (6)](#js-async-6)
+- [JS HTML DOM (7)](#js-html-dom-7)
+- [JS Browser BOM (8)](#js-browser-bom-8)
+- [JS Web APIs (9)](#js-web-apis-9)
+- [JS AJAX (10)](#js-ajax-10)
+- [JS JSON (11)](#js-json-11)
+- [JS vs jQuery (12)](#js-vs-jquery-12)
+- [JS Graphics (13)](#js-graphics-13)
+- [JS Examples (14)](#js-examples-14)
+- [JS References (15)](#js-references-15)
+
+
+# JS Tutorial (1)
+
 |Topic
 |---
-JS Tutorial
 JS HOME
 JS Introduction
 JS Where To
@@ -72,7 +90,11 @@ JS Best Practices
 JS Mistakes
 JS Performance
 JS Reserved Words
---JS Versions
+
+# JS Versions (2)
+
+|Topic
+|---
 JS Versions
 JS 2009 (ES5)
 JS 2015 (ES6)
@@ -84,7 +106,11 @@ JS 2020
 JS 2021/2022
 JS IE / Edge
 JS History
---JS Objects
+
+# JS Objects (3)
+
+|Topic
+|---
 Object Definitions
 Object Properties
 Object Methods
@@ -96,7 +122,11 @@ Object Iterables
 Object Sets
 Object Maps
 Object Reference
---JS Functions
+
+# JS Functions (4)
+
+|Topic
+|---
 Function Definitions
 Function Parameters
 Function Invocation
@@ -104,16 +134,28 @@ Function Call
 Function Apply
 Function Bind
 Function Closures
---JS Classes
+
+# JS Classes (5)
+
+|Topic
+|---
 Class Intro
 Class Inheritance
 Class Static
---JS Async
+
+# JS Async (6)
+
+|Topic |Note
+|---  | --
 JS Callbacks
 JS Asynchronous
-JS Promises
-JS Async/Await
---JS HTML DOM
+[JS Promises](./js-w3-06-03-promise.md)
+[JS Async/Await](./js-w3-06-04-async-await.md) | 🆗
+
+# JS HTML DOM (7)
+
+|Topic
+|---
 DOM Intro
 DOM Methods
 DOM Document
@@ -128,7 +170,11 @@ DOM Navigation
 DOM Nodes
 DOM Collections
 DOM Node Lists
---JS Browser BOM
+
+# JS Browser BOM (8)
+
+|Topic
+|---
 JS Window
 JS Screen
 JS Location
@@ -137,7 +183,11 @@ JS Navigator
 JS Popup Alert
 JS Timing
 JS Cookies
---JS Web APIs
+
+# JS Web APIs (9)
+
+|Topic
+|---
 Web API Intro
 Web Forms API
 Web History API
@@ -145,7 +195,11 @@ Web Storage API
 Web Worker API
 Web Fetch API
 Web Geolocation API
---JS AJAX
+
+# JS AJAX (10)
+
+|Topic
+|---
 AJAX Intro
 AJAX XMLHttp
 AJAX Request
@@ -156,7 +210,11 @@ AJAX ASP
 AJAX Database
 AJAX Applications
 AJAX Examples
---JS JSON
+
+# JS JSON (11)
+
+|Topic
+|---
 JSON Intro
 JSON Syntax
 JSON vs XML
@@ -169,19 +227,31 @@ JSON Server
 JSON PHP
 JSON HTML
 JSON JSONP
---JS vs jQuery
+
+# JS vs jQuery (12)
+
+|Topic
+|---
 jQuery Selectors
 jQuery HTML
 jQuery CSS
 jQuery DOM
---JS Graphics
+
+# JS Graphics (13)
+
+|Topic
+|---
 JS Graphics
 JS Canvas
 JS Plotly
 JS Chart.js
 JS Google Chart
 JS D3.js
---JS Examples
+
+# JS Examples (14)
+
+|Topic
+|---
 JS Examples
 JS HTML DOM
 JS HTML Input
@@ -193,6 +263,10 @@ JS Exercises
 JS Quiz
 JS Bootcamp
 JS Certificate
---JS References
+
+# JS References (15)
+
+|Topic
+|---
 JavaScript Objects
 HTML DOM Objects

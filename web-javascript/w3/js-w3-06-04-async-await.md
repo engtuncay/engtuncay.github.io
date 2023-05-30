@@ -5,9 +5,8 @@ Source : https://www.w3schools.com/js/js_async.asp
 
 "async and await make promises easier to write"
 
-async makes a function return a Promise
-
-await makes a function wait for a Promise
+- async makes a function return a Promise
+- await makes a function wait for a Promise
 
 *Async Syntax*
 
@@ -176,3 +175,22 @@ async function getFile() {
 getFile();
 
 ```
+
+# Recommended Articles
+
+- Usage of Promise.resolve()
+
+https://stackoverflow.com/questions/26711243/promise-resolve-vs-new-promiseresolve
+
+
+- Promise Concept
+
+https://medium.com/frontend-development-with-js/promise-4-promise-kavram%C4%B1-3aa01c4d4807
+
+- Why and When to use Promise.resolve()
+
+https://stackoverflow.com/questions/54723849/why-and-when-to-use-promise-resolve
+
+- How to Determine to promisefy a function 
+
+https://stackoverflow.com/questions/45683984/javascript-how-to-determine-whether-to-promisefy-a-function
