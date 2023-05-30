@@ -22,7 +22,6 @@
 
 |Topic
 |---
-JS HOME
 JS Introduction
 JS Where To
 JS Output
@@ -147,8 +146,8 @@ Class Static
 
 |Topic |Note
 |---  | --
-JS Callbacks
-JS Asynchronous
+[JS Callbacks](./js-w3-06-01-callbacks.md)
+[JS Asynchronous](./js-w3-06-02-aysnc.md)
 [JS Promises](./js-w3-06-03-promise.md)
 [JS Async/Await](./js-w3-06-04-async-await.md) | 🆗
 
