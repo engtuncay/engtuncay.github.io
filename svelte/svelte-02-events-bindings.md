@@ -19,18 +19,39 @@ https://svelte.dev/tutorial/basics
   - [f. Select bindings](#f-select-bindings)
   - [g. Select multiple](#g-select-multiple)
   - [h. Contenteditable bindings](#h-contenteditable-bindings)
+  - [i. Each block bindings](#i-each-block-bindings)
+  - [j. Media elements](#j-media-elements)
+  - [k. Dimensions](#k-dimensions)
+  - [l. This](#l-this)
+  - [m. Component bindings](#m-component-bindings)
+  - [n. Binding to component instances](#n-binding-to-component-instances)
 
 
 # 5 Events
 
 ## a. DOM events
 
-As we've briefly seen already, you can listen to any event on an element with the on: directive:
+As we've briefly seen already, you can listen to any event on an element with the "on:" directive:
+
+*app.svelte*
 
 ```html
+<script>
+	let m = { x: 0, y: 0 };
+
+	function handleMousemove(event) {
+		m.x = event.clientX;
+		m.y = event.clientY;
+	}
+</script>
+
 <div on:mousemove={handleMousemove}>
 	The mouse position is {m.x} x {m.y}
 </div>
+
+<style>
+	div { width: 100%; height: 100%; }
+</style>
 
 ```
 
@@ -45,9 +66,29 @@ You can also declare event handlers inline:
 
 ```
 
+*app.svelte*
+
+```html
+<script>
+	let m = { x: 0, y: 0 };
+</script>
+
+<div on:mousemove="{e => m = { x: e.clientX, y: e.clientY }}">
+	The mouse position is {m.x} x {m.y}
+</div>
+
+<style>
+	div { width: 100%; height: 100%; }
+</style>
+```
+
 The quote marks are optional, but they're helpful for syntax highlighting in some environments.
 
-In some frameworks you may see recommendations to avoid inline event handlers for performance reasons, particularly inside loops. That advice doesn't apply to Svelte — the compiler will always do the right thing, whichever form you choose.
+---
+
+In some frameworks you may see recommendations to avoid *inline event handlers* for performance reasons, particularly inside loops. That advice doesn't apply to Svelte — the compiler will always do the right thing, whichever form you choose.
+
+---
 
 ## c. Event modifiers
 
@@ -79,6 +120,7 @@ The full list of modifiers:
 
 You can chain modifiers together, e.g. on:click|once|capture={...}.
 
+
 ## d. Component events (Event Dispatcher)
 
 Components can also dispatch events. To do so, they must create an event dispatcher. Update Inner.svelte: (tor:dispatch:gönder-,sevket-)
@@ -106,6 +148,7 @@ Components can also dispatch events. To do so, they must create an event dispatc
 	import Inner from './Inner.svelte';
 
 	function handleMessage(event) {
+    // gönderilen argümanlar event.detail objesinin içerisinde
 		alert(event.detail.text);
 	}
 </script>
@@ -114,19 +157,13 @@ Components can also dispatch events. To do so, they must create an event dispatc
 ```
 ---
 
-*Note :* createEventDispatcher must be called when the component is first instantiated — you can't do it later inside e.g. a setTimeout callback. This links dispatch to the component instance.
+*Note:* createEventDispatcher must be called when the component is first instantiated — you can't do it later inside e.g. a setTimeout callback. This links dispatch to the component instance.
 
 ---
 
 Notice that the App component is listening to the messages dispatched by *Inner component* thanks to the on:message directive. This directive is an attribute *prefixed* with "on:" followed by the event name that we are dispatching (in this case, message).
 
 Without this attribute, messages would still be dispatched, but the App would not react to it. You can try removing the "on:message" attribute and pressing the button again.
-
----
-
-*Try :* You can also try changing the event name to something else. For instance, change dispatch('message') to dispatch('myevent') in inner.svelte component and change the attribute name from on:message to on:myevent in the App.svelte component.
-
----
 
 ## e. Event forwarding
 
@@ -135,6 +172,8 @@ Unlike DOM events, component events don't bubble. If you want to listen to an ev
 In this case, we have the same App.svelte and Inner.svelte as in the previous chapter, but there's now an Outer.svelte component that contains `<Inner/>`.
 
 One way we could solve the problem is adding createEventDispatcher to Outer.svelte, listening for the message event, and creating a handler for it:
+
+*outer.svelte*
 
 ```html
 <script>
@@ -154,13 +193,51 @@ One way we could solve the problem is adding createEventDispatcher to Outer.svel
 
 But that's a lot of code to write, so Svelte gives us an equivalent shorthand — an on:message event directive without a value means 'forward all message events'.
 
+*child.svelte*
+
 ```html
 <script>
-	import Inner from './Inner.svelte';
+	import GrandChild from './GrandChild.svelte';
 </script>
 
-<Inner on:message/>
+<!-- inform parent for granchild messages -->
+<GrandChild on:message/>
 
+```
+
+*app.svelte* (parent component)
+
+```html
+<script>
+	import Child from './Outer.svelte';
+
+	function handleMessage(event) {
+		alert(event.detail.text);
+	}
+</script>
+
+<Child on:message={handleMessage}/>
+```
+
+
+*grandchild.svelte*
+
+```html
+<script>
+	import { createEventDispatcher } from 'svelte';
+
+	const dispatch = createEventDispatcher();
+
+	function sayHello() {
+		dispatch('message', {
+			text: 'Hello!'
+		});
+	}
+</script>
+
+<button on:click={sayHello}>
+	Click to say hello
+</button>
 ```
 
 ## f. DOM event forwarding
@@ -175,6 +252,50 @@ We want to get notified of clicks on our `<CustomButton> `— to do that, we jus
 </button>
 
 ```
+
+*Full Example*
+
+*customButton.svelte*
+
+```html
+<button on:click>
+	Click me
+</button>
+
+<style>
+	button {
+		background: #E2E8F0;
+		color: #64748B;
+		border: unset;
+		border-radius: 6px;
+		padding: .75rem 1.5rem;
+		cursor: pointer;
+	}
+	button:hover {
+		background: #CBD5E1;
+		color: #475569;
+	}
+	button:focus {
+		background: #94A3B8;
+		color: #F1F5F9;
+	}
+</style>
+```
+
+*app.svelte*
+
+```html
+<script>
+	import CustomButton from './CustomButton.svelte';
+
+	function handleClick() {
+		alert('Button Clicked');
+	}
+</script>
+
+<CustomButton on:click={handleClick}/>
+```
+
 
 # 6 Bindings
 
@@ -427,4 +548,537 @@ There are slight differences between each of these, read more about them here.
 	bind:innerHTML={html}
 ></div>
 
+```
+
+##  i. Each block bindings
+
+You can even bind to properties inside an each block.
+
+```html
+{#each todos as todo}
+	<div class:done={todo.done}>
+		<input
+			type=checkbox
+			bind:checked={todo.done}
+		>
+
+		<input
+			placeholder="What needs to be done?"
+			bind:value={todo.text}
+		>
+	</div>
+{/each}
+
+```
+
+---
+
+Note that interacting with these `<input>` elements will mutate the array. If you prefer to work with immutable data, you should avoid these bindings and use event handlers instead.
+
+---
+
+*app.svelte*
+
+```html
+<script>
+	let todos = [
+		{ done: false, text: 'finish Svelte tutorial' },
+		{ done: false, text: 'build an app' },
+		{ done: false, text: 'world domination' }
+	];
+
+	function add() {
+		todos = todos.concat({ done: false, text: '' });
+	}
+
+	function clear() {
+		todos = todos.filter(t => !t.done);
+	}
+
+	$: remaining = todos.filter(t => !t.done).length;
+</script>
+
+<h1>Todos</h1>
+
+{#each todos as todo}
+	<div class:done={todo.done}>
+		<input
+			type=checkbox
+			bind:checked={todo.done}
+		>
+
+		<input
+			placeholder="What needs to be done?"
+			bind:value={todo.text}
+		>
+	</div>
+{/each}
+
+<p>{remaining} remaining</p>
+
+<button on:click={add}>
+	Add new
+</button>
+
+<button on:click={clear}>
+	Clear completed
+</button>
+
+<style>
+	.done {
+		opacity: 0.4;
+	}
+</style>
+
+```
+
+##  j. Media elements
+
+The `<audio>` and `<video>` elements have several properties that you can bind to. This example demonstrates a few of them.
+
+On line 62, add currentTime={time}, duration and paused bindings:
+
+```html
+<video
+	poster="https://sveltejs.github.io/assets/caminandes-llamigos.jpg"
+	src="https://sveltejs.github.io/assets/caminandes-llamigos.mp4"
+	on:mousemove={handleMove}
+	on:touchmove|preventDefault={handleMove}
+	on:mousedown={handleMousedown}
+	on:mouseup={handleMouseup}
+	bind:currentTime={time}
+	bind:duration
+	bind:paused>
+	<track kind="captions">
+</video>
+
+```
+
+---
+
+(!!!) bind:duration is equivalent to bind:duration={duration}   
+
+---
+
+Now, when you click on the video, it will update time, duration and paused as appropriate. This means we can use them to build custom controls.
+
+---
+
+Ordinarily on the web, you would track currentTime by listening for timeupdate events. But these events fire too infrequently, resulting in choppy UI. Svelte does better — it checks currentTime using requestAnimationFrame.
+
+---
+
+The complete set of bindings for `<audio>` and `<video>` is as follows — six readonly bindings...
+
+- duration (readonly) — the total duration of the video, in seconds
+- buffered (readonly) — an array of {start, end} objects
+- seekable (readonly) — ditto
+- played (readonly) — ditto
+- seeking (readonly) — boolean
+- ended (readonly) — boolean
+
+...and five two-way bindings:
+
+- currentTime — the current point in the video, in seconds
+- playbackRate — how fast to play the video, where 1 is 'normal'
+- paused — this one should be self-explanatory
+- volume — a value between 0 and 1
+- muted — a boolean value where true is muted
+
+Videos additionally have readonly videoWidth and videoHeight bindings.
+
+*app.svelte*
+
+```html
+<script>
+	// These values are bound to properties of the video
+	let time = 0;
+	let duration;
+	let paused = true;
+
+	let showControls = true;
+	let showControlsTimeout;
+
+	// Used to track time of last mouse down event
+	let lastMouseDown;
+
+	function handleMove(e) {
+		// Make the controls visible, but fade out after
+		// 2.5 seconds of inactivity
+		clearTimeout(showControlsTimeout);
+		showControlsTimeout = setTimeout(() => showControls = false, 2500);
+		showControls = true;
+
+		if (!duration) return; // video not loaded yet
+		if (e.type !== 'touchmove' && !(e.buttons & 1)) return; // mouse not down
+
+		const clientX = e.type === 'touchmove' ? e.touches[0].clientX : e.clientX;
+		const { left, right } = this.getBoundingClientRect();
+		time = duration * (clientX - left) / (right - left);
+	}
+
+	// we can't rely on the built-in click event, because it fires
+	// after a drag — we have to listen for clicks ourselves
+	function handleMousedown(e) {
+		lastMouseDown = new Date();
+	}
+
+	function handleMouseup(e) {
+		if (new Date() - lastMouseDown < 300) {
+			if (paused) e.target.play();
+			else e.target.pause();
+		}
+	}
+
+	function format(seconds) {
+		if (isNaN(seconds)) return '...';
+
+		const minutes = Math.floor(seconds / 60);
+		seconds = Math.floor(seconds % 60);
+		if (seconds < 10) seconds = '0' + seconds;
+
+		return `${minutes}:${seconds}`;
+	}
+</script>
+
+<h1>Caminandes: Llamigos</h1>
+<p>From <a href="https://studio.blender.org/films">Blender Studio</a>. CC-BY</p>
+
+<div>
+	<video
+		poster="https://sveltejs.github.io/assets/caminandes-llamigos.jpg"
+		src="https://sveltejs.github.io/assets/caminandes-llamigos.mp4"
+		on:mousemove={handleMove}
+		on:touchmove|preventDefault={handleMove}
+		on:mousedown={handleMousedown}
+		on:mouseup={handleMouseup}
+		bind:currentTime={time}
+		bind:duration
+		bind:paused>
+		<track kind="captions">
+	</video>
+
+	<div class="controls" style="opacity: {duration && showControls ? 1 : 0}">
+		<progress value="{(time / duration) || 0}"/>
+
+		<div class="info">
+			<span class="time">{format(time)}</span>
+			<span>click anywhere to {paused ? 'play' : 'pause'} / drag to seek</span>
+			<span class="time">{format(duration)}</span>
+		</div>
+	</div>
+</div>
+
+<style>
+	div {
+		position: relative;
+	}
+
+	.controls {
+		position: absolute;
+		top: 0;
+		width: 100%;
+		transition: opacity 1s;
+	}
+
+	.info {
+		display: flex;
+		width: 100%;
+		justify-content: space-between;
+	}
+
+	span {
+		padding: 0.2em 0.5em;
+		color: white;
+		text-shadow: 0 0 8px black;
+		font-size: 1.4em;
+		opacity: 0.7;
+	}
+
+	.time {
+		width: 3em;
+	}
+
+	.time:last-child { text-align: right }
+
+	progress {
+		display: block;
+		width: 100%;
+		height: 10px;
+		-webkit-appearance: none;
+		appearance: none;
+	}
+
+	progress::-webkit-progress-bar {
+		background-color: rgba(0,0,0,0.2);
+	}
+
+	progress::-webkit-progress-value {
+		background-color: rgba(255,255,255,0.6);
+	}
+
+	video {
+		width: 100%;
+	}
+</style>
+```
+
+## k. Dimensions
+
+Every block-level element has clientWidth, clientHeight, offsetWidth and offsetHeight bindings:
+
+```html
+<div bind:clientWidth={w} bind:clientHeight={h}>
+	<span style="font-size: {size}px">{text}</span>
+</div>
+
+```
+
+These bindings are readonly — changing the values of w and h won't have any effect.
+
+---
+
+Elements are measured using a technique similar to this one. There is some overhead involved, so it's not recommended to use this for large numbers of elements.
+
+display: inline elements cannot be measured with this approach; nor can elements that can't contain other elements (such as `<canvas>`). In these cases you will need to measure a wrapper element instead.
+
+---
+
+*app.svelte*
+
+```html
+<script>
+	let w;
+	let h;
+	let size = 42;
+	let text = 'edit me';
+</script>
+
+<input type=range bind:value={size}>
+<input bind:value={text}>
+
+<p>size: {w}px x {h}px</p>
+
+<div bind:clientWidth={w} bind:clientHeight={h}>
+	<span style="font-size: {size}px">{text}</span>
+</div>
+
+<style>
+	input { display: block; }
+	div { display: inline-block; }
+	span { word-break: break-all; }
+</style>
+
+```
+
+## l. This
+
+The readonly this binding applies to every element (and component) and allows you to obtain a reference to rendered elements. For example, we can get a reference to a `<canvas>` element:
+
+```html
+<canvas
+	bind:this={canvas}
+	width={32}
+	height={32}
+></canvas>
+```
+
+Note that the value of canvas will be undefined until the component has mounted, so we put the logic inside the onMount lifecycle function.
+
+*app.svelte*
+
+```html
+<script>
+	import { onMount } from 'svelte';
+
+	let canvas;
+
+	onMount(() => {
+		const ctx = canvas.getContext('2d');
+		let frame = requestAnimationFrame(loop);
+
+		function loop(t) {
+			frame = requestAnimationFrame(loop);
+
+			const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+
+			for (let p = 0; p < imageData.data.length; p += 4) {
+				const i = p / 4;
+				const x = i % canvas.width;
+				const y = i / canvas.width >>> 0;
+
+				const r = 64 + (128 * x / canvas.width) + (64 * Math.sin(t / 1000));
+				const g = 64 + (128 * y / canvas.height) + (64 * Math.cos(t / 1000));
+				const b = 128;
+
+				imageData.data[p + 0] = r;
+				imageData.data[p + 1] = g;
+				imageData.data[p + 2] = b;
+				imageData.data[p + 3] = 255;
+			}
+
+			ctx.putImageData(imageData, 0, 0);
+		}
+
+		return () => {
+			cancelAnimationFrame(frame);
+		};
+	});
+</script>
+
+<canvas
+	bind:this={canvas}
+	width={32}
+	height={32}
+></canvas>
+
+<style>
+	canvas {
+		width: 100%;
+		height: 100%;
+		background-color: #666;
+		-webkit-mask: url(/svelte-logo-mask.svg) 50% 50% no-repeat;
+		mask: url(/svelte-logo-mask.svg) 50% 50% no-repeat;
+	}
+</style>
+```
+
+##  m. Component bindings
+
+Just as you can bind to properties of DOM elements, you can bind to component props. For example, we can bind to the value prop of this `<Keypad>` component as though it were a form element:
+
+```html
+<Keypad bind:value={pin} on:submit={handleSubmit}/>
+
+```
+
+Now, when the user interacts with the keypad, the value of pin in the parent component is immediately updated.
+
+---
+
+Use component bindings sparingly. It can be difficult to track the flow of data around your application if you have too many of them, especially if there is no 'single source of truth'.
+
+---
+
+*app.svelte*
+
+```html
+<script>
+	import Keypad from './Keypad.svelte';
+
+	let pin;
+	$: view = pin ? pin.replace(/\d(?!$)/g, '•') : 'enter your pin';
+
+	function handleSubmit() {
+		alert(`submitted ${pin}`);
+	}
+</script>
+
+<h1 style="color: {pin ? '#333' : '#ccc'}">{view}</h1>
+
+<Keypad bind:value={pin} on:submit={handleSubmit}/>
+```
+
+*keypad.svelte*
+
+```html
+<script>
+	import { createEventDispatcher } from 'svelte';
+
+	export let value = '';
+
+	const dispatch = createEventDispatcher();
+
+	const select = num => () => value += num;
+	const clear  = () => value = '';
+	const submit = () => dispatch('submit');
+</script>
+
+<div class="keypad">
+	<button on:click={select(1)}>1</button>
+	<button on:click={select(2)}>2</button>
+	<button on:click={select(3)}>3</button>
+	<button on:click={select(4)}>4</button>
+	<button on:click={select(5)}>5</button>
+	<button on:click={select(6)}>6</button>
+	<button on:click={select(7)}>7</button>
+	<button on:click={select(8)}>8</button>
+	<button on:click={select(9)}>9</button>
+
+	<button disabled={!value} on:click={clear}>clear</button>
+	<button on:click={select(0)}>0</button>
+	<button disabled={!value} on:click={submit}>submit</button>
+</div>
+
+<style>
+	.keypad {
+		display: grid;
+		grid-template-columns: repeat(3, 5em);
+		grid-template-rows: repeat(4, 3em);
+		grid-gap: 0.5em
+	}
+
+	button {
+		margin: 0
+	}
+</style>
+```
+
+##  n. Binding to component instances
+
+Just as you can bind to DOM elements, you can bind to component instances themselves. For example, we can bind the instance of `<InputField>` to a variable named field in the same way we did when binding DOM Elements
+
+```html
+<script>
+	let field;
+</script>
+
+```
+
+```html
+<InputField bind:this={field} />
+
+```
+
+Now we can programmatically interact with this component using field.
+
+```html
+<button on:click="{() => field.focus()}">
+	Focus field
+</button>
+
+```
+
+---
+
+Note that we can't do {field.focus} since field is undefined when the button is first rendered and throws an error.
+
+---
+
+*app.svelte*
+
+```html
+<script>
+	import InputField from './InputField.svelte';
+
+	let field;
+</script>
+
+<InputField bind:this={field}/>
+
+<button on:click={() => field.focus()}>Focus field</button>
+```
+
+*InputField.svelte*
+
+```html
+<script>
+	let input;
+
+	export function focus() {
+		input.focus();
+	}
+</script>
+
+<input bind:this={input} />
 ```
