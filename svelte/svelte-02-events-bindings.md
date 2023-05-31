@@ -17,6 +17,8 @@ https://svelte.dev/tutorial/basics
   - [d. Group inputs](#d-group-inputs)
   - [e. Textarea inputs](#e-textarea-inputs)
   - [f. Select bindings](#f-select-bindings)
+  - [g. Select multiple](#g-select-multiple)
+  - [h. Contenteditable bindings](#h-contenteditable-bindings)
 
 
 # 5 Events
@@ -82,6 +84,7 @@ You can chain modifiers together, e.g. on:click|once|capture={...}.
 Components can also dispatch events. To do so, they must create an event dispatcher. Update Inner.svelte: (tor:dispatch:gönder-,sevket-)
 
 *inner.svelte*
+
 ```html
 <script>
 	import { createEventDispatcher } from 'svelte';
@@ -328,3 +331,100 @@ Because we haven't set an initial value of selected, the binding will set it to 
 </style>
 ```
 
+## g. Select multiple
+
+A select can have a multiple attribute, in which case it will populate an array rather than selecting a single value.
+
+Returning to our earlier ice cream example, we can replace the checkboxes with a `<select multiple>`:
+
+```html
+<h2>Flavours</h2>
+
+<select multiple bind:value={flavours}>
+	{#each menu as flavour}
+		<option value={flavour}>
+			{flavour}
+		</option>
+	{/each}
+</select>
+
+```
+
+Press and hold the control key (or the command key on MacOS) for selecting multiple options.
+
+*App.svelte*
+
+```js
+<script>
+	let scoops = 1;
+	let flavours = ['Mint choc chip'];
+
+	let menu = [
+		'Cookies and cream',
+		'Mint choc chip',
+		'Raspberry ripple'
+	];
+
+	function join(flavours) {
+		if (flavours.length === 1) return flavours[0];
+		return `${flavours.slice(0, -1).join(', ')} and ${flavours[flavours.length - 1]}`;
+	}
+</script>
+
+<h2>Size</h2>
+
+<label>
+	<input type=radio bind:group={scoops} value={1}>
+	One scoop
+</label>
+
+<label>
+	<input type=radio bind:group={scoops} value={2}>
+	Two scoops
+</label>
+
+<label>
+	<input type=radio bind:group={scoops} value={3}>
+	Three scoops
+</label>
+
+<h2>Flavours</h2>
+
+<select multiple bind:value={flavours}>
+	{#each menu as flavour}
+		<option value={flavour}>
+			{flavour}
+		</option>
+	{/each}
+</select>
+
+{#if flavours.length === 0}
+	<p>Please select at least one flavour</p>
+{:else if flavours.length > scoops}
+	<p>Can't order more flavours than scoops!</p>
+{:else}
+	<p>
+		You ordered {scoops} {scoops === 1 ? 'scoop' : 'scoops'}
+		of {join(flavours)}
+	</p>
+{/if}
+
+```
+
+## h. Contenteditable bindings
+
+Elements with the contenteditable attribute support the following bindings:
+
+- [innerHTML](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML)
+- [innerText](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/innerText)
+- [textContent](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent)
+
+There are slight differences between each of these, read more about them here.
+
+```html
+<div
+	contenteditable="true"
+	bind:innerHTML={html}
+></div>
+
+```
