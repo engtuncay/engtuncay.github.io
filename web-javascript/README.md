@@ -42,7 +42,7 @@ CONTENT |
 
 # Other Cheatsheets
 
-- https://github.com/mbeaudru/modern-js-cheatsheet
+- https://github.com/mbeaudru/modern-js-cheatsheet 5x
 
 - https://github.com/wilfredinni/javascript-cheatsheet
 
