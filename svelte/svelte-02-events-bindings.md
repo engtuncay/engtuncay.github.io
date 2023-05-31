@@ -10,7 +10,7 @@ https://svelte.dev/tutorial/basics
   - [d. Component events (Event Dispatcher)](#d-component-events-event-dispatcher)
   - [e. Event forwarding](#e-event-forwarding)
   - [f. DOM event forwarding](#f-dom-event-forwarding)
-- [6 Bindings](#6-bindings)
+- [6 Bindings (child to parent communications)](#6-bindings-child-to-parent-communications)
   - [a. Text inputs](#a-text-inputs)
   - [b. Numeric inputs](#b-numeric-inputs)
   - [c. Checkbox inputs](#c-checkbox-inputs)
@@ -297,13 +297,13 @@ We want to get notified of clicks on our `<CustomButton> `— to do that, we jus
 ```
 
 
-# 6 Bindings
+# 6 Bindings (child to parent communications)
 
 ## a. Text inputs
 
-As a general rule, data flow in Svelte is top down — a parent component can set props on a child component, and a component can set attributes on an element, but not the other way around.
+As a general rule, *data flow in Svelte is top down* — a parent component can set props on a child component, and a component can set attributes on an element, but not the other way around.
 
-Sometimes it's useful to break that rule. Take the case of the `<input>` element in this component — we could add an on:input event handler that sets the value of name to event.target.value, but it's a bit... boilerplatey. It gets even worse with other form elements, as we'll see.
+Sometimes it's useful to break that rule. Take the case of the `<input>` element in this component — we could add an on:input event handler that sets the value of name to `event.target.value`, but it's a bit... boilerplatey. It gets even worse with other form elements, as we'll see.
 
 Instead, we can use the bind:value directive:
 
@@ -316,7 +316,7 @@ This means that not only will changes to the value of name update the input valu
 
 ## b. Numeric inputs
 
-In the DOM, everything is a string. That's unhelpful when you're dealing with numeric inputs — type="number" and type="range" — as it means you have to remember to coerce input.value before using it.
+In the DOM, everything is a string. That's unhelpful when you're dealing with numeric inputs — type="number" and type="range" — as it means you have to remember to coerce input.value before using it. (tor:coerce zorla-,mecbur et-,baskı yap-)
 
 With bind:value, Svelte takes care of it for you:
 
@@ -945,7 +945,7 @@ Note that the value of canvas will be undefined until the component has mounted,
 
 ##  m. Component bindings
 
-Just as you can bind to properties of DOM elements, you can bind to component props. For example, we can bind to the value prop of this `<Keypad>` component as though it were a form element:
+Just as you can bind to properties of DOM elements, you can bind to component props. For example, we can bind to the value prop of this `<Keypad>` component as though it were a form element: (tor:child component'daki bir değeri , parent componentine bağlıyoruz. child to parent communication)
 
 ```html
 <Keypad bind:value={pin} on:submit={handleSubmit}/>
@@ -956,7 +956,7 @@ Now, when the user interacts with the keypad, the value of pin in the parent com
 
 ---
 
-Use component bindings sparingly. It can be difficult to track the flow of data around your application if you have too many of them, especially if there is no 'single source of truth'.
+Use component bindings sparingly. It can be difficult to track the flow of data around your application if you have too many of them, especially if there is no 'single source of truth'. (tor:sparingly idareli)
 
 ---
 
@@ -1051,7 +1051,7 @@ Now we can programmatically interact with this component using field.
 
 ---
 
-Note that we can't do {field.focus} since field is undefined when the button is first rendered and throws an error.
+Note that we can't do `{field.focus}` since field is undefined when the button is first rendered and throws an error.
 
 ---
 
