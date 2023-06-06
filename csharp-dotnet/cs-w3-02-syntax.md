@@ -1,5 +1,9 @@
 
 
+- [C# Syntax](#c-syntax)
+- [C# Output](#c-output)
+- [C# Comments](#c-comments)
+
 Source : https://www.w3schools.com/cs/cs_syntax.php
 
 # C# Syntax
