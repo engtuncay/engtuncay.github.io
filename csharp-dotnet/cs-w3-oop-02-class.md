@@ -1,4 +1,13 @@
 
+- [C# Classes and Objects](#c-classes-and-objects)
+- [C# Multiple Classes](#c-multiple-classes)
+- [C# Class Members](#c-class-members)
+- [C# Constructors](#c-constructors)
+- [C# Access Modifiers](#c-access-modifiers)
+- [C# Properties (Get and Set)](#c-properties-get-and-set)
+
+Source : 
+
 # C# Classes and Objects
 
 Everything in C# is associated with classes and objects, along with its attributes and methods. For example: in real life, a car is an object. The car has attributes, such as weight and color, and methods, such as drive and brake.
@@ -21,7 +30,7 @@ class Car
 
 When a variable is declared directly in a class, it is often referred to as a *field* (or *attribute*). (or *property*)
 
-It is not required, but it is a good practice to start with an uppercase first letter when naming classes. Also, it is common that the name of the C# file and the class matches, as it makes our code organized. However it is not required (like in Java). (to:zorunlu değil)
+It is not required, but it is a good practice to start with an uppercase first letter when naming classes. Also, it is common that the name of the C# file and the class matches, as it makes our code organized. However it is not required (like in Java). 
 
 *Create an Object*
 
@@ -121,7 +130,7 @@ class Car
 
 ```
 
-You can also leave the fields blank, and modify them when creating the object:
+You can also leave the fields blank (unassigned), and modify them when creating the object:
 
 Example
 
@@ -182,6 +191,8 @@ Methods normally belongs to a class, and they define how an object of a class be
 Just like with fields, you can access methods with the dot syntax. However, note that the method must be public. And remember that we use the name of the method followed by two parantheses () and a semicolon ; to call (execute) the method:
 
 Example
+
+```cs
 class Car 
 {
   string color;                 // field
@@ -197,7 +208,8 @@ class Car
     myObj.fullThrottle();  // Call the method
   }
 } 
- 
+
+```
 
 Why did we declare the method as public, and not static, like in the examples from the C# Methods Chapter?
 
@@ -206,7 +218,8 @@ The reason is simple: a static method can be accessed without creating an object
 Use Multiple Classes
 Remember from the last chapter, that we can use multiple classes for better organization (one for fields and methods, and another one for execution). This is recommended:
 
-prog2.cs
+```cs
+//prog2.cs
 class Car 
 {
   public string model;
@@ -217,7 +230,7 @@ class Car
     Console.WriteLine("The car is going as fast as it can!"); 
   }
 }
-prog.cs
+//prog.cs
 class Program
 {
   static void Main(string[] args)
@@ -237,19 +250,23 @@ class Program
   }
 }
 
+```
+
 The public keyword is called an access modifier, which specifies that the fields of Car are accessible for other classes as well, such as Program.
 
-You will learn more about Access Modifiers in a later chapter.
+You will learn more about *Access Modifiers* in a later chapter.
 
 Tip: As you continue to read, you will also learn more about other class members, such as constructors and properties.
 
 # C# Constructors
-Constructors
+
 A constructor is a special method that is used to initialize objects. The advantage of a constructor, is that it is called when an object of a class is created. It can be used to set initial values for fields:
 
-ExampleGet your own C# Server
+Example
+
 Create a constructor:
 
+```cs
 // Create a Car class
 class Car
 {
@@ -269,7 +286,8 @@ class Car
 }
 
 // Outputs "Mustang"
- 
+
+```
 
 Note that the constructor name must match the class name, and it cannot have a return type (like void or int).
 
@@ -279,7 +297,8 @@ All classes have constructors by default: if you do not create a class construct
 
 Constructors save time! Take a look at the last example on this page to really understand why.
 
-Constructor Parameters
+*Constructor Parameters*
+
 Constructors can also take parameters, which is used to initialize fields.
 
 The following example adds a string modelName parameter to the constructor. Inside the constructor we set model to modelName (model=modelName). When we call the constructor, we pass a parameter to the constructor ("Mustang"), which will set the value of model to "Mustang":
