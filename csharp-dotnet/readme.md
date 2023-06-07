@@ -25,14 +25,10 @@ C# Methods
 C# Method Parameters
 C# Method Overloading
 
-| C# Classes
-| --
-C# OOP
-C# Classes/Objects
-C# Class Members
-C# Constructors
-C# Access Modifiers
-C# Properties
+| C# Classes | Note
+| -- | -- 
+[C# OOP Intro](./cs-w3-01-intro.md) | 
+[C# Classes/Objects - Members- Constructors- Access Modifiers - Properties](./cs-w3-oop-02-class.md) | 🆗
 C# Inheritance
 C# Polymorphism
 C# Abstraction

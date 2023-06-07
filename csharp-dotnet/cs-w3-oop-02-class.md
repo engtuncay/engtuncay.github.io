@@ -304,6 +304,8 @@ Constructors can also take parameters, which is used to initialize fields.
 The following example adds a string modelName parameter to the constructor. Inside the constructor we set model to modelName (model=modelName). When we call the constructor, we pass a parameter to the constructor ("Mustang"), which will set the value of model to "Mustang":
 
 Example
+
+```cs
 class Car
 {
   public string model;
@@ -322,11 +324,14 @@ class Car
 }
 
 // Outputs "Mustang"
- 
+
+```
 
 You can have as many parameters as you want:
 
 Example
+
+```cs
 class Car
 {
   public string model;
@@ -350,16 +355,19 @@ class Car
 
 
 // Outputs Red 1969 Mustang
- 
 
+```
+ 
 Tip: Just like other methods, constructors can be overloaded by using different numbers of parameters.
 
-Constructors Save Time
+*Constructors Save Time*
+
 When you consider the example from the previous chapter, you will notice that constructors are very useful, as they help reducing the amount of code:
 
 Without constructor:
 
-prog.cs
+```cs
+// prog.cs
 class Program
 {
   static void Main(string[] args)
@@ -378,9 +386,11 @@ class Program
     Console.WriteLine(Opel.model);
   }
 }
+```
 
 With constructor:
 
+```cs
 prog.cs
 class Program
 {
@@ -394,28 +404,39 @@ class Program
   }
 }
 
+```
+
 # C# Access Modifiers
-Access Modifiers
+
 By now, you are quite familiar with the public keyword that appears in many of our examples:
 
+```cs
 public string color;
+
+```
+
 The public keyword is an access modifier, which is used to set the access level/visibility for classes, fields, methods and properties.
 
 C# has the following access modifiers:
 
-Modifier	Description
-public	The code is accessible for all classes
-private	The code is only accessible within the same class
-protected	The code is accessible within the same class, or in a class that is inherited from that class. You will learn more about inheritance in a later chapter
-internal	The code is only accessible within its own assembly, but not from another assembly. You will learn more about this in a later chapter
+Modifier  | Description
+----------|--------------------------------------------------------------------------------------------------------------------------------------------------------
+public    | The code is accessible for all classes
+private   | The code is only accessible within the same class
+protected | The code is accessible within the same class, or in a class that is inherited from that class. You will learn more about inheritance in a later chapter
+internal  | The code is only accessible within its own assembly, but not from another assembly. You will learn more about this in a later chapter
+
 There's also two combinations: protected internal and private protected.
 
 For now, lets focus on public and private modifiers.
 
-Private Modifier
+*Private Modifier*
+
 If you declare a field with a private access modifier, it can only be accessed within the same class:
 
-ExampleGet your own C# Server
+Example
+
+```cs
 class Car
 {
   private string model = "Mustang";
@@ -426,13 +447,17 @@ class Car
     Console.WriteLine(myObj.model);
   }
 }
-The output will be:
 
-Mustang
+// The output will be:
+// Mustang
+
+```
 
 If you try to access it outside the class, an error will occur:
 
 Example
+
+```cs
 class Car
 {
   private string model = "Mustang";
@@ -447,15 +472,20 @@ class Program
   }
 }
  
-The output will be:
+// The output will be:
 
-'Car.model' is inaccessible due to its protection level
-The field 'Car.model' is assigned but its value is never used
+// 'Car.model' is inaccessible due to its protection level
+// The field 'Car.model' is assigned but its value is never used
 
-Public Modifier
+```
+
+*Public Modifier*
+
 If you declare a field with a public access modifier, it is accessible for all classes:
 
 Example
+
+```cs
 class Car
 {
   public string model = "Mustang";
@@ -470,38 +500,51 @@ class Program
   }
 }
  
-The output will be:
+// The output will be:
 
-Mustang
+// Mustang
 
-Why Access Modifiers?
+```
+
+*Why Access Modifiers?*
+
 To control the visibility of class members (the security level of each individual class and class member).
 
 To achieve "Encapsulation" - which is the process of making sure that "sensitive" data is hidden from users. This is done by declaring fields as private. You will learn more about this in the next chapter.
 
-Note: By default, all members of a class are private if you don't specify an access modifier:
+Note: By *default*, all members of a class are *private* if you don't specify an access modifier:
 
 Example
+
+```cs
 class Car
 {
   string model;  // private
   string year;   // private
 }
 
+```
+
 # C# Properties (Get and Set)
-Properties and Encapsulation
+
+*Properties and Encapsulation*
+
 Before we start to explain properties, you should have a basic understanding of "Encapsulation".
 
 The meaning of Encapsulation, is to make sure that "sensitive" data is hidden from users. To achieve this, you must:
 
-declare fields/variables as private
-provide public get and set methods, through properties, to access and update the value of a private field
-Properties
+- declare fields/variables as private
+- provide public get and set methods, through properties, to access and update the value of a private field
+
+*Properties*
+
 You learned from the previous chapter that private variables can only be accessed within the same class (an outside class has no access to it). However, sometimes we need to access them - and it can be done with properties.
 
 A property is like a combination of a variable and a method, and it has two methods: a get and a set method:
 
-ExampleGet your own C# Server
+Example
+
+```cs
 class Person
 {
   private string name; // field
@@ -512,20 +555,22 @@ class Person
     set { name = value; }  // set method
   }
 } 
- 
- 
+
+```
+
 Example explained
-The Name property is associated with the name field. It is a good practice to use the same name for both the property and the private field, but with an uppercase first letter.
+
+The *Name* property is associated with the name field. It is a good practice to use the same name for both the property and the private field, but with an uppercase first letter.
 
 The get method returns the value of the variable name.
 
 The set method assigns a value to the name variable. The value keyword represents the value we assign to the property.
 
-If you don't fully understand it, take a look at the example below.
+*Example*
 
 Now we can use the Name property to access and update the private field of the Person class:
 
-Example
+```cs
 class Person
 {
   private string name; // field
@@ -545,27 +590,28 @@ class Program
     Console.WriteLine(myObj.Name);
   }
 }
- 
- 
- 
- 
- 
-The output will be:
 
-Liam
+// The output will be:
 
-Automatic Properties (Short Hand)
+// Liam
+
+```
+
+*Automatic Properties (Short Hand)*
+
 C# also provides a way to use short-hand / automatic properties, where you do not have to define the field for the property, and you only have to write get; and set; inside the property.
 
 The following example will produce the same result as the example above. The only difference is that there is less code:
 
 Example
+
 Using automatic properties:
 
+```cs
 class Person
 {
-  public string Name  // property
-  { get; set; }
+  public string Name { get; set; }  // property
+  
 }
 
 class Program
@@ -578,13 +624,17 @@ class Program
   }
 }
  
- 
-The output will be:
+// The output will be:
 
-Liam
+// Liam
 
-Why Encapsulation?
-Better control of class members (reduce the possibility of yourself (or others) to mess up the code)
-Fields can be made read-only (if you only use the get method), or write-only (if you only use the set method)
-Flexible: the programmer can change one part of the code without affecting other parts
-Increased security of data
+```
+
+*Why Encapsulation?*
+
+- Better control of class members (reduce the possibility of yourself (or others) to mess up the code)
+- Fields can be made read-only (if you only use the get method), or write-only (if you only use the set method)
+- Flexible: the programmer can change one part of the code without affecting other parts
+- Increased security of data
+
+--end--
