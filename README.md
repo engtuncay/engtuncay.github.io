@@ -10,8 +10,10 @@
 
 [Php Tutors](./php/readme.md)
 
+[Csharp Tutors](./csharp-dotnet/readme.md)
+
 [Vue Tutors](./vue/README.md)
 
 [React Tutors](./react/README.md)
 
-[Csharp Tutors](./csharp-dotnet/readme.md)
+
