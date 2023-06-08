@@ -29,10 +29,7 @@ C# Method Overloading
 | -- | -- 
 [C# OOP Intro](./cs-w3-01-intro.md) | 🆗
 [C# Classes/Objects - Members- Constructors- Access Modifiers - Properties](./cs-w3-oop-02-class.md) | 🆗
-C# Inheritance
-C# Polymorphism
-C# Abstraction
-C# Interface
+[C# Inheritance- Polymorphism- Abstraction- Interface](./cs-w3-oop-03-inheritance.md) | 🆗
 C# Enums
 C# Files
 C# Exceptions
