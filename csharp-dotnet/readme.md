@@ -3,27 +3,19 @@
 
 | C# Tutorial | Note
 | -- | --
-C# Intro-
+C# Intro
 C# Syntax-Output-Comments
-C# Variables-
-C# Data Types-Type Casting
+C# Variables
+C# Data Types- Type Casting
 C# User Input
 C# Operators
 C# Math
 C# Strings
 C# Booleans
-C# If...Else
-C# Switch
-C# While Loop
-C# For Loop
-C# Break/Continue
+C# If- Switch- While- For - Break/Continue
 C# Arrays
+C# Methods - Parameters - Overloading
 
-| C# Methods
-| --
-C# Methods
-C# Method Parameters
-C# Method Overloading
 
 | C# Classes | Note
 | -- | -- 
