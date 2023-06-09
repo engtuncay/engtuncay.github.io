@@ -1,20 +1,20 @@
 
 
-
+ 
 | C# Tutorial | Note
 | -- | --
-C# Intro
-C# Syntax-Output-Comments
-C# Variables
-C# Data Types- Type Casting
-C# User Input
-C# Operators
-C# Math
-C# Strings
-C# Booleans
-C# If- Switch- While- For - Break/Continue
-C# Arrays
-C# Methods - Parameters - Overloading
+[1 C# Intro](./cs-w3-01-intro.md)
+[2 C# Syntax-Output-Comments](./cs-w3-02-syntax.md)
+[3 C# Variables](./cs-w3-03-variables.md) | ✔ 
+[4 C# Data Types- Type Casting](./cs-w3-04-dataTypes.md)
+5 C# User Input
+6 C# Operators
+7 C# Math
+8 C# Strings
+9 C# Booleans
+10 C# If- Switch- While- For - Break/Continue
+11 C# Arrays
+12 C# Methods - Parameters - Overloading
 
 
 | C# Classes | Note
