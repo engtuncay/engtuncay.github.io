@@ -1,291 +1,197 @@
-# IntelliJ IDEA Key Bindings for Visual Studio Code
 
-[![Build Status](https://travis-ci.org/kasecato/vscode-intellij-idea-keybindings.svg?branch=master)](https://travis-ci.org/kasecato/vscode-intellij-idea-keybindings) [![License: MIT](https://img.shields.io/badge/license-MIT-orange.svg)](https://github.com/kasecato/vscode-intellij-idea-keybindings/blob/master/LICENSE.md) [![Marketplace Version](https://vsmarketplacebadge.apphb.com/version/k--kato.intellij-idea-keybindings.svg)](https://marketplace.visualstudio.com/items?itemName=k--kato.intellij-idea-keybindings) [![Install](https://vsmarketplacebadge.apphb.com/installs-short/k--kato.intellij-idea-keybindings.svg)](https://marketplace.visualstudio.com/items?itemName=k--kato.intellij-idea-keybindings)
+Keyboard shortcuts for Windows 
 
-Port of IntelliJ IDEA key bindings for VS Code. Includes keymaps for popular JetBrains products like IntelliJ Ultimate, WebStorm, PyCharm, PHP Storm, etc.
+Other operating systems’ keyboard shortcuts and additional 
+unassigned shortcuts available at aka.ms/vscodekeybindings  
 
-## Usage
+(c+s) : means ctrl + shift in paranthesis
 
-### Editing
+- [General](#general)
+- [Basic editing](#basic-editing)
+- [Navigation](#navigation)
+- [Search and replace](#search-and-replace)
+- [Multi-cursor and selection](#multi-cursor-and-selection)
+- [Rich languages editing](#rich-languages-editing)
+- [Editor management](#editor-management)
+- [File management](#file-management)
+- [Display](#display)
+- [Debug](#debug)
+- [Integrated terminal](#integrated-terminal)
+ 
 
-| Linux, Windows             | macOS                     | Feature                                                      | Supported |
-| -------------------------- | ------------------------- | ------------------------------------------------------------ | --------- |
-| ctrl+space                 | ctrl+space                | Basic code completion (the name of any class, method or variable) | ✅         |
-| ctrl+shift+space           | ctrl+shift+space          | Smart code completion (filters the list of methods and variables by expected type) | N/A       |
-| ctrl+shift+enter           | cmd+shift+enter           | Complete statement                                           | ✅         |
-| ctrl+p                     | cmd+p                     | Parameter info (within method call arguments)                | ✅         |
-| ctrl+q                     | ctrl+j                    | Quick documentation lookup                                   | ✅         |
-| ctrl+f1                    | shift+f1                  | External Doc                                                 | N/A       |
-| ctrl+mouseover             | cmd+mouseover             | Brief Info                                                   | N/A       |
-| ctrl+f1                    | cmd+f1                    | Show descriptions of error or warning at caret               | ✅         |
-| alt+insert                 | cmd+n                     | Generate code... (Getters, Setters, Constructors, hashCode/equals, toString) | ✅         |
-| ctrl+o                     | ctrl+o                    | Override methods                                             | N/A       |
-| ctrl+i                     | ctrl+i                    | Implement methods                                            | N/A       |
-| ctrl+alt+t                 | cmd+alt+t                 | Surround with... (if..else, try..catch, for, synchronized, etc.) | N/A       |
-| ctrl+/                     | cmd+/                     | Comment/uncomment with line comment                          | ✅         |
-| ctrl+numpad_divide         | cmd+numpad_divide         | Comment/uncomment with line comment                          | ✅         |
-| ctrl+alt+/                 | cmd+alt+/                 | Comment/uncomment with block comment                         | ✅         |
-| ctrl+alt+numpad_divide     | cmd+alt+numpad_divide     | Comment/uncomment with block comment                         | ✅         |
-| ctrl+w                     | alt+up                    | Select successively increasing code blocks                   | ✅         |
-| ctrl+shift+w               | alt+down                  | Decrease current selection to previous state                 | ✅         |
-| alt+q                      | ctrl+shift+q              | Context info                                                 | N/A       |
-| alt+enter                  | alt+enter                 | Show intention actions and quick-fixes                       | ✅         |
-| ctrl+alt+l                 | cmd+alt+l                 | Reformat code                                                | ✅         |
-| ctrl+alt+l                 | cmd+alt+l                 | Reformat selected code                                       | ✅         |
-| ctrl+alt+o                 | ctrl+alt+o                | Optimize imports                                             | N/A       |
-| ctrl+alt+i                 | ctrl+alt+i                | Auto-indent line(s)                                          | N/A       |
-| tab                        | tab                       | Indent selected lines                                        | N/A       |
-| shift+tab                  | shift+tab                 | Unindent selected lines                                      | N/A       |
-| ctrl+x                     | cmd+x                     | Cut current line or selected block to clipboard              | ✅         |
-| shift+delete               | cmd+delete                | Cut current line or selected block to clipboard              | ✅         |
-| ctrl+c                     | cmd+c                     | Copy current line or selected block to clipboard             | ✅         |
-| ctrl+v                     | cmd+v                     | Paste from clipboard                                         | ✅         |
-| ctrl+shift+v               | cmd+shift+v               | Paste from recent buffers...                                 | N/A       |
-| ctrl+d                     | cmd+d                     | Duplicate current line or selected block                     | ✅         |
-| ctrl+y                     | cmd+backspace             | Delete line at caret                                         | ✅         |
-| ctrl+shift+j               | ctrl+shift+j              | Smart line join                                              | ✅         |
-| ctrl+enter                 | cmd+enter                 | Smart line split                                             | ✅         |
-| shift+enter                | shift+enter               | Start new line                                               | ✅         |
-| ctrl+shift+u               | cmd+shift+u               | Toggle case for word at caret or selected block              | N/A       |
-| ctrl+shift+]               | cmd+shift+]               | Select till code block end                                   | N/A       |
-| ctrl+shift+[               | cmd+shift+[               | Select till code block start                                 | N/A       |
-| ctrl+delete                | alt+delete                | Delete to word end                                           | ✅         |
-| ctrl+backspace             | alt+backspace             | Delete to word start                                         | ✅         |
-| ctrl+=                     | cmd+=                     | Expand code block                                            | ✅         |
-| ctrl+numpad_add            | cmd+numpad_add            | Expand code block                                            | ✅         |
-| ctrl+-                     | cmd+-                     | Collapse code block                                          | ✅         |
-| ctrl+numpad_subtract       | cmd+numpad_subtract       | Collapse code block                                          | ✅         |
-| ctrl+shift+=               | cmd+shift+=               | Expand all                                                   | ✅         |
-| ctrl+shift+numpad_add      | cmd+shift+numpad_add      | Expand all                                                   | ✅         |
-| ctrl+shift+-               | cmd+shift+-               | Collapse all                                                 | ✅         |
-| ctrl+shift+numpad_subtract | cmd+shift+numpad_subtract | Collapse all                                                 | ✅         |
-| ctrl+f4                    | cmd+w                     | Close active editor tab                                      | ✅         |
-| alt+j                      | ctrl+g                    | Add selection for Next Occurrence                            | ✅         |
-| alt+shift+j                | ctrl+shift+g              | Unselect Occurrence                                          | ✅         |
+# General 
 
-### Search/Replace
+Shortcut         | Desc
+-----------------|------------------------
+Ctrl+Shift+P, F1 | Show Command Palette
+Ctrl+P           | Quick Open, Go to File…
+Ctrl+Shift+N     | New window/instance
+Ctrl+Shift+W     | Close window/instance
+Ctrl+,           | User Settings
+Ctrl+K Ctrl+S    | Keyboard Shortcuts
 
-| Linux, Windows | macOS       | Feature                                      | Supported |
-| -------------- | ----------- | -------------------------------------------- | --------- |
-| shift shift    | shift shift | Search everywhere                            | N/A       |
-| ctrl+f         | cmd+f       | Find                                         | ✅         |
-| f3             | cmd+g       | Find next                                    | ✅         |
-| shift+f3       | cmd+shift+g | Find previous                                | ✅         |
-| ctrl+r         | cmd+r       | Replace                                      | ✅         |
-| ctrl+shift+f   | cmd+shift+f | Find in path                                 | ✅         |
-| ctrl+shift+r   | cmd+shift+r | Replace in path                              | ✅         |
-| ctrl+shift+s   | cmd+shift+s | Search structurally (Ultimate Edition only)  | N/A       |
-| ctrl+shift+m   | cmd+shift+m | Replace structurally (Ultimate Edition only) | N/A       |
+# Basic editing 
 
-### Usage Search
+Shortcut          | Desc
+------------------|-----------------------------------
+Ctrl+X            | Cut line (empty selection)
+Ctrl+C            | Copy line (empty selection)
+Alt+ ↑ / ↓        | Move line up/down
+Shift+Alt + ↓ / ↑ | Copy line up/down
+Ctrl+Shift+K      | Delete line
+Ctrl+Enter        | Insert line below
+Ctrl+Shift+Enter  | Insert line above
+Ctrl+Shift+\      | Jump to matching bracket
+Ctrl+] / [        | Indent/outdent line
+Home / End        | Go to beginning/end of line
+Ctrl+Home         | Go to beginning of file
+Ctrl+End          | Go to end of file
+Ctrl+↑ / ↓        | Scroll line up/down
+Alt+PgUp / PgDn   | Scroll page up/down
+Ctrl+Shift+[      | Fold (collapse) region
+Ctrl+Shift+]      | Unfold (uncollapse) region
+Ctrl+K Ctrl+[     | Fold (collapse) all subregions
+Ctrl+K Ctrl+]     | Unfold (uncollapse) all subregions
+Ctrl+K Ctrl+0     | Fold (collapse) all regions
+Ctrl+K Ctrl+J     | Unfold (uncollapse) all regions
+Ctrl+K Ctrl+C     | Add line comment
+Ctrl+K Ctrl+U     | Remove line comment
+Ctrl+/            | Toggle line comment
+Shift+Alt+A       | Toggle block comment
+Alt+Z             | Toggle word wrap
 
-| Linux, Windows | macOS        | Feature                  | Supported |
-| -------------- | ------------ | ------------------------ | --------- |
-| alt+f7         | alt+f7       | Find usages              | ✅         |
-| ctrl+f7        | cmd+f7       | Find usages in file      | N/A       |
-| ctrl+shift+f7  | cmd+shift+f7 | Highlight usages in file | N/A       |
-| ctrl+alt+f7    | cmd+alt+f7   | Show usages              | N/A       |
+# Navigation 
 
-### Compile and Run
+Shortcut       | Desc
+---------------|--------------------------------
+Ctrl+T         | Show all Symbols
+Ctrl+G         | Go to Line...
+Ctrl+P         | Go to File...
+Ctrl+Shift+O   | Go to Symbol...
+Ctrl+Shift+M   | Show Problems panel
+F8             | Go to next error or warning
+Shift+F8       | Go to previous error or warning
+Ctrl+Shift+Tab | Navigate editor group history
+Alt+ ← / →     | Go back / forward
+Ctrl+M         | Toggle Tab moves focus
 
-| Linux, Windows | macOS        | Feature                                      | Supported |
-| -------------- | ------------ | -------------------------------------------- | --------- |
-| ctrl+f9        | cmd+f9       | Make project (compile modifed and dependent) | ✅         |
-| ctrl+shift+f9  | cmd+shift+f9 | Compile selected file, package or module     | N/A       |
-| alt+shift+f10  | ctrl+alt+r   | Select configuration and run                 | ✅         |
-| alt+shift+f9   | ctrl+alt+d   | Select configuration and debug               | ✅         |
-| shift+f10      | ctrl+r       | Run                                          | N/A       |
-| shift+f9       | ctrl+d       | Debug                                        | ✅         |
-| ctrl+shift+f10 | ctrl+shift+r | Run context configuration from editor        | N/A       |
-| ctrl+shift+f10 | ctrl+shift+r | Debug context configuration from editor      | N/A       |
+# Search and replace 
 
-### Debugging
+Shortcut      | Desc
+--------------|-------------------------------------------
+Ctrl+F        | Find
+Ctrl+H        | Replace
+F3 / Shift+F3 | Find next/previous
+Alt+Enter     | Select all occurences of Find match
+Ctrl+D        | Add selection to next Find match
+Ctrl+K Ctrl+D | Move last selection to next Find match
+Alt+C / R / W | Toggle case-sensitive / regex / whole word
 
-| Linux, Windows | macOS        | Feature                         | Supported |
-| -------------- | ------------ | ------------------------------- | --------- |
-| f8             | f8           | Step over                       | ✅         |
-| f7             | f7           | Step into                       | ✅         |
-| shift+f7       | shift+f7     | Smart step into                 | N/A       |
-| shift+f8       | shift+f8     | Step out                        | ✅         |
-| alt+f9         | alt+f9       | Run to cursor                   | ✅         |
-| alt+f8         | alt+f8       | Evaluate expression             | ✅         |
-| alt+f8         | alt+f8       | Evaluate expression (selection) | ✅         |
-| f9             | cmd+alt+r    | Resume program                  | ✅         |
-| ctrl+f8        | cmd+f8       | Toggle breakpoint               | ✅         |
-| ctrl+shift+f8  | cmd+shift+f8 | View breakpoints                | ✅         |
+# Multi-cursor and selection 
 
-### Navigation
+Shortcut                     | Desc
+-----------------------------|--------------------------------------------
+Alt+Click                    | Insert cursor
+Ctrl+Alt+ ↑ / ↓              | Insert cursor above / below
+Ctrl+U                       | Undo last cursor operation
+Shift+Alt+I                  | Insert cursor at end of each line selected
+Ctrl+L                       | Select current line
+Ctrl+Shift+L                 | Select all occurrences of current selection
+Ctrl+F2                      | Select all occurrences of current word
+Shift+Alt+→                  | Expand selection
+Shift+Alt+←                  | Shrink selection
+Shift+Alt + (drag mouse)     | Column (box) selection
+Ctrl+Shift+Alt + (arrow key) | Column (box) selection
+Ctrl+Shift+Alt +PgUp/PgDn    | Column (box) selection page up/down
 
-| Linux, Windows       | macOS               | Feature                                           | Supported |
-| -------------------- | ------------------- | ------------------------------------------------- | --------- |
-| ctrl+n               | cmd+o               | Go to class                                       | ✅         |
-| ctrl+shift+n         | cmd+shift+o         | Go to file                                        | ✅         |
-| ctrl+alt+shift+n     | cmd+alt+o           | Go to symbol                                      | ✅         |
-| alt+left             | ctrl+left           | Go to previous editor tab                         | ✅         |
-|                      | shift+cmd+[         | Go to previous editor tab                         | ✅         |
-| alt+right            | ctrl+right          | Go to next editor tab                             | ✅         |
-|                      | shift+cmd+]         | Go to next editor tab                             | ✅         |
-| f12                  | f12                 | Go back to previous tool window                   | N/A       |
-| escape               | escape              | Go to editor (from tool window)                   | N/A       |
-| shift+escape         | shift+escape        | Hide active or last active window (Sidebar)       | ✅         |
-| shift+escape         | shift+escape        | Hide active or last active window (Output)        | ✅         |
-| shift+escape         | shift+escape        | Hide active or last active window (Problems)      | ✅         |
-| shift+escape         | shift+escape        | Hide active or last active window (Debug Console) | ✅         |
-| shift+escape         | shift+escape        | Hide active or last active window (Terminal)      | ✅         |
-| shift+escape         | shift+escape        | Hide active or last active window (Panel)         | N/A       |
-| ctrl+shift+f4        | cmd+shift+f4        | Close active run/messages/find/... tab            | N/A       |
-| ctrl+g               | cmd+l               | Go to line                                        | ✅         |
-| ctrl+e               | cmd+e               | Recent files popup                                | ✅         |
-| **ctrl+alt+left**    | cmd+alt+left        | Navigate back                                     | ✅         |
-|                      | cmd+[               | Navigate back                                     | ✅         |
-| **ctrl+alt+right**   | cmd+alt+right       | Navigate forward                                  | ✅         |
-|                      | cmd+]               | Navigate forward                                  | ✅         |
-| ctrl+shift+backspace | cmd+shift+backspace | Navigate to last edit location                    | N/A       |
-| alt+f1               | alt+f1              | Select current file or symbol in any view         | N/A       |
-| ctrl+b               | cmd+b               | Go to declaration                                 | ✅         |
-| ctrl+alt+b           | cmd+alt+b           | Go to implementation(s)                           | ✅         |
-| ctrl+shift+i         | alt+space           | Open quick definition lookup                      | ✅         |
-|                      | cmd+y               | Open quick definition lookup                      | ✅         |
-| ctrl+shift+b         | ctrl+shift+b        | Go to type declaration                            | ✅         |
-| ctrl+u               | cmd+u               | Go to super-method/super-class                    | N/A       |
-| alt+up               | ctrl+up             | Go to previous method                             | N/A       |
-| alt+down             | ctrl+down           | Go to next method                                 | N/A       |
-| ctrl+]               | cmd+]               | Move to code block end                            | N/A       |
-| ctrl+[               | cmd+[               | Move to code block start                          | N/A       |
-| ctrl+f12             | cmd+f12             | File structure popup                              | ✅         |
-| ctrl+h               | ctrl+h              | Type hierarchy                                    | N/A       |
-| ctrl+shift+h         | cmd+shift+h         | Method hierarchy                                  | N/A       |
-| ctrl+alt+h           | ctrl+alt+h          | Call hierarchy                                    | N/A       |
-| f2                   | f2                  | Next highlighted error                            | ✅         |
-| shift+f2             | shift+f2            | Previous highlighted error                        | ✅         |
-| f4                   | f4                  | Edit source                                       | ✅         |
-| ctrl+enter           | cmd+down            | View source                                       | ✅         |
-| shift+ctrl+down      | shift+alt+down      | Move Statement Down                               | ✅         |
-| shift+ctrl+up        | shift+alt+up        | Move Statement Up                                 | ✅         |
-| alt+home             | alt+home            | Show navigation bar                               | N/A       |
-| f11                  | f3                  | Toggle bookmark                                   | N/A       |
-| ctrl+f11             | alt+f3              | Toggle bookmark with mnemonic                     | N/A       |
-| ctrl+0               | ctrl+0              | Go to numbered bookmark                           | N/A       |
-| shift+f11            | cmd+f3              | Show bookmarks                                    | N/A       |
-| ctrl+alt+shift+down  | ctrl+alt+shift+down | Next Change                                       | ✅         |
-| ctrl+alt+shift+up    | ctrl+alt+shift+up   | Previous Change                                   | ✅         |
+# Rich languages editing 
 
-### Refactoring
+Shortcut           | Desc
+-------------------|----------------------------
+Ctrl+Space, Ctrl+I | Trigger suggestion
+Ctrl+Shift+Space   | Trigger parameter hints
+Shift+Alt+F        | Format document
+Ctrl+K Ctrl+F      | Format selection
+F12                | Go to Definition
+Alt+F12            | Peek Definition
+Ctrl+K F12         | Open Definition to the side
+Ctrl+.             | Quick Fix
+Shift+F12          | Show References
+F2                 | Rename Symbol
+Ctrl+K Ctrl+X      | Trim trailing whitespace
+Ctrl+K M           | Change file language
 
-| Linux, Windows | macOS      | Feature           | Supported |
-| -------------- | ---------- | ----------------- | --------- |
-| f5             | f5         | Copy              | N/A       |
-| f6             | f6         | Move              | N/A       |
-| alt+delete     | cmd+delete | Safe Delete       | N/A       |
-| shift+f6       | shift+f6   | Rename            | ✅         |
-| shift+f6       | shift+f6   | Rename (File)     | ✅         |
-| ctrl+f6        | cmd+f6     | Change Signature  | N/A       |
-| ctrl+alt+n     | cmd+alt+n  | Inline            | N/A       |
-| ctrl+alt+m     | cmd+alt+m  | Extract Method    | N/A       |
-| ctrl+alt+v     | cmd+alt+v  | Extract Variable  | N/A       |
-| ctrl+alt+f     | cmd+alt+f  | Extract Field     | N/A       |
-| ctrl+alt+c     | cmd+alt+c  | Extract Constant  | N/A       |
-| ctrl+alt+p     | cmd+alt+p  | Extract Parameter | N/A       |
+# Editor management 
 
-### VCS/Local History
+Shortcut               | Desc
+-----------------------|----------------------------------------
+Ctrl+F4, Ctrl+W        | Close editor
+Ctrl+K F               | Close folder
+Ctrl+\                 | Split editor
+Ctrl+ 1 / 2 / 3        | Focus into 1st, 2nd or 3rd editor group
+Ctrl+K Ctrl+ ←/→       | Focus into previous/next editor group
+Ctrl+Shift+PgUp / PgDn | Move editor left/right
+Ctrl+K ← / →           | Move active editor group
 
-| Linux, Windows | macOS       | Feature                 | Supported |
-| -------------- | ----------- | ----------------------- | --------- |
-| ctrl+k         | cmd+k       | Commit project to VCS   | ✅         |
-| ctrl+shift+k   | cmd+shift+k | Push commits to VCS     | ✅         |
-| ctrl+t         | cmd+t       | Update project from VCS | ✅         |
-| alt+shift+c    | alt+shift+c | View recent changes     | N/A       |
-| ctrl+`         | ctrl+v      | ‘VCS’ quick popup       | ✅         |
+# File management 
 
-### Live Templates
+Shortcut       | Desc
+---------------|----------------------------------------
+Ctrl+N         | New File
+Ctrl+O         | Open File...
+Ctrl+S         | Save
+Ctrl+Shift+S   | Save As...
+Ctrl+K S       | Save All
+Ctrl+F4        | Close
+Ctrl+K Ctrl+W  | Close All
+Ctrl+Shift+T   | Reopen closed editor
+Ctrl+K         | Enter Keep preview mode editor open
+Ctrl+Tab       | Open next
+Ctrl+Shift+Tab | Open previous
+Ctrl+K P       | Copy path of active file
+Ctrl+K R       | Reveal active file in Explorer
+Ctrl+K O       | Show active file in new window/instance
 
-| Linux, Windows | macOS     | Feature                     | Supported |
-| -------------- | --------- | --------------------------- | --------- |
-| ctrl+alt+j     | cmd+alt+j | Surround with Live Template | N/A       |
-| ctrl+j         | cmd+j     | Insert Live Template        | N/A       |
+# Display 
 
-### General
+Shortcut         | Desc
+-----------------|------------------------
+F11 Toggle full screen 
+Shift+Alt+0 Toggle editor layout (horizontal/vertical) 
+Ctrl+ = / - Zoom in/out 
+Ctrl+B Toggle Sidebar visibility 
+Ctrl+Shift+E Show Explorer / Toggle focus 
+Ctrl+Shift+F Show Search 
+Ctrl+Shift+G Show Source Control 
+Ctrl+Shift+D Show Debug 
+Ctrl+Shift+X Show Extensions 
+Ctrl+Shift+H Replace in files 
+Ctrl+Shift+J Toggle Search details 
+Ctrl+Shift+U Show Output panel 
+Ctrl+Shift+V Open Markdown preview 
+Ctrl+K V Open Markdown preview to the side 
+Ctrl+K Z Zen Mode (Esc Esc to exit) 
 
-| Linux, Windows   | macOS                | Feature                                    | Supported |
-| ---------------- | -------------------- | ------------------------------------------ | --------- |
-| alt+0            | cmd+0                | Activate Messages window (Problems)        | ✅         |
-| alt+numpad0      | cmd+numpad0          | Activate Messages window (Problems)        | ✅         |
-| alt+1            | cmd+1                | Open corresponding tool window (Explorer)  | ✅         |
-| alt+numpad1      | cmd+numpad1          | Open corresponding tool window (Explorer)  | ✅         |
-| alt+1            | cmd+1                | Close corresponding tool window (Explorer) | ✅         |
-| alt+numpad1      | cmd+numpad1          | Close corresponding tool window (Explorer) | ✅         |
-| alt+3            | cmd+3                | Open corresponding tool window (Search)    | ✅         |
-| alt+numpad3      | cmd+numpad3          | Open corresponding tool window (Search)    | ✅         |
-| alt+3            | cmd+3                | Close corresponding tool window (Search)   | ✅         |
-| alt+numpad3      | cmd+numpad3          | Close corresponding tool window (Search)   | ✅         |
-| alt+5            | cmd+5                | Open corresponding tool window (Debug)     | ✅         |
-| alt+numpad5      | cmd+numpad5          | Open corresponding tool window (Debug)     | ✅         |
-| alt+5            | cmd+5                | Close corresponding tool window (Debug)    | ✅         |
-| alt+numpad5      | cmd+numpad5          | Close corresponding tool window (Debug)    | ✅         |
-| alt+9            | cmd+9                | Open corresponding tool window (Git)       | ✅         |
-| alt+numpad9      | cmd+numpad9          | Open corresponding tool window (Git)       | ✅         |
-| alt+9            | cmd+9                | Close corresponding tool window (Git)      | ✅         |
-| alt+numpad9      | cmd+numpad9          | Close corresponding tool window (Git)      | ✅         |
-| ctrl+s           | cmd+s                | Save all                                   | ✅         |
-| ctrl+alt+y       | cmd+alt+y            | Synchronize                                | ✅         |
-| ctrl+alt+f       | ctrl+cmd+f           | Toggle full screen mode                    | ✅         |
-| ctrl+shift+f12   | cmd+shift+f12        | Toggle maximizing editor                   | ✅         |
-| alt+shift+f      | alt+shift+f          | Add to Favorites                           | N/A       |
-| alt+shift+i      | alt+shift+i          | Inspect current file with current profile  | N/A       |
-| ctrl+`           | ctrl+`               | Quick switch current scheme                | ✅         |
-| ctrl+alt+s       | cmd+,                | Open Settings dialog                       | ✅         |
-| ctrl+alt+s       | cmd+numpad_separator | Open Settings dialog                       | ✅         |
-| ctrl+alt+shift+s | cmd+;                | Open Project Structure dialog              | ✅         |
-| ctrl+shift+a     | shift+cmd+a          | Find Action                                | ✅         |
-| ctrl+tab         | ctrl+tab             | Switch between tabs and tool window        | ✅         |
+# Debug 
 
-### Custom
+Shortcut        | Desc
+----------------|------------------
+F9              | Toggle breakpoint
+F5              | Start/Continue
+Shift+F5        | Stop
+F11 / Shift+F11 | Step into/out
+F10             | Step over
+Ctrl+K Ctrl+I   | Show hover
 
-| Linux, Windows   | macOS           | Feature                                                | Supported |
-| ---------------- | --------------- | ------------------------------------------------------ | --------- |
-| f7               | f7              | Next difference                                        | ✅         |
-| shift+f7         | shift+f7        | Previous difference                                    | ✅         |
-| alt+ctrl+enter   | alt+cmd+enter   | Start new line before current                          | ✅         |
-| shift+ctrl+enter | shift+cmd+enter | Start new line                                         | ✅         |
-| alt+f12          | alt+f12         | Opens and focuses corresponding tool window (Terminal) | ✅         |
-| alt+f12          | alt+f12         | Close corresponding tool window (Terminal)             | ✅         |
-| ctrl+shift+alt+j | ctrl+cmd+g      | Sublime Text style multiple selections                 | ✅         |
-| alt+left         | shift+cmd+[     | Select previous tab (Terminal)                         | ✅         |
-| alt+right        | shift+cmd+]     | Select next tab (Terminal)                             | ✅         |
-| alt+tab          | alt+tab         | Goto next splitter                                     | ✅         |
-| shift+alt+tab    | shift+alt+tab   | Goto previous splitter                                 | ✅         |
-| enter            | enter           | Open Highlighted File (Explorer)                       | ✅         |
+# Integrated terminal 
 
-## Installation
+Shortcut         | Desc
+-----------------|------------------------
+Ctrl+` | Show integrated terminal 
+Ctrl+Shift+` | Create new terminal 
+(C+S)+C | Copy selection 
+(C+S)+V | Paste into active terminal 
+Ctrl+↑ / ↓ | Scroll up/down 
+Shift+PgUp / PgDn | Scroll | page up/down 
+Ctrl+Home / End | Scroll to top/bottom 
 
-1. Install Visual Studio Code 1.21.0 or higher
-2. Launch Code
-3. From the extension view `Ctrl`-`Shift`-`X` (Windows, Linux) or `Cmd`-`Shift`-`X`(macOS)
-4. Search and Choose the extension `Intellij IDEA Keybindings`
-5. Reload Visual Studio Code
-
-## Contributing to the Code
-
-Clone a copy of the repo:
-
-```
-git clone https://github.com/kasecato/vscode-intellij-idea-keybindings.git
-```
-
-### Building the code
-
-First, install the package dependencies:
-
-```
-npm install
-```
-
-Now you can compile the code:
-
-1. Launch Code
-2. Edit **src/package-with-comment.json** (**NOT package.json**)
-3. Run Build Task `Ctrl`-`Shift`-`B` (Windows, Linux) or `Cmd`-`Shift`-`B` (macOS)
-4. Run Command Markdown Generator `node src/tool/gene-keybind-markdown.js`
-5. Paste the Command Markdown to `README.md`
-
-After the initial compile, the source files will be watched and recompiled when changes are saved.
