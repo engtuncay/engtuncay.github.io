@@ -17,6 +17,10 @@ unassigned shortcuts available at aka.ms/vscodekeybindings
 - [Display](#display)
 - [Debug](#debug)
 - [Integrated terminal](#integrated-terminal)
+- [Notes](#notes)
+  - [Visual Studio Keymaps Changes](#visual-studio-keymaps-changes)
+  - [Idea Keymap Changes](#idea-keymap-changes)
+  - [Rider Changes](#rider-changes)
  
 
 # General 
@@ -38,7 +42,7 @@ Ctrl+X            | Cut line (empty selection)
 Ctrl+C            | Copy line (empty selection)
 Alt+ ↑ / ↓        | Move line up/down
 Shift+Alt + ↓ / ↑ | Copy line up/down
-Ctrl+Shift+K      | Delete line
+c+L,(c+s)+K       | Delete line
 Ctrl+Enter        | Insert line below
 Ctrl+Shift+Enter  | Insert line above
 Ctrl+Shift+\      | Jump to matching bracket
@@ -194,4 +198,14 @@ Ctrl+Shift+` | Create new terminal
 Ctrl+↑ / ↓ | Scroll up/down 
 Shift+PgUp / PgDn | Scroll | page up/down 
 Ctrl+Home / End | Scroll to top/bottom 
+
+
+# Notes
+
+## Visual Studio Keymaps Changes
+
+## Idea Keymap Changes
+
+## Rider Changes
+
 
