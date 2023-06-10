@@ -95,7 +95,7 @@ foreach (string word in words)
 
 ```
 
-We go through the list of words. The IsMatch method returns true if the word matches the regular expression.
+We go through the list of words. The IsMatch method returns *true* if the word matches the regular expression.
 
 ```cs
 $ dotnet run
@@ -107,23 +107,20 @@ eleven does match
 
 ```
 
-C# regex Match index
+*C# regex Match index*
 
 The Match's Success property returns a boolean value indicating whether the match is successful. The NextMatch method returns a new Match object with the results for the next match, starting at the position at which the last match ended.
 
 We can find out the position of the matches in the string with the Index property of the Match.
 
-Program.cs
-using System.Text.RegularExpressions;
-
+```cs
 var content = @"Foxes are omnivorous mammals belonging to several genera
 of the family Canidae. Foxes have a flattened skull, upright triangular ears,
 a pointed, slightly upturned snout, and a long bushy tail. Foxes live on every
 continent except Antarctica. By far the most common and widespread species of
 fox is the red fox.";
 
-var rx = new Regex("fox(es)?", RegexOptions.Compiled |
-    RegexOptions.IgnoreCase);
+var rx = new Regex("fox(es)?", RegexOptions.Compiled | RegexOptions.IgnoreCase);
 
 Match match = rx.Match(content);
 
@@ -132,13 +129,19 @@ while (match.Success)
     Console.WriteLine($"{match.Value} at index {match.Index}");
     match = match.NextMatch();
 }
+
+```
 
 In the example, we look for all occurrences of the fox word.
 
-var rx = new Regex("fox(es)?", RegexOptions.Compiled |
-    RegexOptions.IgnoreCase);
-We add the (es)? expression to include the plural form of the word. The RegexOptions.IgnoreCase searches in case-insensitive mode.
+```cs
+var rx = new Regex("fox(es)?", RegexOptions.Compiled | RegexOptions.IgnoreCase);
 
+```
+
+We add the (es)? expression to include the plural form of the word. The *RegexOptions.IgnoreCase* searches in case-insensitive mode.
+
+```cs
 Match match = rx.Match(content);
 
 while (match.Success)
@@ -146,20 +149,26 @@ while (match.Success)
     Console.WriteLine($"{match.Value} at index {match.Index}");
     match = match.NextMatch();
 }
+
+```
+
 The match.Value returns the matched string and the match.Index returns its index in the text. We find the next occurrence of a match with the match.NextMatch method.
 
+```cs
 $ dotnet run
 Foxes at index 0
 Foxes at index 80
 Foxes at index 194
 fox at index 292
 fox at index 307
-C# regex Matches
+
+```
+
+*C# regex Matches*
+
 The Matches method searches an input string for all occurrences of a regular expression and returns all the matches.
 
-Program.cs
-using System.Text.RegularExpressions;
-
+```cs
 String content = @"<p>The <code>Regex</code> is a compiled 
                 representation of a regular expression.</p>";
 
@@ -170,6 +179,9 @@ foreach (Match match in matches)
 {
     Console.WriteLine(match);
 }
+
+```
+
 The example retrieves all HTML tags from a string.
 
 var rx = new Regex(@"</?[a-z]+>", RegexOptions.Compiled);
