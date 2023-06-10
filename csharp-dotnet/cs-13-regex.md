@@ -1,6 +1,15 @@
 
 - [C# Regular Expressions](#c-regular-expressions)
   - [C# regex isMatch](#c-regex-ismatch)
+  - [C# regex Match index](#c-regex-match-index)
+  - [C# regex Matches](#c-regex-matches)
+  - [C# regex Count](#c-regex-count)
+  - [C# regex word boundaries](#c-regex-word-boundaries)
+  - [C# regex implicit word boundaries](#c-regex-implicit-word-boundaries)
+  - [C# regex currency symbols](#c-regex-currency-symbols)
+  - [C# regex anchors](#c-regex-anchors)
+  - [C# regex alternations](#c-regex-alternations)
+  - [C# regex capturing groups](#c-regex-capturing-groups)
 
 # C# Regular Expressions
 
@@ -107,7 +116,7 @@ eleven does match
 
 ```
 
-*C# regex Match index*
+## C# regex Match index
 
 The Match's Success property returns a boolean value indicating whether the match is successful. The NextMatch method returns a new Match object with the results for the next match, starting at the position at which the last match ended.
 
@@ -164,7 +173,7 @@ fox at index 307
 
 ```
 
-*C# regex Matches*
+## C# regex Matches
 
 The Matches method searches an input string for all occurrences of a regular expression and returns all the matches.
 
@@ -184,29 +193,43 @@ foreach (Match match in matches)
 
 The example retrieves all HTML tags from a string.
 
+```cs
 var rx = new Regex(@"</?[a-z]+>", RegexOptions.Compiled);
+
+```
 In the regular expression, we search for tags; both starting and ending.
 
+```cs
 var matches = rx.Matches(content);
+
+```
+
 The Matches method returns a collection of the Match objects found by the search. If no matches are found, the method returns an empty collection object.
 
+```cs
 foreach (Match match in matches)
 {
     Console.WriteLine(match);
 }
+
+```
+
 We go through the collection and print all matched strings.
 
+```cs
 $ dotnet run
 <p>
 <code>
 </code>
 </p>
-C# regex Count
+
+```
+
+## C# regex Count
+
 With Count, we can count the number of occurrences of the pattern. We have static and instance overloads of the method.
 
-Program.cs
-using System.Text.RegularExpressions;
-
+```cs
 string content = @"Foxes are omnivorous mammals belonging to several genera
 of the family Canidae. Foxes have a flattened skull, upright triangular ears,
 a pointed, slightly upturned snout, and a long bushy tail. Foxes live on every
@@ -218,27 +241,39 @@ string pattern = "fox(es)?";
 int n = Regex.Count(content, pattern, RegexOptions.Compiled |
     RegexOptions.IgnoreCase);
 Console.WriteLine($"There are {n} matches");
+
+```
+
 In the program, we count the number of variants of the fox word.
 
-int n = Regex.Count(content, pattern, RegexOptions.Compiled |
-    RegexOptions.IgnoreCase);
+```cs
+int n = Regex.Count(content, pattern, RegexOptions.Compiled | RegexOptions.IgnoreCase);
+
+```
+
 We use the static Regex.Count method.
 
-var rx = new Regex(pattern, RegexOptions.Compiled |
-    RegexOptions.IgnoreCase);
+```cs
+var rx = new Regex(pattern, RegexOptions.Compiled | RegexOptions.IgnoreCase);
 
 int n = rx.Count(content);
+
 Console.WriteLine($"There are {n} matches");
+
+```
 We can also use the instance method.
 
+```cs
 $ dotnet run
 There are 5 matches
-C# regex word boundaries
+
+```
+
+## C# regex word boundaries
+
 The metacharacter \b is an anchor which matches at a position that is called a word boundary. It allows to search for whole words.
 
-Program.cs
-using System.Text.RegularExpressions;
-
+```cs
 var text = "This island is beautiful";
 
 var rx = new Regex(@"\bis\b", RegexOptions.Compiled);
@@ -248,19 +283,29 @@ foreach (Match match in matches)
 {
     Console.WriteLine($"{match.Value} at {match.Index}");
 }
+
+```
+
 In the example, we look for the is word. We do not want to include the This and the island words.
 
+```cs
 var rx = new Regex(@"\bis\b", RegexOptions.Compiled);
+
+```
+
 With two \b metacharacters, we search for the is whole word.
 
+```cs
 $ dotnet run
 is at 12
-C# regex implicit word boundaries
+
+```
+
+## C# regex implicit word boundaries
+
 The \w is a character class used for a character allowed in a word. For the \w+ regular expression, which denotes a word, the leading and trailing word boundary metacharacters are implicit; i.e. \w+ is equal to \b\w+\b.
 
-Program.cs
-using System.Text.RegularExpressions;
-
+```cs
 var content = @"Foxes are omnivorous mammals belonging to several genera 
 of the family Canidae. Foxes have a flattened skull, upright triangular ears, 
 a pointed, slightly upturned snout, and a long bushy tail. Foxes live on every 
@@ -277,17 +322,23 @@ foreach (var match in matches)
 {
     Console.WriteLine(match);
 }
+
+```
+
 In the example, we search for all words in the text.
 
+```cs
 Console.WriteLine(matches.Count);
+
+```
+
 The Count property returns the number of matches.
 
-C# regex currency symbols
+## C# regex currency symbols
+
 The \p{Sc} regular expresion can be used to look for currency symbols.
 
-Program.cs
-using System.Text.RegularExpressions;
-
+```cs
 Console.OutputEncoding = System.Text.Encoding.UTF8;
 
 string content = @"Currency symbols: ฿ Thailand bath, ₹  Indian rupee, 
@@ -302,21 +353,33 @@ foreach (Match match in matches)
 {
     Console.WriteLine($"{match.Value} is at {match.Index}");
 }
+
+```
+
 In the example, we look for currency symbols.
 
+```cs
 string content = @"Currency symbols: ฿ Thailand bath, ₹ Indian rupee, 
     ₾ Georgian lari, $ Dollar, € Euro, ¥ Yen, £ Pound Sterling";
 We have a couple of currency symbols in the text.
 
 string pattern = @"\p{Sc}";
+
+```
+
 We define the regular expression for the currency symbols.
 
+```cs
 foreach (Match match in matches)
 {
     Console.WriteLine($"{match.Value} is at {match.Index}");
 }
+
+```
+
 We find all the symbols and their index.
 
+```cs
 $ dotnet run 
 ฿ is at 18
 ₹  is at 35
@@ -325,12 +388,14 @@ $ is at 74
 € is at 84
 ¥ is at 92
 £ is at 99
-C# regex anchors
+
+```
+
+## C# regex anchors
+
 Anchors match positions of characters inside a given text. In the next example, we look if a string is located at the beginning of a sentence.
 
-Program.cs
-using System.Text.RegularExpressions;
-
+```cs
 var sentences = new List<string>() {
     "I am looking for Jane.",
     "Jane was walking along the river.",
@@ -350,14 +415,16 @@ foreach (string sentence in sentences)
         Console.WriteLine($"{sentence} does not match");
     }
 }
-We have three sentences. The search pattern is ^Jane. The pattern checks if the "Jane" string is located at the beginning of the text. Jane\.$ would look for "Jane" at the end of the sentence.
 
-C# regex alternations
+```
+
+We have three sentences. The search pattern is ^Jane. The pattern checks if the "Jane" string is located at the beginning of the text. `Jane\.$` would look for "Jane" at the end of the sentence.
+
+## C# regex alternations
+
 The alternation operator | enables to create a regular expression with several choices.
 
-Program.cs
-using System.Text.RegularExpressions;
-
+```cs
 var users = new List<string>() {"Jane", "Thomas", "Robert",
     "Lucy", "Beky", "John", "Peter", "Andy"};
 
@@ -374,17 +441,23 @@ foreach (string user in users)
         Console.WriteLine($"{user} does not match");
     }
 }
+
+```
+
 We have nine names in the list.
 
+```cs
 var rx = new Regex("Jane|Beky|Robert", RegexOptions.Compiled);
+
+```
+
 This regular expression looks for "Jane", "Beky", or "Robert" strings.
 
-C# regex capturing groups
+## C# regex capturing groups
+
 Round brackets are used to create capturing groups. This allows us to apply a quantifier to the entire group or to restrict alternation to a part of the regular expression.
 
-Program.cs
-using System.Text.RegularExpressions;
-
+```cs
 var sites = new List<string>() {"webcode.me",
     "zetcode.com", "freebsd.org", "netbsd.org"};
 
@@ -403,6 +476,9 @@ foreach (var site in sites)
 
     Console.WriteLine("*****************");
 }
+
+```
+
 In the example, we divide the domain names into two parts by using groups.
 
 var rx = new Regex(@"(\w+)\.(\w+)", RegexOptions.Compiled);
