@@ -10,6 +10,13 @@
   - [C# regex anchors](#c-regex-anchors)
   - [C# regex alternations](#c-regex-alternations)
   - [C# regex capturing groups](#c-regex-capturing-groups)
+  - [C# regex captures](#c-regex-captures)
+  - [C# regex replacing strings](#c-regex-replacing-strings)
+  - [C# regex splitting text](#c-regex-splitting-text)
+  - [C# case-insensitive regular expression](#c-case-insensitive-regular-expression)
+  - [C# regex subpatterns](#c-regex-subpatterns)
+  - [C# regex word frequency](#c-regex-word-frequency)
+  - [C# regex email example](#c-regex-email-example)
 
 # C# Regular Expressions
 
@@ -481,6 +488,7 @@ foreach (var site in sites)
 
 In the example, we divide the domain names into two parts by using groups.
 
+```cs
 var rx = new Regex(@"(\w+)\.(\w+)", RegexOptions.Compiled);
 We define two groups with parentheses.
 
@@ -490,8 +498,13 @@ if (match.Success)
     Console.WriteLine(match.Groups[1]);
     Console.WriteLine(match.Groups[2]);
 }
+
+```
+
 The match.Value returns the whole matched string; it is equal to the match.Groups[0]. The groups are accessed via the Groups property.
 
+
+```cs
 $ dotnet run
 webcode.me
 webcode
@@ -509,8 +522,12 @@ netbsd.org
 netbsd
 org
 *****************
+
+```
+
 In the following example, we use groups to work with expressions.
 
+```cs
 Program.cs
 using System.Text.RegularExpressions;
 
@@ -541,21 +558,42 @@ foreach (var expression in expressions)
         Console.WriteLine(result);
     }
 }
+
+```
+
 The example parses four simple mathematical expressions and computes them.
 
+```cs
 string[] expressions = { "16 + 11", "12 * 5", "27 / 3", "2 - 8" };
+
+```
+
 We have an array of four expressions.
 
+```cs
 string pattern = @"(\d+)\s+([-+*/])\s+(\d+)";
+
+```
+
 In the regex pattern, we have three groups: two groups for the values, one for the operator.
 
+
+```cs
 int val1 = Int32.Parse(match.Groups[1].Value);
 int val2 = Int32.Parse(match.Groups[3].Value);
+
+```
+
 We get the values and transform them into integers.
 
+```cs
 var oper = match.Groups[2].Value;
+
+```
+
 We get the operator.
 
+```cs
 string result = oper switch
 {
     "+" => $"{match.Value} = {val1 + val2}",
@@ -564,16 +602,24 @@ string result = oper switch
     "/" => $"{match.Value} = {val1 / val2}",
     _ => "unknown operator"
 };
+
+```
+
 With the switch expression, we compute the expressions.
 
+```cs
 $ dotnet run
 16 + 11 = 27
 12 * 5 = 60
 27 / 3 = 9
 2 - 8 = -6
-C# regex captures
+
+```
+## C# regex captures
+
 When we use quantifiers, the group can capture zero, one, or more strings in a single match. All the substrings matched by a single capturing group are available from the Group.Captures property. In such as case, the Group object contains information about the last captured substring.
 
+```cs
 Program.cs
 using System.Text.RegularExpressions;
 
@@ -599,18 +645,30 @@ foreach (Match match in matches)
         }
     }
 }
+
+```
+
 In the example, we have two sentences. With a regular expression, we capture all words from a sentence.
 
+```cs
 string pattern = @"\b(\w+\s*)+\.";
+
+```
+
 We use the + quantifier for the (\w+\s*) group. The group then contains all captures: words of the sentence.
 
+```cs
 foreach (Capture capture in match.Groups[i].Captures)
 {
     Console.WriteLine("\t\tCapture {0}: {1}", captures, capture.Value);
     captures++;
 }
+
+```
+
 We go through the captures of the group and print them to the console.
 
+```cs
 $ dotnet run
 Matched sentence: Today is a beautiful day.
         Group 0:  Today is a beautiful day.
@@ -629,11 +687,16 @@ Matched sentence: The sun is shining.
                 Capture 1: sun
                 Capture 2: is
                 Capture 3: shining
+
+```
+
 This is the output. Remember that match.Groups[0].Value equals to match.Value.
 
-C# regex replacing strings
+## C# regex replacing strings
+
 It is possible to replace strings with Replace. The method returns the modified string.
 
+```cs
 Program.cs
 using System.Text.RegularExpressions;
 
@@ -647,28 +710,49 @@ var rx = new Regex(@"<[^>]*>", RegexOptions.Compiled |
 var modified = rx.Replace(content, String.Empty);
 
 Console.WriteLine(modified.Trim());
+
+```
+
 The example reads HTML data of a web page and strips its HTML tags using a regular expression.
 
+```cs
 using var client = new HttpClient();
 var content = await client.GetStringAsync("http://webcode.me");
+
+```
+
 We create a GET request with HttpClient and retrieve the HTML code.
 
+```cs
 var rx = new Regex(@"<[^>]*>", RegexOptions.Compiled |
     RegexOptions.IgnoreCase);
+
+```
+
 This pattern defines a regular expression that matches HTML tags.
 
+```cs
 var modified = rx.Replace(content, String.Empty);
+
+```
+
 We remove all the tags with replaceAll method.
 
-C# regex splitting text
+## C# regex splitting text
+
 Text can be split with Pattern's split method.
 
+```cs
 data.csv
 22, 1, 3, 4, 5, 17, 18,
 2, 13, 4, 1, 8, 4,
 3, 21, 4, 5, 1, 48, 9, 42
+
+```
+
 We read from data.csv file.
 
+```cs
 Program.cs
 using System.Text.RegularExpressions;
 
@@ -690,17 +774,32 @@ Array.ForEach(data, e =>
 
 Console.WriteLine(sum);
 
+```
+
 The examples reads values from a CSV file and computes the sum of them. It uses regular expression to process the data.
 
+```cs
 string content = File.ReadAllText("data.csv");
+
+```
+
 In one shot, we read all data into the list of strings with File.ReadAllText.
 
+```cs
 var rx = new Regex(@",\s*", RegexOptions.Compiled);
+
+```
+
 The regular expression is a comma character followed by zero or more white space characters.
 
+```cs
 var data = rx.Split(content);
+
+```
+
 The Split method splits an input string into an array of substrings.
 
+```cs
 int sum = 0;
 Array.ForEach(data, e => {
 
@@ -708,14 +807,22 @@ Array.ForEach(data, e => {
 
     sum += Int32.Parse(e);
 });
+
+```
+
 We go through the lines and cut off spaces with trim and compute the sum value.
 
+```cs
 $ dotnet run
 [22, 1, 3, 4, 5, 17, 18, 2, 13, 4, 1, 8, 4, 3, 21, 4, 5, 1, 48, 9, 42]
 235
-C# case-insensitive regular expression
+
+```
+## C# case-insensitive regular expression
+
 By setting the RegexOptions.IgnoreCase flag, we can have case-insensitive matching.
 
+```cs
 Program.cs
 using System.Text.RegularExpressions;
 
@@ -735,15 +842,24 @@ foreach (string word in words)
         Console.WriteLine($"{word} does not match");
     }
 }
+
+```
+
 The example performs case-insensitive matching of the regular expression.
 
+```cs
 var rx = new Regex(@"\bdog\b", RegexOptions.Compiled | 
     RegexOptions.IgnoreCase);
+
+```
+
 Case-insensitive matching is enabled by setting RegexOptions.Compiled as the second parameter to Regex.
 
-C# regex subpatterns
+## C# regex subpatterns
+
 Subpatterns are patterns within patterns. Subpatterns are created with () characters.
 
+```cs
 Program.cs
 using System.Text.RegularExpressions;
 
@@ -763,14 +879,23 @@ foreach (string word in words)
         Console.WriteLine($"{word} does not match");
     }
 }
+
+```
+
 The example creates a subpattern.
 
+```cs
 var rx = new Regex("^book(worm|mark|keeper)?$", RegexOptions.Compiled); 
+
+```
+
 The regular expression uses a subpattern. It matches bookworm, bookmark, bookkeeper, and book words.
 
-C# regex word frequency
+## C# regex word frequency
+
 In the next example, we count the frequency of words in a file.
 
+```cs
 $ wget https://raw.githubusercontent.com/janbodnar/data/main/the-king-james-bible.txt
 We use the King James Bible.
 
@@ -793,19 +918,31 @@ foreach (var r in res)
 {
     Console.WriteLine($"{r.word}: {r.Count}");
 }
+
+```
+
 In the example, we count the frequency of the words from the King James Bible.
 
+```cs
 var matches = new Regex("[a-z-A-Z']+").Matches(text);
 var words = matches.Select(m => m.Value).ToList();
+
+```
+
 We find all the matches witch Matches method. From the match collection, we get all the words into a list.
 
+```cs
 var res = words
     .GroupBy(m => m)
     .OrderByDescending(g => g.Count())
     .Select(x => new { word = x.Key, Count = x.Count() })
     .Take(10);
+
+```
+
 The words are grouped and ordered by frequency in descending order. We take the first top words.
 
+```cs
 $ dotnet run
 the 62103
 and 38848
@@ -817,9 +954,13 @@ in 12331
 shall 9760
 he 9665
 unto 8942
-C# regex email example
+
+```
+## C# regex email example
+
 In the following example, we create a regex pattern for checking email addresses.
 
+```cs
 Program.cs
 using System.Text.RegularExpressions;
 
@@ -841,9 +982,16 @@ foreach (string email in emails)
         Console.WriteLine($"{email} does not match");
     }
 }
+
+```
+
 This example provides only one possible solution.
 
+```cs
 var pattern = @"[a-zA-Z0-9._-]+@[a-zA-Z0-9-]+\.[a-zA-Z.]{2,18}";
+
+```
+
 The email is divided into five parts. The first part is the local part. This is usually a name of a company, individual, or a nickname. The [a-zA-Z0-9._-]+ lists all possible characters, we can use in the local part. They can be used one or more times.
 
 The second part consists of the literal @ character. The third part is the domain part. It is usually the domain name of the email provider, like Yahoo or Gmail. The [a-zA-Z0-9-]+ is a character set providing all characters that can be used in the domain name. The + quantifier makes use of one or more of these characters.
