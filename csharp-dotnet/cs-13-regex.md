@@ -20,15 +20,16 @@ A regular expression defines a search pattern for strings. Regex represents an i
 
 The following table shows a couple of regular expression strings.
 
+
 Regex  | Meaning
 -------|-----------------------------------------------------
 .      | Matches any single character.
 ?      | Matches the preceding element once or not at all.
 \+     | Matches the preceding element once or more times.
-\*     | Matches the preceding element zero or more times.
+\*    | Matches the preceding element zero or more times.
 ^      | Matches the starting position within the string.
-$      | Matches the ending position within the string.
-\|     | Alternation operator.
+`$`      | Matches the ending position within the string.
+`|`     | Alternation operator.
 [abc]  | Matches a or b, or c.
 [a-c]  | Range; matches a or b, or c.
 [^abc] | Negation, matches everything except a, or b, or c.
@@ -39,8 +40,7 @@ $      | Matches the ending position within the string.
 
 The isMatch method indicates whether the regular expression finds a match in the input string.
 
-
-
+```cs
 Program.cs
 using System.Text.RegularExpressions;
 
@@ -60,15 +60,20 @@ foreach (string word in words)
         Console.WriteLine($"{word} does not match");
     }
 }
+
+```
+
 In the example, we have five words in a list. We check which words match the .even regular expression.
 
-var words = new List<string>() { "Seven", "even",
-        "Maven", "Amen", "eleven" };
-We have a list of words.
-
+```cs
+var words = new List<string>() { "Seven", "even","Maven", "Amen", "eleven" };
+//We have a list of words.
 var rx = new Regex(@".even", RegexOptions.Compiled);
+```
+
 We define the .even regular expression. The RegexOptions.Compiled option specifies that the regular expression is compiled to an assembly. This yields faster execution but increases startup time. The dot (.) metacharacter stands for any single character in the text.
 
+```cs
 foreach (string word in words)
 {
     if (rx.IsMatch(word))
@@ -80,15 +85,23 @@ foreach (string word in words)
         Console.WriteLine($"{word} does not match");
     }
 }
+
+```
+
 We go through the list of words. The IsMatch method returns true if the word matches the regular expression.
 
+```cs
 $ dotnet run
 Seven does match
 even does not match
 Maven does not match
 Amen does not match
 eleven does match
+
+```
+
 C# regex Match index
+
 The Match's Success property returns a boolean value indicating whether the match is successful. The NextMatch method returns a new Match object with the results for the next match, starting at the position at which the last match ended.
 
 We can find out the position of the matches in the string with the Index property of the Match.
