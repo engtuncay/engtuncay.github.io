@@ -40,7 +40,7 @@ Regex  | Meaning
 The isMatch method indicates whether the regular expression finds a match in the input string.
 
 ```cs
-Program.cs
+//Program.cs
 using System.Text.RegularExpressions;
 
 var words = new List<string>() { "Seven", "even",
@@ -60,6 +60,14 @@ foreach (string word in words)
     }
 }
 
+//---Output---
+// 
+// Seven does match
+// even does not match
+// Maven does not match
+// Amen does not match
+// eleven does match
+
 ```
 
 In the example, we have five words in a list. We check which words match the .even regular expression.
@@ -70,7 +78,7 @@ var words = new List<string>() { "Seven", "even","Maven", "Amen", "eleven" };
 var rx = new Regex(@".even", RegexOptions.Compiled);
 ```
 
-We define the .even regular expression. The RegexOptions.Compiled option specifies that the regular expression is compiled to an assembly. This yields faster execution but increases startup time. The dot (.) metacharacter stands for any single character in the text.
+We define the ".even" regular expression. The *RegexOptions.Compiled* option specifies that the regular expression is compiled to an assembly. This yields faster execution but increases startup time. The dot (.) metacharacter stands for any single character in the text.
 
 ```cs
 foreach (string word in words)
