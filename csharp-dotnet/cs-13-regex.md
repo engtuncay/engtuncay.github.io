@@ -14,12 +14,11 @@ Regular expressions are used for text searching and more advanced text manipulat
 
 C# has built-in API for working with regular expressions; it is located in System.Text.RegularExpressions.
 
-A regular expression defines a search pattern for strings. Regex represents an immutable regular expression. It contains methods to match text, replace text, or split text.
+A regular expression defines *a search pattern* for strings. Regex represents an immutable regular expression. It contains methods to match text, replace text, or split text.
 
 *Regex examples*
 
 The following table shows a couple of regular expression strings.
-
 
 Regex  | Meaning
 -------|-----------------------------------------------------
