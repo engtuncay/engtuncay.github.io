@@ -1,8 +1,4 @@
 
-
-
-
- 
 | C# Tutorial | Note
 | -- | --
 [1 C# Intro](./cs-01-intro.md)
@@ -19,6 +15,8 @@
 [12 C# Methods - Parameters - Overloading](./cs-12-methods.md)
 [13 C# Regex](./cs-13-regex.md)
 
+C# OOP AND ADVANCE TOPICS
+
 | C# Classes | Note
 | -- | -- 
 [C# OOP Intro](./cs-oop-01-intro.md) | 🆗
@@ -27,6 +25,8 @@
 C# Enums
 C# Files
 C# Exceptions
+
+
 
 | C# How To
 | --
