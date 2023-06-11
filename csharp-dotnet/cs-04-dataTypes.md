@@ -6,7 +6,10 @@
   - [Strings](#strings)
 - [C# Type Casting](#c-type-casting)
 - [DateTime](#datetime)
-- [DateOnly \& TimeOnly](#dateonly--timeonly)
+  - [C# DateTime with Different Culture](#c-datetime-with-different-culture)
+  - [What is DateTimeOffset?](#what-is-datetimeoffset)
+  - [Working with TimeSpan](#working-with-timespan)
+- [DateOnly - TimeOnly](#dateonly---timeonly)
 
 Source : https://www.w3schools.com/cs/cs_data_types.php
 
@@ -503,6 +506,7 @@ TimeZoneInfo class represents world time like Indian Standard Time (IST), US Eas
 
 It is a sealed class and you can’t create an instance of this class. You need to call static members and methods. Static methods like CreateCustomTimeZone(), FindSystemTimeZoneById(), FromSerializedString(), GetSystemTimeZonesand properties like Utc and Local. Here area couple examples:
 
+```cs
 //If you want to convert it back from UTC:
 DateTime now = DateTime.UtcNow;
 DateTime tempD = TimeZone.CurrentTimeZone.ToLocalTime(now);
@@ -537,10 +541,15 @@ TimeZoneInfo tzObject2 = TimeZoneInfo.FindSystemTimeZoneById("India Standard Tim
 DateTime tstTime3 = TimeZoneInfo.ConvertTime(ut1, TimeZoneInfo.Utc, tzObject2);
 Console.WriteLine("3. Time in {0} zone: {1}", tzObject2.IsDaylightSavingTime(tstTime3) ?
 tzObject2.DaylightName : tzObject2.StandardName, tstTime3);
-C#
-DateTime with Different Culture
+
+```
+
+## C# DateTime with Different Culture
+
 .Net uses CultureInfo class for providing information about specific culture. The information is writing system, date, number, string, and calendar. It is present in System.Globalization namespace.
 
+
+```cs
 // Current culture name
 string currentCulture = Thread.CurrentThread.CurrentCulture.DisplayName;
 
@@ -571,18 +580,22 @@ foreach (CultureInfo ci in CultureInfo.GetCultures(CultureTypes. AllCultures))
 {
     Console.WriteLine(ci.Name + ", " + ci.EnglishName);
 }
-C#
-What is DateTimeOffset?
+
+```
+## What is DateTimeOffset?
+
 It is a structure type like DateTime. It is introduced in .Net framework 3.5 and present in System namespace. It is mostly relative to Universal Coordinated Time (UTC).
 
 DateTimeOffset is Date + Time + Offset. It provides precise information because it contains offset from Date and Time is taken. DateTimeOffset provides same properties as DateTime structure like Day, Month, Year, Hour, Minute, Second etc. However DateTimeOffset has some new properties:
 
-DateTime - Gets the DateTime portion of the value without regard to the offset.
-LocalDateTime - Returns a DateTime representing the value in respect to the local time zone.
-Offset - Returns the time offset from UTC.
-UtcDateTime - Returns a DateTime representing the value in respect to UTC time. 
+- DateTime - Gets the DateTime portion of the value without regard to the offset.
+- LocalDateTime - Returns a DateTime representing the value in respect to the local time zone.
+- Offset - Returns the time offset from UTC.
+- UtcDateTime - Returns a DateTime representing the value in respect to UTC time. 
+
 Follow example, we declare date variable of DateTimeOffset type and assign current DateTime to it. You will get a result like: 1/9/2016 2:27:00 PM +05:30. Here “1/9/2016 2:27:00 PM” is datetime and “+05:30” (5 hours 30 minutes) is your Offset value. Means if you add offset value to date time (1/9/2016 2:27:00 PM) you will get UTC time. It provides a better way to work with different times from different time zones.
 
+```cs
 // Original time: 1/9/2016 2:27:00 PM
 DateTimeOffset date = DateTimeOffset.Now; // 1/9/2016 2:27:00 PM +05:30
 
@@ -609,14 +622,18 @@ DateTime localVersion = DateTime.UtcNow.ToLocalTime();
 
 // Another way to get local(India) time from Utc time
 localVersion = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById("India Standard Time"));
-C#
+
+```
+
 DateTime is a more powerful structure for manipulating datetime but it is less portable when working with times from different time zones. The DateTimeOffset is much more portable in that it preserves the offset from UTC. So choose as per your requirement.
 
-Working with TimeSpan
+## Working with TimeSpan
+
 It is a structure type which is present in System namespace. It represents time interval and can be expressed as days, hours, minutes, and seconds. It helps to fetch days, hour, minutes and seconds between two dates.
 
 You can create instance of TimeSpan object. It contains 4 parameterized constructors which take days, hours, minutes, seconds, and milliseconds as parameter. Here is the example:
 
+```cs
 TimeSpan ts = new TimeSpan(10, 40, 20); // 10 - hour, 40 - minute, 20 - second
 TimeSpan ts1 = new TimeSpan(1, 2, 5, 10); // 1 - day, 2 - hour, 5 - minute, 10 – seconds
 
@@ -626,15 +643,21 @@ TimeSpan ts1 = new TimeSpan(1, 2, 5, 10); // 1 - day, 2 - hour, 5 - minute, 10 �
 
 DateTime tt = DateTime.Now + ts; // Addition with DateTime
 ts.Add(ts1); // Addition with TimeSpan Object
-C#
+
+```
+
 A single tick represents one hundred nanoseconds or one ten-millionth of a second. There are 10,000 ticks in a millisecond, or 10 million ticks in a second.
 
+```cs
 TimeSpan ts3 = new TimeSpan(10000000);
 double secondFromTs = ts3.TotalSeconds; // 1 second
 Console.WriteLine(secondFromTs);
-C#
+
+```
+
 Below is the example of how to get the exact date difference between them using TimeSpan: 
 
+```cs
 // Define two dates.
 DateTime date1 = new DateTime(2016, 1, 10, 11, 20, 30);
 DateTime date2 = new DateTime(2016, 2, 20, 12, 25, 35);
@@ -655,15 +678,15 @@ Console.WriteLine("No of Milliseconds:", interval.Milliseconds); // 0
 Console.WriteLine("Total No of Milliseconds:", interval.TotalMilliseconds); // 3546305000
 Console.WriteLine("Ticks:", interval.Ticks); // 354630500000000
 
-C#
+```
 
 Here you will get one doubt as to the difference between Hours and TotalHours. Hours property represents difference between two dates hours value (12-11). However TotalHours represents total number of hours difference between two dates. First it calculates days between two and then multiplies 24 hours into it.
 
-Conclusion 
+*Conclusion*
 
 In this article we discussed about DateTime object in C#. It also contains how to work with different cultures, timezones, formmatting, date differences and others. Hope it will help you often.
 
-# DateOnly & TimeOnly
+# DateOnly - TimeOnly
 
 Source : https://dev.to/karenpayneoregon/learn-dateonly-timeonly-23j0
 
@@ -1070,3 +1093,5 @@ AnsiConsole.MarkupLine($"{hour}  {minutes}");
 This article and accompanying source code provides what a developer needs to get started working with DateOnly and TimeOnly in their applications.
 
 Notes, the code for data provider uses a preview version and expect and non-preview version to be release in the near future. For EF Core, there is talks about having native support in EF Core 8 for DateOnly and TimeOnly.
+
+---end--
