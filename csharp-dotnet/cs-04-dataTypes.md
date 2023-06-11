@@ -10,6 +10,7 @@
   - [What is DateTimeOffset?](#what-is-datetimeoffset)
   - [Working with TimeSpan](#working-with-timespan)
 - [DateOnly - TimeOnly](#dateonly---timeonly)
+- [DateTime in C#](#datetime-in-c)
 
 Source : https://www.w3schools.com/cs/cs_data_types.php
 
@@ -1095,3 +1096,511 @@ This article and accompanying source code provides what a developer needs to get
 Notes, the code for data provider uses a preview version and expect and non-preview version to be release in the near future. For EF Core, there is talks about having native support in EF Core 8 for DateOnly and TimeOnly.
 
 ---end--
+
+# DateTime in C#
+
+We used the DateTime when there is a need to work with the dates and times in C#.
+
+We can format the date and time in different formats by the properties and methods of the DateTime./p>
+
+The value of the DateTime is between the 12:00:00 midnight, January 1 0001 and 11:59:59 PM, December 31, 9999 A.D.
+
+Here we will explain how to create the DateTime in C#.
+
+We have different ways to create the DateTime object. A DateTime object has Time, Culture, Date, Localization, Milliseconds.
+
+Here we have a code which shows the various constructor uses by the DateTime structure to create the DateTime objects.
+
+```cs
+// From DateTime create the Date and Time  
+DateTime DOB= new DateTime(19, 56, 8, 12, 8, 12, 23);  
+// From String creation of DateTime  
+string DateString= "8/12/1956 7:10:24 AM";  
+DateTime dateFromString =  
+    DateTime.Parse(DateString, System.Globalization.CultureInfo.InvariantCulture);  
+Console.WriteLine(dateFromString.ToString());  
+// Empty DateTime    
+DateTime EmpDateTime= new DateTime();  
+// Just date    
+DateTime OnlyDate= new DateTime(2002, 10, 18);  
+// DateTime from Ticks    
+DateTime OnlyTime= new DateTime(10000000);   
+// Localization with DateTime  
+DateTime DateTimewithKind = new DateTime(1976, 7, 10, 7, 10, 24, DateTimeKind.Local);   
+// DateTime with date, time and milliseconds    
+DateTime WithMilliseconds= new DateTime(2010, 12, 15, 5, 30, 45, 100);  
+
+```
+
+*Properties of DateTime in C#*
+
+The DateTime has the Date and Time property. From DateTime, we can find the date and time. DateTime contains other properties as well, like Hour, Minute, Second, Millisecond, Year, Month, and Day.
+
+The other properties of DateTime are:
+
+- We can get the name of the day from the week with the help of the DayOfWeek property.
+
+- To get the day of the year, we will use DayOfYear property.
+
+- To get time in a DateTime, we use TimeOfDay property.
+
+- Today property will return the object of the DateTime, which is having today's value. The value of the time is 12:00:00
+
+- The Now property will return the DateTime object, which is having the current date and time.
+- The Utc property of DateTime will return the Coordinated Universal Time (UTC).
+- The one tick represents the One hundred nanoseconds in DateTime. Ticks property of the DateTime returns the number of ticks in a DateTime.
+- The Kind property returns value where the representation of time is done by the instance, which is based on the local time, Coordinated Universal Time (UTC). It also shows the unspecified default value.
+
+Here we are taking an example of using the properties of the DateTime in the C# Code.
+
+Example:
+
+```cs
+using System;  
+using System.Collections;  
+using System.Collections.Generic;  
+using System.Linq;  
+using System.Text;  
+using System.Threading.Tasks;  
+  
+namespace ConsoleApp8  
+{  
+    class Program  
+    {  
+        static void Main(string[] args)  
+        {  
+          DateTime DateTimeProperty = new DateTime(1974, 7, 10, 7, 10, 24);  
+          Console.WriteLine("Day:{0}", DateTimeProperty.Day);  
+          Console.WriteLine("Month:{0}", DateTimeProperty.Month);  
+          Console.WriteLine("Year:{0}", DateTimeProperty.Year);  
+          Console.WriteLine("Hour:{0}", DateTimeProperty.Hour);  
+          Console.WriteLine("Minute:{0}", DateTimeProperty.Minute);  
+          Console.WriteLine("Second:{0}", DateTimeProperty.Second);  
+          Console.WriteLine("Millisecond:{0}", DateTimeProperty.Millisecond);  
+
+          Console.WriteLine("Day of Week:{0}", DateTimeProperty.DayOfWeek);  
+          Console.WriteLine("Day of Year: {0}", DateTimeProperty.DayOfYear);  
+          Console.WriteLine("Time of Day:{0}", DateTimeProperty.TimeOfDay);  
+          Console.WriteLine("Tick:{0}", DateTimeProperty.Ticks);  
+          Console.WriteLine("Kind:{0}", DateTimeProperty.Kind);  
+        }  
+    }  
+}  
+Output:
+
+```
+
+*Addition and Subtraction of the DateTime in C#*
+
+The DateTime structure provides the methods to add and subtract the date and time to and from the DateTime object. We can add and subtract the date in the DateTime structure to and from the DateTime object. For the Addition and Subtraction in the DateTime, we use the TimeSpan structure.
+
+For Addition and Subtraction, we can use the Add and Subtract method from the DateTime object. Firstly, we create the TimeSpan with the values of the date and time where we use the Add and Subtract methods.
+
+Here we are creating a code that will add 3 and subtract the 30 days from today and display the day on the console.
+
+```cs
+using System;  
+using System. Collections;  
+using System.Collections.Generic;  
+using System. Linq;  
+using System. Text;  
+using System.Threading.Tasks;  
+  
+namespace ConsoleApp8  
+{  
+    class Program  
+    {  
+        static void Main(string[] args)  
+        {  
+  
+  
+            DateTime Day = DateTime.Now;  
+            TimeSpan Month = new System.TimeSpan(30, 0, 0, 0);  
+            DateTime aDayAfterAMonth = Day.Add(Month);  
+            DateTime aDayBeforeAMonth = Day.Subtract(Month);  
+            Console.WriteLine("{0:dddd}", aDayAfterAMonth);  
+            Console.WriteLine("{0:dddd}", aDayBeforeAMonth);  
+        }  
+    }  
+}  
+
+```
+
+DateTime structure contains the methods to add years, days, hours, minutes, seconds.
+
+To add the different components to the DateTime object Add method is used.
+
+```cs
+// To Add the Years and Days    
+   day.AddYears(2);  
+   day.AddDays(12);  
+// Add Hours, Minutes, Seconds, Milliseconds, and Ticks    
+   Day.AddHours(4.25);  
+   day.AddMinutes(15);  
+   day.AddSeconds(45);  
+   day.AddMilliseconds(200);  
+day.AddTicks(5000);  
+
+```
+
+The DateTime does not contain the subtract method. To subtract the component of the DateTime, we will use only the subtract method. For example: if we need to subtract the 12 days from the DateTime, we can create another object of the DateTime or TimeSpan object with 12 days. Now we will subtract this object from the DateTime. At the alternate of this, we can also use minus operator to subtract the DateTime or TimeSpan from the DateTime.
+
+Now we will create a code through which we can create the object of the DateTime and subtract another DateTime and Object of TimeSpan. In code, we will show the subtraction of only the hours, days, or other components from the DateTime.
+
+```cs
+DateTime DOB = new DateTime(2000, 10, 20, 12, 15, 45);  
+DateTime SubtractDate = new DateTime(2000, 2, 6, 13, 5, 15);  
+  
+// Use the TimeSpan with 10 days, 2 hrs, 30 mins, 45 seconds, and 100 milliseconds    
+TimeSpan ts = new TimeSpan(10, 2, 30, 45, 100);  
+  
+// Subtract the DateTime    
+TimeSpan Different = DOB.Subtract(SubtractDate);  
+Console.WriteLine(Different.ToString());  
+  
+// Subtract the TimeSpan    
+DateTime Different2 = DOB.Subtract(ts);  
+Console.WriteLine(Different2.ToString());  
+  
+// Subtract 10 Days by creating the object SubtractedDays  
+ DateTime SubtractedDays = new DateTime(DOB.Year, DOB.Month, DOB.Day - 10);  
+ Console.WriteLine(SubtractedDays.ToString());  
+  
+ // Subtract hours, minutes, and seconds with creating the object HoursMinutesSeconds  
+ DateTime HoursMinutesSeconds = new DateTime(DOB.Year, DOB.Month, DOB.Day, DOB.Hour - 1, DOB.Minute - 15, DOB.Second - 15);  
+Console.WriteLine(HoursMinutesSeconds.ToString());  
+
+```
+
+*Searching of the Days in the Month*
+
+To find the number of days in the month, we used the static DaysInMonth method. This searching method [] takes the parameter in numbers from 1 to 12.
+
+Here we will write a code through which we will find out the number of days in a particular month.
+
+Here we will find out the number of days in Feb in 2020. The output will be 28 days.
+
+```cs
+int NumberOfDays = DateTime.DaysInMonth(2004, 2);  
+Console.WriteLine(NumberOfDays);  
+
+```
+
+With the same technique, we can find out the total number of days in a year. For that, we will use the method DaysInYear.
+
+```cs
+private int DaysInYear(int year)  
+            {  
+                int DaysIN= 0;  
+                for (int j = 1; j <= 12; j++)  
+                {  
+                    DaysIN += DateTime.DaysInMonth(year, j);  
+                }  
+                return DaysIN;  
+            }  
+
+```
+
+*Comparison of two DateTime in C#*
+
+The comparer static method is used to compare the object of the two datetime. If the objects of both DateTime is the same, then the result will be 0. If the first DateTime is earlier, then the result will be 0 else the first DateTime would be later.
+
+Now we will show the comparison of the two datetime objects in C#.
+
+```cs
+using System;  
+using System. Collections;  
+using System.Collections.Generic;  
+using System. Linq;  
+using System. Text;  
+using System.Threading.Tasks;  
+  
+namespace ConsoleApp8  
+{  
+    class Program  
+    {  
+        static void Main(string[] args)  
+        {  
+  
+  
+            DateTime DateOfFirst = new DateTime(2002, 10, 22);  
+            DateTime DateOfSecond = new DateTime(2009, 8, 11);  
+            int result1 = DateTime.Compare(DateOfFirst, DateOfSecond);  
+  
+            if (result1 < 0)  
+                Console.WriteLine("Date of First is earlier");  
+            else if (result1 == 0)  
+                Console.WriteLine("Both dates are same");  
+            else  
+                Console.WriteLine("Date of First is later");  
+  
+        }  
+    }  
+}  
+Output:
+
+```
+
+*CompareTo Method*
+
+CompareTo method is used to compare the two dates. We will assign the DateTime or object in this method.
+
+To compare the two DateTime object, we used the CompareTo method. Below we have a C# code to compare the DateTime object.
+
+```cs
+using System;  
+using System. Collections;  
+using System.Collections.Generic;  
+using System. Linq;  
+using System. Text;  
+using System.Threading.Tasks;  
+  
+namespace ConsoleApp8  
+{  
+    class Program  
+    {  
+        static void Main(string[] args)  
+        {  
+  
+  
+            DateTime DateOfFirst = new DateTime(2001, 10, 20);  
+            DateTime DateOfSecond = new DateTime(2009, 8, 11);  
+            int ResultOfComparison = DateOfFirst.CompareTo(DateOfSecond);  
+            if (ResultOfComparison < 0)  
+                Console.WriteLine("Date Of First is Earlier");  
+            else if (ResultOfComparison == 0)  
+                Console.WriteLine("Date of Both are same");  
+            else  
+                Console.WriteLine("Date of First is Later");  
+  
+        }  
+    }  
+}  
+Output:
+
+```
+
+*Formatting of the DateTime in C#*
+
+In C#, we can format the DateTime to any type of string format as we want.
+
+For the formatting of the DateTime, we used the GetDateTimeFormats method, which returns all the possible DateTime formats for the current culture of the computer.
+
+Here we have a C# code that returns the array of the strings of all the possible standard formats.
+
+```cs
+using System;  
+using System. Collections;  
+using System.Collections.Generic;  
+using System. Linq;  
+using System. Text;  
+using System.Threading.Tasks;  
+  
+namespace ConsoleApp8  
+{  
+    class Program  
+    {  
+        static void Main(string[] args)  
+        {  
+  
+  
+            DateTime DateOfMonth = new DateTime(2020, 02, 25);  
+            string[] FormatsOfDate = DateOfMonth.GetDateTimeFormats();  
+            foreach (string format in FormatsOfDate)  
+                Console.WriteLine(format);  
+  
+        }  
+    }  
+}   
+Output:
+
+DateTime in C#
+DateTime in C#
+
+```
+
+We can overload the GetDateTimeFormats method, which takes the format specifier as a parameter and converts the DateTime to that format. To get the desired format, we need to understand the format of the DateTime specifiers.
+
+We will show it with the code with the pattern in a table.
+
+Code	Pattern
+"d"	Short date
+"D"	Long date
+"f"	Full date time. Short time.
+"F"	Full date time. Long Time.
+"g"	Generate date time. Long Time.
+"G"	General date time. Long Time.
+"M","m."	Month/day
+"O","o"	Round trip date/time.
+"R","r"	RFC1123
+"s"	Sortable date time.
+"t"	Sort Time
+"T"	Long Time
+"u"	Universal sortable date time.
+"U"	Universal full date-time.
+"Y","y"	Year, Month
+We will specify the format of the DateTime in the below C# Code.
+
+```cs
+
+using System;  
+using System. Collections;  
+using System.Collections.Generic;  
+using System. Linq;  
+using System. Text;  
+using System.Threading.Tasks;  
+  
+namespace ConsoleApp8  
+{  
+    class Program  
+    {  
+        static void Main(string[] args)  
+        {  
+  
+  
+            DateTime FormatOfDate = new DateTime(2020, 02, 25);  
+            // DateTime Formats: d, D, f, F, g, G, m, o, r, s, t, T, u, U,    
+            Console.WriteLine("----------------");  
+            Console.WriteLine("d Formats");  
+            Console.WriteLine("----------------");  
+            string[] DateFormat = FormatOfDate.GetDateTimeFormats('d');  
+            foreach (string format in DateFormat)  
+                Console.WriteLine(format);  
+            Console.WriteLine("----------------");  
+            Console.WriteLine("D Formats");  
+            Console.WriteLine("----------------");  
+            DateFormat = FormatOfDate.GetDateTimeFormats('D');  
+            foreach (string format in DateFormat)  
+                Console.WriteLine(format);  
+  
+            Console.WriteLine("----------------");  
+            Console.WriteLine("f Formats");  
+            Console.WriteLine("----------------");  
+            DateFormat = FormatOfDate.GetDateTimeFormats('f');  
+            foreach (string format in DateFormat)  
+                Console.WriteLine(format);  
+  
+            Console.WriteLine("----------------");  
+            Console.WriteLine("F Formats");  
+            Console.WriteLine("----------------");  
+            DateFormat = FormatOfDate.GetDateTimeFormats('F');  
+            foreach (string format in DateFormat)  
+                Console.WriteLine(format);  
+  
+        }  
+    }  
+}  
+Output:
+
+```
+
+We can also do the formatting of the DateTime by passing the format specifier in the ToString() method of DateTime. Now we will write the C# code for the formatting of the DateTime using the ToString() method.
+
+```cs
+Console.WriteLine(DateOfFormat.ToString("r"));  
+
+```
+
+Now we will write a C# code for the DateTime format specifiers within the ToString() method.
+
+*Get the Leap Year and Daylight-Saving Time*
+
+Through the C# Code, we will get the Leap Year and Daylight-Saving Time.
+
+```cs
+using System;  
+using System. Collections;  
+using System.Collections.Generic;  
+using System. Linq;  
+using System. Text;  
+using System.Threading.Tasks;  
+  
+namespace ConsoleApp8  
+{  
+    class Program  
+    {  
+        static void Main(string[] args)  
+        {  
+  
+            DateTime DateOfTime = new DateTime(2020, 02, 22);  
+            Console.WriteLine(DateOfTime.IsDaylightSavingTime());  
+            Console.WriteLine(DateTime.IsLeapYear(DateOfTime.Year));  
+  
+        }  
+    }  
+}  
+Output:
+
+```
+
+*Conversion of string to the DateTime*
+
+To convert the string to a DateTime object, we used the Parse method. In the Parse method, the passing string must have the correct format of the DateTime. For the conversion of the DateTime to the String, the ToString() method is used.  
+
+```cs
+using System;  
+using System. Collections;  
+using System.Collections.Generic;  
+using System. Linq;  
+using System. Text;  
+using System.Threading.Tasks;  
+  
+namespace ConsoleApp8  
+{  
+    class Program  
+    {  
+        static void Main(string[] args)  
+        {  
+  
+            string DT = "2020-02-04T20:12:45-5:00";  
+            DateTime NEWDt = DateTime.Parse(DT);  
+            Console.WriteLine(NEWDt.ToString());  
+  
+        }  
+    }  
+}  
+Output:
+
+```
+
+*Conversion of DateTime in C#*
+
+The structure of the DateTime is full of self-explanatory conversion, which converts the DateTime to the specific type. The methods are ToFileTime, ToLocalTime, ToLongDateString, ToBinary ,ToLongTimeString, ToOADate, ToShortDateString, ToShortTimeString, ToString, and ToUniversalTime.
+
+Here we will take an example of C# to convert the DateTime to the specific type.
+
+```cs
+using System;  
+using System. Collections;  
+using System.Collections.Generic;  
+using System. Linq;  
+using System. Text;  
+using System.Threading.Tasks;  
+  
+namespace ConsoleApp8  
+{  
+    class Program  
+    {  
+        static void Main(string[] args)  
+        {  
+  
+            DateTime DOB = new DateTime(2020, 01, 22);  
+            Console.WriteLine("ToString: " + DOB.ToString());  
+            Console.WriteLine("ToBinary: " + DOB.ToBinary());  
+            Console.WriteLine("ToFileTime: " + DOB.ToFileTime());  
+            Console.WriteLine("ToLocalTime: " + DOB.ToLocalTime());  
+            Console.WriteLine("ToLongDateString: " + DOB.ToLongDateString());  
+            Console.WriteLine("ToLongTimeString: " + DOB.ToLongTimeString());  
+            Console.WriteLine("ToOADate: " + DOB.ToOADate());  
+            Console.WriteLine("ToShortDateString: " + DOB.ToShortDateString());  
+            Console.WriteLine("ToShortTimeString: " + DOB.ToShortTimeString());  
+            Console.WriteLine("ToUniversalTime: " + DOB.ToUniversalTime());  
+  
+        }  
+    }  
+}    
+
+// Output:
+// 
+// 
+```
