@@ -419,15 +419,20 @@ yyyy	|4 digit year	|2015
 
 DateTime is a Value Type like int, double etc. so there is no way to assign a null value. When a type can be assigned null it is called nullable, that means the type has no value. All Reference Types are nullable by default, e.g. String, and all ValueTypes are not, e.g. Int32. The Nullable<T> structure is using a value type as a nullable type.
 
-By default DateTime is not nullable because it is a Value Type, using the nullable operator introduced in C#, you can achieve this using a question mark (?) after the type or using the generic style Nullable.
+By default DateTime is not nullable because it is a *Value Type*, using the nullable operator introduced in C#, you can achieve this using a question mark (?) after the type or using the generic style Nullable.
 
+```cs
 Nullable <DateTime> nullDateTime;
+
 DateTime? nullDateTime = null;
+
+```
 
 *Parse string to DateTime object*
 
 Sometimes we do parsing from string to DateTime object to perform operations like date difference, weekday, month name etc. For instance, there is a string value (“12/10/2015”) and our requirement is to find out weekday (Sunday or Monday and so on) of date. In this scenario we need to convert string value to DateTime object and then use WeekDay property(obj.WeekDay) to find out weekday. We can accomplish the same by built-in methods like Convert.ToDateTime(), DateTime.Parse(), DateTime.ParseExact(), DateTime.TryParse(), DateTime.TryParseExact(). Here are a few examples of how to parse a string to DateTime object:
 
+```cs
 CultureInfo culture = new CultureInfo("en-US");
 
 DateTime dateTimeObj = Convert.ToDateTime("10/22/2015 12:10:15 PM", culture);
@@ -437,7 +442,6 @@ DateTime dateTimeObj = DateTime.ParseExact("10-22-2015", "MM-dd-yyyy", provider)
 DateTime dateTimeObj; // 10-22-2015 12:00:00 AM
 bool isSuccess = DateTime.TryParse("10-22-2015", out dateTimeObj); // True
 
-```cs
 DateTime dateTimeObj; // 10/22/2015 12:00:00 AM
 CultureInfo provider = CultureInfo.InvariantCulture;
 bool isSuccess = DateTime.TryParseExact("10-22-2015", "MM-dd-yyyy", provider, DateTimeStyles.None, out dateTimeObj); // True
