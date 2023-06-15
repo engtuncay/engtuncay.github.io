@@ -1,17 +1,9 @@
 **CSS Cheatsheet**
 
-- [Selector](#selector)
-  - [Simple Selectors](#simple-selectors)
-  - [Combinator selectors ](#combinator-selectors)
-  - [Pseudo-classes](#pseudo-classes)
-  - [Pseudo Elements](#pseudo-elements)
-  - [Attribute Selectors](#attribute-selectors)
+- [Selectors](#selectors)
 - [Ways to Insert Css](#ways-to-insert-css)
-  - [External Css](#external-css)
-  - [Internal Css](#internal-css)
-  - [Inline Css](#inline-css)
-  - [Multiple Style Sheets](#multiple-style-sheets)
-  - [Cascading Order](#cascading-order)
+- [Multiple Style Sheets](#multiple-style-sheets)
+- [Cascading Order](#cascading-order)
 - [Comments](#comments)
 - [Specifity](#specifity)
 - [CSS Element Size](#css-element-size)
@@ -26,132 +18,53 @@
   - [All CSS Dimension Properties](#all-css-dimension-properties)
 - [Flexbox Cheat](#flexbox-cheat)
 - [Cheatsheet](#cheatsheet)
+- [Reference Details](#reference-details)
+  - [Other Pseudo Classes](#other-pseudo-classes)
 
 
-# Selector
+# Selectors
 
-We can divide CSS selectors into five categories:
+*Simple selectors* 
 
-* Simple selectors (select elements based on name, id, class)
-* Combinator selectors (select elements based on a specific relationship between them) 
-* Pseudo-class selectors (select elements based on a certain state)
-* Pseudo-elements selectors (select and style a part of an element)
-* Attribute selectors (select elements based on an attribute or attribute value)
+select elements based on name, id, class
 
-## Simple Selectors
+Simple      | Selectors
+------------|---------------
+Id Selector | #para1
+Class       | .center
+Universal   | *
+Grouping    | h1,h2,h3
+Chaining    | .footer.center
 
-select elements based on tag, id, class 
+Class Chaining : elements that have footer and center classes,order is not important
 
-* Id Selector :  #para1 
+*Combinator selectors* 
 
-* Class Selector :  .center 
+select elements based on a specific relationship between them
 
-* Universal selector : *
+Combinator           | Selectors | Note
+---------------------|-----------|-----------------------
+Descendant (space)   | div p     | Nesil Seçici
+Child (>)            | div > p   | Çocuk Seç.
+Adjacent Sibling (+) | div + p   | Takip eden kardeş seç.
+General Sibling (~)  | div ~ p   | Genel kardeş seç.
 
-* Grouping Selector : h1,h2,h3
+*Pseudo-classes*
 
-* Class chaining : .footer.center (elements that have footer and center classes,order is not important)
+select elements based on a certain state
 
-## Combinator selectors  
-
-* Descendant Selector (Nesil Seçici) (space): div p
-
-* Child Selector (>) (Çocuk Seçici) : div > p
-
-* Adjacent Sibling Selector (+) (Takip eden kardeş seçici) : div + p
-
-* General Sibling Selector (~) (Genel kardeş seçici)  : div ~ p
-
-
-## Pseudo-classes
-
-* The syntax of pseudo-classes:
-
-```css
-selector:pseudo-class {
-  property: value;
-}
-```
+Syntax | 
+--- | 
+selector:pseudo-class
 
 
-```
-Selector	Example	       Example description
+*Pseudo Elements*
 
-:active	    a:active	   Selects the active link
+select and style a part of an element
 
-:checked	input:checked	Selects every checked <input> element
-
-:disabled	input:disabled	Selects every disabled <input> element
-
-:empty	    p:empty	       Selects every <p> element that has no children
-
-:enabled	input:enabled	Selects every enabled <input> element
-
-:first-child	p:first-child	Selects every <p> elements that is the first child of its parent
-
-:first-of-type	p:first-of-type	Selects every <p> element that is the first <p> element of its parent
-
-:focus	input:focus	Selects the <input> element that has focus
-
-:hover	a:hover	Selects links on mouse over
-
-:in-range	input:in-range	Selects <input> elements with a value within a specified range
-
-:invalid	input:invalid	Selects all <input> elements with an invalid value
-
-:lang(language)	p:lang(it)	Selects every <p> element with a lang attribute value starting with "it"
-
-:last-child	p:last-child	Selects every <p> elements that is the last child of its parent
-
-:last-of-type	p:last-of-type	Selects every <p> element that is the last <p> element of its parent
-
-:link	a:link	Selects all unvisited links
-
-:not(selector)	:not(p)	Selects every element that is not a <p> element
-
-:nth-child(n)	p:nth-child(2)	Selects every <p> element that is the second child of its parent
-
-:nth-last-child(n)	p:nth-last-child(2)	Selects every <p> element that is the second child of its parent, counting from the last child
-
-:nth-last-of-type(n)	p:nth-last-of-type(2)	Selects every <p> element that is the second <p> element of its parent, counting from the last child
-
-:nth-of-type(n)	p:nth-of-type(2)	Selects every <p> element that is the second <p> element of its parent
-
-:only-of-type	p:only-of-type	Selects every <p> element that is the only <p> element of its parent
-
-:only-child	p:only-child	Selects every <p> element that is the only child of its parent
-
-:optional	input:optional	Selects <input> elements with no "required" attribute
-
-:out-of-range	input:out-of-range	Selects <input> elements with a value outside a specified range
-
-:read-only	input:read-only	Selects <input> elements with a "readonly" attribute specified
-
-:read-write	input:read-write	Selects <input> elements with no "readonly" attribute
-
-:required	input:required	Selects <input> elements with a "required" attribute specified
-
-:root	root	Selects the document's root element
-
-:target	#news:target	Selects the current active #news element (clicked on a URL containing that anchor name)
-
-:valid	input:valid	Selects all <input> elements with a valid value
-
-:visited	a:visited	Selects all visited links
-
-```
-
-
-## Pseudo Elements
-
-* The syntax of pseudo-elements:
-
-```css
-selector::pseudo-element {
-  property: value;
-}
-
-```
+Syntax | 
+--- | 
+selector::pseudo-element
 
 ```text
 Selector	Example	Example description
@@ -163,7 +76,9 @@ Selector	Example	Example description
 
 ```
 
-## Attribute Selectors
+*Attribute Selectors*
+
+select elements based on an attribute or attribute value
 
 Examples
 
@@ -213,60 +128,47 @@ Selector	Example	(Example description)
 [attribute*=value]	a[href*="w3schools"]	Selects every <a> element whose href attribute value *contains* the substring "w3schools"
 ```
 
-
 # Ways to Insert Css
 
-* There are three ways of inserting a style sheet:
-
 - External CSS
-
 - Internal CSS
-
 - Inline CS
 
 
-## External Css
-
-- Html'de head alanına link etiketi ile harici dosyadan yükleme yaparız. rel attribute'na stylesheet olarak belirtiriz. href attribute'nda dosyanın adresini belirtiriz. aynı dizindeyse direk dosya ismini yazarız.
+*External Css*
 
 ```html
-
+<!-- head section -->
 <link rel="stylesheet" href="mystyle.css">
 ```
 
-## Internal Css
+*Internal Css*
 
 - Head alanında style etiketi içerisine yazarız.
 
 ```html
-<!DOCTYPE html>
-<html>
-<head>
+<!-- head section -->
 <style>
 body {
   background-color: linen;
 }
 </style>
-</head>
-<body>
-</body>
-</html>
+
 ```
 
-## Inline Css
-
-Html etiketinin style attribute'na elementin stil özelliklerini yazabiliriz.
+*Inline Css*
 
 ```html
 <h1 style="color:blue;text-align:center;">This is a heading</h1>
 
 ```
 
-## Multiple Style Sheets
+# Multiple Style Sheets
 
 - If some properties have been defined for the same selector (element) in different style sheets, the value from the last read style sheet will be used. 
 
-## Cascading Order
+# Cascading Order
+
 All the styles in a page will "cascade" into a new "virtual" style sheet by the following rules, where number one has the highest priority:
 
 1. Inline style (inside an HTML element)
@@ -454,15 +356,85 @@ min-width	Sets the minimum width of an element
 ------------------|-------------
 Flexbox Container | display:flex
 
-Props For Flex Container   | Parameters                                     | Desc
----------------------------|------------------------------------------------|-----
-flex-direction             | [ row , row-reverse , column ,column-reverse ] |
-flex-wrap                  | [ nowrap , wrap , wrap-reverse]                |
-flex-flow (shorthand prop) | flex-direction , flex-wrap                     |
+Flex Cont. Props | Parameters                                     | Desc
+-----------------|------------------------------------------------|-----
+flex-direction   | [ row , row-reverse , column ,column-reverse ] |
+flex-wrap        | [ nowrap , wrap , wrap-reverse]                |
+flex-flow (sh)   | flex-direction , flex-wrap                     |
 
 
 
 
 
 
+# Reference Details
+
+## Other Pseudo Classes
+
+```
+Selector	Example	       Example description
+
+:active	    a:active	   Selects the active link
+
+:checked	input:checked	Selects every checked <input> element
+
+:disabled	input:disabled	Selects every disabled <input> element
+
+:empty	    p:empty	       Selects every <p> element that has no children
+
+:enabled	input:enabled	Selects every enabled <input> element
+
+:first-child	p:first-child	Selects every <p> elements that is the first child of its parent
+
+:first-of-type	p:first-of-type	Selects every <p> element that is the first <p> element of its parent
+
+:focus	input:focus	Selects the <input> element that has focus
+
+:hover	a:hover	Selects links on mouse over
+
+:in-range	input:in-range	Selects <input> elements with a value within a specified range
+
+:invalid	input:invalid	Selects all <input> elements with an invalid value
+
+:lang(language)	p:lang(it)	Selects every <p> element with a lang attribute value starting with "it"
+
+:last-child	p:last-child	Selects every <p> elements that is the last child of its parent
+
+:last-of-type	p:last-of-type	Selects every <p> element that is the last <p> element of its parent
+
+:link	a:link	Selects all unvisited links
+
+:not(selector)	:not(p)	Selects every element that is not a <p> element
+
+:nth-child(n)	p:nth-child(2)	Selects every <p> element that is the second child of its parent
+
+:nth-last-child(n)	p:nth-last-child(2)	Selects every <p> element that is the second child of its parent, counting from the last child
+
+:nth-last-of-type(n)	p:nth-last-of-type(2)	Selects every <p> element that is the second <p> element of its parent, counting from the last child
+
+:nth-of-type(n)	p:nth-of-type(2)	Selects every <p> element that is the second <p> element of its parent
+
+:only-of-type	p:only-of-type	Selects every <p> element that is the only <p> element of its parent
+
+:only-child	p:only-child	Selects every <p> element that is the only child of its parent
+
+:optional	input:optional	Selects <input> elements with no "required" attribute
+
+:out-of-range	input:out-of-range	Selects <input> elements with a value outside a specified range
+
+:read-only	input:read-only	Selects <input> elements with a "readonly" attribute specified
+
+:read-write	input:read-write	Selects <input> elements with no "readonly" attribute
+
+:required	input:required	Selects <input> elements with a "required" attribute specified
+
+:root	root	Selects the document's root element
+
+:target	#news:target	Selects the current active #news element (clicked on a URL containing that anchor name)
+
+:valid	input:valid	Selects all <input> elements with a valid value
+
+:visited	a:visited	Selects all visited links
+
+```
 
