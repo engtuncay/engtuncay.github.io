@@ -1,27 +1,25 @@
 
-- [CHEATSHEET](#cheatsheet)
 - [Codepen Examples](#codepen-examples)
 - [Flexbox](#flexbox)
 - [Background](#background)
 - [Basics and Terminology](#basics-and-terminology)
-- [Flexbox Properties](#flexbox-properties)
-  - [Properties for the parent (Flex Container)](#properties-for-the-parent-flex-container)
-    - [Display](#display)
-    - [Flex-direction](#flex-direction)
-    - [flex-wrap](#flex-wrap)
-    - [flex-flow (shorthand)](#flex-flow-shorthand)
-    - [justify-content](#justify-content)
-    - [align-items](#align-items)
-    - [align-content](#align-content)
-    - [gap, row-gap, column-gap](#gap-row-gap-column-gap)
-  - [PROPERTIES FOR THE CHILDREN (FLEX ITEMS)](#properties-for-the-children-flex-items)
-    - [ORDER](#order)
-    - [FLEX-GROW](#flex-grow)
-    - [FLEX-SHRINK](#flex-shrink)
-    - [FLEX-BASIS](#flex-basis)
-    - [FLEX (sh)](#flex-sh)
-    - [ALIGN-SELF](#align-self)
-  - [Examples](#examples)
+- [Flexbox Container Properties (for the parent)](#flexbox-container-properties-for-the-parent)
+  - [Display](#display)
+  - [Flex-direction](#flex-direction)
+  - [flex-wrap](#flex-wrap)
+  - [flex-flow (shorthand)](#flex-flow-shorthand)
+  - [justify-content](#justify-content)
+  - [align-items](#align-items)
+  - [align-content](#align-content)
+  - [gap, row-gap, column-gap](#gap-row-gap-column-gap)
+- [Flex Items Properties (the children)](#flex-items-properties-the-children)
+  - [order](#order)
+  - [flex-grow](#flex-grow)
+  - [flex-shrink](#flex-shrink)
+  - [flex-basis](#flex-basis)
+  - [flex (sh)](#flex-sh)
+  - [align-self](#align-self)
+- [Examples](#examples)
   - [Flexbox Tricks - Articles](#flexbox-tricks---articles)
   - [More Information](#more-information)
  
@@ -30,22 +28,12 @@
 
 - https://css-tricks.com/snippets/css/a-guide-to-flexbox
   
-# CHEATSHEET
-
-Topic        | Exp
--------------|-------------
-Installation | display:flex
-
-Props For Flex Container   | Parameters                                     | Desc
----------------------------|------------------------------------------------|-----
-flex-direction             | [ row , row-reverse , column ,column-reverse ] |
-flex-wrap                  | [ nowrap , wrap , wrap-reverse]                |
-flex-flow (shorthand prop) | flex-direction , flex-wrap                     |
-
 
 # Codepen Examples
 
-- CodePen My Template <br/> https://codepen.io/engtuncay/pen/wvQMBZm
+- CodeSandbox Examples https://h534lp.csb.app/
+
+- CodePen Example https://codepen.io/engtuncay/pen/wvQMBZm
 
 # Flexbox
 
@@ -85,11 +73,11 @@ main axis – The main axis of a flex container is the primary axis along which 
 
 - cross size – The width or height of a flex item, whichever is in the cross dimension, is the item’s cross size. The cross size property is whichever of ‘width’ or ‘height’ that is in the cross dimension.
 
-# Flexbox Properties
+# Flexbox Container Properties (for the parent)
 
-## Properties for the parent (Flex Container)
+it is called as *Flex Container*
 
-### Display
+## Display
   
 This defines a flex container; inline or block depending on the given value. It enables a flex context for all its direct children.
 
@@ -103,7 +91,7 @@ Note that CSS columns have no effect on a flex container. (??)
 
 ---
 
-### Flex-direction
+## Flex-direction
 
 The flex-direction property defines *in which direction* the container wants to *stack* the flex items. (w3)
 
@@ -129,7 +117,7 @@ This establishes *the main-axis*. Flexbox is (aside from optional wrapping) *a s
 
 - column-reverse: same as row-reverse but bottom to top
 
-### flex-wrap
+## flex-wrap
 
 ![](./img/css/flex-wrap.jpg)
 
@@ -150,7 +138,7 @@ https://css-tricks.com/almanac/properties/f/flex-wrap/
 
 ---
 
-### flex-flow (shorthand)
+## flex-flow (shorthand)
 
 This is a shorthand for the flex-direction and flex-wrap properties, which together define the flex container’s main and cross axes. The default value is row nowrap.
 
@@ -161,7 +149,7 @@ This is a shorthand for the flex-direction and flex-wrap properties, which toget
 ```
 
 ---
-### justify-content
+## justify-content
 
 This defines the alignment along the main axis. It helps distribute extra free space leftover when either all the flex items on a line are inflexible, or are flexible but have reached their maximum size. It also exerts some control over the alignment of items when they overflow the line. 
 
@@ -201,7 +189,7 @@ This defines the alignment along the main axis. It helps distribute extra free s
 
 - There are also two additional keywords you can pair with these values: safe and unsafe. Using safe ensures that however you do this type of positioning, you can’t push an element such that it renders off-screen (e.g. off the top) in such a way the content can’t be scrolled too (called “data loss”). 
 
-### align-items
+## align-items
 
 This defines the default behavior for how flex items are laid out along *the cross axis* on the current line. Think of it as the justify-content version for the cross-axis (perpendicular to the main-axis). 
 
@@ -231,11 +219,13 @@ baseline: items are aligned such as their baselines align
 
 The safe and unsafe modifier keywords can be used in conjunction with all the rest of these keywords (although note browser support), and deal with helping you prevent aligning elements such that the content becomes inaccessible. (??)
 
-### align-content
-
-![](./img/flex-align-content.jpg)
+## align-content
 
 This aligns a flex container’s lines within when there is extra space in the cross-axis, similar to how justify-content aligns individual items within the main-axis.
+
+(tor:yan eksende ekstre boşluk var ise nasıl hizalanacağını belirler. )
+
+![](./img/flex-align-content.jpg)
 
 Note: This property only takes effect on *multi-line flexible containers* (!!), where flex-flow is set to either *wrap* or *wrap-reverse*. A single-line flexible container (i.e. where flex-flow is set to its default value, no-wrap) will not reflect align-content !!.
 
@@ -257,14 +247,16 @@ Note: This property only takes effect on *multi-line flexible containers* (!!), 
 
 The safe and unsafe modifier keywords can be used in conjunction with all the rest of these keywords (although note browser support), and deal with helping you prevent aligning elements such that the content becomes inaccessible.
 
-### gap, row-gap, column-gap
+## gap, row-gap, column-gap
 
 The gap property explicitly controls the space between flex items. It applies that spacing only between items not on the outer edges.
+
+![](./img/flex-gap.jpg)
 
 ```css
 .container {
   display: flex;
-  ...
+  /*...*/
   gap: 10px;
   gap: 10px 20px; /* row-gap column gap */
   row-gap: 10px;
@@ -276,13 +268,15 @@ The behavior could be thought of as a minimum gutter, as if the gutter is bigger
 
 It is not exclusively for flexbox, gap works in grid and multi-column layout as well.
 
-## PROPERTIES FOR THE CHILDREN (FLEX ITEMS) 
+# Flex Items Properties (the children)
 
-### ORDER
+![](./img/flex-items.jpg)
 
-![](./img/css/flex-order.jpg)
+## order
 
 By default, flex items are laid out in the source order. However, the order property controls the order in which they appear in the flex container.
+
+![](./img/flex-order.jpg)
 
 ```css
 .item {
@@ -290,11 +284,11 @@ By default, flex items are laid out in the source order. However, the order prop
 }
 ```
 
-### FLEX-GROW
-
-![](./img/css/flex-grow.jpg)
+## flex-grow
 
 This defines the ability for a flex item to grow if necessary. It accepts a unitless value that serves as a proportion. It dictates what amount of the available space inside the flex container the item should take up.
+
+![](./img/flex-grow.jpg)
 
 If all items have flex-grow set to 1, the remaining space in the container will be distributed equally to all children. If one of the children has a value of 2, the remaining space would take up twice as much space as the others (or it will try to, at least).
 
@@ -306,7 +300,7 @@ If all items have flex-grow set to 1, the remaining space in the container will 
 
 Negative numbers are invalid.
 
-### FLEX-SHRINK
+## flex-shrink
 
 This defines the ability for a flex item to shrink if necessary.
 
@@ -320,9 +314,11 @@ This defines the ability for a flex item to shrink if necessary.
 Negative numbers are invalid.
 
 ---
-### FLEX-BASIS
+## flex-basis
 
-This defines the default size of an element before the remaining space is distributed. It can be a length (e.g. 20%, 5rem, etc.) or a keyword. The auto keyword means “look at my width or height property” (which was temporarily done by the main-size keyword until deprecated). The content keyword means “size it based on the item’s content” – this keyword isn’t well supported yet, so it’s hard to test and harder to know what its brethren max-content, min-content, and fit-content do.
+This defines *the default size* of an element before the remaining space is distributed. It can be a length (e.g. 20%, 5rem, etc.) or a keyword. The auto keyword means “look at my width or height property” (???) (which was temporarily done by the main-size keyword until deprecated). 
+
+The content keyword means “size it based on the item’s content” – this keyword isn’t well supported yet, so it’s hard to test and harder to know what its brethren max-content, min-content, and fit-content do.
 
 ```css
 .item {
@@ -332,8 +328,10 @@ This defines the default size of an element before the remaining space is distri
 
 If set to 0, the extra space around content isn’t factored in. If set to auto, the extra space is distributed based on its flex-grow value. See this graphic.
 
+![](./img/flex-basis.jpg)
+
 ---
-### FLEX (sh)
+## flex (sh)
 
 This is the shorthand for flex-grow, flex-shrink and flex-basis combined. The second and third parameters (flex-shrink and flex-basis) are optional. The default is 0 1 auto, but if you set it with a single number value, it’s like 1 0.
 
@@ -346,7 +344,7 @@ This is the shorthand for flex-grow, flex-shrink and flex-basis combined. The se
 
 It is recommended that you use this shorthand property rather than set the individual properties. The shorthand sets the other values intelligently.
 
-### ALIGN-SELF
+## align-self
 
 This allows the default alignment (or the one specified by align-items) to be overridden for individual flex items.
 
@@ -361,7 +359,7 @@ Please see the align-items explanation to understand the available values.
 
 Note that float, clear and vertical-align have no effect on a flex item.
 
-## Examples
+# Examples
 
 Let’s start with a very very simple example, solving an almost daily problem: perfect centering. It couldn’t be any simpler if you use flexbox.
 

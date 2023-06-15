@@ -25,6 +25,7 @@
   - [Max Width](#max-width)
   - [All CSS Dimension Properties](#all-css-dimension-properties)
 - [Flexbox Cheat](#flexbox-cheat)
+- [Cheatsheet](#cheatsheet)
 
 
 # Selector
@@ -446,6 +447,18 @@ min-width	Sets the minimum width of an element
 ```
 
 # Flexbox Cheat
+
+# Cheatsheet
+
+.                 | Style
+------------------|-------------
+Flexbox Container | display:flex
+
+Props For Flex Container   | Parameters                                     | Desc
+---------------------------|------------------------------------------------|-----
+flex-direction             | [ row , row-reverse , column ,column-reverse ] |
+flex-wrap                  | [ nowrap , wrap , wrap-reverse]                |
+flex-flow (shorthand prop) | flex-direction , flex-wrap                     |
 
 
 
