@@ -28,13 +28,13 @@
 
 select elements based on name, id, class
 
-Simple      | Selectors
-------------|---------------
-Id Selector | #para1
-Class       | .center
-Universal   | *
-Grouping    | h1,h2,h3
-Chaining    | .footer.center
+Simple    | Selectors
+----------|---------------
+Id Sel.   | #idName
+Class     | .className
+Universal | *
+Grouping  | selA,selB
+Chaining  | .footer.center
 
 Class Chaining : elements that have footer and center classes,order is not important
 
