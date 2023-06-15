@@ -1,12 +1,14 @@
 
-- [CSS Flexbox Layout Module](#css-flexbox-layout-module)
+- [Flexbox Layout Module](#flexbox-layout-module)
   - [Flexbox Elements](#flexbox-elements)
 - [Parent Element (Container)](#parent-element-container)
+  - [The flex-direction Property](#the-flex-direction-property)
+  - [The flex-wrap Property](#the-flex-wrap-property)
   - [CSS Flex Items](#css-flex-items)
   - [Flexbox Responsive](#flexbox-responsive)
 - [Dive into Flexbox (Bocoup)](#dive-into-flexbox-bocoup)
 
-# CSS Flexbox Layout Module
+# Flexbox Layout Module
 
 Source : w3schools
 
@@ -23,6 +25,8 @@ The Flexible Box Layout Module, makes it easier to design flexible responsive la
 
 To start using the Flexbox model, you need to first define a flex container.
 
+![flex1](./img/flex-1.jpg)
+
 Example : A flex container with three flex items:
 
 ```html
@@ -35,78 +39,84 @@ Example : A flex container with three flex items:
 
 # Parent Element (Container)
 
-Parent Element (Container)
-Like we specified in the previous chapter, this is a flex container (the blue area) with three flex items:
+Like we specified in the previous chapter, that is a flex container (the blue area) with three flex items:
+
 The flex container becomes flexible by setting the display property to flex:
 
 Example
+
+```css
 .flex-container {
   display: flex;
 }
 
-The flex container properties are:
-flex-direction
-flex-wrap
-flex-flow
-justify-content
-align-items
-align-content
+```
 
-The flex-direction Property
-The flex-direction property defines in which direction the container wants to stack the flex items.
+The flex container properties are:
+
+- flex-direction
+- flex-wrap
+- flex-flow
+- justify-content
+- align-items
+- align-content
+
+## The flex-direction Property
+
+The flex-direction property defines *in which direction* the container wants to *stack* the flex items. 
+
+(tor: hangi yöne dogru yığmak/istiflemek istiyor.row yataya, col dikeye yığılır.)
 
 Example
-The column value stacks the flex items vertically (from top to bottom): (yukarıdan aşağıya sola bitişik kutular)
 
+```css
 .flex-container {
   display: flex;
   flex-direction: column;
 }
 
-Example
-The column-reverse value stacks the flex items vertically (but from bottom to top):
+```
 
-.flex-container {
-  display: flex;
-  flex-direction: column-reverse;
-}
+![](./img/flex-direction1.jpg)
 
-Example
-The row value stacks the flex items horizontally (from left to right):
+*Properties*
 
-.flex-container {
-  display: flex;
-  flex-direction: row;
-}
+- row: The row value stacks the flex items horizontally (from left to right):
+- row-reverse: stacks the flex items horizontally (but from right to left):
+- column : stacks the flex items vertically (from top to bottom):
+- column-reverse : stacks the flex items vertically (but from bottom to top):
 
-Example
-The row-reverse value stacks the flex items horizontally (but from right to left):
+## The flex-wrap Property
 
-.flex-container {
-  display: flex;
-  flex-direction: row-reverse;
-}
-
-The flex-wrap Property
 The flex-wrap property specifies whether the flex items should wrap or not.
 
-The examples below have 12 flex items, to better demonstrate the flex-wrap property. (flex-wrap özelliğini aktif etmemiş olsaydık, hepsi yanyana dizilirdi. Ekrana sığmazsa da scroll yapar.)
+The examples below have 12 flex items, to better demonstrate the flex-wrap property. 
+
+(flex-wrap özelliğini aktif etmemiş olsaydık, hepsi yanyana dizilirdi. Ekrana sığmazsa da scroll yapar.)
 
 Example
+
 The wrap value specifies that the flex items will wrap if necessary:
 
+```css
 .flex-container {
   display: flex;
   flex-wrap: wrap;
 }
 
+```
+
 Example
+
 The nowrap value specifies that the flex items will not wrap (this is default):
 
+```js
 .flex-container {
   display: flex;
   flex-wrap: nowrap;
 }
+
+```
 
 Example
 The wrap-reverse value specifies that the flexible items will wrap if necessary, in reverse order: ( normalde bir aşağıda satıra giderken, bu sefer bir yukarı satıra geçer)

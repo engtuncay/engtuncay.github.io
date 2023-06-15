@@ -24,6 +24,7 @@
   - [Height and Width Values (and units)](#height-and-width-values-and-units)
   - [Max Width](#max-width)
   - [All CSS Dimension Properties](#all-css-dimension-properties)
+- [Flexbox Cheat](#flexbox-cheat)
 
 
 # Selector
@@ -443,6 +444,10 @@ min-height	Sets the minimum height of an element
 min-width	Sets the minimum width of an element
 
 ```
+
+# Flexbox Cheat
+
+
 
 
 
