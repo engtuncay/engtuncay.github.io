@@ -6,9 +6,9 @@ Link :
 
 https://medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285
 
-Note : Some parts can be modified by engtuncay.
+Note : Some parts can be modified.
 
-UPDATE 10/2022: See further explanations/answers in story responses!
+UPDATE 10/2022
 
 Check out the author's REGEX COOKBOOK article about the most commonly used (and most wanted) regex 🎉
 
@@ -23,10 +23,6 @@ Check out the author's REGEX COOKBOOK article about the most commonly used (and 
   - [Grouping and capturing — ()](#grouping-and-capturing--)
   - [Bracket expressions — \[\] (Ranges)](#bracket-expressions-ranges)
   - [Greedy and Lazy match](#greedy-and-lazy-match)
-- [Advanced topics](#advanced-topics)
-  - [Boundaries — \\b and \\B](#boundaries--b-and-b)
-  - [Back-references — \\1](#back-references--1)
-  - [Lookarounds](#lookarounds)
   - [Substitution](#substitution)
 - [Summary](#summary)
 - [Remember These (Addittion by engtuncay)](#remember-these-addittion-by-engtuncay)
@@ -44,11 +40,17 @@ Let’s start by looking at some examples and explanations.
 
 # Basic topics
 
+To Try Regex
+
+-  [Regex 101](https://regex101.com/r/cO8lqs/2)
+
+- 
+
 ## Anchors — ^ and $
 
 Patterns  | Explanation
 ----------|---------------------------------------------------
-^The      | matches any string that starts with The (Try it!)
+^The      | matches any string that starts with The 
 end$      | matches a string that ends with end
 ^The end$ | exact string match (starts and ends with The end)
 roar      | matches any string that has the text roar in it
@@ -134,16 +136,17 @@ Patterns   | Explanation
 
 ## Greedy and Lazy match
 
-The quantifiers ( * + {}) are greedy operators, so they expand the match as far as they can through the provided text.
+The quantifiers ( * + { } ) are greedy operators, so they expand the match as far as they can through the provided text.
 
 For example, <.+> matches `<div>simple div</div>` in `This is a <div> simple div</div> test`. In order to catch only the div tag we can use a ? to make it lazy:
 
-`<.+?>            matches any character one or more times included inside < and >, expanding as needed (Try it!)`
+`<.+?>` matches any character one or more times included inside < and >, expanding as needed (Try it!)
 
 Notice that a better solution should avoid the usage of . in favor of a more strict regex:
 
-```txt
-<[^<>]+>         matches any character except < or > one or more times included inside < and > (Try it!)
+Pattern  | Desc
+---------|----------------------------------------------------------------------------------------
+<[^<>]+> | matches any character except < or > one or more times included inside < and > (Try it!)
 ```
 
 # Advanced topics

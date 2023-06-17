@@ -43,15 +43,17 @@ remix-project.org 'dan online ide'yi kullanarak veya desktop app kurulumu yapara
 // SPDX-License-Identifier: GPL-3.0
 ```
 
+> A license identifier is a short code that identifies a specific open source license.
+
 - pragma ile hangi solidity compiler versiyonu kullanacağını belirtiriz.
 
 ```js
-pragma solidity ^0.8.2;
+pragma solidity ^0.8.2; // 
 ```
 
 yukarıdaki satıra göre olan bir contract, 0.9.x ve 0.7.x compiler'da çalışmaz.
 
-- İki versiyon arası şeklinde de belirtilir.
+- İki versiyon arası şeklinde de belirtilebilir.
 
 ```js
 pragma solidity >0.5.0 <0.9.0;
@@ -71,6 +73,8 @@ contract Property {
 
 ```
 
+contract keywordünü diger dillerdeki class'a benzetebiliriz.
+
 ## Smart Contract Derlenmesi (Compilation)
 
 - Remix ide'de sol taraftan solidity tabını seçeriz. 
@@ -79,7 +83,7 @@ contract Property {
 
 Hata varsa kırmızı ile işaretleyip gösterir.
 
-The Solidity source code is passed to the solidity compiler and the compile returns the *EVM bytecode* that is deployed and the contract ABI (Abstract Binary Interface).
+The Solidity *source code* is passed to the solidity compiler and the compile returns the *EVM bytecode* that is deployed and the contract ABI (Abstract Binary Interface).
 
 * Many Solidity compilers
   
@@ -87,7 +91,7 @@ There are many solidity compilers available: Remix built-in compiler, solc, solc
 
 * Contract bytecode have to be public
 
-Contract bytecode is public. It is saved on the Blockchain and can’t be encrypted because it must be run by every Ethereum node; Opcodes are the human readable instructions of the program. They can be easily obtained from bytecode; 
+Contract *bytecode is public*. It is saved on the blockchain and can’t be encrypted because it must be run by every Ethereum node; Opcodes are the human readable instructions of the program. They can be easily obtained from bytecode; 
 
 * Contract source is public or isnt it ?
 
@@ -101,7 +105,7 @@ Anyone that wants to interact with the contract must have access to the contract
 
 ABI is generated from source code through compilation. If we don’t have the source code we can’t generate the contract ABI (or only from the bytecode using reverse engineering);
 
-ABI is like an API (*to*)
+(tor: ABI is like an Api Doc)
 
 Opcodes : EVM operational codes.
 
@@ -686,37 +690,39 @@ contract Property{
 
 ## Variable Types : Booleans and Integers
 
-● Solidity is a statically-typed language (variables type should be specified at
-declaration).
+Solidity is a statically-typed language (variables type should be specified at declaration).
 
 Note that floating point numbers, such as float and double in other languages, are not yet supported in Solidity. If you want to perform calculations for a currency like ether and want to use floating point numbers, and then you should use a smaller denomination of ETH that will be represented as an integer.
 
-Integers and booleans are also called value types because variables of these types will always be past to functions by value. This means that they are always copied when they are used as function arguments!
+Integers and booleans are also called *value types* because variables of these types will always be passed to functions *by value*. This means that they are always copied when they are used as function arguments.
 
-Value Types:
+*Value Types*
 
-● Boolean variables: true and false
-  ○ Initialized by default with false.
+- Boolean variables: true and false
+
+- Initialized by default with false. 
+
+Example 
 
 ```js
 contract Property {
   // 1. Boolean Type
-  bool public sold; 
+  bool public sold; // is left uninitialized , but its value is false)
 }
 
 ```
 
-● Signed and Unsigned Integers of various sizes.
-  ○ int8 to int256, uint8 to uint256 in steps of 8.
-  ○ int8 is between -128 and +127, int16 is between -32768 and +32767 and so
-on.
-  ○ int is alias to int256 and uint is an alias to uint256.
-  ○ By default an int is initialized with zero.
+*Integers*
 
-There are signed and unsigned integers of various sizes. To declare an unsigned integer that has only positive values
-use keywords uint8 to uint256 in steps of 8.
+- Signed and Unsigned Integers of various sizes.
+  - int8 to int256, uint8 to uint256 in steps of 8.
+  - int8 is between -128 and +127, int16 is between -32768 and +32767 and so on.
+  - int is alias to int256 and uint is an alias to uint256.
+  - By default an int is initialized with zero.
 
-So uint8 means an unsigned integer of 8 bits and the maximum value that can be represented on 8 bits is 2 to the power of 8 minus 1 and is equal to 255. And to declare a signed integer use keywords int8 to int256 in steps of 8.
+There are signed and unsigned integers of various sizes. To declare an unsigned integer that has only positive values, use keywords uint8 to uint256 in steps of 8.
+
+So uint8 means an unsigned integer of 8 bits and the maximum value that can be represented on 8 bits is (2 to the power of 8) minus 1 and is equal to 255. And to declare a signed integer use keywords int8 to int256 in steps of 8.
 
 ```js
 contract Property {
@@ -726,7 +732,8 @@ contract Property {
 }
 
 ```
-This is the maximum value that can be stored in an uint8 variable. (2^8=256)
+
+This is the maximum value that can be stored in an uint8 variable. (2^8)-1=255
 
 **Note that** uint is an alias to uint256 and int is an alias to int256.
 
