@@ -1,6 +1,4 @@
 
-edited 20-03-2022
-
 - [Intro](#intro)
 - [CSS Syntax](#css-syntax)
 - [How to add CSS](#how-to-add-css)
@@ -27,8 +25,6 @@ edited 20-03-2022
 *Sources*
 
 - https://www.w3schools.com/css/
-
-
 
 # Intro
 
