@@ -21,13 +21,14 @@ edited 20-03-2022
   - [Pseudo-classes](#pseudo-classes)
   - [Pseudo Elements](#pseudo-elements)
   - [Attribute Selector](#attribute-selector)
-    - [\[attribute|="value"\] Selector](#attributevalue-selector)
-    - [\[attribute^="value"\] Selector](#attributevalue-selector-1)
-    - [\[attribute$="value"\] Selector](#attributevalue-selector-2)
-    - [\[attribute\*="value"\] Selector](#attributevalue-selector-3)
 - [Cascading Order](#cascading-order)
 - [Specifity](#specifity)
-- [Sources](#sources)
+
+*Sources*
+
+- https://www.w3schools.com/css/
+
+
 
 # Intro
 
@@ -869,13 +870,11 @@ Selector|	Example	|Example description
 ::first-line	|p::first-line	|Selects the first line of each `<p>` element
 ::selection	|p::selection	|Selects the portion of an element that is selected by a user
 
---*LINK - tbc
-
 ## Attribute Selector
 
 The [attribute] selector is used to select elements with a specified attribute.
 
-The following example selects all `<a>` elements with a target attribute:
+The following example selects all `<a>` elements with *a target attribute*:
 
 Example
 
@@ -885,7 +884,7 @@ a[target] {
 }
 ```
 
-**[attribute="value"] Selector**
+*[attribute="value"] Selector*
 
 The [attribute="value"] selector is used to select elements with a specified attribute and value.
 
@@ -899,11 +898,13 @@ a[target="_blank"] {
 }
 ```
 
-**[attribute~="value"] Selector**
+*[attribute~="value"] Selector*
 
-The [attribute~="value"] selector is used to select elements with an attribute value containing a specified word.
+The [attribute~="value"] selector is used to select elements with an attribute value *containing* a specified word.
 
-The following example selects all elements with a title attribute that contains a space-separated list of words, one of which is "flower":
+The following example selects all elements with a title attribute that contains a *space-separated list* of words, one of which is "flower":
+
+(tor:html de title attribute değerini boşlukla ayırarak girilen değerlerden bir tanesi flower ise bu elementi seçer.)
 
 Example
 
@@ -915,7 +916,7 @@ Example
 
 The example above will match elements with title="flower", title="summer flower", and title="flower new", but not title="my-flower" or title="flowers".
 
-### [attribute|="value"] Selector
+*[attribute|="value"] Selector*
 
 The `[attribute|="value"]` selector is used to select elements with the specified attribute starting with the specified value.
 
@@ -931,7 +932,7 @@ Example
 }
 ```
 
-### [attribute^="value"] Selector
+*[attribute^="value"] Selector*
 
 The [attribute^="value"] selector is used to select elements whose attribute value begins with a specified value.
 
@@ -943,7 +944,7 @@ Note: The value does not have to be a whole word! 
   background: yellow;
 }
 
-### [attribute$="value"] Selector
+*[attribute$="value"] Selector*
 
 The [attribute$="value"] selector is used to select elements whose attribute value ends with a specified value.
 
@@ -959,7 +960,7 @@ Example
 }
 ```
 
-### [attribute*="value"] Selector
+*[attribute*="value"] Selector*
 
 The [attribute*="value"] selector is used to select elements whose attribute value contains a specified value.
 
@@ -973,7 +974,7 @@ Example
   background: yellow;
 }
 
-**Styling Forms**
+*Styling Forms*
 
 The attribute selectors can be useful for styling forms without class or ID:
 
@@ -994,7 +995,9 @@ input[type="button"] {
 }
 ```
 
-Tip: Visit our CSS Forms Tutorial for more examples on how to style forms with CSS. https://www.w3schools.com/css_form.asp
+--- Tip: Visit the CSS Forms Tutorial for more examples on how to style forms with CSS. https://www.w3schools.com/css_form.asp
+
+--*LINK - tbc
 
 All CSS Attribute Selectors
 
@@ -1129,8 +1132,6 @@ h1 {background-color: red;}
 
 The universal selector and inherited values have a specificity of 0 - *, body * and similar have a zero specificity. Inherited values also have a specificity of 0.
 
-# Sources
 
-- https://www.w3schools.com/css/
 
 
