@@ -16,7 +16,7 @@
   - [Where does EVM save data?](#where-does-evm-save-data)
   - [Functions, Getter and Setter](#functions-getter-and-setter)
   - [Constructor](#constructor)
-  - [Variable Types : Booleans and Integers](#variable-types--booleans-and-integers)
+  - [Variable Types : Booleans and Integers (ok)](#variable-types--booleans-and-integers-ok)
   - [29 SafeMath, Overflows and Underflows](#29-safemath-overflows-and-underflows)
   - [30 Fixed-Size Arrays](#30-fixed-size-arrays)
   - [Dynamically-sized arrays](#dynamically-sized-arrays)
@@ -688,15 +688,15 @@ contract Property{
 ```
 
 
-## Variable Types : Booleans and Integers
+## Variable Types : Booleans and Integers (ok)
 
 Solidity is a statically-typed language (variables type should be specified at declaration).
 
-Note that floating point numbers, such as float and double in other languages, are not yet supported in Solidity. If you want to perform calculations for a currency like ether and want to use floating point numbers, and then you should use a smaller denomination of ETH that will be represented as an integer.
+*Value types*
 
 Integers and booleans are also called *value types* because variables of these types will always be passed to functions *by value*. This means that they are always copied when they are used as function arguments.
 
-*Value Types*
+*Boolean*
 
 - Boolean variables: true and false
 
@@ -718,26 +718,22 @@ contract Property {
   - int8 to int256, uint8 to uint256 in steps of 8.
   - int8 is between -128 and +127, int16 is between -32768 and +32767 and so on.
   - int is alias to int256 and uint is an alias to uint256.
-  - By default an int is initialized with zero.
+  - By default an int is *initialized with zero*.
 
 There are signed and unsigned integers of various sizes. To declare an unsigned integer that has only positive values, use keywords uint8 to uint256 in steps of 8.
 
-So uint8 means an unsigned integer of 8 bits and the maximum value that can be represented on 8 bits is (2 to the power of 8) minus 1 and is equal to 255. And to declare a signed integer use keywords int8 to int256 in steps of 8.
+So uint8 means an unsigned integer of 8 bits. And to declare a signed integer use keywords int8 to int256 in steps of 8.
 
 ```js
 contract Property {
-  // 2. Integere type
+  // Integer type
   uint8 public x = 255;
   int8 public y = -10;
 }
 
 ```
 
-This is the maximum value that can be stored in an uint8 variable. (2^8)-1=255
-
-**Note that** uint is an alias to uint256 and int is an alias to int256.
-
-● There is no full support for float/double (fixed point numbers) in Solidity.
+This is the maximum value that can be stored in an uint8 variable. (2^8bits)-1=255
 
 ```js
 contract Property {
@@ -745,6 +741,13 @@ contract Property {
   uint8 public x = 256; // this is overlow.
 }
 ```
+
+--- Note that uint is an alias to uint256 and int is an alias to int256.
+
+- There is no full support for float/double (fixed point numbers) in Solidity.
+
+Note that floating point numbers, such as float and double in other languages, are not yet supported in Solidity. If you want to perform calculations for a currency like ether and want to use floating point numbers, and then you should use a smaller denomination of ETH that will be represented as an integer.
+
 
 ## 29 SafeMath, Overflows and Underflows
 

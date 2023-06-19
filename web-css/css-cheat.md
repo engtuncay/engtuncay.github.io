@@ -6,13 +6,11 @@
 - [Cascading Order](#cascading-order)
 - [Comments](#comments)
 - [Specifity](#specifity)
-- [CSS Element Size](#css-element-size)
-  - [Css Units](#css-units)
-  - [Absolute Lengths (mutlak ölçüler)](#absolute-lengths-mutlak-ölçüler)
-  - [Relative Lengths (Göreceli uzunluklar)](#relative-lengths-göreceli-uzunluklar)
+- [Element Size](#element-size)
+  - [Units](#units)
+  - [Absolute Lengths](#absolute-lengths)
+  - [Relative Lengths](#relative-lengths)
   - [Box Models](#box-models)
-    - [Content-Box Model (Default)](#content-box-model-default)
-    - [Border Box Model](#border-box-model)
   - [Height and Width Values (and units)](#height-and-width-values-and-units)
   - [Max Width](#max-width)
   - [All CSS Dimension Properties](#all-css-dimension-properties)
@@ -26,15 +24,15 @@
 
 *Simple selectors* 
 
-select elements based on name, id, class
+select elements based on tag name, id, class.
 
-Simple    | Selectors
-----------|---------------
-Id Sel.   | #idName
-Class     | .className
-Universal | *
-Grouping  | selA,selB
-Chaining  | .footer.center
+Simple       | Selectors
+-------------|---------------
+Id (#)       | #idName
+Class (.)    | .className
+Universal    | *
+Grouping (,) | selA,selB
+Chaining     | .footer.center
 
 Class Chaining : elements that have footer and center classes,order is not important
 
@@ -42,16 +40,16 @@ Class Chaining : elements that have footer and center classes,order is not impor
 
 select elements based on a specific relationship between them
 
-Combinator           | Selectors | Note
----------------------|-----------|-----------------------
-Descendant (space)   | div p     | Nesil Seçici
-Child (>)            | div > p   | Çocuk Seç.
-Adjacent Sibling (+) | div + p   | Takip eden kardeş seç.
-General Sibling (~)  | div ~ p   | Genel kardeş seç.
+Combinator Sel.      | Example | Note
+---------------------|---------|-----------------------
+Descendant (space)   | div p   | Nesil Seçici
+Child (>)            | div > p | Çocuk Seç.
+Adjacent Sibling (+) | div + p | Takip eden kardeş seç.
+General Sibling (~)  | div ~ p | Genel kardeş seç.
 
 *Pseudo-classes*
 
-select elements based on a certain state
+select elements based on a certain state of a tag element.
 
 Syntax | 
 --- | 
@@ -66,15 +64,15 @@ Syntax |
 --- | 
 selector::pseudo-element
 
-```text
-Selector	Example	Example description
-::after	p::after	Insert something after the content of each <p> element
-::before	p::before	Insert something before the content of each <p> element
-::first-letter	p::first-letter	Selects the first letter of each <p> element
-::first-line	p::first-line	Selects the first line of each <p> element
-::selection	p::selection	Selects the portion of an element that is selected by a user
+Selector       | Example         | Example description
+---------------|-----------------|-------------------------------------------------------------
+::after        | p::after        | Insert something after the content of each <p> element
+::before       | p::before       | Insert something before the content of each <p> element
+::first-letter | p::first-letter | Selects the first letter of each <p> element
+::first-line   | p::first-line   | Selects the first line of each <p> element
+::selection    | p::selection    | Selects the portion of an element that is selected by a user
 
-```
+you can see the detail from this [link](./css-intro-01-Selector-Specifity.md)
 
 *Attribute Selectors*
 
@@ -82,34 +80,16 @@ select elements based on an attribute or attribute value
 
 Examples
 
-
 ```css
 a[target] {
   background-color: yellow;
 }
-```
 
-
-```css
 a[target="_blank"] {
   background-color: yellow;
 }
+
 ```
-
-```css
-[title~="flower"] {
-  border: 5px solid yellow;
-}
-```
-
-
-```css
-[class|="top"] {
-  background: yellow;
-}
-```
-
-
 
 ```text
 Selector	Example	(Example description)
@@ -129,11 +109,6 @@ Selector	Example	(Example description)
 ```
 
 # Ways to Insert Css
-
-- External CSS
-- Internal CSS
-- Inline CS
-
 
 *External Css*
 
@@ -165,7 +140,7 @@ body {
 
 # Multiple Style Sheets
 
-- If some properties have been defined for the same selector (element) in different style sheets, the value from the last read style sheet will be used. 
+If some properties have been defined for the same selector (element) in different style sheets, *the value from the last read style sheet* will be used. 
 
 # Cascading Order
 
@@ -184,6 +159,8 @@ p {
 }
 ```
 
+--*LINK - tbc
+
 # Specifity
 
 - If there are two or more conflicting CSS rules that point to the same element, the browser follows some rules to determine which one is most specific and therefore wins out.
@@ -195,7 +172,7 @@ The universal selector (*) has low specificity, while ID selectors are highly sp
 - Specificity Hierarchy
 Every selector has its place in the specificity hierarchy. There are four categories which define the specificity level of a selector:
 
-1. Inline styles - An inline style is attached directly to the element to be styled. Example: <h1 style="color: #ffffff;">.
+1. Inline styles - An inline style is attached directly to the element to be styled. Example: `<h1 style="color: #ffffff;">`.
 
 2. IDs - An ID is a unique identifier for the page elements, such as #navbar.
 
@@ -209,78 +186,59 @@ Every selector has its place in the specificity hierarchy. There are four catego
 
 - Specifity Rules
 
-# CSS Element Size
+# Element Size
 
-## Css Units
+## Units
 
-- There are two types of length units: absolute and relative.
+## Absolute Lengths
 
-## Absolute Lengths (mutlak ölçüler)
+Screen | Desc
+-------|-----------------------------
+cm     | centimeters
+mm     | millimeters
+in     | inches (1in = 96px = 2.54cm)
+px*    | pixels (1px = 1/96th of 1in)
+pt     | points (1pt = 1/72 of 1in)
+pc     | picas (1pc = 12 pt)
 
-Absolute length units are not recommended for use on screen, because screen sizes vary so much. However, they can be used if the output medium is known, such as for print layout.
+## Relative Lengths
 
-```
-cm	centimeters
-mm	millimeters
-in	   inches (1in = 96px = 2.54cm)
-px*	pixels (1px = 1/96th of 1in)
-pt	points (1pt = 1/72 of 1in)
-pc	picas (1pc = 12 pt)
-```
+Unit | Desc
+-----|------------------------------------------------------------------------------------------
+em   | Relative to the font-size of the element (2em means 2 times the size of the current font)
+ex   | Relative to the x-height of the current font (rarely used)
+ch   | Relative to width of the "0" (zero)
+rem  | Relative to font-size of the root element
+vw   | Relative to 1% of the width of the viewport*
+vh   | Relative to 1% of the height of the viewport*
+vmin | Relative to 1% of viewport's* smaller dimension
+vmax | Relative to 1% of viewport's* larger dimension
+%    | Relative to the parent element (ebeveyn elementin %'si)
 
-
-* ! Pixels (px) are relative to the viewing device. For low-dpi devices, 1px is one device pixel (dot) of the display. For printers and high resolution screens 1px implies multiple device pixels.
-
-
-## Relative Lengths (Göreceli uzunluklar)
-
-Relative length units specify a length relative to another length property. Relative length units scales better between different rendering mediums.
-
-```
-em	Relative to the font-size of the element (2em means 2 times the size of the current font)
-ex	Relative to the x-height of the current font (rarely used)	
-ch	Relative to width of the "0" (zero)
-rem	Relative to font-size of the root element	
-vw	Relative to 1% of the width of the viewport*	
-vh	Relative to 1% of the height of the viewport*	
-vmin	Relative to 1% of viewport's* smaller dimension	
-vmax	Relative to 1% of viewport's* larger dimension
-%	Relative to the parent element (ebeveyn elementin %'si)
-```
 
 Tip: The em and rem units are practical in creating perfectly scalable layout!
 
 * Viewport = the browser window size. If the viewport is 50cm wide, 1vw = 0.5cm.
 
-```
-
-Length Unit chro-expl-fire-safa-oper					
-em..pc			1.0	3.0	1.0	1.0	3.5  
-(em, ex, %, px, cm, mm, in, pt, pc) 
-ch				27.0	9.0	1.0	7.0	20.0
-rem				4.0	9.0	3.6	4.1	11.6
-vh, vw			20.0	9.0	19.0	6.0	20.0
-vmin			20.0	12.0	19.0	6.0	20.0
-vmax			26.0	16.0	19.0	7.0	20.0
-
-```
-
 ## Box Models
 
-### Content-Box Model (Default)
+*Content-Box Model (Default)*
 
-- By default when you set the width and height properties of an element with CSS, you just set the width and height of the content area. To calculate the full size of an element, you must also add padding, borders and margins. (for content-box model)
+The width and height properties includes only content area. It does not include padding, borders and margins. This is the default.
 
-- By default, the width and height of an element is calculated like this:
+width = content 
+height = content
 
-width + padding + border = actual width of an element
-height + padding + border = actual height of an element
+padding ,border, margin are not included in width size.
 
-### Border Box Model
+*Border Box Model*
 
-- The box-sizing property allows us to include the padding and border in an element's total width and height. ( border-box model )
+For the box-sizing property, *padding and border size* are included in an element's width and height size. ( border-box model )
 
-- To activate Border-Box
+width = content + padding + border
+height = content + padding + border
+
+--- To setup border-Box in whole page
 
 ```css
 * {
@@ -290,21 +248,15 @@ height + padding + border = actual height of an element
 
 ## Height and Width Values (and units)
 
-- height and width are calculated according to box-model (content-box model or border-box model) With border-box model, they include padding and border. With content-box model, they specify only content area. (do not include padding, borders or margins.)
+Value   | Desc
+--------|--------------------------------------------------------------
+auto    | This is default. The browser calculates the height and width
+length  | Defines the height/width in px, cm etc.
+%       | Defines the height/width in percent of *the containing block*
+initial | Sets the height/width to its default value
+inherit | The height/width will be inherited from its parent value
 
-The height and width properties may have the following values:
-
-```
-
-auto - This is default. The browser calculates the height and width
-length - Defines the height/width in px, cm etc.
-% - Defines the height/width in percent of the containing block
-initial - Sets the height/width to its default value
-inherit - The height/width will be inherited from its parent value
-
-```
-
-- Example : Set the height and width of a <div> element:
+*Example* : Set the height and width of a <div> element:
 
 ```css
 div {
@@ -361,6 +313,11 @@ Flex Cont. Props | Parameters                                     | Desc
 flex-direction   | [ row , row-reverse , column ,column-reverse ] |
 flex-wrap        | [ nowrap , wrap , wrap-reverse]                |
 flex-flow (sh)   | flex-direction , flex-wrap                     |
+
+
+
+
+
 
 
 
