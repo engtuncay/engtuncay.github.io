@@ -65,7 +65,7 @@ For some CSS properties, negative lengths are allowed.
 
 There are two types of length units: absolute and relative.
 
-**Absolute Lengths**
+*Absolute Lengths*
 
 The absolute length units are fixed and a length expressed in any of these will appear as exactly that size. ((mutlak ölçüler))
 
@@ -83,7 +83,7 @@ Absolute length units are not recommended for use on screen, because screen size
 
 --- Pixels (px) are relative to the viewing device. For low-dpi devices, 1px is one device pixel (dot) of the display. For printers and high resolution screens 1px implies multiple device pixels.
 
-**Relative Lengths** 
+*Relative Lengths*
 
 Relative length units specify a length relative to another length property. Relative length units scales better between different rendering mediums. ((Göreceli uzunluklar))
 
@@ -105,14 +105,7 @@ Relative length units specify a length relative to another length property. Rela
 
 * Viewport = the browser window size. If the viewport is 50cm wide, 1vw = 0.5cm.
 
-| Unit                              | chro-expl-fire-safa-oper    |
-|-----------------------------------|-----------------------------|
-| em, ex, %, px, cm, mm, in, pt, pc | 1.0	- 3.0 -	1.0 -	1.0 -	3.5 |
-| ch                                | 27.0	9.0	1.0	7.0	20.0       |
-| rem                               | 4.0	9.0	3.6	4.1	11.6        |
-| vh, vw                            | 20.0	9.0	19.0	6.0	20.0      |
-| vmin                              | 20.0	12.0	19.0	6.0	20.0     |
-| vmax                              | 26.0	16.0	19.0	7.0	20.0     |
+see the source for browser compability.
 
 # CSS Box Model 
 

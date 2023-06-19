@@ -1,6 +1,4 @@
 
-edited 20-03-2022
-
 - [Intro](#intro)
 - [CSS Syntax](#css-syntax)
 - [How to add CSS](#how-to-add-css)
@@ -21,13 +19,12 @@ edited 20-03-2022
   - [Pseudo-classes](#pseudo-classes)
   - [Pseudo Elements](#pseudo-elements)
   - [Attribute Selector](#attribute-selector)
-    - [\[attribute|="value"\] Selector](#attributevalue-selector)
-    - [\[attribute^="value"\] Selector](#attributevalue-selector-1)
-    - [\[attribute$="value"\] Selector](#attributevalue-selector-2)
-    - [\[attribute\*="value"\] Selector](#attributevalue-selector-3)
 - [Cascading Order](#cascading-order)
 - [Specifity](#specifity)
-- [Sources](#sources)
+
+*Sources*
+
+- https://www.w3schools.com/css/
 
 # Intro
 
@@ -482,11 +479,11 @@ selector1selector2 | .class1.class2 | Selects all elements which have both class
 
 ## Pseudo-classes 
 
-(tr:Elementin Durum Sınıfları)
-
 A pseudo-class is used to define a special state of an element. 
 
-(tr:Html elementin özel bir durumuna (state) göre seçmemizi sağlar. Örneğin mouse ile üzerine gelme, tıklanmış link gibi... :)
+(tor:Elementin Durum Sınıfları)
+
+(tor:Html elementin özel bir durumuna (state) göre seçmemizi sağlar. Örneğin mouse ile üzerine gelme, tıklanmış link gibi... :)
 
 For example, it can be used to:
 
@@ -494,7 +491,7 @@ For example, it can be used to:
 - Style visited and unvisited links differently
 - Style an element when it gets focus
 
-**Syntax**
+*Syntax*
 
 The syntax of pseudo-classes:
 
@@ -504,7 +501,7 @@ selector:pseudo-class {
 }
 ```
 
-**Anchor Pseudo-classes**
+*Anchor Pseudo-classes*
 
 Links can be displayed in different ways:
 
@@ -530,11 +527,11 @@ a:active {
 }
 ```
 
-Note: a:hover MUST come after a:link and a:visited in the CSS definition in order to be effective! 
+Note: a:hover MUST come after a:link and a:visited in the CSS definition in order to be *effective*! 
 
-a:active MUST come after a:hover in the CSS definition in order to be effective! Pseudo-class names are not case-sensitive.
+a:active MUST come after a:hover in the CSS definition in order to be *effective*! Pseudo-class names are not case-sensitive.
 
-**Pseudo-classes and CSS Classes**
+*Pseudo-classes and CSS Classes*
 
 Pseudo-classes can be combined with CSS classes:
 
@@ -548,7 +545,7 @@ a.highlight:hover {
 }
 ```
 
-**Hover on <div>**
+*Hover on <div>*
 
 An example of using the :hover pseudo-class on a `<div>` element:
 
@@ -558,11 +555,11 @@ div:hover {
 }
 ```
 
-**Simple Tooltip Hover**
+*Simple Tooltip Hover*
 
 Hover over a `<div>` element to show a `<p>` element (like a tooltip):
 
-(tr:hover olduğunda kendisinin veya combinator ile farklı bir elementin display özelliğini block yaparak gösterilmesini sağlayabiliriz.:)
+(tor:hover olduğunda kendisinin veya combinator ile farklı bir elementin display özelliğini block yaparak gösterilmesini sağlayabiliriz.:)
 
 Example 
 
@@ -584,11 +581,11 @@ div:hover p {
 </style>
 ```
 
-**The :first-child Pseudo-class**
+*The :first-child Pseudo-class*
 
 The :first-child pseudo-class matches a specified element that is the first child of another element.
 
-**Match the first `<p>` element**
+*Match the first `<p>` element*
 
 In the following example, the selector matches any `<p>` element that is the first child of any element:
 
@@ -600,7 +597,7 @@ p:first-child {
 }
 ```
 
-**Match the first `<i>` element in all `<p>` elements**
+*Match the first `<i>` element in all `<p>` elements*
 
 In the following example, the selector matches the first `<i>` element in all `<p>` elements:
 
@@ -612,7 +609,7 @@ p i:first-child {
 }
 ```
 
-**Match all `<i>` elements in all first child `<p>` elements**
+*Match all `<i>` elements in all first child `<p>` elements*
 
 In the following example, the selector matches all `<i>` elements in `<p>` elements that are the first child of another element:
 
@@ -624,11 +621,11 @@ p:first-child i {
 }
 ```
 
-**The :lang Pseudo-class**
+*The :lang Pseudo-class*
 
 The :lang pseudo-class allows you to define special rules for different languages.
 
-In the example below, :lang defines the quotation marks for elements with lang="no":
+In the example below, :lang defines the quotation marks for elements with *lang="no"*:
 
 Example
 
@@ -649,76 +646,47 @@ q:lang(no) {
 
 
 All CSS Pseudo Classes
-```
-Selector	Example	       Example description
-:active	    a:active	   Selects the active link
 
-:checked	input:checked	Selects every checked `<input>`  element
+Selector | Example | Example Desc
+--- | --- | ---
+:active	 |   a:active	|   Selects the active link
+:checked	|input:checked	|Selects every checked `<input>`  element
+:disabled	|input:disabled	|Selects every disabled `<input>`  element
+:empty	|    p:empty	       |Selects every `<p>` element that has no children
+:enabled	|input:enabled	|Selects every enabled `<input>`  element
+:first-child	|p:first-child	|Selects every `<p>` elements that is the first child of its parent
+:first-of-type	|p:first-of-type	|Selects every `<p>` element that is the first `<p>` element of its parent
+:focus	|input:focus	|Selects the `<input>`  element that has focus
+:hover	|a:hover	|Selects links on mouse over
+:in-range	|input:in-range	|Selects `<input>`  elements with a value within a specified range
+:invalid	|input:invalid	|Selects all `<input>`  elements with an invalid value
+:lang(language)	|p:lang(it)	|Selects every `<p>` element with a lang attribute value starting with "it"
+:last-child	|p:last-child	|Selects every `<p>` elements that is the last child of its parent
+:last-of-type	|p:last-of-type	|Selects every `<p>` element that is the last `<p>` element of its parent
+:link	|a:link	|Selects all unvisited links
+:not(selector)	|:not(p)	|Selects every element that is not a `<p>` element
+:nth-child(n)	|p:nth-child(2)	|Selects every `<p>` element that is the second child of its parent
+:nth-last-child(n)	|p:nth-last-child(2)	|Selects every `<p>` element that is the second child of its parent, counting from the last child
+:nth-last-of-type(n)	|p:nth-last-of-type(2)	|Selects every `<p>` element that is the second `<p>` element of its parent, counting from the last child
+:nth-of-type(n)	|p:nth-of-type(2)	|Selects every `<p>` element that is the second `<p>` element of its parent
+:only-of-type	|p:only-of-type	|Selects every `<p>` element that is the only `<p>` element of its parent
+:only-child	|p:only-child	|Selects every `<p>` element that is the only child of its parent
+:optional	|input:optional	|Selects `<input>`  elements with no "required" attribute
+:out-of-range	|input:out-of-range	|Selects `<input>`  elements with a value outside a specified range
+:read-only	|input:read-only	|Selects `<input>`  elements with a "readonly" attribute specified
+:read-write	|input:read-write	|Selects `<input>`  elements with no "readonly" attribute
+:required	|input:required	|Selects `<input>`  elements with a "required" attribute specified
+:root	|root	|Selects the document's root element
+:target	|#news:target	|Selects the current active #news element (clicked on a URL containing that anchor name)
+:valid	|input:valid	|Selects all `<input>`  elements with a valid value
+:visited	|a:visited	|Selects all visited links
 
-:disabled	input:disabled	Selects every disabled `<input>`  element
-
-:empty	    p:empty	       Selects every `<p>` element that has no children
-
-:enabled	input:enabled	Selects every enabled `<input>`  element
-
-:first-child	p:first-child	Selects every `<p>` elements that is the first child of its parent
-
-:first-of-type	p:first-of-type	Selects every `<p>` element that is the first `<p>` element of its parent
-
-:focus	input:focus	Selects the `<input>`  element that has focus
-
-:hover	a:hover	Selects links on mouse over
-
-:in-range	input:in-range	Selects `<input>`  elements with a value within a specified range
-
-:invalid	input:invalid	Selects all `<input>`  elements with an invalid value
-
-:lang(language)	p:lang(it)	Selects every `<p>` element with a lang attribute value starting with "it"
-
-:last-child	p:last-child	Selects every `<p>` elements that is the last child of its parent
-
-:last-of-type	p:last-of-type	Selects every `<p>` element that is the last `<p>` element of its parent
-
-:link	a:link	Selects all unvisited links
-
-:not(selector)	:not(p)	Selects every element that is not a `<p>` element
-
-:nth-child(n)	p:nth-child(2)	Selects every `<p>` element that is the second child of its parent
-
-:nth-last-child(n)	p:nth-last-child(2)	Selects every `<p>` element that is the second child of its parent, counting from the last child
-
-:nth-last-of-type(n)	p:nth-last-of-type(2)	Selects every `<p>` element that is the second `<p>` element of its parent, counting from the last child
-
-:nth-of-type(n)	p:nth-of-type(2)	Selects every `<p>` element that is the second `<p>` element of its parent
-
-:only-of-type	p:only-of-type	Selects every `<p>` element that is the only `<p>` element of its parent
-
-:only-child	p:only-child	Selects every `<p>` element that is the only child of its parent
-
-:optional	input:optional	Selects `<input>`  elements with no "required" attribute
-
-:out-of-range	input:out-of-range	Selects `<input>`  elements with a value outside a specified range
-
-:read-only	input:read-only	Selects `<input>`  elements with a "readonly" attribute specified
-
-:read-write	input:read-write	Selects `<input>`  elements with no "readonly" attribute
-
-:required	input:required	Selects `<input>`  elements with a "required" attribute specified
-
-:root	root	Selects the document's root element
-
-:target	#news:target	Selects the current active #news element (clicked on a URL containing that anchor name)
-
-:valid	input:valid	Selects all `<input>`  elements with a valid value
-
-:visited	a:visited	Selects all visited links
-```
 
 ## Pseudo Elements
 
 A CSS pseudo-element is used to style specified parts of an element. 
 
-(tr:Bir elementin belirli bir alanını stillendirmeye kullanılır. Örneğin elementin ilk harfi, ilk satırı ya da elementin öncesine veya sonrasına içerik ekleme :)
+(tor:Bir elementin belirli bir alanını stillendirmeye kullanılır. Örneğin elementin ilk harfi, ilk satırı ya da elementin öncesine veya sonrasına içerik ekleme )
 
 For example, it can be used to:
 - Style the first letter, or line, of an element
@@ -732,7 +700,7 @@ selector::pseudo-element {
 }
 ```
 
-**The ::first-line Pseudo-element**
+*The ::first-line Pseudo-element*
 
 The ::first-line pseudo-element is used to add a special style to the first line of a text.
 
@@ -772,7 +740,7 @@ The single-colon syntax was used for both pseudo-classes and pseudo-elements in 
 
 For backward compatibility, the single-colon syntax is acceptable for CSS2 and CSS1 pseudo-elements.
 
-**The ::first-letter Pseudo-element**
+*The ::first-letter Pseudo-element*
 
 The ::first-letter pseudo-element is used to add a special style to the first letter of a text.
 
@@ -806,7 +774,7 @@ float
 clear
 ```
 
-**Pseudo-elements and CSS Classes**
+*Pseudo-elements and CSS Classes*
 
 Pseudo-elements can be combined with CSS classes: 
 
@@ -821,7 +789,7 @@ p.intro::first-letter {
 
 The example above will display the first letter of paragraphs with class="intro", in red and in a larger size.
 
-**Multiple Pseudo-elements**
+*Multiple Pseudo-elements*
 
 Several pseudo-elements can also be combined.
 
@@ -842,7 +810,7 @@ p::first-line {
 }
 ```
 
-**The ::before Pseudo-element**
+*The ::before Pseudo-element*
 
 The ::before pseudo-element can be used to insert some content before the content of an element.
 
@@ -856,7 +824,7 @@ h1::before {
 }
 ```
 
-**The ::after Pseudo-element**
+*The ::after Pseudo-element*
 
 The ::after pseudo-element can be used to insert some content after the content of an element.
 
@@ -870,7 +838,7 @@ h1::after {
 }
 ```
 
-**The ::selection Pseudo-element**
+*The ::selection Pseudo-element*
 
 The ::selection pseudo-element matches the portion of an element that is selected by a user.
 
@@ -889,21 +857,20 @@ Example
 
 All CSS Pseudo Elements
 
-```
-Selector	Example	Example description
-::after	p::after	Insert something after the content of each `<p>` element
-::before	p::before	Insert something before the content of each `<p>` element
-::first-letter	p::first-letter	Selects the first letter of each `<p>` element
-::first-line	p::first-line	Selects the first line of each `<p>` element
-::selection	p::selection	Selects the portion of an element that is selected by a user
 
-```
+Selector|	Example	|Example description
+--- | --- | ---
+::after	|p::after	|Insert something after the content of each `<p>` element
+::before	|p::before	|Insert something before the content of each `<p>` element
+::first-letter	|p::first-letter	|Selects the first letter of each `<p>` element
+::first-line	|p::first-line	|Selects the first line of each `<p>` element
+::selection	|p::selection	|Selects the portion of an element that is selected by a user
 
 ## Attribute Selector
 
 The [attribute] selector is used to select elements with a specified attribute.
 
-The following example selects all `<a>` elements with a target attribute:
+The following example selects all `<a>` elements with *a target attribute*:
 
 Example
 
@@ -913,7 +880,7 @@ a[target] {
 }
 ```
 
-**[attribute="value"] Selector**
+*[attribute="value"] Selector*
 
 The [attribute="value"] selector is used to select elements with a specified attribute and value.
 
@@ -927,11 +894,13 @@ a[target="_blank"] {
 }
 ```
 
-**[attribute~="value"] Selector**
+*[attribute~="value"] Selector*
 
-The [attribute~="value"] selector is used to select elements with an attribute value containing a specified word.
+The [attribute~="value"] selector is used to select elements with an attribute value *containing* a specified word.
 
-The following example selects all elements with a title attribute that contains a space-separated list of words, one of which is "flower":
+The following example selects all elements with a title attribute that contains a *space-separated list* of words, one of which is "flower":
+
+(tor:html de title attribute değerini boşlukla ayırarak girilen değerlerden bir tanesi flower ise bu elementi seçer.)
 
 Example
 
@@ -943,7 +912,7 @@ Example
 
 The example above will match elements with title="flower", title="summer flower", and title="flower new", but not title="my-flower" or title="flowers".
 
-### [attribute|="value"] Selector
+*[attribute|="value"] Selector*
 
 The `[attribute|="value"]` selector is used to select elements with the specified attribute starting with the specified value.
 
@@ -959,7 +928,7 @@ Example
 }
 ```
 
-### [attribute^="value"] Selector
+*[attribute^="value"] Selector*
 
 The [attribute^="value"] selector is used to select elements whose attribute value begins with a specified value.
 
@@ -971,7 +940,7 @@ Note: The value does not have to be a whole word! 
   background: yellow;
 }
 
-### [attribute$="value"] Selector
+*[attribute$="value"] Selector*
 
 The [attribute$="value"] selector is used to select elements whose attribute value ends with a specified value.
 
@@ -987,7 +956,7 @@ Example
 }
 ```
 
-### [attribute*="value"] Selector
+*[attribute*="value"] Selector*
 
 The [attribute*="value"] selector is used to select elements whose attribute value contains a specified value.
 
@@ -1001,7 +970,7 @@ Example
   background: yellow;
 }
 
-**Styling Forms**
+*Styling Forms*
 
 The attribute selectors can be useful for styling forms without class or ID:
 
@@ -1022,7 +991,9 @@ input[type="button"] {
 }
 ```
 
-Tip: Visit our CSS Forms Tutorial for more examples on how to style forms with CSS. https://www.w3schools.com/css_form.asp
+--- Tip: Visit the CSS Forms Tutorial for more examples on how to style forms with CSS. https://www.w3schools.com/css_form.asp
+
+--*LINK - tbc
 
 All CSS Attribute Selectors
 
@@ -1157,8 +1128,6 @@ h1 {background-color: red;}
 
 The universal selector and inherited values have a specificity of 0 - *, body * and similar have a zero specificity. Inherited values also have a specificity of 0.
 
-# Sources
 
-- https://www.w3schools.com/css/
 
 
