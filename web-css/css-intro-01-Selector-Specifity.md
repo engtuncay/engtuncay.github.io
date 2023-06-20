@@ -365,8 +365,6 @@ element, element,.. div, p    Selects all `<div>` elements and all `<p>` element
 
 ## Combinators
 
-(tr:İlişkilendiriciler:)
-
 Combinators have five categories.
 
 * Descendant Selector (Space) (tr:Nesil Seçici) (a b)
@@ -374,6 +372,8 @@ Combinators have five categories.
 * Adjacent Sibling Selector (+) (tr:Takip eden kardeş seçici)
 * General Sibling Selector (~) (tr:Genel kardeş seçici)
 * Combined Selector (tr:birden fazla özelliğe sahip element seçici) (.a.b) (without space)
+
+(tr:İlişkilendiriciler:)
 
 A combinator is something that explains the relationship between the selectors. (tr:Seçiciler arasında ilişki kurmamızı sağlar.)
 
@@ -1127,7 +1127,4 @@ h1 {background-color: red;}
 ```
 
 The universal selector and inherited values have a specificity of 0 - *, body * and similar have a zero specificity. Inherited values also have a specificity of 0.
-
-
-
 

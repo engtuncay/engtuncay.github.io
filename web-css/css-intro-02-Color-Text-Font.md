@@ -36,6 +36,7 @@ Colors are specified using predefined color names, or RGB, HEX, HSL, RGBA, HSLA 
 
 In CSS, a color can be specified by using a predefined color name:
 
+```
 Tomato
 Orange
 DodgerBlue
@@ -44,6 +45,8 @@ Gray
 SlateBlue
 Violet
 LightGray
+
+```
 
 CSS/HTML support 140 standard color names.
 
@@ -55,18 +58,24 @@ You can set the background color for HTML elements:
 
 Example
 
+```html
 <h1 style="background-color:DodgerBlue;">Hello World</h1>
 <p style="background-color:Tomato;">Lorem ipsum...</p>
 
+```
+
 ## CSS Text Color
 
-You can set the color of text:
+You can set the color of *text*:
 
 Example
 
+```html
 <h1 style="color:Tomato;">Hello World</h1>
 <p style="color:DodgerBlue;">Lorem ipsum...</p>
 <p style="color:MediumSeaGreen;">Ut wisi enim...</p>
+
+```
 
 ## CSS Border Color
 
@@ -74,9 +83,12 @@ You can set the color of borders:
 
 Example
 
+```html
 <h1 style="border:2px solid Tomato;">Hello World</h1>
 <h1 style="border:2px solid DodgerBlue;">Hello World</h1>
 <h1 style="border:2px solid Violet;">Hello World</h1>
+
+```
 
 ## CSS Color Values
 
@@ -101,15 +113,20 @@ Example
 
 Same as color name "Tomato":
 
+```html
 <h1 style="background-color:rgb(255, 99, 71);">...</h1>
 <h1 style="background-color:#ff6347;">...</h1>
 <h1 style="background-color:hsl(9, 100%, 64%);">...</h1>
 
+```
+
 Same as color name "Tomato", but 50% transparent:
 
+```html
 <h1 style="background-color:rgba(255, 99, 71, 0.5);">...</h1>
 <h1 style="background-color:hsla(9, 100%, 64%, 0.5);">...</h1>
 
+```
 
 Learn more about Color Values
 
@@ -123,7 +140,10 @@ An RGB color value represents RED, GREEN, and BLUE light sources.
 
 In CSS, a color can be specified as an RGB value, using this formula:
 
+```css
 rgb(red, green, blue)
+
+```
 
 Each parameter (red, green, and blue) defines the intensity of the color between 0 and 255.
 

@@ -97,6 +97,7 @@ getModView().getFxTableMig().setManaged(false);
 
 ```
 
+
 # Module Oluşturma
 
 ## Form Module
@@ -118,6 +119,8 @@ Tablolu pencerelerde seçim yapılırken, 1 den fazla seçilme kontrolü.
 ```java
 if (!EfxhpModHelper.checkKayitlarSecilmisMi(itemsChecked)) return;
 ```
+
+
 
 
 # Dialog Pencereleri
@@ -348,7 +351,7 @@ public FiCol formEdmAyarGruplari_ApcTxGrup() {
 }
 ```
 			
-- Sor. Mer. Form Elemanı
+- *Sor. Mer. Form Elemanı*
 
 ```java
 
@@ -360,6 +363,9 @@ listTableCols.add(FiTableColBuildHelper.build(EntegreField.akesTxSorMerKod)
 		})
 );
 ```
+
+
+
 
 
 # Db İşlemler
