@@ -1,20 +1,20 @@
 
 - [Colors](#colors)
   - [CSS Color Names](#css-color-names)
-  - [CSS Background Color](#css-background-color)
-  - [CSS Text Color](#css-text-color)
-  - [CSS Border Color](#css-border-color)
-  - [CSS Color Values](#css-color-values)
+  - [Background Color](#background-color)
+  - [Text Color](#text-color)
+  - [Border Color](#border-color)
+  - [Color Values](#color-values)
   - [RGB](#rgb)
   - [Hex Colors](#hex-colors)
-  - [HSL](#hsl)
-  - [Backgrounds](#backgrounds)
+  - [HSL Colors](#hsl-colors)
+- [Backgrounds](#backgrounds)
   - [CSS background-image](#css-background-image)
   - [CSS background-repeat](#css-background-repeat)
   - [CSS background-attachment](#css-background-attachment)
   - [CSS background - Shorthand property](#css-background---shorthand-property)
 - [Text](#text)
-  - [Text Color](#text-color)
+  - [Text Color](#text-color-1)
   - [Text Alignment](#text-alignment)
   - [](#)
   - [Text Transformation](#text-transformation)
@@ -55,7 +55,7 @@ CSS/HTML support 140 standard color names.
 
 https://www.w3schools.com/colors/colors_names.asp
 
-## CSS Background Color
+## Background Color
 
 You can set the background color for HTML elements:
 
@@ -67,7 +67,7 @@ Example
 
 ```
 
-## CSS Text Color
+## Text Color
 
 You can set the color of *text*:
 
@@ -80,7 +80,7 @@ Example
 
 ```
 
-## CSS Border Color
+## Border Color
 
 You can set the color of borders:
 
@@ -93,7 +93,7 @@ Example
 
 ```
 
-## CSS Color Values
+## Color Values
 
 In CSS, colors can also be specified using RGB values, HEX values, HSL values, RGBA values, and HSLA values:
 
@@ -174,16 +174,20 @@ The alpha parameter is a number between 0.0 (fully transparent) and 1.0 (not tra
 
 A hexadecimal color is specified with: #RRGGBB, where the RR (red), GG (green) and BB (blue) hexadecimal integers specify the components of the color.
 
-HEX Value
+*HEX Value*
+
 In CSS, a color can be specified using a hexadecimal value in the form:
 
+```css
 #rrggbb
+
+```
 
 Where rr (red), gg (green) and bb (blue) are hexadecimal values between 00 and ff (same as decimal 0-255).
 
 For example, #ff0000 is displayed as red, because red is set to its highest value (ff) and the others are set to the lowest value (00).
 
-Examples
+*Examples*
 
 **3 Digit HEX Value**
 
@@ -193,7 +197,10 @@ The 3-digit hex code is a shorthand for some 6-digit hex codes.
 
 The 3-digit hex code has the following form:
 
+```css
 #rgb
+
+```
 
 Where r, g, and b represents the red, green, and blue components with values between 0 and f.
 
@@ -217,58 +224,102 @@ p {
 }
 ```
 
-## HSL
+## HSL Colors
 
-A hexadecimal color is specified with: #RRGGBB, where the RR (red), GG (green) and BB (blue) hexadecimal integers specify the components of the color.
+HSL stands for hue, saturation, and lightness.
 
-**HEX Value**
+*HSL Value*
 
-In CSS, a color can be specified using a hexadecimal value in the form:
+In CSS, a color can be specified using hue, saturation, and lightness (HSL) in the form:
 
-#rrggbb
-
-Where rr (red), gg (green) and bb (blue) are hexadecimal values between 00 and ff (same as decimal 0-255).
-
-For example, #ff0000 is displayed as red, because red is set to its highest value (ff) and the others are set to the lowest value (00).
-
-Examples
-
-
-
-**3 Digit HEX Value**
-
-Sometimes you will see a 3-digit hex code in the CSS source.
-
-The 3-digit hex code is a shorthand for some 6-digit hex codes.
-
-The 3-digit hex code has the following form:
-
-#rgb
-
-Where r, g, and b represents the red, green, and blue components with values between 0 and f.
-
-The 3-digit hex code can only be used when both the values (RR, GG, and BB) are the same for each components. So, if we have #ff00cc, it can be written like this: #f0c.
-
-Here is an example:
-
-Example
-
-```html
-body {
-  background-color: #fc9; /* same as #ffcc99 */
-}
-
-h1 {
-  color: #f0f; /* same as #ff00ff */
-}
-
-p {
-  color: #b58; /* same as #bb5588 */
-}
+```css
+hsl(hue, saturation, lightness)
 
 ```
 
-## Backgrounds
+Hue is a degree on the color wheel from 0 to 360. 0 is red, 120 is green, and 240 is blue.
+
+Saturation is a percentage value. 0% means a shade of gray, and 100% is the full color.
+
+Lightness is also a percentage. 0% is black, 50% is neither light or dark, 100% is white
+
+Experiment by mixing the HSL values below:
+
+HUE 0, SATURATION 100%, LIGHTNESS 50%
+
+hsl(0, 100%, 50%)
+
+
+Example
+
+hsl(0, 100%, 50%)
+hsl(240, 100%, 50%)
+hsl(147, 50%, 47%)
+hsl(300, 76%, 72%)
+hsl(39, 100%, 50%)
+hsl(248, 53%, 58%)
+
+Saturation
+
+Saturation can be described as the intensity of a color.
+
+100% is pure color, no shades of gray.
+
+50% is 50% gray, but you can still see the color.
+
+0% is completely gray; you can no longer see the color.
+
+Example |
+--- | 
+hsl(0, 100%, 50%)
+hsl(0, 80%, 50%)
+hsl(0, 60%, 50%)
+hsl(0, 40%, 50%)
+hsl(0, 20%, 50%)
+hsl(0, 0%, 50%)
+
+*Lightness*
+
+The lightness of a color can be described as how much light you want to give the color, where 0% means no light (black), 50% means 50% light (neither dark nor light) and 100% means full lightness (white).
+
+Example |
+--- | 
+hsl(0, 100%, 0%) 
+hsl(0, 100%, 25%)
+hsl(0, 100%, 50%)
+hsl(0, 100%, 75%)
+hsl(0, 100%, 90%)
+hsl(0, 100%, 100%)
+
+*Shades of Gray*
+
+Shades of gray are often defined by setting the hue and saturation to 0, and adjust the lightness from 0% to 100% to get darker/lighter shades:
+
+
+Example |
+--- | 
+hsl(0, 0%, 0%)
+hsl(0, 0%, 24%)
+hsl(0, 0%, 47%)
+hsl(0, 0%, 71%)
+hsl(0, 0%, 94%)
+hsl(0, 0%, 100%)
+
+*HSLA Value*
+
+HSLA color values are an extension of HSL color values with an alpha channel - which specifies the opacity for a color.
+
+An HSLA color value is specified with:
+
+hsla(hue, saturation, lightness, alpha)
+
+The alpha parameter is a number between 0.0 (fully transparent) and 1.0 (not transparent at all):
+
+Experiment by mixing the HSLA values from https://www.w3schools.com/css/css_colors_hsl.asp
+
+--*LINK -  tbc
+
+# Backgrounds
 
 The CSS background properties are used to define the background effects for elements.
 

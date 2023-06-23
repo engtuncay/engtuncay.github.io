@@ -14,6 +14,8 @@
   - [Height and Width Values (and units)](#height-and-width-values-and-units)
   - [Max Width](#max-width)
   - [All CSS Dimension Properties](#all-css-dimension-properties)
+- [Color](#color)
+- [Background](#background)
 - [Flexbox Cheat](#flexbox-cheat)
 - [Cheatsheet](#cheatsheet)
 - [Reference Details](#reference-details)
@@ -299,6 +301,49 @@ min-height	Sets the minimum height of an element
 min-width	Sets the minimum width of an element
 
 ```
+
+
+# Color
+
+Topic              | Desc
+-------------------|--------------------------------------------------------
+Color Names        | Tomato,Orange,DodgerBlue
+Background Color   | background-color:DodgerBlue;
+Text Color         | color:Tomato;
+Border Color       | border:2px solid Tomato;
+Color Values       |
+-Rgb Color         | rgb(255, 99, 71)  (0-255 values)
+-Hex Color         | #ff6347 (value syntax RRGGBB)
+-Hsl               | hsl(9, 100%, 64%)
+Rgba               | rgba(255, 99, 71, 0.5) (%50 transparent)
+. a: alpha channel | specifies the opacity for a color (value range 0.0-1.0)
+Hsla               | hsla(9, 100%, 64%, 0.5)
+Example Colors     |
+-Red color         | rgb(255, 0, 0) , #ff0000
+-black             | rgb(0,0,0)
+-white             | rgb (255,255,255)
+3 Digit Hex Value  | #rgb (Ex. #f0c = #ff00cc )
+Hsl                | HSL stands for hue, saturation, and lightness.
+.                  | Syn: hsl(hue, saturation, lightness)
+red                | hsl(0, 100%, 50%)
+Saturation         |
+HSLA               | HSL with alpha channel
+
+*Extra Hue Saturation Lightness*
+
+Hue is a degree on the color wheel from 0 to 360. 0 is red, 120 is green, and 240 is blue.
+
+Saturation is a percentage value. 0% means a shade of gray, and 100% is the full color. 
+
+Lightness is also a percentage. 0% is black, 50% is neither light or dark, 100% is white
+
+*Saturation* can be described as the intensity of a color. 100% is pure color, no shades of gray. 50% is 50% gray, but you can still see the color. 0% is completely gray; you can no longer see the color.
+
+*The lightness* of a color can be described as how much light you want to give the color, where 0% means no light (black), 50% means 50% light (neither dark nor light) and 100% means full lightness (white).
+
+Shades of gray are often defined by setting *the hue and saturation* to 0, and adjust the lightness from 0% to 100% to get darker/lighter shades.
+
+# Background
 
 # Flexbox Cheat
 
