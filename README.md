@@ -12,6 +12,10 @@
 
 [Csharp Tutors](./csharp-dotnet/readme.md)
 
+[Solidity](./blockchain/readme.md)
+
+*Deprecated Tutors*
+
 [Vue Tutors](./vue/README.md)
 
 [React Tutors](./react/README.md)
