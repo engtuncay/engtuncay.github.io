@@ -928,17 +928,20 @@ Example
 }
 ```
 
-*[attribute^="value"] Selector*
+*`[attribute^="value"]` Selector*
 
-The [attribute^="value"] selector is used to select elements whose attribute value begins with a specified value.
+The `[attribute^="value"]` selector is used to select elements whose attribute value *begins with* a specified value.
 
 The following example selects all elements with a class attribute value that begins with "top":
 
 Note: The value does not have to be a whole word! 
 
+```css
 [class^="top"] {
   background: yellow;
 }
+
+```
 
 *[attribute$="value"] Selector*
 
@@ -966,9 +969,12 @@ Note: The value does not have to be a whole word!  
 
 Example
 
+```css
 [class*="te"] {
   background: yellow;
 }
+
+```
 
 *Styling Forms*
 
