@@ -6,8 +6,8 @@ Source : [W3Schools]()
 
 [Css Cheat](./css-cheat.md)
 
-CONTENT |
---- |
+CONTENT | Note |
+--- | --- |
 [1- Selector and Specifity](./css-intro-01-Selector-Specifity.md) |
 [2- Color, Text And Font](./css-intro-02-Color.md) |
 [3- Links, Lists, Icons](./css-intro-03-Links-Lists-Icons.md) |
