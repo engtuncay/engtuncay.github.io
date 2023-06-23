@@ -4,6 +4,8 @@ This tutorial is prepared from web resources and some additions from me.
 
 Source : [W3Schools]()
 
+[Css Cheat](./css-cheat.md)
+
 CONTENT |
 --- |
 [1- Selector and Specifity](./css-intro-01-Selector-Specifity.md) |
