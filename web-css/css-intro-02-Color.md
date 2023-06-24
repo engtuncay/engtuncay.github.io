@@ -121,28 +121,19 @@ hsla(9, 100%, 64%, 0.5)
 
 Example
 
+```html
 Same as color name "Tomato":
 
-```html
 <h1 style="background-color:rgb(255, 99, 71);">...</h1>
 <h1 style="background-color:#ff6347;">...</h1>
 <h1 style="background-color:hsl(9, 100%, 64%);">...</h1>
-
-```
-
 Same as color name "Tomato", but 50% transparent:
-
-```html
 <h1 style="background-color:rgba(255, 99, 71, 0.5);">...</h1>
 <h1 style="background-color:hsla(9, 100%, 64%, 0.5);">...</h1>
 
 ```
 
 ![](./img/color-values.jpg)
-
-Learn more about Color Values
-
-You will learn more about RGB, HEX and HSL in the next chapters.
 
 ## RGB
 
