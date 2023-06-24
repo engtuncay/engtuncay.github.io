@@ -1,6 +1,6 @@
 
 - [Colors](#colors)
-  - [CSS Color Names](#css-color-names)
+  - [Color Names](#color-names)
   - [Background Color](#background-color)
   - [Text Color](#text-color)
   - [Border Color](#border-color)
@@ -9,12 +9,11 @@
   - [Hex Colors](#hex-colors)
   - [HSL Colors](#hsl-colors)
 - [Backgrounds](#backgrounds)
-  - [CSS background-image](#css-background-image)
-  - [CSS background-repeat](#css-background-repeat)
+  - [background-image](#background-image)
+  - [background-repeat](#background-repeat)
   - [CSS background-attachment](#css-background-attachment)
-  - [CSS background - Shorthand property](#css-background---shorthand-property)
+  - [background property (sh)](#background-property-sh)
 - [Text](#text)
-  - [Text Color](#text-color-1)
   - [Text Alignment](#text-alignment)
   - [](#)
   - [Text Transformation](#text-transformation)
@@ -35,7 +34,7 @@ Source : https://www.w3schools.com/css/css_colors.asp
 
 Colors are specified using predefined color names, or RGB, HEX, HSL, RGBA, HSLA values.
 
-## CSS Color Names
+## Color Names
 
 In CSS, a color can be specified by using a predefined color name:
 
@@ -50,6 +49,8 @@ Violet
 LightGray
 
 ```
+
+![](./img/colors1.jpg)
 
 CSS/HTML support 140 standard color names.
 
@@ -67,6 +68,8 @@ Example
 
 ```
 
+![](./img/color-bg1.jpg)
+
 ## Text Color
 
 You can set the color of *text*:
@@ -80,6 +83,8 @@ Example
 
 ```
 
+![](./img/color-text.jpg)
+
 ## Border Color
 
 You can set the color of borders:
@@ -92,6 +97,8 @@ Example
 <h1 style="border:2px solid Violet;">Hello World</h1>
 
 ```
+
+![](./img/color-border.jpg)
 
 ## Color Values
 
@@ -130,6 +137,8 @@ Same as color name "Tomato", but 50% transparent:
 <h1 style="background-color:hsla(9, 100%, 64%, 0.5);">...</h1>
 
 ```
+
+![](./img/color-values.jpg)
 
 Learn more about Color Values
 
@@ -210,7 +219,7 @@ Here is an example:
 
 Example
 
-```html
+```css
 body {
   background-color: #fc9; /* same as #ffcc99 */
 }
@@ -247,11 +256,11 @@ Experiment by mixing the HSL values below:
 
 HUE 0, SATURATION 100%, LIGHTNESS 50%
 
-hsl(0, 100%, 50%)
-
-
 Example
 
+![](./img/hsl-ex1.jpg)
+
+```css
 hsl(0, 100%, 50%)
 hsl(240, 100%, 50%)
 hsl(147, 50%, 47%)
@@ -259,9 +268,11 @@ hsl(300, 76%, 72%)
 hsl(39, 100%, 50%)
 hsl(248, 53%, 58%)
 
-Saturation
+```
 
-Saturation can be described as the intensity of a color.
+*Saturation*
+
+Saturation can be described as the *intensity* of a color.
 
 100% is pure color, no shades of gray.
 
@@ -269,8 +280,9 @@ Saturation can be described as the intensity of a color.
 
 0% is completely gray; you can no longer see the color.
 
-Example |
---- | 
+![](./img/hsl-satur.jpg)
+
+```css
 hsl(0, 100%, 50%)
 hsl(0, 80%, 50%)
 hsl(0, 60%, 50%)
@@ -278,12 +290,16 @@ hsl(0, 40%, 50%)
 hsl(0, 20%, 50%)
 hsl(0, 0%, 50%)
 
+```
+
 *Lightness*
 
 The lightness of a color can be described as how much light you want to give the color, where 0% means no light (black), 50% means 50% light (neither dark nor light) and 100% means full lightness (white).
 
-Example |
---- | 
+![](./img/hsl-light.jpg)
+
+
+```css
 hsl(0, 100%, 0%) 
 hsl(0, 100%, 25%)
 hsl(0, 100%, 50%)
@@ -291,19 +307,23 @@ hsl(0, 100%, 75%)
 hsl(0, 100%, 90%)
 hsl(0, 100%, 100%)
 
+```
+
 *Shades of Gray*
 
 Shades of gray are often defined by setting the hue and saturation to 0, and adjust the lightness from 0% to 100% to get darker/lighter shades:
 
+![](./img/hsl-shades.jpg)
 
-Example |
---- | 
+```css
 hsl(0, 0%, 0%)
 hsl(0, 0%, 24%)
 hsl(0, 0%, 47%)
 hsl(0, 0%, 71%)
 hsl(0, 0%, 94%)
 hsl(0, 0%, 100%)
+
+```
 
 *HSLA Value*
 
@@ -314,6 +334,8 @@ An HSLA color value is specified with:
 hsla(hue, saturation, lightness, alpha)
 
 The alpha parameter is a number between 0.0 (fully transparent) and 1.0 (not transparent at all):
+
+![](./img/hsla.jpg)
 
 Experiment by mixing the HSLA values from https://www.w3schools.com/css/css_colors_hsl.asp
 
@@ -331,7 +353,7 @@ In these chapters, you will learn about the following CSS background properties:
 - background-attachment
 - background-position
 
-CSS background-color
+*CSS background-color*
 
 The background-color property specifies the background color of an element.
 
@@ -339,23 +361,21 @@ Example
 
 The background color of a page is set like this:
 
-```html
+```css
 body {
   background-color: lightblue;
 }
 ```
 
-With CSS, a color is most often specified by:
+With CSS, a color is *most often* specified by:
 
-a valid color name - like "red"
-a HEX value - like "#ff0000"
-an RGB value - like "rgb(255,0,0)"
+- a valid color name - like "red"
+- a HEX value - like "#ff0000"
+- an RGB value - like "rgb(255,0,0)"
 
-Look at CSS Color Values for a complete list of possible color values.
+Look at CSS Color Values for a complete list of possible color values : https://www.w3schools.com/cssref/css_colors_legal.asp
 
-https://www.w3schools.com/cssref/css_colors_legal.asp
-
-Other Elements
+*Other Html Elements*
 
 You can set the background color for any HTML elements:
 
@@ -378,11 +398,11 @@ p {
 
 ```
 
-Opacity / Transparency 
-
-(tr:Opaklık (Şeffaf olmayan) ve Şeffaflık (Transparanlık) :)
+*Opacity / Transparency *
 
 The opacity property specifies the opacity/transparency of an element. It can take a value from 0.0 - 1.0. The lower value, the more transparent:
+
+(tor: Opaklık = şeffaf olmayan; şeffaflık = transparanlık )
 
 Example
 
@@ -414,7 +434,7 @@ div {
 
 ```
 
-## CSS background-image
+## background-image
 
 The background-image property specifies an image to use as the background of an element.
 
@@ -441,7 +461,7 @@ p {
   background-image: url("paper.gif");
 }
 
-## CSS background-repeat
+## background-repeat
 
 By default, the background-image property repeats an image both horizontally and vertically.
 
@@ -513,7 +533,7 @@ body {
 }
 
 
-## CSS background - Shorthand property
+## background property (sh)
 
 To shorten the code, it is also possible to specify all the background properties in one single property. This is called a shorthand property.
 
@@ -558,7 +578,7 @@ background-size	Specifies the size of the background image(s)
 
 # Text
 
-## Text Color
+*Text Color*
 
 The color property is used to set the color of the text. The color is specified by:
 
@@ -571,6 +591,7 @@ Look at CSS Color Values for a complete list of possible color values.
 The default text color for a page is defined in the body selector.
 
 Example
+
 body {
   color: blue;
 }
@@ -582,6 +603,7 @@ h1 {
 Note: For W3C compliant CSS: If you define the color property, you must also define the background-color. ( color özelliğine değer verilirse, taban rengi de tanımlanmalı.)
 
 Text Color and Background Color
+
 In this example, we define both the background-color property and the color property:
 
 body {
