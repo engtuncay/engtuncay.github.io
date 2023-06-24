@@ -122,12 +122,11 @@ hsla(9, 100%, 64%, 0.5)
 Example
 
 ```html
-Same as color name "Tomato":
-
+<p>Same as color name "Tomato":</p>
 <h1 style="background-color:rgb(255, 99, 71);">...</h1>
 <h1 style="background-color:#ff6347;">...</h1>
 <h1 style="background-color:hsl(9, 100%, 64%);">...</h1>
-Same as color name "Tomato", but 50% transparent:
+<p>Same as color name "Tomato", but 50% transparent:</p>
 <h1 style="background-color:rgba(255, 99, 71, 0.5);">...</h1>
 <h1 style="background-color:hsla(9, 100%, 64%, 0.5);">...</h1>
 
@@ -148,7 +147,7 @@ rgb(red, green, blue)
 
 ```
 
-Each parameter (red, green, and blue) defines the intensity of the color between 0 and 255.
+Each parameter (red, green, and blue) defines the *intensity* of the color between 0 and 255.
 
 For example, rgb(255, 0, 0) is displayed as red, because red is set to its highest value (255) and the others are set to 0.
 
@@ -156,7 +155,11 @@ To display black, set all color parameters to 0, like this: rgb(0, 0, 0).
 
 To display white, set all color parameters to 255, like this: rgb(255, 255, 255).
 
+You can experiment rgb from https://www.w3schools.com/css/css_colors_rgb.asp
+
 Shades of gray are often defined using equal values for all the 3 light sources: 
+
+![](./img/rgb-shadesofgray.jpg)
 
 **RGBA Value**
 
@@ -168,7 +171,7 @@ rgba(red, green, blue, alpha)
 
 The alpha parameter is a number between 0.0 (fully transparent) and 1.0 (not transparent at all):
 
-![](./img/css/rgba.jpg)
+![Rgba img](./img/rgba.jpg)
 
 ## Hex Colors
 
@@ -187,7 +190,20 @@ Where rr (red), gg (green) and bb (blue) are hexadecimal values between 00 and f
 
 For example, #ff0000 is displayed as red, because red is set to its highest value (ff) and the others are set to the lowest value (00).
 
+To display black, set all values to 00, like this: `#000000`.
+
+To display white, set all values to ff, like this: `#ffffff`.  
+
+Experiment by mixing the HEX values from https://www.w3schools.com/css/css_colors_hex.asp.
+
 *Examples*
+
+![](./img/hex-colors1.jpg)
+
+Shades of gray are often defined using equal values for all the 3 light sources:
+
+![](./img/hex-shades-of-gray.jpg)
+
 
 **3 Digit HEX Value**
 
@@ -204,9 +220,7 @@ The 3-digit hex code has the following form:
 
 Where r, g, and b represents the red, green, and blue components with values between 0 and f.
 
-The 3-digit hex code can only be used when both the values (RR, GG, and BB) are the same for each components. So, if we have #ff00cc, it can be written like this: #f0c.
-
-Here is an example:
+The 3-digit hex code can only be used when both the values (RR, GG, and BB) are the same for each components. So, if we have `#ff00cc`, it can be written like this: `#f0c`.
 
 Example
 
@@ -249,7 +263,7 @@ HUE 0, SATURATION 100%, LIGHTNESS 50%
 
 Example
 
-![](./img/hsl-ex1.jpg)
+![img](./img/hsl-ex1.jpg)
 
 ```css
 hsl(0, 100%, 50%)
