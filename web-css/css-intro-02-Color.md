@@ -9,10 +9,12 @@
   - [Hex Colors](#hex-colors)
   - [HSL Colors](#hsl-colors)
 - [Backgrounds](#backgrounds)
+  - [background-color](#background-color-1)
   - [background-image](#background-image)
   - [background-repeat](#background-repeat)
-  - [CSS background-attachment](#css-background-attachment)
+  - [background-attachment](#background-attachment)
   - [background property (sh)](#background-property-sh)
+  - [All Background Properties](#all-background-properties)
 - [Text](#text)
   - [Text Alignment](#text-alignment)
   - [](#)
@@ -23,8 +25,8 @@
   - [Fonts](#fonts-1)
   - [CSS Web Safe Fonts](#css-web-safe-fonts)
   - [Opacity / Transparency (Opaklık / Şeffaflık )](#opacity--transparency-opaklık--şeffaflık-)
-- [Css Icons](#css-icons)
-  - [Css Icons](#css-icons-1)
+- [Icons](#icons)
+  - [Css Icons](#css-icons)
   - [Font Awesome 5 (draft)](#font-awesome-5-draft)
 
 
@@ -52,9 +54,7 @@ LightGray
 
 ![](./img/colors1.jpg)
 
-CSS/HTML support 140 standard color names.
-
-https://www.w3schools.com/colors/colors_names.asp
+CSS/HTML support 140 standard color names : https://www.w3schools.com/colors/colors_names.asp
 
 ## Background Color
 
@@ -339,7 +339,6 @@ The alpha parameter is a number between 0.0 (fully transparent) and 1.0 (not tra
 
 Experiment by mixing the HSLA values from https://www.w3schools.com/css/css_colors_hsl.asp
 
---*LINK -  tbc
 
 # Backgrounds
 
@@ -353,7 +352,7 @@ In these chapters, you will learn about the following CSS background properties:
 - background-attachment
 - background-position
 
-*CSS background-color*
+## background-color
 
 The background-color property specifies the background color of an element.
 
@@ -398,7 +397,9 @@ p {
 
 ```
 
-*Opacity / Transparency *
+![](./img/bg-color1.jpg)
+
+*Opacity / Transparency*
 
 The opacity property specifies the opacity/transparency of an element. It can take a value from 0.0 - 1.0. The lower value, the more transparent:
 
@@ -413,6 +414,8 @@ div {
 }
 ```
 
+![](./img/opacity1.jpg)
+
 (!!!) Note: When using the opacity property to add transparency to the background of an element, all of its child elements inherit the same transparency. This can make the text inside a fully transparent element hard to read.
 
 **Transparency using RGBA**
@@ -423,9 +426,7 @@ You learned from our CSS Colors Chapter, that you can use RGB as a color value. 
 
 An RGBA color value is specified with: rgba(red, green, blue, alpha). The alpha parameter is a number between 0.0 (fully transparent) and 1.0 (fully opaque).
 
-Tip: You will learn more about RGBA Colors in our CSS Colors Chapter.
-
-Example
+*Example*
 
 ```css
 div {
@@ -434,13 +435,19 @@ div {
 
 ```
 
+![](./img/opacity2rgba.jpg)
+
+Example using Opacity with Div
+
+![](./img/opacity-full-ex.jpg)
+
 ## background-image
 
-The background-image property specifies an image to use as the background of an element.
+The background-image property specifies *an image* to use as the *background of an element*.
 
 By default, the image is repeated so it covers the entire element.
 
-Example
+*Example*
 
 Set the background image for a page: 
 
@@ -451,87 +458,133 @@ body {
 
 ```
 
-Note: When using a background image, use an image that does not disturb the text.
+![](./img/bg-image1.jpg)
 
-The background image can also be set for specific elements, like the <p> element:
+![](./img/bg-image2.jpg)
 
-Example
+(!!!) Note: When using a background image, use an image that does not disturb the text.
 
+The background image can also be set for specific elements, like the `<p>` element:
+
+*Example*
+
+```css
 p {
   background-image: url("paper.gif");
 }
 
+```
+
 ## background-repeat
 
-By default, the background-image property repeats an image both horizontally and vertically.
+By default(!), the background-image property repeats (!!) an image both horizontally and vertically.
 
 Some images should be repeated only horizontally or vertically, or they will look strange, like this:
 
 Example
+
+```css
 body {
   background-image: url("gradient_bg.png");
 }
 
+```
+
+![](./img/bg-repeat1.jpg)
+
 If the image above is repeated only horizontally (background-repeat: repeat-x;), the background will look better:
 
 Example
+
+```css
 body {
   background-image: url("gradient_bg.png");
   background-repeat: repeat-x;
 }
 
-Tip: To repeat an image vertically, set background-repeat: repeat-y;
+```
 
-CSS background-repeat: no-repeat
+![](./img/bg-repeat2.jpg)
+
+(!) Tip: To repeat an image vertically, set background-repeat: repeat-y;
+
+*CSS background-repeat: no-repeat*
 
 Showing the background image only once is also specified by the background-repeat property:
 
 Example
+
 Show the background image only once:
 
+```css
 body {
   background-image: url("img_tree.png");
   background-repeat: no-repeat;
 }
 
+```
+
+![](./img/bg-repeat3.jpg)
+
 In the example above, the background image is placed in the same place as the text. We want to change the position of the image, so that it does not disturb the text too much.
 
-CSS background-position
+*CSS background-position* 
+
 The background-position property is used to specify the position of the background image.
 
-Example
+*Example*
+
 Position the background image in the top-right corner: 
 
+![](./img/bg-repeat4.jpg)
+
+```css
 body {
   background-image: url("img_tree.png");
   background-repeat: no-repeat;
   background-position: right top;
+  margin-right: 200px;
 }
 
-## CSS background-attachment
+```
 
-The background-attachment property specifies whether the background image should scroll or be fixed (will not scroll with the rest of the page):
+## background-attachment
+
+The background-attachment property specifies whether the background image should *scroll* or be *fixed* (will not scroll with the rest of the page):
 
 Example
+
 Specify that the background image should be fixed:
 
+![](./img/bg-attach1.jpg)
+
+```css
 body {
   background-image: url("img_tree.png");
   background-repeat: no-repeat;
   background-position: right top;
   background-attachment: fixed;
+  margin-right: 200px;
 }
 
-Example
+```
+
+*Example*
+
 Specify that the background image should scroll with the rest of the page:
 
+![](./img/bg-attach-scroll.jpg)
+
+```css
 body {
   background-image: url("img_tree.png");
   background-repeat: no-repeat;
   background-position: right top;
   background-attachment: scroll;
+  margin-right: 200px;
 }
 
+```
 
 ## background property (sh)
 
@@ -539,6 +592,7 @@ To shorten the code, it is also possible to specify all the background propertie
 
 Instead of writing:
 
+```css
 body {
   background-color: #ffffff;
   background-image: url("img_tree.png");
@@ -546,35 +600,43 @@ body {
   background-position: right top;
 }
 
+```
+
 You can use the shorthand property background:
 
-Example
-Use the shorthand property to set the background properties in one declaration:
-
+```css
 body {
   background: #ffffff url("img_tree.png") no-repeat right top;
 }
 
+```
+
 When using the shorthand property the order of the property values is:
 
-background-color
-background-image
-background-repeat
-background-attachment
-background-position
-It does not matter if one of the property values is missing, as long as the other ones are in this order. Note that we do not use the background-attachment property in the examples above, as it does not have a value.
+- background-color
+- background-image
+- background-repeat
+- background-attachment
+- background-position
 
-All CSS Background Properties
-Property	Description
-background	Sets all the background properties in one declaration
-background-attachment	Sets whether a background image is fixed or scrolls with the rest of the page
-background-clip	Specifies the painting area of the background
-background-color	Sets the background color of an element
-background-image	Sets the background image for an element
-background-origin	Specifies where the background image(s) is/are positioned
-background-position	Sets the starting position of a background image
-background-repeat	Sets how a background image will be repeated
-background-size	Specifies the size of the background image(s)
+It does not matter if one of the property values is missing, as long as the other ones are in this order.  (!!) Note that we do not use the background-attachment property in the examples above, as it does not have a value.
+
+
+## All Background Properties
+
+Property              | Description
+----------------------|------------------------------------------------------------------------------
+background (sh)       | Sets all the background properties in one declaration
+background-attachment | Sets whether a background image is fixed or scrolls with the rest of the page
+background-clip       | Specifies the painting area of the background
+background-color      | Sets the background color of an element
+background-image      | Sets the background image for an element
+background-origin     | Specifies where the background image(s) is/are positioned
+background-position   | Sets the starting position of a background image
+background-repeat     | Sets how a background image will be repeated
+background-size       | Specifies the size of the background image(s)
+
+--*LINK - tbc
 
 # Text
 
@@ -1095,7 +1157,7 @@ Inside the transparent <div>, we add some text inside a <p> element.
 end
 
 
-# Css Icons
+# Icons
 
 ## Css Icons
 
