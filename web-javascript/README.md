@@ -59,6 +59,11 @@ CONTENT |
 - https://github.com/iLoveCodingOrg/javascript-cheatsheet
 
 
+Topic                                        | Notes
+---------------------------------------------|------
+[6 Es6 Classes](./js-mosh-b6-es6-classes.md) |
+
+
 
 
 
