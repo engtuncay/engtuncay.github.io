@@ -1,4 +1,6 @@
 
+- https://www.udemy.com/course/javascript-object-oriented-programming
+
 
 # Es6 Classes
 
@@ -65,3 +67,8 @@ const Square = class {
 };
 
 ```
+
+--*LINK - TBC video 47
+
+
+
