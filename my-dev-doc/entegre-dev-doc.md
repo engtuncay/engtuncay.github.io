@@ -52,8 +52,9 @@ Kısaltma | Açıklama
 Ntn      | Not Null (null değer dönmez, string ise boş string döner) (metod isimlerinin sonuna yazılıyor)
 Init     | Initialize (Referansın objesini oluşturur.) (metod isminde)
 Vim      | view modal (Class isminde)
-Efxhp    | Entegre Fx Helper (on entfx project) (Class isminde)
+Ehp      | Entegre Fx Helper (Class isminde)
 Esr      | EntegreServer
+Emk      | Entegre Mikro
 
 # Meta Datalar
 
