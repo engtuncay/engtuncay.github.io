@@ -417,45 +417,41 @@ System.out.println(sqlQuery2);
 
 ### FiQueryTools metodlar
 
-```
-
-activateParamsMain : mapParams bulunan parametreleri aktive eder(eğer yorum satırına alınmışsa). (sadece dolu olanlar aktif edilsin belirtilirse, dolu olanlar aktive edilir,boş olanları ise pasif eder.)
-
-activateOptParamMain : tek bir tane opt param'ı aktif etmek için
-deActivateOptParamMain : tek bir tane opt param'ı deaktif etmek için
-
+Method                 | Açıklama
+-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+activateParamsMain     | mapParams bulunan parametreleri aktive eder(eğer yorum satırına alınmışsa). (sadece dolu olanlar aktif edilsin belirtilirse, dolu olanlar aktive edilir,boş olanları ise pasif eder.)
+activateOptParamMain   | tek bir tane opt param'ı aktif etmek için
+deActivateOptParamMain | tek bir tane opt param'ı deaktif etmek için
 activateNamedParamsMain
-
+///
 activateSqlAtParamMain
 deactivateSqlAtParamMain
-
+///
 activateAndUpdateOptParam
-
+///
 deActivateAllOptParams
-
+///
 makeMultiParamTemplate
-
+///
 convertSqlForMultiParamByTemplate
 convertSqlForMultiParamByTemplate2
-
+///
 convertSqlParamToListJdbiParamMain
 convertSqlParamToCommentMain
 convertSqlParamToJdbiParamMain
-
+///
 convertListParamToMultiParams
-
+///
 stoj
 fixSqlProblems
-
+///
 checkParamsEmpty
 checkOptParamExist
 findParamsOptional
 findParams
-
+///
 getMultiParamStartIndex
 
-
-```
 
 
 

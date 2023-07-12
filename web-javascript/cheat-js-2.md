@@ -1,7 +1,7 @@
 
 
 
-
+# Functions
 
 Topics               | Desc
 ---------------------|--------------------------------------------------------------------
@@ -19,6 +19,7 @@ Function with unlimited number of parameters | use special variable `argument` i
 Unlimited number of parameters in arrow function | const sumAllNums = (...args) => { ... }
 Self Invoking Functions | ( function(n){...;return smt;} )
 
+- Examples
 
 ```js
 
