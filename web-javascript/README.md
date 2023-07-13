@@ -14,6 +14,8 @@
 
 [Js Cheatsheet](./js-cheatsheet.md)
 
+[Cheat Js (2)](./cheat-js-2.md)
+
 [30 Days of Javascript(clone)](./30-Days-Of-JavaScript-master/readMe.md)
 
 CONTENT |Note|
