@@ -1,6 +1,6 @@
 <h2>Tunc Utility Java Library</h2> 
 
-- Java Utitiliy library files. 
+- Java Utility library files. 
 
 - Some packages will be removed ( com/maimart/fx/tablefilter , mark/utils,  net/coderazzi/filters )
 
