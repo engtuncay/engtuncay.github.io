@@ -1,7 +1,9 @@
 
 <h2>Source Link to the Article</h2>
 
-https://www.baeldung.com/jdbi
+- https://www.baeldung.com/jdbi
+
+- Some parts may be changed or added by me.
 
 <h1>A Guide to Jdbi</h1> 
 
@@ -16,10 +18,11 @@ Last modified: February 12, 2020
 - [4. Simple Statements](#4-simple-statements)
 - [5. Querying the Database](#5-querying-the-database)
   - [5.1. Creating a Query](#51-creating-a-query)
-  - [5.2. Mapping the Results](#52-mapping-the-results)
-  - [5.3. Iterating Over the Results](#53-iterating-over-the-results)
+  - [5.2. Mapping the Results (Parsing) (!!!)](#52-mapping-the-results-parsing-)
+  - [5.3. Iterating Over the Results (!!!)](#53-iterating-over-the-results-)
   - [5.4. Getting a Single Result](#54-getting-a-single-result)
 - [6. Binding Parameters](#6-binding-parameters)
+  - [6.1. Binding Multiple Named Parameters at Once](#61-binding-multiple-named-parameters-at-once)
 - [7. Issuing More Complex Statements](#7-issuing-more-complex-statements)
   - [7.1. Extracting Auto-Increment Column Values](#71-extracting-auto-increment-column-values)
 - [8. Transactions](#8-transactions)
@@ -88,7 +91,7 @@ Jdbi jdbi = Jdbi.create("jdbc:hsqldb:mem:testDB", properties);
 ```
 In these examples, we've saved the Jdbi instance in a local variable. That's because we'll use it to send statements and queries to the database.
 
-In fact, merely calling create doesn't establish any connection to the DB. It just saves the connection parameters for later.
+In fact, merely calling *create* doesn't establish any connection to the DB (!!!). It just saves the connection parameters for later.
 
 ## 3.2. Using a DataSource
 
@@ -102,7 +105,7 @@ Jdbi jdbi = Jdbi.create(datasource);
 
 Actual connections to the database are represented by instances of the Handle class.
 
-The easiest way to work with handles, and have them automatically closed, is by using lambda expressions:
+The easiest way to work with handles, and have them *automatically closed*, is by using lambda expressions:
 
 ```java
 jdbi.useHandle(handle -> {
@@ -110,9 +113,9 @@ jdbi.useHandle(handle -> {
 });
 ```
 
-We call useHandle when we don't have to return a value.
+We call *useHandle* when we *don't* have to *return a value*.
 
-Otherwise, we use withHandle:
+Otherwise, we use *withHandle*:
 
 ```java
 jdbi.withHandle(handle -> {
@@ -128,8 +131,13 @@ try (Handle handle = jdbi.open()) {
     doStuffWith(handle);
 }
 ```
+- Closing handle (tor)
 
-Luckily, as we can see, Handle implements Closeable, so it can be used with try-with-resources.(!!!)
+```java
+  handle.close();
+```
+
+Luckily, as we can see, Handle implements *Closeable*, so it can be used with try-with-resources.(!!!)
 
 # 4. Simple Statements
 
@@ -137,7 +145,9 @@ Now that we know how to obtain a connection let's see how to use it.
 
 In this section, we'll create a simple table that we'll use throughout the article.
 
-To send statements such as create table to the database, we use the execute method:
+- Execute Method
+
+To send statements such as *create table* to the database, we use the *execute* method:
 
 ```java
 handle.execute(
@@ -145,7 +155,7 @@ handle.execute(
   + "(id integer identity, name varchar(50), url varchar(100))");
 ```
 
-execute returns the number of rows that were affected by the statement:
+*execute* returns the number of rows that were affected by the statement:
 
 ```java
 int updateCount = handle.execute(
@@ -155,9 +165,7 @@ int updateCount = handle.execute(
 assertEquals(1, updateCount);
 ```
 
-Actually, execute is just a convenience method.
-
-We'll look at more complex use cases in later sections, but before doing that, we need to learn how to extract results from the database.
+Actually, execute is just a convenience method. We'll look at more complex use cases in later sections, but before doing that, we need to learn how to *extract results* from the database.
 
 # 5. Querying the Database
 
@@ -165,9 +173,9 @@ The most straightforward expression that produces results from the DB is a SQL q
 
 To issue a query with a Jdbi Handle, we have to, at least:
 
-- create the query
-- choose how to represent each row
-- iterate over the results
+1. create the query
+2. choose how to represent each row
+3. iterate over the results
 
 We'll now look at each of the points above.
 
@@ -175,17 +183,26 @@ We'll now look at each of the points above.
 
 Unsurprisingly, Jdbi represents queries as instances of the Query class.
 
-We can obtain one from a handle:
+We can obtain Query object from a handle (with createQuery method):
 
 ```java
+// this does not execute or call the query
 Query query = handle.createQuery("select * from project");
 ```
 
-## 5.2. Mapping the Results
+## 5.2. Mapping the Results (Parsing) (!!!) 
 
-Jdbi abstracts away from the JDBC ResultSet, which has a quite cumbersome API.
+Jdbi abstracts away from the *JDBC ResultSet*, which has a quite cumbersome API.
 
 Therefore, it offers several possibilities to access the columns resulting from a query or some other statement that returns a result. We'll now see the simplest ones.
+
+*Mapping Options*
+
+- mapToMap()
+- mapTo(dataType.class)
+
+
+
 
 We can represent each row as a map:
 
@@ -193,29 +210,32 @@ We can represent each row as a map:
 query.mapToMap();
 ```
 
-The keys of the map will be the selected column names.
+The *keys* of the map will be the selected *column names*.
 
-Or, when a query returns a single column, we can map it to the desired Java type:
+Or, when a query returns *a single column*, we can map it to the desired Java type:
 
 ```java
 handle.createQuery("select name from project").mapTo(String.class);
 ```
 
-Jdbi has built-in mappers for many common classes. Those that are specific to some library or database system are provided in separate modules.
+Jdbi has *built-in mappers* for many common classes. Those that are specific to some library or database system are provided in separate modules.
 
 Of course, we can also define and register our mappers. We'll talk about it in a later section.
 
-Finally, we can map rows to a bean or some other custom class. Again, we'll see the more advanced options in a dedicated section.
+Finally, we can map *rows* to *a bean* (or entity) or some other custom class. Again, we'll see the more advanced options in a dedicated section.
 
-## 5.3. Iterating Over the Results
+## 5.3. Iterating Over the Results (!!!)
 
-Once we've decided how to map the results by calling the appropriate method, we receive a ResultIterable object.
+Once we've decided how to map the results by calling the appropriate method, we receive a *ResultIterable* object.
 
 We can then use it to iterate over the results, one row at a time.
 
-Here we'll look at the most common options.
+*Collecting Result Options*
 
-We can merely accumulate the results in a list:
+- mapToMap().list() : List<Map<String, Object>>
+- mapToMap().findFirst() : Optional<Map<String, Object>>
+
+Here we'll look at the most common options. We can merely accumulate the results in a list:
 
 ```java
 List<Map<String, Object>> results = query.mapToMap().list();
@@ -227,7 +247,7 @@ Or to another Collection type:
 List<String> results = query.mapTo(String.class).collect(Collectors.toSet());
 ```
 
-Or we can iterate over the results as a stream:
+Or we can iterate over the results as a stream: (???)
 
 ```java
 query.mapTo(String.class).useStream((Stream<String> stream) -> {
@@ -243,19 +263,23 @@ As a special case, when we expect or are interested in just one row, we have a c
 
 If we want at most one result, we can use findFirst:
 
+```java
+// Map<[txFieldName],[fieldValue]>
 Optional<Map<String, Object>> first = query.mapToMap().findFirst();
 
-As we can see, it returns an Optional value, which is only present if the query returns at least one result.
+```
 
-If the query returns more than one row, only the first is returned.
+As we can see, it returns an *Optional value*, which is only present if the query returns at least one result.
 
-If instead, we want one and only one result, we use findOnly:
+If the query returns more than one row, only the first is returned (!!!).
+
+If instead, we want one and only one result, we use *findOnly*:
 
 ```java
 Date onlyResult = query.mapTo(Date.class).findOnly();
 ```
 
-Finally, if there are zero results or more than one, findOnly throws an IllegalStateException.
+Finally, if there are zero results or more than one, findOnly throws an *IllegalStateException*.
 
 # 6. Binding Parameters
 
@@ -286,12 +310,11 @@ In either case, to set the value of a parameter, we use one of the variants of t
 ```java
 positionalParamsQuery.bind(0, "tutorials");
 namedParamsQuery.bind("pattern", "%github.com/eugenp/%");
-
 ```
 
-Note that, unlike JDBC, indexes start at 0.
+Note that, unlike JDBC, *indexes* start at *0*.
 
-6.1. Binding Multiple Named Parameters at Once
+## 6.1. Binding Multiple Named Parameters at Once
 
 We can also bind multiple named parameters together using an object.
 
@@ -311,7 +334,7 @@ Then, for example, we can use a map:
 query.bindMap(params);
 ```
 
-Or we can use an object in various ways. Here, for example, we bind an object that follows the JavaBean convention:
+Or we can use an object in various ways. Here, for example, we bind an object that follows the *JavaBean convention*:
 
 ```java
 query.bindBean(paramsBean);
@@ -337,7 +360,7 @@ Update update = handle.createUpdate(
 
 Then, on an Update we have all the binding methods that we have in a Query, so section 6. applies for updates as well.
 
-Statements are executed when we call, surprise, execute:
+Statements are executed when we call, surprise, *execute*:
 
 ```java
 int rows = update.execute();
@@ -349,7 +372,7 @@ As we have already seen, it returns the number of affected rows.
 
 As a special case, when we have an insert statement with auto-generated columns (typically auto-increment or sequences), we may want to obtain the generated values.
 
-Then, we don't call execute, but executeAndReturnGeneratedKeys:
+Then, we don't call execute, but *executeAndReturnGeneratedKeys*:
 
 ```java
 Update update = handle.createUpdate(
@@ -369,7 +392,7 @@ generatedKeys.mapToMap()
 
 # 8. Transactions
 
-We need a transaction whenever we have to execute multiple statements as a single, atomic operation.
+We need a transaction whenever we have to execute multiple statements as a single, *atomic* operation.
 
 As with connection handles, we introduce a transaction by calling a method with a closure:
 
@@ -380,9 +403,9 @@ handle.useTransaction((Handle h) -> {
 
 ```
 
-And, as with handles, the transaction is automatically closed when the closure returns.
+- A Must : Commit or Rollback The Transaction
 
-However, we must commit or rollback the transaction before returning:
+And, as with handles, *the transaction is automatically closed* when the closure returns. However, we *must commit or rollback* the transaction *before returning*:
 
 ```java
 handle.useTransaction((Handle h) -> {
@@ -392,9 +415,9 @@ handle.useTransaction((Handle h) -> {
 
 ```
 
-If, however, an exception is thrown from the closure, Jdbi automatically rolls back the transaction.
+If, however, *an exception* is thrown from the closure, Jdbi automatically rolls back the transaction.
 
-As with handles, we have a dedicated method, inTransaction, if we want to return something from the closure:
+As with handles, we have a dedicated method, *inTransaction*, if we want to return something from the closure:
 
 ```java
 handle.inTransaction((Handle h) -> {
@@ -404,6 +427,7 @@ handle.inTransaction((Handle h) -> {
 });
 
 ```
+
 ## 8.1. Manual Transaction Management
 
 Although in the general case it's not recommended, we can also begin and close a transaction manually:
@@ -425,5 +449,6 @@ We've left out some advanced features, like custom row and column mapping and ba
 We also haven't discussed any of the optional modules, most notably the SQL Object extension.
 
 Everything is presented in detail in the Jdbi documentation.
+(http://jdbi.org/)
 
 The implementation of all these examples and code snippets can be found in the GitHub project – this is a Maven project, so it should be easy to import and run as is.
