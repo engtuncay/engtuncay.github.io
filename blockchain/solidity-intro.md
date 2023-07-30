@@ -201,7 +201,7 @@ And at the end of the contract, we see an event. *Events* are features that enab
 
 ## Solidity Basic Syntax
 
-- is a smart contract executed on all nodes of a bc ?
+💡 Is a smart contract executed on all nodes of a BLC ?
 
 As smart contract code is executed on the EVM, it means that eventually this code is executed on all nodes around the network, so on both mining and non-mining nodes.
 
@@ -213,17 +213,15 @@ It is influenced by C++ and JavaScript and is designed for this virtual machine.
 
 However, it was stripped down as it doesn't include any unnecessary features.
 
-- Solidity is case sensitive, like any other programming language. 
+- Case sensitive
   
-- Every statement must end with a semicolon, just as in JavaScript or C++.
-
-- It uses curly braces to the delimit blocks of code.
-
-- Solidity uses C++ and JavaScript syntax for writing comments.
+- Every statement must end with a semicolon
 
 - // (double forward slashes) are used for commenting.
 
-There's a third type of comment in Solidity, called the *NatSpec* that is developed and promoted by Ethereum itself. This is a special form of comments in Solidity contracts used by developers when documenting contracts, functions, libraries, return values and more. You may use /// for a single line NatSpec, or /** ending with */ for a multi-line NatSpec comment. (beginning with two stars)
+💡 What is NatSpec
+
+here's a third type of comment in Solidity, called the *NatSpec* that is developed and promoted by Ethereum itself. This is a special form of comments in Solidity contracts used by developers when documenting contracts, functions, libraries, return values and more. You may use /// for a single line NatSpec, or /** ending with */ for a multi-line NatSpec comment. (beginning with two stars)
 
 - So an example `/// @notice Returns the price of the Property`. @notice is a predefined NatSpec tag that explains to the users what this tag does. There are more such tags defined.
 
