@@ -14,13 +14,13 @@ Check out the author's REGEX COOKBOOK article about the most commonly used (and 
 
 - [Introduction](#introduction)
 - [Basic topics](#basic-topics)
-  - [Anchors — ^ and $](#anchors---and-)
-  - [Quantifiers — \* + ? and {}](#quantifiers-----and-)
-  - [OR operator — | or \[\]](#or-operator---or-)
-  - [Character classes — \\d \\w \\s and .](#character-classes--d-w-s-and-)
+  - [Anchors — ^ and $ etc](#anchors---and--etc)
+  - [Quantifiers — \* + ? and {} etc](#quantifiers-----and--etc)
+  - [OR operator — | or \[\] etc](#or-operator---or--etc)
+  - [Character classes - \\d \\w \\s and . etc](#character-classes---d-w-s-and--etc)
 - [Flags](#flags)
 - [Intermediate topics](#intermediate-topics)
-  - [Grouping and capturing — ()](#grouping-and-capturing--)
+  - [Grouping and capturing — () etc](#grouping-and-capturing---etc)
   - [Bracket expressions — \[\] (Ranges)](#bracket-expressions-ranges)
   - [Greedy and Lazy match](#greedy-and-lazy-match)
   - [Substitution](#substitution)
@@ -46,47 +46,47 @@ To Try Regex
 
 - 
 
-## Anchors — ^ and $
+## Anchors — ^ and $ etc
 
 Patterns  | Explanation
 ----------|---------------------------------------------------
-^The      | matches any string that starts with The 
-end$      | matches a string that ends with end
+^The      | matches any string that starts with "The"
+end$      | matches a string that ends with "end"
 ^The end$ | exact string match (starts and ends with The end)
 roar      | matches any string that has the text roar in it
 
-## Quantifiers — * + ? and {}   
+## Quantifiers — * + ? and {} etc
 
-(tr:niteleyiciler:sayısal mik.gösterir)
+(tor:sayısal miktar göstericiler-niteleyiciler)
 
 Patterns   | Explanation
 -----------|-------------------------------------------------------------------------------
-abc*       | matches a string that has ab followed by zero or more c (Try it!)
-abc+       | matches a string that has ab followed by one or more c
-abc?       | matches a string that has ab followed by zero or one c
+abc*       | matches a string that has ab followed by *zero or more* c (Try it!)
+abc+       | matches a string that has ab followed by *one or more* c
+abc?       | matches a string that has ab followed by *zero or one* c
 abc{2}     | matches a string that has ab followed by 2 c
 abc{2,}    | matches a string that has ab followed by 2 or more c
 abc{2,5}   | matches a string that has ab followed by 2 up to 5 c
 a(bc)*     | matches a string that has a followed by zero or more copies of the sequence bc
 a(bc){2,5} | matches a string that has a followed by 2 up to 5 copies of the sequence bc
 
-## OR operator — | or []
+## OR operator — | or [] etc
 
 Patterns   | Explanation
 -----------|-------------------------------------------------------------------------------
-`a(b|c)`   |matches a string that has a followed by b or c (and captures b or c) (Try it!)
+a(b\|c) |matches a string that has a followed by b or c (and captures b or c) (Try it!)
 a[bc]      |same as previous, but without capturing b or c
 
-## Character classes — \d \w \s and .
+## Character classes - \d \w \s and . etc
 
 Patterns | Explanation
 ---------|-----------------------------------------------------------------------------
 \d       | matches *a single digit* character (Try it!)
-\w       | matches a word character (alphanumeric character plus underscore) (Try it!)
-\s       | matches a whitespace character (includes tabs and line breaks)
-.        | matches any character (Try it!)
+\w       | matches *a word character* (alphanumeric character plus *underscore*) (Try it!)
+\s       | matches *a whitespace* character (includes tabs and line breaks)
+.        | matches *any character* (Try it!)
 
-Use the . operator carefully since often class or negated character class (which we’ll cover next) are faster and more precise.
+Use the "." operator carefully since often class or negated character class (which we’ll cover next) are *faster and more precise*.
 
 `\d, \w and \s also present their negations with \D, \W and \S respectively.`
 
@@ -112,7 +112,7 @@ A regex usually comes within this form /abc/, where the search pattern is delimi
 
 # Intermediate topics
 
-## Grouping and capturing — ()
+## Grouping and capturing — () etc
 
 Patterns    | Explanation
 ------------|--------------------------------------------------------------
