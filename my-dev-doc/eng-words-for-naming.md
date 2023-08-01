@@ -1,10 +1,13 @@
 
+- [Method Naming and Abbreviations (Kısaltmalar)](#method-naming-and-abbreviations-kısaltmalar)
 
-# Method Naming
+
+
+# Method Naming and Abbreviations (Kısaltmalar)
 
 - oluşturmak : create,form,make,generate,produce
 
-Example : creErpEvrakBasliksFromErpEvrakKalems (ErpEvrakKalem entitylerden ErpEvrakBaslik üretmek için)
+Example : formErpEvrakBasliksFromErpEvrakKalems (ErpEvrakKalem entitylerden ErpEvrakBaslik oluşturmak/üretmek için)
 
 - getVariable : variable value sını çekmek için
 
@@ -12,6 +15,23 @@ Example : creErpEvrakBasliksFromErpEvrakKalems (ErpEvrakKalem entitylerden ErpEv
 
 - wout : without
 
+- wit : with
+
 - init : initialization (eğer null ise initialize edip döner)
 
 - adjust : evrak okunduktan sonra yapılacak gerekli düzeltmeler ve eklemeler
+
+- nog : not generic
+
+- md : modal , example mden : modal-entegre , mdem: modal-entegre-mikro
+
+- gen : generate
+
+- abs : abstract
+
+- Ixxx : Interface of xxx
+
+- mod : module
+
+- cont : controller
+

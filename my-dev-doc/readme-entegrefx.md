@@ -1,8 +1,5 @@
 
 - [Entegre Controller Yapısı](#entegre-controller-yapısı)
-- [TuncUtils Sınıfında Gui Sınıflar](#tuncutils-sınıfında-gui-sınıflar)
-  - [IFxSimpleCont](#ifxsimplecont)
-  - [AbsFxSimpleCont](#absfxsimplecont)
 - [Entegre'deki Gui Sınıfları](#entegredeki-gui-sınıfları)
   - [IFxEntSimpleView View Arayüz](#ifxentsimpleview-view-arayüz)
   - [IFxEntSimpleCont Controller Arayüz](#ifxentsimplecont-controller-arayüz)
@@ -19,6 +16,10 @@
 - IFxEntSimpleView, IFxSimpleView interface extend eden ve entegre'ye özel arayüz
 
 ## IFxEntSimpleCont Controller Arayüz
+
+```java
+
+```
 
 ## AbsModBaseCont implements IFxEntSimpleCont
 
