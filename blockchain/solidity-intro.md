@@ -18,7 +18,7 @@
   - [28 Variable Types : Booleans and Integers (ok)](#28-variable-types--booleans-and-integers-ok)
   - [29 SafeMath, Overflows and Underflows](#29-safemath-overflows-and-underflows)
   - [30 Fixed-Size Arrays](#30-fixed-size-arrays)
-  - [Dynamically-sized arrays](#dynamically-sized-arrays)
+  - [Dynamically-sized arrays (draft)](#dynamically-sized-arrays-draft)
   - [Bytes and String Types](#bytes-and-string-types)
   - [Structs and Enums](#structs-and-enums)
   - [Enums](#enums)
@@ -308,9 +308,11 @@ contract Property {
 }
 ```
 
-I have declared the function pure because it doesn't touch the blockchain. It neither modifies the blockchain nor it reads from the blocks.
+✔ Pure -> does not touch blockchain
 
-x is a local variable that is free and is saved on the stack. Note that there are some types that reference the storage by default, even if they are declared inside the function, their strings, areas, structs and mappings.
+I have declared the function pure because it *doesn't touch* the blockchain. It neither modifies the blockchain nor it reads from the blocks.
+
+x is a local variable that is free and is saved on the stack. Note that there are some types that reference the storage by default, even if they are declared inside the function. they are strings, areas, structs and mappings.
 
 So if you want to create a local variable of type string, you have to use the memory key word to limit its lifetime to the function call and not be saved in the storage.
 
@@ -365,8 +367,7 @@ Functions and local variables are saved on the stack. if they are not reference 
 
 Functions, arguments and variables, declared inside functions that are reference types but are declared using the *memory* keyword, are saved in the memory and don't cost gas.
 
-- Holds local variables defined inside functions if they are reference types but declared
-with the memory keyword;
+- Holds local variables defined inside functions if they are reference types but declared with the memory keyword;
 
 - Holds function arguments;
 
@@ -1001,7 +1002,7 @@ b3 = 'z'; // => 0x7A
 - bytes1, bytes2, …, bytes32 store a sequence of bytes.
 - Has member called length.
 
-## Dynamically-sized arrays
+## Dynamically-sized arrays (draft)
 
 Welcome back!
 
