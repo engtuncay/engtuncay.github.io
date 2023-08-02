@@ -1,6 +1,6 @@
 
 - [Method Naming and Abbreviations (Kısaltmalar)](#method-naming-and-abbreviations-kısaltmalar)
-
+- [MVC kısaltmaları](#mvc-kısaltmaları)
 
 
 # Method Naming and Abbreviations (Kısaltmalar)
@@ -31,7 +31,17 @@ Example : formErpEvrakBasliksFromErpEvrakKalems (ErpEvrakKalem entitylerden ErpE
 
 - Ixxx : Interface of xxx
 
-- mod : module
 
+# MVC kısaltmaları
+
+- m__ : modal (alt: mol,md) örnek men : modal-entegre
+- c__ : component,controller,module (alt: mod) cen- controller-entegre
+- repo___ : repo-table-name Ör : repoCariHesaplar
+
+Alternatives
+
+- mod : module
 - cont : controller
+
+
 
