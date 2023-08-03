@@ -662,15 +662,14 @@ contract Property{
 }
 ```
 
---*LINK - tbc
 
 ## 28 Variable Types : Booleans and Integers (ok)
 
 Solidity is a statically-typed language (variables type should be specified at declaration).
 
-*Value types*
+🔔 Value types
 
-Integers and booleans are also called *value types* because variables of these types will always be passed to functions *by value*. This means that they are always copied when they are used as function arguments.
+Integers and booleans are also called *value types* because variables of these types will always be passed to functions *by value*. This means that they are always copied when they are used as function arguments. (like primitives)
 
 *Boolean*
 
@@ -683,7 +682,7 @@ Example
 ```js
 contract Property {
   // 1. Boolean Type
-  bool public sold; // is left uninitialized , but its value is false)
+  bool public sold; // uninitialized , but its value is false, default value)
 }
 
 ```
@@ -692,7 +691,7 @@ contract Property {
 
 - Signed and Unsigned Integers of various sizes.
   - int8 to int256, uint8 to uint256 in steps of 8.
-  - int8 is between -128 and +127, int16 is between -32768 and +32767 and so on.
+  - int8 is between -128 and +127 (one bit for sign), int16 is between -32768 and +32767 and so on.
   - int is alias to int256 and uint is an alias to uint256.
   - By default an int is *initialized with zero*.
 
@@ -718,20 +717,21 @@ contract Property {
 }
 ```
 
---- Note that uint is an alias to uint256 and int is an alias to int256.
+✏ Note that uint is an alias to uint256 and int is an alias to int256.
 
-- There is no full support for float/double (fixed point numbers) in Solidity.
+✏ There is no full support for float/double (fixed point numbers) in Solidity.
 
-Note that floating point numbers, such as float and double in other languages, are not yet supported in Solidity. If you want to perform calculations for a currency like ether and want to use floating point numbers, and then you should use a smaller denomination of ETH that will be represented as an integer.
-
+✏ Note that floating point numbers, such as float and double in other languages, are not yet supported in Solidity. If you want to perform calculations for a currency like ether and want to use floating point numbers, and then you should use a smaller denomination of ETH that will be represented as an integer.
 
 ## 29 SafeMath, Overflows and Underflows
 
-Ethereum is used in many financial applications and an overflow or an underflow would have disastrous results. In April 2018 two types of vulnerabilities, called batchOverflow and proxyOverflow ,were. discovered in some ERC20 tokens that were built on Ethereum The result was that tokens valued at the billions of U.S. dollars were created from thin air.
+Ethereum is used in many financial applications and an overflow or an underflow would have disastrous results. In April 2018 two types of vulnerabilities, called batchOverflow and proxyOverflow were discovered in some ERC20 tokens that were built on Ethereum. The result was that tokens valued at the billions of U.S. dollars were created from thin air.
 
 These are the details of such a transaction.
 
 Just take a look at the number of tokens that were transferred.
+
+image++
 
 In a response to that attack, many crypto exchanges suspended trading on all ERC20 tokens, causing a great deal of fear, uncertainty, and doubt in the crypto community.
 
@@ -741,6 +741,8 @@ So I have declared a state variable called x of type uint8, and I've initialized
 possible value for that type 255.
 
 ```js
+pragma solidity 0.5.0
+
 contract Property {
   // 2. Integere type
   uint8 public x = 255;
@@ -756,9 +758,7 @@ Great, there is no error! The contract was compiled successfully and I'm deployi
 
 Now I'm calling f1 that will increment x. The transaction was executed successfully, transaction minted and execution succeed. Now, if I click x, I'll get 0, which, of course, is not correct.
 
-So what happens when you have a limit of 255 and 
-
-255+1? 
+So what happens when you have a limit of 255 and 255+1? 
 
 The number rolls over and so 255+1=0 . We call this an integer overflow.
 
@@ -799,12 +799,12 @@ contract Property {
 
 Let's start talking about another data type called array. In programming, an array is a data type that stores an ordered sequence of elements. In Solidity there are two types of array: 
 
-- fixed-size 
-- dynamically-sized arrays
+- Fixed-size 
+- Dynamically-sized arrays
 
 A fixed-size array has a fixed number of elements that are specified at declaration and this type of array can not grow or shrink.
 
-On the other hand, a dynamically-sized array does not have a fixed no. of elements and it can shrink or grow dynamically at run-time.
+On the other hand, a dynamically-sized array does not have a fixed number of elements and it can shrink or grow dynamically at run-time.
 
 Let’s get started with fixed-size arrays. Array elements can be of any type, including int address mapping or struct. The only restriction is that all elements of array must be the same type. Let's declare an array that stores int values and has a size of 3.
 
@@ -816,9 +816,9 @@ contract Property {
 
 ```
 
-3 the number of elements in the array public. The array is public so a getter function was automatically created. Like in any other programming language in Solidity array indexing starts from 0 as well. So, the first element of the array is at index 0. This is the first element of the array and its default value is 0.
+Three is the number of elements in the array public. The array is public so a getter function was automatically created. Like in any other programming language in Solidity array indexing starts from 0 as well. So, the first element of the array is at index 0. This is the first element of the array and its default value is 0.
 
-If you try to access an element of an array at an index that is negative, greater than or equal to the length of the array, you'll get an out of bounds error; for example give me the element at index 5 and I've got an error.
+If you try to access an element of an array at an index that is negative, greater than or equal to the length of the array, you'll get an *out of bounds* error; for example give me the element at index 5 and I've got an error.
 
 To initialize an array with some specific values you can specify the values at the declaration or create a setter function that changes the elements of the array. 
 
@@ -853,17 +853,15 @@ contract Property {
 
 ```
 
-An array has also a member called Length that stores the number of elements in the array. So I added a new function that will return the length of the array function getLength(). The function is public, it doesn't modify the blockchain so view and returns the length of the array, so a unit; and in the function's body, I'm writing return numbers, the name of the array.length the member.
+An array has also a member called Length that stores the number of elements in the array. So I added a new function that will return the length of the array function getLength(). The function is public, it doesn't modify the blockchain so view and returns the length of the array, so a uint; and in the function's body, we return lenght of the array.
 
-OK, of course, here is returns, not return.
+of course, here is returns, not return.
 
 I'm deploying the new contract.
 
 This is the instance, and I want to see the number of elements in the array, so the length and the length is three.
 
 Now I'm changing the element at index 0. So index 0 and the element will be 100. I'm setting the element and now I'm getting the element at index 0 and it has returned 100.
-
-Great.
 
 As I said earlier, the elements of an array can be of any type, not just int Let's see a special type of array, that holds a sequence of bytes from 1 to up to 32. 
 
@@ -908,7 +906,7 @@ Now I'll create a new function that will change the elements of the array of typ
 }
 ```
 
-Great, I'm deploying the contract to test the new function. So I'm calling the setBytesArrays function.
+We deploys the contract to test the new function. So I'm calling the setBytesArrays function.
 
 The transaction was successfully mined and I want to see the values of b1, b2 and b3.
 
@@ -922,7 +920,7 @@ We see here the ASCII code of a, b and c.
 
 ![](./img/sol/byte-ascii-table.png)
 
-the hex ASCII codes for a, b and c are 61, 62, and 63 like it’s shown when calling the function in Remix.
+the hex ASCII codes for a, b and c are 61, 62, and 63, like it’s shown when calling the function in Remix.
 
 Now, if an array is initialized with a value that does not occupy the entire space, padding is aided by default to the end. So I'm changing b3='z'. By the way, the ASCII code for z is 7A in hexadecimal.
 
@@ -932,7 +930,7 @@ I'm clicking setBytesArrays to change the values, and I want to see the value of
 
 And we 0x7a0000 the ASCII code for Z and then lots of zeros, this is the padding.
 
-Also note that using indexing you cannot modify single bytes in fixed bytes arrayes. 
+Also note that using index you cannot modify single bytes in fixed bytes arrayes. 
 
 So b3[0] This is the first byte or the byte at Index 0 cannot be modified.
 
@@ -945,6 +943,8 @@ This is not permitted in Solidity; single bytes in fixed bytes arrays cannot be 
 If you see some older code, you should be aware that prior to version 0.8.0, byte used to be an alias for bytes1
 
 So byte is an alias for bytes1 in older code.
+
+*Full Example*
 
 ```js
 //SPDX-License-Identifier: GPL-3.0
@@ -984,7 +984,7 @@ b3 = 'z'; // => 0x7A
 
 ```
 
-*Summary*
+🔔 **Summary**
 
 **Fixed-Size Arrays**
 
@@ -993,11 +993,11 @@ b3 = 'z'; // => 0x7A
 - bytes1, bytes2, …, bytes32 store a sequence of bytes.
 - Has member called length.
 
+--*LINK - tbc
+
 ## Dynamically-sized arrays (draft)
 
-Welcome back!
-
-In this lecture, we'll discuss dynamically-sized arrays. Dynamic arrays refer to arrays that do not have a predetermined size at the time of declaration. Their size is determined at runtime.
+Dynamic arrays refer to arrays that do not have a predetermined size at the time of declaration. Their size is determined at runtime.
 
 Let’s create a dynamic array that holds elements of type uint. Note that a dynamic array can hold elements of any type.
 
@@ -1009,59 +1009,52 @@ Let’s take them one by one! Length contains the number of elements in the arra
 
 Let's create a function that returns the number of elements in the array.
 
+```js
+//SPDX-License-Identifier: GPL-3.0
+ 
+pragma solidity >=0.5.0 <0.9.0;
+ 
+contract DynamicArrays{
+  // dynamic array of type uint
+  uint[] public numbers;
 
+  // returning length
+  function getLength() public view returns(uint){
+    return numbers.length;
+  }
 
+  // appending a new element
+  function addElement(uint item) public{
+    numbers.push(item);
+  }
 
+}
 
-So So function getLength() public view returns (uint){ and the function,s body is r return numbers
-
-.length its member
+```
 
 Another member function of a dynamic array is push() and it appends an element to the end of the array.
 
-I'm creating such a function: function addElement
-
-(uint item) this is the element that will be appended in public{
-
-numbers.push(item);
-
-It's pushing the item to the end of the number's array.
+I'm creating such a function: function addElement(uint item). It's pushing the item to the end of the number's array.
 
 The contract was compiled successfully and I am deploying it.
 
-If a variable is public, like our dynamic, a getter function is automatically created.
+If a variable is public, like our dynamic, a getter function is automatically created. So let's see the length of the array.
 
-So let's see the length of the array.
+And there are no elements in the array, so its length is zero. 
 
-And there are no elements in the array, so its length is zero.
+Now let's fetch the elements of the array, the element at index 0, the element at index 1, and 2. 
 
-Now I'm adding a few elements.
+If a variable is public, like our dynamical array, a getter function was automatically created.
 
-10
+I've already used that getter when I've fetched the elements of the array, but we could optimize it by adding some tests; for example, at the moment, if I access some element using an index greater than or equal to the length of the array I'll get them out of bounds error.
 
-The second element, 20 and the third element, 30.
-
-Let's see its length and its length is three.
-
-Now let's fetch the elements of the array, the element at index 0, the element at index 1, end
-
-2. Great! If a variable is public, like our dynamical array, a getter function was
-
-automatically created.
-
-I've already used that getter when I've fetched the elements of the array, but we could optimize it by
-
-adding some tests; for example, at the moment, if I access some element using an index greater than
-
-or equal to the length of the array
-
-I'll get them out of bounds error.
-
-For example, I say give me the element at index 10 and I've got an error.
-
-The call failed.
+For example, I say give me the element at index 10 and I've got an error. The call failed.
 
 So I'm creating a new function, and an optimized one, called getElement: function getElement
+
+```js
+
+```
 
 the parameters of the function is the index uint i
 
@@ -1171,8 +1164,56 @@ We are taking a short break
 
 and in the next lecture, we'll discuss bytes and strings, which are special dynamic arrays.
 
+*Full Example*
 
-Summary
+```js
+//SPDX-License-Identifier: GPL-3.0
+ 
+pragma solidity >=0.5.0 <0.9.0;
+ 
+contract DynamicArrays{
+// dynamic array of type uint
+uint[] public numbers;
+ 
+// returning length
+function getLength() public view returns(uint){
+return numbers.length;
+}
+ 
+// appending a new element
+function addElement(uint item) public{
+numbers.push(item);
+}
+ 
+// returning an element at an index
+function getElement(uint i) public view returns(uint){
+if(i < numbers.length){
+return numbers[i];
+}
+return 0;
+}
+ 
+ 
+// removing the last element of the array
+function popElement() public{
+numbers.pop();
+}
+ 
+function f() public{
+// declaring a memory dynamic array
+// it's not possible to resize memory arrays (push() and pop() are not available).
+uint[] memory y = new uint[](3);
+y[0] = 10;
+y[1] = 20;
+y[2] = 30;
+numbers = y;
+}
+ 
+}
+```
+
+
+🔔 Summary
 
 - byte[ ]
 - byte[ ] is an alias to bytes
@@ -1183,10 +1224,9 @@ Summary
 There are 3 methods
 
 - length
-
 - push
-
 - pop
+
 
 
 
