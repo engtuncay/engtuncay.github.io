@@ -26,6 +26,8 @@
 
 # Sources
 
+I recommend to buy this course
+
 - Udemy Course , Master ethereum and solidity programming with real world apps , https://www.udemy.com/course/master-ethereum-and-solidity-programming-with-real-world-apps 
   
 
@@ -413,21 +415,21 @@ If the function is a *read-only* one that doesn't alter the storage in any way, 
 
 Note that calling a *setter function* creates a transaction that needs to be mined and costs gas because it changes the blockchain. 
 
-And calling a getter function creates a call that happens instantly and doesn't cost gas because it doesn't alter the blockchain's state. And if the function returns a value that should be indicated using the returns keyboard and the types of the return values between parentheses with a comma between them; in this example, get price will return to a single value of type int.
+And calling a getter function creates a call that happens instantly and doesn't cost gas because it doesn't alter the blockchain's state. And if the function returns a value that should be indicated using the returns key and the types of the return values between parentheses with a comma between them; in this example, getPrice will return to a single value of type uint.
 
 There are no compilation errors, so I'm deploying the contract. I've used the JavaScript virtual machine environment. 
 
 ![](./img/sol/sol-deploy1.png)
 
-In the deployed contract section if we open up the contract, we'll see a button for each function. The buttons were created by the remix environmen; *getter functions* are *in blue* and *setter functions* in *orange*. If I click a button, it will call the corresponding function, so I'm clicking get price, a call was created and the default value for the price, which is zero was returned.
+In the deployed contract section if we open up the contract, we'll see a button for each function. The buttons were created by the remix environment; *getter functions* are *blue* and *setter functions* are  *orange*. If I click a button, it will call the corresponding function, so I'm clicking getPrice, a call was created and the default value for the price, which is zero was returned.
 
-Now I'm changing the price value, so I'm typing one hundred and clicking set price. A transaction was created and sent and the value of the state variable was changed. Now the price is 100.
+Now I'm changing the price value, so I'm typing one hundred and clicking setPrice. A transaction was created and sent and the value of the state variable was changed. Now the price is 100.
 
 In fact, it wasn't really necessary to declare the price get function because the price state variable is public. When you declare a public variable, a getter function is *automatically created*.
 
-This is the getter function: price. It returns the value of the state variable.
+✔ the default visibility : private
 
-Let's change the visibility of the variable location to public. By the way, *the default visibility* for a variable is private. I'm erasing this instance and deploying the new contract.
+Let's change the contract and visibility of the variable location to public. By the way, *the default visibility* for a variable is *private*. I'm deploying the new contract.
 
 ```js
 // SPDX-License-Identifier: GPL-3.0
@@ -449,30 +451,31 @@ contract Property {
 
 ```
 
-Now, we see a new button called location that is in fact the guitar function that was automatically created for the public state variable.
+Now, we see a new button called *location* that is in fact the getter function that was automatically created for the public state variable.
 
 Let's create a setter function for location, as well.
 
-
 ```js
-function set location (string memory _location ) public {
+function setLocation (string memory _location ) public {
   location = _location;
 }
 ```
 
-_location is a local variable. The memory keyword is required because explicit data location for all variables of type array, string, struct, or mapping is now mandatory. It indicates that the variables will be stored in memory and not in storage.
+_location is a local variable. The memory keyword is required because explicit data location for all variables of type *array, string, struct, or mapping* is now *mandatory*. It indicates that the variables will be stored in memory and not in storage.
 
 Now I'm deploying the contract. 
 
 This is the new instance and we see five buttons in the contract section: 3 are getters and the other 2 are setters. a getter was automatically created for price.
 
-Now, we can change the value of both state variables and get their values as well.
+![image](./img/getter-setter3.jpg)
 
-I have changed the value of the location variable and I'm getting the new value.
+Now, the value of both state variables and get their values can be changed as well.
 
 ## 26 Constructor
 
-Now, let's talk about the constructor! The constructor is a special function that is executed only once when the contract is created. The function is created with the constructor keyword, there's only one and it is optional.
+✔ executed only once and only one constructor
+
+The constructor is a special function that is executed only once when the contract is created. The function is created with the constructor keyword, there's *only one* and it is optional (adding constructor function).
 
 The constructor is used to initialize state variables when the contract is deployed by an externally owned account or by another contract.
 
@@ -502,21 +505,17 @@ contract Property {
 
 ```
 
-that's all: the state variable price will be initialized with the value of the _price parameter of the function; and the same location. It's not mandatory for the constructor to have arguments, but it's logical to initialize the state variables so it has two arguments. And the visibility of the constructor, which is normally public, should be ignored, starting with Solidity 0.7.
+that's all: the state variable price will be initialized with the value of the _price parameter of the function; and the same location. It's not mandatory for the constructor to have arguments, but it's logical to initialize the state variables so it has two arguments. And the visibility of the constructor, which is normally public, should be ignored, starting with Solidity "0.7".
 
 When I deployed the contract, I'll specify two values for the constructors arguments, price and location,
-
-Let's deploy it!
 
 ![](./img/sol/sol-constructor.png)
 
 So the price will be 100 and the location Paris.
 
-This is the transaction that has created the contract and this is the contract's interface.
+The constructor has initialized the state variables (fields of the contract) with the supplied values, so if I click price and location, I'll get those values : Paris and 100.
 
-The constructor has initialized the state variables with the supplied values, so if I click price and location, I'll get those values : Paris and 100.
-
-It's common for a constructor to register the address of the account that creates the contract in a state variable.
+It's common for a constructor to register the address of the account that creates the contract in a state variable (owner account).
 
 This is the admin of the contract or the owner, and in most cases, he has full access over the contract.
 
@@ -547,41 +546,30 @@ contract Property {
 }
 
 ```
-Let's look for a second at this line: `owner = msg.sender` in the constructor.
 
-What does it do ? It initializes the owner to the value of msg.sender where msg.sender is a global built-in variable. This variable always stores the address of the account that creates and sends the transaction.
+Let's look for this line: `owner = msg.sender` in the constructor.
 
-In this case, it's the address of the account that deploys the contract, because that's the only time when the constructor is called. Note that I don’t have to declare variable msg.sender because it’s built-in and always exists.
+It initializes the *owner* field to the value of *msg.sender*. "msg.sender" is a global built-in variable. This variable always stores the address of the account that creates and sends the transaction.
 
-I'm deploying the contract again, choosing another account, for example, the second one. The address of the account will be stored in msg.sender and it becomes the owner of the contract.
+In this case, it's the address of the account that deploys the contract, because that's the only time when the constructor is called.
 
-I am deploying it.
+I'm deploying the contract again and choosing another account. The address of the account will be stored in "msg.sender" and it becomes the owner of the contract.
 
-This is the new instance.
+![image](./img/constructor-3.jpg)
 
-And if I click the owner button, I'll get the address of that account; it was saved on the blockchain
+If I click the owner button, I'll get the address of that account; it was saved on the blockchain
 
-and I can further implement administrative functions of the contract, like selling the property
+and I can further implement administrative functions of the contract, like selling the property (???) functions that will be initialized only from the owner account.
 
-functions that will be initialized only from the owner account.
+Note that the constructor cannot change the owner to a new address because the constructor is called only once when the contract is deployed.
 
-This address
+If you want to change the owner, you need another function that changes owner which is a state variable.
 
-is the address of the second account.
+And probably that function should be called only by the current owner.
 
-Note that the constructor cannot change the owner to a new address because the constructor is called
+Note that almost any contract like, for example erc20 token contracts or contracts for decentralized finance, use this approach to register the owner that has special privileges.
 
-only once when the contract is deployed.
-
-If you want to change the owner, you need another function that changes the state variable called
-
-owner.
-
-And probably that function can be called only by the current owner.
-
-Note that almost any contract like, for examplelike for example erc20 token contracts or contracts for decentralized
-
-finance, use this approach to register the owner that has special privileges.
+✔ Immutable constant state variables
 
 At the end let’s talk about initializing constant or immutable state variables. State variables can be declared as constant or immutable and in both cases, the variables cannot be modified after the contract has been deployed. For constant variables, the value has to be fixed at compile time so we need to set their values at declaration time, while for immutable, it can still be assigned at construction time.
 
@@ -597,7 +585,7 @@ contract Property {
     /* ... */
 ```
 
-if I don't initialize the constant with a value, I'll get an error.
+if I don't initialize the constant with a value like  the below code, I'll get an error.
 
 ```js
 contract Property {
@@ -626,6 +614,8 @@ So I'm changing constant to immutable. There is no error!
 Another example would be if I wish no one to be able to change the owner, I can declare the variable immutable and initialize it in the constructor. So the owner is immutable and it is initialized in the constructor. After the contract's deployment, no one will be able to change the variable, so the owner.
 
 Compared to regular state variables, the gas costs of constant and immutable variables are much lower. So this allows for local optimization.
+
+*Full Contract Example*
 
 ```js
 //SPDX-License-Identifier: GPL-3.0
@@ -672,6 +662,7 @@ contract Property{
 }
 ```
 
+--*LINK - tbc
 
 ## 28 Variable Types : Booleans and Integers (ok)
 
