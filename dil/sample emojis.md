@@ -1,5 +1,9 @@
 
-Useful Emoji List
+- [Useful Emoji List](#useful-emoji-list)
+- [Emoji Usage Examples](#emoji-usage-examples)
+
+
+# Useful Emoji List
 
 🔔 bell
 
@@ -44,3 +48,6 @@ Useful Emoji List
 
 
 
+# Emoji Usage Examples
+
+✏ Note: If you have more than 4 items in a 4 columns grid, the grid will automatically add a new row to put the items in.
