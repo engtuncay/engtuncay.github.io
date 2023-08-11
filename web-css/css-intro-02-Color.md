@@ -17,7 +17,8 @@
   - [All Background Properties](#all-background-properties)
 - [Text](#text)
   - [Text Alignment](#text-alignment)
-  - [](#)
+  - [Text Direction](#text-direction)
+  - [Vertical Alignment](#vertical-alignment)
   - [Text Transformation](#text-transformation)
   - [Text Indentation](#text-indentation)
   - [Text Shadow](#text-shadow)
@@ -685,48 +686,62 @@ h1 {
 
 ## Text Alignment
 
-The text-align property is used to set the horizontal alignment of a text.
+The text-align property is used to set the <span style="color:red">horizontal alignment</span> of a text.
 
 A text can be left or right aligned, centered, or justified.
 
 The following example shows center aligned, and left and right aligned text (left alignment is default if text direction is left-to-right, and right alignment is default if text direction is right-to-left):
 
+Syntax
+
+```css
+text-align : [center|left|right|justified]
+```
+
 Example
+
+```css
 h1 {
   text-align: center;
 }
 
-h2 {
-  text-align: left;
-}
-
-h3 {
-  text-align: right;
-}
+```
 
 When the text-align property is set to "justify", each line is stretched so that every line has equal width, and the left and right margins are straight (like in magazines and newspapers):
 
 Example
+
+```css
 div {
   text-align: justify;
 }
 
-Text Direction
+```
+
+## Text Direction
+
 The direction and unicode-bidi properties can be used to change the text direction of an element:
 
 Example
+
+```css
 p {
   direction: rtl;
   unicode-bidi: bidi-override;
 }
 
-Vertical Alignment
+```
+
+## Vertical Alignment
+
 The vertical-align property sets the vertical alignment of an element.
 
 This example demonstrates how to set the vertical alignment of an image in a text:
 
 
 Example
+
+```css
 img.top {
   vertical-align: top;
 }
@@ -738,68 +753,12 @@ img.middle {
 img.bottom {
   vertical-align: bottom;
 }
+```
 
-
-## 
-
-The text-align property is used to set the horizontal alignment of a text.
-
-A text can be left or right aligned, centered, or justified.
-
-The following example shows center aligned, and left and right aligned text (left alignment is default if text direction is left-to-right, and right alignment is default if text direction is right-to-left):
-
-Example
-h1 {
-  text-align: center;
-}
-
-h2 {
-  text-align: left;
-}
-
-h3 {
-  text-align: right;
-}
-
-When the text-align property is set to "justify", each line is stretched so that every line has equal width, and the left and right margins are straight (like in magazines and newspapers):
-
-Example
-div {
-  text-align: justify;
-}
-
-Text Direction
-The direction and unicode-bidi properties can be used to change the text direction of an element:
-
-Example
-p {
-  direction: rtl;
-  unicode-bidi: bidi-override;
-}
-
-Vertical Alignment
-The vertical-align property sets the vertical alignment of an element.
-
-This example demonstrates how to set the vertical alignment of an image in a text:
-
-
-Example
-img.top {
-  vertical-align: top;
-}
-
-img.middle {
-  vertical-align: middle;
-}
-
-img.bottom {
-  vertical-align: bottom;
-}
-end
+--*LINK - tbc
 
 ## Text Transformation
 
-Text Transformation
 The text-transform property is used to specify uppercase and lowercase letters in a text.
 
 It can be used to turn everything into uppercase or lowercase letters, or capitalize the first letter of each word:
@@ -816,25 +775,25 @@ p.lowercase {
 p.capitalize {
   text-transform: capitalize;
 }
-end
 
 ## Text Indentation
-
-Text Indentation
 
 The text-indent property is used to specify the indentation of the first line of a text:
 
 Example
+
 p {
   text-indent: 50px;
 }
 
 Letter Spacing
+
 The letter-spacing property is used to specify the space between the characters in a text.
 
 The following example demonstrates how to increase or decrease the space between characters:
 
 Example
+
 h1 {
   letter-spacing: 3px;
 }

@@ -17,7 +17,6 @@
 - [Color](#color)
 - [Background](#background)
 - [Flexbox Cheat](#flexbox-cheat)
-- [Cheatsheet](#cheatsheet)
 - [Reference Details](#reference-details)
   - [Other Pseudo Classes](#other-pseudo-classes)
 
@@ -305,33 +304,86 @@ min-width	Sets the minimum width of an element
 
 # Color
 
-Topic              | Desc
--------------------|--------------------------------------------------------
-Color Names        | Tomato,Orange,DodgerBlue
-Background Color   | background-color:DodgerBlue;
-Text Color         | color:Tomato;
-Border Color       | border:2px solid Tomato;
-Color Values       |
--Rgb Color         | rgb(255, 99, 71)  (0-255 values)
--Hex Color         | #ff6347 (value syntax RRGGBB)
--Hsl               | hsl(9, 100%, 64%)
--Rgba               | rgba(255, 99, 71, 0.5) (%50 transparent)
-. a: alpha channel | specifies the opacity for a color (value range 0.0-1.0)
--Hsla               | hsla(9, 100%, 64%, 0.5)
+- Color Names : Tomato,Orange,DodgerBlue
+
+- Background Color   
+
+```css
+background-color:DodgerBlue;
+```
+
+- Text Color         
+
+```css
+color:Tomato;
+``` 
+
+- Border Color       
+
+```css
+border:2px solid Tomato;
+```
+
+🔔  **Color Values**
+
+-Rgb Color         
+
+```css
+rgb(255, 99, 71)  /*(0-255 values)*/
+```
+
+- Hex Color         
+
+```css
+#ff6347 (value syntax RRGGBB)
+```
+- Hsl
+
+```css
+hsl(9, 100%, 64%)
+```               
+
+- Rgba
+
+```css
+rgba(255, 99, 71, 0.5) (%50 transparent)
+```
+
+a: alpha channel : specifies the opacity for a color (value range 0.0-1.0)
+
+- Hsla
+
+```css
+hsla(9, 100%, 64%, 0.5)
+```               
+
 Example Colors     |
--Red color         | rgb(255, 0, 0) , #ff0000
--black             | rgb(0,0,0)
--white             | rgb (255,255,255)
-3 Digit Hex Value  | #rgb (Ex. #f0c = #ff00cc )
-Hsl                | HSL stands for hue, saturation, and lightness.
-.                  | Syn: hsl(hue, saturation, lightness)
-red                | hsl(0, 100%, 50%)
-Saturation         |
-HSLA               | HSL with alpha channel
 
----
+- Red color : rgb(255, 0, 0) , #ff0000
 
-*Extra: Hue Saturation Lightness*
+- black : rgb(0,0,0)
+
+- white : rgb (255,255,255)
+
+- 3 Digit Hex Value  
+
+```css
+#rgb (Ex. #f0c = #ff00cc )
+```
+
+- Hsl : HSL stands for hue, saturation, and lightness.
+
+Syn: hsl(hue, saturation, lightness)
+
+```css
+hsl(0, 100%, 50%) /* red */
+```
+
+- Saturation
+
+HSLA HSL with alpha channel
+
+🔔 *Extra: Hue Saturation Lightness*
 
 Hue is a degree on the color wheel from 0 to 360. 0 is red, 120 is green, and 240 is blue.
 
@@ -351,21 +403,19 @@ You can examples from https://www.w3schools.com/css/css_colors_hsl.asp
 
 # Flexbox Cheat
 
-# Cheatsheet
+- Flexbox Container Style
 
-.                 | Style
-------------------|-------------
-Flexbox Container | display:flex
+```css
+display : flex;
+```
 
-Flex Cont. Props | Parameters                                     | Desc
------------------|------------------------------------------------|-----
-flex-direction   | [ row , row-reverse , column ,column-reverse ] |
-flex-wrap        | [ nowrap , wrap , wrap-reverse]                |
-flex-flow (sh)   | flex-direction , flex-wrap                     |
+- Flex Container Props
 
-
-
-
+```css
+flex-direction : [ row , row-reverse , column ,column-reverse ]
+flex-wrap : [ nowrap , wrap , wrap-reverse];
+flex-flow : flex-direction , flex-wrap ;  /*sh prop*/ 
+```
 
 
 
