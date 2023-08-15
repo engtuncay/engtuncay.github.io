@@ -642,17 +642,15 @@ background-position   | Sets the starting position of a background image
 background-repeat     | Sets how a background image will be repeated
 background-size       | Specifies the size of the background image(s)
 
---*LINK - tbc
-
 # Text
 
 *Text Color*
 
 The color property is used to set the color of the text. The color is specified by:
 
-a color name - like "red"
-a HEX value - like "#ff0000"
-an RGB value - like "rgb(255,0,0)"
+- a color name - like "red"
+- a HEX value - like "#ff0000"
+- an RGB value - like "rgb(255,0,0)"
 
 Look at CSS Color Values for a complete list of possible color values.
 
@@ -660,6 +658,7 @@ The default text color for a page is defined in the body selector.
 
 Example
 
+```css
 body {
   color: blue;
 }
@@ -668,12 +667,15 @@ h1 {
   color: green;
 }
 
-Note: For W3C compliant CSS: If you define the color property, you must also define the background-color. ( color özelliğine değer verilirse, taban rengi de tanımlanmalı.)
+```
 
-Text Color and Background Color
+✏ Note: For W3C compliant CSS: If you define the color property, you must also define the background-color. ( color özelliğine değer verilirse, taban rengi de tanımlanmalı. tor:okunmyacak bir taban renginde olmaması amacıyladır.)
+
+🔔 **Text Color and Background Color**
 
 In this example, we define both the background-color property and the color property:
 
+```css
 body {
   background-color: lightgrey;
   color: blue;
@@ -683,6 +685,8 @@ h1 {
   background-color: black;
   color: white;
 }
+
+```
 
 ## Text Alignment
 
@@ -764,6 +768,8 @@ The text-transform property is used to specify uppercase and lowercase letters i
 It can be used to turn everything into uppercase or lowercase letters, or capitalize the first letter of each word:
 
 Example
+
+```css
 p.uppercase {
   text-transform: uppercase;
 }
@@ -775,6 +781,8 @@ p.lowercase {
 p.capitalize {
   text-transform: capitalize;
 }
+
+```
 
 ## Text Indentation
 
