@@ -18,7 +18,7 @@
   - [28 Variable Types : Booleans and Integers (ok)](#28-variable-types--booleans-and-integers-ok)
   - [29 SafeMath, Overflows and Underflows](#29-safemath-overflows-and-underflows)
   - [30 Fixed-Size Arrays](#30-fixed-size-arrays)
-  - [Dynamically-sized arrays (draft)](#dynamically-sized-arrays-draft)
+  - [32 - Dynamically-sized arrays (draft)](#32---dynamically-sized-arrays-draft)
   - [Bytes and String Types](#bytes-and-string-types)
   - [Structs and Enums](#structs-and-enums)
   - [Enums](#enums)
@@ -190,15 +190,15 @@ There are two *state* variables declared: *price and owner*.
 
 Price field is of type uint or unsigned integer and private. The owner field is of type address and public. Their values are permanently stored in contract storage.
 
-Then, we see some functions defined.
+Then, there are some functions defined.
 
 The first function is a special one called *constructor* that is used to initialize the state variables of the contract; it is declared with the constructor keyword and when a contract is created, its constructor is executed *once*. 
 
 changeOwner() and setPrice() are called *setter functions* because they change the value of state variables and *getPrice()* is a getter function because it creates a call that returns the value of the state variable.
 
-There is also a *function modifier* called onlyOwner that *changes the behavior of the function* to which it is applied. In this case, it’s applied to changeOwner(), the one that changes the value of the owner state variable. (rvw)
+There is also a *function modifier* called onlyOwner that *changes the behavior of the function* to which it is applied. In this case, it’s applied to changeOwner(), the one that changes the value of the owner state variable. (bmrev)
 
-And at the end of the contract, we see an *event*. *Events* are features that enable *logging functionality*.
+And at the end of the contract, there is an *event*. *Events* are features that enable *logging functionality*.
 
 ## Solidity Basic Syntax
 
@@ -737,8 +737,7 @@ In a response to that attack, many crypto exchanges suspended trading on all ERC
 
 Let's take a closer look at how an overflow or underflow vulnerability works.
 
-So I have declared a state variable called x of type uint8, and I've initialized it with the maximum
-possible value for that type 255.
+So I have declared a state variable called x of type uint8, and I've initialized it with the maximum possible value for that type 255.
 
 ```js
 pragma solidity 0.5.0
@@ -995,19 +994,17 @@ b3 = 'z'; // => 0x7A
 
 --*LINK - tbc
 
-## Dynamically-sized arrays (draft)
+## 32 - Dynamically-sized arrays (draft)
 
 Dynamic arrays refer to arrays that do not have a predetermined size at the time of declaration. Their size is determined at runtime.
 
-Let’s create a dynamic array that holds elements of type uint. Note that a dynamic array can hold elements of any type.
+Let’s create a dynamic array that holds elements of type uint. Note that a dynamic array can hold elements of <span style="color:red">any type</span>.
 
-So the type uint a pair of square brackets, the visibility specified and the name of the array numbers.
+A dynamic array has 3 members: <span style="color:red">length, push, and pop</span>.
 
-A dynamic array has 3 members: length, push, and pop.
+Length contains the number of elements in the array.
 
-Let’s take them one by one! Length contains the number of elements in the array.
-
-Let's create a function that returns the number of elements in the array.
+Let's create a function that returns *the number of elements in the array*.
 
 ```js
 //SPDX-License-Identifier: GPL-3.0
@@ -1034,13 +1031,10 @@ contract DynamicArrays{
 
 Another member function of a dynamic array is push() and it appends an element to the end of the array.
 
-I'm creating such a function: function addElement(uint item). It's pushing the item to the end of the number's array.
+Let's create such a function for adding element. It's pushing the item to the end of the number's array.
 
-The contract was compiled successfully and I am deploying it.
-
-If a variable is public, like our dynamic, a getter function is automatically created. So let's see the length of the array.
-
-And there are no elements in the array, so its length is zero. 
+If a variable is public, like our dynamic, a getter function is automatically created. 
+Let's see the length of the array. And there are no elements in the array, so its length is zero. 
 
 Now let's fetch the elements of the array, the element at index 0, the element at index 1, and 2. 
 
