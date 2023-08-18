@@ -1,4 +1,9 @@
 
+- [B4 - Html Css Practice - Summary](#b4---html-css-practice---summary)
+- [B5 - Serving A Website ( Hosting and Deployment )](#b5---serving-a-website--hosting-and-deployment-)
+- [B6 - Introducing Git and Github](#b6---introducing-git-and-github)
+
+
 1. Welcome to This Course! [Day 1]
 1 dak
 
@@ -70,8 +75,6 @@ Sınav 1: Learning Check: HTML Basics [Day 2]
 23. Formatting our Code [Day 3]
 4 dak
 
----
-
 24. Working with the Browser Developer Tools [Day 3]
 6 dak
  
@@ -90,6 +93,8 @@ nest: iç içe geçir-
 
 28. CSS Code Formatting [Day 3]
 1 dak
+
+---
 
 29. The HTML Document Skeleton & Metadata [Day 3]
 8 dak
@@ -234,3 +239,125 @@ Sınav 3: Learning Check: More HTML & CSS Features [Day 5]
 
 74. A List Of All CSS Selectors [Day 8]
 1 dak
+
+# B4 - Html Css Practice - Summary
+
+75. Module Introduction [Day 9]
+3 dak
+
+76. Your Task! [Day 9]
+2 dak
+
+77. Creating the Core Structure [Day 9]
+11 dak
+
+78. Adding the Header Content [Day 9]
+4 dak
+
+79. Adding Header Styling [Day 9]
+12 dak
+
+80. Spacing & the CSS Box Model [Day 9]
+5 dak
+
+81. Adding the Main Content [Day 9]
+11 dak
+
+82. Styling the Main Content [Day 10]
+7 dak
+
+83. Styling List Items & Links [Day 10]
+17 dak
+
+84. Adding the Footer [Day 10]
+13 dak
+
+85. Introducing New HTML Elements [Day 10]
+6 dak
+
+86. Organizing our Files [Day 10]
+2 dak
+
+87. Module Summary [Day 10]
+1 dak
+
+# B5 - Serving A Website ( Hosting and Deployment )
+
+88. Module Introduction [Day 11]
+2 dak
+
+89. What is "Hosting" & "Deployment"? [Day 11]
+3 dak
+
+90. Hosting a First Static Website (Example Deployment on Netlify) [Day 11]
+2 dak
+
+91. More Information On Netlify & HTTPS [Day 11]
+2 dak
+
+92. Adding a Favicon [Day 11]
+6 dak
+
+93. Relative vs Absolute Paths [Day 11]
+6 dak
+
+94. Share Your Website! [Day 11]
+1 dak
+
+# B6 - Introducing Git and Github
+
+95. Module Introduction [Day 11]
+2 dak
+
+96. What are Git & GitHub? [Day 11]
+6 dak
+
+97. Command Line Interface (CLI) vs Graphical User Interface (GUI) [Day 11]
+5 dak
+
+98. Optional: MacOS Terminal (z Shell) Crash Course [Day 11]
+18 dak
+
+99. Optional: Windows Command Prompt (cmd) Crash Course [Day 12]
+13 dak
+
+100. Git: MacOS Installation [Day 12]
+4 dak
+
+101. Git: Windows Installation [Day 12]
+9 dak
+
+102. Understanding the Git Basics [Day 12]
+5 dak
+
+103. Initializing the Repository & Creating our First Commit [Day 12]
+19 dak
+
+104. Activating the "Code Lense" in Visual Studio Code [Day 13]
+1 dak
+
+105. Understanding Branches, Merging & Fixing Merge Conflicts [Day 13]
+13 dak
+
+106. Deleting Branches & Commits, Reverting Staged & Unstaged Changes [Day 13]
+14 dak
+
+107. Onwards to GitHub - What & Why? [Day 13]
+5 dak
+
+108. Creating a GitHub Account & a Remote Repository [Day 13]
+12 dak
+
+109. Please Read: Windows Users Only
+1 dak
+
+110. Understanding the Personal Access Token & "git clone" [Day 14]
+15 dak
+
+111. Collaborating on Projects - Collaborators & Organizations [Day 14]
+20 dak
+
+112. Contributing to Projects - Forks & Pull Requests [Day 14]
+14 dak
+
+113. Wrap Up [Day 14]
