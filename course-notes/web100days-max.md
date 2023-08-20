@@ -99,13 +99,22 @@ nest: iç içe geçir-
 29. The HTML Document Skeleton & Metadata [Day 3]
 8 dak
 
+sayfadaki style elementi de meta bilgidir.
+
+baştaki Doctype html tag i html 5 olduğunu gösterir.
+
 30. Visual Studio Code Shortcuts & Tricks [Day 3]
 8 dak
 
-31. Code Comments [Day 3]
+- emmet kullan ornek p tab
+
+- bölgeyi seçip, alt basılı tutup , ok tuşları ile taşıyabiliriz.
+
+
+31.  Code Comments [Day 3]
 1 dak
 
-32. First Summary [Day 3]
+32.  First Summary [Day 3]
 6 dak
 
 Sınav 2: Learning Check: HTML & CSS Basics [Day 3]
