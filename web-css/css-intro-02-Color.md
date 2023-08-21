@@ -5,9 +5,9 @@
   - [Text Color](#text-color)
   - [Border Color](#border-color)
   - [Color Values](#color-values)
-  - [RGB](#rgb)
-  - [Hex Colors](#hex-colors)
-  - [HSL Colors](#hsl-colors)
+    - [RGB Colors](#rgb-colors)
+    - [Hex Colors](#hex-colors)
+    - [HSL Colors (hue,saturation,lightness)](#hsl-colors-huesaturationlightness)
 - [Backgrounds](#backgrounds)
   - [background-color](#background-color-1)
   - [background-image](#background-image)
@@ -21,11 +21,31 @@
   - [Vertical Alignment](#vertical-alignment)
   - [Text Transformation](#text-transformation)
   - [Text Indentation](#text-indentation)
+  - [Letter Spacing](#letter-spacing)
+  - [Line Height](#line-height)
+  - [Word Spacing](#word-spacing)
+  - [White Space](#white-space)
   - [Text Shadow](#text-shadow)
+  - [All CSS Text Properties](#all-css-text-properties)
 - [Fonts](#fonts)
   - [Fonts](#fonts-1)
+  - [Generic Font Families](#generic-font-families)
+  - [Difference Between Serif and Sans-serif Fonts](#difference-between-serif-and-sans-serif-fonts)
+  - [Generic Font Family	Examples of Font Names](#generic-font-familyexamples-of-font-names)
+  - [The CSS font-family Property](#the-css-font-family-property)
   - [CSS Web Safe Fonts](#css-web-safe-fonts)
-  - [Opacity / Transparency (Opaklık / Şeffaflık )](#opacity--transparency-opaklık--şeffaflık-)
+  - [Best Web Safe Fonts for HTML and CSS](#best-web-safe-fonts-for-html-and-css)
+    - [Arial (sans-serif)](#arial-sans-serif)
+    - [Verdana (sans-serif)](#verdana-sans-serif)
+    - [Helvetica (sans-serif)](#helvetica-sans-serif)
+    - [Tahoma (sans-serif)](#tahoma-sans-serif)
+    - [Trebuchet MS (sans-serif)](#trebuchet-ms-sans-serif)
+    - [Times New Roman (serif)](#times-new-roman-serif)
+    - [Georgia (serif)](#georgia-serif)
+    - [Garamond (serif)](#garamond-serif)
+    - [Courier New (monospace)](#courier-new-monospace)
+    - [Brush Script MT (cursive)](#brush-script-mt-cursive)
+- [Opacity - Transparency](#opacity---transparency)
 - [Icons](#icons)
   - [Css Icons](#css-icons)
   - [Font Awesome 5 (draft)](#font-awesome-5-draft)
@@ -35,7 +55,7 @@
 
 Source : https://www.w3schools.com/css/css_colors.asp
 
-Colors are specified using predefined color names, or RGB, HEX, HSL, RGBA, HSLA values.
+Colors are specified using <span style="color:red">predefined color names, or RGB, HEX, HSL, RGBA, HSLA values</span>.
 
 ## Color Names
 
@@ -135,7 +155,7 @@ Example
 
 ![](./img/color-values.jpg)
 
-## RGB
+### RGB Colors
 
 An RGB color value represents RED, GREEN, and BLUE light sources.
 
@@ -174,7 +194,7 @@ The alpha parameter is a number between 0.0 (fully transparent) and 1.0 (not tra
 
 ![Rgba img](./img/rgba.jpg)
 
-## Hex Colors
+### Hex Colors
 
 A hexadecimal color is specified with: #RRGGBB, where the RR (red), GG (green) and BB (blue) hexadecimal integers specify the components of the color.
 
@@ -239,7 +259,7 @@ p {
 }
 ```
 
-## HSL Colors
+### HSL Colors (hue,saturation,lightness)
 
 HSL stands for hue, saturation, and lightness.
 
@@ -266,15 +286,6 @@ Example
 
 ![img](./img/hsl-ex1.jpg)
 
-```css
-hsl(0, 100%, 50%)
-hsl(240, 100%, 50%)
-hsl(147, 50%, 47%)
-hsl(300, 76%, 72%)
-hsl(39, 100%, 50%)
-hsl(248, 53%, 58%)
-
-```
 
 *Saturation*
 
@@ -288,15 +299,6 @@ Saturation can be described as the *intensity* of a color.
 
 ![](./img/hsl-satur.jpg)
 
-```css
-hsl(0, 100%, 50%)
-hsl(0, 80%, 50%)
-hsl(0, 60%, 50%)
-hsl(0, 40%, 50%)
-hsl(0, 20%, 50%)
-hsl(0, 0%, 50%)
-
-```
 
 *Lightness*
 
@@ -305,31 +307,11 @@ The lightness of a color can be described as how much light you want to give the
 ![](./img/hsl-light.jpg)
 
 
-```css
-hsl(0, 100%, 0%) 
-hsl(0, 100%, 25%)
-hsl(0, 100%, 50%)
-hsl(0, 100%, 75%)
-hsl(0, 100%, 90%)
-hsl(0, 100%, 100%)
-
-```
-
 *Shades of Gray*
 
 Shades of gray are often defined by setting the hue and saturation to 0, and adjust the lightness from 0% to 100% to get darker/lighter shades:
 
 ![](./img/hsl-shades.jpg)
-
-```css
-hsl(0, 0%, 0%)
-hsl(0, 0%, 24%)
-hsl(0, 0%, 47%)
-hsl(0, 0%, 71%)
-hsl(0, 0%, 94%)
-hsl(0, 0%, 100%)
-
-```
 
 *HSLA Value*
 
@@ -759,8 +741,6 @@ img.bottom {
 }
 ```
 
---*LINK - tbc
-
 ## Text Transformation
 
 The text-transform property is used to specify uppercase and lowercase letters in a text.
@@ -786,15 +766,18 @@ p.capitalize {
 
 ## Text Indentation
 
-The text-indent property is used to specify the indentation of the first line of a text:
+The text-indent property is used to specify the indentation of <span style="color:red">the first line</span> of a text:
 
 Example
 
+```css
 p {
   text-indent: 50px;
 }
 
-Letter Spacing
+```
+
+## Letter Spacing
 
 The letter-spacing property is used to specify the space between the characters in a text.
 
@@ -802,6 +785,7 @@ The following example demonstrates how to increase or decrease the space between
 
 Example
 
+```css
 h1 {
   letter-spacing: 3px;
 }
@@ -810,10 +794,15 @@ h2 {
   letter-spacing: -3px;
 }
 
-Line Height
-The line-height property is used to specify the space between lines:
+```
+
+## Line Height
+
+The line-height property is used to specify <span style="color:red">the space between lines</span>:
 
 Example
+
+```css
 p.small {
   line-height: 0.8;
 }
@@ -822,11 +811,17 @@ p.big {
   line-height: 1.8;
 }
 
-Word Spacing
+```
+
+## Word Spacing
+
 The word-spacing property is used to specify the space between the words in a text.
 
 The following example demonstrates how to increase or decrease the space between words:
+
 Example
+
+```css
 h1 {
   word-spacing: 10px;
 }
@@ -835,63 +830,89 @@ h2 {
   word-spacing: -5px;
 }
 
-White Space
+```
+
+## White Space
+
 The white-space property specifies how white-space inside an element is handled.
 
 This example demonstrates how to disable text wrapping inside an element:
+
 Example
+
+```css
 p {
   white-space: nowrap;
 }
 
-white space default value
+```
 
+white space default value
 
 ## Text Shadow
 
-Text Shadow
 The text-shadow property adds shadow to text.
 
 In its simplest use, you only specify the horizontal shadow (2px) and the vertical shadow (2px):
+
 Example
+
+```css
 h1 {
   text-shadow: 2px 2px;
 }
 
+```
+
 Next, add a color (red) to the shadow:
+
 Example
+
+```css
 h1 {
   text-shadow: 2px 2px red;
 }
 
+```
+
 Then, add a blur effect (5px) to the shadow:
+
 Example
+
+```css
 h1 {
   text-shadow: 2px 2px 5px red;
 }
 
-Tip: Go to our CSS Fonts chapter to learn about how to change fonts, text size and the style of a text.
+```
+
+✏ Tip: Go to our CSS Fonts chapter to learn about how to change fonts, text size and the style of a text.
+
 https://www.w3schools.com/css_font.asp
 
-Tip: Go to our CSS Text Effects chapter to learn about different text effects. https://www.w3schools.com/css3_text_effects.asp
+✏ Tip: Go to our CSS Text Effects chapter to learn about different text effects. https://www.w3schools.com/css3_text_effects.asp
 
-All CSS Text Properties
-Property	Description
-color	Sets the color of text
-direction	Specifies the text direction/writing direction
-letter-spacing	Increases or decreases the space between characters in a text
-line-height	Sets the line height
-text-align	Specifies the horizontal alignment of text
-text-decoration	Specifies the decoration added to text
-text-indent	Specifies the indentation of the first line in a text-block
-text-shadow	Specifies the shadow effect added to text
-text-transform	Controls the capitalization of text
-text-overflow	Specifies how overflowed content that is not displayed should be signaled to the user
-unicode-bidi	Used together with the direction property to set or return whether the text should be overridden to support multiple languages in the same document
-vertical-align	Sets the vertical alignment of an element
-white-space	Specifies how white-space inside an element is handled
-word-spacing	Increases or decreases the space between words in a text
 
+## All CSS Text Properties
+
+Property        | Description
+----------------|----------------------------------------------------------------------------------------------------------------------------------------------------
+color           | Sets the color of text
+direction       | Specifies the text direction/writing direction
+letter-spacing  | Increases or decreases the space between characters in a text
+line-height     | Sets the line height
+text-align      | Specifies the horizontal alignment of text
+text-decoration | Specifies the decoration added to text
+text-indent     | Specifies the indentation of the first line in a text-block
+text-shadow     | Specifies the shadow effect added to text
+text-transform  | Controls the capitalization of text
+text-overflow   | Specifies how overflowed content that is not displayed should be signaled to the user
+unicode-bidi    | Used together with the direction property to set or return whether the text should be overridden to support multiple languages in the same document
+vertical-align  | Sets the vertical alignment of an element
+white-space     | Specifies how white-space inside an element is handled
+word-spacing    | Increases or decreases the space between words in a text
+
+--*LINK - tbc
 
 # Fonts
 
@@ -899,46 +920,55 @@ word-spacing	Increases or decreases the space between words in a text
 
 Choosing the right font for your website is important!
 
-Font Selection is Important
+🤝 Font Selection is Important
+
 Choosing the right font has a huge impact on how the readers experience a website.
 
 The right font can create a strong identity for your brand.
 
 Using a font that is easy to read is important. The font adds value to your text. It is also important to choose the correct color and text size for the font.
 
-Generic Font Families
+## Generic Font Families
+
 In CSS there are five generic font families:
 
-Serif fonts have a small stroke at the edges of each letter. They create a sense of formality and elegance.
-Sans-serif fonts have clean lines (no small strokes attached). They create a modern and minimalistic look.
-Monospace fonts - here all the letters have the same fixed width. They create a mechanical look. 
-Cursive fonts imitate human handwriting.
-Fantasy fonts are decorative/playful fonts.
+1. Serif fonts have a small stroke at the edges of each letter. They create a sense of formality and elegance.
+2. Sans-serif fonts have clean lines (no small strokes attached). They create a modern and minimalistic look.
+3. Monospace fonts - here all the letters have the same fixed width. They create a mechanical look. 
+4. Cursive fonts imitate human handwriting.
+5. Fantasy fonts are decorative/playful fonts.
+
 All the different font names belong to one of the generic font families. 
 
-Difference Between Serif and Sans-serif Fonts
+## Difference Between Serif and Sans-serif Fonts
 
+✏ Note: On computer screens, sans-serif fonts are considered easier to read than serif fonts.
 
-Note: On computer screens, sans-serif fonts are considered easier to read than serif fonts.
+![image](./img/fonts-difference.png)
 
-Some Font Examples
-Generic Font Family	Examples of Font Names
-Serif	 Times New Roman, Georgia, Garamond
-Sans-serif	Arial, Verdana, Helvetica
-Monospace	Courier New, Lucida Console,Monaco 
-Cursive	Brush Script MT,Lucida Handwriting
-Fantasy	Copperplate,Papyrus
+## Generic Font Family	Examples of Font Names
 
-The CSS font-family Property
+- Serif :	Times New Roman, Georgia, Garamond
+- Sans-serif : Arial, Verdana, Helvetica
+- Monospace	: Courier New, Lucida Console,Monaco 
+- Cursive	: Brush Script MT,Lucida Handwriting
+- Fantasy :	Copperplate,Papyrus
+
+![image](./img/fonts-examples.png)
+
+## The CSS font-family Property
+
 In CSS, we use the font-family property to specify the font of a text.
 
-The font-family property should hold several font names as a "fallback" system, to ensure maximum compatibility between browsers/operating systems. Start with the font you want, and end with a generic family (to let the browser pick a similar font in the generic family, if no other fonts are available). The font names should be separated with comma.
+The font-family property should hold <span style="color:red">several font names</span> as a "fallback" system, to ensure maximum compatibility between browsers/operating systems. Start with the font you want, and <span style="color:red">end with a generic family</span> (to let the browser pick a similar font in the generic family, if no other fonts are available). The font names should be separated with comma.
 
-Note: If the font name is more than one word, it must be in quotation marks, like: "Times New Roman".
+✏ Note: If the font name is more than one word, it must be in quotation marks, like: "Times New Roman".
 
 Example
+
 Specify some different fonts for three paragraphs:
 
+```css
 .p1 {
   font-family: "Times New Roman", Times, serif;
 }
@@ -950,15 +980,19 @@ Specify some different fonts for three paragraphs:
 .p3 {
   font-family: "Lucida Console", "Courier New", monospace;
 }
-end
+
+```
+
+![image](./img/font-family-example.png)
 
 ## CSS Web Safe Fonts 
 
-What are Web Safe Fonts?
+What are <span style="color:red">Web Safe Fonts</span>?
 
 Web safe fonts are fonts that are universally installed across all browsers and devices.
 
-Fallback Fonts
+**Fallback Fonts**
+
 However, there are no 100% completely web safe fonts. There is always a chance that a font is not found or is not installed properly.
 
 Therefore, it is very important to always use fallback fonts.
@@ -966,75 +1000,110 @@ Therefore, it is very important to always use fallback fonts.
 This means that you should add a list of similar "backup fonts" in the font-family property. If the first font does not work, the browser will try the next one, and the next one, and so on. Always end the list with a generic font family name.
 
 Example
+
 Here, there are three font types: Tahoma, Verdana, and sans-serif. The second and third fonts are backups, in case the first one is not found
 
+```css
 p {
 font-family: Tahoma, Verdana, sans-serif;
 }
 
-Best Web Safe Fonts for HTML and CSS
+```
+## Best Web Safe Fonts for HTML and CSS
+
 The following list are the best web safe fonts for HTML and CSS:
 
-Arial (sans-serif)
-Verdana (sans-serif)
-Helvetica (sans-serif)
-Tahoma (sans-serif)
-Trebuchet MS (sans-serif)
-Times New Roman (serif)
-Georgia (serif)
-Garamond (serif)
-Courier New (monospace)
-Brush Script MT (cursive)
-Note: Before you publish your webs
+- Arial (sans-serif)
+- Verdana (sans-serif)
+- Helvetica (sans-serif)
+- Tahoma (sans-serif)
+- Trebuchet MS (sans-serif)
+- Times New Roman (serif)
+- Georgia (serif)
+- Garamond (serif)
+- Courier New (monospace)
+- Brush Script MT (cursive)
 
-Note: Before you publish your website, always check how your fonts appear on different browsers and devices, and always use fallback fonts!
+Note: Before you publish your website, always check how your fonts appear on different browsers and devices, and always use fallback fonts! (https://www.w3schools.com/css/css_font_fallbacks.asp )
 
-Arial (sans-serif)
+### Arial (sans-serif)
+
 Arial is the most widely used font for both online and printed media. Arial is also the default font in Google Docs.
 
 Arial is one of the safest web fonts, and it is available on all major operating systems
+
 Example
-Verdana (sans-serif)
+
+### Verdana (sans-serif)
+
 Verdana is a very popular font. Verdana is easily readable even for small font sizes.
 
 Example
-Helvetica (sans-serif)
+
+### Helvetica (sans-serif)
+
 The Helvetica font is loved by designers. It is suitable for many types of business.
 
 Example
-Tahoma (sans-serif)
+
+### Tahoma (sans-serif)
+
 The Tahoma font has less space between the characters.
 
 Example
-Trebuchet MS (sans-serif)
+
+### Trebuchet MS (sans-serif)
+
 Trebuchet MS was designed by Microsoft in 1996. Use this font carefully. Not supported by all mobile operating systems.
 
 Example
 
 
-Times New Roman (serif)
+### Times New Roman (serif)
+
 Times New Roman is one of the most recognizable fonts in the world. It looks professional and is used in many newspapers and "news" websites. It is also the primary font for Windows devices and applications.
 
 Example
 
-Georgia (serif)
+### Georgia (serif)
+
 Georgia is an elegant serif font. It is very readable at different font sizes, so it is a good candidate for mobile-responsive design.
 
 Example
-Garamond (serif)
+
+### Garamond (serif)
+
 Garamond is a classical font used for many printed books. It has a timeless look and good readability.
 
 Example
-Courier New (monospace)
+
+### Courier New (monospace)
+
 Courier New is the most widely used monospace serif font. Courier New is often used with coding displays, and many email providers use it as their default font. Courier New is also the standard font for movie screenplays.
-Brush Script MT (cursive)
+
+### Brush Script MT (cursive)
+
 The Brush Script MT font was designed to mimic handwriting. It is elegant and sophisticated, but can be hard to read. Use it carefully.
 
 Example
-Tip: Also check out all available Google Fonts and how to use them. https://www.w3schools.com/css_font_google.asp
-end
 
-## Opacity / Transparency (Opaklık / Şeffaflık )
+Tip: Also check out all available Google Fonts and how to use them. 
+
+https://www.w3schools.com/css_font_google.asp
+
+
+
+
+
+
+
+
+
+# Opacity - Transparency 
+
+(tor:Opaklık - Şeffaflık)
+
+Source : https://www.w3schools.com/css/css_image_transparency.asp
 
 The opacity property specifies the opacity/transparency of an element.
 
