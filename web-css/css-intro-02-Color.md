@@ -5,13 +5,18 @@
   - [Text Color](#text-color)
   - [Border Color](#border-color)
   - [Color Values](#color-values)
+    - [Color Names](#color-names-1)
     - [RGB Colors](#rgb-colors)
+    - [RGBA Value](#rgba-value)
     - [Hex Colors](#hex-colors)
     - [HSL Colors (hue,saturation,lightness)](#hsl-colors-huesaturationlightness)
+    - [HSLA Value](#hsla-value)
 - [Backgrounds](#backgrounds)
   - [background-color](#background-color-1)
+  - [Opacity / Transparency of an Element](#opacity--transparency-of-an-element)
   - [background-image](#background-image)
   - [background-repeat](#background-repeat)
+  - [background-position](#background-position)
   - [background-attachment](#background-attachment)
   - [background property (sh)](#background-property-sh)
   - [All Background Properties](#all-background-properties)
@@ -19,7 +24,7 @@
   - [Text Alignment](#text-alignment)
   - [Text Direction](#text-direction)
   - [Vertical Alignment](#vertical-alignment)
-  - [Text Transformation](#text-transformation)
+  - [Text Transformation (case trans.)](#text-transformation-case-trans)
   - [Text Indentation](#text-indentation)
   - [Letter Spacing](#letter-spacing)
   - [Line Height](#line-height)
@@ -34,6 +39,7 @@
   - [Generic Font Family	Examples of Font Names](#generic-font-familyexamples-of-font-names)
   - [The CSS font-family Property](#the-css-font-family-property)
   - [CSS Web Safe Fonts](#css-web-safe-fonts)
+  - [Fallback Fonts](#fallback-fonts)
   - [Best Web Safe Fonts for HTML and CSS](#best-web-safe-fonts-for-html-and-css)
     - [Arial (sans-serif)](#arial-sans-serif)
     - [Verdana (sans-serif)](#verdana-sans-serif)
@@ -75,7 +81,6 @@ LightGray
 
 ![](./img/colors1.jpg)
 
-CSS/HTML support 140 standard color names : https://www.w3schools.com/colors/colors_names.asp
 
 ## Background Color
 
@@ -155,6 +160,12 @@ Example
 
 ![](./img/color-values.jpg)
 
+### Color Names
+
+In CSS, a color can be specified by using a predefined color name. For example : Tomato,Orange,DodgerBlue etc...
+
+CSS/HTML support 140 standard color names : https://www.w3schools.com/colors/colors_names.asp
+
 ### RGB Colors
 
 An RGB color value represents RED, GREEN, and BLUE light sources.
@@ -182,7 +193,7 @@ Shades of gray are often defined using equal values for all the 3 light source
 
 ![](./img/rgb-shadesofgray.jpg)
 
-**RGBA Value**
+### RGBA Value
 
 RGBA color values are an extension of RGB color values with an alpha channel - which specifies the opacity for a color.
 
@@ -190,7 +201,7 @@ An RGBA color value is specified with:
 
 rgba(red, green, blue, alpha)
 
-The alpha parameter is a number between 0.0 (fully transparent) and 1.0 (not transparent at all):
+The *alpha* parameter is <span style="color:red">a number between 0.0 (fully transparent) and 1.0 (fully opaque)</span>:
 
 ![Rgba img](./img/rgba.jpg)
 
@@ -313,7 +324,7 @@ Shades of gray are often defined by setting the hue and saturation to 0, and adj
 
 ![](./img/hsl-shades.jpg)
 
-*HSLA Value*
+### HSLA Value
 
 HSLA color values are an extension of HSL color values with an alpha channel - which specifies the opacity for a color.
 
@@ -354,12 +365,6 @@ body {
 }
 ```
 
-With CSS, a color is *most often* specified by:
-
-- a valid color name - like "red"
-- a HEX value - like "#ff0000"
-- an RGB value - like "rgb(255,0,0)"
-
 Look at CSS Color Values for a complete list of possible color values : https://www.w3schools.com/cssref/css_colors_legal.asp
 
 *Other Html Elements*
@@ -387,7 +392,7 @@ p {
 
 ![](./img/bg-color1.jpg)
 
-*Opacity / Transparency*
+## Opacity / Transparency of an Element
 
 The opacity property specifies the opacity/transparency of an element. It can take a value from 0.0 - 1.0. The lower value, the more transparent:
 
@@ -404,7 +409,7 @@ div {
 
 ![](./img/opacity1.jpg)
 
-(!!!) Note: When using the opacity property to add transparency to the background of an element, all of its child elements inherit the same transparency. This can make the text inside a fully transparent element hard to read.
+🔨 Warning: When using the opacity property to add transparency to the background of an element, <span style="color:red">all of its child elements inherit the same transparency</span>. This can make the text inside a fully transparent element hard to read.
 
 **Transparency using RGBA**
 
@@ -465,7 +470,13 @@ p {
 
 ## background-repeat
 
-By default(!), the background-image property repeats (!!) an image both horizontally and vertically.
+ The background-image property repeats an image <span style="color:red">both horizontally and vertically by default</span>.
+
+Syntax
+
+ ```css
+   background-repeat: [repeat-x|repeat-y|no-repeat];
+ ```
 
 Some images should be repeated only horizontally or vertically, or they will look strange, like this:
 
@@ -480,7 +491,7 @@ body {
 
 ![](./img/bg-repeat1.jpg)
 
-If the image above is repeated only horizontally (background-repeat: repeat-x;), the background will look better:
+If the image above is repeated only horizontally, the background will look better:
 
 Example
 
@@ -502,8 +513,6 @@ Showing the background image only once is also specified by the background-repea
 
 Example
 
-Show the background image only once:
-
 ```css
 body {
   background-image: url("img_tree.png");
@@ -516,9 +525,9 @@ body {
 
 In the example above, the background image is placed in the same place as the text. We want to change the position of the image, so that it does not disturb the text too much.
 
-*CSS background-position* 
+## background-position
 
-The background-position property is used to specify the position of the background image.
+The background-position property is used to specify the position of <span style="color:red">the background image</span>.
 
 *Example*
 
@@ -628,13 +637,7 @@ background-size       | Specifies the size of the background image(s)
 
 *Text Color*
 
-The color property is used to set the color of the text. The color is specified by:
-
-- a color name - like "red"
-- a HEX value - like "#ff0000"
-- an RGB value - like "rgb(255,0,0)"
-
-Look at CSS Color Values for a complete list of possible color values.
+The color property is used to set the color of the text.
 
 The default text color for a page is defined in the body selector.
 
@@ -651,7 +654,9 @@ h1 {
 
 ```
 
-✏ Note: For W3C compliant CSS: If you define the color property, you must also define the background-color. ( color özelliğine değer verilirse, taban rengi de tanımlanmalı. tor:okunmyacak bir taban renginde olmaması amacıyladır.)
+✏ Note: For W3C compliant CSS: If you define the color property, you must also define the background-color. 
+
+(tor:color özelliğine değer verilirse, taban rengi de tanımlanmalı okunmyacak bir taban renginde olmaması amacıyladır.)
 
 🔔 **Text Color and Background Color**
 
@@ -672,7 +677,7 @@ h1 {
 
 ## Text Alignment
 
-The text-align property is used to set the <span style="color:red">horizontal alignment</span> of a text.
+The text-align property is used to set the <span style="color:red">horizontal alignment of a text</span>.
 
 A text can be left or right aligned, centered, or justified.
 
@@ -720,10 +725,11 @@ p {
 
 ## Vertical Alignment
 
-The vertical-align property sets the vertical alignment of an element.
+The vertical-align property sets the vertical alignment of <span style="color:red">an element</span>.
 
 This example demonstrates how to set the vertical alignment of an image in a text:
 
+✏ Note : img tag is an inline tag.
 
 Example
 
@@ -741,7 +747,9 @@ img.bottom {
 }
 ```
 
-## Text Transformation
+![image](./img/text-vertical-align-1632.png)
+
+## Text Transformation (case trans.)
 
 The text-transform property is used to specify uppercase and lowercase letters in a text.
 
@@ -798,7 +806,7 @@ h2 {
 
 ## Line Height
 
-The line-height property is used to specify <span style="color:red">the space between lines</span>:
+The line-height property is used to specify <span style="color:red">the space between lines</span>: (???space bw or height of line)
 
 Example
 
@@ -834,7 +842,7 @@ h2 {
 
 ## White Space
 
-The white-space property specifies how white-space inside an element is handled.
+The white-space property specifies <span style="color:red">how white-space inside an element is handled</span>.
 
 This example demonstrates how to disable text wrapping inside an element:
 
@@ -864,6 +872,8 @@ h1 {
 
 ```
 
+![image](./img/text-shadow-1-1843.png)
+
 Next, add a color (red) to the shadow:
 
 Example
@@ -874,6 +884,8 @@ h1 {
 }
 
 ```
+
+![image](./img/text-shadow-2-1843.png)
 
 Then, add a blur effect (5px) to the shadow:
 
@@ -886,9 +898,56 @@ h1 {
 
 ```
 
-✏ Tip: Go to our CSS Fonts chapter to learn about how to change fonts, text size and the style of a text.
+![image](./img/text-shadow-blur-1841.png)
 
-https://www.w3schools.com/css_font.asp
+
+**More Text Shadow Examples**
+
+--*LINK - ss eklenecek
+
+Example 1
+
+Text-shadow on a white text:
+
+```css
+h1 {
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
+}
+
+```
+
+Example 2
+
+Text-shadow with red neon glow:
+
+```css
+h1 {
+  text-shadow: 0 0 3px #ff0000;
+}
+
+```
+
+Example 3
+
+Text-shadow with red and blue neon glow:
+
+```css
+h1 {
+  text-shadow: 0 0 3px #ff0000, 0 0 5px #0000ff;
+}
+
+```
+
+Example 4
+
+```css
+h1 {
+  color: white;
+  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+}
+
+```
 
 ✏ Tip: Go to our CSS Text Effects chapter to learn about different text effects. https://www.w3schools.com/css3_text_effects.asp
 
@@ -958,7 +1017,7 @@ All the different font names belong to one of the generic font families. 
 
 ## The CSS font-family Property
 
-In CSS, we use the font-family property to specify the font of a text.
+In CSS, we use <span style="color:red">the font-family property</span> to specify the font of a text.
 
 The font-family property should hold <span style="color:red">several font names</span> as a "fallback" system, to ensure maximum compatibility between browsers/operating systems. Start with the font you want, and <span style="color:red">end with a generic family</span> (to let the browser pick a similar font in the generic family, if no other fonts are available). The font names should be separated with comma.
 
@@ -987,17 +1046,17 @@ Specify some different fonts for three paragraphs:
 
 ## CSS Web Safe Fonts 
 
-What are <span style="color:red">Web Safe Fonts</span>?
+💡 What are <span style="color:red">Web Safe Fonts</span>?
 
-Web safe fonts are fonts that are universally installed across all browsers and devices.
+Web safe fonts are fonts that are <span style="color:red">universally installed</span> across all browsers and devices.
 
-**Fallback Fonts**
+## Fallback Fonts
 
 However, there are no 100% completely web safe fonts. There is always a chance that a font is not found or is not installed properly.
 
 Therefore, it is very important to always use fallback fonts.
 
-This means that you should add a list of similar "backup fonts" in the font-family property. If the first font does not work, the browser will try the next one, and the next one, and so on. Always end the list with a generic font family name.
+This means that you should add a list of similar "backup fonts" in the font-family property. If the first font does not work, the browser will try the next one, and the next one, and so on. Always end the list with a <span style="color:red">generic font family name</span>.
 
 Example
 
@@ -1009,6 +1068,7 @@ font-family: Tahoma, Verdana, sans-serif;
 }
 
 ```
+
 ## Best Web Safe Fonts for HTML and CSS
 
 The following list are the best web safe fonts for HTML and CSS:
@@ -1030,7 +1090,7 @@ Note: Before you publish your website, always check how your fonts appear on dif
 
 Arial is the most widely used font for both online and printed media. Arial is also the default font in Google Docs.
 
-Arial is one of the safest web fonts, and it is available on all major operating systems
+Arial is one of the safest web fonts, and it is available on all major operating systems.
 
 Example
 
@@ -1090,13 +1150,6 @@ Example
 Tip: Also check out all available Google Fonts and how to use them. 
 
 https://www.w3schools.com/css_font_google.asp
-
-
-
-
-
-
-
 
 
 # Opacity - Transparency 

@@ -1,0 +1,5 @@
+
+
+
+- horizontal alignment : yatay hizalama
+

@@ -1,25 +1,40 @@
 
-
-
 # Useful Emoji List And Usage Recommendations
 
 🔔 bell ( for small headers )
 
-✏ pencil (for notes )
+✏ pencil (for notes)
+
+📝 memo (for notes)
+
+💡 electric-light-bulb  (for questions)
+
+❗ heavy-exclamation-mark   (for warning notes)
+
+😯 hushed-face  (for very interesting notes )
+
+🤝 handshake ( for important warning)
+
+🧲 magnet (for warnings)
 
 ✔ heavy-check-mark
 
-💡 electric-light-bulb  (for questions)
+---
 
 🔨 hammer
 
 👀 eyes
 
-❗ heavy-exclamation-mark   (for warning notes)
-
 ➖ heavy-minus-sign
 
-😯 hushed-face  (for very interesting notes )
+🔵 large blue circle
+
+🍋 lemon 
+
+🔗 link symbol
+
+🔒 lock
+
 
 ---
 
@@ -33,8 +48,6 @@
 
 🌀 cyclone
 
-🤝 handshake
-
 🙂 happy
 
 ➗ heavy-division
@@ -47,5 +60,15 @@
 
 ℹ information-source
 
+🔵 large blue circle
 
+🍋 lemon
+
+🔗 link symbol
+
+🔒 lock
+
+🧲 magnet
+
+📝 memo
 
