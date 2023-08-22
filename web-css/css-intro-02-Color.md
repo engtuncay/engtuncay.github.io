@@ -51,6 +51,16 @@
     - [Garamond (serif)](#garamond-serif)
     - [Courier New (monospace)](#courier-new-monospace)
     - [Brush Script MT (cursive)](#brush-script-mt-cursive)
+  - [Font Fallbacks](#font-fallbacks)
+  - [Font Style](#font-style)
+  - [Font Size](#font-size)
+  - [Google Fonts](#google-fonts)
+    - [Use Multiple Google Fonts](#use-multiple-google-fonts)
+    - [Styling Google Fonts](#styling-google-fonts)
+  - [Great Font Pairings](#great-font-pairings)
+    - [Font Pairing Rules](#font-pairing-rules)
+  - [Font Property](#font-property)
+  - [All CSS Font Properties](#all-css-font-properties)
 - [Opacity - Transparency](#opacity---transparency)
 - [Icons](#icons)
   - [Css Icons](#css-icons)
@@ -971,8 +981,6 @@ vertical-align  | Sets the vertical alignment of an element
 white-space     | Specifies how white-space inside an element is handled
 word-spacing    | Increases or decreases the space between words in a text
 
---*LINK - tbc
-
 # Fonts
 
 ## Fonts
@@ -1151,6 +1159,594 @@ Tip: Also check out all available Google Fonts and how to use them.
 
 https://www.w3schools.com/css_font_google.asp
 
+--*LINK - TBC
+
+## Font Fallbacks
+
+You can see the font fallback options from the url below
+
+https://www.w3schools.com/css/css_font_fallbacks.asp
+
+## Font Style
+
+The font-style property is mostly used to specify italic text.
+
+This property has three values:
+
+- normal - The text is shown normally
+- italic - The text is shown in italics
+- oblique - The text is "leaning" (oblique is very similar to italic, but less supported)
+
+Example
+
+```css
+p.normal {
+  font-style: normal;
+}
+
+p.italic {
+  font-style: italic;
+}
+
+p.oblique {
+  font-style: oblique;
+}
+
+```
+
+🔔 Font Weight
+
+The font-weight property specifies the weight of a font:
+
+Example
+
+```css
+p.normal {
+  font-weight: normal;
+}
+
+p.thick {
+  font-weight: bold;
+}
+
+```
+
+🔔 Font Variant
+
+The font-variant property specifies whether or not a text should be displayed in a small-caps font.
+
+In a small-caps font, all lowercase letters are converted to uppercase letters. However, the converted uppercase letters appears in a smaller font size than the original uppercase letters in the text.
+
+Example
+
+```css
+p.normal {
+  font-variant: normal;
+}
+
+p.small {
+  font-variant: small-caps;
+}
+
+```
+
+## Font Size
+
+The font-size property sets the size of the text.
+
+Being able to manage the text size is important in web design. However, you should not use font size adjustments to make paragraphs look like headings, or headings look like paragraphs.
+
+Always use the proper HTML tags, like `<h1> - <h6>` for headings and `<p>` for paragraphs.
+
+The font-size value can be an absolute, or relative size.
+
+Absolute size:
+
+- Sets the text to a specified size
+- Does not allow a user to change the text size in all browsers (bad for accessibility reasons)
+- Absolute size is useful when the physical size of the output is known
+
+Relative size:
+
+- Sets the size relative to surrounding elements
+- Allows a user to change the text size in browsers
+
+ ✏ ❗ Note: If you do not specify a font size, the default size for normal text, like paragraphs, is 16px (16px=1em).
+
+🔔 **Set Font Size With Pixels**
+
+Setting the text size with pixels gives you full control over the text size:
+
+Example
+
+```css
+h1 {
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+p {
+  font-size: 14px;
+}
+
+```
+Tip: If you use pixels, you can still use the zoom tool to resize the entire page.
+
+🔔 **Set Font Size With Em**
+
+To allow users to resize the text (in the browser menu), many developers use em instead of pixels.
+
+1em is equal to the current font size. The default text size in browsers is 16px. So, the default size of 1em is 16px.
+
+The size can be calculated from pixels to em using this formula: pixels/16=em
+
+Example
+
+```css
+h1 {
+  font-size: 2.5em; /* 40px/16=2.5em */
+}
+
+h2 {
+  font-size: 1.875em; /* 30px/16=1.875em */
+}
+
+p {
+  font-size: 0.875em; /* 14px/16=0.875em */
+}
+
+```
+
+In the example above, the text size in em is the same as the previous example in pixels. However, with the em size, it is possible to adjust the text size in all browsers.
+
+Unfortunately, there is still a problem with older versions of Internet Explorer. The text becomes larger than it should when made larger, and smaller than it should when made smaller.
+
+🔔 **Use a Combination of Percent and Em**
+
+The solution that works in all browsers, is to set a default font-size in percent for the `<body>` element:
+
+Example
+
+```css
+body {
+  font-size: 100%;
+}
+
+h1 {
+  font-size: 2.5em;
+}
+
+h2 {
+  font-size: 1.875em;
+}
+
+p {
+  font-size: 0.875em;
+}
+
+```
+
+Our code now works great! It shows the same text size in all browsers, and allows all browsers to zoom or resize the text!
+
+🔔 **Responsive Font Size**
+
+The text size can be set with a vw unit, which means the "viewport width".
+
+That way the text size will follow the size of the browser window:
+
+Try https://www.w3schools.com/css/css_font_size.asp
+
+Example
+
+```css
+<h1 style="font-size:10vw">Hello World</h1>
+
+```
+
+✏ Viewport is the browser window size. 1vw = 1% of viewport width. If the viewport is 50cm wide, 1vw is 0.5cm.
+
+## Google Fonts
+
+If you do not want to use any of the standard fonts in HTML, you can use Google Fonts.
+
+Google Fonts are free to use, and have more than 1000 fonts to choose from.
+
+💡 *How To Use Google Fonts*
+
+Just add a special style sheet link in the <head> section and then refer to the font in the CSS.
+
+Example
+Here, we want to use a font named "Sofia" from Google Fonts:
+
+```html
+<head>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+<style>
+body {
+  font-family: "Sofia", sans-serif;
+}
+</style>
+</head>
+
+```
+
+Result:
+
+Sofia Font
+Lorem ipsum dolor sit amet.
+
+123456790
+
+Example
+Here, we want to use a font named "Trirong" from Google Fonts:
+
+```html
+<head>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
+<style>
+body {
+  font-family: "Trirong", serif;
+}
+</style>
+</head>
+
+```
+
+Result:
+
+Trirong Font
+
+Lorem ipsum dolor sit amet.
+
+123456790
+
+Example
+
+Here, we want to use a font named "Audiowide" from Google Fonts:
+
+```html
+<head>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+<style>
+body {
+  font-family: "Audiowide", sans-serif;
+}
+</style>
+</head>
+
+```
+
+Result:
+
+Audiowide Font
+
+Lorem ipsum dolor sit amet.
+
+123456790
+
+Note: When specifying a font in CSS, always list at minimum one fallback font (to avoid unexpected behaviors). So, also here you should add a generic font family (like serif or sans-serif) to the end of the list.
+
+For a list of all available Google Fonts, visit our How To - Google Fonts Tutorial.
+
+### Use Multiple Google Fonts
+
+To use multiple Google fonts, just separate the font names with a pipe character (|), like this:
+
+Example
+
+Request multiple fonts:
+
+```html
+<head>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide|Sofia|Trirong">
+<style>
+h1.a {font-family: "Audiowide", sans-serif;}
+h1.b {font-family: "Sofia", sans-serif;}
+h1.c {font-family: "Trirong", serif;}
+</style>
+</head>
+
+```
+
+Result:
+
+Audiowide Font
+Sofia Font
+Trirong Font
+
+Note: Requesting multiple fonts may slow down your web pages! So be careful about that.
+
+### Styling Google Fonts
+
+Of course you can style Google Fonts as you like, with CSS!
+
+Example
+Style the "Sofia" font:
+
+```html
+<head>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+<style>
+body {
+  font-family: "Sofia", sans-serif;
+  font-size: 30px;
+  text-shadow: 3px 3px 3px #ababab;
+}
+</style>
+</head>
+
+```
+
+Result:
+
+Sofia Font
+Lorem ipsum dolor sit amet.
+
+123456790
+
+Enabling Font Effects
+Google has also enabled different font effects that you can use.
+
+First add effect=effectname to the Google API, then add a special class name to the element that is going to use the special effect. The class name always starts with font-effect- and ends with the effectname.
+
+Example
+Add the fire effect to the "Sofia" font:
+
+```html
+<head>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=fire">
+<style>
+body {
+  font-family: "Sofia", sans-serif;
+  font-size: 30px;
+}
+</style>
+</head>
+<body>
+
+<h1 class="font-effect-fire">Sofia on Fire</h1>
+
+</body>
+
+```
+Result:
+
+Sofia on Fire
+
+To request multiple font effects, just separate the effect names with a pipe character (|), like this:
+
+Example
+
+Add multiple effects to the "Sofia" font:
+
+```html
+<head>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=neon|outline|emboss|shadow-multiple">
+<style>
+body {
+  font-family: "Sofia", sans-serif;
+  font-size: 30px;
+}
+</style>
+</head>
+<body>
+
+<h1 class="font-effect-neon">Neon Effect</h1>
+<h1 class="font-effect-outline">Outline Effect</h1>
+<h1 class="font-effect-emboss">Emboss Effect</h1>
+<h1 class="font-effect-shadow-multiple">Multiple Shadow Effect</h1>
+
+</body>
+```
+
+Result:
+
+## Great Font Pairings
+
+Great font pairings are essential to great design.
+
+### Font Pairing Rules
+
+Here are some basic rules to create great font pairings:
+
+1. Complement
+
+It is always safe to find font pairings that complement one another.
+
+A great font combination should harmonize, without being too similar or too different.
+
+2. Use Font Superfamilies
+
+A font superfamily is a set of fonts designed to work well together. So, using different fonts within the same superfamily is safe.
+
+For example, the Lucida superfamily contains the following fonts: Lucida Sans, Lucida Serif, Lucida Typewriter Sans, Lucida Typewriter Serif and Lucida Math.
+
+3. Contrast is King
+
+Two fonts that are too similar will often conflict. However, contrasts, done the right way, brings out the best in each font.
+
+Example: Combining serif with sans serif is a well known combination.
+
+A strong superfamily includes both serif and sans serif variations of the same font (e.g. Lucida and Lucida Sans).
+
+4. Choose Only One Boss
+
+One font should be the boss. This establishes a hierarchy for the fonts on your page. This can be achieved by varying the size, weight and color.
+
+Example
+
+No doubt "Georgia" is the boss here:
+
+```css
+body {
+  background-color: black;
+  font-family: Verdana, sans-serif;
+  font-size: 16px;
+  color: gray;
+}
+
+h1 {
+  font-family: Georgia, serif;
+  font-size: 60px;
+  color: white;
+}
+
+```
+
+Below, we have shown some popular font pairings that will suit many brands and contexts.
+
+Georgia and Verdana
+
+Georgia and Verdana is a classic combination. It also sticks to the web safe font standards:
+
+Example
+Use the "Georgia" font for headings, and "Verdana" for text:
+
+Beautiful Norway
+
+Norway has a total area of 385,252 square kilometers and a population of 5,438,657 (December 2020). Norway is bordered by Sweden, Finland and Russia to the north-east, and the Skagerrak to the south, with Denmark on the other side.
+
+Norway has beautiful mountains, glaciers and stunning fjords. Oslo, the capital, is a city of green spaces and museums. Bergen, with colorful wooden houses, is the starting point for cruises to the dramatic Sognefjord. Norway is also known for fishing, hiking and skiing.
+
+Helvetica and Garamond
+
+Helvetica and Garamond is another classic combination that uses web safe fonts:
+
+Example
+
+Use the "Helvetica" font for headings, and "Garamond" for text:
+
+Beautiful Norway
+
+Norway has a total area of 385,252 square kilometers and a population of 5,438,657 (December 2020). Norway is bordered by Sweden, Finland and Russia to the north-east, and the Skagerrak to the south, with Denmark on the other side.
+
+Norway has beautiful mountains, glaciers and stunning fjords. Oslo, the capital, is a city of green spaces and museums. Bergen, with colorful wooden houses, is the starting point for cruises to the dramatic Sognefjord. Norway is also known for fishing, hiking and skiing.
+
+Popular Google Font Pairings
+If you do not want to use standard fonts in HTML, you can use Google Fonts.
+
+Google Fonts are free to use, and have more than 1000 fonts to choose from.
+
+Below are some popular Google Web Font Pairings.
+
+Merriweather and Open Sans
+Example
+Use the "Merriweather" font for headings, and "Open Sans" for text:
+
+Beautiful Norway
+Norway has a total area of 385,252 square kilometers and a population of 5,438,657 (December 2020). Norway is bordered by Sweden, Finland and Russia to the north-east, and the Skagerrak to the south, with Denmark on the other side.
+
+Norway has beautiful mountains, glaciers and stunning fjords. Oslo, the capital, is a city of green spaces and museums. Bergen, with colorful wooden houses, is the starting point for cruises to the dramatic Sognefjord. Norway is also known for fishing, hiking and skiing.
+
+Ubuntu and Lora
+Example
+Use the "Ubuntu" font for headings, and "Lora" for text:
+
+Beautiful Norway
+Norway has a total area of 385,252 square kilometers and a population of 5,438,657 (December 2020). Norway is bordered by Sweden, Finland and Russia to the north-east, and the Skagerrak to the south, with Denmark on the other side.
+
+Norway has beautiful mountains, glaciers and stunning fjords. Oslo, the capital, is a city of green spaces and museums. Bergen, with colorful wooden houses, is the starting point for cruises to the dramatic Sognefjord. Norway is also known for fishing, hiking and skiing.
+
+Abril Fatface and Poppins
+Example
+Use the "Abril Fatface" font for headings, and "Poppins" for text:
+
+Beautiful Norway
+Norway has a total area of 385,252 square kilometers and a population of 5,438,657 (December 2020). Norway is bordered by Sweden, Finland and Russia to the north-east, and the Skagerrak to the south, with Denmark on the other side.
+
+Norway has beautiful mountains, glaciers and stunning fjords. Oslo, the capital, is a city of green spaces and museums. Bergen, with colorful wooden houses, is the starting point for cruises to the dramatic Sognefjord. Norway is also known for fishing, hiking and skiing.
+
+Cinzel and Fauna One
+Example
+Use the "Cinzel" font for headings, and "Fauna One" for text:
+
+Beautiful Norway
+Norway has a total area of 385,252 square kilometers and a population of 5,438,657 (December 2020). Norway is bordered by Sweden, Finland and Russia to the north-east, and the Skagerrak to the south, with Denmark on the other side.
+
+Norway has beautiful mountains, glaciers and stunning fjords. Oslo, the capital, is a city of green spaces and museums. Bergen, with colorful wooden houses, is the starting point for cruises to the dramatic Sognefjord. Norway is also known for fishing, hiking and skiing.
+
+Fjalla One and Libre Baskerville
+Example
+Use the "Fjalla One" font for headings, and "Libre Baskerville" for text:
+
+Beautiful Norway
+Norway has a total area of 385,252 square kilometers and a population of 5,438,657 (December 2020). Norway is bordered by Sweden, Finland and Russia to the north-east, and the Skagerrak to the south, with Denmark on the other side.
+
+Norway has beautiful mountains, glaciers and stunning fjords. Oslo, the capital, is a city of green spaces and museums. Bergen, with colorful wooden houses, is the starting point for cruises to the dramatic Sognefjord. Norway is also known for fishing, hiking and skiing.
+
+Space Mono and Muli
+Example
+Use the "Space Mono" font for headings, and "Muli" for text:
+
+Beautiful Norway
+Norway has a total area of 385,252 square kilometers and a population of 5,438,657 (December 2020). Norway is bordered by Sweden, Finland and Russia to the north-east, and the Skagerrak to the south, with Denmark on the other side.
+
+Norway has beautiful mountains, glaciers and stunning fjords. Oslo, the capital, is a city of green spaces and museums. Bergen, with colorful wooden houses, is the starting point for cruises to the dramatic Sognefjord. Norway is also known for fishing, hiking and skiing.
+
+Spectral and Rubik
+Example
+Use the "Spectral" font for headings, and "Rubik" for text:
+
+Beautiful Norway
+Norway has a total area of 385,252 square kilometers and a population of 5,438,657 (December 2020). Norway is bordered by Sweden, Finland and Russia to the north-east, and the Skagerrak to the south, with Denmark on the other side.
+
+Norway has beautiful mountains, glaciers and stunning fjords. Oslo, the capital, is a city of green spaces and museums. Bergen, with colorful wooden houses, is the starting point for cruises to the dramatic Sognefjord. Norway is also known for fishing, hiking and skiing.
+
+Oswald and Noto Sans
+Example
+Use the "Oswald" font for headings, and "Noto Sans" for text:
+
+Beautiful Norway
+Norway has a total area of 385,252 square kilometers and a population of 5,438,657 (December 2020). Norway is bordered by Sweden, Finland and Russia to the north-east, and the Skagerrak to the south, with Denmark on the other side.
+
+Norway has beautiful mountains, glaciers and stunning fjords. Oslo, the capital, is a city of green spaces and museums. Bergen, with colorful wooden houses, is the starting point for cruises to the dramatic Sognefjord. Norway is also known for fishing, hiking and skiing.
+
+For a list of all free Google Fonts, visit our How To - Google Fonts Tutorial.
+
+https://www.w3schools.com/howto/howto_google_fonts.asp
+
+## Font Property
+
+To shorten the code, it is also possible to specify all the individual font properties in one property.
+
+The font property is a shorthand property for:
+
+- font-style
+- font-variant
+- font-weight
+- font-size/line-height
+- font-family
+
+Note: The font-size and font-family values are required. If one of the other values is missing, their default value are used.
+
+Example
+
+Use font to set several font properties in one declaration:
+
+```css
+p.a {
+  font: 20px Arial, sans-serif;
+}
+
+p.b {
+  font: italic small-caps bold 12px/30px Georgia, serif;
+}
+
+```
+
+## All CSS Font Properties
+
+Property	Description
+font	Sets all the font properties in one declaration
+font-family	Specifies the font family for text
+font-size	Specifies the font size of text
+font-style	Specifies the font style for text
+font-variant	Specifies whether or not a text should be displayed in a small-caps font
+font-weight	Specifies the weight of a font
+
 
 # Opacity - Transparency 
 
@@ -1160,16 +1756,28 @@ Source : https://www.w3schools.com/css/css_image_transparency.asp
 
 The opacity property specifies the opacity/transparency of an element.
 
-Transparent Image
+🔔 Transparent Image
+
 The opacity property can take a value from 0.0 - 1.0. The lower value, the more transparent:
+
 Example
+
+```css
 img {
   opacity: 0.5;
 }
 
-Transparent Hover Effect
+```
+
+![image](./img/image-trans1-1421.png)
+
+🔔 Transparent Hover Effect
+
 The opacity property is often used together with the :hover selector to change the opacity on mouse-over:
+
 Example
+
+```css
 img {
   opacity: 0.5;
 }
@@ -1178,37 +1786,61 @@ img:hover {
   opacity: 1.0;
 }
 
+```
+
+
+![image](./img/image-trans2-hover-1422.png)
+
 Example explained
+
 The first CSS block is similar to the code in Example 1. In addition, we have added what should happen when a user hovers over one of the images. In this case we want the image to NOT be transparent when the user hovers over it. The CSS for this is opacity:1;.
 
 When the mouse pointer moves away from the image, the image will be transparent again.
 
 An example of reversed hover effect:
-Transparent Box
+
+🔔 Transparent Box
+
 When using the opacity property to add transparency to the background of an element, all of its child elements inherit the same transparency. This can make the text inside a fully transparent element hard to read:
+
 Example
+
+```html
 div {
   opacity: 0.3;
 }
 
-Transparency using RGBA
+```
+
+🔔 Transparency using RGBA
+
 If you do not want to apply opacity to child elements, like in our example above, use RGBA color values. The following example sets the opacity for the background color and not the text:
 You learned from our CSS Colors Chapter, that you can use RGB as a color value. In addition to RGB, you can use an RGB color value with an alpha channel (RGBA) - which specifies the opacity for a color.
 
 An RGBA color value is specified with: rgba(red, green, blue, alpha). The alpha parameter is a number between 0.0 (fully transparent) and 1.0 (fully opaque).
 
-Tip: You will learn more about RGBA Colors in our CSS Colors Chapter. https://www.w3schools.com/css3_colors.asp
+Tip: You will learn more about RGBA Colors in our CSS Colors Chapter. 
+https://www.w3schools.com/css3_colors.asp
 
 Example
+
+```css
 div {
   background: rgba(76, 175, 80, 0.3) /* Green background with 30% opacity */
 }
 
-Text in Transparent Box
+```
+
+🔔 Text in Transparent Box
+
 Example
+
+```html
 <html>
 <head>
+
 <style>
+
 div.background {
   background: url(klematis.jpg) repeat;
   border: 2px solid black;
@@ -1226,6 +1858,7 @@ div.transbox p {
   font-weight: bold;
   color: #000000;
 }
+
 </style>
 </head>
 <body>
@@ -1239,17 +1872,18 @@ div.transbox p {
 </body>
 </html>
 
+```
+
 Example explained
 
-First, we create a <div> element (class="background") with a background image, and a border.
+First, we create a `<div>` element (class="background") with a background image, and a border.
 
-Then we create another <div> (class="transbox") inside the first <div>.
+Then we create another `<div>` (class="transbox") inside the first `<div>`.
 
-The <div class="transbox"> have a background color, and a border - the div is transparent.
+The `<div class="transbox">` have a background color, and a border - the div is transparent.
 
-Inside the transparent <div>, we add some text inside a <p> element.
+Inside the transparent `<div>`, we add some text inside a `<p>` element.
 end
-
 
 # Icons
 
