@@ -17,7 +17,7 @@
   - [background-image](#background-image)
   - [background-repeat](#background-repeat)
   - [background-position](#background-position)
-  - [background-attachment](#background-attachment)
+  - [background-attachment (scroll behavior)](#background-attachment-scroll-behavior)
   - [background property (sh)](#background-property-sh)
   - [All Background Properties](#all-background-properties)
 
@@ -60,6 +60,7 @@ Example
 ```
 
 ![](./img/color-bg1.jpg)
+
 
 ## Text Color
 
@@ -512,7 +513,7 @@ body {
 
 ```
 
-## background-attachment
+## background-attachment (scroll behavior)
 
 The background-attachment property specifies whether the background image should *scroll* or be *fixed* (will not scroll with the rest of the page):
 

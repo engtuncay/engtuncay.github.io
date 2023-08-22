@@ -1,9 +1,10 @@
 
 - [Text](#text)
+  - [Text Color](#text-color)
   - [Text Alignment](#text-alignment)
   - [Text Direction](#text-direction)
   - [Vertical Alignment](#vertical-alignment)
-  - [Text Transformation (case trans.)](#text-transformation-case-trans)
+  - [Text Transformation (case transformation)](#text-transformation-case-transformation)
   - [Text Indentation](#text-indentation)
   - [Letter Spacing](#letter-spacing)
   - [Line Height](#line-height)
@@ -49,9 +50,11 @@
 
 # Text
 
-*Text Color*
+Source : 
 
-The color property is used to set the color of the text.
+## Text Color
+
+The *color* property is used to set the color of the text.
 
 The default text color for a page is defined in the body selector.
 
@@ -70,9 +73,9 @@ h1 {
 
 ✏ Note: For W3C compliant CSS: If you define the color property, you must also define the background-color. 
 
-(tor:color özelliğine değer verilirse, taban rengi de tanımlanmalı okunmyacak bir taban renginde olmaması amacıyladır.)
+(tor:color özelliğine değer verilirse, taban rengi de tanımlanmalı. Okunmyacak bir taban renginde olmaması amacıyladır.)
 
-🔔 **Text Color and Background Color**
+*Example 2*
 
 In this example, we define both the background-color property and the color property:
 
@@ -91,17 +94,17 @@ h1 {
 
 ## Text Alignment
 
-The text-align property is used to set the <span style="color:red">horizontal alignment of a text</span>.
+The *text-align* property is used to set the <span style="color:red">horizontal alignment of a text</span>.
 
 A text can be left or right aligned, centered, or justified.
-
-The following example shows center aligned, and left and right aligned text (left alignment is default if text direction is left-to-right, and right alignment is default if text direction is right-to-left):
 
 Syntax
 
 ```css
 text-align : [center|left|right|justified]
 ```
+
+The following example shows center aligned, and left and right aligned text (left alignment is default if text direction is left-to-right, and right alignment is default if text direction is right-to-left):
 
 Example
 
@@ -125,7 +128,7 @@ div {
 
 ## Text Direction
 
-The direction and unicode-bidi properties can be used to change the text direction of an element:
+The direction and unicode-bidi(???) properties can be used to change the text direction of an element:
 
 Example
 
@@ -163,7 +166,7 @@ img.bottom {
 
 ![image](./img/text-vertical-align-1632.png)
 
-## Text Transformation (case trans.)
+## Text Transformation (case transformation)
 
 The text-transform property is used to specify uppercase and lowercase letters in a text.
 
@@ -218,6 +221,9 @@ h2 {
 
 ```
 
+--*FIXME - ss
+
+
 ## Line Height
 
 The line-height property is used to specify <span style="color:red">the space between lines</span>: (???space bw or height of line)
@@ -234,6 +240,8 @@ p.big {
 }
 
 ```
+
+--*FIXME - ss
 
 ## Word Spacing
 
@@ -254,6 +262,8 @@ h2 {
 
 ```
 
+--*FIXME - ss
+
 ## White Space
 
 The white-space property specifies <span style="color:red">how white-space inside an element is handled</span>.
@@ -268,6 +278,8 @@ p {
 }
 
 ```
+
+--*FIXME - ss
 
 white space default value
 
@@ -303,6 +315,8 @@ h1 {
 
 Then, add a blur effect (5px) to the shadow:
 
+(tor:blur : bulanıklaştırma)
+
 Example
 
 ```css
@@ -317,7 +331,7 @@ h1 {
 
 **More Text Shadow Examples**
 
---*LINK - ss eklenecek
+--*FIXME - ss
 
 Example 1
 
@@ -383,7 +397,7 @@ text-overflow   | Specifies how overflowed content that is not displayed should 
 unicode-bidi    | Used together with the direction property to set or return whether the text should be overridden to support multiple languages in the same document
 vertical-align  | Sets the vertical alignment of an element
 white-space     | Specifies how white-space inside an element is handled
-word-spacing    | Increases or decreases the space between words in a text
+word-spacing    | Increases or decreases the space between *words* in a text
 
 # Fonts
 
