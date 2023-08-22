@@ -9,7 +9,7 @@ Source : [W3Schools]()
 CONTENT | Note |
 --- | --- |
 [1- Selector and Specifity](./css-intro-01-Selector-Specifity.md) |
-[2-1 Color, Backgroun](./css-intro-02-1-Color.md) |
+[2-1 Color, Background](./css-intro-02-1-Color.md) |
 [2-2 Text ,Font, Icons](./css-intro-02-2-Text.md) |
 [3- Links, Lists ](./css-intro-03-Links-Lists-Icons.md) |
 [4- Size,Margin,Border,Padding,Outline](./css-intro-04-Size.md) |
