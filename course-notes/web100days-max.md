@@ -128,14 +128,24 @@ Sınav 2: Learning Check: HTML & CSS Basics [Day 3]
 35. Storing CSS Code in External Files [Day 4]
 6 dak
 
+keep the code maintable, managable as a developer.
+
+--
+
 36. The Void Element Syntax [Day 4]
 1 dak
+
+`<link/>`  self closing tag
 
 37. Multiple Files & Requests [Day 4]
 6 dak
 
 38. Selecting Single Elements with the ID Selector [Day 4]
 6 dak
+
+id="todays-challenge" (boşluk yerine tire kullanırız.)
+
+
 
 39. Working with "font-size" and "px" [Day 4]
 5 dak
