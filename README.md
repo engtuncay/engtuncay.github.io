@@ -14,6 +14,10 @@
 
 [Solidity](./blockchain/readme.md)
 
+[XML](./xml/readme.md)
+
+
+
 *Deprecated Tutors*
 
 [Vue Tutors](./vue/README.md)
