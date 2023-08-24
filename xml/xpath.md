@@ -22,6 +22,20 @@
   - [Selecting Nodes](#selecting-nodes)
   - [Predicates](#predicates)
   - [Selecting Unknown Nodes](#selecting-unknown-nodes)
+  - [Selecting Several Paths](#selecting-several-paths)
+- [XPath Axes](#xpath-axes)
+  - [XPath Axes](#xpath-axes-1)
+  - [Location Path Expression](#location-path-expression)
+- [XPath Operators](#xpath-operators)
+  - [XPath Operators](#xpath-operators-1)
+- [XPath Examples](#xpath-examples)
+  - [Loading the XML Document](#loading-the-xml-document)
+  - [Selecting Nodes](#selecting-nodes-1)
+  - [Select all the titles](#select-all-the-titles)
+  - [Select the title of the first book](#select-the-title-of-the-first-book)
+  - [Select all the prices](#select-all-the-prices)
+  - [Select price nodes with price\>35](#select-price-nodes-with-price35)
+  - [Select title nodes with price\>35](#select-title-nodes-with-price35)
 
 
 # XPath Intro
@@ -296,22 +310,355 @@ Path Expression                    | Result
 
 XPath wildcards can be used to select unknown XML nodes.
 
-Wildcard	Description
-*	Matches any element node
-@*	Matches any attribute node
-node()	Matches any node of any kind
-In the table below we have listed some path expressions and the result of the expressions:
-
-Path Expression	Result
-/bookstore/*	Selects all the child element nodes of the bookstore element
-//*	Selects all elements in the document
-//title[@*]	Selects all title elements which have at least one attribute of any kind
-Selecting Several Paths
-By using the | operator in an XPath expression you can select several paths.
+Wildcard | Description
+---------|-----------------------------
+`*`      | Matches any element node
+@*       | Matches any attribute node
+node()   | Matches any node of any kind
 
 In the table below we have listed some path expressions and the result of the expressions:
 
-Path Expression	Result
-//book/title | //book/price	Selects all the title AND price elements of all book elements
-//title | //price	Selects all the title AND price elements in the document
-/bookstore/book/title | //price	Selects all the title elements of the book element of the bookstore element AND all the price elements in the document
+Path Expression | Result
+----------------|-------------------------------------------------------------------------
+/bookstore/*    | Selects all the child element nodes of the bookstore element
+//*             | Selects all elements in the document
+//title[@*]     | Selects all title elements which have at least one attribute of any kind
+
+## Selecting Several Paths
+
+By using the `|` operator in an XPath expression you can select several paths.
+
+In the table below we have listed some path expressions and the result of the expressions:
+
+Path Expression                    | Result
+-----------------------------------|-----------------------------------------------------------------------------------------------------------------------
+`//book/title \| //book/price`     | Selects all the title AND price elements of all book elements
+`//title \| //price`               | Selects all the title AND price elements in the document
+`/bookstore/book/title \| //price` | Selects all the title elements of the book element of the bookstore element AND all the price elements in the document
+
+# XPath Axes
+
+🔔 The XML Example Document
+
+We will use the following XML document in the examples below.
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+
+<bookstore>
+
+<book>
+  <title lang="en">Harry Potter</title>
+  <price>29.99</price>
+</book>
+
+<book>
+  <title lang="en">Learning XML</title>
+  <price>39.95</price>
+</book>
+
+</bookstore>
+
+```
+--*LINK - tbc
+
+## XPath Axes
+
+An axis represents a relationship to the context (current) node, and is used to locate nodes relative to that node on the tree.
+
+AxisName           | Result
+-------------------|-----------------------------------------------------------------------------------------------------------------------------
+ancestor           | Selects all ancestors (parent, grandparent, etc.) of the current node
+ancestor-or-self   | Selects all ancestors (parent, grandparent, etc.) of the current node and the current node itself
+attribute          | Selects all attributes of the current node
+child              | Selects all children of the current node
+descendant         | Selects all descendants (children, grandchildren, etc.) of the current node
+descendant-or-self | Selects all descendants (children, grandchildren, etc.) of the current node and the current node itself
+following          | Selects everything in the document after the closing tag of the current node
+following-sibling  | Selects all siblings after the current node
+namespace          | Selects all namespace nodes of the current node
+parent             | Selects the parent of the current node
+preceding          | Selects all nodes that appear before the current node in the document, except ancestors, attribute nodes and namespace nodes
+preceding-sibling  | Selects all siblings before the current node
+self               | Selects the current node
+
+
+## Location Path Expression
+
+A location path can be absolute or relative.
+
+An absolute location path starts with a slash ( / ) and a relative location path does not. In both cases the location path consists of one or more steps, each separated by a slash:
+
+An absolute location path:
+
+/step/step/...
+
+A relative location path:
+
+step/step/...
+Each step is evaluated against the nodes in the current node-set.
+
+A step consists of:
+
+an axis (defines the tree-relationship between the selected nodes and the current node)
+a node-test (identifies a node within an axis)
+zero or more predicates (to further refine the selected node-set)
+The syntax for a location step is:
+
+axisname::nodetest[predicate]
+Examples
+Example	Result
+child::book	Selects all book nodes that are children of the current node
+attribute::lang	Selects the lang attribute of the current node
+child::*	Selects all element children of the current node
+attribute::*	Selects all attributes of the current node
+child::text()	Selects all text node children of the current node
+child::node()	Selects all children of the current node
+descendant::book	Selects all book descendants of the current node
+ancestor::book	Selects all book ancestors of the current node
+ancestor-or-self::book	Selects all book ancestors of the current node - and the current as well if it is a book node
+child::*/child::price	Selects all price grandchildren of the current nodeXPath Axes
+The XML Example Document
+We will use the following XML document in the examples below.
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+<bookstore>
+
+<book>
+  <title lang="en">Harry Potter</title>
+  <price>29.99</price>
+</book>
+
+<book>
+  <title lang="en">Learning XML</title>
+  <price>39.95</price>
+</book>
+
+</bookstore>
+XPath Axes
+An axis represents a relationship to the context (current) node, and is used to locate nodes relative to that node on the tree.
+
+AxisName	Result
+ancestor	Selects all ancestors (parent, grandparent, etc.) of the current node
+ancestor-or-self	Selects all ancestors (parent, grandparent, etc.) of the current node and the current node itself
+attribute	Selects all attributes of the current node
+child	Selects all children of the current node
+descendant	Selects all descendants (children, grandchildren, etc.) of the current node
+descendant-or-self	Selects all descendants (children, grandchildren, etc.) of the current node and the current node itself
+following	Selects everything in the document after the closing tag of the current node
+following-sibling	Selects all siblings after the current node
+namespace	Selects all namespace nodes of the current node
+parent	Selects the parent of the current node
+preceding	Selects all nodes that appear before the current node in the document, except ancestors, attribute nodes and namespace nodes
+preceding-sibling	Selects all siblings before the current node
+self	Selects the current node
+ADVERTISEMENT
+
+Location Path Expression
+A location path can be absolute or relative.
+
+An absolute location path starts with a slash ( / ) and a relative location path does not. In both cases the location path consists of one or more steps, each separated by a slash:
+
+An absolute location path:
+
+/step/step/...
+
+A relative location path:
+
+step/step/...
+Each step is evaluated against the nodes in the current node-set.
+
+A step consists of:
+
+an axis (defines the tree-relationship between the selected nodes and the current node)
+a node-test (identifies a node within an axis)
+zero or more predicates (to further refine the selected node-set)
+The syntax for a location step is:
+
+axisname::nodetest[predicate]
+Examples
+Example	Result
+child::book	Selects all book nodes that are children of the current node
+attribute::lang	Selects the lang attribute of the current node
+child::*	Selects all element children of the current node
+attribute::*	Selects all attributes of the current node
+child::text()	Selects all text node children of the current node
+child::node()	Selects all children of the current node
+descendant::book	Selects all book descendants of the current node
+ancestor::book	Selects all book ancestors of the current node
+ancestor-or-self::book	Selects all book ancestors of the current node - and the current as well if it is a book node
+child::*/child::price	Selects all price grandchildren of the current node
+
+
+# XPath Operators
+
+An XPath expression returns either a node-set, a string, a Boolean, or a number.
+
+## XPath Operators
+
+Below is a list of the operators that can be used in XPath expressions:
+
+Operator | Description                  | Example
+---------|------------------------------|---------------------------
+\|       | Computes two node-sets       | `//book \| //cd`
+\+       | Addition                     | 6 + 4
+\-       | Subtraction                  | 6 - 4
+\*       | Multiplication               | 6 * 4
+div      | Division                     | 8 div 4
+=        | Equal                        | price=9.80
+!=       | Not equal                    | price!=9.80
+\<       | Less than                    | price<9.80
+\<=      | Less than or equal to        | price<=9.80
+\>       | Greater than                 | price>9.80
+\>=      | Greater than or equal to     | price>=9.80
+or       | or                           | price=9.80 or price=9.70
+and      | and                          | price>9.00 and price\<9.90
+mod      | Modulus (division remainder) | 5 mod 2
+
+# XPath Examples
+
+Let's try to learn some basic XPath syntax by looking at some examples.
+
+🔔 The XML Example Document
+
+We will use the following XML document in the examples below.
+
+"books.xml":
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+
+<bookstore>
+
+<book category="cooking">
+  <title lang="en">Everyday Italian</title>
+  <author>Giada De Laurentiis</author>
+  <year>2005</year>
+  <price>30.00</price>
+</book>
+
+<book category="children">
+  <title lang="en">Harry Potter</title>
+  <author>J K. Rowling</author>
+  <year>2005</year>
+  <price>29.99</price>
+</book>
+
+<book category="web">
+  <title lang="en">XQuery Kick Start</title>
+  <author>James McGovern</author>
+  <author>Per Bothner</author>
+  <author>Kurt Cagle</author>
+  <author>James Linn</author>
+  <author>Vaidyanathan Nagarajan</author>
+  <year>2003</year>
+  <price>49.99</price>
+</book>
+
+<book category="web">
+  <title lang="en">Learning XML</title>
+  <author>Erik T. Ray</author>
+  <year>2003</year>
+  <price>39.95</price>
+</book>
+
+</bookstore>
+
+```
+
+View the "books.xml" file in your browser. (https://www.w3schools.com/xml/books.xml)
+
+## Loading the XML Document
+
+Using an XMLHttpRequest object to load XML documents is supported in all modern browsers.
+
+```js
+var xmlhttp = new XMLHttpRequest();
+
+```
+
+## Selecting Nodes
+
+Unfortunately, there are different ways of dealing with XPath in different browsers.
+
+Chrome, Firefox, Edge, Opera, and Safari use the evaluate() method to select nodes:
+
+```js
+xmlDoc.evaluate(xpath, xmlDoc, null, XPathResult.ANY_TYPE,null);
+
+//Internet Explorer uses the selectNodes() method to select node:
+xmlDoc.selectNodes(xpath);
+
+```
+
+## Select all the titles
+
+The following example selects all the title nodes:
+
+Example
+
+```xpath
+/bookstore/book/title
+
+```
+
+Try : https://www.w3schools.com/xml/tryit.asp?filename=try_xpath_select_cdnodes
+
+```text
+// Output
+Everyday Italian
+Harry Potter
+XQuery Kick Start
+Learning XML
+```
+
+## Select the title of the first book
+
+The following example selects the title of the first book node under the bookstore element:
+
+Example
+
+```html
+/bookstore/book[1]/title
+
+```
+
+```js
+// Output
+Everyday Italian
+```
+
+Try : https://www.w3schools.com/xml/tryit.asp?filename=try_xpath_select_cdnodes_first
+
+## Select all the prices
+
+The following example selects the text from all the price nodes:
+
+Example
+
+```html
+/bookstore/book/price[text()]
+
+```
+
+## Select price nodes with price>35
+
+The following example selects all the price nodes with a price higher than 35:
+
+Example
+
+```html
+/bookstore/book[price>35]/price
+
+```
+## Select title nodes with price>35
+
+The following example selects all the title nodes with a price higher than 35:
+
+Example
+
+```html
+/bookstore/book[price>35]/title
+
+```

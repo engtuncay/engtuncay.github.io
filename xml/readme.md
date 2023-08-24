@@ -4,8 +4,8 @@
 Topic               | Note
 --------------------|-----
 [Xpath](./xpath.md) |
-[Xslt](./xslt.md)   |
-
+[Xslt Intro](./xslt-1-intro.md)   |
+[Xslt References](./xslt-2-ref.md)   |
 
 
 
@@ -15,4 +15,5 @@ Topic               | Note
 **Source**
 
 - W3C 
+
 
