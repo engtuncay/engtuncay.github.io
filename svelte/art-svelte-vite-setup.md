@@ -23,8 +23,8 @@ With PNPM:
 
 pnpm create vite 
 
-
 Now you need to select svelte framework
+
 ✔ Project name: … svelte-ts
 ? Select a framework: › - Use arrow-keys. Return to submit.
   vanilla
@@ -52,6 +52,5 @@ Svelte Typescript structure
 run the server
 
 npm run dev 
-
 
 http://localhost:3000/
