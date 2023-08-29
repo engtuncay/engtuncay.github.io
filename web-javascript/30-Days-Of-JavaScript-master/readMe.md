@@ -11,8 +11,8 @@ Source : https://github.com/Asabeneh/30-Days-Of-JavaScript
 | 05|[Arrays](./05_Day_Arrays/05_day_arrays.md)| ✔ 
 | 06|[Loops](./06_Day_Loops/06_day_loops.md)|  ✔ 
 | 07|[Functions](./07_Day_Functions/07_day_functions.md)| ✔ 
-| 08|[Objects](./08_Day_Objects/08_day_objects.md)|
-| 09|[Higher Order Functions](./09_Day_Higher_order_functions/09_day_higher_order_functions.md)|
+| 08|[Objects](./08_Day_Objects/08_day_objects.md)| ✔ 
+| 09|[Higher Order Functions](./09_Day_Higher_order_functions/09_day_higher_order_functions.md)| ✔
 | 10|[Sets and Maps](./10_Day_Sets_and_Maps/10_day_Sets_and_Maps.md)|
 | 11|[Destructuring and Spreading](./11_Day_Destructuring_and_spreading/11_day_destructuring_and_spreading.md)                      |
 | 12|[Regular Expressions](./12_Day_Regular_expressions/12_day_regular_expressions.md)                                  |
