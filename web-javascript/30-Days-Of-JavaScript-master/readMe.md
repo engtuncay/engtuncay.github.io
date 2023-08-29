@@ -33,5 +33,5 @@ Source : https://github.com/Asabeneh/30-Days-Of-JavaScript
 
 [Js Notes - 1 By Tor](./js-notes-1-tor.md)
 
-[Js Notes - 2 By Tor](./js-notes2-tor.md)
+[Js Notes - 2 By Tor](./js-notes-2-tor.md)
 
