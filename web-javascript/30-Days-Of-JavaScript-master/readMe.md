@@ -31,5 +31,5 @@ Source : https://github.com/Asabeneh/30-Days-Of-JavaScript
 
 🧡🧡🧡 HAPPY CODING 🧡🧡🧡
 
-[Cheat Tor](../js-mix/cheat-tor.md)
+[Js Notes - 1 By Tor](../js-mix/js-notes-1-tor.md)
 
