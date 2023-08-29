@@ -696,7 +696,6 @@ console.log(C)
 Set(2) {1, 2}
 ```
 
---*LINK -tbc
 
 ## Map
 
@@ -768,7 +767,7 @@ console.log(countriesMap.has('Finland'))
 true
 ```
 
-Getting all values from map using loop
+### Getting all values from map using loop
 
 ```js
 for (const country of countriesMap) {
@@ -794,11 +793,11 @@ Sweden Stockholm
 Norway Oslo
 ```
 
-# Day 11
+# Destructuring and Spread
 
 ## Destructuring and Spread
 
-Destructuring is a way to unpack arrays, and objects and assigning to a distinct variable.
+Destructuring is a way to *unpack* arrays, and objects and assigning to a distinct variable.
 
 ### Destructing Arrays
 
@@ -811,28 +810,6 @@ Destructuring is a way to unpack arrays, and objects and assigning to a distinct
 
 ```sh
   1 2 3
-```
-
-```js
-  const names = ['Asabeneh', 'Brook', 'David', 'John']
-  let [firstPerson, secondPerson, thirdPerson, fourthPerson] = names
-
-  console.log(firstPerson, secondPerson,thirdPerson, fourthPerson)
-```
-
-```sh
-Asabeneh Brook David John
-```
-
-```js
-  const scientificConstants = [2.72, 3.14, 9.81, 37, 100]
-  let [e, pi, gravity, bodyTemp, boilingTemp] = scientificConstants
-
-  console.log(e,pi,gravity, bodyTemp, boilingTemp)
-```
-
-```sh
-2.72 3.14 9.81 37 100
 ```
 
 ```js
@@ -853,16 +830,6 @@ console.log(backEnd)
 
 If we like to skip on of the values in the array we use additional comma. The comma helps to omit the value at that specific index
 
-```js
-  const numbers = [1, 2, 3]
-  let [numOne, , numThree] = numbers //2 is omitted
-
-  console.log(numOne, numThree)
-```
-
-```sh
-1 3
-```
 
 ```js
   const names = ['Asabeneh', 'Brook', 'David', 'John']
@@ -893,7 +860,7 @@ console.log(firstPerson, secondPerson, thirdPerson, fourthPerson)
 Asabeneh Brook David John
 ```
 
-We can not assign variable to all the elements in the array. We can destructure few of the first and we can get the remaining as array using spread operator(...).
+We can not assign variable to all the elements in the array. We can destructure few of the first and we can get <span style="color:red">the remaining as array using spread operator(...)</span>.
 
 ```js
 const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -907,6 +874,7 @@ console.log(rest)
 1 2 3
 [4, 5, 6, 7, 8, 9, 10]
 ```
+
 
 ### Destructuring during iteration
 
@@ -942,7 +910,7 @@ Node Express MongoDB
 
 ### Destructuring Object
 
-When we destructure the name of the variable we use to destructure should be exactly the same as the key or property of the object. See the example below.
+When we destructure the name of the variable we use to destructure should be <span style="color:red">exactly the same as the key or property</span> of the object. See the example below.
 
 ```js
 const rectangle = {
@@ -1002,6 +970,8 @@ console.log(width, height, area, perimeter) //30 10 200 80
 ```
 
 Destructuring keys as a function parameters. Let us create a function which takes a rectangle object and it returns a perimeter of a rectangle.
+
+--*LINK - TBC
 
 ### Object parameter without destructuring
 
