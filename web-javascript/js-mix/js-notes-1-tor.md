@@ -42,13 +42,13 @@
 - [Scope](#scope)
   - [Window Global Object](#window-global-object)
   - [Global scope](#global-scope)
-    - [Local scope](#local-scope)
+  - [Local scope](#local-scope)
 - [Object](#object)
   - [Creating an empty object](#creating-an-empty-object)
   - [Creating an objecting with values](#creating-an-objecting-with-values)
   - [Getting values from an object](#getting-values-from-an-object)
   - [Creating object methods](#creating-object-methods)
-    - [Setting new key for an object](#setting-new-key-for-an-object)
+  - [Setting new key for an object](#setting-new-key-for-an-object)
   - [Object Methods](#object-methods)
     - [Getting object keys using Object.keys()](#getting-object-keys-using-objectkeys)
     - [Getting object values using Object.values()](#getting-object-values-using-objectvalues)
@@ -721,7 +721,7 @@ letsLearnScope()
 console.log(a, b) // JavaScript 10, accessible
 ```
 
-### Local scope
+## Local scope
 
 A variable declared as local can be accessed only in certain block code.
 
@@ -913,7 +913,7 @@ console.log(person.getFullName())
 // Asabeneh Yetayeh
 ```
 
-### Setting new key for an object
+## Setting new key for an object
 
 An object is a mutable data structure and we can modify the content of an object after it gets created.
 
