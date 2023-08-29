@@ -1,13 +1,44 @@
 
+**Sources**
+
+- https://github.com/Asabeneh/30-Days-Of-JavaScript (main source)
+
+
+- [Functions](#functions)
+  - [Higher Order Function](#higher-order-function)
+    - [Callback](#callback)
+    - [Returning function](#returning-function)
+    - [Setting time](#setting-time)
+      - [Setting Interval using a setInterval function](#setting-interval-using-a-setinterval-function)
+      - [Setting a time using a setTimeout](#setting-a-time-using-a-settimeout)
+  - [Functional Programming](#functional-programming)
+    - [forEach](#foreach)
+    - [map](#map)
+    - [filter](#filter)
+    - [reduce](#reduce)
+    - [every](#every)
+    - [find](#find)
+    - [findIndex](#findindex)
+    - [some](#some)
+    - [sort](#sort)
+      - [Sorting string values](#sorting-string-values)
+      - [Sorting Numeric values](#sorting-numeric-values)
+      - [Sorting Object Arrays](#sorting-object-arrays)
+
+
 # Functions
 
 ## Higher Order Function
 
-Higher order functions are functions which take other function as a parameter or return a function as a value. The function passed as a parameter is called callback.
+Higher order functions are 
+
+- functions which take other function as a parameter or 
+
+- return a function as a value 
 
 ### Callback
 
-A callback is a function which can be passed as parameter to other function. See the example below.
+The function passed as a parameter to another function is called <span style="color:red">callback</span>.
 
 ```js
 // a callback function, the name of the function could be any name
@@ -41,7 +72,9 @@ const higherOrder = n => {
 console.log(higherOrder(2)(3)(10))
 ```
 
-Let us see were we use call back functions. For instance the _forEach_ method uses call back.
+Let us see where we use call back functions. For instance the _forEach_ method uses callback.
+
+(were:where yapıldı+++)
 
 ```js
 const numbers = [1, 2, 3, 4, 5]
@@ -55,10 +88,8 @@ const sumArray = arr => {
 
 }
 console.log(sumArray(numbers))
-```
 
-```sh
-15
+// Output : 15
 ```
 
 The above example can be simplified as follows:
@@ -77,20 +108,16 @@ const sumArray = arr => {
 console.log(sumArray(numbers))
 ```
 
-```sh
-15
-```
+### setTimeout and setInterval Functions
 
-### Setting time
+In JavaScript we can execute some activities 
 
-In JavaScript we can execute some activities in a certain interval of time or we can schedule(wait) for some time to execute some activities.
+- in a certain interval of time (repeats execution) (setInterval) or 
+- we can schedule(wait) for some time (deferring execution) (setTimeout)
 
-- setInterval
-- setTimeout
+#### setInterval function
 
-#### Setting Interval using a setInterval function
-
-In JavaScript, we use setInterval higher order function to do some activity continuously with in some interval of time. The setInterval global method take a callback function and a duration as a parameter. The duration is in milliseconds and the callback will be always called in that interval of time.
+In JavaScript, we use setInterval higher order function to *do some activity continuously* with in some interval of time. The setInterval global method take a callback function and a duration as a parameter. The duration is in <span style="color:red">milliseconds</span> and the callback will be always called in that interval of time.
 
 ```js
 // syntax
@@ -107,9 +134,9 @@ function sayHello() {
 setInterval(sayHello, 1000) // it prints hello in every second, 1000ms is 1s
 ```
 
-#### Setting a time using a setTimeout
+#### setTimeout Funtion
 
-In JavaScript, we use setTimeout higher order function to execute some action at some time in the future. The setTimeout global method take a callback function and a duration as a parameter. The duration is in milliseconds and the callback wait for that amount of time.
+The setTimeout global method take a callback function and a duration as a parameter. The duration is in milliseconds and the callback wait for that amount of time.
 
 ```js
 // syntax
@@ -126,7 +153,7 @@ function sayHello() {
 setTimeout(sayHello, 2000) // it prints hello after it waits for 2 seconds.
 ```
 
-## Functional Programming
+## Es6 built-in Functions that take callback
 
 Instead of writing regular loop, latest version of JavaScript introduced lots of built in methods which can help us to solve complicated problems. All builtin methods take callback function. In this section, we will see _forEach_, _map_, _filter_, _reduce_, _find_, _every_, _some_, and _sort_.
 
@@ -161,31 +188,6 @@ console.log(sum)
 5
 ```
 
-```js
-let sum = 0;
-const numbers = [1, 2, 3, 4, 5];
-numbers.forEach(num => sum += num)
-
-console.log(sum)
-```
-
-```sh
-15
-```
-
-```js
-const countries = ['Finland', 'Denmark', 'Sweden', 'Norway', 'Iceland']
-countries.forEach((element) => console.log(element.toUpperCase()))
-```
-
-```sh
-FINLAND
-DENMARK
-SWEDEN
-NORWAY
-ICELAND
-```
-
 ### map
 
 _map_: Iterate an array elements and modify the array elements. It takes a callback function with elements,  index , array parameter and return a new array.
@@ -211,57 +213,6 @@ console.log(numbersSquare)
 [1, 4, 9, 16, 25]
 ```
 
-```js
-const names = ['Asabeneh', 'Mathias', 'Elias', 'Brook']
-const namesToUpperCase = names.map((name) => name.toUpperCase())
-console.log(namesToUpperCase)
-```
-
-```sh
-['ASABENEH', 'MATHIAS', 'ELIAS', 'BROOK']
-```
-
-```js
-const countries = [
-  'Albania',
-  'Bolivia',
-  'Canada',
-  'Denmark',
-  'Ethiopia',
-  'Finland',
-  'Germany',
-  'Hungary',
-  'Ireland',
-  'Japan',
-  'Kenya',
-]
-const countriesToUpperCase = countries.map((country) => country.toUpperCase())
-console.log(countriesToUpperCase)
-
-/*
-// Arrow function
-const countriesToUpperCase = countries.map((country) => {
-  return country.toUpperCase();
-})
-//Explicit return arrow function
-const countriesToUpperCase = countries.map(country => country.toUpperCase());
-*/
-```
-
-```sh
-['ALBANIA', 'BOLIVIA', 'CANADA', 'DENMARK', 'ETHIOPIA', 'FINLAND', 'GERMANY', 'HUNGARY', 'IRELAND', 'JAPAN', 'KENYA']
-```
-
-```js
-const countriesFirstThreeLetters = countries.map((country) =>
-  country.toUpperCase().slice(0, 3)
-)
-```
-
-```sh
- ["ALB", "BOL", "CAN", "DEN", "ETH", "FIN", "GER", "HUN", "IRE", "JAP", "KEN"]
-```
-
 ### filter
 
 _Filter_: Filter out items which full fill filtering conditions and return a new array.
@@ -276,44 +227,6 @@ console.log(countriesContainingLand)
 
 ```sh
 ['Finland', 'Ireland']
-```
-
-```js
-const countriesEndsByia = countries.filter((country) => country.endsWith('ia'))
-console.log(countriesEndsByia)
-```
-
-```sh
-['Albania', 'Bolivia','Ethiopia']
-```
-
-```js
-const countriesHaveFiveLetters = countries.filter(
-  (country) => country.length === 5
-)
-console.log(countriesHaveFiveLetters)
-```
-
-```sh
-['Japan', 'Kenya']
-```
-
-```js
-const scores = [
-  { name: 'Asabeneh', score: 95 },
-   { name: 'Lidiya', score: 98 },
-  { name: 'Mathias', score: 80 },
-  { name: 'Elias', score: 50 },
-  { name: 'Martha', score: 85 },
-  { name: 'John', score: 100 },
-]
-
-const scoresGreaterEighty = scores.filter((score) => score.score > 80)
-console.log(scoresGreaterEighty)
-```
-
-```sh
-[{name: 'Asabeneh', score: 95}, { name: 'Lidiya', score: 98 },{name: 'Martha', score: 85},{name: 'John', score: 100}]
 ```
 
 ### reduce
@@ -333,6 +246,8 @@ const sum = numbers.reduce((acc, cur) => acc + cur, 0)
 
 console.log(sum)
 ```
+
+// 1den5e kadar sayıları toplar
 
 ```js
 15
@@ -360,14 +275,9 @@ const areAllTrue = bools.every((b) => b === true) // Are all true?
 console.log(areAllTrue) // true
 ```
 
-```sh
-true
-
-```
-
 ### find
 
-_find_: Return the first element which satisfies the condition
+_find_: Return *the first element* which satisfies the condition
 
 ```js
 const ages = [24, 22, 25, 32, 35, 18]
@@ -388,23 +298,6 @@ console.log(result)
 
 ```sh
 Asabeneh
-```
-
-```js
-const scores = [
-  { name: 'Asabeneh', score: 95 },
-  { name: 'Mathias', score: 80 },
-  { name: 'Elias', score: 50 },
-  { name: 'Martha', score: 85 },
-  { name: 'John', score: 100 },
-]
-
-const score = scores.find((user) => user.score > 80)
-console.log(score)
-```
-
-```sh
-{ name: "Asabeneh", score: 95 }
 ```
 
 ### findIndex
@@ -454,18 +347,19 @@ console.log(products.sort()) // ['Apple', 'Carrot', 'Coffee', 'Honey', 'Milk', '
 
 #### Sorting Numeric values
 
-As you can see in the example below, 100 came first after sorted in ascending order. Sort converts items to string , since '100' and other numbers compared, 1 which the beginning of the string '100' became the smallest. To avoid this, we use a compare call back function inside the sort method, which return a negative, zero or positive.
+As you can see in the example below, 100 came first after sorted in ascending order. Sort converts items to string , since '100' and other numbers compared, 1 which the beginning of the string '100' became the smallest. To avoid this, we use a compare call back function inside the sort method, which return *a negative, zero or positive*.
 
 ```js
 const numbers = [9.81, 3.14, 100, 37]
 // Using sort method to sort number items provide a wrong result. see below
 console.log(numbers.sort()) //[100, 3.14, 37, 9.81]
 numbers.sort(function (a, b) {
-  return a - b
+  return a - b    // -1 a<b , 0 a=b , 1 a>b
 })
-
+// küçükten büyüğe sıralar
 console.log(numbers) // [3.14, 9.81, 37, 100]
 
+// büyükten küçüğe sıralamak için
 numbers.sort(function (a, b) {
   return b - a
 })
