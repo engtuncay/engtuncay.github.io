@@ -66,8 +66,8 @@
     - [Escape character(\\) in RegExp](#escape-character-in-regexp)
     - [One or more times(+)](#one-or-more-times)
     - [Period(.)](#period)
-    - [Zero or more times(\*)](#zero-or-more-times)
-    - [Zero or one times(?)](#zero-or-one-times)
+    - [Zero or more times (\*)](#zero-or-more-times-)
+    - [Zero or one times (?)](#zero-or-one-times-)
     - [Quantifier in RegExp](#quantifier-in-regexp)
     - [Cart ^](#cart-)
     - [Exact match](#exact-match)
@@ -1151,7 +1151,7 @@ A pattern could be a text or any form of pattern which some sort of similarity. 
 
 Flags are optional parameters in a regular expression which determine the type of searching. Let us see some of the flags:
 
-- g: a global flag which means looking for a pattern in whole text
+- g: greedy (a global flag which means looking for a pattern in whole text)
 - i: case insensitive flag(it searches for both lowercase and uppercase)
 - m: multiline
 
@@ -1191,7 +1191,6 @@ let regEx= new RegExp('love','gi')
 
 ```
 
---*LINK - tbc
 
 ### RegExpp Object Methods
 
@@ -1221,7 +1220,7 @@ If we do not use a global flag, match() returns an array containing the pattern,
 const str = 'I love JavaScript'
 const pattern = /love/
 const result = str.match(pattern)
-console.log(result)
+console.log(result);
 ```
 
 ```sh
@@ -1272,7 +1271,7 @@ JavaScript is the most beautiful language that a human begin has ever created.I 
 const txt = 'Python is the most beautiful language that a human begin has ever created.\
 I recommend python for a first programming language'
 
-matchReplaced = txt.replace(/Python|python/g, 'JavaScript')
+let matchReplaced = txt.replace(/Python|python/g, 'JavaScript')
 console.log(matchReplaced)
 ```
 
@@ -1284,7 +1283,7 @@ JavaScript is the most beautiful language that a human begin has ever created.I 
 const txt = 'Python is the most beautiful language that a human begin has ever created.\
 I recommend python for a first programming language'
 
-matchReplaced = txt.replace(/Python/gi, 'JavaScript')
+let matchReplaced = txt.replace(/Python/gi, 'JavaScript')
 console.log(matchReplaced)
 ```
 
@@ -1338,7 +1337,7 @@ I am teacher and  I love teaching.There is nothing as more rewarding as educatin
   * r'apple|banana' mean either of an apple or a banana
 * (): Capture and group
 
-![Regular Expression cheat sheet](../images/regex.png)
+![Regular Expression cheat sheet](./img/regex.png)
 
 Let's use example to clarify the above meta characters
 
@@ -1404,7 +1403,7 @@ const matches = txt. match(pattern)
 
 console.log(matches)  // ["12", "2020"], this is not what we want
 ```
-
+                        
 ### One or more times(+)
 
 ```js
@@ -1417,7 +1416,7 @@ console.log(matches)  // ["12", "2020"], this is not what we want
 ### Period(.)
 
 ```js
-const pattern = /[a]./g  // this square bracket means a and . means any character except new line
+const pattern = /[a]./g  // this square bracket means a and then ".". "." means any character except new line. Caution: match two characters in the anywhere of whole text
 const txt = 'Apple and banana are fruits'
 const matches = txt.match(pattern)
 
@@ -1432,7 +1431,7 @@ const matches = txt.match(pattern)
 console.log(matches)  // ['and banana are fruits']
 ```
 
-### Zero or more times(*)
+### Zero or more times (*)
 
 Zero or many times. The pattern may not occur or it can occur many times.
 
@@ -1446,9 +1445,10 @@ console.log(matches)  // ['and banana are fruits']
 
 ```
 
-### Zero or one times(?)
 
-Zero or one times. The pattern may not occur or it may occur once.
+### Zero or one times (?) 
+
+Zero or one times. The pattern may not occur or it may occur once❗ .
 
 ```js
 const txt = 'I am not sure if there is a convention how to write the word e-mail.\
@@ -1460,9 +1460,12 @@ console.log(matches)  // ["e-mail", "email", "Email", "E-mail"]
 
 ```
 
+--*LINK - tbc
+
+
 ### Quantifier in RegExp
 
-We can specify the length of the substring we look for in a text, using a curly bracket. Let us see, how ot use RegExp quantifiers. Imagine, we are interested in substring that their length are 4 characters
+We can specify the length of the substring we look for in a text, using a curly bracket. Let us see, how to use RegExp quantifiers. Imagine, we are interested in substring that their length are 4 characters
 
 ```js
 const txt = 'This regular expression example was made in December 6,  2019.'

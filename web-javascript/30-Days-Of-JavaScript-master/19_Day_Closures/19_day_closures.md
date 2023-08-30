@@ -18,11 +18,11 @@
 
 ![Thirty Days Of JavaScript](../images/banners/day_1_19.png)
 - [Day 19](#day-19)
-	- [Closure](#closure)
-	- [Exercises](#exercises)
-		- [Exercises: Level 1](#exercises-level-1)
-		- [Exercises: Level 2](#exercises-level-2)
-		- [Exercises: Level 3](#exercises-level-3)
+  - [Closure](#closure)
+  - [Exercises](#exercises)
+    - [Exercises: Level 1](#exercises-level-1)
+    - [Exercises: Level 2](#exercises-level-2)
+    - [Exercises: Level 3](#exercises-level-3)
 
 # Day 19
 
