@@ -152,6 +152,7 @@ Uncaught TypeError: num.toLowerCase is not a function
     at <anonymous>:2:17
 ```
 These are some of the common error you may face when you write a code. Understanding errors can help you to know what mistakes you made and it will help you to debug your code fast.
+
 🌕 You are flawless. Now, you knew how to handle errors and you can write robust application which handle unexpected user inputs. You have just completed day 14 challenges and you are 14 steps a head in to your way to greatness. Now do some exercises for your brain and for your muscle.
 ## Exercises
 ### Exercises:Level 1

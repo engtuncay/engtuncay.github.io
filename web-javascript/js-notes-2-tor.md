@@ -1,9 +1,5 @@
 
-**Sources**
-
-- https://github.com/Asabeneh/30-Days-Of-JavaScript (main source)
-
-
+- [Sources](#sources)
 - [Functions](#functions)
   - [Higher Order Function](#higher-order-function)
     - [Callback](#callback)
@@ -41,27 +37,27 @@
     - [Adding values to the Map](#adding-values-to-the-map)
     - [Getting a value from Map](#getting-a-value-from-map)
     - [Checking key in Map](#checking-key-in-map)
-- [Day 11](#day-11)
-  - [Destructuring and Spread](#destructuring-and-spread)
+    - [Getting all values from map using loop](#getting-all-values-from-map-using-loop)
+- [Destructuring and Spread](#destructuring-and-spread)
+  - [Destructuring](#destructuring)
     - [Destructing Arrays](#destructing-arrays)
     - [Destructuring during iteration](#destructuring-during-iteration)
     - [Destructuring Object](#destructuring-object)
     - [Renaming during structuring](#renaming-during-structuring)
-    - [Object parameter without destructuring](#object-parameter-without-destructuring)
     - [Object parameter with destructuring](#object-parameter-with-destructuring)
     - [Destructuring object during iteration](#destructuring-object-during-iteration)
-    - [Spread or Rest Operator](#spread-or-rest-operator)
+  - [Spread or Rest Operator](#spread-or-rest-operator)
     - [Spread operator to get the rest of array elements](#spread-operator-to-get-the-rest-of-array-elements)
     - [Spread operator to copy array](#spread-operator-to-copy-array)
     - [Spread operator to copy object](#spread-operator-to-copy-object)
       - [Spread operator with arrow function](#spread-operator-with-arrow-function)
-- [📘 Day 12](#-day-12)
-  - [Regular Expressions](#regular-expressions)
+- [Regular Expressions](#regular-expressions)
+  - [Regular Expressions](#regular-expressions-1)
     - [RegExp parameters](#regexp-parameters)
       - [Pattern](#pattern)
       - [Flags](#flags)
     - [Creating a pattern with RegExp Constructor](#creating-a-pattern-with-regexp-constructor)
-    - [Creating a pattern without RegExp Constructor](#creating-a-pattern-without-regexp-constructor)
+    - [Creating a pattern with slashed (without RegExp Constructor)](#creating-a-pattern-with-slashed-without-regexp-constructor)
     - [RegExpp Object Methods](#regexpp-object-methods)
       - [Testing for  a match](#testing-for--a-match)
       - [Array containing all of the match](#array-containing-all-of-the-match)
@@ -77,7 +73,9 @@
     - [Exact match](#exact-match)
 
 
+# Sources
 
+- Main source, https://github.com/Asabeneh/30-Days-Of-JavaScript 
 
 
 # Functions
@@ -795,7 +793,7 @@ Norway Oslo
 
 # Destructuring and Spread
 
-## Destructuring and Spread
+## Destructuring
 
 Destructuring is a way to *unpack* arrays, and objects and assigning to a distinct variable.
 
@@ -971,9 +969,10 @@ console.log(width, height, area, perimeter) //30 10 200 80
 
 Destructuring keys as a function parameters. Let us create a function which takes a rectangle object and it returns a perimeter of a rectangle.
 
---*LINK - TBC
 
-### Object parameter without destructuring
+### Object parameter with destructuring
+
+- Without destructuring
 
 ```js
 // Without destructuring
@@ -986,51 +985,7 @@ const calculatePerimeter = rectangle => {
 }
 
 console.log(calculatePerimeter(rect)) // 60
-//with destructuring
 ```
-
-```js
-//Another Example
-const person = {
-  firstName: 'Asabeneh',
-  lastName: 'Yetayeh',
-  age: 250,
-  country: 'Finland',
-  job: 'Instructor and Developer',
-  skills: [
-    'HTML',
-    'CSS',
-    'JavaScript',
-    'React',
-    'Redux',
-    'Node',
-    'MongoDB',
-    'Python',
-    'D3.js'
-  ],
-  languages: ['Amharic', 'English', 'Suomi(Finnish)']
-}
-// Let us create a function which give information about the person object without destructuring
-
-const getPersonInfo = obj => {
-  const skills = obj.skills
-  const formattedSkills = skills.slice(0, -1).join(', ')
-  const languages = obj.languages
-  const formattedLanguages = languages.slice(0, -1).join(', ')
-
-  personInfo = `${obj.firstName} ${obj.lastName} lives in ${obj.country}. He is  ${
-    obj.age
-  } years old. He is an ${obj.job}. He teaches ${formattedSkills} and ${
-    skills[skills.length - 1]
-  }. He speaks ${formattedLanguages} and a little bit of ${languages[2]}.`
-
-  return personInfo
-}
-
-console.log(getPersonInfo(person))
-```
-
-### Object parameter with destructuring
 
 ```js
 
@@ -1041,31 +996,6 @@ const calculatePerimeter = ({ width, height }) => {
 console.log(calculatePerimeter(rect)) // 60
 ```
 
-```js
-// Let us create a function which give information about the person object with destructuring
-const getPersonInfo = ({
-  firstName,
-  lastName,
-  age,
-  country,
-  job,
-  skills,
-  languages
-}) => {
-  const formattedSkills = skills.slice(0, -1).join(', ')
-  const formattedLanguages = languages.slice(0, -1).join(', ')
-
-  personInfo = `${firstName} ${lastName} lives in ${country}. He is ${age} years old. He is an ${job}. He teaches ${formattedSkills} and ${
-    skills[skills.length - 1]
-  }. He speaks ${formattedLanguages} and a little bit of ${languages[2]}.`
-
-  return personInfo
-}
-console.log(getPersonInfo(person))
-/*
-Asabeneh Yetayeh lives in Finland. He is  250 years old. He is an Instructor and Developer. He teaches HTML, CSS, JavaScript, React, Redux, Node, MongoDB, Python and D3.js. He speaks Amharic, English and a little bit of Suomi(Finnish)
-*/
-```
 
 ### Destructuring object during iteration
 
@@ -1099,7 +1029,7 @@ Give JS Test 4/1/2020 10:00 false
 Assess Test Result 4/1/2020 1:00 false
 ```
 
-### Spread or Rest Operator
+## Spread or Rest Operator
 
 When we destructure an array we use the spread operator(...) to get the rest elements as array. In addition to that we use spread operator to spread array elements to another array.
 
@@ -1118,31 +1048,6 @@ console.log(rest)
 [4, 5, 6, 7, 8, 9, 10]
 ```
 
-```js
-const countries = [
-  'Germany',
-  'France',
-  'Belgium',
-  'Finland',
-  'Sweden',
-  'Norway',
-  'Denmark',
-  'Iceland'
-]
-
-let [gem, fra, , ...nordicCountries] = countries
-
-console.log(gem)
-console.log(fra)
-console.log(nordicCountries)
-```
-
-```sh
-Germany
-France
-["Finland", "Sweden", "Norway", "Denmark", "Iceland"]
-```
-
 ### Spread operator to copy array
 
 ```js
@@ -1158,25 +1063,12 @@ console.log(evenNumbers)
 console.log(oddNumbers)
 console.log(wholeNumbers)
 
-
 ```
 
 ```sh
 [0, 2, 4, 6, 8, 10]
 [1, 3, 5, 7, 9]
 [0, 2, 4, 6, 8, 10, 1, 3, 5, 7, 9]
-```
-
-```js
-const frontEnd = ['HTML', 'CSS', 'JS', 'React']
-const backEnd = ['Node', 'Express', 'MongoDB']
-const fullStack = [...frontEnd, ...backEnd]
-
-console.log(fullStack)
-```
-
-```sh
-["HTML", "CSS", "JS", "React", "Node", "Express", "MongoDB"]
 ```
 
 ### Spread operator to copy object
@@ -1236,32 +1128,16 @@ sumAllNums(1, 2, 3, 4, 5)
 
 ```
 
-```js
 
-const sumAllNums = (...args) => {
-  let sum = 0
-  for (const num of args){
-    sum += num
-  }
-  return sum
-  
-}
-
-console.log(sumAllNums(1, 2, 3, 4, 5))
-```
-
-```sh
-15
-
-```
-
-# 📘 Day 12
+# Regular Expressions
 
 ## Regular Expressions
 
 A regular expression or RegExp is a small programming language that helps to find pattern in data. A RegExp can be used to check if some pattern exists in a different data types. To use RegExp in JavaScript either we use RegExp constructor or we can declare a RegExp pattern using two forward slashes followed by a flag. We can create a pattern in two ways.
 
-To declare a string we use a single quote, double quote a backtick to declare a regular expression we use two forward slashes and an optional flag. The flag could be g, i, m, s, u or y.
+To declare a string we use a single quote, double quote and backtick, to declare a regular expression we use two forward slashes and an optional flag. The flag could be g, i, m, s, u or y.
+
+(tor:grammer hatası var orjinalde)
 
 ### RegExp parameters
 
@@ -1269,7 +1145,7 @@ A regular expression takes two parameters. One required search pattern and an op
 
 #### Pattern
 
-A pattern could be a text or any form of pattern which some sort of similarity. For instance the word spam in an email could be a pattern we are interested to look for in an email or a phone number format number might be our interest to look for.
+A pattern could be a text or any form of pattern which some sort of similarity. For instance a phone number format number might be our interest to look for.
 
 #### Flags
 
@@ -1303,19 +1179,19 @@ Declaring a regex pattern using RegExp object. Writing the pattern and the flag 
 let regEx = new RegExp('love','gi')
 ```
 
-### Creating a pattern without RegExp Constructor
+### Creating a pattern with slashed (without RegExp Constructor)
 
 Declaring regular expression with global flag and case insensitive flag.
 
 ```js
 let regEx= /love/gi
-```
 
-The above regular expression is the same as the one which we created with RegExp constructor
-
-```js
+// same
 let regEx= new RegExp('love','gi')
+
 ```
+
+--*LINK - tbc
 
 ### RegExpp Object Methods
 

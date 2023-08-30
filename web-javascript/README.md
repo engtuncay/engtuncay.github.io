@@ -18,6 +18,15 @@
 
 [30 Days of Javascript(clone)](./30-Days-Of-JavaScript-master/readMe.md)
 
+
+
+CONTENT |Note|
+--- | -- |
+[Js Notes 1](./js-notes-1-tor.md) |
+[Js Notes 2](./js-notes-2-tor.md) |
+[Js Notes 3](./js-notes-3-tor.md) |
+[Js OOP](./js-notes-4-OOP-tor.md) |
+
 CONTENT |Note|
 --- | -- |
 [1-1 Intro and Syntax](./js-info/js-intro-01-01-intro-and-syntax.md) |
