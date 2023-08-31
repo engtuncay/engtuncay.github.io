@@ -1,48 +1,6 @@
-<div align="center">
-  <h1> 30 Days Of JavaScript: Data Types</h1>
-  <a class="header-badge" target="_blank" href="https://www.linkedin.com/in/asabeneh/">
-  <img src="https://img.shields.io/badge/style--5eba00.svg?label=LinkedIn&logo=linkedin&style=social">
-  </a>
-  <a class="header-badge" target="_blank" href="https://twitter.com/Asabeneh">
-  <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/asabeneh?style=social">
-  </a>
 
-  <sub>Author:
-  <a href="https://www.linkedin.com/in/asabeneh/" target="_blank">Asabeneh Yetayeh</a><br>
-  <small> January, 2020</small>
-  </sub>
-</div>
-</div>
 
-[<< Day 1](../readMe.md) | [Day 3 >>](../03_Day_Booleans_operators_date/03_booleans_operators_date.md)
 
-![Thirty Days Of JavaScript](../images/banners/day_1_2.png)
-
-- [📔 Day 2](#-day-2)
-  - [Data Types](#data-types)
-    - [Primitive Data Types](#primitive-data-types)
-    - [Non-Primitive Data Types](#non-primitive-data-types)
-  - [Numbers](#numbers)
-    - [Declaring Number Data Types](#declaring-number-data-types)
-    - [Math Object](#math-object)
-      - [Random Number Generator](#random-number-generator)
-  - [Strings](#strings)
-    - [String Concatenation](#string-concatenation)
-      - [Concatenating Using Addition Operator](#concatenating-using-addition-operator)
-      - [Long Literal Strings](#long-literal-strings)
-      - [Escape Sequences in Strings](#escape-sequences-in-strings)
-      - [Template Literals (Template Strings)](#template-literals-template-strings)
-    - [String Methods](#string-methods)
-  - [Checking Data Types and Casting](#checking-data-types-and-casting)
-    - [Checking Data Types](#checking-data-types)
-    - [Changing Data Type (Casting)](#changing-data-type-casting)
-      - [String to Int](#string-to-int)
-      - [String to Float](#string-to-float)
-      - [Float to Int](#float-to-int)
-  - [💻 Day 2: Exercises](#-day-2-exercises)
-    - [Exercise: Level 1](#exercise-level-1)
-    - [Exercise: Level 2](#exercise-level-2)
-    - [Exercises: Level 3](#exercises-level-3)
 
 # 📔 Day 2
 
@@ -899,82 +857,698 @@ console.log(numInt) // 9
 
 🌕  You are awesome. You have just completed day 2 challenges and you are two steps ahead on your way to greatness. Now do some exercises for your brain and for your muscle.  
 
-## 💻 Day 2: Exercises
 
-### Exercise: Level 1
+# 📔 Day 3
 
-1. Declare a variable named challenge and assign it to an initial value **'30 Days Of JavaScript'**.
-2. Print the string on the browser console using __console.log()__
-3. Print the __length__ of the string on the browser console using _console.log()_
-4. Change all the string characters to capital letters using __toUpperCase()__ method
-5. Change all the string characters to lowercase letters using __toLowerCase()__ method
-6. Cut (slice) out the first word of the string using __substr()__ or __substring()__ method
-7. Slice out the phrase *Days Of JavaScript* from *30 Days Of JavaScript*.
-8. Check if the string contains a word __Script__ using __includes()__ method
-9. Split the __string__ into an __array__ using __split()__ method
-10. Split the string 30 Days Of JavaScript at the space using __split()__ method
-11. 'Facebook, Google, Microsoft, Apple, IBM, Oracle, Amazon' __split__ the string at the comma and change it to an array.
-12. Change 30 Days Of JavaScript to 30 Days Of Python using __replace()__ method.
-13. What is character at index 15 in '30 Days Of JavaScript' string? Use __charAt()__ method.
-14. What is the character code of J in '30 Days Of JavaScript' string using __charCodeAt()__
-15. Use __indexOf__ to determine the position of the first occurrence of __a__ in 30 Days Of JavaScript
-16. Use __lastIndexOf__ to determine the position of the last occurrence of __a__ in 30 Days Of JavaScript.
-17. Use __indexOf__ to find the position of the first occurrence of the word __because__ in the following sentence:__'You cannot end a sentence with because because because is a conjunction'__
-18. Use __lastIndexOf__ to find the position of the last occurrence of the word __because__ in the following sentence:__'You cannot end a sentence with because because because is a conjunction'__
-19. Use __search__ to find the position of the first occurrence of the word __because__ in the following sentence:__'You cannot end a sentence with because because because is a conjunction'__
-20. Use __trim()__ to remove any trailing whitespace at the beginning and the end of a string.E.g ' 30 Days Of JavaScript '.
-21. Use __startsWith()__ method with the string *30 Days Of JavaScript* and make the result true
-22. Use __endsWith()__ method with the string *30 Days Of JavaScript* and make the result true
-23. Use __match()__ method to find all the __a__’s in 30 Days Of JavaScript
-24. Use __concat()__ and merge '30 Days of' and 'JavaScript' to a single string, '30 Days Of JavaScript'
-25. Use __repeat()__ method to print 30 Days Of JavaScript 2 times
+## Booleans
 
-### Exercise: Level 2
+A boolean data type represents one of the two values:_true_ or _false_. Boolean value is either true or false. The use of these data types will be clear when you start the comparison operator. Any comparisons return a boolean value which is either true or false.
 
-1. Using console.log() print out the following statement:
+**Example: Boolean Values**
 
-    ```sh
-    The quote 'There is no exercise better for the heart than reaching down and lifting people up.' by John Holmes teaches us to help one another.
-    ```
+```js
+let isLightOn = true
+let isRaining = false
+let isHungry = false
+let isMarried = true
+let truValue = 4 > 3    // true
+let falseValue = 4 < 3  // false
+```
 
-2. Using console.log() print out the following quote by Mother Teresa:
+We agreed that boolean values are either true or false.
 
-    ```sh
-    "Love is not patronizing and charity isn't about pity, it is about love. Charity and love are the same -- with charity you give love, so don't just give money but reach out your hand instead."
-    ```
+### Truthy values
 
-3. Check if typeof '10' is exactly equal to 10. If not make it exactly equal.
-4. Check if parseFloat('9.8') is equal to 10 if not make it exactly equal with 10.
-5. Check if 'on' is found in both python and jargon
-6. _I hope this course is not full of jargon_. Check if _jargon_ is in the sentence.
-7. Generate a random number between 0 and 100 inclusively.
-8. Generate a random number between 50 and 100 inclusively.
-9. Generate a random number between 0 and 255 inclusively.
-10. Access the 'JavaScript' string characters using a random number.
-11. Use console.log() and escape characters to print the following pattern.
+- All numbers(positive and negative) are truthy except zero
+- All strings are truthy except an empty string ('')
+- The boolean true
 
-    ```js
-    1 1 1 1 1
-    2 1 2 4 8
-    3 1 3 9 27
-    4 1 4 16 64
-    5 1 5 25 125
-    ```
+### Falsy values
 
-12.  Use __substr__ to slice out the phrase __because because because__ from the following sentence:__'You cannot end a sentence with because because because is a conjunction'__
+- 0
+- 0n
+- null
+- undefined
+- NaN
+- the boolean false
+- '', "", ``, empty string
 
-### Exercises: Level 3
+It is good to remember those truthy values and falsy values. In later section, we will use them with conditions to make decisions.
 
-1. 'Love is the best thing in this world. Some found their love and some are still looking for their love.' Count the number of word __love__ in this sentence.
-2. Use __match()__ to count the number of all __because__ in the following sentence:__'You cannot end a sentence with because because because is a conjunction'__
-3. Clean the following text and find the most frequent word (hint, use replace and regular expressions).
+## Undefined
 
-    ```js
-        const sentence = '%I $am@% a %tea@cher%, &and& I lo%#ve %te@a@ching%;. The@re $is no@th@ing; &as& mo@re rewarding as educa@ting &and& @emp%o@weri@ng peo@ple. ;I found tea@ching m%o@re interesting tha@n any ot#her %jo@bs. %Do@es thi%s mo@tiv#ate yo@u to be a tea@cher!? %Th#is 30#Days&OfJavaScript &is al@so $the $resu@lt of &love& of tea&ching'
-    ```
+If we declare a variable and if we do not assign a value, the value will be undefined. In addition to this, if a function is not returning the value, it will be undefined.
 
-4. Calculate the total annual income of the person by extracting the numbers from the following text. 'He earns 5000 euro from salary per month, 10000 euro annual bonus, 15000 euro online courses per month.'
+```js
+let firstName
+console.log(firstName) //not defined, because it is not assigned to a value yet
+```
 
-🎉 CONGRATULATIONS ! 🎉
+## Null
 
-[<< Day 1](../readMe.md) | [Day 3 >>](../03_Day_Booleans_operators_date/03_booleans_operators_date.md)
+```js
+let empty = null
+console.log(empty) // -> null , means no value
+```
+
+## Operators
+
+### Assignment operators
+
+An equal sign in JavaScript is an assignment operator. It uses to assign a variable.
+
+```js
+let firstName = 'Asabeneh'
+let country = 'Finland'
+```
+
+Assignment Operators
+
+![Assignment operators](../images/assignment_operators.png)
+
+### Arithmetic Operators
+
+Arithmetic operators are mathematical operators.
+
+- Addition(+): a + b
+- Subtraction(-): a - b
+- Multiplication(*): a * b
+- Division(/): a / b
+- Modulus(%): a % b
+- Exponential(**): a ** b
+
+```js
+let numOne = 4
+let numTwo = 3
+let sum = numOne + numTwo
+let diff = numOne - numTwo
+let mult = numOne * numTwo
+let div = numOne / numTwo
+let remainder = numOne % numTwo
+let powerOf = numOne ** numTwo
+
+console.log(sum, diff, mult, div, remainder, powerOf) // 7,1,12,1.33,1, 64
+
+```
+
+```js
+const PI = 3.14
+let radius = 100          // length in meter
+
+//Let us calculate area of a circle
+const areaOfCircle = PI * radius * radius
+console.log(areaOfCircle)  //  314 m
+
+
+const gravity = 9.81      // in m/s2
+let mass = 72             // in Kilogram
+
+// Let us calculate weight of an object
+const weight = mass * gravity
+console.log(weight)        // 706.32 N(Newton)
+
+const boilingPoint = 100  // temperature in oC, boiling point of water
+const bodyTemp = 37       // body temperature in oC
+
+
+// Concatenating string with numbers using string interpolation
+/*
+ The boiling point of water is 100 oC.
+ Human body temperature is 37 oC.
+ The gravity of earth is 9.81 m/s2.
+ */
+console.log(
+  `The boiling point of water is ${boilingPoint} oC.\nHuman body temperature is ${bodyTemp} oC.\nThe gravity of earth is ${gravity} m / s2.`
+)
+```
+
+### Comparison Operators
+
+In programming we compare values, we use comparison operators to compare two values. We check if a value is greater or less or equal to other value.
+
+![Comparison Operators](../images/comparison_operators.png)
+**Example: Comparison Operators**
+
+```js
+console.log(3 > 2)              // true, because 3 is greater than 2
+console.log(3 >= 2)             // true, because 3 is greater than 2
+console.log(3 < 2)              // false,  because 3 is greater than 2
+console.log(2 < 3)              // true, because 2 is less than 3
+console.log(2 <= 3)             // true, because 2 is less than 3
+console.log(3 == 2)             // false, because 3 is not equal to 2
+console.log(3 != 2)             // true, because 3 is not equal to 2
+console.log(3 == '3')           // true, compare only value
+console.log(3 === '3')          // false, compare both value and data type
+console.log(3 !== '3')          // true, compare both value and data type
+console.log(3 != 3)             // false, compare only value
+console.log(3 !== 3)            // false, compare both value and data type
+console.log(0 == false)         // true, equivalent
+console.log(0 === false)        // false, not exactly the same
+console.log(0 == '')            // true, equivalent
+console.log(0 == ' ')           // true, equivalent
+console.log(0 === '')           // false, not exactly the same
+console.log(1 == true)          // true, equivalent
+console.log(1 === true)         // false, not exactly the same
+console.log(undefined == null)  // true
+console.log(undefined === null) // false
+console.log(NaN == NaN)         // false, not equal
+console.log(NaN === NaN)        // false
+console.log(typeof NaN)         // number
+
+console.log('mango'.length == 'avocado'.length)  // false
+console.log('mango'.length != 'avocado'.length)  // true
+console.log('mango'.length < 'avocado'.length)   // true
+console.log('milk'.length == 'meat'.length)      // true
+console.log('milk'.length != 'meat'.length)      // false
+console.log('tomato'.length == 'potato'.length)  // true
+console.log('python'.length > 'dragon'.length)   // false
+```
+
+Try to understand the above comparisons with some logic. Remembering without any logic might be difficult.
+JavaScript is somehow a wired kind of programming language. JavaScript code run and give you a result but unless you are good at it may not be the desired result.
+
+As rule of thumb, if a value is not true with == it will not be equal with ===. Using === is safer than using ==. The following [link](https://dorey.github.io/JavaScript-Equality-Table/) has an exhaustive list of comparison of data types.
+
+### Logical Operators
+
+The following symbols are the common logical operators:
+&&(ampersand) , ||(pipe) and !(negation).
+The && operator gets true only if the two operands are true.
+The || operator gets true either of the operand is true.
+The ! operator negates true to false and false to true.
+
+```js
+// && ampersand operator example
+
+const check = 4 > 3 && 10 > 5         // true && true -> true
+const check = 4 > 3 && 10 < 5         // true && false -> false
+const check = 4 < 3 && 10 < 5         // false && false -> false
+
+// || pipe or operator, example
+
+const check = 4 > 3 || 10 > 5         // true  || true -> true
+const check = 4 > 3 || 10 < 5         // true  || false -> true
+const check = 4 < 3 || 10 < 5         // false || false -> false
+
+//! Negation examples
+
+let check = 4 > 3                     // true
+let check = !(4 > 3)                  //  false
+let isLightOn = true
+let isLightOff = !isLightOn           // false
+let isMarried = !false                // true
+```
+
+### Increment Operator
+
+In JavaScript we use the increment operator to increase a value stored in a variable. The increment could be pre or post increment. Let us see each of them:
+
+1. Pre-increment
+
+```js
+let count = 0
+console.log(++count)        // 1
+console.log(count)          // 1
+```
+
+1. Post-increment
+
+```js
+let count = 0
+console.log(count++)        // 0
+console.log(count)          // 1
+```
+
+We use most of the time post-increment. At least you should remember how to use post-increment operator.
+
+### Decrement Operator
+
+In JavaScript we use the decrement operator to decrease a value stored in a variable. The decrement could be pre or post decrement. Let us see each of them:
+
+1. Pre-decrement
+
+```js
+let count = 0
+console.log(--count) // -1
+console.log(count)  // -1
+```
+
+2. Post-decrement
+
+```js
+let count = 0
+console.log(count--) // 0
+console.log(count)   // -1
+```
+
+### Ternary Operators
+
+Ternary operator allows to write a condition.
+Another way to write conditionals is using ternary operators. Look at the following examples:
+
+```js
+let isRaining = true
+isRaining
+  ? console.log('You need a rain coat.')
+  : console.log('No need for a rain coat.')
+isRaining = false
+
+isRaining
+  ? console.log('You need a rain coat.')
+  : console.log('No need for a rain coat.')
+```
+
+```sh
+You need a rain coat.
+No need for a rain coat.
+```
+
+```js
+let number = 5
+number > 0
+  ? console.log(`${number} is a positive number`)
+  : console.log(`${number} is a negative number`)
+number = -5
+
+number > 0
+  ? console.log(`${number} is a positive number`)
+  : console.log(`${number} is a negative number`)
+```
+
+```sh
+5 is a positive number
+-5 is a negative number
+```
+
+### Operator Precedence
+
+I would like to recommend you to read about operator precedence from this [link](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence)
+
+## Window Methods
+
+### Window alert() method
+
+As you have seen at very beginning alert() method displays an alert box with a specified message and an OK button. It is a builtin method and it takes on argument.
+
+```js
+alert(message)
+```
+
+```js
+alert('Welcome to 30DaysOfJavaScript')
+```
+
+Do not use too much alert because it is destructing and annoying, use it just to test.
+
+### Window prompt() method
+
+The window prompt methods display a prompt box with an input on your browser to take input values and the input data can be stored in a variable. The prompt() method takes two arguments. The second argument is optional.
+
+```js
+prompt('required text', 'optional text')
+```
+
+```js
+let number = prompt('Enter number', 'number goes here')
+console.log(number)
+```
+
+### Window confirm() method
+
+The confirm() method displays a dialog box with a specified message, along with an OK and a Cancel button.
+A confirm box is often used to ask permission from a user to execute something. Window confirm() takes a string as an argument.
+Clicking the OK yields true value, whereas clicking the Cancel button yields false value.
+
+```js
+const agree = confirm('Are you sure you like to delete? ')
+console.log(agree) // result will be true or false based on what you click on the dialog box
+```
+
+These are not all the window methods we will have a separate section to go deep into window methods.
+
+## Date Object
+
+Time is an important thing. We like to know the time a certain activity or event. In JavaScript current time and date is created using JavaScript Date Object. The object we create using Date object provides many methods to work with date and time.The methods we use to get date and time information from a date object values are started with a word _get_ because it provide the information.
+_getFullYear(), getMonth(), getDate(), getDay(), getHours(), getMinutes, getSeconds(), getMilliseconds(), getTime(), getDay()_
+
+![Date time Object](../images/date_time_object.png)
+
+### Creating a time object
+
+Once we create time object. The time object will provide information about time. Let us create a time object
+
+```js
+const now = new Date()
+console.log(now) // Sat Jan 04 2020 00:56:41 GMT+0200 (Eastern European Standard Time)
+```
+
+We have created a time object and we can access any date time information from the object using the get methods we have mentioned on the table.
+
+### Getting full year
+
+Let's extract or get the full year from a time object.
+
+```js
+const now = new Date()
+console.log(now.getFullYear()) // 2020
+```
+
+### Getting month
+
+Let's extract or get the month from a time object.
+
+```js
+const now = new Date()
+console.log(now.getMonth()) // 0, because the month is January,  month(0-11)
+```
+
+### Getting date
+
+Let's extract or get the date of the month from a time object.
+
+```js
+const now = new Date()
+console.log(now.getDate()) // 4, because the day of the month is 4th,  day(1-31)
+```
+
+### Getting day
+
+Let's extract or get the day of the week from a time object.
+
+```js
+const now = new Date()
+console.log(now.getDay()) // 6, because the day is Saturday which is the 7th day
+//  Sunday is 0, Monday is 1 and Saturday is 6
+// Getting the weekday as a number (0-6)
+```
+
+### Getting hours
+
+Let's extract or get the hours from a time object.
+
+```js
+const now = new Date()
+console.log(now.getHours()) // 0, because the time is 00:56:41
+```
+
+### Getting minutes
+
+Let's extract or get the minutes from a time object.
+
+```js
+const now = new Date()
+console.log(now.getMinutes()) // 56, because the time is 00:56:41
+```
+
+### Getting seconds
+
+Let's extract or get the seconds from a time object.
+
+```js
+const now = new Date()
+console.log(now.getSeconds()) // 41, because the time is 00:56:41
+```
+
+### Getting time
+
+This method give time in milliseconds starting from January 1, 1970. It is also know as Unix time. We can get the unix time in two ways:
+
+1. Using _getTime()_
+
+```js
+const now = new Date() //
+console.log(now.getTime()) // 1578092201341, this is the number of seconds passed from January 1, 1970 to January 4, 2020 00:56:41
+```
+
+1. Using _Date.now()_
+
+```js
+const allSeconds = Date.now() //
+console.log(allSeconds) // 1578092201341, this is the number of seconds passed from January 1, 1970 to January 4, 2020 00:56:41
+
+const timeInSeconds = new Date().getTime()
+console.log(allSeconds == timeInSeconds) // true
+```
+
+Let us format these values to a human readable time format.
+**Example:**
+
+```js
+const now = new Date()
+const year = now.getFullYear() // return year
+const month = now.getMonth() + 1 // return month(0 - 11)
+const date = now.getDate() // return date (1 - 31)
+const hours = now.getHours() // return number (0 - 23)
+const minutes = now.getMinutes() // return number (0 -59)
+
+console.log(`${date}/${month}/${year} ${hours}:${minutes}`) // 4/1/2020 0:56
+```
+
+🌕  You have boundless energy. You have just completed day 3 challenges and you are three steps a head in to your way to greatness. Now do some exercises for your brain and for your muscle.
+
+# 📔 Day 4
+
+## Conditionals
+
+Conditional statements are used for  make decisions based on different conditions.
+By default , statements in JavaScript script executed sequentially from top to bottom. If the processing logic require so, the sequential flow of execution can be altered in two ways:
+
+- Conditional execution: a block of one or more statements will be executed if a certain expression is true
+- Repetitive execution: a block of one or more statements will be repetitively executed as long as a certain expression is true. In this section, we will cover _if_, _else_ , _else if_ statements. The comparison and logical operators we learned in the previous sections will be useful in here.
+
+Conditions can be implementing using the following ways:
+
+- if
+- if else
+- if else if else
+- switch
+- ternary operator
+
+### If
+
+In JavaScript and other programming languages the key word _if_ is to used check if a condition is true and to execute the block code. To create an if condition, we need _if_ keyword, condition inside a parenthesis and block of code inside a curly bracket({}).
+
+```js
+// syntax
+if (condition) {
+  //this part of code runs for truthy condition
+}
+```
+
+**Example:**
+
+```js
+let num = 3
+if (num > 0) {
+  console.log(`${num} is a positive number`)
+}
+//  3 is a positive number
+```
+
+As you can see in the  condition example above, 3 is greater than 0, so it is a positive number. The condition was true and the block of code was executed. However, if the condition is false, we won't  see any results.
+
+```js
+let isRaining = true
+if (isRaining) {
+  console.log('Remember to take your rain coat.')
+}
+```
+
+ The same goes for the second condition, if isRaining is false the if block will not be executed and we do not see any output. In order to see the result of a falsy condition, we should have another block, which is going to be _else_.
+
+### If Else
+
+If condition is true the first block will be executed, if not the else condition will be executed.
+
+```js
+// syntax
+if (condition) {
+  // this part of code runs for truthy condition
+} else {
+  // this part of code runs for false condition
+}
+```
+
+```js
+let num = 3
+if (num > 0) {
+  console.log(`${num} is a positive number`)
+} else {
+  console.log(`${num} is a negative number`)
+}
+//  3 is a positive number
+
+num = -3
+if (num > 0) {
+  console.log(`${num} is a positive number`)
+} else {
+  console.log(`${num} is a negative number`)
+}
+//  -3 is a negative number
+```
+
+```js
+let isRaining = true
+if (isRaining) {
+  console.log('You need a rain coat.')
+} else {
+  console.log('No need for a rain coat.')
+}
+// You need a rain coat.
+
+isRaining = false
+if (isRaining) {
+  console.log('You need a rain coat.')
+} else {
+  console.log('No need for a rain coat.')
+}
+// No need for a rain coat.
+```
+
+The last condition is false, therefore the else block was executed. What if we have more than two conditions? In that case,  we would use *else if* conditions.
+
+### If  Else if Else
+
+On our daily life, we make decisions on daily basis. We make decisions not by checking  one or two conditions instead we make decisions based on multiple conditions. As similar to our daily life, programming is also full of conditions. We use *else if* when we have multiple conditions.
+
+```js
+// syntax
+if (condition) {
+     // code
+} else if (condition) {
+   // code
+} else {
+    //  code
+
+}
+```
+
+**Example:**
+
+```js
+let a = 0
+if (a > 0) {
+  console.log(`${a} is a positive number`)
+} else if (a < 0) {
+  console.log(`${a} is a negative number`)
+} else if (a == 0) {
+  console.log(`${a} is zero`)
+} else {
+  console.log(`${a} is not a number`)
+}
+```
+
+```js
+// if else if else
+let weather = 'sunny'
+if (weather === 'rainy') {
+  console.log('You need a rain coat.')
+} else if (weather === 'cloudy') {
+  console.log('It might be cold, you need a jacket.')
+} else if (weather === 'sunny') {
+  console.log('Go out freely.')
+} else {
+  console.log('No need for rain coat.')
+}
+```
+
+### Switch
+
+Switch  is an alternative for **if else if else else**.
+The switch statement starts with a *switch* keyword followed by a parenthesis and code block. Inside the code block we will have different cases. Case block runs if the value in the switch statement parenthesis matches with the case value. The break statement is to terminate execution so the code execution  does not go down after the condition is satisfied.  The default block runs if all the cases don't satisfy the condition.
+
+```js
+switch(caseValue){
+  case 1:
+    // code
+    break
+  case 2:
+   // code
+   break
+  case 3:
+   // code
+   break
+  default:
+   // code
+}
+```
+
+```js
+let weather = 'cloudy'
+switch (weather) {
+  case 'rainy':
+    console.log('You need a rain coat.')
+    break
+  case 'cloudy':
+    console.log('It might be cold, you need a jacket.')
+    break
+  case 'sunny':
+    console.log('Go out freely.')
+    break
+  default:
+    console.log(' No need for rain coat.')
+}
+
+// Switch More Examples
+let dayUserInput = prompt('What day is today ?')
+let day = dayUserInput.toLowerCase()
+
+switch (day) {
+  case 'monday':
+    console.log('Today is Monday')
+    break
+  case 'tuesday':
+    console.log('Today is Tuesday')
+    break
+  case 'wednesday':
+    console.log('Today is Wednesday')
+    break
+  case 'thursday':
+    console.log('Today is Thursday')
+    break
+  case 'friday':
+    console.log('Today is Friday')
+    break
+  case 'saturday':
+    console.log('Today is Saturday')
+    break
+  case 'sunday':
+    console.log('Today is Sunday')
+    break
+  default:
+    console.log('It is not a week day.')
+}
+
+```
+
+// Examples to use conditions in the cases
+
+```js
+let num = prompt('Enter number');
+switch (true) {
+  case num > 0:
+    console.log('Number is positive');
+    break;
+  case num == 0:
+    console.log('Numbers is zero');
+    break;
+  case num < 0:
+    console.log('Number is negative');
+    break;
+  default:
+    console.log('Entered value was not a number');
+}
+```
+
+### Ternary Operators
+
+Another way to write conditionals is using ternary operators. We have covered this in other sections, but we should also mention it here.
+
+```js
+let isRaining = true
+isRaining
+  ? console.log('You need a rain coat.')
+  : console.log('No need for a rain coat.')
+```
+
+🌕  You are extraordinary and you have a remarkable potential. You have just completed day 4 challenges and you are four steps ahead to your way to greatness. Now do some exercises for your brain and  muscle.  
