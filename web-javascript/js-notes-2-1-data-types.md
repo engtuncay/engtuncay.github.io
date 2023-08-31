@@ -1,8 +1,71 @@
 
+- [Sources](#sources)
+- [Data Types (1)](#data-types-1)
+  - [Data Types](#data-types)
+    - [Primitive Data Types](#primitive-data-types)
+    - [Non-Primitive Data Types](#non-primitive-data-types)
+  - [Numbers](#numbers)
+    - [Declaring Number Data Types](#declaring-number-data-types)
+    - [Math Object](#math-object)
+      - [Random Number Generator](#random-number-generator)
+  - [Strings](#strings)
+    - [String Concatenation](#string-concatenation)
+      - [Concatenating Using Addition Operator](#concatenating-using-addition-operator)
+      - [Long Literal Strings](#long-literal-strings)
+      - [Escape Sequences in Strings](#escape-sequences-in-strings)
+      - [Template Literals (Template Strings)](#template-literals-template-strings)
+    - [String Methods](#string-methods)
+  - [Checking Data Types and Casting](#checking-data-types-and-casting)
+    - [Checking Data Types](#checking-data-types)
+    - [Changing Data Type (Casting)](#changing-data-type-casting)
+      - [String to Int](#string-to-int)
+      - [String to Float](#string-to-float)
+      - [Float to Int](#float-to-int)
+  - [Booleans](#booleans)
+    - [Truthy values](#truthy-values)
+    - [Falsy values](#falsy-values)
+  - [Undefined](#undefined)
+  - [Null](#null)
+- [Data Types (2)](#data-types-2)
+  - [Array](#array)
+    - [Creating Array](#creating-array)
+    - [Methods to manipulate array](#methods-to-manipulate-array)
+      - [Array](#array-1)
+    - [fill(myPrimValue)](#fillmyprimvalue)
+      - [length](#length)
+    - [indexOf(checkValue)](#indexofcheckvalue)
+      - [lastIndexOf(checkValue)](#lastindexofcheckvalue)
+      - [includes(checkValue) : returns boolean](#includescheckvalue--returns-boolean)
+      - [Array.isArray(identifierName)](#arrayisarrayidentifiername)
+      - [slice(delimiterValue)](#slicedelimitervalue)
+      - [toString()](#tostring)
+      - [join()](#join)
+      - [concat(anotherArray)](#concatanotherarray)
+      - [slice() : cut out an array](#slice--cut-out-an-array)
+      - [splice](#splice)
+      - [push(myValue)](#pushmyvalue)
+    - [pop(myValue)](#popmyvalue)
+      - [shift()](#shift)
+      - [unshift](#unshift)
+      - [reverse()](#reverse)
+      - [sort](#sort)
+    - [Array of Arrays](#array-of-arrays)
+  - [Date Object](#date-object)
+    - [Creating a time object](#creating-a-time-object)
+    - [Getting full year](#getting-full-year)
+    - [Getting month](#getting-month)
+    - [Getting date](#getting-date)
+    - [Getting day](#getting-day)
+    - [Getting hours](#getting-hours)
+    - [Getting minutes](#getting-minutes)
+    - [Getting seconds](#getting-seconds)
+    - [Getting time](#getting-time)
 
+# Sources
 
+- Main source, https://github.com/Asabeneh/30-Days-Of-JavaScript 
 
-# 📔 Day 2
+# Data Types (1)
 
 ## Data Types
 
@@ -858,8 +921,6 @@ console.log(numInt) // 9
 🌕  You are awesome. You have just completed day 2 challenges and you are two steps ahead on your way to greatness. Now do some exercises for your brain and for your muscle.  
 
 
-# 📔 Day 3
-
 ## Booleans
 
 A boolean data type represents one of the two values:_true_ or _false_. Boolean value is either true or false. The use of these data types will be clear when you start the comparison operator. Any comparisons return a boolean value which is either true or false.
@@ -911,280 +972,214 @@ let empty = null
 console.log(empty) // -> null , means no value
 ```
 
-## Operators
+# Data Types (2)
 
-### Assignment operators
+## Array
 
-An equal sign in JavaScript is an assignment operator. It uses to assign a variable.
-
-```js
-let firstName = 'Asabeneh'
-let country = 'Finland'
-```
-
-Assignment Operators
-
-![Assignment operators](../images/assignment_operators.png)
-
-### Arithmetic Operators
-
-Arithmetic operators are mathematical operators.
-
-- Addition(+): a + b
-- Subtraction(-): a - b
-- Multiplication(*): a * b
-- Division(/): a / b
-- Modulus(%): a % b
-- Exponential(**): a ** b
+### Creating Array
 
 ```js
-let numOne = 4
-let numTwo = 3
-let sum = numOne + numTwo
-let diff = numOne - numTwo
-let mult = numOne * numTwo
-let div = numOne / numTwo
-let remainder = numOne % numTwo
-let powerOf = numOne ** numTwo
+let arr = Array()
+// or new Array()
 
-console.log(sum, diff, mult, div, remainder, powerOf) // 7,1,12,1.33,1, 64
+// This the most recommended way to create an empty list
+let arr = []
 
 ```
 
 ```js
-const PI = 3.14
-let radius = 100          // length in meter
+const numbers = [0, 3.14, 9.81, 37, 98.6, 100] // array of numbers
+const fruits = ['banana', 'orange', 'mango', 'lemon'] // array of strings, fruits
 
-//Let us calculate area of a circle
-const areaOfCircle = PI * radius * radius
-console.log(areaOfCircle)  //  314 m
-
-
-const gravity = 9.81      // in m/s2
-let mass = 72             // in Kilogram
-
-// Let us calculate weight of an object
-const weight = mass * gravity
-console.log(weight)        // 706.32 N(Newton)
-
-const boilingPoint = 100  // temperature in oC, boiling point of water
-const bodyTemp = 37       // body temperature in oC
-
-
-// Concatenating string with numbers using string interpolation
-/*
- The boiling point of water is 100 oC.
- Human body temperature is 37 oC.
- The gravity of earth is 9.81 m/s2.
- */
-console.log(
-  `The boiling point of water is ${boilingPoint} oC.\nHuman body temperature is ${bodyTemp} oC.\nThe gravity of earth is ${gravity} m / s2.`
-)
+const arr = [
+    'Asabeneh',
+    250,
+    true,
+    { country: 'Finland', city: 'Helsinki' },
+    { skills: ['HTML', 'CSS', 'JS', 'React', 'Python'] }
+] // arr containing different data types
 ```
 
-### Comparison Operators
-
-In programming we compare values, we use comparison operators to compare two values. We check if a value is greater or less or equal to other value.
-
-![Comparison Operators](../images/comparison_operators.png)
-**Example: Comparison Operators**
+- Creating array using split
 
 ```js
-console.log(3 > 2)              // true, because 3 is greater than 2
-console.log(3 >= 2)             // true, because 3 is greater than 2
-console.log(3 < 2)              // false,  because 3 is greater than 2
-console.log(2 < 3)              // true, because 2 is less than 3
-console.log(2 <= 3)             // true, because 2 is less than 3
-console.log(3 == 2)             // false, because 3 is not equal to 2
-console.log(3 != 2)             // true, because 3 is not equal to 2
-console.log(3 == '3')           // true, compare only value
-console.log(3 === '3')          // false, compare both value and data type
-console.log(3 !== '3')          // true, compare both value and data type
-console.log(3 != 3)             // false, compare only value
-console.log(3 !== 3)            // false, compare both value and data type
-console.log(0 == false)         // true, equivalent
-console.log(0 === false)        // false, not exactly the same
-console.log(0 == '')            // true, equivalent
-console.log(0 == ' ')           // true, equivalent
-console.log(0 === '')           // false, not exactly the same
-console.log(1 == true)          // true, equivalent
-console.log(1 === true)         // false, not exactly the same
-console.log(undefined == null)  // true
-console.log(undefined === null) // false
-console.log(NaN == NaN)         // false, not equal
-console.log(NaN === NaN)        // false
-console.log(typeof NaN)         // number
+let companiesString = 'Facebook, Google, Microsoft, Apple, IBM, Oracle, Amazon'
+const companies = companiesString.split(',')
 
-console.log('mango'.length == 'avocado'.length)  // false
-console.log('mango'.length != 'avocado'.length)  // true
-console.log('mango'.length < 'avocado'.length)   // true
-console.log('milk'.length == 'meat'.length)      // true
-console.log('milk'.length != 'meat'.length)      // false
-console.log('tomato'.length == 'potato'.length)  // true
-console.log('python'.length > 'dragon'.length)   // false
+console.log(companies) // ["Facebook", " Google", " Microsoft", " Apple", " IBM", " Oracle", " Amazon"]
+
+
+let js = 'JavaScript'
+const charsInJavaScript = js.split('')
+
+console.log(charsInJavaScript) // ["J", "a", "v", "a", "S", "c", "r", "i", "p", "t"]
+
 ```
+ 
+✏ you can split with white space also.
 
-Try to understand the above comparisons with some logic. Remembering without any logic might be difficult.
-JavaScript is somehow a wired kind of programming language. JavaScript code run and give you a result but unless you are good at it may not be the desired result.
+### Methods to manipulate array
 
-As rule of thumb, if a value is not true with == it will not be equal with ===. Using === is safer than using ==. The following [link](https://dorey.github.io/JavaScript-Equality-Table/) has an exhaustive list of comparison of data types.
+#### Array
 
-### Logical Operators
+Array(8) : // it creates an array sized 8
 
-The following symbols are the common logical operators:
-&&(ampersand) , ||(pipe) and !(negation).
-The && operator gets true only if the two operands are true.
-The || operator gets true either of the operand is true.
-The ! operator negates true to false and false to true.
+### fill(myPrimValue)
+
+fill all the array elements with a static value
 
 ```js
-// && ampersand operator example
-
-const check = 4 > 3 && 10 > 5         // true && true -> true
-const check = 4 > 3 && 10 < 5         // true && false -> false
-const check = 4 < 3 && 10 < 5         // false && false -> false
-
-// || pipe or operator, example
-
-const check = 4 > 3 || 10 > 5         // true  || true -> true
-const check = 4 > 3 || 10 < 5         // true  || false -> true
-const check = 4 < 3 || 10 < 5         // false || false -> false
-
-//! Negation examples
-
-let check = 4 > 3                     // true
-let check = !(4 > 3)                  //  false
-let isLightOn = true
-let isLightOff = !isLightOn           // false
-let isMarried = !false                // true
+const eight0values = Array(8).fill(0) // it creates eight element values filled with '0'
+console.log(eight0values) // [0, 0, 0, 0, 0, 0, 0, 0]
 ```
 
-### Increment Operator
+#### length
 
-In JavaScript we use the increment operator to increase a value stored in a variable. The increment could be pre or post increment. Let us see each of them:
+arrayIdentifier.length --> lenght is a identifier
 
-1. Pre-increment
+### indexOf(checkValue) 
+
+it returns index value of the check value.
+
+#### lastIndexOf(checkValue)
+
+it returns index value of the check value reversely. (tersten sırasını verir)
+
+#### includes(checkValue) : returns boolean
+
+#### Array.isArray(identifierName)
+
+#### slice(delimiterValue)
+
+it slice according to delimiter value.
+
+#### toString()
+
+converts array to string comma delimited.
+
+#### join() 
+
+it returns comma joined values of the array
+
+join(delimiterValue) : different delimiter can be used.
+
+`myArray.join("#");`
+
+#### concat(anotherArray)
+
+combines arrays.
+
+#### slice() : cut out an array
+
+it doesnt include the ending position.
 
 ```js
-let count = 0
-console.log(++count)        // 1
-console.log(count)          // 1
+slice()  // -> all items
+slice(0) // -> all items
+slice(0,myArray.length) // -> all item
+slice(1,4) // -> slice [2,3,4]
+
 ```
 
-1. Post-increment
+#### splice
+
+Syntax
 
 ```js
-let count = 0
-console.log(count++)        // 0
-console.log(count)          // 1
+myArray.splice(lnStartPos,numOfItems,itemsToAdd);
 ```
 
-We use most of the time post-increment. At least you should remember how to use post-increment operator.
-
-### Decrement Operator
-
-In JavaScript we use the decrement operator to decrease a value stored in a variable. The decrement could be pre or post decrement. Let us see each of them:
-
-1. Pre-decrement
+Exs:
 
 ```js
-let count = 0
-console.log(--count) // -1
-console.log(count)  // -1
-```
-
-2. Post-decrement
-
-```js
-let count = 0
-console.log(count--) // 0
-console.log(count)   // -1
-```
-
-### Ternary Operators
-
-Ternary operator allows to write a condition.
-Another way to write conditionals is using ternary operators. Look at the following examples:
-
-```js
-let isRaining = true
-isRaining
-  ? console.log('You need a rain coat.')
-  : console.log('No need for a rain coat.')
-isRaining = false
-
-isRaining
-  ? console.log('You need a rain coat.')
-  : console.log('No need for a rain coat.')
-```
-
-```sh
-You need a rain coat.
-No need for a rain coat.
+const numbers = [1, 2, 3, 4, 5]
+  numbers.splice()
+  console.log(numbers)                // -> remove all items
 ```
 
 ```js
-let number = 5
-number > 0
-  ? console.log(`${number} is a positive number`)
-  : console.log(`${number} is a negative number`)
-number = -5
-
-number > 0
-  ? console.log(`${number} is a positive number`)
-  : console.log(`${number} is a negative number`)
-```
-
-```sh
-5 is a positive number
--5 is a negative number
-```
-
-### Operator Precedence
-
-I would like to recommend you to read about operator precedence from this [link](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence)
-
-## Window Methods
-
-### Window alert() method
-
-As you have seen at very beginning alert() method displays an alert box with a specified message and an OK button. It is a builtin method and it takes on argument.
-
-```js
-alert(message)
+  const numbers = [1, 2, 3, 4, 5]
+	numbers.splice(0,1)
+  console.log(numbers)            // remove the first item
 ```
 
 ```js
-alert('Welcome to 30DaysOfJavaScript')
+const numbers = [1, 2, 3, 4, 5, 6]
+	numbers.splice(3, 3, 7, 8, 9)
+  console.log(numbers.splice(3, 3, 7, 8, 9))  // -> [1, 2, 3, 7, 8, 9] //it removes three item and replace three items
+
 ```
 
-Do not use too much alert because it is destructing and annoying, use it just to test.
+#### push(myValue)
 
-### Window prompt() method
+adding item in the end.
 
-The window prompt methods display a prompt box with an input on your browser to take input values and the input data can be stored in a variable. The prompt() method takes two arguments. The second argument is optional.
+### pop(myValue)
+
+Removing item in the end.
+
+#### shift()
+
+Removing one array element in the beginning of the array.
 
 ```js
-prompt('required text', 'optional text')
+const numbers = [1, 2, 3, 4, 5]
+numbers.shift() // -> remove one item from the beginning
+console.log(numbers) // -> [2,3,4,5]
 ```
+
+#### unshift
+
+Adding array element in the beginning of the array.
 
 ```js
-let number = prompt('Enter number', 'number goes here')
-console.log(number)
+const numbers = [1, 2, 3, 4, 5]
+numbers.unshift(0) // -> add one item from the beginning
+console.log(numbers) // -> [0,1,2,3,4,5]
 ```
 
-### Window confirm() method
+#### reverse()
 
-The confirm() method displays a dialog box with a specified message, along with an OK and a Cancel button.
-A confirm box is often used to ask permission from a user to execute something. Window confirm() takes a string as an argument.
-Clicking the OK yields true value, whereas clicking the Cancel button yields false value.
+reverse the order of an array.
 
 ```js
-const agree = confirm('Are you sure you like to delete? ')
-console.log(agree) // result will be true or false based on what you click on the dialog box
+const numbers = [1, 2, 3, 4, 5]
+numbers.reverse() // -> reverse array order
+console.log(numbers) // [5, 4, 3, 2, 1]
 ```
 
-These are not all the window methods we will have a separate section to go deep into window methods.
+#### sort
+
+```js
+const webTechs = [
+  'HTML',
+  'CSS',
+  'JavaScript',
+  'React',
+  'Redux',
+  'Node',
+  'MongoDB'
+]
+
+webTechs.sort()
+console.log(webTechs) // ["CSS", "HTML", "JavaScript", "MongoDB", "Node", "React", "Redux"]
+
+webTechs.reverse() // after sorting we can reverse it
+console.log(webTechs) // ["Redux", "React", "Node", "MongoDB", "JavaScript", "HTML", "CSS"]
+```
+
+sorting with a callback function later.
+
+### Array of Arrays
+
+```js
+const firstNums = [1, 2, 3]
+const secondNums = [1, 4, 9]
+
+const arrayOfArray =  [[1, 2, 3], [1, 2, 3]]
+console.log(arrayOfArray[0]) // [1, 2, 3]
+```
+
 
 ## Date Object
 
@@ -1303,252 +1298,3 @@ const minutes = now.getMinutes() // return number (0 -59)
 
 console.log(`${date}/${month}/${year} ${hours}:${minutes}`) // 4/1/2020 0:56
 ```
-
-🌕  You have boundless energy. You have just completed day 3 challenges and you are three steps a head in to your way to greatness. Now do some exercises for your brain and for your muscle.
-
-# 📔 Day 4
-
-## Conditionals
-
-Conditional statements are used for  make decisions based on different conditions.
-By default , statements in JavaScript script executed sequentially from top to bottom. If the processing logic require so, the sequential flow of execution can be altered in two ways:
-
-- Conditional execution: a block of one or more statements will be executed if a certain expression is true
-- Repetitive execution: a block of one or more statements will be repetitively executed as long as a certain expression is true. In this section, we will cover _if_, _else_ , _else if_ statements. The comparison and logical operators we learned in the previous sections will be useful in here.
-
-Conditions can be implementing using the following ways:
-
-- if
-- if else
-- if else if else
-- switch
-- ternary operator
-
-### If
-
-In JavaScript and other programming languages the key word _if_ is to used check if a condition is true and to execute the block code. To create an if condition, we need _if_ keyword, condition inside a parenthesis and block of code inside a curly bracket({}).
-
-```js
-// syntax
-if (condition) {
-  //this part of code runs for truthy condition
-}
-```
-
-**Example:**
-
-```js
-let num = 3
-if (num > 0) {
-  console.log(`${num} is a positive number`)
-}
-//  3 is a positive number
-```
-
-As you can see in the  condition example above, 3 is greater than 0, so it is a positive number. The condition was true and the block of code was executed. However, if the condition is false, we won't  see any results.
-
-```js
-let isRaining = true
-if (isRaining) {
-  console.log('Remember to take your rain coat.')
-}
-```
-
- The same goes for the second condition, if isRaining is false the if block will not be executed and we do not see any output. In order to see the result of a falsy condition, we should have another block, which is going to be _else_.
-
-### If Else
-
-If condition is true the first block will be executed, if not the else condition will be executed.
-
-```js
-// syntax
-if (condition) {
-  // this part of code runs for truthy condition
-} else {
-  // this part of code runs for false condition
-}
-```
-
-```js
-let num = 3
-if (num > 0) {
-  console.log(`${num} is a positive number`)
-} else {
-  console.log(`${num} is a negative number`)
-}
-//  3 is a positive number
-
-num = -3
-if (num > 0) {
-  console.log(`${num} is a positive number`)
-} else {
-  console.log(`${num} is a negative number`)
-}
-//  -3 is a negative number
-```
-
-```js
-let isRaining = true
-if (isRaining) {
-  console.log('You need a rain coat.')
-} else {
-  console.log('No need for a rain coat.')
-}
-// You need a rain coat.
-
-isRaining = false
-if (isRaining) {
-  console.log('You need a rain coat.')
-} else {
-  console.log('No need for a rain coat.')
-}
-// No need for a rain coat.
-```
-
-The last condition is false, therefore the else block was executed. What if we have more than two conditions? In that case,  we would use *else if* conditions.
-
-### If  Else if Else
-
-On our daily life, we make decisions on daily basis. We make decisions not by checking  one or two conditions instead we make decisions based on multiple conditions. As similar to our daily life, programming is also full of conditions. We use *else if* when we have multiple conditions.
-
-```js
-// syntax
-if (condition) {
-     // code
-} else if (condition) {
-   // code
-} else {
-    //  code
-
-}
-```
-
-**Example:**
-
-```js
-let a = 0
-if (a > 0) {
-  console.log(`${a} is a positive number`)
-} else if (a < 0) {
-  console.log(`${a} is a negative number`)
-} else if (a == 0) {
-  console.log(`${a} is zero`)
-} else {
-  console.log(`${a} is not a number`)
-}
-```
-
-```js
-// if else if else
-let weather = 'sunny'
-if (weather === 'rainy') {
-  console.log('You need a rain coat.')
-} else if (weather === 'cloudy') {
-  console.log('It might be cold, you need a jacket.')
-} else if (weather === 'sunny') {
-  console.log('Go out freely.')
-} else {
-  console.log('No need for rain coat.')
-}
-```
-
-### Switch
-
-Switch  is an alternative for **if else if else else**.
-The switch statement starts with a *switch* keyword followed by a parenthesis and code block. Inside the code block we will have different cases. Case block runs if the value in the switch statement parenthesis matches with the case value. The break statement is to terminate execution so the code execution  does not go down after the condition is satisfied.  The default block runs if all the cases don't satisfy the condition.
-
-```js
-switch(caseValue){
-  case 1:
-    // code
-    break
-  case 2:
-   // code
-   break
-  case 3:
-   // code
-   break
-  default:
-   // code
-}
-```
-
-```js
-let weather = 'cloudy'
-switch (weather) {
-  case 'rainy':
-    console.log('You need a rain coat.')
-    break
-  case 'cloudy':
-    console.log('It might be cold, you need a jacket.')
-    break
-  case 'sunny':
-    console.log('Go out freely.')
-    break
-  default:
-    console.log(' No need for rain coat.')
-}
-
-// Switch More Examples
-let dayUserInput = prompt('What day is today ?')
-let day = dayUserInput.toLowerCase()
-
-switch (day) {
-  case 'monday':
-    console.log('Today is Monday')
-    break
-  case 'tuesday':
-    console.log('Today is Tuesday')
-    break
-  case 'wednesday':
-    console.log('Today is Wednesday')
-    break
-  case 'thursday':
-    console.log('Today is Thursday')
-    break
-  case 'friday':
-    console.log('Today is Friday')
-    break
-  case 'saturday':
-    console.log('Today is Saturday')
-    break
-  case 'sunday':
-    console.log('Today is Sunday')
-    break
-  default:
-    console.log('It is not a week day.')
-}
-
-```
-
-// Examples to use conditions in the cases
-
-```js
-let num = prompt('Enter number');
-switch (true) {
-  case num > 0:
-    console.log('Number is positive');
-    break;
-  case num == 0:
-    console.log('Numbers is zero');
-    break;
-  case num < 0:
-    console.log('Number is negative');
-    break;
-  default:
-    console.log('Entered value was not a number');
-}
-```
-
-### Ternary Operators
-
-Another way to write conditionals is using ternary operators. We have covered this in other sections, but we should also mention it here.
-
-```js
-let isRaining = true
-isRaining
-  ? console.log('You need a rain coat.')
-  : console.log('No need for a rain coat.')
-```
-
-🌕  You are extraordinary and you have a remarkable potential. You have just completed day 4 challenges and you are four steps ahead to your way to greatness. Now do some exercises for your brain and  muscle.  

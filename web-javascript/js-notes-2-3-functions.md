@@ -1,40 +1,8 @@
 
-**Sources**
-
-- https://github.com/Asabeneh/30-Days-Of-JavaScript (main source)
 
 
-- [Array](#array)
-  - [Creating Array](#creating-array)
-  - [Methods to manipulate array](#methods-to-manipulate-array)
-    - [Array](#array-1)
-    - [fill(myPrimValue)](#fillmyprimvalue)
-    - [length](#length)
-    - [indexOf(checkValue)](#indexofcheckvalue)
-    - [lastIndexOf(checkValue)](#lastindexofcheckvalue)
-    - [includes(checkValue) : returns boolean](#includescheckvalue--returns-boolean)
-    - [Array.isArray(identifierName)](#arrayisarrayidentifiername)
-    - [slice(delimiterValue)](#slicedelimitervalue)
-    - [toString()](#tostring)
-    - [join()](#join)
-    - [concat(anotherArray)](#concatanotherarray)
-    - [slice() : cut out an array](#slice--cut-out-an-array)
-    - [splice](#splice)
-    - [push(myValue)](#pushmyvalue)
-    - [pop(myValue)](#popmyvalue)
-    - [shift()](#shift)
-    - [unshift](#unshift)
-    - [reverse()](#reverse)
-    - [sort](#sort)
-  - [Array of Arrays](#array-of-arrays)
-- [Loops](#loops)
-  - [For Loops](#for-loops)
-  - [while loop](#while-loop)
-  - [do while loop](#do-while-loop)
-  - [For of Loop](#for-of-loop)
-  - [break](#break)
-  - [continue](#continue)
-- [Functions](#functions)
+- [Sources](#sources)
+- [Functions (1)](#functions-1)
   - [Declaration function](#declaration-function)
   - [Function with unlimited number of parameters](#function-with-unlimited-number-of-parameters)
     - [Unlimited number of parameters in regular function](#unlimited-number-of-parameters-in-regular-function)
@@ -44,10 +12,26 @@
   - [Arrow function](#arrow-function)
   - [Function with default parameters](#function-with-default-parameters)
   - [Function declaration versus Arrow function](#function-declaration-versus-arrow-function)
-- [Scope](#scope)
-  - [Window Global Object](#window-global-object)
-  - [Global scope](#global-scope)
-  - [Local scope](#local-scope)
+- [Functions (2)](#functions-2)
+  - [Higher Order Function](#higher-order-function)
+    - [Callback](#callback)
+    - [Returning function](#returning-function)
+    - [setTimeout and setInterval Functions](#settimeout-and-setinterval-functions)
+      - [setInterval function](#setinterval-function)
+      - [setTimeout Funtion](#settimeout-funtion)
+  - [Es6 built-in Functions that take callback](#es6-built-in-functions-that-take-callback)
+    - [forEach](#foreach)
+    - [map](#map)
+    - [filter](#filter)
+    - [reduce](#reduce)
+    - [every](#every)
+    - [find](#find)
+    - [findIndex](#findindex)
+    - [some](#some)
+    - [sort](#sort)
+      - [Sorting string values](#sorting-string-values)
+      - [Sorting Numeric values](#sorting-numeric-values)
+      - [Sorting Object Arrays](#sorting-object-arrays)
 - [Object](#object)
   - [Creating an empty object](#creating-an-empty-object)
   - [Creating an objecting with values](#creating-an-objecting-with-values)
@@ -61,324 +45,12 @@
     - [Checking properties using hasOwnProperty()](#checking-properties-using-hasownproperty)
 
 
+# Sources
 
-# Array
+- https://github.com/Asabeneh/30-Days-Of-JavaScript (main source)
 
-## Creating Array
 
-```js
-let arr = Array()
-// or new Array()
-
-// This the most recommended way to create an empty list
-let arr = []
-
-```
-
-```js
-const numbers = [0, 3.14, 9.81, 37, 98.6, 100] // array of numbers
-const fruits = ['banana', 'orange', 'mango', 'lemon'] // array of strings, fruits
-
-const arr = [
-    'Asabeneh',
-    250,
-    true,
-    { country: 'Finland', city: 'Helsinki' },
-    { skills: ['HTML', 'CSS', 'JS', 'React', 'Python'] }
-] // arr containing different data types
-```
-
-- Creating array using split
-
-```js
-let companiesString = 'Facebook, Google, Microsoft, Apple, IBM, Oracle, Amazon'
-const companies = companiesString.split(',')
-
-console.log(companies) // ["Facebook", " Google", " Microsoft", " Apple", " IBM", " Oracle", " Amazon"]
-
-
-let js = 'JavaScript'
-const charsInJavaScript = js.split('')
-
-console.log(charsInJavaScript) // ["J", "a", "v", "a", "S", "c", "r", "i", "p", "t"]
-
-```
- 
-✏ you can split with white space also.
-
-## Methods to manipulate array
-
-### Array
-
-Array(8) : // it creates an array sized 8
-
-### fill(myPrimValue)
-
-fill all the array elements with a static value
-
-```js
-const eight0values = Array(8).fill(0) // it creates eight element values filled with '0'
-console.log(eight0values) // [0, 0, 0, 0, 0, 0, 0, 0]
-```
-
-### length
-
-arrayIdentifier.length --> lenght is a identifier
-
-### indexOf(checkValue) 
-
-it returns index value of the check value.
-
-### lastIndexOf(checkValue)
-
-it returns index value of the check value reversely. (tersten sırasını verir)
-
-### includes(checkValue) : returns boolean
-
-### Array.isArray(identifierName)
-
-### slice(delimiterValue)
-
-it slice according to delimiter value.
-
-### toString()
-
-converts array to string comma delimited.
-
-### join() 
-
-it returns comma joined values of the array
-
-join(delimiterValue) : different delimiter can be used.
-
-`myArray.join("#");`
-
-### concat(anotherArray)
-
-combines arrays.
-
-### slice() : cut out an array
-
-it doesnt include the ending position.
-
-```js
-slice()  // -> all items
-slice(0) // -> all items
-slice(0,myArray.length) // -> all item
-slice(1,4) // -> slice [2,3,4]
-
-```
-
-### splice
-
-Syntax
-
-```js
-myArray.splice(lnStartPos,numOfItems,itemsToAdd);
-```
-
-Exs:
-
-```js
-const numbers = [1, 2, 3, 4, 5]
-  numbers.splice()
-  console.log(numbers)                // -> remove all items
-```
-
-```js
-  const numbers = [1, 2, 3, 4, 5]
-	numbers.splice(0,1)
-  console.log(numbers)            // remove the first item
-```
-
-```js
-const numbers = [1, 2, 3, 4, 5, 6]
-	numbers.splice(3, 3, 7, 8, 9)
-  console.log(numbers.splice(3, 3, 7, 8, 9))  // -> [1, 2, 3, 7, 8, 9] //it removes three item and replace three items
-
-```
-
-### push(myValue)
-
-adding item in the end.
-
-### pop(myValue)
-
-Removing item in the end.
-
-### shift()
-
-Removing one array element in the beginning of the array.
-
-```js
-const numbers = [1, 2, 3, 4, 5]
-numbers.shift() // -> remove one item from the beginning
-console.log(numbers) // -> [2,3,4,5]
-```
-
-### unshift
-
-Adding array element in the beginning of the array.
-
-```js
-const numbers = [1, 2, 3, 4, 5]
-numbers.unshift(0) // -> add one item from the beginning
-console.log(numbers) // -> [0,1,2,3,4,5]
-```
-
-### reverse()
-
-reverse the order of an array.
-
-```js
-const numbers = [1, 2, 3, 4, 5]
-numbers.reverse() // -> reverse array order
-console.log(numbers) // [5, 4, 3, 2, 1]
-```
-
-### sort
-
-```js
-const webTechs = [
-  'HTML',
-  'CSS',
-  'JavaScript',
-  'React',
-  'Redux',
-  'Node',
-  'MongoDB'
-]
-
-webTechs.sort()
-console.log(webTechs) // ["CSS", "HTML", "JavaScript", "MongoDB", "Node", "React", "Redux"]
-
-webTechs.reverse() // after sorting we can reverse it
-console.log(webTechs) // ["Redux", "React", "Node", "MongoDB", "JavaScript", "HTML", "CSS"]
-```
-
-sorting with a callback function later.
-
-## Array of Arrays
-
-```js
-const firstNums = [1, 2, 3]
-const secondNums = [1, 4, 9]
-
-const arrayOfArray =  [[1, 2, 3], [1, 2, 3]]
-console.log(arrayOfArray[0]) // [1, 2, 3]
-```
-
-# Loops
-
-## For Loops
-
-```js
-// For loop structure
-for(initialization, condition, increment/decrement){
-  // code goes here
-}
-```
-
-```js
-for(let i = 0; i <= 5; i++){
-  console.log(i)
-}
-
-// 0 1 2 3 4 5
-```
-
-Creating a new array based on the existing array
-
-```js
-const numbers = [1, 2, 3, 4, 5]
-const newArr = []
-let sum = 0
-for(let i = 0; i < numbers.length; i++){
-  newArr.push(numbers[i] ** 2)
-}
-
-console.log(newArr)  // [1, 4, 9, 16, 25]
-```
-
-## while loop
-
-```js
-let i = 0
-while (i <= 5) {
-  console.log(i)
-  i++
-}
-
-// 0 1 2 3 4 5
-```
-
-## do while loop
-
-```js
-let i = 0
-do {
-  console.log(i)
-  i++
-} while (i <= 5)
-
-// 0 1 2 3 4 5
-```
-
-## For of Loop
-
-We use for of loop for arrays. It is very hand way to iterate through an array if we are not interested in the index of each element in the array.
-
-```js
-for (const element of arr) {
-  // code goes here
-}
-```
-
-```js
-
-const numbers = [1, 2, 3, 4, 5]
-
-for (const num of numbers) {
-  console.log(num)
-}
-
-// 1 2 3 4 5
-
-```
-
-## break
-
-Break is used to interrupt a loop.
-
-```js
-for(let i = 0; i <= 5; i++){
-  if(i == 3){
-    break
-  }
-  console.log(i)
-}
-
-// 0 1 2
-```
-
-The above code stops if 3 found in the iteration process.
-
-## continue
-
-We use the keyword *continue* to skip a certain iterations. 
-
-```js
-for(let i = 0; i <= 5; i++){
-  if(i == 3){
-    continue
-  }
-  console.log(i)
-}
-
-// 0 1 2 4 5
-```
-
-# Functions
+# Functions (1)
 
 A function can be declared or created in couple of ways: Declaration,Expression,Anonymous,Arrow
 
@@ -677,140 +349,380 @@ console.log('Weight of an object in Newton: ', weightOfObject(100, 1.62)) // gra
 
 It Will be covered in other section.
 
-# Scope
 
-To declare a variable we use the key word _var_, _let_ and _const_. 
+# Functions (2)
 
-Variables scopes can be:
+## Higher Order Function
 
-- Global
-- Local
+Higher order functions are 
 
-Variable can be declared globally or locally scope. Anything declared without let, var or const is scoped at global level.
+- functions which take other function as a parameter or 
 
-## Window Global Object
+- return a function as a value 
 
-Without using console.log() open your browser and check, you will see the value of a and b if you write a or b on the browser. That means a and b are already available in the window.
+### Callback
+
+The function passed as a parameter to another function is called <span style="color:red">callback</span>.
 
 ```js
-//file:scope.js
-a = 'JavaScript' // declaring a variable without let or const make it available in window object and this found anywhere
-b = 10 // this is a global scope variable and found in the window object
-function letsLearnScope() {
-  console.log(a, b)
-  if (true) {
-    console.log(a, b)
+// a callback function, the name of the function could be any name
+const callback = (n) => {
+  return n ** 2
+}
+​
+// function that takes other function as a callback
+function cube(callback, n) {
+  return callback(n) * n
+}
+​
+console.log(cube(callback, 3))
+```
+
+### Returning function
+
+Higher order functions return function as a value
+​
+```js
+// Higher order function returning an other function
+const higherOrder = n => {
+  const doSomething = m => {
+    const doWhatEver = t => {
+      return 2 * n + 3 * m + t
+    }
+    return doWhatEver
   }
+  return doSomething
 }
-console.log(a, b) // accessible
+console.log(higherOrder(2)(3)(10))
 ```
 
-## Global scope
+Let us see where we use call back functions. For instance the _forEach_ method uses callback.
 
-A globally declared variable can be accessed every where in the same file. But the term global is relative. It can be global to the file or it can be global relative to some block of codes.
+(were:where yapıldı+++)
 
 ```js
-//scope.js
-let a = 'JavaScript' // is a global scope it will be found anywhere in this file
-let b = 10 // is a global scope it will be found anywhere in this file
-function letsLearnScope() {
-  console.log(a, b) // JavaScript 10, accessible
-  if (true) {
-    let a = 'Python'
-    let b = 100
-    console.log(a, b) // Python 100
+const numbers = [1, 2, 3, 4, 5]
+const sumArray = arr => {
+  let sum = 0
+  const callback = function(element) {
+    sum += element
   }
-  console.log(a, b)
+  arr.forEach(callback)
+  return sum
+
 }
-letsLearnScope()
-console.log(a, b) // JavaScript 10, accessible
+console.log(sumArray(numbers))
+
+// Output : 15
 ```
 
-## Local scope
-
-A variable declared as local can be accessed only in certain block code.
-
-- Block Scope
-- Function Scope
+The above example can be simplified as follows:
 
 ```js
-//scope.js
-let a = 'JavaScript' // is a global scope it will be found anywhere in this file
-let b = 10 // is a global scope it will be found anywhere in this file
-// Function scope
-function letsLearnScope() {
-  console.log(a, b) // JavaScript 10, accessible
-  let value = false
-  // block scope
-  if (true) {
-    // we can access from the function and outside the function but 
-    // variables declared inside the if will not be accessed outside the if block
-    let a = 'Python'
-    let b = 20
-    let c = 30
-    let d = 40
-    value = !value
-    console.log(a, b, c, value) // Python 20 30 true
-  }
-  // we can not access c because c's scope is only the if block
-  console.log(a, b, value) // JavaScript 10 true
+const numbers = [1, 2, 3, 4]
+​
+const sumArray = arr => {
+  let sum = 0
+  arr.forEach(function(element) {
+    sum += element
+  })
+  return sum
+
 }
-letsLearnScope()
-console.log(a, b) // JavaScript 10, accessible
+console.log(sumArray(numbers))
 ```
 
-Now, you have an understanding of scope. A variable declared with *var* only scoped to function but variable declared with *let* or *const* is block scope(function block, if block, loop block, etc). Block in JavaScript is a code in between two curly brackets ({}).
+### setTimeout and setInterval Functions
+
+In JavaScript we can execute some activities 
+
+- in a certain interval of time (repeats execution) (setInterval) or 
+- we can schedule(wait) for some time (deferring execution) (setTimeout)
+
+#### setInterval function
+
+In JavaScript, we use setInterval higher order function to *do some activity continuously* with in some interval of time. The setInterval global method take a callback function and a duration as a parameter. The duration is in <span style="color:red">milliseconds</span> and the callback will be always called in that interval of time.
 
 ```js
-//scope.js
-function letsLearnScope() {
-  var gravity = 9.81
-  console.log(gravity)
-
+// syntax
+function callback() {
+  // code goes here
 }
-// console.log(gravity), Uncaught ReferenceError: gravity is not defined
-
-if (true){
-  var gravity = 9.81
-  console.log(gravity) // 9.81
-}
-console.log(gravity)  // 9.81
-
-for(var i = 0; i < 3; i++){
-  console.log(i) // 0, 1, 2
-}
-console.log(i) // 3
-
+setInterval(callback, duration)
 ```
-
-In ES6 and above there is *let* and *const*, so you will not suffer from the sneakiness of *var*. When we use *let* our variable is block scoped and it will not infect other parts of our code.
 
 ```js
-//scope.js
-function letsLearnScope() {
-  // you can use let or const, but gravity is constant I prefer to use const
-  const gravity = 9.81
-  console.log(gravity)
-
+function sayHello() {
+  console.log('Hello')
 }
-// console.log(gravity), Uncaught ReferenceError: gravity is not defined
-
-if (true){
-  const gravity = 9.81
-  console.log(gravity) // 9.81
-}
-// console.log(gravity), Uncaught ReferenceError: gravity is not defined
-
-for(let i = 0; i < 3; i++){
-  console.log(i) // 0, 1, 2
-}
-// console.log(i), Uncaught ReferenceError: i is not defined
-
+setInterval(sayHello, 1000) // it prints hello in every second, 1000ms is 1s
 ```
 
-The scope *let* and *const* are the same. The difference is only reassigning. We can not change or reassign the value of the `const` variable. 
+#### setTimeout Funtion
 
-I would strongly suggest you to use *let* and *const*, by using *let* and *const* you will write clean code and avoid hard to debug mistakes. As a rule of thumb, you can use *let* for any value which change, *const* for any constant value, and for an array, object, arrow function and function expression.
+The setTimeout global method take a callback function and a duration as a parameter. The duration is in milliseconds and the callback wait for that amount of time.
+
+```js
+// syntax
+function callback() {
+  // code goes here
+}
+setTimeout(callback, duration) // duration in milliseconds
+```
+
+```js
+function sayHello() {
+  console.log('Hello')
+}
+setTimeout(sayHello, 2000) // it prints hello after it waits for 2 seconds.
+```
+
+## Es6 built-in Functions that take callback
+
+Instead of writing regular loop, latest version of JavaScript introduced lots of built in methods which can help us to solve complicated problems. All builtin methods take callback function. In this section, we will see _forEach_, _map_, _filter_, _reduce_, _find_, _every_, _some_, and _sort_.
+
+### forEach
+
+_forEach_: Iterate an array elements. We use _forEach_ only with arrays. It takes a callback function with elements, index parameter and array itself. The index and the array optional.
+
+```js
+arr.forEach(function (element, index, arr) {
+  console.log(index, element, arr)
+})
+// The above code can be written using arrow function
+arr.forEach((element, index, arr) => {
+  console.log(index, element, arr)
+})
+// The above code can be written using arrow function and explicit return
+arr.forEach((element, index, arr) => console.log(index, element, arr))
+```
+
+```js
+let sum = 0;
+const numbers = [1, 2, 3, 4, 5];
+numbers.forEach(num => console.log(num))
+console.log(sum)
+```
+
+```sh
+1
+2
+3
+4
+5
+```
+
+### map
+
+_map_: Iterate an array elements and modify the array elements. It takes a callback function with elements,  index , array parameter and return a new array.
+
+```js
+const modifiedArray = arr.map(function (element, index, arr) {
+  return element
+})
+```
+
+```js
+/*Arrow function and explicit return
+const modifiedArray = arr.map((element,index) => element);
+*/
+//Example
+const numbers = [1, 2, 3, 4, 5]
+const numbersSquare = numbers.map((num) => num * num)
+
+console.log(numbersSquare)
+```
+
+```sh
+[1, 4, 9, 16, 25]
+```
+
+### filter
+
+_Filter_: Filter out items which full fill filtering conditions and return a new array.
+
+```js
+//Filter countries containing land
+const countriesContainingLand = countries.filter((country) =>
+  country.includes('land')
+)
+console.log(countriesContainingLand)
+```
+
+```sh
+['Finland', 'Ireland']
+```
+
+### reduce
+
+_reduce_: Reduce takes a callback function. The call back function takes accumulator,  current, and optional initial value as a parameter and returns a single value. It is a good practice to define an initial value for the accumulator value. If we do not specify this parameter, by default accumulator will get array `first value`. If our array is an _empty array_, then `Javascript` will throw an error.
+
+```js
+arr.reduce((acc, cur) => {
+  // some operations goes here before returning a value
+ return 
+}, initialValue)
+```
+
+```js
+const numbers = [1, 2, 3, 4, 5]
+const sum = numbers.reduce((acc, cur) => acc + cur, 0)
+
+console.log(sum)
+```
+
+// 1den5e kadar sayıları toplar
+
+```js
+15
+```
+
+### every
+
+_every_: Check if all the elements are similar in one aspect. It returns boolean
+
+```js
+const names = ['Asabeneh', 'Mathias', 'Elias', 'Brook']
+const areAllStr = names.every((name) => typeof name === 'string') // Are all strings?
+
+console.log(areAllStr)
+```
+
+```sh
+true
+```
+
+```js
+const bools = [true, true, true, true]
+const areAllTrue = bools.every((b) => b === true) // Are all true? 
+
+console.log(areAllTrue) // true
+```
+
+### find
+
+_find_: Return *the first element* which satisfies the condition
+
+```js
+const ages = [24, 22, 25, 32, 35, 18]
+const age = ages.find((age) => age < 20)
+
+console.log(age)
+```
+
+```js
+18
+```
+
+```js
+const names = ['Asabeneh', 'Mathias', 'Elias', 'Brook']
+const result = names.find((name) => name.length > 7)
+console.log(result)
+```
+
+```sh
+Asabeneh
+```
+
+### findIndex
+
+_findIndex_: Return the position of the first element which satisfies the condition
+
+```js
+const names = ['Asabeneh', 'Mathias', 'Elias', 'Brook']
+const ages = [24, 22, 25, 32, 35, 18]
+
+const result = names.findIndex((name) => name.length > 7)
+console.log(result) // 0
+
+const age = ages.findIndex((age) => age < 20)
+console.log(age) // 5
+```
+
+### some
+
+_some_: Check if some of the elements are similar in one aspect. It returns boolean
+
+```js
+const names = ['Asabeneh', 'Mathias', 'Elias', 'Brook']
+const bools = [true, true, true, true]
+
+const areSomeTrue = bools.some((b) =>  b === true)
+
+console.log(areSomeTrue) //true
+```
+
+```js
+const areAllStr = names.some((name) => typeof name === 'number') // Are all strings ?
+console.log(areAllStr) // false
+```
+
+### sort
+
+_sort_: The sort methods arranges the array elements either ascending or descending order. By default, the **_sort()_** method sorts values as strings.This works well for string array items but not for numbers. If number values are sorted as strings and it give us wrong result. Sort method modify the original array. It is recommended to copy the original data before you start using _sort_ method.
+
+#### Sorting string values
+
+```js
+const products = ['Milk', 'Coffee', 'Sugar', 'Honey', 'Apple', 'Carrot']
+console.log(products.sort()) // ['Apple', 'Carrot', 'Coffee', 'Honey', 'Milk', 'Sugar']
+//Now the original products array  is also sorted
+```
+
+#### Sorting Numeric values
+
+As you can see in the example below, 100 came first after sorted in ascending order. Sort converts items to string , since '100' and other numbers compared, 1 which the beginning of the string '100' became the smallest. To avoid this, we use a compare call back function inside the sort method, which return *a negative, zero or positive*.
+
+```js
+const numbers = [9.81, 3.14, 100, 37]
+// Using sort method to sort number items provide a wrong result. see below
+console.log(numbers.sort()) //[100, 3.14, 37, 9.81]
+numbers.sort(function (a, b) {
+  return a - b    // -1 a<b , 0 a=b , 1 a>b
+})
+// küçükten büyüğe sıralar
+console.log(numbers) // [3.14, 9.81, 37, 100]
+
+// büyükten küçüğe sıralamak için
+numbers.sort(function (a, b) {
+  return b - a
+})
+console.log(numbers) //[100, 37, 9.81, 3.14]
+```
+
+#### Sorting Object Arrays
+
+Whenever we sort objects in an array, we use the object key to compare. Let us see the example below.
+
+```js
+objArr.sort(function (a, b) {
+  if (a.key < b.key) return -1
+  if (a.key > b.key) return 1
+  return 0
+})
+
+// or
+
+objArr.sort(function (a, b) {
+  if (a['key'] < b['key']) return -1
+  if (a['key'] > b['key']) return 1
+  return 0
+})
+
+const users = [
+  { name: 'Asabeneh', age: 150 },
+  { name: 'Brook', age: 50 },
+  { name: 'Eyob', age: 100 },
+  { name: 'Elias', age: 22 },
+]
+users.sort((a, b) => {
+  if (a.age < b.age) return -1
+  if (a.age > b.age) return 1
+  return 0
+})
+console.log(users) // sorted ascending
+// [{…}, {…}, {…}, {…}]
+```
 
 # Object
 
