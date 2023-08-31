@@ -1,10 +1,10 @@
 
-- [Window](#window)
+- [Section - Window](#section---window)
   - [Window Methods](#window-methods)
     - [Window alert() method](#window-alert-method)
     - [Window prompt() method](#window-prompt-method)
     - [Window confirm() method](#window-confirm-method)
-- [Console](#console)
+- [Section - Console](#section---console)
   - [Console Object Methods](#console-object-methods)
     - [console.log()](#consolelog)
     - [console.warn()](#consolewarn)
@@ -17,7 +17,7 @@
     - [console.count()](#consolecount)
     - [console.clear()](#consoleclear)
 
-# Window
+# Section - Window
 
 ## Window Methods
 
@@ -62,7 +62,7 @@ console.log(agree) // result will be true or false based on what you click on th
 These are not all the window methods we will have a separate section to go deep into window methods.
 
 
-# Console
+# Section - Console
 
 ## Console Object Methods
 

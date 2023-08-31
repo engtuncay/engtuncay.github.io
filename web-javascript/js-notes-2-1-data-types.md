@@ -31,9 +31,9 @@
     - [Creating Array](#creating-array)
     - [Methods to manipulate array](#methods-to-manipulate-array)
       - [Array](#array-1)
-    - [fill(myPrimValue)](#fillmyprimvalue)
+      - [fill(myPrimValue)](#fillmyprimvalue)
       - [length](#length)
-    - [indexOf(checkValue)](#indexofcheckvalue)
+      - [indexOf(checkValue)](#indexofcheckvalue)
       - [lastIndexOf(checkValue)](#lastindexofcheckvalue)
       - [includes(checkValue) : returns boolean](#includescheckvalue--returns-boolean)
       - [Array.isArray(identifierName)](#arrayisarrayidentifiername)
@@ -44,7 +44,7 @@
       - [slice() : cut out an array](#slice--cut-out-an-array)
       - [splice](#splice)
       - [push(myValue)](#pushmyvalue)
-    - [pop(myValue)](#popmyvalue)
+      - [pop(myValue)](#popmyvalue)
       - [shift()](#shift)
       - [unshift](#unshift)
       - [reverse()](#reverse)
@@ -60,6 +60,8 @@
     - [Getting minutes](#getting-minutes)
     - [Getting seconds](#getting-seconds)
     - [Getting time](#getting-time)
+
+---
 
 # Sources
 
@@ -1024,7 +1026,7 @@ console.log(charsInJavaScript) // ["J", "a", "v", "a", "S", "c", "r", "i", "p", 
 
 Array(8) : // it creates an array sized 8
 
-### fill(myPrimValue)
+#### fill(myPrimValue)
 
 fill all the array elements with a static value
 
@@ -1037,7 +1039,7 @@ console.log(eight0values) // [0, 0, 0, 0, 0, 0, 0, 0]
 
 arrayIdentifier.length --> lenght is a identifier
 
-### indexOf(checkValue) 
+#### indexOf(checkValue) 
 
 it returns index value of the check value.
 
@@ -1114,7 +1116,7 @@ const numbers = [1, 2, 3, 4, 5, 6]
 
 adding item in the end.
 
-### pop(myValue)
+#### pop(myValue)
 
 Removing item in the end.
 

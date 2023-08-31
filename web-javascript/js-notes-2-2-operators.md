@@ -1,6 +1,7 @@
 
-- [Operators](#operators)
-  - [Operators](#operators-1)
+- [Sources](#sources)
+- [Operators, Conditionals and Loops](#operators-conditionals-and-loops)
+  - [Operators](#operators)
     - [Assignment operators](#assignment-operators)
     - [Arithmetic Operators](#arithmetic-operators)
     - [Comparison Operators](#comparison-operators)
@@ -9,23 +10,25 @@
     - [Decrement Operator](#decrement-operator)
     - [Ternary Operators](#ternary-operators)
     - [Operator Precedence](#operator-precedence)
-- [Conditionals](#conditionals)
-  - [Conditionals](#conditionals-1)
+  - [Conditionals](#conditionals)
     - [If](#if)
     - [If Else](#if-else)
     - [If  Else if Else](#if--else-if-else)
     - [Switch](#switch)
     - [Ternary Operators](#ternary-operators-1)
-- [Loops](#loops)
-  - [For Loops](#for-loops)
-  - [while loop](#while-loop)
-  - [do while loop](#do-while-loop)
-  - [For of Loop](#for-of-loop)
-  - [break](#break)
-  - [continue](#continue)
+  - [Loops](#loops)
+    - [For Loops](#for-loops)
+    - [while loop](#while-loop)
+    - [do while loop](#do-while-loop)
+    - [For of Loop](#for-of-loop)
+    - [break](#break)
+    - [continue](#continue)
 
+# Sources
 
-# Operators
+- Main source, https://github.com/Asabeneh/30-Days-Of-JavaScript 
+
+# Operators, Conditionals and Loops
 
 ## Operators
 
@@ -259,8 +262,6 @@ number > 0
 ### Operator Precedence
 
 I would like to recommend you to read about operator precedence from this [link](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence)
-
-# Conditionals
 
 ## Conditionals
 
@@ -505,11 +506,9 @@ isRaining
   : console.log('No need for a rain coat.')
 ```
 
+## Loops
 
-
-# Loops
-
-## For Loops
+### For Loops
 
 ```js
 // For loop structure
@@ -539,7 +538,7 @@ for(let i = 0; i < numbers.length; i++){
 console.log(newArr)  // [1, 4, 9, 16, 25]
 ```
 
-## while loop
+### while loop
 
 ```js
 let i = 0
@@ -551,7 +550,7 @@ while (i <= 5) {
 // 0 1 2 3 4 5
 ```
 
-## do while loop
+### do while loop
 
 ```js
 let i = 0
@@ -563,7 +562,7 @@ do {
 // 0 1 2 3 4 5
 ```
 
-## For of Loop
+### For of Loop
 
 We use for of loop for arrays. It is very hand way to iterate through an array if we are not interested in the index of each element in the array.
 
@@ -585,7 +584,7 @@ for (const num of numbers) {
 
 ```
 
-## break
+### break
 
 Break is used to interrupt a loop.
 
@@ -602,7 +601,7 @@ for(let i = 0; i <= 5; i++){
 
 The above code stops if 3 found in the iteration process.
 
-## continue
+### continue
 
 We use the keyword *continue* to skip a certain iterations. 
 

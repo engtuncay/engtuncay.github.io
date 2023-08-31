@@ -1,5 +1,24 @@
 
-# Day 20
+- [Section - Clean Code and Coding Conventions](#section---clean-code-and-coding-conventions)
+  - [Writing clean code](#writing-clean-code)
+    - [JavaScript Style Guide](#javascript-style-guide)
+    - [Why we need style guide](#why-we-need-style-guide)
+      - [Airbnb JavaScript Style Guide](#airbnb-javascript-style-guide)
+      - [Standard JavaScript Style Guide](#standard-javascript-style-guide)
+      - [Google JavaScript Style Guide](#google-javascript-style-guide)
+    - [JavaScript Coding Conventions](#javascript-coding-conventions)
+      - [Conventions use in 30DaysOfJavaScript](#conventions-use-in-30daysofjavascript)
+      - [Variables](#variables)
+      - [Arrays](#arrays)
+      - [Functions](#functions)
+      - [Loops](#loops)
+      - [Objects](#objects)
+      - [Conditional](#conditional)
+      - [Classes](#classes)
+
+---
+
+# Section - Clean Code and Coding Conventions
 
 ## Writing clean code
 

@@ -1,6 +1,6 @@
 
 - [Sources](#sources)
-- [Set - Map](#set---map)
+- [Section - Set and Map](#section---set-and-map)
   - [Set](#set)
     - [Creating an empty set](#creating-an-empty-set)
     - [Creating set from array](#creating-set-from-array)
@@ -18,7 +18,7 @@
     - [Getting a value from Map](#getting-a-value-from-map)
     - [Checking key in Map](#checking-key-in-map)
     - [Getting all values from map using loop](#getting-all-values-from-map-using-loop)
-- [Destructuring and Spread](#destructuring-and-spread)
+- [Section - Destructuring , Spread and Rest](#section---destructuring--spread-and-rest)
   - [Destructuring](#destructuring)
     - [Destructing Arrays](#destructing-arrays)
     - [Destructuring during iteration](#destructuring-during-iteration)
@@ -31,8 +31,8 @@
     - [Spread operator to copy array](#spread-operator-to-copy-array)
     - [Spread operator to copy object](#spread-operator-to-copy-object)
       - [Spread operator with arrow function](#spread-operator-with-arrow-function)
-- [Regular Expressions](#regular-expressions)
-  - [Regular Expressions](#regular-expressions-1)
+- [Section - Regular Expressions](#section---regular-expressions)
+  - [Regular Expressions](#regular-expressions)
     - [RegExp parameters](#regexp-parameters)
       - [Pattern](#pattern)
       - [Flags](#flags)
@@ -52,13 +52,13 @@
     - [Cart ^](#cart-)
     - [Exact match](#exact-match)
 
+---
 
 # Sources
 
 - Main source, https://github.com/Asabeneh/30-Days-Of-JavaScript 
 
-
-# Set - Map 
+# Section - Set and Map 
 
 ## Set
 
@@ -397,7 +397,7 @@ Sweden Stockholm
 Norway Oslo
 ```
 
-# Destructuring and Spread
+# Section - Destructuring , Spread and Rest
 
 ## Destructuring
 
@@ -735,7 +735,7 @@ sumAllNums(1, 2, 3, 4, 5)
 ```
 
 
-# Regular Expressions
+# Section - Regular Expressions
 
 ## Regular Expressions
 

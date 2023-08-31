@@ -1,15 +1,14 @@
 
-- [Day 18](#day-18)
+- [Section - Promise,Async-Await and Closure](#section---promiseasync-await-and-closure)
   - [Promise](#promise)
   - [Callbacks](#callbacks)
     - [Promise constructor](#promise-constructor)
   - [Fetch API](#fetch-api)
   - [Async and Await](#async-and-await)
-- [Day 19](#day-19)
   - [Closure](#closure)
 
 
-# Day 18
+# Section - Promise,Async-Await and Closure
 
 ## Promise
 
@@ -226,8 +225,6 @@ fetchData()
 ```
 
 🌕 You are real and you kept your promise and you reached to day 18. Keep your promise and settle the challenge with resolve. You are 18 steps ahead to your way to greatness. Now do some exercises for your brain and  muscles.
-
-# Day 19
 
 ## Closure
 

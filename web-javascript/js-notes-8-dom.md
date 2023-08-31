@@ -1,7 +1,46 @@
 
-# Day 21
+- [Section DOM (1-2-3)](#section-dom-1-2-3)
+  - [Document Object Model (DOM) (1)](#document-object-model-dom-1)
+    - [Getting Element](#getting-element)
+      - [Getting elements by tag name](#getting-elements-by-tag-name)
+      - [Getting elements by class name](#getting-elements-by-class-name)
+      - [Getting an element by id](#getting-an-element-by-id)
+      - [Getting elements by using querySelector methods](#getting-elements-by-using-queryselector-methods)
+    - [Adding attribute](#adding-attribute)
+      - [Adding attribute using setAttribute](#adding-attribute-using-setattribute)
+      - [Adding attribute without setAttribute](#adding-attribute-without-setattribute)
+      - [Adding class using classList](#adding-class-using-classlist)
+      - [Removing class using remove](#removing-class-using-remove)
+    - [Adding Text to HTML element](#adding-text-to-html-element)
+      - [Adding Text content using textContent](#adding-text-content-using-textcontent)
+      - [Adding Text Content using innerHTML](#adding-text-content-using-innerhtml)
+        - [Text Content](#text-content)
+        - [Inner HTML](#inner-html)
+    - [Adding style](#adding-style)
+      - [Adding Style Color](#adding-style-color)
+      - [Adding Style Background Color](#adding-style-background-color)
+      - [Adding Style Font Size](#adding-style-font-size)
+  - [DOM(Document Object Model) (2)](#domdocument-object-model-2)
+    - [Creating an Element](#creating-an-element)
+    - [Creating elements](#creating-elements)
+    - [Appending child to a parent element](#appending-child-to-a-parent-element)
+    - [Removing a child element from a parent node](#removing-a-child-element-from-a-parent-node)
+  - [DOM(Document Object Model) (3)](#domdocument-object-model-3)
+    - [Event Listeners](#event-listeners)
+      - [Click](#click)
+      - [Double Click](#double-click)
+      - [Mouse enter](#mouse-enter)
+    - [Getting value from an input element](#getting-value-from-an-input-element)
+    - [input value](#input-value)
+      - [input event and change](#input-event-and-change)
+      - [blur event](#blur-event)
+      - [keypress, keydow and keyup](#keypress-keydow-and-keyup)
 
-## Document Object Model (DOM) - Day 1
+---
+
+# Section DOM (1-2-3)
+
+## Document Object Model (DOM) (1)
 
 HTML document is structured as a JavaScript Object. Every HTML element has a different properties which can help to manipulate it. It is possible to get, create, append or remove HTML elements using JavaScript. Check the examples below. Selecting HTML element using JavaScript is similar to selecting using CSS. To select an HTML element, we use tag name, id, class name or other attributes.
 
@@ -300,9 +339,7 @@ As you have notice, the properties of css when we use it in JavaScript is going 
 
 🌕 Now,  you are fully charged with a super power, you have completed the most important and challenging part of the challenge and in general JavaScript. You learned DOM and now you have the capability to build and develop applications. Now do some exercises for your brain and for your muscle.
 
-# Day 22
-
-## DOM(Document Object Model)-Day 2
+## DOM(Document Object Model) (2)
 
 ### Creating an Element
 
@@ -473,9 +510,7 @@ The above snippet of code cleared all the child elements.
 
 🌕 You are so special, you are progressing everyday. Now, you knew how to destroy a created DOM element when it is needed. You learned DOM and now you have the capability to build and develop applications. You are left with only eight days to your way to greatness. Now do some exercises for your brain and for your muscle.
 
-# Day 22
-
-## DOM(Document Object Model)-Day 3
+## DOM(Document Object Model) (3)
 
 ### Event Listeners
 

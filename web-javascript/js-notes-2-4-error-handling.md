@@ -1,9 +1,9 @@
 
-- [Error Handling](#error-handling)
-  - [Error Handling](#error-handling-1)
+- [Section - Error](#section---error)
+  - [Error Handling](#error-handling)
     - [Error Types](#error-types)
-- [JSON](#json)
-  - [JSON](#json-1)
+- [Section - JSON](#section---json)
+  - [JSON](#json)
     - [Converting JSON to JavaScript Object](#converting-json-to-javascript-object)
       - [JSON.parse()](#jsonparse)
     - [Using a reviver function with JSON.parse()](#using-a-reviver-function-with-jsonparse)
@@ -11,7 +11,7 @@
     - [Using a Filter Array with JSON.stringify](#using-a-filter-array-with-jsonstringify)
 
 
-# Error Handling
+# Section - Error 
 
 ## Error Handling
 
@@ -138,7 +138,7 @@ Uncaught TypeError: num.toLowerCase is not a function
 ```
 These are some of the common error you may face when you write a code. Understanding errors can help you to know what mistakes you made and it will help you to debug your code fast.
 
-# JSON
+# Section - JSON
 
 ## JSON
 

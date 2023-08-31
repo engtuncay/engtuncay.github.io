@@ -25,7 +25,7 @@ CONTENT |Note|
 [Intro](./js-notes-1-1-intro.md) |
 [Data Types](./js-notes-2-1-data-types.md) |
 [Operators,Conditions,Loops](./js-notes-2-2-operators.md) |
-[Functions](./js-notes-2-3-functions.md) |
+[Functions](./js-notes-2-3-functions.md) | ✔ 
 [Error Handling](./js-notes-2-4-error-handling.md) |
 [Map Set](./js-notes-2-5-map-set.md) |
 [Window Methods](./js-notes-3-window-methods.md)|

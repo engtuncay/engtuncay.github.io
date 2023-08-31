@@ -1,5 +1,5 @@
 
-- [Object Oriented Programming (OOP)](#object-oriented-programming-oop)
+- [Section - Object Oriented Programming (OOP)](#section---object-oriented-programming-oop)
   - [Classes](#classes)
     - [Defining a classes](#defining-a-classes)
     - [Class Instantiation](#class-instantiation)
@@ -21,7 +21,7 @@
     - [Using a Filter Array with JSON.stringify](#using-a-filter-array-with-jsonstringify)
 
 
-# Object Oriented Programming (OOP)
+# Section - Object Oriented Programming (OOP)
 
 ## Classes
 

@@ -1,7 +1,7 @@
 
 - [Sources](#sources)
-- [Introduction](#introduction)
-  - [Introduction](#introduction-1)
+- [Section - Introduction](#section---introduction)
+  - [Introduction](#introduction)
   - [Requirements](#requirements)
   - [Setup](#setup)
     - [Install Node.js](#install-nodejs)
@@ -31,17 +31,18 @@
   - [Checking Data Types](#checking-data-types)
   - [Comments Again](#comments-again)
   - [Variables](#variables)
-- [Scope](#scope)
-  - [Window Global Object](#window-global-object)
-  - [Global scope](#global-scope)
-  - [Local scope](#local-scope)
+- [Section - Scope](#section---scope)
+  - [Scope](#scope)
+    - [Window Global Object](#window-global-object)
+    - [Global scope](#global-scope)
+    - [Local scope](#local-scope)
 
 
 # Sources
 
 - Main source, https://github.com/Asabeneh/30-Days-Of-JavaScript 
 
-# Introduction 
+# Section - Introduction 
 
 ## Introduction
 
@@ -581,7 +582,9 @@ console.log(name, job, live)
 Asabeneh teacher Finland
 ```
 
-# Scope
+# Section - Scope
+
+## Scope 
 
 To declare a variable we use the key word _var_, _let_ and _const_. 
 
@@ -592,7 +595,7 @@ Variables scopes can be:
 
 Variable can be declared globally or locally scope. Anything declared without let, var or const is scoped at global level.
 
-## Window Global Object
+### Window Global Object
 
 Without using console.log() open your browser and check, you will see the value of a and b if you write a or b on the browser. That means a and b are already available in the window.
 
@@ -609,7 +612,7 @@ function letsLearnScope() {
 console.log(a, b) // accessible
 ```
 
-## Global scope
+### Global scope
 
 A globally declared variable can be accessed every where in the same file. But the term global is relative. It can be global to the file or it can be global relative to some block of codes.
 
@@ -630,7 +633,7 @@ letsLearnScope()
 console.log(a, b) // JavaScript 10, accessible
 ```
 
-## Local scope
+### Local scope
 
 A variable declared as local can be accessed only in certain block code.
 
