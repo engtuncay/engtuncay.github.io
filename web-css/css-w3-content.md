@@ -13,6 +13,7 @@ Backgrounds
 Text
 Fonts
 
+
 (3)
 Links
 Lists
@@ -30,6 +31,7 @@ User Interface (Resizing)
 
 
 CSS Tables
+
 
 (5)
 CSS Display

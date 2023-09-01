@@ -9,7 +9,7 @@
     - [RGB Colors](#rgb-colors)
     - [RGBA Value](#rgba-value)
     - [Hex Colors](#hex-colors)
-    - [HSL Colors (hue,saturation,lightness)](#hsl-colors-huesaturationlightness)
+    - [HSL Colors](#hsl-colors)
     - [HSLA Value](#hsla-value)
 - [Backgrounds](#backgrounds)
   - [background-color](#background-color-1)
@@ -20,6 +20,7 @@
   - [background-attachment (scroll behavior)](#background-attachment-scroll-behavior)
   - [background property (sh)](#background-property-sh)
   - [All Background Properties](#all-background-properties)
+- [Opacity - Transparency](#opacity---transparency)
 
 
 # Colors
@@ -236,7 +237,7 @@ p {
 }
 ```
 
-### HSL Colors (hue,saturation,lightness)
+### HSL Colors
 
 HSL stands for hue, saturation, and lightness.
 
@@ -600,4 +601,142 @@ background-origin     | Specifies where the background image(s) is/are positione
 background-position   | Sets the starting position of a background image
 background-repeat     | Sets how a background image will be repeated
 background-size       | Specifies the size of the background image(s)
+
+
+
+# Opacity - Transparency 
+
+(tor:Opaklık - Şeffaflık)
+
+Source : https://www.w3schools.com/css/css_image_transparency.asp
+
+The opacity property specifies the opacity/transparency of an element.
+
+🔔 Transparent Image
+
+The opacity property can take a value from 0.0 - 1.0. The lower value, the more transparent:
+
+Example
+
+```css
+img {
+  opacity: 0.5;
+}
+
+```
+
+![image](./img/image-trans1-1421.png)
+
+🔔 Transparent Hover Effect
+
+The opacity property is often used together with the :hover selector to change the opacity on mouse-over:
+
+Example
+
+```css
+img {
+  opacity: 0.5;
+}
+
+img:hover {
+  opacity: 1.0;
+}
+
+```
+
+
+![image](./img/image-trans2-hover-1422.png)
+
+Example explained
+
+The first CSS block is similar to the code in Example 1. In addition, we have added what should happen when a user hovers over one of the images. In this case we want the image to NOT be transparent when the user hovers over it. The CSS for this is opacity:1;.
+
+When the mouse pointer moves away from the image, the image will be transparent again.
+
+An example of reversed hover effect:
+
+🔔 Transparent Box
+
+When using the opacity property to add transparency to the background of an element, all of its child elements inherit the same transparency. This can make the text inside a fully transparent element hard to read:
+
+Example
+
+```css
+div {
+  opacity: 0.3;
+}
+
+```
+
+🔔 Transparency using RGBA
+
+If you do not want to apply opacity to child elements, like in our example above, use RGBA color values. The following example sets the opacity for the background color and not the text:
+You learned from our CSS Colors Chapter, that you can use RGB as a color value. In addition to RGB, you can use an RGB color value with an alpha channel (RGBA) - which specifies the opacity for a color.
+
+An RGBA color value is specified with: rgba(red, green, blue, alpha). The alpha parameter is a number between 0.0 (fully transparent) and 1.0 (fully opaque).
+
+Tip: You will learn more about RGBA Colors in our CSS Colors Chapter. 
+https://www.w3schools.com/css3_colors.asp
+
+Example
+
+```css
+div {
+  background: rgba(76, 175, 80, 0.3) /* Green background with 30% opacity */
+}
+
+```
+
+🔔 Text in Transparent Box
+
+Example
+
+```html
+<html>
+<head>
+
+<style>
+
+div.background {
+  background: url(klematis.jpg) repeat;
+  border: 2px solid black;
+}
+
+div.transbox {
+  margin: 30px;
+  background-color: #ffffff;
+  border: 1px solid black;
+  opacity: 0.6;
+}
+
+div.transbox p {
+  margin: 5%;
+  font-weight: bold;
+  color: #000000;
+}
+
+</style>
+</head>
+<body>
+
+<div class="background">
+  <div class="transbox">
+    <p>This is some text that is placed in the transparent box.</p>
+  </div>
+</div>
+
+</body>
+</html>
+
+```
+
+Example explained
+
+First, we create a `<div>` element (class="background") with a background image, and a border.
+
+Then we create another `<div>` (class="transbox") inside the first `<div>`.
+
+The `<div class="transbox">` have a background color, and a border - the div is transparent.
+
+Inside the transparent `<div>`, we add some text inside a `<p>` element.
 

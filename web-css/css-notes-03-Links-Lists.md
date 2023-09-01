@@ -1,35 +1,45 @@
 
 Css Intro 3 (Icons,Links...)
 
-- [Links](#links)
-  - [](#)
-- [Lists](#lists)
-  - [](#-1)
+- [Section - Links - Lists](#section---links---lists)
+  - [Links](#links)
+    - [Text Decoration](#text-decoration)
+    - [Background Color](#background-color)
+    - [Link Buttons](#link-buttons)
+    - [More Examples](#more-examples)
+  - [Lists](#lists)
 
-# Links
+# Section - Links - Lists
 
-## 
+##  Links
 
 With CSS, links can be styled in different ways.
 
-Styling Links
+🔔 Styling Links
+
 Links can be styled with any CSS property (e.g. color, font-family, background, etc.).
 
 Example
+
+```css
 a {
   color: hotpink;
 }
+
+```
 
 In addition, links can be styled differently depending on what state they are in.
 
 The four links states are:
 
-a:link - a normal, unvisited link
-a:visited - a link the user has visited
-a:hover - a link when the user mouses over it
-a:active - a link the moment it is clicked
+- a:link - a normal, unvisited link
+- a:visited - a link the user has visited
+- a:hover - a link when the user mouses over it
+- a:active - a link the moment it is clicked
 
 Example
+
+```css
 /* unvisited link */
 a:link {
   color: red;
@@ -50,15 +60,20 @@ a:active {
   color: blue;
 }
 
+```
+
 When setting the style for several link states, there are some order rules:
 
-a:hover MUST come after a:link and a:visited
-a:active MUST come after a:hover
+- a:hover MUST come after a:link and a:visited
+- a:active MUST come after a:hover
 
-Text Decoration
+### Text Decoration
+
 The text-decoration property is mostly used to remove underlines from links:
 
 Example
+
+```css
 a:link {
   text-decoration: none;
 }
@@ -75,10 +90,15 @@ a:active {
   text-decoration: underline;
 }
 
-Background Color
+```
+
+### Background Color
+
 The background-color property can be used to specify a background color for links:
 
 Example
+
+```css
 a:link {
   background-color: yellow;
 }
@@ -95,10 +115,15 @@ a:active {
   background-color: hotpink;
 }
 
-Link Buttons
+```
+
+### Link Buttons
+
 This example demonstrates a more advanced example where we combine several CSS properties to display links as boxes/buttons:
 
 Example
+
+```css
 a:link, a:visited {
   background-color: #f44336;
   color: white;
@@ -112,10 +137,15 @@ a:hover, a:active {
   background-color: red;
 }
 
-More Examples
+```
+
+### More Examples
+
 Example
+
 This example demonstrates how to add other styles to hyperlinks:
 
+```css
 a.one:link {color: #ff0000;}
 a.one:visited {color: #0000ff;}
 a.one:hover {color: #ffcc00;}
@@ -136,7 +166,10 @@ a.five:link {color: #ff0000; text-decoration: none;}
 a.five:visited {color: #0000ff; text-decoration: none;}
 a.five:hover {text-decoration: underline;}
 
+```
+
 Example
+
 Another example of how to create link boxes/buttons:
 
 a:link, a:visited {
@@ -175,9 +208,7 @@ This example demonstrates the different types of cursors (can be useful for link
 <span style="cursor: w-resize">w-resize</span><br>
 <span style="cursor: wait">wait</span>
 
-# Lists
-
-## 
+## Lists
 
 In HTML, there are two main types of lists:
 

@@ -8,13 +8,13 @@
     - [Element (Tag) Selector](#element-tag-selector)
     - [Id Selector (#)](#id-selector-)
     - [Class Selector (.)](#class-selector-)
-    - [Universal Selector](#universal-selector)
-    - [Grouping Selector](#grouping-selector)
+    - [Universal Selector (\*)](#universal-selector-)
+    - [Grouping Selector (,)](#grouping-selector-)
   - [Combinators](#combinators)
     - [Descendant Selector (Space) (a b)](#descendant-selector-space-a-b)
     - [Child Selector (\>)](#child-selector-)
     - [Adjacent Sibling Selector (+)](#adjacent-sibling-selector-)
-    - [General Sibling Selector (~)](#general-sibling-selector-)
+    - [Sibling Selector (~)](#sibling-selector-)
     - [Combining Selector](#combining-selector)
   - [Pseudo-classes](#pseudo-classes)
   - [Pseudo Elements](#pseudo-elements)
@@ -331,7 +331,7 @@ In this example the `<p>` element will be styled according to class="center" and
 
 Note: A class name cannot start with a number!
 
-### Universal Selector
+### Universal Selector (*)
 
 The CSS rule below will affect every HTML element on the page:
 
@@ -342,9 +342,11 @@ The CSS rule below will affect every HTML element on the page:
 }
 ```
 
-### Grouping Selector
+### Grouping Selector (,)
 
-The grouping selector selects specified elements or selectors to give same style definitions. ( Gruplamak için her seçici arasına virgül koyarak gruplama yaparız. Seçilen tüm html elementlerine aynı stil uygulanır.) 
+The grouping selector selects specified elements or selectors to <span style="color:red">give same style definitions</span>. 
+
+(tor:Aynı stil tanımları vereceğiz seçicileri (selectors) gruplamış oluruz.) 
 
 In this example we have grouped the selectors ( h1,h2 and p): 
 
@@ -352,42 +354,45 @@ In this example we have grouped the selectors ( h1,h2 and p): 
 h1, h2, p { text-align: center;  color: red; }
 ```
 
-```
 All CSS Simple Selectors
-Selector        :Example      :Example description
-#id             #firstname    Selects the element with id="firstname"
-.class          .intro        Selects all elements with class="intro"
-element.class 	p.intro 			Selects only `<p>` elements with class="intro"
-*               *             Selects all elements
-element         p             Selects all `<p>` elements
-element, element,.. div, p    Selects all `<div>` elements and all `<p>` elements
-```
+
+Selector             | Example    | Example description
+---------------------|------------|----------------------------------------------------
+#id                  | #firstname | Selects the element with id="firstname"
+.class               | .intro     | Selects all elements with class="intro"
+element.class        | p.intro    | Selects only `<p>` elements with class="intro"
+*                    | *          | Selects all elements
+element              | p          | Selects all `<p>` elements
+element, element,... | div, p     | Selects all `<div>` elements and all `<p>` elements
+
 
 ## Combinators
 
 Combinators have five categories.
 
-* Descendant Selector (Space) (tr:Nesil Seçici) (a b)
+* Descendant Selector (Space) (a b) (tr:Nesil Seçici) 
 * Child Selector (>) (tr:Çocuk Seçici)
 * Adjacent Sibling Selector (+) (tr:Takip eden kardeş seçici)
 * General Sibling Selector (~) (tr:Genel kardeş seçici)
 * Combined Selector (tr:birden fazla özelliğe sahip element seçici) (.a.b) (without space)
 
-(tr:İlişkilendiriciler:)
+(tor:birleştirici,ilişkilendirici)
 
-A combinator is something that explains the relationship between the selectors. (tr:Seçiciler arasında ilişki kurmamızı sağlar.)
+A combinator is something that explains the relationship between the selectors. 
 
 A CSS selector can contain more than one simple selector. Between the simple selectors, we can include a combinator.
 
 ### Descendant Selector (Space) (a b) 
 
-(tr:Nesil Seçici:)
+(tor:Nesil Seçici:)
 
 The descendant selector matches all elements that are descendants of a specified element. 
 
-(tr:nesilden gelen tüm elementleri (çocuk, torun,...) seçer..)
+(tor:nesilde gelen ilgili elementin hepsini (çocuk, torun,...) seçer.)
 
-The following example selects all `<p>` elements inside `<div>` elements:  (tr:Div elements içerisinde bulunan tüm p elemanlarına uygulanır. div neslinden gelen tüm p'ler. )
+The following example selects all `<p>` elements inside `<div>` elements: 
+
+(tor:Div elements içerisinde bulunan tüm p elemanlarına uygulanır. div neslinden gelen tüm p'ler. )
 
 Example
 
@@ -399,9 +404,9 @@ div p {
 
 ### Child Selector (>) 
 
-(tr:Çocuk Seçici)
-
 The child selector selects all elements that are the children of a specified element.
+
+(tor:Çocuk Seçici , div>p div oğlu p)
 
 The following example selects all `<p>` elements that are children of a `<div>` element:
 
@@ -413,13 +418,13 @@ div > p {
 }
 ```
 
-**Torunu da dahil eder mi ?**
+**Torunu da dahil eder mi ?** (???)
 
 Evet dahil eder. yani div>p>p varsa o da dahil olur.
 
 ### Adjacent Sibling Selector (+) 
 
-(tr:Takip eden kardeş seçici)
+(tor:Takip eden kardeş seçici, div+p : divden sonra gelen kardeş p elementi)
 
 The adjacent sibling selector is used to select an element that is directly after another specific element.
 
@@ -435,11 +440,15 @@ div + p {
 }
 ```
 
-### General Sibling Selector (~) 
+--*LINK -  tbc (rev)
 
-(tr:Genel kardeş seçici)
+### Sibling Selector (~) 
 
-The general sibling selector selects all elements that are siblings of a specified element. (tr:kendinden önce gelenlere uygulamaz, kendinden sonra gelen kardeşlere uygulanır.)
+The sibling selector selects all elements that are siblings of a specified element and comes after it. 
+
+✏ Warn ❗ : (tr:kendinden önce gelenlere uygulamaz, kendinden sonra gelen küçük kardeşlere uygulanır.)
+
+(tor:kardeş seçici - div~p div küçük kardeşi olan tüm p'ler)
 
 The following example selects all `<p>` elements that are siblings of `<div>` elements: 
 

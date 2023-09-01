@@ -1,13 +1,19 @@
 
+- [JavaScript Promises](#javascript-promises)
+  - [JavaScript Promise Examples](#javascript-promise-examples)
+    - [Waiting for a Timeout](#waiting-for-a-timeout)
+- [Recommended Articles](#recommended-articles)
+
+
 # JavaScript Promises
 
 Source : https://www.w3schools.com/js/js_promise.asp
 
 ---
 
-"I Promise a Result!"
+✏ "I Promise a Result!"
 
-"Producing code" is code that can take some time
+"Producing code" is code that can take some time 
 
 "Consuming code" is code that must wait for the result
 
@@ -15,7 +21,7 @@ A Promise is a JavaScript object that links producing code and consuming code
 
 ---
 
-
+(tor:Producing code : üretici kodu)
 
 *JavaScript Promise Object*
 
@@ -49,7 +55,7 @@ Error   | myReject(error object)
 
 *Promise Object (or Class) Properties*
 
-A JavaScript Promise object can be:
+A JavaScript Promise object can be: (status)
 
 - Pending
 - Fulfilled
@@ -57,21 +63,17 @@ A JavaScript Promise object can be:
 
 The Promise object supports two properties: state and result.
 
-While a Promise object is "pending" (working), the result is undefined.
+- While a Promise object is "pending" (working), the result is undefined.
+- When a Promise object is "fulfilled", the result is a value.
+- When a Promise object is "rejected", the result is an error object.
 
-When a Promise object is "fulfilled", the result is a value.
+State       | Result
+------------|----------------
+"pending"   | undefined
+"fulfilled" | a result value
+"rejected"  | an error object
 
-When a Promise object is "rejected", the result is an error object.
-
-myPromise.state | myPromise.result
-----------------|-----------------
-"pending"       | undefined
-"fulfilled"     | a result value
-"rejected"      | an error object
-
-Info: You cannot access the Promise properties state and result.
-
-You must use a Promise method to handle promises.
+✏ Warn ❗ : You cannot access the Promise properties state and result. You must use a Promise method to handle promises.
 
 *Promise How To*
 
@@ -79,7 +81,9 @@ Here is how to use a Promise:
 
 ```js
 myPromise.then(
+  // success callback
   function(value) { /* code if successful */ },
+  // fail callback  
   function(error) { /* code if some error */ }
 );
 
@@ -97,10 +101,9 @@ function myDisplayer(some) {
 }
 
 let myPromise = new Promise(function(myResolve, myReject) {
-  let x = 0;
-
   // The producing code (this may take some time)
-
+  let x = 0;
+  // after finish producing code, resolve or reject callback is executed.
   if (x == 0) {
     myResolve("OK");
   } else {
@@ -115,16 +118,16 @@ myPromise.then(
 
 ```
 
-*JavaScript Promise Examples*
+## JavaScript Promise Examples
 
 To demonstrate the use of promises, we will use the callback examples from the previous chapter:
 
 - Waiting for a Timeout
 - Waiting for a File
 
-*Waiting for a Timeout*
+### Waiting for a Timeout
 
-**Example Using Callback
+Example Using Callback
 
 ```js
 setTimeout(function() { myFunction("I love You !!!"); }, 3000);
