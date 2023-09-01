@@ -1,15 +1,22 @@
 
 **CSS Element Size**
 
-- [Units](#units)
-- [CSS Box Model](#css-box-model)
-- [Box Sizing (border-box model)](#box-sizing-border-box-model)
-- [Height , Width And Max-Width](#height--width-and-max-width)
-  - [Setting max-width](#setting-max-width)
-- [All CSS Dimension Properties](#all-css-dimension-properties)
-- [Max-Width And Auto Margin](#max-width-and-auto-margin)
+- [Section - Units,Box Model,Box-Sizing,Width,Height and etc](#section---unitsbox-modelbox-sizingwidthheight-and-etc)
+  - [Units](#units)
+    - [Absolute Lengths](#absolute-lengths)
+    - [Relative Lengths](#relative-lengths)
+  - [Box Model](#box-model)
+  - [Box Sizing, Width and Height](#box-sizing-width-and-height)
+  - [Box Width and Height](#box-width-and-height)
+  - [Height , Width And Max-Width](#height--width-and-max-width)
+  - [Height and Width Values](#height-and-width-values)
+  - [max-width](#max-width)
+  - [Max-Width And Auto Margin](#max-width-and-auto-margin)
+  - [All CSS Dimension Properties](#all-css-dimension-properties)
 
-# Units
+# Section - Units,Box Model,Box-Sizing,Width,Height and etc
+
+## Units
 
 Source : https://www.w3schools.com/css/css_units.asp
 
@@ -19,7 +26,7 @@ Many CSS properties take "length" values, such as width, margin, padding, font-s
 
 Length is a number followed by a length unit, such as 10px, 2em, etc.
 
-*Example*
+*Examples*
 
 Set different length values, using px (pixels):
 
@@ -35,17 +42,19 @@ p {
 
 ```
 
-Note: A whitespace cannot appear between the number and the unit. However, if the value is 0, the unit can be omitted.
+✏ Note: A whitespace cannot appear between the number and the unit. (25 px --> wrong ) However, if the value is 0, the unit can be omitted.
 
 For some CSS properties, negative lengths are allowed.
 
 There are two types of length units: absolute and relative.
 
-*Absolute Lengths*
+### Absolute Lengths
 
-The absolute length units are fixed and a length expressed in any of these will appear as exactly that size. ((mutlak ölçüler))
+The absolute length units are fixed and a length expressed in any of these will appear as exactly that size. 
 
-Absolute length units are not recommended for use on screen, because screen sizes vary so much. However, they can be used if the output medium is known, such as for print layout.
+(tor:mutlak ölçüler)
+
+Absolute length units are not recommended for use on <span style="color:red">screen</span>, because screen sizes vary so much. However, they can be used if the output medium is known, such as for <span style="color:red">print layout</span>.
 
 | Unit | Description                  |
 |------|------------------------------|
@@ -57,23 +66,25 @@ Absolute length units are not recommended for use on screen, because screen size
 | pc   | picas (1pc = 12 pt)          |
 
 
---- Pixels (px) are relative to the viewing device. For low-dpi devices, 1px is one device pixel (dot) of the display. For printers and high resolution screens 1px implies multiple device pixels.
+✏ Pixels (px) are relative to the viewing device. For low-dpi devices, 1px is one device pixel (dot) of the display. For printers and high resolution screens 1px implies multiple device pixels.
 
-*Relative Lengths*
+### Relative Lengths
 
-Relative length units specify a length relative to another length property. Relative length units scales better between different rendering mediums. ((Göreceli uzunluklar))
+Relative length units specify a length relative to another length property. Relative length units scales better between different rendering mediums. 
+
+(tor:Göreceli uzunluklar)
 
 | Unit | Description                                                                               |
-|------|-------------------------------------------------------------------------------------------|
-| em   | Relative to the font-size of the element (2em means 2 times the size of the current font) |
-| ex   | Relative to the x-height of the current font (rarely used)                                |
-| ch   | Relative to width of the "0" (zero)                                                       |
+|------|-------------------------------------------------------------------------------------------
+| %    | Relative to the parent element <br/>(ebeveyn elementin %'si)                                   
+| em   | Relative to the font-size of the element <br/>(2em means 2 times the size of the current font) |
 | rem  | Relative to font-size of the root element                                                 |
 | vw   | Relative to 1% of the width of the viewport*                                              |
 | vh   | Relative to 1% of the height of the viewport*                                             |
 | vmin | Relative to 1% of viewport's* smaller dimension                                           |
 | vmax | Relative to 1% of viewport's* larger dimension                                            |
-| %    | Relative to the parent element (ebeveyn elementin %'si)                                   |
+| ex   | Relative to the x-height of the current font (rarely used)                                |
+| ch   | Relative to width of the "0" (zero)                                                       |
 
 **Tips**: 
 
@@ -83,15 +94,15 @@ Relative length units specify a length relative to another length property. Rela
 
 see the source for browser compability.
 
-# CSS Box Model 
+## Box Model 
 
 Source : https://www.w3schools.com/css/css_boxmodel.asp
 
-All HTML elements can be considered as boxes. In CSS, the term "box model" is used when talking about design and layout.
+All HTML elements can be considered as <span style="color:red">boxes</span>. In CSS, the term "box model" is used when talking about design and layout.
 
 The CSS box model is essentially a box that wraps around every HTML element. It consists of : margins, borders, padding, and the actual content. The image below illustrates the box model:
 
-![](./img/css/box-model-1.jpg)
+![](./img/box-model-1.jpg)
 
 Explanation of the different parts:
 
@@ -102,20 +113,7 @@ Explanation of the different parts:
 
 The box model allows us to add a border around elements, and to define space between elements. 
 
-There are two types box model (to)  :
-
-* Content Box Model (default)
-* Border Box Model (common) (recommended)
-
-Content Box Model tells that *width and height include only content*.
-
-Border Box Model tells that *widht and height include content, padding and border*.
-
-(tor:border-box modelinde bir elementin genişliğinde veya yüksekliğinde border ve padding de dahil olur.)
-
-*Example*
-
-Demonstration of the box model:
+Example : Demonstration of the box model:
 
 ```css
 div {
@@ -124,59 +122,48 @@ div {
   padding: 50px;
   margin: 20px;
 }
-```
-
-![](./img/css/box-model-ex1.jpg)
-
-**Width and Height of an Element**
-
-In order to set the width and height of an element correctly in all browsers, you need to know how the box model works.
-
-*Important*: By default when you set the width and height properties of an element with CSS, you just set the width and height of *the content area*. To calculate the full size of an element, you must also add padding, borders and margins. (for content-box model)
-
-Example
-This `<div>` element will have a total width of 350px: 
-
-```css
-div {
-  width: 320px;
-  padding: 10px;
-  border: 5px solid gray;
-  margin: 0;
-}
 
 ```
 
-Here is the calculation (total width according to content box model):
+![](./img/box-model-ex1.jpg)
 
-```text
-320px (width)
-+ 20px (left + right padding)
-+ 10px (left + right border)
-+ 0px (left + right margin)
-= 350px
-
-```
-
-# Box Sizing (border-box model)
+## Box Sizing, Width and Height
 
 Source : https://www.w3schools.com/css/css3_box-sizing.asp
 
-The CSS box-sizing property allows us to include the padding and border in an element's total width and height. 
+The CSS box-sizing property allows us to include <span style="color:red">the padding and border</span> in an element's width and height size. 
 
-(tor: padding ve border uzunluğunu elementin genişlik ve yüksekliğine dahil etmemizi sağlar.:)
+(tor: box-sizing property, padding ve border uzunluğunu elementin genişlik ve yüksekliğine dahil etmemizi sağlar.:)
+
+There are two types box sizing model :
+
+* Content Box Sizing (default)
+* Border Box Sizing (common) (recommended)
+
+Content Box sizing tells that *width and height include only content*.
+
+Border Box sizing tells that *widht and height include content, padding and border*.
+
+Syntax 
+
+```css
+box-sizing: [border-box|];
+
+```
+
+(tor:border-box sizing'de bir elementin genişliğinde veya yüksekliğinde content ile beraber, border ve padding de dahil olur.)
 
 **Without the CSS box-sizing Property**
 
 By default, the width and height of an element is calculated like this:
 
-width + padding + border = actual width of an element
+- width + padding + border = actual width of an element
 
-height + padding + border = actual height of an element
+- height + padding + border = actual height of an element
 
 This means: When you set the width/height of an element, the element often appears bigger than you have set (because the element's border and padding are added to the element's specified width/height).
 
-The following illustration shows two `<div>` elements with the same specified width and height:
+The following illustration shows two `<div>` elements with the same specified width and height (300px-100px):
 
 The two `<div>` elements above end up with different sizes in the result (because div2 has a padding specified):
 
@@ -197,17 +184,17 @@ Example
 }
 ```
 
-![](./img/css/box-model-ex1.jpg)
+![image](./img/box-sizing-1-17-31.png)
 
 The box-sizing property solves this problem.
 
 **With the CSS box-sizing Property**
 
-The box-sizing property allows us to include the padding and border in an element's total width and height. ( border-box model )
+The box-sizing property allows us to include the padding and border in an element's total width and height. ( border-box sizing )
 
-If you set box-sizing: border-box; on an element, padding and border are included in the width and height:
+If you set `box-sizing: border-box;` on an element, padding and border are included in the width and height:
 
-Here is the same example as above, with box-sizing: border-box; added to both `<div>` elements:
+Here is the same example as above, with `box-sizing: border-box;` added to both `<div>` elements:
 
 Example
 
@@ -228,12 +215,11 @@ Example
 }
 
 ```
+![](./img/box-sizing-border-box.jpg)
 
-![](./img/css/box-sizing-border-box.jpg)
+Since the result of border-box sizing is so much better, many developers want all elements on their pages to work this way.
 
-Since the result of using the box-sizing: border-box; is so much better, many developers want all elements on their pages to work this way.
-
-The code below ensures that all elements are sized in this more intuitive way. Many browsers already use box-sizing: border-box; for many form elements (but not all - which is why inputs and text areas look different at width: 100%;).
+The code below ensures that all elements are sized in this more intuitive way. Many browsers already use `box-sizing: border-box;` for many form elements (but not all - which is why inputs and text areas look different at width: 100%;).
 
 Applying this to all elements is safe and wise:
 
@@ -245,13 +231,34 @@ Example
 }
 ```
 
-**CSS Box Sizing Property Ref**
+## Box Width and Height
 
-| Property   | Description                                                                                                     |
-|------------|-----------------------------------------------------------------------------------------------------------------|
-| box-sizing | Defines how the width and height of an element are calculated: should they include padding and borders, or not. |
+In order to set the width and height of an element correctly in all browsers, you need to take attention to the box sizing models.
 
-# Height , Width And Max-Width
+Example : This `<div>` element will have a total box width of 350px: 
+
+```css
+div {
+  width: 320px;
+  padding: 10px;
+  border: 5px solid gray;
+  margin: 0;
+}
+
+```
+
+- Here is the calculation (total width according to content box sizing):
+
+```text
+320px (width)
++ 20px (left + right padding)
++ 10px (left + right border)
++ 0px (left + right margin)
+= 350px (box-width)
+
+```
+
+## Height , Width And Max-Width
 
 Source : https://www.w3schools.com/css/css_dimension.asp
 
@@ -261,7 +268,7 @@ The CSS max-width property is used to set the maximum width of an element.
 
 The height and width properties do not include padding, borders, or margins. It sets the height/width of the area inside the padding, border, and margin of the element. (content-box model)	
 
-**CSS height and width Values**
+## Height and Width Values
 
 The height and width properties may have the following values:
 
@@ -271,9 +278,7 @@ The height and width properties may have the following values:
 * initial - Sets the height/width to its default value
 * inherit - The height/width will be inherited from its parent value
 
-*Example*
-
-Set the height and width of a `<div>` element:
+Example : Set the height and width of a `<div>` element:
 
 ```css
 div {
@@ -283,9 +288,7 @@ div {
 }
 ```
 
-*Example*
-
-Set the height and width of another `<div>` element:
+Example (2)
 
 ```css
 div {
@@ -295,9 +298,7 @@ div {
 }
 ```
 
-Note: Remember that the height and width properties do not include padding, borders, or margins! They set the height/width of the area inside the padding, border, and margin of the element! (for the content-box model)
-
-## Setting max-width
+## max-width
 
 The max-width property is used to set the maximum width of an element. (max-genişliğini belirler, ekranda pencere genişlese dahi büyütmez. marjin alanı büyür.)
 
@@ -321,18 +322,7 @@ div {
 
 ```
 
-# All CSS Dimension Properties
-
-Property   | Description
------------|--------------------------------------
-height     | Sets the height of an element
-width      | Sets the width of an element
-max-height | Sets the maximum height of an element
-max-width  | Sets the maximum width of an element
-min-height | Sets the minimum height of an element
-min-width  | Sets the minimum width of an element
-
-# Max-Width And Auto Margin
+## Max-Width And Auto Margin
 
 Using width, max-width and margin: auto;
 
@@ -375,3 +365,13 @@ div.ex3 {
 
 Try it : https://www.w3schools.com/css/tryit.asp?filename=trycss_max-width
 
+## All CSS Dimension Properties
+
+Property   | Description
+-----------|--------------------------------------
+height     | Sets the height of an element
+width      | Sets the width of an element
+max-height | Sets the maximum height of an element
+max-width  | Sets the maximum width of an element
+min-height | Sets the minimum height of an element
+min-width  | Sets the minimum width of an element
