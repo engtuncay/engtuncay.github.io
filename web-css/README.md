@@ -42,4 +42,4 @@ CONTENT |
 
 # Tailwind Articles
 
-[Tailwind CSS Tutorial for Beginners: A Guide to Get Started in 2023 by Louis Lazaris](./tailwind-article1.md) |
+[Tailwind CSS Tutorial for Beginners: A Guide to Get Started in 2023 by Louis Lazaris](./arts/tailwind-article1.md) |
