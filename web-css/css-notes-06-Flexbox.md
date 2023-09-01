@@ -258,7 +258,7 @@ The gap property explicitly controls the space between flex items. It applies th
   display: flex;
   /*...*/
   gap: 10px;
-  gap: 10px 20px; /* row-gap column gap */
+  gap: 10px 20px; /* row-gap - column gap */
   row-gap: 10px;
   column-gap: 20px;
 }
