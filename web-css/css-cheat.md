@@ -63,15 +63,15 @@ Syntax |
 --- | 
 selector::pseudo-element
 
-Selector       | Example         | Example description
----------------|-----------------|-------------------------------------------------------------
-::after        | p::after        | Insert something after the content of each <p> element
-::before       | p::before       | Insert something before the content of each <p> element
-::first-letter | p::first-letter | Selects the first letter of each <p> element
-::first-line   | p::first-line   | Selects the first line of each <p> element
-::selection    | p::selection    | Selects the portion of an element that is selected by a user
+Selector       | Example
+---------------|----------------
+::after        | p::after
+::before       | p::before
+::first-letter | p::first-letter
+::first-line   | p::first-line
+::selection    | p::selection
 
-you can see the detail from this [link](./css-intro-01-Selector-Specifity.md)
+you can see the detail from this [link](./css-notes-01-Intro-Selector.md)
 
 *Attribute Selectors*
 
