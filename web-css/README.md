@@ -18,9 +18,10 @@ CONTENT | Note |
 [2-1 Color, Background](./css-notes-02-1-Color.md) |
 [2-2 Text ,Font, Icons](./css-notes-02-2-Text.md) |
 [3- Links, Lists ](./css-notes-03-Links-Lists.md) |
-[4- Size](./css-notes-04-01-size.md) |
-[4- Margin,Border,Padding,Outline](./css-notes-04-02-borders.md) |
-[5- Layout (Display,Position,Overflow,Align,Float)](./css-notes-05-Layout.md) |
+[4-1 Size](./css-notes-04-01-size.md) |
+[4-2 Margin,Border,Padding,Outline](./css-notes-04-02-borders.md) |
+[5-1 Layout (Display,Position)](./css-notes-05-01-Layout.md) |
+[5-2 Overflow,Align,Float](./css-notes-05-02-overflow.md) |
 [6- Flexbox](./css-notes-06-Flexbox.md) |
 [7- Grid](./css-notes-07-Grid.md) |
 [8- Variables](./css-notes-08-Variables.md) |

@@ -1,21 +1,22 @@
 <h1>Software Development Notes - Yazılım Notları</h1>
 
-[CSS Tutors](./web-css/README.md)
+These notes are taken from web resources. Some sections can be modified.
 
-[Javascript Tutors](./web-javascript/README.md)
+[CSS Notes](./web-css/README.md)
 
-[Node Tutors](./web-javascript/README.md)
+[Javascript Notes](./web-javascript/README.md)
 
-[Svelte Tutors](./svelte/readme.md)
+[Node Notes](./web-javascript/README.md)
 
-[Php Tutors](./php/readme.md)
+[Svelte Notes](./svelte/readme.md)
 
-[Csharp Tutors](./csharp-dotnet/readme.md)
+[Php Notes](./php/readme.md)
+
+[Csharp Notes](./csharp-dotnet/readme.md)
 
 [Solidity](./blockchain/readme.md)
 
 [XML](./xml/readme.md)
-
 
 
 *Deprecated Tutors*
