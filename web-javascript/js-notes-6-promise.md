@@ -3,7 +3,7 @@
   - [Promise](#promise)
   - [Callbacks](#callbacks)
     - [Promise constructor](#promise-constructor)
-  - [Fetch API](#fetch-api)
+    - [A Promise Example : Fetch API](#a-promise-example--fetch-api)
   - [Async and Await](#async-and-await)
   - [Closure](#closure)
 
@@ -18,11 +18,11 @@ A Promise is a way to handle asynchronous operations in JavaScript. It allows ha
 
 A Promise is in one of these states:
 
-- pending: initial state, neither fulfilled nor rejected.
-- fulfilled: meaning that the operation completed successfully.
-- rejected: meaning that the operation failed.
+- pending: *initial state*, neither fulfilled nor rejected.
+- fulfilled: meaning that the operation completed *successfully*.
+- rejected: meaning that the operation *failed*.
 
-A pending promise can either be fulfilled with a value, or rejected with a reason (error). When either of these options happens, the associated handlers queued up by a promise's then method are called. (If the promise has already been fulfilled or rejected when a corresponding handler is attached, the handler will be called, so there is no race condition between an asynchronous operation completing and its handlers being attached.)
+A pending promise can either be fulfilled with a value, or rejected with a reason (error). When either of these options happens, the associated handlers queued up by a promise's then method are called. (If the promise has already been fulfilled or rejected when a corresponding handler is attached, the handler will be called, so there is *no race condition* between an asynchronous operation completing and its handlers being attached.)
 
 As the Promise.prototype.then() and Promise.prototype.catch() methods return promises, they can be chained.
 
@@ -31,7 +31,7 @@ As the Promise.prototype.then() and Promise.prototype.catch() methods return pro
 To understand promise very well let us understand callback first. Let's see the following callbacks. From the following code blocks you will notice, the difference between callback and promises.
 
 - call back
-  Let us see a callback function which can take two parameters. The first parameter is err and the second is result. If the err parameter is false, there will not be error other wise it will return an error.
+  Let us see a callback function which can take two parameters. The first parameter is err and the second is result. If the err parameter is false, there will not be error otherwise it will return an error.
 
 In this case the err has a value and it will return the err block.
 
@@ -84,7 +84,7 @@ doSomething((err, result) => {
 
 ### Promise constructor
 
-We can create a promise using the Promise constructor. We can create a new promise using the key word `new` followed by the word `Promise` and followed by a parenthesis. Inside the parenthesis, it takes a `callback` function. The promise callback function has two parameters which are the _`resolve`_ and _`reject`_ functions.
+We can create a promise using the Promise constructor. We can create a new `Promise` object. Its constructor takes a `callback` function and the promise callback function has two parameters which are the _`resolve`_ and _`reject`_ functions.
 
 ```js
 // syntax
@@ -145,7 +145,7 @@ doPromise
 Something wrong has happened
 ```
 
-## Fetch API
+### A Promise Example : Fetch API
 
 The Fetch API provides an interface for fetching resources (including across the network). It will seem familiar to anyone who has used XMLHttpRequest, but the new API provides a more powerful and flexible feature set. In this challenge we will use fetch to request url and APIS. In addition to that let us see demonstrate use case of promises in accessing network resources using the fetch API.
 
@@ -224,8 +224,6 @@ console.log('===== async and await')
 fetchData()
 ```
 
-🌕 You are real and you kept your promise and you reached to day 18. Keep your promise and settle the challenge with resolve. You are 18 steps ahead to your way to greatness. Now do some exercises for your brain and  muscles.
-
 ## Closure
 
 JavaScript allows writing function inside an outer function. We can write as many inner functions as we want. If inner function access the variables of outer function then it is called closure.
@@ -234,17 +232,17 @@ JavaScript allows writing function inside an outer function. We can write as man
 function outerFunction() {
     let count = 0;
     function innerFunction() {
-        count++
+        count++ // inner function accesses count var. of outerFunc.
         return count
     }
 
     return innerFunction
 }
-const innerFunc = outerFunction()
+const innerFunc = outerFunction();
 
-console.log(innerFunc())
-console.log(innerFunc())
-console.log(innerFunc())
+console.log(innerFunc());
+console.log(innerFunc());
+console.log(innerFunc());
 ```
 
 ```sh
@@ -271,16 +269,15 @@ function outerFunction() {
         plusOne:plusOne(),
         minusOne:minusOne()
     }
-}
-const innerFuncs = outerFunction()
+};
 
-console.log(innerFuncs.plusOne)
-console.log(innerFuncs.minusOne)
+const innerFuncs = outerFunction();
+
+console.log(innerFuncs.plusOne);
+console.log(innerFuncs.minusOne);
 ```
 
 ```sh
 1
 0
 ```
-
-🌕 You are making progress. Maintain your momentum,  keep the good work.  Now do some exercises for your brain and for your muscle.

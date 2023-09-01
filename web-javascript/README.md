@@ -29,9 +29,9 @@ CONTENT |Note|
 [Error Handling](./js-notes-2-4-error-handling.md) |
 [Map Set](./js-notes-2-5-map-set.md) |
 [Window Methods](./js-notes-3-window-methods.md)|
-[Js OOP](./js-notes-4-OOP-tor.md) |
+[OOP Principles](./js-notes-4-OOP-tor.md) |
 [Storage](./js-notes-5-storage.md) |
-[Promise](./js-notes-6-promise.md) |
+[Promise,Async-Await and Closure](./js-notes-6-promise.md) | ✔ 
 [Clean Code](./js-notes-7-clean-code.md) |
 [Dom](./js-notes-8-dom.md) |
 
