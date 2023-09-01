@@ -13,10 +13,10 @@
   - [Padding - Shorthand Property](#padding---shorthand-property)
   - [Padding and Element Width](#padding-and-element-width)
   - [All CSS Padding Properties](#all-css-padding-properties)
-- [CSS Outline](#css-outline)
-  - [CSS Outline Style](#css-outline-style)
-  - [CSS Outline Width](#css-outline-width)
-  - [CSS Outline Width](#css-outline-width-1)
+- [Outline](#outline)
+  - [Outline Style](#outline-style)
+  - [Outline Width](#outline-width)
+  - [Outline Width](#outline-width-1)
   - [CSS Outline - Shorthand property](#css-outline---shorthand-property)
 - [User Interface (Resizing)](#user-interface-resizing)
   - [CSS User Interface](#css-user-interface)
@@ -685,7 +685,7 @@ padding-left	Sets the left padding of an element
 padding-right	Sets the right padding of an element
 padding-top	Sets the top padding of an element
 
-# CSS Outline
+# Outline
 
 An outline is a line drawn outside the element's border to make the element "stand out".
 
@@ -698,7 +698,7 @@ CSS has the following outline properties:
 
 Note: Outline differs from borders! Unlike border, the outline is drawn outside the element's border, and may overlap other content. Also, the outline is NOT a part of the element's dimensions; the element's total width and height is not affected by the width of the outline.
 
-## CSS Outline Style
+## Outline Style
 
 The outline-style property specifies the style of the outline, and can have one of the following values:
 
@@ -733,7 +733,7 @@ p.outset {outline-style: outset;}
 
 Note: None of the other outline properties (which you will learn more about in the next chapters) will have ANY effect unless the outline-style property is set!
 
-## CSS Outline Width
+## Outline Width
 
 The outline-width property specifies the width of the outline, and can have one of the following values:
 
@@ -777,7 +777,7 @@ p.ex4 {
 ```
 
 
-## CSS Outline Width
+## Outline Width
 
 The outline-width property specifies the width of the outline, and can have one of the following values:
 
