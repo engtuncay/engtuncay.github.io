@@ -1,17 +1,19 @@
 
 - [Borders](#borders)
-  - [CSS Border Style](#css-border-style)
-  - [CSS Border Width](#css-border-width)
-  - [CSS Border - Shorthand Property](#css-border---shorthand-property)
-  - [CSS Rounded Borders](#css-rounded-borders)
+  - [Border Style](#border-style)
+  - [Border Width](#border-width)
+  - [Border Color](#border-color)
+  - [Individual Sides](#individual-sides)
+  - [Border Property (sp)](#border-property-sp)
+  - [Rounded Borders](#rounded-borders)
   - [All CSS Border Properties](#all-css-border-properties)
 - [Margin](#margin)
   - [Margin - Individual Sides](#margin---individual-sides)
-  - [Margin - Shorthand Property](#margin---shorthand-property)
+  - [Margin Property (sp)](#margin-property-sp)
+  - [Margin Collapse](#margin-collapse)
 - [Padding](#padding)
   - [Padding - Individual Sides](#padding---individual-sides)
-  - [Padding - Shorthand Property](#padding---shorthand-property)
-  - [Padding and Element Width](#padding-and-element-width)
+  - [Padding Property (sp)](#padding-property-sp)
   - [All CSS Padding Properties](#all-css-padding-properties)
 - [Outline](#outline)
   - [Outline Style](#outline-style)
@@ -29,7 +31,7 @@
 
 The CSS border properties allow you to specify the style, width, and color of an element's border.
 
-## CSS Border Style
+## Border Style
 
 The border-style property specifies what kind of border to display.
 
@@ -48,17 +50,15 @@ none - Defines no border
 hidden - Defines a hidden border
 ```
 
-The border-style property can have from one to four values (for the top border, right border, bottom border, and the left border).
+The border-style property can have from one to four values (for the top, right, bottom, and the left border).
 
-Example
-
-Demonstration of the different border styles:
+Example : Demonstration of the different border styles:
 
 ```css
 p.dotted {border-style: dotted;}
 p.dashed {border-style: dashed;}
 p.solid {border-style: solid;}
-p.double {border-style: double;}
+p.double {border-style: double;}    21we45* qw3s6
 p.groove {border-style: groove;}
 p.ridge {border-style: ridge;}
 p.inset {border-style: inset;}
@@ -69,17 +69,15 @@ p.mix {border-style: dotted dashed solid double;}
 
 ```
 
-Note: None of the OTHER CSS border properties (which you will learn more about in the next chapters) will have ANY effect unless the border-style property is set!
+✏ Note: None of the OTHER CSS border properties (which you will learn more about in the next chapters) will have ANY effect unless the border-style property is set!
 
-## CSS Border Width
+## Border Width
 
 The border-width property specifies the width of the four borders.
 
 The width can be set as a specific size (in px, pt, cm, em, etc) or by using one of the three pre-defined values: thin, medium, or thick:
 
-Example
-
-Demonstration of the different border widths:
+Example : Demonstration of the different border widths:
 
 ```css
 p.one {
@@ -113,12 +111,7 @@ Example
 ```css
 p.one {
   border-style: solid;
-  border-width: 5px 20px; /* 5px top and bottom, 20px on the sides */
-}
-
-p.two {
-  border-style: solid;
-  border-width: 20px 5px; /* 20px top and bottom, 5px on the sides */
+  border-width: 5px 20px; /* 5px top and bottom, 20px left-right */
 }
 
 p.three {
@@ -127,7 +120,7 @@ p.three {
 }
 ```
 
-**CSS Border Color**
+## Border Color
 
 The border-color property is used to set the color of the four borders.
 
@@ -142,24 +135,12 @@ transparent
 
 Note: If border-color is not set, it inherits the color of the element.
 
-*Example*
-
-Demonstration of the different border colors:
+Example : Demonstration of the border color:
 
 ```css
 p.one {
   border-style: solid;
   border-color: red;
-}
-
-p.two {
-  border-style: solid;
-  border-color: green;
-}
-
-p.three {
-  border-style: dotted;
-  border-color: blue;
 }
 
 ```
@@ -221,7 +202,7 @@ p.one {
 
 You can learn more about HEX, RGB and HSL values in our CSS Colors chapters.
 
-*CSS Border - Individual Sides*
+## Individual Sides
 
 From the examples on the previous pages, you have seen that it is possible to specify a different border for each side.
 
@@ -309,17 +290,15 @@ p {
 
 The border-style property is used in the example above. However, it also works with border-width and border-color.
 
-## CSS Border - Shorthand Property
-
-Like you saw in the previous page, there are many properties to consider when dealing with borders.
+## Border Property (sp)
 
 To shorten the code, it is also possible to specify all the individual border properties in one property.
 
 The border property is a shorthand property for the following individual border properties:
 
-border-width
-border-style (required)
-border-color
+- border-width
+- border-style (required)
+- border-color
 
 Example
 
@@ -329,9 +308,8 @@ p {
 }
 
 ```
-You can also specify all the individual border properties for just one side:
 
-Left Border
+You can also specify all the individual border properties for just one side (below,for border-left):
 
 ```css
 p {
@@ -341,17 +319,7 @@ p {
 
 ```
 
-Bottom Border
-
-```css
-p {
-  border-bottom: 6px solid red;
-  background-color: lightgrey;
-}
-
-```
-
-## CSS Rounded Borders
+## Rounded Borders
 
 The border-radius property is used to add rounded borders to an element:
 
@@ -428,26 +396,31 @@ p {
 
 ```
 
-## Margin - Shorthand Property
+## Margin Property (sp)
 
 To shorten the code, it is possible to specify all the margin properties in one property.
 
 The margin property is a shorthand property for the following individual margin properties:
 
-margin-top
-margin-right
-margin-bottom
-margin-left
+- margin-top
+- margin-right
+- margin-bottom
+- margin-left
 
 So, here is how it works:
 
 If the margin property has four values:
 
+```css
 margin: 25px 50px 75px 100px;
+
+/*
 top margin is 25px
 right margin is 50px
 bottom margin is 75px
 left margin is 100px
+*/
+```
 
 If the margin property has three values:
 
@@ -496,7 +469,7 @@ p.ex1 {
   margin-left: inherit;
 }
 
-Margin Collapse
+## Margin Collapse
 
 Top and bottom margins of elements are sometimes collapsed into a single margin that is equal to the largest of the two margins.
 
@@ -504,9 +477,9 @@ This does not happen on left and right margins! Only top and bottom margins!
 
 Look at the following example:
 
-Example
-Demonstration of margin collapse:
+Example : Demonstration of margin collapse:
 
+```css
 h1 {
   margin: 0 0 50px 0;
 }
@@ -515,9 +488,11 @@ h2 {
   margin: 20px 0 0 0;
 }
 
-In the example above, the <h1> element has a bottom margin of 50px and the <h2> element has a top margin set to 20px.
+```
 
-Common sense would seem to suggest that the vertical margin between the <h1> and the <h2> would be a total of 70px (50px + 20px). But due to margin collapse, the actual margin ends up being 50px.
+In the example above, the `<h1>` element has a bottom margin of 50px and the `<h2>` element has a top margin set to 20px.
+
+Common sense would seem to suggest that the vertical margin between the `<h1>` and the `<h2>` would be a total of 70px (50px + 20px). But due to margin collapse, the actual margin ends up being 50px.
 
 
 # Padding
@@ -545,9 +520,7 @@ All the padding properties can have the following values:
 
 Note: Negative values are not allowed.
 
-*Example*
-
-Set different padding for all four sides of a <div> element:  
+Example : Set different padding for all four sides of a `<div>` element:  
 
 ```css
 div {
@@ -559,7 +532,7 @@ div {
 
 ```
 
-## Padding - Shorthand Property
+## Padding Property (sp)
 
 To shorten the code, it is possible to specify all the padding properties in one property.
 
@@ -627,6 +600,9 @@ div {
 
 If the padding property has one value:
 
+```css
+
+```
 padding: 25px;
 
 all four paddings are 25px
@@ -642,48 +618,15 @@ div {
 
 ```
 
-## Padding and Element Width
-
-The CSS width property specifies the width of the element's content area. The content area is the portion inside the padding, border, and margin of an element (the box model).
-
-So, if an element has a specified width, the padding added to that element will be added to the total width of the element. This is often an undesirable result.
-
-*Example*
-
-Here, the `<div>` element is given a width of 300px. However, the actual width of the `<div>` element will be 350px (300px + 25px of left padding + 25px of right padding):
-
-```css
-div {
-  width: 300px;
-  padding: 25px;
-}
-
-```
-
-To keep the width at 300px, no matter the amount of padding, you can use the box-sizing property. This causes the element to maintain its width; if you increase the padding, the available content space will decrease.
-
-Example
-
-Use the box-sizing property to keep the width at 300px, no matter the amount of padding:
-
-```css
-div {
-  width: 300px;
-  padding: 25px;
-  box-sizing: border-box;
-}
-
-```
-
 ## All CSS Padding Properties
 
-Property	Description
-
-padding	A shorthand property for setting all the padding properties in one declaration
-padding-bottom	Sets the bottom padding of an element
-padding-left	Sets the left padding of an element
-padding-right	Sets the right padding of an element
-padding-top	Sets the top padding of an element
+Property       | Description
+---------------|-------------------------------------------------------------------------------
+padding        | A shorthand property for setting all the padding properties in one declaration
+padding-bottom | Sets the bottom padding of an element
+padding-left   | Sets the left padding of an element
+padding-right  | Sets the right padding of an element
+padding-top    | Sets the top padding of an element
 
 # Outline
 
@@ -696,7 +639,7 @@ CSS has the following outline properties:
 - outline-width
 - outline-offset
 
-Note: Outline differs from borders! Unlike border, the outline is drawn outside the element's border, and may overlap other content. Also, the outline is NOT a part of the element's dimensions; the element's total width and height is not affected by the width of the outline.
+Note: Outline differs from borders! Unlike border, the outline is <span style="color:red">drawn outside the element's border, and may overlap other content</span>. Also, <span style="color:red">the outline is NOT a part of the element's dimensions</span>; the element's total width and height is not affected by the width of the outline.
 
 ## Outline Style
 
