@@ -31,13 +31,13 @@ A component for fixing an element's width to the current breakpoint.
 Class     | Breakpoint   | Properties
 ----------|--------------|-------------------
 container | None         | width: 100%;
-container | sm (640px)   | max-width: 640px;
-"         | md (768px)   | max-width: 768px;
-"         | lg (1024px)  | max-width: 1024px;
-"         | xl (1280px)  | max-width: 1280px;
-"         | 2xl (1536px) | max-width: 1536px;
+container | sm:container | max-width: 640px;
+container | md:container | max-width: 768px;
+container | lg (1024px)  | max-width: 1024px;
+container | xl (1280px)  | max-width: 1280px;
+container | 2xl (1536px) | max-width: 1536px;
 
-((Container en büyük ekranda alacağı max genişlik 1536px olur. 1536 üstünde margin degerleri (boşluk) oluşturur. Md ekranda (768-1024px) en geniş 768 px olur.))
+(tor: Container en büyük ekranda alacağı max genişlik 1536px olur. 1536 üstünde margin degerleri (boşluk) oluşturur. Md ekranda (768-1024px) en geniş 768 px olur.)
 
 **Usage**
 
