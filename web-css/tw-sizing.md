@@ -1,87 +1,56 @@
 
 - [Sizing](#sizing)
-  - [Width](#width)
+  - [Width and Height](#width-and-height)
+    - [Fixed Widths](#fixed-widths)
+    - [Fluid Width](#fluid-width)
   - [Min-Width](#min-width)
   - [Max Width](#max-width)
   - [Height](#height)
   - [Min-Height](#min-height)
   - [Max Height](#max-height)
+- [SPACING](#spacing)
+  - [Padding](#padding)
+  - [Margin](#margin)
+  - [Space Between](#space-between)
 
 
 # Sizing
 
-## Width
+## Width and Height
 
-Utilities for setting the width of an element
+Utilities for setting the width and height of an element
 
-```
-w-auto	    width: auto;
-w-full      width: 100%;
-w-screen	width: 100vw;
-w-min	    width: min-content;
-w-max	    width: max-content;
-// unit
-w-0       width: 0px;
-w-5	      width: 1.25rem;
-w-px      width: 1px;
-w-7	      width: 1.75rem;
-w-0.5     width: 0.125rem;
-w-9	      width: 2.25rem;
-w-1       width: 0.25rem;
-w-11      width: 2.75rem;
-w-1.5     width: 0.375rem;
-w-14      width: 3.5rem;
-w-2       width: 0.5rem;
-w-20      width: 5rem;
-w-2.5     width: 0.625rem;
-w-28      width: 7rem;
-w-3	      width: 0.75rem;
-w-36      width: 9rem;
-w-3.5     width: 0.875rem;
-w-44	    width: 11rem;
-w-4	      width: 1rem;
-w-52	    width: 13rem;
-w-6	      width: 1.5rem;
-w-60	    width: 15rem;
-w-8	      width: 2rem;
-w-72	    width: 18rem;
-w-10      width: 2.5rem;
-w-96      width: 24rem;
-w-12      width: 3rem;
-w-1/3     width: 33.333333%;
-w-16      width: 4rem;
-w-1/4     width: 25%;
-w-24      width: 6rem;
-w-3/4     width: 75%;
-w-32      width: 8rem;
-w-2/5     width: 40%;
-w-40      width: 10rem;
-w-4/5	    width: 80%;
-w-48	    width: 12rem;
-w-2/6	    width: 33.333333%;
-w-56	    width: 14rem;
-w-4/6	    width: 66.666667%;
-w-64	    width: 16rem;
-w-1/12	  width: 8.333333%;
-w-80	    width: 20rem;
-w-3/12	  width: 25%;
-w-1/2	    width: 50%;
-w-5/12	  width: 41.666667%;
-w-2/3	    width: 66.666667%;
-w-7/12	  width: 58.333333%;
-w-2/4	    width: 50%;
-w-9/12	  width: 75%;
-w-1/5	    width: 20%;
-w-11/12	  width: 91.666667%;
-w-3/5	    width: 60%;
-w-1/6	    width: 16.666667%;
-w-3/6	    width: 50%;
-w-5/6	    width: 83.333333%;
-w-2/12	  width: 16.666667%;
-w-4/12	  width: 33.333333%;
-w-6/12	  width: 50%;
-w-8/12	  width: 66.666667%;
-w-10/12	  width: 83.333333%;
+```text
+[width|height]
+[w|h]-[$spacing]
+[w|h]-[auto|full|screen|fit]
+[w|h]-[min|max]
+[w|h]-1/2
+[w|h]-[1-2]/3
+[w|h]-[1-3]/4
+[w|h]-[1-4]/5
+[w|h]-[1-5]/6
+w-[1-11]/12
+min-[ width|height ]
+min-h-screen
+min-[w|h]-0
+min-[w|h]-[full|fit]
+min-[w|h]-[min|max]
+max-width
+max-w-0
+max-w-none
+max-w-[xs|sm|md|lg|xl]
+max-w-[2-7]xl
+max-w-prose
+max-w-screen-[xs|sm|md]
+max-w-screen-[lg|xl|2xl]
+max-w-[full|fit]
+max-w-[min|max]
+max-height
+max-h-[full|screen|fit]
+max-h-[min|max]
+max-h-[$spacing]
+
 ```
 
 - Auto
@@ -100,8 +69,9 @@ Use w-screen to make an element span the entire width of the viewport (100vw).
 
 ```
 
-- Fixed Width
-Use w-{number} or w-px to set an element to a fixed width
+### Fixed Widths
+
+Use w-{size_no} or w-px to set an element to a fixed width
 
 ```html
 <div>
@@ -113,7 +83,8 @@ Use w-{number} or w-px to set an element to a fixed width
 ```
 
 
-- Fluid Width
+### Fluid Width
+
 Use w-{fraction} or w-full to set an element to a percentage based width.
 
 ```html
@@ -148,17 +119,13 @@ Use w-{fraction} or w-full to set an element to a percentage based width.
 
 - Responsive
 
-To control the width of an element at a specific breakpoint, add a {screen}: prefix to any existing width utility. For example, adding the class md:w-full to an element would apply the w-full utility at medium screen sizes and above.
-
 ```html
 <div class="w-1/2 md:w-full ...">
   <!-- ... -->
 </div>
 ```
 
-- Source
-
-https://tailwindcss.com/docs/width
+- Source : https://tailwindcss.com/docs/width
 
 ## Min-Width
 
@@ -280,65 +247,7 @@ To control the max-width of an element at a specific breakpoint, add a {screen}:
 
 ## Height
 
-Utilities for setting the height of an element
 
-```css
-Class
-Properties
-h-0	height: 0px;
-h-px	height: 1px;
-h-0.5	height: 0.125rem;
-h-1	height: 0.25rem;
-h-1.5	height: 0.375rem;
-h-2	height: 0.5rem;
-h-2.5	height: 0.625rem;
-h-3	height: 0.75rem;
-h-3.5	height: 0.875rem;
-h-4	height: 1rem;
-h-5	height: 1.25rem;
-h-6	height: 1.5rem;
-h-7	height: 1.75rem;
-h-8	height: 2rem;
-h-9	height: 2.25rem;
-h-10	height: 2.5rem;
-h-11	height: 2.75rem;
-h-12	height: 3rem;
-h-14	height: 3.5rem;
-h-16	height: 4rem;
-h-20	height: 5rem;
-h-24	height: 6rem;
-h-28	height: 7rem;
-h-32	height: 8rem;
-h-36	height: 9rem;
-h-40	height: 10rem;
-h-44	height: 11rem;
-h-48	height: 12rem;
-h-52	height: 13rem;
-h-56	height: 14rem;
-h-60	height: 15rem;
-h-64	height: 16rem;
-h-72	height: 18rem;
-h-80	height: 20rem;
-h-96	height: 24rem;
-h-auto	height: auto;
-h-1/2	height: 50%;
-h-1/3	height: 33.333333%;
-h-2/3	height: 66.666667%;
-h-1/4	height: 25%;
-h-2/4	height: 50%;
-h-3/4	height: 75%;
-h-1/5	height: 20%;
-h-2/5	height: 40%;
-h-3/5	height: 60%;
-h-4/5	height: 80%;
-h-1/6	height: 16.666667%;
-h-2/6	height: 33.333333%;
-h-3/6	height: 50%;
-h-4/6	height: 66.666667%;
-h-5/6	height: 83.333333%;
-h-full	height: 100%;
-h-screen	height: 100vh;
-```
 
 - Auto
 
@@ -433,3 +342,12 @@ https://tailwindcss.com/docs/min-height
 
 @@@
 
+
+
+# SPACING
+
+## Padding
+
+## Margin
+
+## Space Between

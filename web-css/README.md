@@ -37,8 +37,9 @@ CONTENT | Note |
 
 CONTENT |
 --- |
+[Tailwind Intro](./tw-intro.md) |
 [Layout](./tw-layout.md) |
-[Tailwind Intro](./tw-notes.md) |
+[Sizing and Spacing](./tw-sizing.md) |
 [Flexbox and Grid](./tw-flexbox.md) |
 
 

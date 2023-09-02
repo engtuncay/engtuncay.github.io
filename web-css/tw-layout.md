@@ -26,18 +26,18 @@
 
 A component for fixing an element's width to the current breakpoint.
 
-(tor:kesim noktası)
+Class         | Breakpoint | Properties
+--------------|------------|-------------------
+container     | None       | width: 100%;
+sm:container  | sm         | max-width: 640px;
+md:container  | md         | max-width: 768px;
+lg:container  | lg         | max-width: 1024px;
+xl:container  | xl         | max-width: 1280px;
+2xl:container | 2xl        | max-width: 1536px;
 
-Class     | Breakpoint   | Properties
-----------|--------------|-------------------
-container | None         | width: 100%;
-container | sm:container | max-width: 640px;
-container | md:container | max-width: 768px;
-container | lg (1024px)  | max-width: 1024px;
-container | xl (1280px)  | max-width: 1280px;
-container | 2xl (1536px) | max-width: 1536px;
+(tor: Responsive variant'lara max-width tanımlanıyor. max-width aşan kısma margin uygulanıyor. ortalamak için margin auto yapılması gerekir. Md (768-1024px) ekran 768 den 1024'e dogru gittikçe margin oluşturur.)
 
-(tor: Container en büyük ekranda alacağı max genişlik 1536px olur. 1536 üstünde margin degerleri (boşluk) oluşturur. Md ekranda (768-1024px) en geniş 768 px olur.)
+(tor:breakpoint: kesim noktası)
 
 **Usage**
 
@@ -371,63 +371,19 @@ Utilities for controlling the placement of positioned elements.
 
 Class            | Properties
 -----------------|---------------------------------------------------------------
-//Pixel//        |
-.                | // instead of top, right bottom left can be used
-top-0            | top: 0px;
-top-px           | top: 1px;
--top-px          | top: -1px;
-.                |
-inset-0          | top: 0px;right: 0px;bottom: 0px;left: 0px;
-inset-x-0        | left: 0px;right: 0px;
-inset-y-0        | top: 0px;bottom: 0px;
-.                |
-//Rem//          |
 .                | // instead of top, right, bottom or left can be used
 .                | // inset (for tblr),
 .                | // inset-x (for lr), inset-y (for tb) can be used
 .                | // top-0 variants : right:0 or bottom:0 or left:0
 .                | // top-[0.5-96] values
-top-0.5          | top: 0.125rem;
-top-1            | top: 0.25rem;
-top-1.5          | top: 0.375rem;
-top-2            | top: 0.5rem;
-top-2.5          | top: 0.625rem;
-top-3            | top: 0.75rem;
-top-3.5          | top: 0.875rem;
-top-4            | top: 1rem;
-top-5            | top: 1.25rem;
-top-6            | top: 1.5rem;
-top-7            | top: 1.75rem;
-top-8            | top: 2rem;
-top-9            | top: 2.25rem;
-top-10           | top: 2.5rem;
-top-11           | top: 2.75rem;
-top-12           | top: 3rem;
-top-14           | top: 3.5rem;
-top-16           | top: 4rem;
-top-20           | top: 5rem;
-top-24           | top: 6rem;
-top-28           | top: 7rem;
-top-32           | top: 8rem;
-top-36           | top: 9rem;
-top-40           | top: 10rem;
-top-44           | top: 11rem;
-top-48           | top: 12rem;
-top-52           | top: 13rem;
-top-56           | top: 14rem;
-top-60           | top: 15rem;
-top-64           | top: 16rem;
-top-72           | top: 18rem;
-top-80           | top: 20rem;
-top-96           | top: 24rem;
-.                |
-.                | // Minus variant: the value is converted minus value
--top-[0.5-96]    | top:-spec values
+top-[size_no]    | top: [size_value];
+.                | // Minus value can be used
+-top-[size_no]    | top:-[size_value];
 .                | Example
 -top-0.5         | top: -0.125rem;
 .                | // Inset
-inset-[0.5-96]   | trbl : same as top values;
--inset-[0.5-96]  | trbl : - same as top values;
+inset-[size_no]   | trbl : [size_value];
+-inset-[size_no]  | trbl : - same as top values;
 inset-x-[0.5-96] | lr : same as top values;
 inset-y-[0.5-96] | tb : same as top values;
 inset-auto       | top: auto;right: auto;bottom: auto;left: auto;
@@ -436,6 +392,9 @@ inset-0.5        | trbl: 0.125rem;
 inset-x-0.5      | left: 0.125rem;right: 0.125rem;
 inset-y-0.5      | top: 0.125rem;bottomt: 0.125rem;
 -inset-x-0.5     | left: -0.125rem;right: -0.125rem;
+inset-0          | top: 0px;right: 0px;bottom: 0px;left: 0px;
+inset-x-0        | left: 0px;right: 0px;
+inset-y-0        | top: 0px;bottom: 0px;
 .                |
 .//% values//    |
 .                | // instead of top, right, bottom or left or insert can be used
@@ -456,6 +415,7 @@ inset-y-auto     | top: auto;bottom: auto;
 
 
 - Usage
+
 Use the {top|right|bottom|left|inset}-0 utilities to anchor absolutely positioned elements against any of the edges of the nearest positioned parent.
 
 Combined with Tailwind’s padding and margin utilities, you’ll probably find that these are all you need to precisely control absolutely positioned elements.
@@ -511,15 +471,12 @@ Combined with Tailwind’s padding and margin utilities, you’ll probably find 
 
 - Responsive
 
-To position an element only at a specific breakpoint, add a {screen}: prefix to any existing positioning utility. For example, adding the class md:inset-y-0 to an element would apply the inset-y-0 utility at medium screen sizes and above.
-
 ```html
 <div class="relative h-32 ...">
   <div class="absolute inset-0 md:inset-y-0 ..."></div>
 </div>
 
 ```
-
 
 ## Floats
 
@@ -546,8 +503,6 @@ Use "float-none" to reset any floats that are applied to an element. This is the
 
 - Responsive
 
-For example, use md:float-left to apply the float-left utility at only medium screen sizes and above.
-
 ```html
 <div class="bg-gray-200 p-4">
   <img class="float-right md:float-left ...">
@@ -557,7 +512,6 @@ For example, use md:float-left to apply the float-left utility at only medium sc
 ```
 
 - Source : https://tailwindcss.com/docs/float
-
 
 ## Clear
 
