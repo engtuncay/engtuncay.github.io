@@ -8,7 +8,7 @@
   - [Height](#height)
   - [Min-Height](#min-height)
   - [Max Height](#max-height)
-- [SPACING](#spacing)
+- [Spacing](#spacing)
   - [Padding](#padding)
   - [Margin](#margin)
   - [Space Between](#space-between)
@@ -344,7 +344,7 @@ https://tailwindcss.com/docs/min-height
 
 
 
-# SPACING
+# Spacing
 
 ## Padding
 
