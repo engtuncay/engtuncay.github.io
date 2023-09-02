@@ -39,6 +39,7 @@ CONTENT |
 --- |
 [Layout](./tw-layout.md) |
 [Tailwind Intro](./tw-notes.md) |
+[Flexbox and Grid](./tw-flexbox.md) |
 
 
 # Tailwind Articles
