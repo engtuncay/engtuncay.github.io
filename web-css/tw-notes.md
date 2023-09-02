@@ -1,6 +1,7 @@
 
 - [Code Play For Tailwind](#code-play-for-tailwind)
-- [CHEATSHEET](#cheatsheet)
+- [Preflight (Reset values)](#preflight-reset-values)
+- [Cheatsheet](#cheatsheet)
 - [FLEXBOX AND GRID](#flexbox-and-grid)
   - [Flex Direction](#flex-direction)
   - [Flex Wrap](#flex-wrap)
@@ -41,13 +42,19 @@
 
 # Code Play For Tailwind
 
-- Tailwind official Code Play <br/> https://play.tailwindcss.com/
+- Tailwind official Code Play : https://play.tailwindcss.com/
 
-- CodePen My Template <br/> https://codepen.io/engtuncay/pen/vYjgOMy
+- Tailwind Demos : https://8mrjrn.csb.app/
 
-Preflight : https://tailwindcss.com/docs/preflight
+- CodePen : https://codepen.io/engtuncay/pen/vYjgOMy
 
-# CHEATSHEET
+# Preflight (Reset values)
+
+Source  : https://tailwindcss.com/docs/preflight
+
+# Cheatsheet
+
+
 
 # FLEXBOX AND GRID
 
