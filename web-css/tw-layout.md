@@ -6,10 +6,10 @@
     - [Responsive variants](#responsive-variants)
   - [Box Sizing](#box-sizing)
   - [Display](#display)
-  - [Floats](#floats)
-  - [Clear](#clear)
   - [Position](#position)
   - [Top / Right / Bottom / Left](#top--right--bottom--left)
+  - [Floats](#floats)
+  - [Clear](#clear)
   - [Visibility](#visibility)
   - [Z-Index](#z-index)
   - [Isolation ???](#isolation-)
@@ -101,7 +101,7 @@ Tailwind makes border-box sizing the default for all elements in our preflight b
 
 ## Display
 
-Utilities for controlling the display box type of an element.
+Utilities for controlling the display type of an element.
 
 Class              | Properties
 -------------------|-----------------------------
@@ -127,7 +127,7 @@ contents           | display: contents;
 list-item          | display: list-item;
 hidden             | display: none;
 
-Example
+Example (1) : block
 
 ```html
 <div class="space-y-3">
@@ -137,7 +137,7 @@ Example
 </div>
 ```
 
-- Flow-Root ???
+Example (2) : Flow-Root ???
 
 Use flow-root to create a block-level element with its own block formatting context.
 
@@ -153,7 +153,7 @@ Use flow-root to create a block-level element with its own block formatting cont
 
 ```
 
-Example (2) : Inline Block
+Example (3) : Inline Block
 
 ```html
 <div class="space-x-4 ...">
@@ -163,7 +163,7 @@ Example (2) : Inline Block
 </div>
 ```
 
-Example (3) Flex
+Example (4) Flex
 
 ```html
 <div class="flex space-x-4 ...">
@@ -174,23 +174,12 @@ Example (3) Flex
 
 ```
 
-Example (4) Grid
+Example (5) Grid
 
 ```html
 <div class="grid gap-4 grid-cols-3">
   <!-- ... -->
 </div>
-```
-
-Example (5) : Inline Grid
-
-```html
-<span class="inline-grid grid-cols-3 gap-x-4">
-  <span>1</span>
-  <span>1</span>
-  <span>1</span>
-</span>
-
 ```
 
 Example (6) : contents
@@ -211,7 +200,7 @@ Use contents to create a “phantom” container whose children act like direct 
 Burada 2 ve 3 sanki üstteki parent'ın child'ı gibi hareket eder.
 
 
-- Table
+Example (7) : Table
 
 Use the table, .table-row, .table-cell, .table-caption, .table-column, .table-column-group, .table-header-group, table-row-group, and .table-footer-group utilities to create elements that behave like their respective table elements.
 
@@ -232,9 +221,9 @@ Use the table, .table-row, .table-cell, .table-caption, .table-column, .table-co
 </div>
 ```
 
-- Hidden
+Example (8) : Hidden
 
-Use hidden to set an element to `display: none` and remove it from the page layout (compare with .invisible from the visibility documentation).
+Use hidden to set an element to `display: none` and remove it from <span style="color:red">the page layout</span> (compare with .invisible from the visibility documentation).
 
 ```html
 <div class="flex ...">
@@ -244,9 +233,7 @@ Use hidden to set an element to `display: none` and remove it from the page layo
 </div>
 ```
 
-**Responsive**
-
-To control the display property of an element at a specific breakpoint, add a {screen}: prefix to any existing display utility class. For example, use md:inline-flex to apply the inline-flex utility at only medium screen sizes and *above*.
+- You can use responsive variants.
 
 ```html
 <div class="flex md:inline-flex ...">
@@ -255,6 +242,284 @@ To control the display property of an element at a specific breakpoint, add a {s
 ```
 
 - Source : https://tailwindcss.com/docs/display
+
+## Position
+
+Utilities for controlling how an element is positioned in the DOM.
+
+Class    | Properties
+---------|--------------------
+static   | position: static;
+fixed    | position: fixed;
+absolute | position: absolute;
+relative | position: relative;
+sticky   | position: sticky;
+
+
+- Static
+
+Use static to position an element according to the normal flow of the document.
+
+Any offsets will be ignored and the element will not act as a position reference for absolutely positioned children.
+
+```html
+<div class="static ...">
+  <p>Static parent</p>
+  <div class="absolute bottom-0 left-0 ...">
+    <p>Absolute child</p>
+  </div>
+</div>
+```
+
+- Relative
+
+Use relative to position an element according to the normal flow of the document.
+
+Offsets are calculated relative to the element’s normal position and the element will act as a position reference for absolutely positioned children.
+
+
+```html
+<div class="relative ...">
+  <p>Relative parent</p>
+  <div class="absolute bottom-0 left-0 ...">
+    <p>Absolute child</p>
+  </div>
+</div>
+```
+
+- Absolute
+
+Use absolute to position an element outside of the normal flow of the document, causing neighboring elements to act as if the element doesn’t exist.
+
+Offsets are calculated relative to the nearest parent that has a position other than static, and the element will act as a position reference for other absolutely positioned children.
+
+```html
+<div class="static ...">
+  <!-- Static parent -->
+  <div class="static ..."><p>Static child</p></div>
+  <div class="inline-block ..."><p>Static sibling</p></div>
+  <!-- Static parent -->
+  <div class="absolute ..."><p>Absolute child</p></div>
+  <div class="inline-block ..."><p>Static sibling</p></div>
+</div>
+```
+
+(???) rev
+
+✏ Note : absolute position without tblr values
+
+then tblr values are auto
+
+top değeri üstündeki blockların yüksekliği kadar olur. ltr sistemde left 0 olur, right bottom ne kadar boşluk varsa o kadar büyüklüğü alır.
+
+- Fixed : Use fixed to position an element relative to *the browser window*.
+
+Offsets are calculated relative to <span style="color:red">the viewport</span> and the element will act as a position reference for absolutely positioned children.
+
+```html
+<div>
+  <div class="fixed ...">
+    Fixed child
+  </div>
+
+  Scroll me!
+
+  Lorem ipsum...
+</div>
+```
+
+- Sticky
+
+Use sticky to position an element as relative until it crosses a specified threshold, then treat it as fixed until its parent is off screen.
+
+Offsets are calculated relative to the element’s normal position and the element will act as a position reference for absolutely positioned children.
+
+```html
+<div>
+  <div class="sticky top-0 ...">Sticky Heading 1</div>
+  <p class="py-4">Quisque cursus...</p>
+</div>
+<div>
+  <div class="sticky top-0 ...">Sticky Heading 2</div>
+  <p class="py-4">Integer lacinia...</p>
+</div>
+<div>
+  <div class="sticky top-0 ...">Sticky Heading 3</div>
+  <p class="py-4">Nullam mauris...</p>
+</div>
+<!-- etc. -->
+```
+
+- Responsive
+
+To change how an element is positioned only at a specific breakpoint, add a {screen}: prefix to any existing position utility. For example, adding the class md:absolute to an element would apply the absolute utility at medium screen sizes and above.
+
+```html
+<div class="relative h-32 ...">
+  <div class="inset-x-0 bottom-0 relative md:absolute"></div>
+</div>
+
+```
+
+- Source 
+
+https://tailwindcss.com/docs/position
+
+## Top / Right / Bottom / Left
+
+Utilities for controlling the placement of positioned elements.
+
+Class            | Properties
+-----------------|---------------------------------------------------------------
+//Pixel//        |
+.                | // instead of top, right bottom left can be used
+top-0            | top: 0px;
+top-px           | top: 1px;
+-top-px          | top: -1px;
+.                |
+inset-0          | top: 0px;right: 0px;bottom: 0px;left: 0px;
+inset-x-0        | left: 0px;right: 0px;
+inset-y-0        | top: 0px;bottom: 0px;
+.                |
+//Rem//          |
+.                | // instead of top, right, bottom or left can be used
+.                | // inset (for tblr),
+.                | // inset-x (for lr), inset-y (for tb) can be used
+.                | // top-0 variants : right:0 or bottom:0 or left:0
+.                | // top-[0.5-96] values
+top-0.5          | top: 0.125rem;
+top-1            | top: 0.25rem;
+top-1.5          | top: 0.375rem;
+top-2            | top: 0.5rem;
+top-2.5          | top: 0.625rem;
+top-3            | top: 0.75rem;
+top-3.5          | top: 0.875rem;
+top-4            | top: 1rem;
+top-5            | top: 1.25rem;
+top-6            | top: 1.5rem;
+top-7            | top: 1.75rem;
+top-8            | top: 2rem;
+top-9            | top: 2.25rem;
+top-10           | top: 2.5rem;
+top-11           | top: 2.75rem;
+top-12           | top: 3rem;
+top-14           | top: 3.5rem;
+top-16           | top: 4rem;
+top-20           | top: 5rem;
+top-24           | top: 6rem;
+top-28           | top: 7rem;
+top-32           | top: 8rem;
+top-36           | top: 9rem;
+top-40           | top: 10rem;
+top-44           | top: 11rem;
+top-48           | top: 12rem;
+top-52           | top: 13rem;
+top-56           | top: 14rem;
+top-60           | top: 15rem;
+top-64           | top: 16rem;
+top-72           | top: 18rem;
+top-80           | top: 20rem;
+top-96           | top: 24rem;
+.                |
+.                | // Minus can be added , so the value is converted minus value
+-top-[0.5-96]    | top:-spec values
+.                | Example
+-top-0.5         | top: -0.125rem;
+.                | // Inset
+inset-[0.5-96]   | trbl : same as top values;
+-inset-[0.5-96]  | trbl : - same as top values;
+inset-x-[0.5-96] | lr : same as top values;
+inset-y-[0.5-96] | tb : same as top values;
+inset-auto       | top: auto;right: auto;bottom: auto;left: auto;
+.                | Example
+inset-0.5        | trbl: 0.125rem;
+inset-x-0.5      | left: 0.125rem;right: 0.125rem;
+inset-y-0.5      | top: 0.125rem;bottomt: 0.125rem;
+-inset-x-0.5     | left: -0.125rem;right: -0.125rem;
+.                |
+.**% values**    |
+.                | // instead of top, right, bottom or left or insert can be used
+.                | // inset (for tblr),
+.                | // inset-x (for lr), inset-y (for tb) can be used
+top-1/2          | top: 50%;
+top-1/3          | top: 33.333333%;
+top top-2/3      | top: 66.666667%;
+top-1/4          | top: 25%;
+top-2/4          | top: 50%;
+top-3/4          | top: 75%;
+top-full         | top: 100%;
+.                |
+inset-1/2        | trbl: 50%;
+inset-full       | trbl: 100%;
+inset-x-auto     | left: auto;right: auto;
+inset-y-auto     | top: auto;bottom: auto;
+
+
+- Usage
+Use the {top|right|bottom|left|inset}-0 utilities to anchor absolutely positioned elements against any of the edges of the nearest positioned parent.
+
+Combined with Tailwind’s padding and margin utilities, you’ll probably find that these are all you need to precisely control absolutely positioned elements.
+
+```html
+<!-- Span top edge -->
+<div class="relative h-32 w-32 ...">
+  <!-- h-16 , fakat width değer verilmedi,inset-x-0 (left ve right 0) yapıldığı için containing block'unun tüm genişliğini kaplayacaktır -->
+  <div class="absolute inset-x-0 top-0 h-16 ...">1</div>
+</div>
+
+<!-- Span right edge -->
+<div class="relative h-32 w-32 ...">
+  <div class="absolute inset-y-0 right-0 w-16 ...">2</div>
+</div>
+
+<!-- Span bottom edge -->
+<div class="relative h-32 w-32 ...">
+  <div class="absolute inset-x-0 bottom-0 h-16 ...">3</div>
+</div>
+
+<!-- Span left edge -->
+<div class="relative h-32 w-32 ...">
+  <div class="absolute inset-y-0 left-0 w-16 ...">4</div>
+</div>
+
+<!-- Fill entire parent -->
+<div class="relative h-32 w-32 ...">
+  <div class="absolute inset-0 ...">5</div>
+</div>
+
+<!-- Pin to top left corner -->
+<div class="relative h-32 w-32 ...">
+  <div class="absolute left-0 top-0 h-16 w-16 ...">6</div>
+</div>
+
+<!-- Pin to top right corner -->
+<div class="relative h-32 w-32 ...">
+  <div class="absolute top-0 right-0 h-16 w-16 ...">7</div>
+</div>
+
+<!-- Pin to bottom right corner -->
+<div class="relative h-32 w-32 ...">
+  <div class="absolute bottom-0 right-0 h-16 w-16 ...">8</div>
+</div>
+
+<!-- Pin to bottom left corner -->
+<div class="relative h-32 w-32 ...">
+  <div class="absolute bottom-0 left-0 h-16 w-16 ...">9</div>
+</div>
+
+```
+
+- Responsive
+
+To position an element only at a specific breakpoint, add a {screen}: prefix to any existing positioning utility. For example, adding the class md:inset-y-0 to an element would apply the inset-y-0 utility at medium screen sizes and above.
+
+```html
+<div class="relative h-32 ...">
+  <div class="absolute inset-0 md:inset-y-0 ..."></div>
+</div>
+
+```
+
 
 ## Floats
 
@@ -342,460 +607,16 @@ For example, use md:clear-left to apply the clear-left utility at only medium sc
 
 - Source : https://tailwindcss.com/docs/clear
 
-## Position
-
-Utilities for controlling how an element is positioned in the DOM.
-
-```
-Class Properties
-static	  position: static;
-fixed	    position: fixed;
-absolute	position: absolute;
-relative	position: relative;
-sticky	  position: sticky;
-```
-
-- Static
-
-Use static to position an element according to the normal flow of the document.
-
-Any offsets will be ignored and the element will not act as a position reference for absolutely positioned children.
-
-```html
-<div class="static ...">
-  <p>Static parent</p>
-  <div class="absolute bottom-0 left-0 ...">
-    <p>Absolute child</p>
-  </div>
-</div>
-```
-
-
-- Relative
-
-Use relative to position an element according to the normal flow of the document.
-
-Offsets are calculated relative to the element’s normal position and the element will act as a position reference for absolutely positioned children.
-
-
-```html
-<div class="relative ...">
-  <p>Relative parent</p>
-  <div class="absolute bottom-0 left-0 ...">
-    <p>Absolute child</p>
-  </div>
-</div>
-```
-
-
-- Absolute
-
-Use absolute to position an element outside of the normal flow of the document, causing neighboring elements to act as if the element doesn’t exist.
-
-Offsets are calculated relative to the nearest parent that has a position other than static, and the element will act as a position reference for other absolutely positioned children.
-
-```html
-<div class="static ...">
-  <!-- Static parent -->
-  <div class="static ..."><p>Static child</p></div>
-  <div class="inline-block ..."><p>Static sibling</p></div>
-  <!-- Static parent -->
-  <div class="absolute ..."><p>Absolute child</p></div>
-  <div class="inline-block ..."><p>Static sibling</p></div>
-</div>
-```
-
-✏ Note : absolute position without tblr values
-
-then tblr values are auto
-
-top değeri üstündeki blockların yüksekliği kadar olur. ltr sistemde left 0 olur, right bottom ne kadar boşluk varsa o kadar büyüklüğü alır.
-
-- Fixed : Use fixed to position an element relative to the browser window.
-
-Offsets are calculated relative to the viewport and the element will act as a position reference for absolutely positioned children.
-
-```html
-<div>
-  <div class="fixed ...">
-    Fixed child
-  </div>
-
-  Scroll me!
-
-  Lorem ipsum...
-</div>
-```
-
-- Sticky
-
-Use sticky to position an element as relative until it crosses a specified threshold, then treat it as fixed until its parent is off screen.
-
-Offsets are calculated relative to the element’s normal position and the element will act as a position reference for absolutely positioned children.
-
-```html
-<div>
-  <div class="sticky top-0 ...">Sticky Heading 1</div>
-  <p class="py-4">Quisque cursus...</p>
-</div>
-<div>
-  <div class="sticky top-0 ...">Sticky Heading 2</div>
-  <p class="py-4">Integer lacinia...</p>
-</div>
-<div>
-  <div class="sticky top-0 ...">Sticky Heading 3</div>
-  <p class="py-4">Nullam mauris...</p>
-</div>
-<!-- etc. -->
-```
-
-- Responsive
-
-To change how an element is positioned only at a specific breakpoint, add a {screen}: prefix to any existing position utility. For example, adding the class md:absolute to an element would apply the absolute utility at medium screen sizes and above.
-
-```html
-<div class="relative h-32 ...">
-  <div class="inset-x-0 bottom-0 relative md:absolute"></div>
-</div>
-
-```
-
-- Source 
-
-https://tailwindcss.com/docs/position
-
-## Top / Right / Bottom / Left
-
-Utilities for controlling the placement of positioned elements.
-
-```
-Class           Properties
-inset-0	        top: 0px;right: 0px;bottom: 0px;left: 0px;
-inset-x-0	    left: 0px;right: 0px;
-inset-y-0	    top: 0px;bottom: 0px;
-
-top-0	        top: 0px;
-right-0	        right: 0px;
-bottom-0	    bottom: 0px;
-left-0	        left: 0px;
-
-// başlarına eksi gelebilir
-{-}inset-px	    top: 1px;right: 1px;bottom: 1px;left: 1px;
-{-}inset-x-px	    left: 1px;right: 1px;
-{-}inset-y-px	    top: 1px;bottom: 1px;
-
-// top right bottom left
-{trbl}-px	    {trbl}: 1px;
--{trbl}-px	    {trbl}: -1px;
-
-// örnek
-top-px	        top: 1px;
--top-px	        top: -1px;
-
-// başına - gelebilir
-inset-0.5	    top: 0.125rem;right: 0.125rem;bottom: 0.125rem;left: 0.125rem;
-inset-x-0.5	    left: 0.125rem;right: 0.125rem;-inset-x-0.5	left: -0.125rem;right: -0.125rem;
-inset-y-0.5	    top: 0.125rem;bottom: 0.125rem;
-
-
-// top right bottom left den biri gelir.
-trbl-0.5	      trbl: 0.125rem; 
-trbl-1	      trbl: 0.25rem;
-trbl-1.5	      trbl: 0.375rem;
-trbl-2	      trbl: 0.5rem;
-trbl-2.5	top: 0.625rem;
-trbl-3	top: 0.75rem;
-trbl-3.5	top: 0.875rem;
-trbl-4	top: 1rem;
-trbl-5	top: 1.25rem;
-trbl-6	top: 1.5rem;
-trbl-7	top: 1.75rem;
-trbl-8	top: 2rem;
-trbl-9	top: 2.25rem;
-trbl-10	top: 2.5rem;
-trbl-11	top: 2.75rem;
-trbl-12	top: 3rem;
-trbl-14	top: 3.5rem;
-
-top-16	top: 4rem;
-top-20	top: 5rem;
-top-24	top: 6rem;
-top-28	top: 7rem;
-top-32	top: 8rem;
-top-36	top: 9rem;
-top-40	top: 10rem;
-top-44	top: 11rem;
-
-// Başlarını eksi işareti gelebilir, değer negatife döner
--trbl-0.5	      trbl: -0.125rem; 
-
-
-// top örneği
-top-0.5	      top: 0.125rem; 
-top-1	        top: 0.25rem;
-top-1.5	      top: 0.375rem;
-top-2	        top: 0.5rem;
-
-// Başlarına - gelebilir, değerlerin başına - gelir
-inset-1	      top: 0.25rem;right: 0.25rem;bottom: 0.25rem;left: 0.25rem;
-inset-x-1	    left: 0.25rem;right: 0.25rem;
-inset-y-1	    top: 0.25rem;bottom: 0.25rem;
-
-// örnek
--inset-1	      top: -0.25rem;right: -0.25rem;bottom: -0.25rem;left: -0.25rem;
-
-inset-1.5	    top: 0.375rem;right: 0.375rem;bottom: 0.375rem;left: 0.375rem;
-inset-x-1.5	left: 0.375rem;right: 0.375rem;
-inset-y-1.5	top: 0.375rem;bottom: 0.375rem;
-
-inset-2	top: 0.5rem;right: 0.5rem;bottom: 0.5rem;left: 0.5rem;
-inset-x-2	left: 0.5rem;right: 0.5rem;
-inset-y-2	top: 0.5rem;bottom: 0.5rem;
-
-inset-2.5	top: 0.625rem;right: 0.625rem;bottom: 0.625rem;left: 0.625rem;
-inset-x-2.5	left: 0.625rem;right: 0.625rem;
-inset-y-2.5	top: 0.625rem;bottom: 0.625rem;
-
-inset-3	top: 0.75rem;right: 0.75rem;bottom: 0.75rem;left: 0.75rem;
-inset-x-3	left: 0.75rem;right: 0.75rem;
-inset-y-3	top: 0.75rem;bottom: 0.75rem;
-
-inset-3.5	top: 0.875rem;right: 0.875rem;bottom: 0.875rem;left: 0.875rem;
-inset-x-3.5	left: 0.875rem;right: 0.875rem;
-inset-y-3.5	top: 0.875rem;bottom: 0.875rem;
-
-inset-4	top: 1rem;right: 1rem;bottom: 1rem;left: 1rem;
-inset-x-4	left: 1rem;right: 1rem;
-inset-y-4	top: 1rem;bottom: 1rem;
-
-inset-5	top: 1.25rem;right: 1.25rem;bottom: 1.25rem;left: 1.25rem;
-inset-x-5	left: 1.25rem;right: 1.25rem;
-inset-y-5	top: 1.25rem;bottom: 1.25rem;
-
-inset-6	top: 1.5rem;right: 1.5rem;bottom: 1.5rem;left: 1.5rem;
-inset-x-6	left: 1.5rem;right: 1.5rem;
-inset-y-6	top: 1.5rem;bottom: 1.5rem;
-
-inset-7	top: 1.75rem;right: 1.75rem;bottom: 1.75rem;left: 1.75rem;
-inset-x-7	left: 1.75rem;right: 1.75rem;
-inset-y-7	top: 1.75rem;bottom: 1.75rem;
-
-inset-8	top: 2rem;right: 2rem;bottom: 2rem;left: 2rem;
-inset-x-8	left: 2rem;right: 2rem;
-inset-y-8	top: 2rem;bottom: 2rem;
-
-inset-9	top: 2.25rem;right: 2.25rem;bottom: 2.25rem;left: 2.25rem;
-inset-x-9	left: 2.25rem;right: 2.25rem;
-inset-y-9	top: 2.25rem;bottom: 2.25rem;
-
-inset-10	top: 2.5rem;right: 2.5rem;bottom: 2.5rem;left: 2.5rem;
-inset-x-10	left: 2.5rem;right: 2.5rem;
-inset-y-10	top: 2.5rem;bottom: 2.5rem;
-
-inset-11	top: 2.75rem;right: 2.75rem;bottom: 2.75rem;left: 2.75rem;
-inset-x-11	left: 2.75rem;right: 2.75rem;
-inset-y-11	top: 2.75rem;bottom: 2.75rem;
-
-inset-12	top: 3rem;right: 3rem;bottom: 3rem;left: 3rem;
-inset-x-12	left: 3rem;right: 3rem;
-inset-y-12	top: 3rem;bottom: 3rem;
-
-inset-14	top: 3.5rem;right: 3.5rem;bottom: 3.5rem;left: 3.5rem;
-inset-x-14	left: 3.5rem;right: 3.5rem;
-inset-y-14	top: 3.5rem;bottom: 3.5rem;
-
-inset-16	top: 4rem;right: 4rem;bottom: 4rem;left: 4rem;
-inset-x-16	left: 4rem;right: 4rem;
-inset-y-16	top: 4rem;bottom: 4rem;
-
-inset-20	top: 5rem;right: 5rem;bottom: 5rem;left: 5rem;
-inset-x-20	left: 5rem;right: 5rem;
-inset-y-20	top: 5rem;bottom: 5rem;
-
-inset-24	top: 6rem;right: 6rem;bottom: 6rem;left: 6rem;
-inset-x-24	left: 6rem;right: 6rem;
-inset-y-24	top: 6rem;bottom: 6rem;
-
-inset-28	top: 7rem;right: 7rem;bottom: 7rem;left: 7rem;
-inset-x-28	left: 7rem;right: 7rem;
-inset-y-28	top: 7rem;bottom: 7rem;
-
-inset-32	top: 8rem;right: 8rem;bottom: 8rem;left: 8rem;
-inset-x-32	left: 8rem;right: 8rem;
-inset-y-32	top: 8rem;bottom: 8rem;
-
-inset-36	top: 9rem;right: 9rem;bottom: 9rem;left: 9rem;
-inset-x-36	left: 9rem;right: 9rem;
-inset-y-36	top: 9rem;bottom: 9rem;
-
-inset-40	top: 10rem;right: 10rem;bottom: 10rem;left: 10rem;
-inset-x-40	left: 10rem;right: 10rem;
-inset-y-40	top: 10rem;bottom: 10rem;
-
-inset-44	top: 11rem;right: 11rem;bottom: 11rem;left: 11rem;
-inset-x-44	left: 11rem;right: 11rem;
-inset-y-44	top: 11rem;bottom: 11rem;
-
-inset-48	top: 12rem;right: 12rem;bottom: 12rem;left: 12rem;
-inset-x-48	left: 12rem;right: 12rem;
-inset-y-48	top: 12rem;bottom: 12rem;
-top-48	top: 12rem;
-
-inset-52	top: 13rem;right: 13rem;bottom: 13rem;left: 13rem;
-inset-x-52	left: 13rem;right: 13rem;
-inset-y-52	top: 13rem;bottom: 13rem;
-top-52	top: 13rem;
-
-inset-56	top: 14rem;right: 14rem;bottom: 14rem;left: 14rem;
-inset-x-56	left: 14rem;right: 14rem;
-inset-y-56	top: 14rem;bottom: 14rem;
-top-56	top: 14rem;
-
-inset-60	top: 15rem;right: 15rem;bottom: 15rem;left: 15rem;
-inset-x-60	left: 15rem;right: 15rem;
-inset-y-60	top: 15rem;bottom: 15rem;
-top-60	top: 15rem;
-
-inset-64	top: 16rem;right: 16rem;bottom: 16rem;left: 16rem;
-inset-x-64	left: 16rem;right: 16rem;
-inset-y-64	top: 16rem;bottom: 16rem;
-top-64	top: 16rem;
-
-inset-72	top: 18rem;right: 18rem;bottom: 18rem;left: 18rem;
-inset-x-72	left: 18rem;right: 18rem;
-inset-y-72	top: 18rem;bottom: 18rem;
-top-72	top: 18rem;
-
-inset-80	top: 20rem;right: 20rem;bottom: 20rem;left: 20rem;
-inset-x-80	left: 20rem;right: 20rem;
-inset-y-80	top: 20rem;bottom: 20rem;
-top-80	top: 20rem;
-
-inset-96	top: 24rem;right: 24rem;bottom: 24rem;left: 24rem;
-inset-x-96	left: 24rem;right: 24rem;
-inset-y-96	top: 24rem;bottom: 24rem;
-top-96	top: 24rem;
-
-inset-auto	top: auto;right: auto;bottom: auto;left: auto;
-// Başlarına - gelebilir
-inset-1/2	top: 50%;right: 50%;bottom: 50%;left: 50%;
-inset-1/3	top: 33.333333%;right: 33.333333%;bottom: 33.333333%;left: 33.333333%;
-inset-2/3	top: 66.666667%;right: 66.666667%;bottom: 66.666667%;left: 66.666667%;
-inset-1/4	top: 25%;right: 25%;bottom: 25%;left: 25%;
-inset-2/4	top: 50%;right: 50%;bottom: 50%;left: 50%;
-inset-3/4	top: 75%;right: 75%;bottom: 75%;left: 75%;
-inset-full	top: 100%;right: 100%;bottom: 100%;left: 100%;
-
-inset-x-auto	left: auto;right: auto;
-inset-x-1/2	left: 50%;right: 50%;
-inset-x-1/3	left: 33.333333%;right: 33.333333%;
-inset-x-2/3	left: 66.666667%;right: 66.666667%;
-inset-x-1/4	left: 25%;right: 25%;
-inset-x-2/4	left: 50%;right: 50%;
-inset-x-3/4	left: 75%;right: 75%;
-inset-x-full	left: 100%;right: 100%;
-
-inset-y-auto	top: auto;bottom: auto;
-inset-y-1/2	top: 50%;bottom: 50%;
-inset-y-1/3	top: 33.333333%;bottom: 33.333333%;
-inset-y-2/3	top: 66.666667%;bottom: 66.666667%;
-inset-y-1/4	top: 25%;bottom: 25%;
-inset-y-2/4	top: 50%;bottom: 50%;
-inset-y-3/4	top: 75%;bottom: 75%;
-inset-y-full	top: 100%;bottom: 100%;
-
-// top bottom left right , - olursa değerin başına eksi gelir
-tblr-auto	top: auto;
-tblr-1/2	top: 50%;
-tblr-1/3	top: 33.333333%;
-tblr-2/3	top: 66.666667%;
-tblr-1/4	top: 25%;
-tblr-2/4	top: 50%;
-tblr-3/4	top: 75%;
-tblr-full	top: 100%;
-
-// örnek
--top-1/2	top: -50%;
--top-full	top: -100%;
-
-```
-
-
-- Usage
-Use the {top|right|bottom|left|inset}-0 utilities to anchor absolutely positioned elements against any of the edges of the nearest positioned parent.
-
-Combined with Tailwind’s padding and margin utilities, you’ll probably find that these are all you need to precisely control absolutely positioned elements.
-
-```html
-<!-- Span top edge -->
-<div class="relative h-32 w-32 ...">
-  <!-- h-16 , fakat width değer verilmedi,inset-x-0 (left ve right 0) yapıldığı için containing block'unun tüm genişliğini kaplayacaktır -->
-  <div class="absolute inset-x-0 top-0 h-16 ...">1</div>
-</div>
-
-<!-- Span right edge -->
-<div class="relative h-32 w-32 ...">
-  <div class="absolute inset-y-0 right-0 w-16 ...">2</div>
-</div>
-
-<!-- Span bottom edge -->
-<div class="relative h-32 w-32 ...">
-  <div class="absolute inset-x-0 bottom-0 h-16 ...">3</div>
-</div>
-
-<!-- Span left edge -->
-<div class="relative h-32 w-32 ...">
-  <div class="absolute inset-y-0 left-0 w-16 ...">4</div>
-</div>
-
-<!-- Fill entire parent -->
-<div class="relative h-32 w-32 ...">
-  <div class="absolute inset-0 ...">5</div>
-</div>
-
-<!-- Pin to top left corner -->
-<div class="relative h-32 w-32 ...">
-  <div class="absolute left-0 top-0 h-16 w-16 ...">6</div>
-</div>
-
-<!-- Pin to top right corner -->
-<div class="relative h-32 w-32 ...">
-  <div class="absolute top-0 right-0 h-16 w-16 ...">7</div>
-</div>
-
-<!-- Pin to bottom right corner -->
-<div class="relative h-32 w-32 ...">
-  <div class="absolute bottom-0 right-0 h-16 w-16 ...">8</div>
-</div>
-
-<!-- Pin to bottom left corner -->
-<div class="relative h-32 w-32 ...">
-  <div class="absolute bottom-0 left-0 h-16 w-16 ...">9</div>
-</div>
-
-```
-
-- Responsive
-
-To position an element only at a specific breakpoint, add a {screen}: prefix to any existing positioning utility. For example, adding the class md:inset-y-0 to an element would apply the inset-y-0 utility at medium screen sizes and above.
-
-```html
-<div class="relative h-32 ...">
-  <div class="absolute inset-0 md:inset-y-0 ..."></div>
-</div>
-
-```
 
 ## Visibility
 
 Utilities for controlling the visibility of an element.
 
-```html
-Class       Properties
-visible     visibility: visible;
-invisible   visibility: hidden;
+Class     | Properties
+----------|---------------------
+visible   | visibility: visible;
+invisible | visibility: hidden;
 
-```
 
 - Invisible
 
@@ -814,23 +635,7 @@ Use invisible to hide an element, but *still maintain its place in the DOM*, aff
 
 Use visible to make an element visible. This is mostly useful for undoing the invisible utility at different screen sizes.
 
-```html
-<div class="flex justify-center space-x-4">
-  <div>1</div>
-  <div class="visible ...">2</div>
-  <div>3</div>
-</div>
-
-```
-
-- Responsive
-
-To apply a visibility utility only at a specific breakpoint, add a {screen}: prefix to the existing class name. For example, adding the class md:invisible to an element would apply the invisible utility at medium screen sizes and above.
-
-```html
-<div class="visible md:invisible ..."></div>
-
-```
+- You can use responsive variants.
 
 ## Z-Index
 
@@ -1183,3 +988,4 @@ To control the box-sizing at a specific breakpoint, add a {screen}: prefix to an
 
 For more information about Tailwind’s responsive design features, check out the Responsive Design documentation.
 (https://tailwindcss.com/docs/responsive-design)
+
