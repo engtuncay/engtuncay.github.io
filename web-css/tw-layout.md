@@ -421,7 +421,7 @@ top-72           | top: 18rem;
 top-80           | top: 20rem;
 top-96           | top: 24rem;
 .                |
-.                | // Minus can be added , so the value is converted minus value
+.                | // Minus variant: the value is converted minus value
 -top-[0.5-96]    | top:-spec values
 .                | Example
 -top-0.5         | top: -0.125rem;
@@ -437,7 +437,7 @@ inset-x-0.5      | left: 0.125rem;right: 0.125rem;
 inset-y-0.5      | top: 0.125rem;bottomt: 0.125rem;
 -inset-x-0.5     | left: -0.125rem;right: -0.125rem;
 .                |
-.**% values**    |
+.//% values//    |
 .                | // instead of top, right, bottom or left or insert can be used
 .                | // inset (for tblr),
 .                | // inset-x (for lr), inset-y (for tb) can be used
@@ -449,7 +449,7 @@ top-2/4          | top: 50%;
 top-3/4          | top: 75%;
 top-full         | top: 100%;
 .                |
-inset-1/2        | trbl: 50%;
+inset-[1/2-3/4]  | trbl: same as top values;
 inset-full       | trbl: 100%;
 inset-x-auto     | left: auto;right: auto;
 inset-y-auto     | top: auto;bottom: auto;
