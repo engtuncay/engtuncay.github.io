@@ -3,7 +3,7 @@
 - [Code Play For Tailwind](#code-play-for-tailwind)
 - [Preflight (Reset values)](#preflight-reset-values)
 - [General Concepts](#general-concepts)
-  - [Fixed Sizes (or space)](#fixed-sizes-or-space)
+  - [Space values ($spacing)](#space-values-spacing)
   - [Fraction Sizes](#fraction-sizes)
   - [Special Sizes](#special-sizes)
 
@@ -33,12 +33,12 @@ Source  : https://tailwindcss.com/docs/preflight
 
 # General Concepts
 
-## Fixed Sizes (or space)
+## Space values ($spacing)
 
-- 0.25rem (size value) * 4 = 1 (size no)
-- 1 (size no) * 4 = 4px
+- 0.25rem (size value) * 4 = 1 ($spacing)
+- 1 ($spacing) * 4 = 4px
 
-Size No | Properties | Pixel
+$spacing| Properties | Pixel
 --------|------------|------
 0       | 0px;       | 0px
 px      | 1px        | 1px

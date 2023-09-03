@@ -1,13 +1,9 @@
 
 - [Sizing](#sizing)
   - [Width and Height](#width-and-height)
-    - [Fixed Widths](#fixed-widths)
-    - [Fluid Width](#fluid-width)
-  - [Min-Width](#min-width)
-  - [Max Width](#max-width)
-  - [Height](#height)
-  - [Min-Height](#min-height)
-  - [Max Height](#max-height)
+    - [Height Examples](#height-examples)
+  - [Min-Width and Min-Height](#min-width-and-min-height)
+  - [Max Width and Max Height](#max-width-and-max-height)
 - [Spacing](#spacing)
   - [Padding](#padding)
   - [Margin](#margin)
@@ -20,8 +16,8 @@
 
 Utilities for setting the width and height of an element
 
-```text
-[width|height]
+```css
+/* [width|height] */
 [w|h]-[$spacing]
 [w|h]-[auto|full|screen|fit]
 [w|h]-[min|max]
@@ -31,25 +27,6 @@ Utilities for setting the width and height of an element
 [w|h]-[1-4]/5
 [w|h]-[1-5]/6
 w-[1-11]/12
-min-[ width|height ]
-min-h-screen
-min-[w|h]-0
-min-[w|h]-[full|fit]
-min-[w|h]-[min|max]
-max-width
-max-w-0
-max-w-none
-max-w-[xs|sm|md|lg|xl]
-max-w-[2-7]xl
-max-w-prose
-max-w-screen-[xs|sm|md]
-max-w-screen-[lg|xl|2xl]
-max-w-[full|fit]
-max-w-[min|max]
-max-height
-max-h-[full|screen|fit]
-max-h-[min|max]
-max-h-[$spacing]
 
 ```
 
@@ -66,10 +43,9 @@ Use w-screen to make an element span the entire width of the viewport (100vw).
 
 ```html
 <div class="h-12 w-screen"></div>
-
 ```
 
-### Fixed Widths
+- Fixed Widths
 
 Use w-{size_no} or w-px to set an element to a fixed width
 
@@ -82,8 +58,7 @@ Use w-{size_no} or w-px to set an element to a fixed width
 </div>
 ```
 
-
-### Fluid Width
+- Fluid Width
 
 Use w-{fraction} or w-full to set an element to a percentage based width.
 
@@ -127,122 +102,8 @@ Use w-{fraction} or w-full to set an element to a percentage based width.
 
 - Source : https://tailwindcss.com/docs/width
 
-## Min-Width
 
-Utilities for setting the minimum width of an element
-
-Class      | Properties
------------|------------------------
-min-w-0    | min-width: 0px;
-min-w-full | min-width: 100%;
-min-w-min  | min-width: min-content;
-min-w-max  | min-width: max-content;
-
-- Usage
-
-Set the minimum width of an element using the min-w-0 or min-w-full utilities.
-
-```html
-<div class="w-24 min-w-full ...">
-  min-w-full
-</div>
-```
-
-- Responsive
-
-```html
-<div class="w-24 min-w-full md:min-w-0 ...">
-  <!-- ... -->
-</div>
-
-```
-
-- Source : https://tailwindcss.com/docs/min-width
-
-
-## Max Width
-
-Utilities for setting the maximum width of an element
-
-```
-Class             Properties
-max-w-0	          max-width: 0rem;
-max-w-none	      max-width: none;
-max-w-xs	        max-width: 20rem;
-max-w-sm	        max-width: 24rem;
-max-w-md	        max-width: 28rem;
-max-w-lg	        max-width: 32rem;
-max-w-xl	        max-width: 36rem;
-max-w-2xl	        max-width: 42rem;
-max-w-3xl	        max-width: 48rem;
-max-w-4xl	        max-width: 56rem;
-max-w-5xl	        max-width: 64rem;
-max-w-6xl	        max-width: 72rem;
-max-w-7xl	        max-width: 80rem;
-max-w-full	      max-width: 100%;
-max-w-min	        max-width: min-content;
-max-w-max	        max-width: max-content;
-max-w-prose	      max-width: 65ch;
-max-w-screen-sm	  max-width: 640px;
-max-w-screen-md	  max-width: 768px;
-max-w-screen-lg	  max-width: 1024px;
-max-w-screen-xl	  max-width: 1280px;
-max-w-screen-2xl	max-width: 1536px;
-
-```
-
-- Usage
-
-Set the maximum width of an element using the max-w-{size} utilities.
-
-```html
-<div class="max-w-md mx-auto ...">
-  <!-- ... -->
-</div>
-```
-
-- Reading width
-
-The max-w-prose utility gives an element a max-width optimized for readability and adapts based on the font size.
-
-```html
-<div class="text-sm max-w-prose ...">
-  <p>Dolore iste eaque molestias. Eius iure ut eaque accusantium. Voluptas repellendus nobis. Saepe nam accusantium magni veniam qui enim mollitia excepturi sapiente.</p>
-</div>
-
-<div class="text-base max-w-prose ...">
-  <p>Dolore iste eaque molestias. Eius iure ut eaque accusantium. Voluptas repellendus nobis. Saepe nam accusantium magni veniam qui enim mollitia excepturi sapiente.</p>
-</div>
-
-<div class="text-xl max-w-prose ...">
-  <p>Dolore iste eaque molestias. Eius iure ut eaque accusantium. Voluptas repellendus nobis. Saepe nam accusantium magni veniam qui enim mollitia excepturi sapiente.</p>
-</div>
-```
-
-- Constraining to your breakpoints
-
-The max-w-screen-{breakpoint} classes can be used to give an element a max-width matching a specific breakpoint. These values are automatically derived from the theme.screens section of your tailwind.config.js file.
-
-```html
-<div class="max-w-screen-2xl">
-  <!-- ... -->
-</div>
-```
-
-- Responsive
-
-To control the max-width of an element at a specific breakpoint, add a {screen}: prefix to any existing max-width utility.
-
-```html
-<div class="max-w-sm md:max-w-lg ...">
-  <!-- ... -->
-</div>
-
-```
-
-## Height
-
-
+### Height Examples
 
 - Auto
 
@@ -287,62 +148,189 @@ Use h-full to set an element’s height to 100% of its parent, as long as the pa
 
 - Responsive
 
-To control the height of an element at a specific breakpoint, add a {screen}: prefix to any existing width utility. For example, adding the class md:h-full to an element would apply the h-full utility at medium screen sizes and above.
-
 ```html
 <div class="h-8 md:h-full"></div>
 ```
 
-## Min-Height
 
-Utilities for setting the minimum height of an element
+
+## Min-Width and Min-Height
+
+Utilities for setting the minimum width or height of an element
 
 ```css
-Class Properties
-min-h-0	min-height: 0px;
-min-h-full	min-height: 100%;
-min-h-screen	min-height: 100vh;
+min-[ width|height ]
+min-h-screen
+min-[w|h]-0
+min-[w|h]-[full|fit]
+min-[w|h]-[min|max]
 ```
+
+Class      | Properties
+-----------|------------------------
+min-w-0    | min-width: 0px;
+min-w-full | min-width: 100%;
+min-w-min  | min-width: min-content;
+min-w-max  | min-width: max-content;
 
 - Usage
 
-Set the minimum height of an element using the min-h-0, min-h-full, or min-h-screen utilities.
+Set the minimum width of an element using the min-w-0 or min-w-full utilities.
 
 ```html
-<div class="h-48 ...">
-  <div class="h-24 min-h-full ...">
-    .min-h-full
-  </div>
+<div class="w-24 min-w-full ...">
+  min-w-full
 </div>
 ```
 
 - Responsive
 
-To control the min-height of an element at a specific breakpoint, add a {screen}: prefix to any existing min-height utility.
+```html
+<div class="w-24 min-w-full md:min-w-0 ...">
+  <!-- ... -->
+</div>
+
+```
+
+- Source : https://tailwindcss.com/docs/min-width
+
+
+## Max Width and Max Height
+
+Utilities for setting the maximum width or height of an element
+
+```
+Class             Properties
+max-w-0	          max-width: 0rem;
+max-w-none	      max-width: none;
+max-w-xs	        max-width: 20rem;
+max-w-sm	        max-width: 24rem;
+max-w-md	        max-width: 28rem;
+max-w-lg	        max-width: 32rem;
+max-w-xl	        max-width: 36rem;
+max-w-2xl	        max-width: 42rem;
+max-w-3xl	        max-width: 48rem;
+max-w-4xl	        max-width: 56rem;
+max-w-5xl	        max-width: 64rem;
+max-w-6xl	        max-width: 72rem;
+max-w-7xl	        max-width: 80rem;
+max-w-full	      max-width: 100%;
+max-w-min	        max-width: min-content;
+max-w-max	        max-width: max-content;
+max-w-prose	      max-width: 65ch;
+max-w-screen-sm	  max-width: 640px;
+max-w-screen-md	  max-width: 768px;
+max-w-screen-lg	  max-width: 1024px;
+max-w-screen-xl	  max-width: 1280px;
+max-w-screen-2xl	max-width: 1536px;
+
+```
+
+```css
+/* max-width */
+max-w-0
+max-w-none
+max-w-[xs|sm|md|lg|xl]
+max-w-[2-7]xl
+max-w-prose
+max-w-screen-[xs|sm|md]
+max-w-screen-[lg|xl|2xl]
+max-w-[full|fit]
+max-w-[min|max]
+
+/* max-height */
+max-h-[full|screen|fit]
+max-h-[min|max]
+max-h-[$spacing]
+```
+
+- Usage
+
+Set the maximum width of an element using the max-w-{size} utilities.
 
 ```html
-<div class="h-48 ...">
-  <div class="h-24 min-h-0 md:min-h-full ...">
-    <!-- ... -->
-  </div>
+<div class="max-w-md mx-auto ...">
+  <!-- ... -->
 </div>
 ```
 
-- Source
+- Reading width
 
-https://tailwindcss.com/docs/min-height
+The max-w-prose utility gives an element a max-width optimized for readability and adapts based on the font size.
 
+```html
+<div class="text-sm max-w-prose ...">
+  <p>Dolore iste eaque molestias. Eius iure ut eaque accusantium. Voluptas repellendus nobis. Saepe nam accusantium magni veniam qui enim mollitia excepturi sapiente.</p>
+</div>
 
-## Max Height
+<div class="text-base max-w-prose ...">
+  <p>Dolore iste eaque molestias. Eius iure ut eaque accusantium. Voluptas repellendus nobis. Saepe nam accusantium magni veniam qui enim mollitia excepturi sapiente.</p>
+</div>
 
-@@@
+<div class="text-xl max-w-prose ...">
+  <p>Dolore iste eaque molestias. Eius iure ut eaque accusantium. Voluptas repellendus nobis. Saepe nam accusantium magni veniam qui enim mollitia excepturi sapiente.</p>
+</div>
+```
 
+- Constraining to your breakpoints
 
+The max-w-screen-{breakpoint} classes can be used to give an element a max-width matching a specific breakpoint. These values are automatically derived from the theme.screens section of your tailwind.config.js file.
+
+```html
+<div class="max-w-screen-2xl">
+  <!-- ... -->
+</div>
+```
+
+- Responsive
+
+```html
+<div class="max-w-sm md:max-w-lg ...">
+  <!-- ... -->
+</div>
+
+```
 
 # Spacing
 
 ## Padding
 
+```css
+/* padding */
+p-[$spacing]
+p[x|y]-[$spacing]
+p[t|r|b|l]-[$spacing]
+
+```
+
 ## Margin
 
+```css
+/* margin */
+m-auto
+m-[$spacing]
+m[x|y]-[$spacing]
+m[t|r|b|l]-[$spacing]
+-m-[$spacing]
+-m[x|y]-[$spacing]
+-m[t|r|b|l]-[$spacing]
+
+```
+
+- Property Details
+
+Class              | Properties
+-------------------|----------------------------
+m-[$spacing]       | margin : [size_val];
+m[x\|y]-[$spacing] | margin-[x\|y] : [size_val];
+
+
+
 ## Space Between
+
+```css
+space between
+-space-[x|y]-[$spacing]
+space-[x|y]-[$spacing]
+space-[x|y]-reverse
+```

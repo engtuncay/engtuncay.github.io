@@ -1,5 +1,8 @@
 
-- [Flexbox and Grid](#flexbox-and-grid)
+- [Cheats](#cheats)
+  - [Flex Cheat](#flex-cheat)
+  - [Grid Cheat](#grid-cheat)
+- [Flexbox](#flexbox)
   - [Flex Direction](#flex-direction)
   - [Flex Wrap](#flex-wrap)
   - [Flex](#flex)
@@ -17,18 +20,115 @@
   - [Align Self](#align-self)
 
 
-# Flexbox and Grid
+# Cheats
+
+## Flex Cheat
+
+```css
+flex basis
+basis-[$spacing]
+basis-auto
+basis-full
+basis-1/2
+basis-[1-2]/3
+basis-[1-3]/4
+basis-[1-4]/5
+basis-[1-5]/6
+basis-[1-11]/12
+
+direction
+flex-row
+flex-col
+flex-row-reverse
+flex-col-reverse
+
+wrap
+flex-wrap
+flex-wrap-reverse
+flex-nowrap
+
+flex
+flex-initial
+flex-1
+flex-auto
+flex-none
+flex-grow
+
+grow
+grow-0
+flex-shrink
+
+shrink
+shrink-0
+flex-order
+order-first
+order-last
+order-none
+order-[1-12]
+```
+
+## Grid Cheat
+
+```css
+grid-template-rows
+grid-rows-[1-6]
+grid-rows-none
+
+grid-template-columns
+grid-cols-[1-12]
+grid-cols-none
+
+grid-column-[start|end]
+col-auto
+col-span-[1-12]
+col-span-full
+col-start-[1-13]
+col-start-auto
+col-end-[1-13]
+col-end-auto
+
+grid-row-[start|end]
+row-auto
+row-span-[1-6]
+row-span-full
+row-start-[1-7]
+row-start-auto
+row-end-[1-7]
+row-end-auto
+
+grid-auto-flow
+grid-flow-row
+grid-flow-col
+grid-flow-dense
+grid-flow-row-dense
+grid-flow-col-dense
+
+grid-auto-columns
+auto-cols-auto
+auto-cols-min
+auto-cols-max
+auto-cols-fr
+
+grid-auto-rows
+auto-rows-auto
+auto-rows-min
+auto-rows-max
+auto-rows-fr
+```
+
+# Flexbox
 
 ## Flex Direction
 
 Utilities for controlling the direction of flex items.
 
-```
-Class             Properties
-flex-row	        flex-direction: row;
-flex-row-reverse	flex-direction: row-reverse;
-flex-col	        flex-direction: column;
-flex-col-reverse	flex-direction: column-reverse;
+
+Class            | Properties
+-----------------|--------------------------------
+flex-row         | flex-direction: row;
+flex-row-reverse | flex-direction: row-reverse;
+flex-col         | flex-direction: column;
+flex-col-reverse | flex-direction: column-reverse;
 ```
 
 - Row
@@ -81,8 +181,6 @@ Use flex-col-reverse to position flex items vertically in the opposite direction
 
 - Responsive
 
-To apply a flex direction utility only at a specific breakpoint, add a {screen}: prefix to the existing class name. For example, adding the class md:flex-row to an element would apply the flex-row utility at medium screen sizes and above.
-
 ```html
 <div class="flex flex-col md:flex-row ...">
     <!-- ... -->
@@ -93,14 +191,16 @@ To apply a flex direction utility only at a specific breakpoint, add a {screen}:
 
 Utilities for controlling how flex items wrap.
 
-```
-Class             Properties
-flex-wrap	        flex-wrap: wrap;
-flex-wrap-reverse	flex-wrap: wrap-reverse;
-flex-nowrap	      flex-wrap: nowrap;
-```
+
+Class             | Properties
+------------------|-------------------------
+flex-wrap         | flex-wrap: wrap;
+flex-wrap-reverse | flex-wrap: wrap-reverse;
+flex-nowrap       | flex-wrap: nowrap;
+
 
 - Don't wrap
+  
 Use flex-nowrap to prevent flex items from wrapping, causing inflexible items to overflow the container if necessary:
 
 ```html
@@ -109,7 +209,6 @@ Use flex-nowrap to prevent flex items from wrapping, causing inflexible items to
   <div>2</div>
   <div>3</div>
 </div>
-
 
 ```
 
@@ -141,8 +240,6 @@ Burada alttan devam etmesi yerine,satır atlamayı yukarı doğru yapar.
 
 - Responsive
 
-To control how flex items wrap at a specific breakpoint, add a {screen}: prefix to any existing utility class. For example, use md:flex-wrap-reverse to apply the flex-wrap-reverse utility at only medium screen sizes and above.
-
 ```html
 <div class="flex flex-wrap md:flex-wrap-reverse ...">
   <!-- ... -->
@@ -153,17 +250,17 @@ To control how flex items wrap at a specific breakpoint, add a {screen}: prefix 
 
 Utilities for controlling how flex items both grow and shrink.
 
-```
-Class         Properties
-flex-1	      flex: 1 1 0%;
-flex-auto	    flex: 1 1 auto;
-flex-initial	flex: 0 1 auto;
-flex-none	    flex: none;
-```
+Class        | Properties
+-------------|----------------
+flex-1       | flex: 1 1 0%;
+flex-auto    | flex: 1 1 auto;
+flex-initial | flex: 0 1 auto;
+flex-none    | flex: none;
+
 
 - Note : "flex" 
  
-This is the shorthand for flex-grow, flex-shrink and flex-basis combined. The second and third parameters (flex-shrink and flex-basis) are optional. The default is 0 1 auto, but if you set it with a single number value, it’s like 1 0.
+This is the shorthand for <span style="color:red">flex-grow, flex-shrink and flex-basis</span> combined. The second and third parameters (flex-shrink and flex-basis) are optional. The default is 0 1 auto, but if you set it with a single number value, it’s like 1 0.
 
 ```css
 .item {
@@ -173,7 +270,11 @@ This is the shorthand for flex-grow, flex-shrink and flex-basis combined. The se
 
 - Note : "flex-basis"
   
-This defines the default size of an element before the remaining space is distributed. It can be a length (e.g. 20%, 5rem, etc.) or a keyword. The auto keyword means “look at my width or height property” (which was temporarily done by the main-size keyword until deprecated). The content keyword means “size it based on the item’s content” – this keyword isn’t well supported yet, so it’s hard to test and harder to know what its brethren max-content, min-content, and fit-content do.
+This defines the default size of an element before the remaining space is distributed. It can be a length (e.g. 20%, 5rem, etc.) or a keyword. 
+
+The auto keyword means “look at my width or height property” (which was temporarily done by the main-size keyword until deprecated). 
+
+The content keyword means “size it based on the item’s content” – this keyword isn’t well supported yet, so it’s hard to test and harder to know what its brethren max-content, min-content, and fit-content do.
 
 ```css
 .item {
@@ -459,7 +560,44 @@ https://tailwindcss.com/docs/order
 
 Utilities for specifying the columns in a grid layout.
 
-daha sonra devam edilecek @@@
+Class            | Properties
+-----------------|-------------------------------------------------------
+grid-cols-[1-12] | grid-template-columns: repeat([1-12], minmax(0, 1fr));
+grid-cols-none   | grid-template-columns: none;
+
+- Basic usage : Specifying the columns in a grid
+
+Use the grid-cols-{n} utilities to create grids with n equally sized columns.
+
+![image](./img/grid-1-1007.png)
+
+- Applying conditionally : Hover, focus, and other states
+- 
+Tailwind lets you conditionally apply utility classes in different states using variant modifiers. For example, use hover:grid-cols-6 to only apply the grid-cols-6 utility on hover.
+
+```html
+
+```
+<div class="grid grid-cols-1 hover:grid-cols-6">
+  <!-- ... -->
+</div>
+For a complete list of all available state modifiers, check out the Hover, Focus, & Other States documentation.
+
+​
+Breakpoints and media queries
+You can also use variant modifiers to target media queries like responsive breakpoints, dark mode, prefers-reduced-motion, and more. For example, use md:grid-cols-6 to apply the grid-cols-6 utility at only medium screen sizes and above.
+
+<div class="grid grid-cols-1 md:grid-cols-6">
+  <!-- ... -->
+</div>
+To learn more, check out the documentation on Responsive Design, Dark Mode and other media query modifiers.
+
+
+
+
+- Using custom values
+
+https://tailwindcss.com/docs/grid-template-columns#using-custom-values
 
 ## Gap
 
@@ -500,8 +638,6 @@ Use gap-x-{size} and gap-y-{size} to change the gap between rows and columns ind
 ```
 
 - Responsive
-
-To control the gap at a specific breakpoint, add a {screen}: prefix to any existing gap utility. For example, use md:gap-6 to apply the gap-6 utility at only medium screen sizes and above.
 
 ```html
 <div class="grid gap-4 md:gap-6 ...">
@@ -605,8 +741,6 @@ Use justify-evenly to justify items along the container’s main axis such that 
 
 - Responsive
 
-To justify flex items at a specific breakpoint, add a {screen}: prefix to any existing utility class. For example, use md:justify-between to apply the justify-between utility at only medium screen sizes and above.
-
 ```html
 <div class="justify-start md:justify-between ...">
   <!-- ... -->
@@ -665,8 +799,6 @@ Use justify-items-stretch to stretch items along their inline axis:
 
 - Responsive
 
-To justify flex items at a specific breakpoint, add a {screen}: prefix to any existing utility class. For example, use md:justify-items-center to apply the justify-items-center utility at only medium screen sizes and above.
-
 ```html
 <div class="justify-items-start md:justify-items-center">
   <!-- ... -->
@@ -724,8 +856,6 @@ Use justify-self-stretch to stretch a grid item to fill the grid area on its inl
 
 - Responsive
 
-To control the alignment of a grid item inside its grid area at a specific breakpoint, add a {screen}: prefix to any existing utility class. For example, use md:justify-self-end to apply the justify-self-end utility at only medium screen sizes and above.
-
 https://tailwindcss.com/docs/justify-self
 
 ## Align Content
@@ -779,7 +909,6 @@ Use content-around to distribute rows in a container such that there is an equal
 Use content-evenly to distribute rows in a container such that there is an equal amount of space around each item, but also accounting for the doubling of space you would normally see between each item when using content-around:
 
 - Responsive
-To control the alignment of flex content at a specific breakpoint, add a {screen}: prefix to any existing utility class. For example, use md:content-around to apply the content-around utility at only medium screen sizes and above.
 
 ```html
 <div class="content-start md:content-around ...">
@@ -834,8 +963,6 @@ Use items-baseline to align items along the container’s cross axis such that a
 
 
 - Responsive
-
-To control the alignment of flex items at a specific breakpoint, add a {screen}: prefix to any existing utility class. For example, use md:items-center to apply the items-center utility at only medium screen sizes and above.
 
 <div class="items-stretch md:items-center ...">
   <!-- ... -->
