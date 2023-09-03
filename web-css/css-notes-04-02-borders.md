@@ -6,7 +6,7 @@
   - [Individual Sides](#individual-sides)
   - [Border Property (sp)](#border-property-sp)
   - [Rounded Borders](#rounded-borders)
-  - [All CSS Border Properties](#all-css-border-properties)
+  - [All Border Properties](#all-border-properties)
 - [Margin](#margin)
   - [Margin - Individual Sides](#margin---individual-sides)
   - [Margin Property (sp)](#margin-property-sp)
@@ -14,12 +14,14 @@
 - [Padding](#padding)
   - [Padding - Individual Sides](#padding---individual-sides)
   - [Padding Property (sp)](#padding-property-sp)
-  - [All CSS Padding Properties](#all-css-padding-properties)
+  - [All Padding Properties](#all-padding-properties)
 - [Outline](#outline)
   - [Outline Style](#outline-style)
   - [Outline Width](#outline-width)
   - [Outline Width](#outline-width-1)
-  - [CSS Outline - Shorthand property](#css-outline---shorthand-property)
+  - [Outline property (sp)](#outline-property-sp)
+  - [Outline Offset](#outline-offset)
+  - [All Outline Properties](#all-outline-properties)
 - [User Interface (Resizing)](#user-interface-resizing)
   - [CSS User Interface](#css-user-interface)
   - [CSS Resizing](#css-resizing)
@@ -124,15 +126,6 @@ p.three {
 
 The border-color property is used to set the color of the four borders.
 
-The color can be set by:
-
-name - specify a color name, like "red"
-HEX - specify a HEX value, like "#ff0000"
-RGB - specify a RGB value, like "rgb(255,0,0)"
-HSL - specify a HSL value, like "hsl(0, 100%, 50%)"
-
-transparent
-
 Note: If border-color is not set, it inherits the color of the element.
 
 Example : Demonstration of the border color:
@@ -157,54 +150,30 @@ p.one {
   border-color: red green blue yellow; /* red top, green right, blue bottom and yellow left */
 }
 
-```
+/* Hex Value */
 
-**HEX Values**
-
-The color of the border can also be specified using a hexadecimal value (HEX):
-
-Example
-
-```css
-p.one {
+p.two {
   border-style: solid;
   border-color: #ff0000; /* red */
 }
 
-```
+/* RGB Value */
 
-**RGB Values**
-
-Or by using RGB values:
-
-Example
-
-```css
-p.one {
+p.three {
   border-style: solid;
   border-color: rgb(255, 0, 0); /* red */
 }
 
-```
+/* HSL Value */
 
-**HSL Values**
-
-You can also use HSL values:
-
-Example
-
-```css
-p.one {
+p.four {
   border-style: solid;
   border-color: hsl(0, 100%, 50%); /* red */
 }
+
 ```
 
-You can learn more about HEX, RGB and HSL values in our CSS Colors chapters.
-
 ## Individual Sides
-
-From the examples on the previous pages, you have seen that it is possible to specify a different border for each side.
 
 In CSS, there are also properties for specifying each of the borders (top, right, bottom, and left):
 
@@ -237,18 +206,18 @@ If the border-style property has four values:
 
 border-style: dotted solid double dashed;
 
-top border is dotted
-right border is solid
-bottom border is double
-left border is dashed
+- top border is dotted
+- right border is solid
+- bottom border is double
+- left border is dashed
 
 If the border-style property has three values:
 
 border-style: dotted solid double;
 
-top border is dotted
-right and left borders are solid
-bottom border is double
+- top border is dotted
+- right and left borders are solid
+- bottom border is double
 
 If the border-style property has two values:
 
@@ -341,14 +310,14 @@ p {
 - Set the color of the four borders
 - Set the color of the right border
 
-## All CSS Border Properties
+## All Border Properties
 
 ```text
 Property	Description
 
 border	Sets all the border properties in one declaration
 
-border--[top|bottom|left|right]	Sets all the bottom/top/left/right border properties in one declaration
+border-[top|bottom|left|right]	Sets all the bottom/top/left/right border properties in one declaration
 border-[top|bottom|left|right]-color	Sets the color of the top/bottom/left/right border
 border-[top|bottom|left|right]-style	Sets the style of the bottom border
 border-[top|bottom|left|right]-width	Sets the width of the bottom border
@@ -618,7 +587,7 @@ div {
 
 ```
 
-## All CSS Padding Properties
+## All Padding Properties
 
 Property       | Description
 ---------------|-------------------------------------------------------------------------------
@@ -764,28 +733,40 @@ p.ex4 {
 
 ```
 
-## CSS Outline - Shorthand property
+## Outline property (sp)
 
 The outline property is a shorthand property for setting the following individual outline properties:
 
-outline-width
-outline-style (required)
-outline-color
+- outline-width
+- outline-style (required)
+- outline-color
+
 The outline property is specified as one, two, or three values from the list above. The order of the values does not matter.
 
 The following example shows some outlines specified with the shorthand outline property:
+
+
 Example
+
+```css
 p.ex1 {outline: dashed;}
 p.ex2 {outline: dotted red;}
 p.ex3 {outline: 5px solid yellow;}
 p.ex4 {outline: thick ridge pink;}
 
-CSS Outline Offset
+```
+
+## Outline Offset
 
 The outline-offset property adds space between an outline and the edge/border of an element. The space between an element and its outline is transparent.
 
+(tor: offset, boşluk anlamına gelir, marjin gibi.)
+
 The following example specifies an outline 15px outside the border edge:
+
 Example
+
+```css
 p {
   margin: 30px;
   border: 1px solid black;
@@ -793,8 +774,14 @@ p {
   outline-offset: 15px;
 }
 
+```
+
+
 The following example shows that the space between an element and its outline is transparent:
+
 Example
+
+```css
 p {
   margin: 30px;
   background: yellow;
@@ -803,14 +790,17 @@ p {
   outline-offset: 15px;
 }
 
-All CSS Outline Properties
+```
 
-Property	Description
-outline	A shorthand property for setting outline-width, outline-style, and outline-color in one declaration
-outline-color	Sets the color of an outline
-outline-offset	Specifies the space between an outline and the edge or border of an element
-outline-style	Sets the style of an outline
-outline-width	Sets the width of an outline
+## All Outline Properties
+
+Property       | Description
+---------------|----------------------------------------------------------------------------------------------------
+outline        | A shorthand property for setting outline-width, outline-style, and outline-color in one declaration
+outline-color  | Sets the color of an outline
+outline-offset | Specifies the space between an outline and the edge or border of an element
+outline-style  | Sets the style of an outline
+outline-width  | Sets the width of an outline
 
 
 # User Interface (Resizing)
@@ -903,10 +893,10 @@ div.ex2 {
 
 The following table lists all the user interface properties:
 
-Property	Description
-
-outline-offset	Adds space between an outline and the edge or border of an element
-resize	Specifies whether or not an element is resizable by the user
+Property       | Description
+---------------|-------------------------------------------------------------------
+outline-offset | Adds space between an outline and the edge or border of an element
+resize         | Specifies whether or not an element is resizable by the user
 
  
 

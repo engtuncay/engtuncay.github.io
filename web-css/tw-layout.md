@@ -18,6 +18,7 @@
   - [Overflow](#overflow)
   - [Overscroll Behavior](#overscroll-behavior)
   - [Box Decoration Break](#box-decoration-break)
+- [Responsive Note](#responsive-note)
 
 
 # Layout
@@ -936,7 +937,7 @@ Use the decoration-slice and decoration-clone utilities to control whether prope
 ![](https://image.prntscr.com/image/om5zoIXjQVWH9lv3cELOaw.png)
 
 
-**Responsive**
+# Responsive Note
 
 To control the box-sizing at a specific breakpoint, add a {screen}: prefix to any existing box-sizing utility. For example, use md:box-content to apply the box-content utility at only medium screen sizes and above.
 

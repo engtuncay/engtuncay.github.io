@@ -53,10 +53,11 @@ CONTENT | Note |
 
 CONTENT |
 --- |
+[Tailwind Cheat - All](./tw-cheat.md) |
 [Tailwind Intro](./tw-intro.md) |
 [Layout](./tw-layout.md) |
 [Sizing and Spacing](./tw-sizing.md) |
-[Flexbox and Grid](./tw-flexbox.md) |
+[Flexbox and Grid](./tw-flexbox-grid.md) |
 
 
 # Tailwind Articles
