@@ -3,6 +3,7 @@
 - [Css Articles](#css-articles)
 - [Tailwind Notes](#tailwind-notes)
 - [Tailwind Articles](#tailwind-articles)
+- [Tailwind Cheatsheet](#tailwind-cheatsheet)
 
 # Css Notes
 
@@ -48,3 +49,16 @@ CONTENT |
 header2 |
 --- |
 [Tailwind CSS Tutorial for Beginners: A Guide to Get Started in 2023 by Louis Lazaris](./arts/tailwind-article1.md) |
+
+
+# Tailwind Cheatsheet
+
+- Umeshmk Cheatsheet *5, https://umeshmk.github.io/Tailwindcss-cheatsheet/
+
+- https://nerdcave.com/tailwind-cheat-sheet
+
+- https://tailwindcomponents.com/cheatsheet/
+
+- Tailwind Doc, https://tailwindcss.com/docs/installation
+
+

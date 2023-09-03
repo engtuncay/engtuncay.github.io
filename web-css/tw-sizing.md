@@ -131,13 +131,12 @@ Use w-{fraction} or w-full to set an element to a percentage based width.
 
 Utilities for setting the minimum width of an element
 
-```css
-Class Properties
-min-w-0	min-width: 0px;
-min-w-full	min-width: 100%;
-min-w-min	min-width: min-content;
-min-w-max	min-width: max-content;
-```
+Class      | Properties
+-----------|------------------------
+min-w-0    | min-width: 0px;
+min-w-full | min-width: 100%;
+min-w-min  | min-width: min-content;
+min-w-max  | min-width: max-content;
 
 - Usage
 
@@ -151,8 +150,6 @@ Set the minimum width of an element using the min-w-0 or min-w-full utilities.
 
 - Responsive
 
-To control the min-width of an element at a specific breakpoint, add a {screen}: prefix to any existing min-width utility.
-
 ```html
 <div class="w-24 min-w-full md:min-w-0 ...">
   <!-- ... -->
@@ -160,9 +157,7 @@ To control the min-width of an element at a specific breakpoint, add a {screen}:
 
 ```
 
-- Source
-
-https://tailwindcss.com/docs/min-width
+- Source : https://tailwindcss.com/docs/min-width
 
 
 ## Max Width
