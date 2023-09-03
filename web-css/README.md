@@ -1,9 +1,24 @@
 
+- [CSS Cheats](#css-cheats)
+- [Tailwind Cheats](#tailwind-cheats)
 - [Css Notes](#css-notes)
 - [Css Articles](#css-articles)
 - [Tailwind Notes](#tailwind-notes)
 - [Tailwind Articles](#tailwind-articles)
-- [Tailwind Cheatsheet](#tailwind-cheatsheet)
+
+# CSS Cheats
+
+
+
+# Tailwind Cheats
+
+- Umeshmk Cheatsheet *5, https://umeshmk.github.io/Tailwindcss-cheatsheet/
+
+- https://nerdcave.com/tailwind-cheat-sheet
+
+- https://tailwindcomponents.com/cheatsheet/
+
+- Tailwind Doc, https://tailwindcss.com/docs/installation
 
 # Css Notes
 
@@ -51,14 +66,6 @@ header2 |
 [Tailwind CSS Tutorial for Beginners: A Guide to Get Started in 2023 by Louis Lazaris](./arts/tailwind-article1.md) |
 
 
-# Tailwind Cheatsheet
 
-- Umeshmk Cheatsheet *5, https://umeshmk.github.io/Tailwindcss-cheatsheet/
-
-- https://nerdcave.com/tailwind-cheat-sheet
-
-- https://tailwindcomponents.com/cheatsheet/
-
-- Tailwind Doc, https://tailwindcss.com/docs/installation
 
 
