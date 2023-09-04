@@ -8,15 +8,13 @@
 
 # CSS Cheats
 
-
+- Interactive CSS Cheat Sheet *5, https://htmlcheatsheet.com/css/
 
 # Tailwind Cheats
 
-- Umeshmk Cheatsheet *5, https://umeshmk.github.io/Tailwindcss-cheatsheet/
+- Umeshmk Cheat *5, https://umeshmk.github.io/Tailwindcss-cheatsheet/
 
-- https://nerdcave.com/tailwind-cheat-sheet
-
-- https://tailwindcomponents.com/cheatsheet/
+- Tailwind Components Cheat *4, https://tailwindcomponents.com/cheatsheet/
 
 - Tailwind Doc, https://tailwindcss.com/docs/installation
 
