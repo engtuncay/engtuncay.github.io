@@ -764,9 +764,39 @@ Note that CSS grid lines start at 1, not 0, so a full-height element in a 3-row 
 
 Utilities for controlling how elements in a grid are auto-placed.
 
+Class               | Properties
+--------------------|------------------------------
+grid-flow-row       | grid-auto-flow: row;
+grid-flow-col       | grid-auto-flow: column;
+grid-flow-dense     | grid-auto-flow: dense;
+grid-flow-row-dense | grid-auto-flow: row dense;
+grid-flow-col-dense | grid-auto-flow: column dense;
+
+🔔 Basic usage : Controlling grid element placement
+
+Use the grid-flow-{keyword} utilities to control how the auto-placement algorithm works for a grid layout.
+
+![image](./img/grid-flow-row-dense-2332.png)
+
+🔔 Options
+
+- Applying conditionally : Hover, focus, and other states
+- Breakpoints,media queries
+- Custom values and arbitrary values, refer doc.
+
+
 ## Grid Auto Columns
 
-Utilities for controlling the size of implicitly-created grid columns
+Utilities for controlling the size of implicitly-created grid columns.
+
+Class          | Properties
+---------------|-----------------------------------
+auto-cols-auto | grid-auto-columns: auto;
+auto-cols-min  | grid-auto-columns: min-content;
+auto-cols-max  | grid-auto-columns: max-content;
+auto-cols-fr   | grid-auto-columns: minmax(0, 1fr);
+
+
 
 ## Grid Auto Rows
 
