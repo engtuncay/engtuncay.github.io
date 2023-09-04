@@ -28,6 +28,7 @@
   - [Align Items](#align-items)
   - [Align Self](#align-self)
 - [Responive Notes](#responive-notes)
+- [Options](#options)
 
 
 # Sources 
@@ -710,7 +711,6 @@ Use the grid-rows-{n} utilities to create grids with n equally sized rows.
 
 ![image](./img/grid-rows-1452.png)
 
-🔔 You can use breakpoints,media queries, custom values and arbitrary values, refer doc.
 
 ## Grid Row Start / End
 
@@ -756,8 +756,6 @@ Note that CSS grid lines start at 1, not 0, so a full-height element in a 3-row 
 </div>
 ```
 
-🔔 You can use breakpoints,media queries, custom values and arbitrary values, refer doc.
-
 --*LINK - tbc
 
 ## Grid Auto Flow tbc
@@ -778,12 +776,6 @@ Use the grid-flow-{keyword} utilities to control how the auto-placement algorith
 
 ![image](./img/grid-flow-row-dense-2332.png)
 
-🔔 Options
-
-- Applying conditionally : Hover, focus, and other states
-- Breakpoints,media queries
-- Custom values and arbitrary values, refer doc.
-
 
 ## Grid Auto Columns
 
@@ -796,11 +788,33 @@ auto-cols-min  | grid-auto-columns: min-content;
 auto-cols-max  | grid-auto-columns: max-content;
 auto-cols-fr   | grid-auto-columns: minmax(0, 1fr);
 
+🔔 Basic usage - Sizing implicitly-created grid rows
+
+Use the auto-rows-{size} utilities to control the size of implicitly-created grid rows.
+
+
+
 
 
 ## Grid Auto Rows
 
 Utilities for controlling the size of implicitly-created grid rows.
+
+Class          | Properties
+---------------|--------------------------------
+auto-rows-auto | grid-auto-rows: auto;
+auto-rows-min  | grid-auto-rows: min-content;
+auto-rows-max  | grid-auto-rows: max-content;
+auto-rows-fr   | grid-auto-rows: minmax(0, 1fr);
+
+```html
+<div class="grid grid-flow-row auto-rows-max">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+</div>
+```
+
 
 # Flex/Grid Properties
 
@@ -1205,5 +1219,14 @@ Use self-auto to align an item based on the value of the container’s align-ite
 
 # Responive Notes
 
-You can also use variant modifiers to target media queries like responsive breakpoints, dark mode, prefers-reduced-motion, and more. For example, use md:grid-cols-6 to apply the grid-cols-6 utility at only medium screen sizes and above.
+You can also use variant modifiers to target media queries like responsive breakpoints, dark mode, prefers-reduced-motion, and more. For example, use md:grid-cols-6 to apply the grid-cols-6 utility at only medium screen sizes and <span style="color:red">above</span>.
+
+# Options
+
+- Applying conditionally : Hover, focus, and other states
+- Breakpoints and media queries
+- Using Custom values
+- Arbitrary values 
+
+Refer doc.
 
