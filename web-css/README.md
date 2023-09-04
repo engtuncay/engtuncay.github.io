@@ -36,7 +36,7 @@ CONTENT | Note |
 [3- Links, Lists ](./css-notes-03-Links-Lists.md) |
 [4-1 Size](./css-notes-04-01-size.md) |
 [4-2 Margin,Border,Padding,Outline](./css-notes-04-02-borders.md) |
-[5-1 Layout (Display,Position)](./css-notes-05-01-Layout.md) |
+[5-1 Layout (Display,Position,Z-index)](./css-notes-05-01-Layout.md) |
 [5-2 Overflow,Align,Float](./css-notes-05-02-overflow.md) |
 [6- Flexbox](./css-notes-06-Flexbox.md) |
 [7- Grid](./css-notes-07-Grid.md) |
@@ -62,7 +62,7 @@ CONTENT |
 
 # Tailwind Articles
 
-header2 |
+Article |
 --- |
 [Tailwind CSS Tutorial for Beginners: A Guide to Get Started in 2023 by Louis Lazaris](./arts/tailwind-article1.md) |
 

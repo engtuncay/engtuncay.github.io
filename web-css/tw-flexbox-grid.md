@@ -18,6 +18,7 @@
   - [Align Content](#align-content)
   - [Align Items](#align-items)
   - [Align Self](#align-self)
+- [Responive Notes](#responive-notes)
 
 
 # Cheats
@@ -103,17 +104,18 @@ grid-flow-dense
 grid-flow-row-dense
 grid-flow-col-dense
 
-grid-auto-columns
+/* grid-auto-columns */
 auto-cols-auto
 auto-cols-min
 auto-cols-max
 auto-cols-fr
 
-grid-auto-rows
+/* grid-auto-rows */
 auto-rows-auto
 auto-rows-min
 auto-rows-max
 auto-rows-fr
+
 ```
 
 # Flexbox
@@ -565,32 +567,41 @@ Class            | Properties
 grid-cols-[1-12] | grid-template-columns: repeat([1-12], minmax(0, 1fr));
 grid-cols-none   | grid-template-columns: none;
 
-- Basic usage : Specifying the columns in a grid
+🔔 Basic usage : Specifying the columns in a grid
 
 Use the grid-cols-{n} utilities to create grids with n equally sized columns.
 
 ![image](./img/grid-1-1007.png)
 
-- Applying conditionally : Hover, focus, and other states
-- 
+```html
+<div class="grid grid-cols-4 gap-4">
+  <div>01</div>
+  <!-- ... -->
+  <div>09</div>
+</div>
+
+```
+
+🔔 Applying conditionally : Hover, focus, and other states
+  
 Tailwind lets you conditionally apply utility classes in different states using variant modifiers. For example, use hover:grid-cols-6 to only apply the grid-cols-6 utility on hover.
 
 ```html
-
-```
 <div class="grid grid-cols-1 hover:grid-cols-6">
   <!-- ... -->
 </div>
-For a complete list of all available state modifiers, check out the Hover, Focus, & Other States documentation.
 
+```
+
+For a complete list of all available state modifiers, check out the Hover, Focus, & Other States documentation. (https://tailwindcss.com/docs/hover-focus-and-other-states)
 ​
-Breakpoints and media queries
-You can also use variant modifiers to target media queries like responsive breakpoints, dark mode, prefers-reduced-motion, and more. For example, use md:grid-cols-6 to apply the grid-cols-6 utility at only medium screen sizes and above.
+🔔 Breakpoints and media queries
 
 <div class="grid grid-cols-1 md:grid-cols-6">
   <!-- ... -->
 </div>
-To learn more, check out the documentation on Responsive Design, Dark Mode and other media query modifiers.
+
+To learn more, check out the documentation on Responsive Design, Dark Mode and other media query modifiers. 
 
 
 
@@ -997,4 +1008,8 @@ Use self-auto to align an item based on the value of the container’s align-ite
 ```
 
 @@@
+
+# Responive Notes
+
+You can also use variant modifiers to target media queries like responsive breakpoints, dark mode, prefers-reduced-motion, and more. For example, use md:grid-cols-6 to apply the grid-cols-6 utility at only medium screen sizes and above.
 

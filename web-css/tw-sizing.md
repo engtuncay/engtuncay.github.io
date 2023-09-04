@@ -47,7 +47,7 @@ Use w-screen to make an element span the entire width of the viewport (100vw).
 
 - Fixed Widths
 
-Use w-{size_no} or w-px to set an element to a fixed width
+Use w-{size} or w-px to set an element to a fixed width
 
 ```html
 <div>
