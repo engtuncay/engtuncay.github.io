@@ -1,8 +1,10 @@
 
+- [Sources](#sources)
 - [Cheats](#cheats)
   - [Flex Cheat](#flex-cheat)
   - [Grid Cheat](#grid-cheat)
 - [Flexbox](#flexbox)
+  - [Flex Container](#flex-container)
   - [Flex Direction](#flex-direction)
   - [Flex Wrap](#flex-wrap)
   - [Flex](#flex)
@@ -11,6 +13,13 @@
   - [Order](#order)
 - [Grid Layout](#grid-layout)
   - [Grid Template Columns](#grid-template-columns)
+  - [Grid Column Start / End](#grid-column-start--end)
+  - [Grid Template Rows](#grid-template-rows)
+  - [Grid Row Start / End](#grid-row-start--end)
+  - [Grid Auto Flow tbc](#grid-auto-flow-tbc)
+  - [Grid Auto Columns](#grid-auto-columns)
+  - [Grid Auto Rows](#grid-auto-rows)
+- [Flex/Grid Properties](#flexgrid-properties)
   - [Gap](#gap)
   - [Justify Content](#justify-content)
   - [Justify Items](#justify-items)
@@ -21,12 +30,19 @@
 - [Responive Notes](#responive-notes)
 
 
+# Sources 
+
+- https://tailwindcss.com/docs/flex-basis
+
+- Umeshmk Cheatsheet, 
+
 # Cheats
 
 ## Flex Cheat
 
 ```css
-flex basis
+
+/* flex basis */
 basis-[$spacing]
 basis-auto
 basis-full
@@ -37,49 +53,52 @@ basis-[1-4]/5
 basis-[1-5]/6
 basis-[1-11]/12
 
-direction
+/* direction */
 flex-row
 flex-col
 flex-row-reverse
 flex-col-reverse
 
-wrap
+/* wrap */
 flex-wrap
 flex-wrap-reverse
 flex-nowrap
 
-flex
+/* flex */
 flex-initial
 flex-1
 flex-auto
 flex-none
 flex-grow
 
-grow
+/* grow */
 grow-0
 flex-shrink
 
-shrink
+/* shrink */
 shrink-0
-flex-order
+
+/* flex-order */
 order-first
 order-last
 order-none
 order-[1-12]
+
 ```
 
 ## Grid Cheat
 
 ```css
-grid-template-rows
+
+/* grid-template-rows */
 grid-rows-[1-6]
 grid-rows-none
 
-grid-template-columns
+/* grid-template-columns */
 grid-cols-[1-12]
 grid-cols-none
 
-grid-column-[start|end]
+/* grid-column-[start|end] */
 col-auto
 col-span-[1-12]
 col-span-full
@@ -88,7 +107,7 @@ col-start-auto
 col-end-[1-13]
 col-end-auto
 
-grid-row-[start|end]
+/* grid-row-[start|end] */
 row-auto
 row-span-[1-6]
 row-span-full
@@ -97,7 +116,7 @@ row-start-auto
 row-end-[1-7]
 row-end-auto
 
-grid-auto-flow
+/* grid-auto-flow */
 grid-flow-row
 grid-flow-col
 grid-flow-dense
@@ -120,6 +139,12 @@ auto-rows-fr
 
 # Flexbox
 
+## Flex Container
+
+Class | Properties
+------|----------------
+flex  | display : flex;
+
 ## Flex Direction
 
 Utilities for controlling the direction of flex items.
@@ -131,7 +156,7 @@ flex-row         | flex-direction: row;
 flex-row-reverse | flex-direction: row-reverse;
 flex-col         | flex-direction: column;
 flex-col-reverse | flex-direction: column-reverse;
-```
+
 
 - Row
 
@@ -597,18 +622,157 @@ For a complete list of all available state modifiers, check out the Hover, Focus
 ​
 🔔 Breakpoints and media queries
 
+```html
 <div class="grid grid-cols-1 md:grid-cols-6">
   <!-- ... -->
 </div>
 
+```
 To learn more, check out the documentation on Responsive Design, Dark Mode and other media query modifiers. 
-
-
-
 
 - Using custom values
 
 https://tailwindcss.com/docs/grid-template-columns#using-custom-values
+
+## Grid Column Start / End
+
+Utilities for controlling how elements are sized and placed across grid columns.
+
+
+Class            | Properties
+-----------------|----------------------------------------
+col-auto         | grid-column: auto;
+col-span-[1-12]  | grid-column: span [1-12] / span [1-12];
+col-span-full    | grid-column: 1 / -1;
+col-start-[1-13] | grid-column-start: [1-13];
+col-start-auto   | grid-column-start: auto;
+col-end-[1-13]   | grid-column-end: [1-13];
+col-end-auto     | grid-column-end: auto;
+
+🔔 Basic usage : Spanning columns
+
+Use the col-span-{n} utilities to make an element span n columns.
+
+![image](./img/grid-span-cols-1340.png)
+
+```html
+<div class="grid grid-cols-3 gap-4">
+  <div class="...">01</div>
+  <div class="...">02</div>
+  <div class="...">03</div>
+  <div class="col-span-2 ...">04</div>
+  <div class="...">05</div>
+  <div class="...">06</div>
+  <div class="col-span-2 ...">07</div>
+</div>
+```
+
+🔔 Starting and ending lines
+
+Use the col-start-{n} and col-end-{n} utilities to make an element start or end at the nth grid line. These can also be combined with the col-span-{n} utilities to span a specific number of columns.
+
+Note that CSS grid lines start at 1, not 0, so a full-width element in a 6-column grid would start at line 1 and end at line 7.
+
+![image](./img/grid-start-end-line-1341.png)
+
+```html
+<div class="grid grid-cols-6 gap-4">
+  <div class="col-start-2 col-span-4 ...">01</div>
+  <div class="col-start-1 col-end-3 ...">02</div>
+  <div class="col-end-7 col-span-2 ...">03</div>
+  <div class="col-start-1 col-end-7 ...">04</div>
+</div>
+```
+
+🔔 Applying conditionally : Hover, focus, and other states
+
+```html
+<div class="col-span-2 hover:col-span-6">
+  <!-- ... -->
+</div>
+
+```
+
+🔔 You can use breakpoints,media queries, custom values and arbitrary values, refer doc.
+
+## Grid Template Rows
+
+Utilities for specifying the rows in a grid layout.
+
+Class           | Properties
+----------------|---------------------------------------------------
+grid-rows-[1-6] | grid-template-rows: repeat([1-6], minmax(0, 1fr));
+grid-rows-none  | grid-template-rows: none;
+
+🔔 Basic usage :Specifying the rows in a grid
+
+Use the grid-rows-{n} utilities to create grids with n equally sized rows.
+
+![image](./img/grid-rows-1452.png)
+
+🔔 You can use breakpoints,media queries, custom values and arbitrary values, refer doc.
+
+## Grid Row Start / End
+
+Utilities for controlling how elements are sized and placed across grid rows.
+
+Class           | Properties
+----------------|-----------------------------------
+row-auto        | grid-row: auto;
+row-span-[1-6]  | grid-row: span [1-6] / span [1-6];
+row-span-full   | grid-row: 1 / -1;
+row-start-[1-7] | grid-row-start: [1-7];
+row-start-auto  | grid-row-start: auto;
+row-end-[1-7]   | grid-row-end: [1-7];
+row-end-auto    | grid-row-end: auto;
+
+🔔 Basic usage : Spanning rows
+
+Use the row-span-{n} utilities to make an element span n rows.
+
+![image](./img/grid-row-start-1500.png)
+
+```html
+<div class="grid grid-rows-3 grid-flow-col gap-4">
+  <div class="row-span-3 ...">01</div>
+  <div class="col-span-2 ...">02</div>
+  <div class="row-span-2 col-span-2 ...">03</div>
+</div>
+```
+
+🔔 Starting and ending lines
+
+Use the row-start-{n} and row-end-{n} utilities to make an element start or end at the nth grid line. These can also be combined with the row-span-{n} utilities to span a specific number of rows.
+
+Note that CSS grid lines start at 1, not 0, so a full-height element in a 3-row grid would start at line 1 and end at line 4.
+
+![image](./img/grid-row-start-1501.png)
+
+```html
+<div class="grid grid-rows-3 grid-flow-col gap-4">
+  <div class="row-start-2 row-span-2 ...">01</div>
+  <div class="row-end-3 row-span-2 ...">02</div>
+  <div class="row-start-1 row-end-4 ...">03</div>
+</div>
+```
+
+🔔 You can use breakpoints,media queries, custom values and arbitrary values, refer doc.
+
+--*LINK - tbc
+
+## Grid Auto Flow tbc
+
+Utilities for controlling how elements in a grid are auto-placed.
+
+## Grid Auto Columns
+
+Utilities for controlling the size of implicitly-created grid columns
+
+## Grid Auto Rows
+
+Utilities for controlling the size of implicitly-created grid rows.
+
+# Flex/Grid Properties
 
 ## Gap
 
