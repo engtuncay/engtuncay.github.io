@@ -269,14 +269,6 @@ Use flex-wrap-reverse to wrap flex items in the reverse direction:
 
 Burada alttan devam etmesi yerine,satır atlamayı yukarı doğru yapar.
 
-- Responsive
-
-```html
-<div class="flex flex-wrap md:flex-wrap-reverse ...">
-  <!-- ... -->
-</div>
-```
-
 ## Flex
 
 Utilities for controlling how flex items both grow and shrink.
@@ -287,7 +279,6 @@ flex-1       | flex: 1 1 0%;
 flex-auto    | flex: 1 1 auto;
 flex-initial | flex: 0 1 auto;
 flex-none    | flex: none;
-
 
 - Note : "flex" 
  
@@ -301,7 +292,7 @@ This is the shorthand for <span style="color:red">flex-grow, flex-shrink and fle
 
 - Note : "flex-basis"
   
-This defines the default size of an element before the remaining space is distributed. It can be a length (e.g. 20%, 5rem, etc.) or a keyword. 
+This defines <span style="color:red">the default size</span> of an element before the remaining space is distributed. It can be a length (e.g. 20%, 5rem, etc.) or a keyword. 
 
 The auto keyword means “look at my width or height property” (which was temporarily done by the main-size keyword until deprecated). 
 
@@ -319,34 +310,47 @@ If set to 0, the extra space around content isn’t factored in. If set to auto,
 
 Use flex-initial to allow a flex item to shrink but not grow, taking into account its initial size:
 
+![image](./img/flex-initial-1308.png)
+
+After resize flex container :
+
+![image](./img/flex-initial-2-1309.png)
+
 ```html
 <div class="flex">
-  <div class="flex-initial ...">
-    <!-- Won't grow, but will shrink if needed -->
+  <div class="flex-none w-14 h-14">
+    01
   </div>
-  <div class="flex-initial ...">
-    <!-- Won't grow, but will shrink if needed -->
+  <div class="flex-initial w-64 ...">
+    02
   </div>
-  <div class="flex-initial ...">
-    <!-- Won't grow, but will shrink if needed -->
+  <div class="flex-initial w-32 ...">
+    03
   </div>
 </div>
+
 ```
 
 - Flex 1
 
 Use flex-1 to allow a flex item to grow and shrink as needed, ignoring its initial size:
 
+![image](./img/flex-1--1310.png)
+
+After resize flex container :
+
+![image](./img/flex-1-1311.png)
+
 ```html
 <div class="flex">
-  <div class="flex-1 ...">
-    <!-- Will grow and shrink as needed without taking initial size into account -->
+  <div class="flex-none ...">
+    01
   </div>
-  <div class="flex-1 ...">
-    <!-- Will grow and shrink as needed without taking initial size into account -->
+  <div class="flex-1 w-64 ...">
+    02
   </div>
-  <div class="flex-1 ...">
-    <!-- Will grow and shrink as needed without taking initial size into account -->
+  <div class="flex-1 w-32 ...">
+    03
   </div>
 </div>
 ```
@@ -355,17 +359,23 @@ Use flex-1 to allow a flex item to grow and shrink as needed, ignoring its initi
 
 Use flex-auto to allow a flex item to grow and shrink, taking into account its initial size:
 
+![image](./img/flex-auto-1311.png)
+
+After resize flex container :
+
+![image](./img/flex-auto-1312.png)
+
 
 ```html
 <div class="flex ...">
-  <div class="flex-auto ...">
-    <!-- Will grow and shrink as needed taking initial size into account -->
+  <div class="flex-none ...">
+    01
   </div>
-  <div class="flex-auto ...">
-    <!-- Will grow and shrink as needed taking initial size into account -->
+  <div class="flex-auto w-64 ...">
+    02
   </div>
-  <div class="flex-auto ...">
-    <!-- Will grow and shrink as needed taking initial size into account -->
+  <div class="flex-auto w-32 ...">
+    03
   </div>
 </div>
 ```
@@ -374,6 +384,11 @@ Use flex-auto to allow a flex item to grow and shrink, taking into account its i
 
 Use flex-none to prevent a flex item from growing or shrinking:
 
+![image](./img/flex-none-1312.png)
+
+After resize flex container :
+
+![image](./img/flex-none-1313.png)
 ```html
 <div class="flex ...">
   <div class="flex-1 ...">
@@ -388,28 +403,11 @@ Use flex-none to prevent a flex item from growing or shrinking:
 </div>
 ```
 
-- Responsive
- 
-To control how a flex item both grows and shrinks at a specific breakpoint, add a {screen}: prefix to any existing utility class. For example, use md:flex-1 to apply the flex-1 utility at only medium screen sizes and above.
-
-```html
-<div class="flex ...">
-  <!-- ... -->
-  <div class="flex-none md:flex-1 ...">
-    Responsive flex item
-  </div>
-  <!-- ... -->
-</div>
-```
-
-- Source
-
-https://tailwindcss.com/docs/flex
+- Source : https://tailwindcss.com/docs/flex
 
 ## Flex Grow
 
 Utilities for controlling how flex items grow.
-
 
 Class       | Properties
 ------------|--------------
@@ -451,23 +449,7 @@ Use flex-grow-0 to prevent a flex item from growing:
 </div>
 ```
 
-- Responsive
-
-To control how a flex item grows at a specific breakpoint, add a {screen}: prefix to any existing utility class. For example, use md:flex-grow-0 to apply the flex-grow-0 utility at only medium screen sizes and above.
-
-```html
-<div class="flex ...">
-  <!-- ... -->
-  <div class="flex-grow md:flex-grow-0 ...">
-    Responsive flex item
-  </div>
-  <!-- ... -->
-</div>
-```
-
-- Source
-
-https://tailwindcss.com/docs/flex-grow
+- Source : https://tailwindcss.com/docs/flex-grow
 
 ## Flex Shrink
 
@@ -514,20 +496,6 @@ Use flex-shrink-0 to prevent a flex item from shrinking:
   <div class="flex-1 h-16 ...">
     <!-- This item will grow or shrink as needed -->
   </div>
-</div>
-```
-
-- Responsive
-
-To control how a flex item shrinks at a specific breakpoint, add a {screen}: prefix to any existing utility class. For example, use md:flex-shrink-0 to apply the flex-shrink-0 utility at only medium screen sizes and above.
-
-```html
-<div class="flex ...">
-  <!-- ... -->
-  <div class="flex-shrink md:flex-shrink-0 ...">
-    Responsive flex item
-  </div>
-  <!-- ... -->
 </div>
 ```
 
