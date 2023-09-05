@@ -27,6 +27,9 @@
   - [Align Content](#align-content)
   - [Align Items](#align-items)
   - [Align Self](#align-self)
+  - [Place Content](#place-content)
+  - [Place Items](#place-items)
+  - [Place Self](#place-self)
 - [Responive Notes](#responive-notes)
 - [Options](#options)
 
@@ -792,9 +795,7 @@ auto-cols-fr   | grid-auto-columns: minmax(0, 1fr);
 
 Use the auto-rows-{size} utilities to control the size of implicitly-created grid rows.
 
-
-
-
+--*NOTE - görüntü eklenebilir
 
 ## Grid Auto Rows
 
@@ -815,6 +816,7 @@ auto-rows-fr   | grid-auto-rows: minmax(0, 1fr);
 </div>
 ```
 
+--*NOTE - görüntü eklenebilir
 
 # Flex/Grid Properties
 
@@ -828,9 +830,9 @@ gap-[$size]   | gap: [size_value];
 gap-x-[$size] | column-gap: [size_value];
 gap-y-[$size] | row-gap: [size_value];
 
-- Usage
+- Basic Usage : Use gap-{size} to change the gap between both rows and columns in grid and flexbox layouts.
 
-Use gap-{size} to change the gap between both rows and columns in grid and flexbox layouts.
+![image](./img/fleg-gap-0939.png)
 
 ```html
 <div class="grid gap-12 grid-cols-2">
@@ -841,9 +843,11 @@ Use gap-{size} to change the gap between both rows and columns in grid and flexb
 </div>
 ```
 
-- Changing row and column gaps independently
+- Basic Usage : Changing row and column gaps independently
 
 Use gap-x-{size} and gap-y-{size} to change the gap between rows and columns independently.
+
+![image](./img/fleg-gap-0940.png)
 
 ```html
 <div class="grid gap-x-8 gap-y-4 grid-cols-3">
@@ -856,39 +860,32 @@ Use gap-x-{size} and gap-y-{size} to change the gap between rows and columns ind
 </div>
 ```
 
-- Responsive
-
-```html
-<div class="grid gap-4 md:gap-6 ...">
-  <!-- ... -->
-</div>
-```
-
-- Source
-
-https://tailwindcss.com/docs/gap
+- Source : https://tailwindcss.com/docs/gap
 
 ## Justify Content
 
 Utilities for controlling how flex and grid items are positioned along a container's main axis. 
 
-```
-Class Properties
-justify-start	  justify-content: flex-start;
-justify-end	    justify-content: flex-end;
-justify-center	justify-content: center;
-justify-between	justify-content: space-between;
-justify-around	justify-content: space-around;
-justify-evenly	justify-content: space-evenly;
-```
 
-- Note : main axis
+Class           | Properties
+----------------|--------------------------------
+justify-start   | justify-content: flex-start;
+justify-end     | justify-content: flex-end;
+justify-center  | justify-content: center;
+justify-between | justify-content: space-between;
+justify-around  | justify-content: space-around;
+justify-evenly  | justify-content: space-evenly;
 
-Flex-row da ana eksen x koordinatıdır (yatayda hizalama - yatayda sağa,sola,ortaya vs...), flex-column da y koordinatıdır (dikey). Flex-row için kutular yatayda sağa yaslı olacak, ortaya konumlandırılacak gibi.
+
+✏ Note : main axis , for flex-row, main axis is x axis (horizontal). For flex-column, main axis is y axis (vertical). Then for flex-row, alignment on x axis is controlled, items can move left and right.
+
+(tor: Flex-row da ana eksen x koordinatıdır (yatayda hizalama - yatayda sağa,sola,ortaya vs...), flex-column da y koordinatıdır (dikey, yukarı aşağı hizalama).)
 
 - Start
 
 Use justify-start to justify items against the start of the container’s main axis:
+
+![image](./img/flex-justify-start-0946.png)
 
 ```html
 <div class="flex justify-start ...">
@@ -902,6 +899,8 @@ Use justify-start to justify items against the start of the container’s main a
 
 Use justify-center to justify items along the center of the container’s main axis:
 
+![image](./img/flex-justify-center-0947.png)
+
 ```html
 <div class="flex justify-center ...">
   <div>1</div>
@@ -914,6 +913,8 @@ Use justify-center to justify items along the center of the container’s main a
 
 Use justify-end to justify items against the end of the container’s main axis:
 
+![image](./img/flex-justify-end-0947.png)
+
 ```html
 <div class="flex justify-end ...">
   <div>1</div>
@@ -923,6 +924,8 @@ Use justify-end to justify items against the end of the container’s main axis:
 ```
 
 - Space between
+
+![image](./img/flex-justify-between-0947.png)
 
 Use justify-between to justify items along the container’s main axis such that there is an equal amount of space between each item:
 
@@ -935,8 +938,10 @@ Use justify-between to justify items along the container’s main axis such that
 ```
 
 - Space around
-  
+
 Use justify-around to justify items along the container’s main axis such that there is an equal amount of space on each side of each item:
+
+![image](./img/flex-justify-around-0948.png)
 
 ```html
 <div class="flex justify-around ...">
@@ -950,6 +955,8 @@ Use justify-around to justify items along the container’s main axis such that 
 
 Use justify-evenly to justify items along the container’s main axis such that there is an equal amount of space around each item, but also accounting for the doubling of space you would normally see between each item when using justify-around:
 
+![image](./img/flex-justify-space-evenly-0948.png)
+
 ```html
 <div class="flex justify-evenly ...">
   <div>1</div>
@@ -958,29 +965,25 @@ Use justify-evenly to justify items along the container’s main axis such that 
 </div>
 ```
 
-- Responsive
-
-```html
-<div class="justify-start md:justify-between ...">
-  <!-- ... -->
-</div>
-```
+- Responsive variants can be used.
 
 ## Justify Items
 
-Utilities for controlling how grid items are aligned along their inline axis.
+Utilities for controlling how grid items are aligned along <span style="color:red">their inline axis</span>.
 
-```
-Class Properties
-justify-items-start	justify-items: start;
-justify-items-end	justify-items: end;
-justify-items-center	justify-items: center;
-justify-items-stretch	justify-items: stretch;
-```
+
+Class                 | Properties
+----------------------|------------------------
+justify-items-start   | justify-items: start;
+justify-items-end     | justify-items: end;
+justify-items-center  | justify-items: center;
+justify-items-stretch | justify-items: stretch;
 
 - Start
 
 Use justify-items-start to justify grid items against the start of their inline axis:
+
+![image](./img/justify-items-start-0954.png)
 
 ```html
 <div class="grid justify-items-start ...">
@@ -997,6 +1000,8 @@ Use justify-items-start to justify grid items against the start of their inline 
 
 Use justify-items-end to justify grid items against the end of their inline axis:
 
+![image](./img/justify-items-end-0955.png)
+
 ```html
 <div class="grid justify-items-end ...">
   <div>1</div>
@@ -1012,34 +1017,53 @@ Use justify-items-end to justify grid items against the end of their inline axis
 
 Use justify-items-center to justify grid items along their inline axis:
 
+![image](./img/justify-items-center-0955.png)
+
+```html
+<div class="grid justify-items-center ...">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+  <div>04</div>
+  <div>05</div>
+  <div>06</div>
+</div>
+```
 
 - Stretch
 Use justify-items-stretch to stretch items along their inline axis:
 
-- Responsive
+![image](./img/justify-items-stretch-0956.png)
 
 ```html
-<div class="justify-items-start md:justify-items-center">
-  <!-- ... -->
+<div class="grid justify-items-stretch ...">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+  <div>04</div>
+  <div>05</div>
+  <div>06</div>
 </div>
-
 ```
 
-https://tailwindcss.com/docs/justify-items
+- Responsive Variants
+
+- Source : https://tailwindcss.com/docs/justify-items
 
 ## Justify Self
 
 Utilities for controlling how an individual grid item is aligned along its inline axis.
 
-```
-Class Properties
-justify-self-auto	justify-self: auto;
-justify-self-start	justify-self: start;
-justify-self-end	justify-self: end;
-justify-self-center	justify-self: center;
-justify-self-stretch	justify-self: stretch;
 
-```
+Class                | Properties
+---------------------|-----------------------
+justify-self-auto    | justify-self: auto;
+justify-self-start   | justify-self: start;
+justify-self-end     | justify-self: end;
+justify-self-center  | justify-self: center;
+justify-self-stretch | justify-self: stretch;
+
+
 - Auto
 
 Use justify-self-auto to align an item based on the value of the grid’s justify-items property:
@@ -1215,7 +1239,19 @@ Use self-auto to align an item based on the value of the container’s align-ite
 </div>
 ```
 
-@@@
+## Place Content
+
+Utilities for controlling how content is justified and aligned at the same time.
+
+
+## Place Items
+
+Utilities for controlling how items are justified and aligned at the same time.
+
+## Place Self
+
+Utilities for controlling how an individual item is justified and aligned at the same time.
+
 
 # Responive Notes
 
