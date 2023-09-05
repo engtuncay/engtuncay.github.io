@@ -183,15 +183,6 @@ Set the minimum width of an element using the min-w-0 or min-w-full utilities.
 </div>
 ```
 
-- Responsive
-
-```html
-<div class="w-24 min-w-full md:min-w-0 ...">
-  <!-- ... -->
-</div>
-
-```
-
 - Source : https://tailwindcss.com/docs/min-width
 
 

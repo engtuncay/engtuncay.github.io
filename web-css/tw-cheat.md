@@ -141,11 +141,11 @@ aspect-auto
 aspect-square
 aspect-video
 
-box decoration break
+/* box decoration break */
 box-decoration-clone
 box-decoration-slice
 
-isolation
+/* isolation */
 isolate
 isolation-auto
 
@@ -156,13 +156,13 @@ object-fill
 object-none
 object-scale-down
 
-object-positions
+/* object-positions */
 object-center
 object-[top|bottom]
 object-[left|right]
 object-[left|right]-[top|bottom]
 
-z-index
+/* z-index */
 z-[0|10|20|30|40|50]
 z-auto
 
@@ -226,9 +226,11 @@ bg-origin-content
 [border|divide|outline]-double
 [border|divide|outline]-none
 border-hidden
+
 outline
 border-radius
-rounded
+
+/* rounded */
 rounded-[sm|md|lg|xl|2xl|3xl]
 rounded-[full|none]
 rounded-[t|r|b|l]
