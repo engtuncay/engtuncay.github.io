@@ -410,11 +410,11 @@ https://tailwindcss.com/docs/flex
 
 Utilities for controlling how flex items grow.
 
-```
-Class           Properties
-flex-grow-0	    flex-grow: 0;
-flex-grow       flex-grow: 1;
-```
+
+Class       | Properties
+------------|--------------
+flex-grow-0 | flex-grow: 0;
+flex-grow   | flex-grow: 1;
 
 - Grow
 
@@ -473,12 +473,10 @@ https://tailwindcss.com/docs/flex-grow
 
 Utilities for controlling how flex items shrink.
 
-```
-Class           Properties
-flex-shrink-0   flex-shrink: 0;
-flex-shrink     flex-shrink: 1;
-
-```
+Class         | Properties
+--------------|----------------
+flex-shrink-0 | flex-shrink: 0;
+flex-shrink   | flex-shrink: 1;
 
 - Shrink
 
@@ -537,28 +535,14 @@ To control how a flex item shrinks at a specific breakpoint, add a {screen}: pre
 
 Utilities for controlling the order of flex and grid items.
 
-```
-Class     Properties
-order-1	    order: 1;
-order-2	    order: 2;
-order-3	    order: 3;
-order-4	    order: 4;
-order-5	    order: 5;
-order-6	    order: 6;
-order-7	    order: 7;
-order-8	    order: 8;
-order-9	    order: 9;
-order-10	  order: 10;
-order-11	  order: 11;
-order-12	  order: 12;
-order-first	order: -9999;
-order-last	order: 9999;
-order-none	order: 0;
-```
+Class        | Properties
+-------------|---------------
+order-[1-12] | order: [1-12];
+order-first  | order: -9999;
+order-last   | order: 9999;
+order-none   | order: 0;
 
-- Usage
-
-Use order-{order} to render flex and grid items in a different order than they appear in the DOM.
+- Basic Usage : Use order-{order} to render flex and grid items in a different order than they appear in the DOM.
 
 ```html
 <div class="flex justify-between ...">
@@ -568,22 +552,7 @@ Use order-{order} to render flex and grid items in a different order than they a
 </div>
 ```
 
-- Responsive
-
-To apply an order utility only at a specific breakpoint, add a {screen}: prefix to the existing class name. For example, adding the class md:order-last to an element would apply the order-last utility at medium screen sizes and above.
-
-```html
-<div class="flex">
-  <div>1</div>
-  <div class="order-first md:order-last">2</div>
-  <div>3</div>
-</div>
-```
-
-- Source
-  
-https://tailwindcss.com/docs/order
-
+- Source : https://tailwindcss.com/docs/order
 
 # Grid Layout
 
