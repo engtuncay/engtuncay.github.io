@@ -319,9 +319,93 @@ m[x\|y]-[$spacing] | margin-[x\|y] : [size_val];
 
 ## Space Between
 
+Utilities for controlling the space between child elements.
+
+Class           | Properties
+----------------|---------------------------
+space-x-[size]  | margin-left: [size_value];
+space-y-[size]  | margin-top: [size_value];
+space-y-reverse | --tw-space-y-reverse: 1;
+space-x-reverse | --tw-space-x-reverse: 1;
+
+
 ```css
-space between
+/* space between */
 -space-[x|y]-[$spacing]
 space-[x|y]-[$spacing]
 space-[x|y]-reverse
 ```
+
+🔔 Basic usage : Add horizontal space between children
+
+Control the horizontal space between elements using the space-x-{amount} utilities.
+
+![image](./img/space-x-1423.png)
+
+```html
+<div class="flex space-x-4 ...">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+</div>
+```
+
+🔔 Add vertical space between children
+
+Control the vertical space between elements using the space-y-{amount} utilities.
+
+![image](./img/space-y-1425.png)
+
+```html
+<div class="flex flex-col space-y-4 ...">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+</div>
+```
+
+🔔 Reversing children order
+
+If your elements are in reverse order (using say flex-row-reverse or flex-col-reverse), use the space-x-reverse or space-y-reverse utilities to ensure the space is added to the correct side of each element.
+
+```html
+<div class="flex flex-row-reverse space-x-4 space-x-reverse ...">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+</div>
+
+```
+
+🔔 Using negative values
+
+To use a negative space value, prefix the class name with a dash to convert it to a negative value.
+
+```html
+<div class="flex -space-x-4 ...">
+  <!-- ... -->
+</div>
+
+```
+
+🔔 Limitations
+
+These utilities are really just <span style="color:red">a shortcut for adding margin to all-but-the-first-item in a group</span>, and aren’t designed to handle complex cases like grids, layouts that wrap, or situations where the children are rendered in a complex custom order rather than their natural DOM order.
+
+For those situations, it’s better to use the gap utilities when possible, or add margin to every element with a matching negative margin on the parent:
+
+```html
+<div class="flow-root">
+  <div class="-m-2 flex flex-wrap">
+    <div class="m-2 ..."></div>
+    <div class="m-2 ..."></div>
+    <div class="m-2 ..."></div>
+  </div>
+</div>
+
+```
+​
+🔔 Cannot be paired with divide utilities
+
+The space-* utilities are not designed to work together with the divide utilities. (https://tailwindcss.com/docs/divide-width) For those situations, consider adding margin/padding utilities to the children instead.
+
