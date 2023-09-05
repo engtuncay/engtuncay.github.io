@@ -166,6 +166,8 @@ flex-col-reverse | flex-direction: column-reverse;
 
 Use flex-row to position flex items horizontally in the same direction as text:
 
+![image](./img/flex-row-1223.png)
+
 ```html
 <div class="flex flex-row ...">
   <div>1</div>
@@ -177,6 +179,8 @@ Use flex-row to position flex items horizontally in the same direction as text:
 - Row reversed
 
 Use flex-row-reverse to position flex items horizontally in the opposite direction:
+
+![image](./img/flex-row-reverse-1224.png)
 
 ```html
 <div class="flex flex-row-reverse ...">
@@ -190,6 +194,8 @@ Use flex-row-reverse to position flex items horizontally in the opposite directi
 
 Use flex-col to position flex items vertically:
 
+![image](./img/flex-col-1224.png)
+
 ```html
 <div class="flex flex-col ...">
   <div>1</div>
@@ -202,19 +208,13 @@ Use flex-col to position flex items vertically:
 
 Use flex-col-reverse to position flex items vertically in the opposite direction:
 
+![image](./img/flex-col-reverse-1224.png)
+
 ```html
 <div class="flex flex-col-reverse ...">
   <div>1</div>
   <div>2</div>
   <div>3</div>
-</div>
-```
-
-- Responsive
-
-```html
-<div class="flex flex-col md:flex-row ...">
-    <!-- ... -->
 </div>
 ```
 
@@ -611,32 +611,7 @@ Use the grid-cols-{n} utilities to create grids with n equally sized columns.
 
 ```
 
-🔔 Applying conditionally : Hover, focus, and other states
-  
-Tailwind lets you conditionally apply utility classes in different states using variant modifiers. For example, use hover:grid-cols-6 to only apply the grid-cols-6 utility on hover.
-
-```html
-<div class="grid grid-cols-1 hover:grid-cols-6">
-  <!-- ... -->
-</div>
-
-```
-
-For a complete list of all available state modifiers, check out the Hover, Focus, & Other States documentation. (https://tailwindcss.com/docs/hover-focus-and-other-states)
-​
-🔔 Breakpoints and media queries
-
-```html
-<div class="grid grid-cols-1 md:grid-cols-6">
-  <!-- ... -->
-</div>
-
-```
-To learn more, check out the documentation on Responsive Design, Dark Mode and other media query modifiers. 
-
-- Using custom values
-
-https://tailwindcss.com/docs/grid-template-columns#using-custom-values
+- Source: https://tailwindcss.com/docs/grid-template-columns
 
 ## Grid Column Start / End
 
@@ -687,17 +662,6 @@ Note that CSS grid lines start at 1, not 0, so a full-width element in a 6-colum
   <div class="col-start-1 col-end-7 ...">04</div>
 </div>
 ```
-
-🔔 Applying conditionally : Hover, focus, and other states
-
-```html
-<div class="col-span-2 hover:col-span-6">
-  <!-- ... -->
-</div>
-
-```
-
-🔔 You can use breakpoints,media queries, custom values and arbitrary values, refer doc.
 
 ## Grid Template Rows
 
@@ -1046,14 +1010,11 @@ Use justify-items-stretch to stretch items along their inline axis:
 </div>
 ```
 
-- Responsive Variants
-
 - Source : https://tailwindcss.com/docs/justify-items
 
 ## Justify Self
 
 Utilities for controlling how an individual grid item is aligned along its inline axis.
-
 
 Class                | Properties
 ---------------------|-----------------------
@@ -1092,29 +1053,25 @@ Use justify-self-center to align a grid item along the center its inline axis:
 
 Use justify-self-end to align a grid item to the end its inline axis:
 
-
 - Stretch
 
 Use justify-self-stretch to stretch a grid item to fill the grid area on its inline axis:
 
-- Responsive
-
-https://tailwindcss.com/docs/justify-self
+- Source : https://tailwindcss.com/docs/justify-self
 
 ## Align Content
 
 Utilities for controlling how rows are positioned in multi-row flex and grid containers.
 
-```
-Class Properties
-content-center	align-content: center;
-content-start	align-content: flex-start;
-content-end	align-content: flex-end;
-content-between	align-content: space-between;
-content-around	align-content: space-around;
-content-evenly	align-content: space-evenly;
 
-```
+Class           | Properties
+----------------|------------------------------
+content-center  | align-content: center;
+content-start   | align-content: flex-start;
+content-end	a   | lign-content: flex-end;
+content-between | align-content: space-between;
+content-around  | align-content: space-around;
+content-evenly  | align-content: space-evenly;
 
 - Start
 
@@ -1151,34 +1108,26 @@ Use content-around to distribute rows in a container such that there is an equal
 
 Use content-evenly to distribute rows in a container such that there is an equal amount of space around each item, but also accounting for the doubling of space you would normally see between each item when using content-around:
 
-- Responsive
-
-```html
-<div class="content-start md:content-around ...">
-  <!-- ... -->
-</div>
-
-```
-
-https://tailwindcss.com/docs/align-content
+- Source : https://tailwindcss.com/docs/align-content
 
 ## Align Items
 
 Utilities for controlling how flex and grid items are positioned along a container's cross axis.
 
-```
-Class Properties
-items-start	align-items: flex-start;
-items-end	align-items: flex-end;
-items-center	align-items: center;
-items-baseline	align-items: baseline;
-items-stretch	align-items: stretch;
 
-```
+Class          | Properties
+---------------|-------------------------
+items-start    | align-items: flex-start;
+items-end      | align-items: flex-end;
+items-center   | align-items: center;
+items-baseline | align-items: baseline;
+items-stretch  | align-items: stretch;
 
 - Stretch
 
 Use items-stretch to stretch items to fill the container’s cross axis:
+
+![image](./img/align-items-stretch-12.png)
 
 ```html
 <div class="flex items-stretch ...">
@@ -1192,40 +1141,74 @@ Use items-stretch to stretch items to fill the container’s cross axis:
 
 Use items-start to align items to the start of the container’s cross axis:
 
+![image](./img/align-items-start-1217.png)
+
+```html
+<div class="flex items-start ...">
+  <div class="py-4">01</div>
+  <div class="py-12">02</div>
+  <div class="py-8">03</div>
+</div>
+
+```
+
 - Center
 
 Use items-center to align items along the center of the container’s cross axis:
+
+![image](./img/align-items-center-1217.png)
+
+```html
+<div class="flex items-center ...">
+  <div class="py-4">01</div>
+  <div class="py-12">02</div>
+  <div class="py-8">03</div>
+</div>
+```
 
 - End
 
 Use items-end to align items to the end of the container’s cross axis:
 
+![image](./img/align-items-end-1218.png)
+
+```html
+<div class="flex items-end ...">
+  <div class="py-4">01</div>
+  <div class="py-12">02</div>
+  <div class="py-8">03</div>
+</div>
+```
+
 - Baseline
 
 Use items-baseline to align items along the container’s cross axis such that all of their baselines align:
 
+![image](./img/align-items-baseline-1218.png)
 
-- Responsive
-
-<div class="items-stretch md:items-center ...">
-  <!-- ... -->
+```html
+<div class="flex items-baseline ...">
+  <div class="pt-2 pb-6">01</div>
+  <div class="pt-8 pb-12">02</div>
+  <div class="pt-12 pb-4">03</div>
 </div>
 
-https://tailwindcss.com/docs/align-items
+```
+
+- Source : https://tailwindcss.com/docs/align-items
 
 ## Align Self
 
 Utilities for controlling how an individual flex or grid item is positioned along its container's cross axis.
 
-```
-Class Properties
-self-auto	align-self: auto;
-self-start	align-self: flex-start;
-self-end	align-self: flex-end;
-self-center	align-self: center;
-self-stretch	align-self: stretch;
+Class        | Properties
+-------------|------------------------
+self-auto    | align-self: auto;
+self-start   | align-self: flex-start;
+self-end     | align-self: flex-end;
+self-center  | align-self: center;
+self-stretch | align-self: stretch;
 
-```
 
 - Auto
 
