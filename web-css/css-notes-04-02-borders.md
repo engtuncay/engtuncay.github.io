@@ -393,42 +393,55 @@ left margin is 100px
 
 If the margin property has three values:
 
+```css
 margin: 25px 50px 75px;
 top margin is 25px
 right and left margins are 50px
 bottom margin is 75px
 
+```
+
 If the margin property has two values:
 
+```css
 margin: 25px 50px;
 top and bottom margins are 25px
 right and left margins are 50px
 
+```
+
 If the margin property has one value:
 
+```css
 margin: 25px;
 all four margins are 25px
 
+```
+
 The auto Value
+
 You can set the margin property to auto to horizontally center the element within its container.
 
 The element will then take up the specified width, and the remaining space will be split equally between the left and right margins.
 
-Example
-Use margin: auto:
+Example : Use margin: auto:
 
+```css
 div {
   width: 300px;
   margin: auto;
   border: 1px solid red;
 }
 
+```
+
 The inherit Value
+
 This example lets the left margin of the <p class="ex1"> element be inherited from the parent element (<div>):
 
-Example
-Use of the inherit value:
+Example : Use of the inherit value:
 
+```css
 div {
   border: 1px solid red;
   margin-left: 100px;
@@ -437,6 +450,8 @@ div {
 p.ex1 {
   margin-left: inherit;
 }
+
+```
 
 ## Margin Collapse
 

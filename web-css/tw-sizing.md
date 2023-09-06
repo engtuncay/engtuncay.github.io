@@ -159,7 +159,7 @@ Use h-full to set an element’s height to 100% of its parent, as long as the pa
 Utilities for setting the minimum width or height of an element
 
 ```css
-min-[ width|height ]
+/* min-[ width|height ] */
 min-h-screen
 min-[w|h]-0
 min-[w|h]-[full|fit]
@@ -173,9 +173,7 @@ min-w-full | min-width: 100%;
 min-w-min  | min-width: min-content;
 min-w-max  | min-width: max-content;
 
-- Usage
-
-Set the minimum width of an element using the min-w-0 or min-w-full utilities.
+- Basic Usage : Set the minimum width of an element using the min-w-0 or min-w-full utilities.
 
 ```html
 <div class="w-24 min-w-full ...">
@@ -190,10 +188,24 @@ Set the minimum width of an element using the min-w-0 or min-w-full utilities.
 
 Utilities for setting the maximum width or height of an element
 
-```
-Class             Properties
-max-w-0	          max-width: 0rem;
-max-w-none	      max-width: none;
+
+Class                      | Properties
+---------------------------|---------------------------
+max-w-0                    | max-width: 0rem;
+max-w-none                 | max-width: none;
+max-w-[xs\|sm\|md\|lg\|xl] | max_width : [size_value];
+max-w-[2-7]xl              |
+max-w-full                 | max-width: 100%;
+max-w-min                  | max-width: min-content;
+max-w-max                  | max-width: max-content;
+max-w-prose                | max-width: 65ch;
+max-w-screen-[xs\|sm\|md]  | max-width: [size_value]px;
+max-w-screen-[lg\|xl\|2xl] | max-width: [size_value]px;
+max-h-[full\|screen\|fit]  |
+max-h-[min\|max]           |
+max-h-[$spacing]           |
+
+
 max-w-xs	        max-width: 20rem;
 max-w-sm	        max-width: 24rem;
 max-w-md	        max-width: 28rem;
@@ -205,17 +217,12 @@ max-w-4xl	        max-width: 56rem;
 max-w-5xl	        max-width: 64rem;
 max-w-6xl	        max-width: 72rem;
 max-w-7xl	        max-width: 80rem;
-max-w-full	      max-width: 100%;
-max-w-min	        max-width: min-content;
-max-w-max	        max-width: max-content;
-max-w-prose	      max-width: 65ch;
 max-w-screen-sm	  max-width: 640px;
 max-w-screen-md	  max-width: 768px;
 max-w-screen-lg	  max-width: 1024px;
 max-w-screen-xl	  max-width: 1280px;
 max-w-screen-2xl	max-width: 1536px;
 
-```
 
 ```css
 /* max-width */
