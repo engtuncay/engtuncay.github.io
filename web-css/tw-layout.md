@@ -370,54 +370,46 @@ https://tailwindcss.com/docs/position
 
 Utilities for controlling the placement of positioned elements.
 
-Class            | Properties
------------------|---------------------------------------------------------------
-.                | // instead of top, right, bottom or left can be used
-.                | // inset (for tblr),
-.                | // inset-x (for lr), inset-y (for tb) can be used
-.                | // top-0 variants : right:0 or bottom:0 or left:0
-.                | // top-[0.5-96] values
-top-[size_no]    | top: [size_value];
-.                | // Minus value can be used
--top-[size_no]    | top:-[size_value];
-.                | Example
--top-0.5         | top: -0.125rem;
-.                | // Inset
-inset-[size_no]   | trbl : [size_value];
--inset-[size_no]  | trbl : - same as top values;
-inset-x-[0.5-96] | lr : same as top values;
-inset-y-[0.5-96] | tb : same as top values;
-inset-auto       | top: auto;right: auto;bottom: auto;left: auto;
-.                | Example
-inset-0.5        | trbl: 0.125rem;
-inset-x-0.5      | left: 0.125rem;right: 0.125rem;
-inset-y-0.5      | top: 0.125rem;bottomt: 0.125rem;
--inset-x-0.5     | left: -0.125rem;right: -0.125rem;
-inset-0          | top: 0px;right: 0px;bottom: 0px;left: 0px;
-inset-x-0        | left: 0px;right: 0px;
-inset-y-0        | top: 0px;bottom: 0px;
-.                |
-.//% values//    |
-.                | // instead of top, right, bottom or left or insert can be used
-.                | // inset (for tblr),
-.                | // inset-x (for lr), inset-y (for tb) can be used
-top-1/2          | top: 50%;
-top-1/3          | top: 33.333333%;
-top top-2/3      | top: 66.666667%;
-top-1/4          | top: 25%;
-top-2/4          | top: 50%;
-top-3/4          | top: 75%;
-top-full         | top: 100%;
-.                |
-inset-[1/2-3/4]  | trbl: same as top values;
-inset-full       | trbl: 100%;
-inset-x-auto     | left: auto;right: auto;
-inset-y-auto     | top: auto;bottom: auto;
+Class             | Properties
+------------------|----------------------------------------------------------------------
+.                 | [trbl] -> top or right or bottom or left
+[trbl]-[size_no]  | [trbl] : [size_value];
+-[trbl]-[size_no] | [trbl] : -[size_value];
+.                 | // Inset
+inset-[size_no]   | top:[size_val];right:[size_val];bottom:[size_val];left:[size_val]
+-inset-[size_no]  | top:-[size_val];right:-[size_val];bottom:-[size_val];left:-[size_val]
+inset-x-[0.5-96]  | left:[size_val];right:[size_val];
+inset-y-[0.5-96]  | top:[size_val];bottom:[size_val];
+inset-auto        | top: auto;right: auto;bottom: auto;left: auto;
+.                 |
+.//% values//     |
+.                 | // instead of top, right, bottom or left or insert can be used
+.                 | // inset (for tblr),
+.                 | // inset-x (for lr), inset-y (for tb) can be used
+top-1/2           | top: 50%;
+top-1/3           | top: 33.333333%;
+top top-2/3       | top: 66.666667%;
+top-1/4           | top: 25%;
+top-2/4           | top: 50%;
+top-3/4           | top: 75%;
+top-full          | top: 100%;
+.                 |
+inset-[1/2-3/4]   | trbl: same as top values;
+inset-full        | trbl: 100%;
+inset-x-auto      | left: auto;right: auto;
+inset-y-auto      | top: auto;bottom: auto;
+.                 | Examples
+top-0.5           | top: 0.125rem;
+-top-0.5          | top: -0.125rem;
+inset-0.5         | trbl: 0.125rem;
+inset-x-0.5       | left: 0.125rem;right: 0.125rem;
+inset-y-0.5       | top: 0.125rem; bottomt: 0.125rem;
+-inset-x-0.5      | left: -0.125rem; right: -0.125rem;
+inset-0           | top: 0px; right: 0px; bottom: 0px; left: 0px;
+inset-x-0         | left: 0px; right: 0px;
+inset-y-0         | top: 0px; bottom: 0px;
 
-
-- Usage
-
-Use the {top|right|bottom|left|inset}-0 utilities to anchor absolutely positioned elements against any of the edges of the nearest positioned parent.
+- Basic Usage : Use the {top|right|bottom|left|inset}-0 utilities to anchor absolutely positioned elements against any of the edges of the nearest positioned parent.
 
 Combined with Tailwind’s padding and margin utilities, you’ll probably find that these are all you need to precisely control absolutely positioned elements.
 
