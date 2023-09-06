@@ -12,6 +12,9 @@
 
 - CSS Tricks Almanac, https://css-tricks.com/almanac/
 
+- [Tunc CSS Cheat](./css-cheat.md)
+
+
 # Tailwind Cheats
 
 - Umeshmk Cheat *5, https://umeshmk.github.io/Tailwindcss-cheatsheet/
@@ -26,7 +29,7 @@ This tutorial is prepared from web resources and some additions from me.
 
 Source : [W3Schools]()
 
-[Css Cheat](./css-cheat.md)
+
 
 CONTENT | Note |
 --- | --- |
@@ -46,17 +49,20 @@ CONTENT | Note |
 [11- Animation](./css-notes-11-Animation.md) |
 [12- Advanced](./css-notes-12-Advanced.md) |
 
+[Tunc Css Contents](./css-w3-content.md)
+
 # Css Articles
 
 
 # Tailwind Notes
 
-CONTENT |
---- |
+Topic | Note
+--- | ---
 [Tailwind Cheat - All](./tw-cheat.md) |
 [Tailwind Intro](./tw-intro.md) |
 [Layout](./tw-layout.md) |
 [Sizing and Spacing](./tw-sizing.md) |
+[Backgrounds](./tw-background.md) |
 [Flexbox and Grid](./tw-flexbox-grid.md) |
 
 

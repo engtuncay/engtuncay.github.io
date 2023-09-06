@@ -1,4 +1,11 @@
 
+
+
+
+
+
+
+```text
 (1)
 Introduction
 Comments
@@ -29,9 +36,7 @@ Height/Width
 Outline
 User Interface (Resizing)
 
-
 CSS Tables
-
 
 (5)
 CSS Display
@@ -91,3 +96,5 @@ CSS Variables
 CSS Media Queries
 CSS MQ Examples
 
+
+```
