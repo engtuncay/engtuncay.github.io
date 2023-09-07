@@ -5,7 +5,7 @@
 - [CSS References](#css-references)
 - [Tailwind Notes](#tailwind-notes)
 - [Tailwind References](#tailwind-references)
-- [Css Articles](#css-articles)
+- [CSS Articles](#css-articles)
 - [Tailwind Articles](#tailwind-articles)
 
 # CSS Cheats
@@ -79,7 +79,9 @@ Topic | Note
 - Tailwind Doc, https://tailwindcss.com/docs/installation
 
 
-# Css Articles
+# CSS Articles
+
+
 
 # Tailwind Articles
 

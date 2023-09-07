@@ -12,7 +12,6 @@
     - [Static method](#static-method)
   - [Inheritance](#inheritance)
     - [Overriding methods](#overriding-methods)
-- [Day 16](#day-16)
   - [JSON](#json)
     - [Converting JSON to JavaScript Object](#converting-json-to-javascript-object)
       - [JSON.parse()](#jsonparse)
@@ -643,7 +642,6 @@ Lidiya Tekle is 28. She lives in Helsinki, Finland. He knows Planning, Managing 
 
 Now, the getPersonInfo method has been overridden and it identifies if the person is male or female.
 
-# Day 16
 
 ## JSON
 
