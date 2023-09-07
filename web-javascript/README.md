@@ -1,24 +1,35 @@
-<h2>Javascript and Node Tutorials</h2> 
+<h2>Javascript and Node Notes</h2> 
+
+- [Js Cheats](#js-cheats)
+- [References](#references)
+- [Js Notes](#js-notes)
+- [Javascript Info Notes - Advanced Javascript](#javascript-info-notes---advanced-javascript)
+- [Node Notes](#node-notes)
+- [Other Cheatsheets](#other-cheatsheets)
+- [Other Js Notes](#other-js-notes)
+- [Other Links](#other-links)
+- [Js Articles](#js-articles)
+- [Node Articles](#node-articles)
 
 ---
 
-<h3>Sources</h3>  
+# Js Cheats
 
-- http://www.javascript.info
+- [Js Cheatsheet](./js-mix/js-cheatsheet.md)
 
-- https://github.com/Asabeneh/30-Days-Of-JavaScript
+- [Cheat Js (2)](./js-mix/cheat-js-2.md)
 
----
+# References
 
-<h3>Contents</h3>  
+- Javascript Info, http://www.javascript.info
 
-[Js Cheatsheet](./js-mix/js-cheatsheet.md)
+- 30 Days of Javascript , https://github.com/Asabeneh/30-Days-Of-JavaScript
 
-[Cheat Js (2)](./js-mix/cheat-js-2.md)
+- W3Schools, https://www.w3schools.com/js/default.asp 
 
-[30 Days of Javascript(clone)](./30-Days-Of-JavaScript-master/readMe.md)
+# Js Notes
 
-**Js Notes**
+These notes are mainly from Asabeneh's 30-Days-Of-JavaScript tutorials.  Thanks.
 
 CONTENT |Note|
 --- | -- |
@@ -33,10 +44,10 @@ CONTENT |Note|
 [Storage](./js-notes-5-storage.md) | ✔ 
 [Promise,Async-Await and Closure](./js-notes-6-promise.md) | ✔ 
 [Clean Code](./js-notes-7-clean-code.md) |
-[Dom](./js-notes-8-dom.md) |
+[Dom](./js-notes-8-dom.md) | ✔ 
 
 
-**Javascript Info Notes - Advanced Javascript**
+# Javascript Info Notes - Advanced Javascript
 
 CONTENT |Note|
 --- | -- |
@@ -55,7 +66,7 @@ CONTENT |Note|
 
 [Javascript W3 Tutorial](./w3/readme.md)
 
-# Node Tutorial
+# Node Notes
 
 CONTENT |
 --- |
@@ -81,12 +92,18 @@ CONTENT |
 - https://github.com/iLoveCodingOrg/javascript-cheatsheet
 
 
+# Other Js Notes
+
 Topic                                        | Notes
 ---------------------------------------------|------
 [6 Es6 Classes](./js-mix/js-mosh-b6-es6-classes.md) |
 
 
+# Other Links
+
+[30 Days of Javascript(clone)](./30-Days-Of-JavaScript-master/readMe.md)
 
 
+# Js Articles
 
-
+# Node Articles
