@@ -2,26 +2,26 @@
 - [Section DOM (1-2-3)](#section-dom-1-2-3)
   - [Document Object Model (DOM) (1)](#document-object-model-dom-1)
     - [Getting Element](#getting-element)
-      - [Getting elements by tag name](#getting-elements-by-tag-name)
-      - [Getting elements by class name](#getting-elements-by-class-name)
-      - [Getting an element by id](#getting-an-element-by-id)
-      - [Getting elements by using querySelector methods](#getting-elements-by-using-queryselector-methods)
+      - [Getting elements by tag name - getElementsByTagName()](#getting-elements-by-tag-name---getelementsbytagname)
+      - [Getting elements by class name - getElementsByClassName()](#getting-elements-by-class-name---getelementsbyclassname)
+      - [Getting an element by id - getElementsById()](#getting-an-element-by-id---getelementsbyid)
+      - [Getting elements by using querySelector methods - querySelector()](#getting-elements-by-using-queryselector-methods---queryselector)
+      - [querySelectorAll()](#queryselectorall)
     - [Adding attribute](#adding-attribute)
-      - [Adding attribute using setAttribute](#adding-attribute-using-setattribute)
-      - [Adding attribute without setAttribute](#adding-attribute-without-setattribute)
-      - [Adding class using classList](#adding-class-using-classlist)
-      - [Removing class using remove](#removing-class-using-remove)
+      - [Adding attribute using ( element.setAttribute(txAttrName,value) )](#adding-attribute-using--elementsetattributetxattrnamevalue-)
+      - [Adding class using classList (element.classList.add(...))](#adding-class-using-classlist-elementclasslistadd)
+      - [Removing class using remove ( element.classList.remove() )](#removing-class-using-remove--elementclasslistremove-)
     - [Adding Text to HTML element](#adding-text-to-html-element)
       - [Adding Text content using textContent](#adding-text-content-using-textcontent)
       - [Adding Text Content using innerHTML](#adding-text-content-using-innerhtml)
-        - [Text Content](#text-content)
-        - [Inner HTML](#inner-html)
+        - [Text Content (element.textContent)](#text-content-elementtextcontent)
+        - [Inner HTML (element.innerHTML )](#inner-html-elementinnerhtml-)
     - [Adding style](#adding-style)
-      - [Adding Style Color](#adding-style-color)
-      - [Adding Style Background Color](#adding-style-background-color)
-      - [Adding Style Font Size](#adding-style-font-size)
+      - [Adding Style Color (element.style.color)](#adding-style-color-elementstylecolor)
+      - [Adding Style Background Color (element.style.backgroundColor)](#adding-style-background-color-elementstylebackgroundcolor)
+      - [Adding Style Font Size (element.style.fontSize)](#adding-style-font-size-elementstylefontsize)
   - [DOM(Document Object Model) (2)](#domdocument-object-model-2)
-    - [Creating an Element](#creating-an-element)
+    - [Creating an Element ( document.createElement(txTagName) )](#creating-an-element--documentcreateelementtxtagname-)
     - [Creating elements](#creating-elements)
     - [Appending child to a parent element](#appending-child-to-a-parent-element)
     - [Removing a child element from a parent node](#removing-a-child-element-from-a-parent-node)
@@ -65,9 +65,9 @@ We can access already created element or elements using JavaScript. To access or
   </html>
 ```
 
-#### Getting elements by tag name
+#### Getting elements by tag name - getElementsByTagName()
 
-**_getElementsByTagName()_**:takes a tag name as a string parameter and this method returns an HTMLCollection object. An HTMLCollection is an array like object of HTML elements. The length property provides the size of the collection. Whenever we use this method we access the individual elements using index or after loop through each individual items. An HTMLCollection does not support all array methods therefore we should use regular for loop instead of forEach.
+**_getElementsByTagName()_**: takes a tag name as a string parameter and this method returns an <span style="color:red">HTMLCollection</span> object. An HTMLCollection is an array like object of HTML elements. The length property provides the size of the collection. Whenever we use this method we access the individual elements using index or after loop through each individual items. An HTMLCollection does not support all array methods therefore we should use regular for loop instead of forEach.
 
 ```js
 // syntax
@@ -85,9 +85,9 @@ for (let i = 0; i < allTitles.length; i++) {
 }
 ```
 
-#### Getting elements by class name
+#### Getting elements by class name - getElementsByClassName()
 
-**_getElementsByClassName()_** method returns an HTMLCollection object. An HTMLCollection is an array like list of HTML elements. The length property provides the size of the collection. It is possible to loop through all the HTMLCollection elements. See the example below
+**_getElementsByClassName()_** method returns an <span style="color:red">HTMLCollection</span> object. An HTMLCollection is an array like list of HTML elements. The length property provides the size of the collection. It is possible to loop through all the HTMLCollection elements. See the example below
 
 ```js
 //syntax
@@ -105,7 +105,7 @@ for (let i = 0; i < allTitles.length; i++) {
 }
 ```
 
-#### Getting an element by id
+#### Getting an element by id - getElementsById()
 
 **_getElementsById()_** targets a single HTML element. We pass the id without # as an argument.
 
@@ -119,17 +119,19 @@ let firstTitle = document.getElementById('first-title')
 console.log(firstTitle) // <h1>First Title</h1>
 ```
 
-#### Getting elements by using querySelector methods
+#### Getting elements by using querySelector methods - querySelector()
 
 The _document.querySelector_ method can select an HTML or HTML elements by tag name, by id or by class name.
 
-**_querySelector_**: can be used to select HTML element by its tag name, id or class. If the tag name is used it selects only the first element.
+**_querySelector_**: can be used to select HTML element by its tag name, id or class. If the tag name is used it selects <span style="color:red">only the first element</span>.
 
 ```js
 let firstTitle = document.querySelector('h1') // select the first available h1 element
 let firstTitle = document.querySelector('#first-title') // select id with first-title
 let firstTitle = document.querySelector('.title') // select the first available element with class title
 ```
+
+#### querySelectorAll() 
 
 **_querySelectorAll_**: can be used to select html elements by its tag name or class. It returns a nodeList which is an array like object which supports array methods. We can use **_for loop_** or **_forEach_** to loop through each nodeList elements.
 
@@ -147,7 +149,11 @@ const allTitles = document.querySelectorAll('.title') // the same goes for selec
 
 ### Adding attribute
 
-An attribute is added in the opening tag of HTML which gives additional information about the element. Common HTML attributes: id, class, src, style, href,disabled, title, alt. Lets add id and class for the fourth title.
+An attribute is added in the opening tag of HTML which gives additional information about the element. Common HTML attributes: id, class, src, style, href,disabled, title, alt. 
+
+We can use normal object setting method to set an attribute but this can not work for all elements. Some attributes are DOM object property and they can be set directly. For instance id and class.
+
+Lets add id and class for the fourth title (`<h1></h1>`). (Adding attribute without setAttribute)
 
 ```js
 const titles = document.querySelectorAll('h1')
@@ -155,9 +161,10 @@ titles[3].className = 'title'
 titles[3].id = 'fourth-title'
 ```
 
-#### Adding attribute using setAttribute
+#### Adding attribute using ( element.setAttribute(txAttrName,value) )
 
 The **_setAttribute()_** method set any html attribute. It takes two parameters the type of the attribute and the name of the attribute.
+
 Let's add class and id attribute for the fourth title.
 
 ```js
@@ -166,26 +173,16 @@ titles[3].setAttribute('class', 'title')
 titles[3].setAttribute('id', 'fourth-title')
 ```
 
-#### Adding attribute without setAttribute
-
-We can use normal object setting method to set an attribute but this can not work for all elements. Some attributes are DOM object property and they can be set directly. For instance id and class
-
-```js
-//another way to setting an attribute
-titles[3].className = 'title'
-titles[3].id = 'fourth-title'
-```
-
-#### Adding class using classList
+#### Adding class using classList (element.classList.add(...))
 
 The class list method is a good method to append additional class. It does not override the original class if a class exists rather it adds additional class for the element.
 
 ```js
 //another way to setting an attribute: append the class, doesn't over ride
-titles[3].classList.add('title', 'header-title')
+titles[3].classList.add('title', 'header-title'); // adds multiple classes ( title and header-title )
 ```
 
-#### Removing class using remove
+#### Removing class using remove ( element.classList.remove() )
 
 Similar to adding we can also remove class from an element. We can remove a specific class from an element.
 
@@ -211,7 +208,7 @@ titles[3].textContent = 'Fourth Title'
 
 Most people get confused between _textContent_ and _innerHTML_. _textContent_ is meant to add text to an HTML element, however innerHTML can add a text or HTML element or elements as a child.
 
-##### Text Content
+##### Text Content (element.textContent)
 
 We assign *textContent* HTML object property to a text
 
@@ -220,72 +217,56 @@ const titles = document.querySelectorAll('h1')
 titles[3].textContent = 'Fourth Title'
 ```
 
-##### Inner HTML
+##### Inner HTML (element.innerHTML )
 
 We use innerHTML property when we like to replace or a completely new children content to a parent element.
+
 It value we assign is going to be a string of HTML elements.
 
 ```html
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>JavaScript for Everyone:DOM</title>
-  </head>
-  <body>
-    <div class="wrapper">
-        <h1>Asabeneh Yetayeh challenges in 2020</h1>
-        <h2>30DaysOfJavaScript Challenge</h2>
-        <ul></ul>
-    </div>
-    <script>
-    const lists = `
-    <li>30DaysOfPython Challenge Done</li>
-            <li>30DaysOfJavaScript Challenge Ongoing</li>
-            <li>30DaysOfReact Challenge Coming</li>
-            <li>30DaysOfFullStack Challenge Coming</li>
-            <li>30DaysOfDataAnalysis Challenge Coming</li>
-            <li>30DaysOfReactNative Challenge Coming</li>
-            <li>30DaysOfMachineLearning Challenge Coming</li>`
-  const ul = document.querySelector('ul')
-  ul.innerHTML = lists
-    </script>
-  </body>
-</html>
+<body>
+  <div class="wrapper">
+      <h1>Asabeneh Yetayeh challenges in 2020</h1>
+      <h2>30DaysOfJavaScript Challenge</h2>
+      <ul></ul>
+  </div>
+  <script>
+  const lists = `
+  <li>30DaysOfPython Challenge Done</li>
+          <li>30DaysOfJavaScript Challenge Ongoing</li>
+          <li>30DaysOfReact Challenge Coming</li>`
+const ul = document.querySelector('ul')
+ul.innerHTML = lists
+  </script>
+</body>
 ```
 
 The innerHTML property can allow us also to remove all the children of a parent element. Instead of using removeChild() I would recommend the following method.
 
 ```html
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>JavaScript for Everyone:DOM</title>
-  </head>
-  <body>
-    <div class="wrapper">
-        <h1>Asabeneh Yetayeh challenges in 2020</h1>
-        <h2>30DaysOfJavaScript Challenge</h2>
-        <ul>
-            <li>30DaysOfPython Challenge Done</li>
-            <li>30DaysOfJavaScript Challenge Ongoing</li>
-            <li>30DaysOfReact Challenge Coming</li>
-            <li>30DaysOfFullStack Challenge Coming</li>
-            <li>30DaysOfDataAnalysis Challenge Coming</li>
-            <li>30DaysOfReactNative Challenge Coming</li>
-            <li>30DaysOfMachineLearning Challenge Coming</li>
-        </ul>
-    </div>
-    <script>
+  <div class="wrapper">
+      <h1>Asabeneh Yetayeh challenges in 2020</h1>
+      <h2>30DaysOfJavaScript Challenge</h2>
+      <ul>
+          <li>30DaysOfPython Challenge Done</li>
+          <li>30DaysOfJavaScript Challenge Ongoing</li>
+          <li>30DaysOfReact Challenge Coming</li>
+          <li>30DaysOfFullStack Challenge Coming</li>
+          <li>30DaysOfDataAnalysis Challenge Coming</li>
+          <li>30DaysOfReactNative Challenge Coming</li>
+          <li>30DaysOfMachineLearning Challenge Coming</li>
+      </ul>
+  </div>
+  <script>
   const ul = document.querySelector('ul')
-  ul.innerHTML = ''
-    </script>
-  </body>
-</html>
+  ul.innerHTML = '' /* Remove content */
+  </script>
+
 ```
 
 ### Adding style
 
-#### Adding Style Color
+#### Adding Style Color (element.style.color)
 
 Let us add some style to our titles. If the element has even index we give it green color else red.
 
@@ -301,7 +282,7 @@ titles.forEach((title, i) => {
 })
 ```
 
-#### Adding Style Background Color
+#### Adding Style Background Color (element.style.backgroundColor)
 
 Let us add some style to our titles. If the element has even index we give it green color else red.
 
@@ -317,7 +298,7 @@ titles.forEach((title, i) => {
 })
 ```
 
-#### Adding Style Font Size
+#### Adding Style Font Size (element.style.fontSize)
 
 Let us add some style to our titles. If the element has even index we give it 20px else 30px
 
@@ -333,17 +314,13 @@ titles.forEach((title, i) => {
 })
 ```
 
-As you have notice, the properties of css when we use it in JavaScript is going to be a camelCase. The  following CSS properties change from background-color to backgroundColor, font-size to fontSize, font-family to fontFamily, margin-bottom to marginBottom.
-
----
-
-🌕 Now,  you are fully charged with a super power, you have completed the most important and challenging part of the challenge and in general JavaScript. You learned DOM and now you have the capability to build and develop applications. Now do some exercises for your brain and for your muscle.
+As you have notice, the properties of css when we use it in JavaScript is going to be a camelCase. The following CSS properties change from background-color to backgroundColor, font-size to fontSize, font-family to fontFamily, margin-bottom to marginBottom.
 
 ## DOM(Document Object Model) (2)
 
-### Creating an Element
+### Creating an Element ( document.createElement(txTagName) )
 
-To create an HTML element we use tag name. Creating an HTML element using JavaScript is very simple and straight forward. We use the method _document.createElement()_. The method takes an HTML element tag name as a string parameter.
+To create an HTML element we use tag name. Creating an HTML element using JavaScript is very simple and straight forward. We use the method <span style="color:red">_document.createElement()_</span>. The method takes an HTML element tag name as a string parameter.
 
 ```js
 // syntax
@@ -376,6 +353,7 @@ document.createElement('tagname')
 ### Creating elements
 
 To create multiple elements we should use loop. Using loop we can create as many HTML elements as we want.
+
 After we create the element we can assign value to the different properties of the HTML object.
 
 ```html
