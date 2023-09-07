@@ -15,6 +15,8 @@
 
 # Js Cheats
 
+- Interactive Js Cheat, https://htmlcheatsheet.com/js/
+
 - [Js Cheatsheet](./js-mix/js-cheatsheet.md)
 
 - [Cheat Js (2)](./js-mix/cheat-js-2.md)
