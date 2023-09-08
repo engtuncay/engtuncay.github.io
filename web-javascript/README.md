@@ -17,17 +17,11 @@
 
 - Interactive Js Cheat, https://htmlcheatsheet.com/js/
 
-- [Js Cheatsheet](./js-mix/js-cheatsheet.md)
+- Wilfredinni Js Cheat, https://github.com/wilfredinni/javascript-cheatsheet 
 
-- [Cheat Js (2)](./js-mix/cheat-js-2.md)
-
-- Wilfredinni Js Cheat (forked) https://github.com/engtuncay/javascript-cheatsheet-wilfredinni/blob/master/README.md
-
-Original Repo :  https://github.com/wilfredinni/javascript-cheatsheet 
+(forked) https://github.com/engtuncay/javascript-cheatsheet-wilfredinni/blob/master/README.md
 
 - Modern Javascript Cheat, https://github.com/mbeaudru/modern-js-cheatsheet
-
-
 
 # References
 
@@ -98,6 +92,11 @@ CONTENT |
 
 - https://github.com/iLoveCodingOrg/javascript-cheatsheet
 
+Drafts
+
+- [Js Cheatsheet](./js-mix/js-cheatsheet.md)
+
+- [Cheat Js (2)](./js-mix/cheat-js-2.md)
 
 # Other Js Notes
 
@@ -109,7 +108,6 @@ Topic                                        | Notes
 # Other Links
 
 [30 Days of Javascript(clone)](./30-Days-Of-JavaScript-master/readMe.md)
-
 
 # Js Articles
 
