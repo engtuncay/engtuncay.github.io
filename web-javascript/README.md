@@ -47,6 +47,7 @@ CONTENT |Note|
 [Promise,Async-Await and Closure](./js-notes-6-promise.md) | ✔ 
 [Clean Code](./js-notes-7-clean-code.md) |
 [Dom](./js-notes-8-dom.md) | ✔ 
+[13 Modules](./js-info/js-intro-13-1-Modules.md)|
 
 
 # Js Info Notes - Advanced Javascript
@@ -61,10 +62,10 @@ CONTENT |Note|
 [3 Code Quality](./js-info/js-intro-3-code-quality.md) |
 [4-1 Objects-1](./js-info/js-intro-04-01-objects.md) |🆗
 [4-2 Objects-2](./js-info/js-intro-04-02-objects.md) |
-[5-1 Advanced Data Types-1](./js-info/js-intro-05-01-advanced-data-types.md)
-[5-2 Advanced Data Types-2](./js-info/js-intro-05-02-advanced-data-types-2.md)
-[9 Classes](./js-info/js-intro-09-1-Classes.md)
-[13 Modules](./js-info/js-intro-13-1-Modules.md)
+[5-1 Advanced Data Types-1](./js-info/js-intro-05-01-advanced-data-types.md)|
+[5-2 Advanced Data Types-2](./js-info/js-intro-05-02-advanced-data-types-2.md)|
+[9 Classes](./js-info/js-intro-09-1-Classes.md)|
+[13 Modules](./js-info/js-intro-13-1-Modules.md)|
 
 [Javascript W3 Tutorial](./w3/readme.md)
 
