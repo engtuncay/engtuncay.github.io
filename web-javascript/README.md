@@ -3,7 +3,7 @@
 - [Js Cheats](#js-cheats)
 - [References](#references)
 - [Js Notes](#js-notes)
-- [Javascript Info Notes - Advanced Javascript](#javascript-info-notes---advanced-javascript)
+- [Js Info Notes - Advanced Javascript](#js-info-notes---advanced-javascript)
 - [Node Notes](#node-notes)
 - [Other Cheatsheets](#other-cheatsheets)
 - [Other Js Notes](#other-js-notes)
@@ -37,7 +37,7 @@ CONTENT |Note|
 --- | -- |
 [Intro](./js-notes-1-1-intro.md) |
 [Data Types](./js-notes-2-1-data-types.md) |
-[Operators,Conditions,Loops](./js-notes-2-2-operators.md) |
+[Operators,Conditions,Loops](./js-notes-2-2-oper-cond-loop.md) |
 [Functions](./js-notes-2-3-functions.md) | ✔ 
 [Error Handling](./js-notes-2-4-error-handling.md) |
 [Map Set](./js-notes-2-5-map-set.md) |
@@ -49,7 +49,7 @@ CONTENT |Note|
 [Dom](./js-notes-8-dom.md) | ✔ 
 
 
-# Javascript Info Notes - Advanced Javascript
+# Js Info Notes - Advanced Javascript
 
 CONTENT |Note|
 --- | -- |
