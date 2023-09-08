@@ -21,6 +21,14 @@
 
 - [Cheat Js (2)](./js-mix/cheat-js-2.md)
 
+- Wilfredinni Js Cheat (forked) https://github.com/engtuncay/javascript-cheatsheet-wilfredinni/blob/master/README.md
+
+Original Repo :  https://github.com/wilfredinni/javascript-cheatsheet 
+
+- Modern Javascript Cheat, https://github.com/mbeaudru/modern-js-cheatsheet
+
+
+
 # References
 
 - Javascript Info, http://www.javascript.info
@@ -78,13 +86,9 @@ CONTENT |
 
 # Other Cheatsheets
 
-- https://github.com/mbeaudru/modern-js-cheatsheet 5x
-
 - https://github.com/wilfredinni/javascript-cheatsheet
 
 - https://github.com/Sunil-Pradhan/javascript-cheatsheet
-
-- https://github.com/wilfredinni/javascript-cheatsheet
 
 - https://github.com/krishnr/JavaScript-cheat-sheet
 

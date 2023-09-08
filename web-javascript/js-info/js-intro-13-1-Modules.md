@@ -3,9 +3,9 @@
 
 <h3>Source</h3>
 
-- These are articles from Javascript.info [Js Info - Modules](https://javascript.info/modules-intro#comments)
+- These are articles from Javascript.info [Js Info - Modules](https://javascript.info/modules-intro)
 
-- Some additions may be added in some parts.
+- Some modifications may be done.
 
 <h3>Content</h3>
 
