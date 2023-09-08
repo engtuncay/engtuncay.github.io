@@ -1,16 +1,16 @@
 
-
 Java Fx Contents
 
 - [Temel Pencere Sistemi ( Stage (Sahne) and Scene (Dekor) )](#temel-pencere-sistemi--stage-sahne-and-scene-dekor-)
-	- [Stage](#stage)
-	- [Scene](#scene)
-	- [Layout Sistemleri](#layout-sistemleri)
-		- [Gridpane](#gridpane)
-		- [Stack Pane](#stack-pane)
-		- [MigLayout](#miglayout)
+  - [Stage](#stage)
+  - [Scene](#scene)
+  - [Layout Sistemleri](#layout-sistemleri)
+    - [Gridpane](#gridpane)
+    - [Stack Pane](#stack-pane)
+    - [MigLayout](#miglayout)
 - [Observable Value List](#observable-value-list)
-	- [Converting Integer to ObservableValue<Integer> in javafx](#converting-integer-to-observablevalueinteger-in-javafx)
+  - [Converting Integer to ObservableValue in javafx](#converting-integer-to-observablevalue-in-javafx)
+
 
 ---
 

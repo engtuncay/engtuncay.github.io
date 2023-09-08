@@ -1,15 +1,33 @@
 **Java Programming Language**
+
 **Prepared By** Tuncay Orak
+
 **Contributions**
+
 Sources are given at the end of the sections.
 
-[TOC]
-
+- [Java Core](#java-core)
+  - [Basic Types](#basic-types)
+    - [String](#string)
+      - [String Format](#string-format)
+    - [Integer](#integer)
+    - [Double](#double)
+    - [Date](#date)
+      - [Parsing String to Date](#parsing-string-to-date)
+  - [Other Types](#other-types)
+    - [Long](#long)
+    - [Float](#float)
+  - [Advanced Types](#advanced-types)
+- [Atomic Reference](#atomic-reference)
+- [Java IO](#java-io)
+  - [Character Encoding](#character-encoding)
+    - [Hexidecimal Number](#hexidecimal-number)
+    - [Encoding Scheme](#encoding-scheme)
+- [Source](#source)
 
 ---
 
 # Java Core
-
 
 ## Basic Types
 
@@ -108,12 +126,6 @@ character <-> hexadecimal # <-> binary
 Encoding : 'a' -> 61 hex code -> 0110 0001
 Decoding : 0110 0001 -> 61 -> 'a'
 Examples : ASCII , UCS-2 , UTF-16 , UTF-32
-
-
-
-
-
-
 
 
 

@@ -1,15 +1,12 @@
 
 **Java Programming Language**
+
 **Prepared By** Tuncay Orak
+
 **Contributions**
+
 Sources are given at the end of the sections.
 
-[TOC]
-
-VsCode Toc
-
----
-<!-- TOC -->
 - [Java Core](#java-core)
   - [Types](#types)
     - [String](#string)
@@ -32,8 +29,9 @@ VsCode Toc
   - [Character Encoding](#character-encoding)
     - [Hexidecimal Number](#hexidecimal-number)
     - [Encoding Scheme](#encoding-scheme)
-<!-- /TOC -->
----
+
+
+
 # Java Core
 
 

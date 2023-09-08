@@ -20,6 +20,6 @@ CONTENT |Note|
 
 Content                                                                                   | Note
 ------------------------------------------------------------------------------------------|-----
-[A definitive guide to Vue 3 components](./art-A-Definitive-Guide-To-Vue-3-Components.md) |
-[Setup Extensions For Vue 3 + Vite Project](./art-Vite-Setup.md)                          |
+[A definitive guide to Vue 3 components](./vue-arts/art-A-Definitive-Guide-To-Vue-3-Components.md) |
+[Setup Extensions For Vue 3 + Vite Project](./vue-arts/art-Vite-Setup.md)                          |
 

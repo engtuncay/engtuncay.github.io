@@ -3,16 +3,9 @@
 
 Java Build Tool
 
-
-<!-- TOC -->
-
 - [What is Maven](#what-is-maven)
-- [Maven Project Structure or Convention over Configuration ( Proje Dizin Yapısı)](#maven-project-structure-or-convention-over-configuration--proje-dizin-yap%c4%b1s%c4%b1)
+- [Maven Project Structure or Convention over Configuration ( Proje Dizin Yapısı)](#maven-project-structure-or-convention-over-configuration--proje-dizin-yapısı)
 - [Maven Specify Source and Resource Folders and File Types](#maven-specify-source-and-resource-folders-and-file-types)
-
-<!-- /TOC -->
-
-
 
 ---
 
