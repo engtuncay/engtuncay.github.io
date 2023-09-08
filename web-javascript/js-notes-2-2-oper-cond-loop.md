@@ -23,6 +23,7 @@
     - [For of Loop](#for-of-loop)
     - [break](#break)
     - [continue](#continue)
+    - [`For of` for arrays and `For in` for objects](#for-of-for-arrays-and-for-in-for-objects)
 
 # Sources
 
@@ -615,3 +616,73 @@ for(let i = 0; i <= 5; i++){
 
 // 0 1 2 4 5
 ```
+
+### `For of` for arrays and `For in` for objects
+
+🔔 For-in can loop in object properties
+
+```js
+const person = {
+    name:"Abdullah",
+    age:25,
+    salary:3000
+};
+
+// For In Object
+for(let prop in person) {
+    console.log(prop,person[prop]);
+}
+
+// ---Output---
+// name Abdullah
+// age 25
+// salary 3000
+
+```
+
+🔔 For-of can loop in members of array 
+
+```js
+// Array
+const langs = ["Python","Java"];
+
+for (let value of langs){
+    console.log(value);
+}
+
+// ---Output---
+// Phyton
+// Java
+
+```
+
+🔔 For-of can loop in characters of string. For-in can loop in *index* of characters. You can access character by `arrayVar[index]`
+
+```js
+
+const name = "Ali";
+
+// Example For-of
+
+for (let character of name){
+    console.log(character);
+}
+
+// ---Output---
+// A
+// l
+// i
+
+// Example For-in 
+
+for (let index in name){
+    console.log(index,name[index]);
+}
+
+// ---Output---
+// 0 A
+// 1 l
+// 2 i
+
+```
+

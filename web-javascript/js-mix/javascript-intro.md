@@ -199,7 +199,7 @@ const a = "Hello" + 34 // Hello34
 - harfler , sayılar, $ , _ dışında sembol kullanılamaz. (abc123$_)
 - advice : use camel case  ( userScoreNet )
 
-$$$ayweb-108 kaldım
+--*LINK - ayweb-udemy 108 kaldım
 
 ## Operators and Math Object
 
@@ -1307,13 +1307,3 @@ myset.forEach(function(value){
 - Web
 
 - Dr.Angela Yu Udemy The Complete 2021 Web Dev. Course (ayweb)
-
-
-
-
-
-
-
-
-
-

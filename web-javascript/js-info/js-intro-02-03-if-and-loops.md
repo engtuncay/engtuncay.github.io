@@ -865,14 +865,14 @@ Let's examine the `for` statement part-by-part:
 The general loop algorithm works like this:
 
 ```
-Run begin
-→ (if condition → run body and run step)
-→ (if condition → run body and run step)
-→ (if condition → run body and run step)
+Run *begin*
+→ (if condition → run *body* , then run *step*)
+→ (if condition → run body , then run step)
+→ (if condition → run body , then run step)
 → ...
 ```
 
-That is, `begin` executes once, and then it iterates: after each `condition` test, `body` and `step` are executed.
+That is, `begin` executes once, and then it iterates: after each `condition` test, `body` and then `step` are executed.
 
 If you are new to loops, it could help to go back to the example and reproduce how it runs step-by-step on a piece of paper.
 
@@ -892,11 +892,12 @@ if (i < 3) { alert(i); i++ }
 // ...finish, because now i == 3
 ```
 
-**Info**smart header="Inline variable declaration"
+**Info** : Inline variable declaration
+
 Here, the "counter" variable `i` is declared right in the loop. This is called an "inline" variable declaration. Such variables are visible only inside the loop.
 
 ```js run
-for (*!*let*/!* i = 0; i < 3; i++) {
+for (*let* i = 0; i < 3; i++) {
   alert(i); // 0, 1, 2
 }
 alert(i); // error, no such variable
@@ -915,7 +916,6 @@ alert(i); // 3, visible, because declared outside of the loop
 ```
 
 **Info**
-
 
 ### Skipping parts
 
@@ -1131,6 +1131,7 @@ label: {
 ...Although, 99.9% of the time `break` used is inside loops, as we've seen in the examples above.
 
 A `continue` is only possible from inside a loop.
+
 **Info**
 
 ## Summary
