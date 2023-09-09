@@ -3,7 +3,7 @@
 - [Js Cheats](#js-cheats)
 - [References](#references)
 - [Js Notes](#js-notes)
-- [Javascript Info Notes - Advanced Javascript](#javascript-info-notes---advanced-javascript)
+- [Js Info Notes - Advanced Javascript](#js-info-notes---advanced-javascript)
 - [Node Notes](#node-notes)
 - [Other Cheatsheets](#other-cheatsheets)
 - [Other Js Notes](#other-js-notes)
@@ -17,9 +17,11 @@
 
 - Interactive Js Cheat, https://htmlcheatsheet.com/js/
 
-- [Js Cheatsheet](./js-mix/js-cheatsheet.md)
+- Wilfredinni Js Cheat, https://github.com/wilfredinni/javascript-cheatsheet 
 
-- [Cheat Js (2)](./js-mix/cheat-js-2.md)
+(forked) https://github.com/engtuncay/javascript-cheatsheet-wilfredinni/blob/master/README.md
+
+- Modern Javascript Cheat, https://github.com/mbeaudru/modern-js-cheatsheet
 
 # References
 
@@ -37,7 +39,7 @@ CONTENT |Note|
 --- | -- |
 [Intro](./js-notes-1-1-intro.md) |
 [Data Types](./js-notes-2-1-data-types.md) |
-[Operators,Conditions,Loops](./js-notes-2-2-operators.md) |
+[Operators,Conditions,Loops](./js-notes-2-2-oper-cond-loop.md) |
 [Functions](./js-notes-2-3-functions.md) | ✔ 
 [Error Handling](./js-notes-2-4-error-handling.md) |
 [Map Set](./js-notes-2-5-map-set.md) |
@@ -47,9 +49,10 @@ CONTENT |Note|
 [Promise,Async-Await and Closure](./js-notes-6-promise.md) | ✔ 
 [Clean Code](./js-notes-7-clean-code.md) |
 [Dom](./js-notes-8-dom.md) | ✔ 
+[13 Modules](./js-info/js-intro-13-1-Modules.md)|
 
 
-# Javascript Info Notes - Advanced Javascript
+# Js Info Notes - Advanced Javascript
 
 CONTENT |Note|
 --- | -- |
@@ -61,10 +64,10 @@ CONTENT |Note|
 [3 Code Quality](./js-info/js-intro-3-code-quality.md) |
 [4-1 Objects-1](./js-info/js-intro-04-01-objects.md) |🆗
 [4-2 Objects-2](./js-info/js-intro-04-02-objects.md) |
-[5-1 Advanced Data Types-1](./js-info/js-intro-05-01-advanced-data-types.md)
-[5-2 Advanced Data Types-2](./js-info/js-intro-05-02-advanced-data-types-2.md)
-[9 Classes](./js-info/js-intro-09-1-Classes.md)
-[13 Modules](./js-info/js-intro-13-1-Modules.md)
+[5-1 Advanced Data Types-1](./js-info/js-intro-05-01-advanced-data-types.md)|
+[5-2 Advanced Data Types-2](./js-info/js-intro-05-02-advanced-data-types-2.md)|
+[9 Classes](./js-info/js-intro-09-1-Classes.md)|
+[13 Modules](./js-info/js-intro-13-1-Modules.md)|
 
 [Javascript W3 Tutorial](./w3/readme.md)
 
@@ -77,13 +80,9 @@ CONTENT |
 
 # Other Cheatsheets
 
-- https://github.com/mbeaudru/modern-js-cheatsheet 5x
-
 - https://github.com/wilfredinni/javascript-cheatsheet
 
 - https://github.com/Sunil-Pradhan/javascript-cheatsheet
-
-- https://github.com/wilfredinni/javascript-cheatsheet
 
 - https://github.com/krishnr/JavaScript-cheat-sheet
 
@@ -93,6 +92,11 @@ CONTENT |
 
 - https://github.com/iLoveCodingOrg/javascript-cheatsheet
 
+Drafts
+
+- [Js Cheatsheet](./js-mix/js-cheatsheet.md)
+
+- [Cheat Js (2)](./js-mix/cheat-js-2.md)
 
 # Other Js Notes
 
@@ -104,7 +108,6 @@ Topic                                        | Notes
 # Other Links
 
 [30 Days of Javascript(clone)](./30-Days-Of-JavaScript-master/readMe.md)
-
 
 # Js Articles
 
