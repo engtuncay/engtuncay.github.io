@@ -4,9 +4,7 @@ These notes are taken from web resources. Some sections can be modified.
 
 [CSS Notes](./web-css/README.md)
 
-[Javascript Notes](./web-javascript/README.md)
-
-[Node Notes](./web-javascript/README.md)
+[Javascript And Node Notes](./web-javascript/README.md)
 
 [Svelte Notes](./svelte/readme.md)
 
