@@ -4,10 +4,10 @@
 - [Introduction](#introduction)
   - [a. Basics](#a-basics)
   - [b. Adding Data - Declaring Variable](#b-adding-data---declaring-variable)
-  - [c. Dynamic Attributes](#c-dynamic-attributes)
+  - [c. Dynamic Attributes - String Interpolation](#c-dynamic-attributes---string-interpolation)
   - [d Styling](#d-styling)
   - [e Using Components - Nested Components (Parent - Child)](#e-using-components---nested-components-parent---child)
-  - [f. Making an app](#f-making-an-app)
+  - [f. Installing a svelte app](#f-installing-a-svelte-app)
 - [2 Reactivity](#2-reactivity)
   - [a. Assignments](#a-assignments)
   - [b. Declarations](#b-declarations)
@@ -24,6 +24,7 @@
   - [d. Each blocks](#d-each-blocks)
   - [e. Keyed each blocks](#e-keyed-each-blocks)
   - [f. Await blocks](#f-await-blocks)
+
 
 ---
 
@@ -179,7 +180,7 @@ Also notice that the component name Nested is capitalised. This convention has b
 
 --*REVIEW - improve f madde
 
-## f. Installing a svelte app
+## f. Making an app - Installing
 
 This tutorial is designed to get you familiar with the process of writing components. But at some point, you'll want to start writing components in the comfort of your own text editor.
 
@@ -210,7 +211,7 @@ const app = new App({
 
 ```
 
-You can then interact with app using the component API if you need to.
+You can then interact with the app using `the component API` if you need to.
 
 # 2 Reactivity
 
