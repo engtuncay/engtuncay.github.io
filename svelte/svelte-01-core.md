@@ -177,7 +177,9 @@ Notice that even though Nested.svelte has a `<p>` element, the styles from App.s
 
 Also notice that the component name Nested is capitalised. This convention has been adopted to allow us to differentiate between user-defined components and regular HTML tags.
 
-## f. Making an app
+--*REVIEW - improve f madde
+
+## f. Installing a svelte app
 
 This tutorial is designed to get you familiar with the process of writing components. But at some point, you'll want to start writing components in the comfort of your own text editor.
 
