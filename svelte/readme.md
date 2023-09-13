@@ -16,11 +16,13 @@
 
 - Interactive Guide, https://svelte.dev/tutorial/basics
 
+- New Interactive Guide, https://learn.svelte.dev/tutorial/welcome-to-svelte
+
 - Svelte Docs, https://svelte.dev/docs
 
-- Svelte Examples, https://svelte.dev/docs
+- Svelte Examples, https://svelte.dev/examples
 
-- Svelte Kit, 
+- Svelte Kit, https://kit.svelte.dev/
 
 # Svelte Notes
 
