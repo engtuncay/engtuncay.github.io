@@ -19,6 +19,8 @@
 
 ✔ heavy-check-mark
 
+🍋 lemon  (topic of following paragrahp - sub header)
+
 ---
 
 🔨 hammer
@@ -29,7 +31,7 @@
 
 🔵 large blue circle
 
-🍋 lemon 
+
 
 🔗 link symbol
 

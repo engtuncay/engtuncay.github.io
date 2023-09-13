@@ -1,14 +1,12 @@
 
-<h2>Source</h2>
-
-https://svelte.dev/tutorial/basics
+- Source : https://svelte.dev/tutorial/basics
 
 - [Introduction](#introduction)
-  - [a. What is Svelte?](#a-what-is-svelte)
-  - [b. Adding Data](#b-adding-data)
+  - [a. Basics](#a-basics)
+  - [b. Adding Data - Declaring Variable](#b-adding-data---declaring-variable)
   - [c. Dynamic Attributes](#c-dynamic-attributes)
   - [d Styling](#d-styling)
-  - [e Nested Components (parent - child components )](#e-nested-components-parent---child-components-)
+  - [e Using Components - Nested Components (Parent - Child)](#e-using-components---nested-components-parent---child)
   - [f. Making an app](#f-making-an-app)
 - [2 Reactivity](#2-reactivity)
   - [a. Assignments](#a-assignments)
@@ -27,16 +25,17 @@ https://svelte.dev/tutorial/basics
   - [e. Keyed each blocks](#e-keyed-each-blocks)
   - [f. Await blocks](#f-await-blocks)
 
+---
 
 # Introduction
-
-## a. What is Svelte?
 
 Welcome to the Svelte tutorial. 
 
 This will teach you everything you need to know to build fast, small web applications easily.
 
-You can also consult the API docs and the examples, or — if you're impatient to start hacking on your machine locally — the 60-second quickstart.
+You can also consult the API docs (https://svelte.dev/docs) and the examples (https://svelte.dev/examples), or — if you're impatient to start hacking on your machine locally — the 60-second quickstart (https://svelte.dev/docs/introduction).
+
+## a. Basics
 
 Svelte is a tool for building fast web applications.
 
@@ -46,19 +45,21 @@ But there's a crucial difference: Svelte converts your app into ideal JavaScript
 
 You can build your entire app with Svelte, or you can add it incrementally to an existing codebase. You can also ship components as standalone packages that work anywhere, without the overhead of a dependency on a conventional framework.
 
-**How to use this tutorial** 
+🔔 How to use this tutorial
 
 You'll need to have basic familiarity with HTML, CSS and JavaScript to understand Svelte.
 
-As you progress through the tutorial, you'll be presented with mini exercises designed to illustrate new features. Later chapters build on the knowledge gained in earlier ones, so it's recommended that you go from start to finish. If necessary, you can navigate via the dropdown above (click 'Introduction / Basics').
+🔔 Understanding components
 
-Each tutorial chapter will have a 'Show me' button that you can click if you get stuck following the instructions. Try not to rely on it too much; you will learn faster by figuring out where to put each suggested code block and manually typing it into the editor.
+In Svelte, an application is composed from one or more components. A component is *a reusable self-contained block of code* that encapsulates HTML, CSS and JavaScript that belong together, written into a `.svelte` file. The 'hello world' example below is a simple component.
 
-Understanding components
+*App.svelte*
 
-In Svelte, an application is composed from one or more components. A component is *a reusable self-contained block of code* that encapsulates HTML, CSS and JavaScript that belong together, written into a .svelte file. The 'hello world' example in the code editor is a simple component.
+```html
+<h1>Hello world!</h1>
+```
 
-## b. Adding Data
+## b. Adding Data - Declaring Variable
 
 A component that just renders some static markup isn't very interesting. Let's add some data.
 
@@ -82,7 +83,7 @@ Then, we can refer to name in the markup:
 
 Inside the curly braces, we can put any JavaScript we want. Try changing name to name.toUpperCase() for a shoutier greeting.
 
-## c. Dynamic Attributes
+## c. Dynamic Attributes - String Interpolation
 
 You can use curly braces to control element attributes, just like you use them to control text.
 
@@ -107,7 +108,7 @@ In this case, we're missing the alt attribute that describes the image for peopl
 
 We can use curly braces inside attributes. Try changing it to "{name} dances." — remember to declare a name variable in the `<script>` block.
 
-Shorthand attributes
+🔔 Shorthand attributes
 
 It's not uncommon to have an attribute where the name and value are the same, like src={src}. Svelte gives us a convenient shorthand for these cases:
 
@@ -132,17 +133,17 @@ Just like in HTML, you can add a `<style>` tag to your component. Let's add some
 </style>
 
 ```
-Importantly, these rules are *scoped to the component*. You won't accidentally change the style of `<p>` elements elsewhere in your app, as we'll see in the next step.
+Importantly, these rules are <span style="color:red">scoped to the component</span>. You won't accidentally change the style of `<p>` elements elsewhere in your app, as we'll see in the next step.
 
-## e Nested Components (parent - child components )
+## e Using Components - Nested Components (Parent - Child)
 
 It would be impractical to put your entire app in a single component. Instead, we can import components from other files and then use them as though we were including elements.
 
-We now present you 2 files: App.svelte and Nested.svelte.
+We now present you 2 files: `App.svelte and Nested.svelte`.
 
-Each .svelte file holds a component that is a *reusable self-contained block of code* that encapsulates HTML, CSS, and JavaScript that belong together.
+Each `.svelte` file holds a component that is a <span style="color:red">reusable self-contained block of code</span> that encapsulates HTML, CSS, and JavaScript that belong together.
 
-Let's add a `<script>` tag to App.svelte that imports the file (our component) Nested.svelte into our app...
+Let's add a `<script>` tag to `App.svelte` that imports the file (our component) Nested.svelte into our app...
 
 ```html
 <script>
@@ -161,7 +162,18 @@ Let's add a `<script>` tag to App.svelte that imports the file (our component) N
 
 ```
 
-Notice that even though Nested.svelte has a `<p>` element, the styles from App.svelte don't leak in. (tor:leak in=sız-)
+*Nested.svelte*
+
+```html
+<p>This is another paragraph.</p>
+
+```
+
+Notice that even though Nested.svelte has a `<p>` element, the styles from App.svelte don't leak in. 
+
+(tor:leak in=sız-)
+
+🍋 Tag Name Convention
 
 Also notice that the component name Nested is capitalised. This convention has been adopted to allow us to differentiate between user-defined components and regular HTML tags.
 
