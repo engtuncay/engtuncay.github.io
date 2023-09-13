@@ -6,11 +6,21 @@
 
 # Svelte Cheats
 
+- svelte society cheat, https://sveltesociety.dev/cheatsheet
+
+- peltho cheat, https://gist.github.com/peltho/ad6e051b854cd3095f9e7f9d9c550a84
+
 
 
 # Svelte Reference
 
-- https://svelte.dev/tutorial/basics
+- Interactive Guide, https://svelte.dev/tutorial/basics
+
+- Svelte Docs, https://svelte.dev/docs
+
+- Svelte Examples, https://svelte.dev/docs
+
+- Svelte Kit, 
 
 # Svelte Notes
 
@@ -29,3 +39,11 @@ Topic                                                 | Note
 - [Svelte vs Svelte Kit](./arts/art-svelte-vs-sveltekit.md)
 
 - [How to Install Tailwind Css With Svelte Vite](./arts/art-alti-how-to-install-tailwind-css-with-svelte-vite.md)
+
+- https://betterprogramming.pub/15-useful-sveltekit-code-snippets-a-cheat-sheet-ad7e56772ced
+
+- https://simplecheatsheet.com/svelte-store-cheat-sheet/
+
+- https://simplecheatsheet.com/svelte-reactivity-cheat-sheet/
+
+- https://rodneylab.com/how-to-create-svelte-app/
