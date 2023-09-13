@@ -118,7 +118,7 @@ It's not uncommon to have an attribute where the name and value are the same, li
 
 ```
 
-## d Styling
+## d. Component Styling
 
 Just like in HTML, you can add a `<style>` tag to your component. Let's add some styles to the `<p>` element:
 
@@ -219,6 +219,31 @@ You can then interact with the app using `the component API` if you need to.
 
 At the heart of Svelte is a powerful system of reactivity for keeping the DOM in sync with your application state — for example, in response to an event.
 
+🍋 First situation
+
+```html
+<script>
+	let count = 0;
+
+	function incrementCount() {
+		// event handler code goes here
+	}
+</script>
+
+<button>
+	Clicked {count}
+	{count === 1 ? 'time' : 'times'}
+</button>
+
+<style>
+	button {
+		width:200px;
+	}
+</style>
+```
+
+🍋 how can add click event to button
+
 To demonstrate it, we first need to wire up an event handler. Replace line 9 with this:
 
 ```html
@@ -235,6 +260,32 @@ function incrementCount() {
 ```
 
 Svelte 'instruments' this assignment with some code that tells it the DOM will need to be updated.
+
+
+🍋 Last Situation
+
+```html
+<script>
+	let count = 0;
+
+	function incrementCount() {
+		count += 1;
+	}
+</script>
+
+<button on:click={incrementCount}>
+	Clicked {count}
+	{count === 1 ? 'time' : 'times'}
+</button>
+
+<style>
+	button {
+		width:200px;
+	}
+</style>
+
+```
+
 
 ## b. Declarations
 
@@ -255,6 +306,24 @@ Let's use doubled in our markup:
 ```
 
 Of course, you could just write {count * 2} in the markup instead — you don't have to use reactive values. Reactive values become particularly valuable when you need to reference them multiple times, or you have values that depend on other reactive values.
+
+```html
+<script>
+	let count = 0;
+	$: doubled = count * 2;
+
+	function handleClick() {
+		count += 1;
+	}
+</script>
+
+<button on:click={handleClick}>
+	Clicked {count}
+	{count === 1 ? 'time' : 'times'}
+</button>
+
+<p>{count} doubled is {doubled}</p>
+```
 
 ## c. Statements
 
@@ -285,11 +354,51 @@ $: if (count >= 10) {
 
 ```
 
+*Full Solution*
+
+```html
+<script>
+	let count = 0;
+
+	$: if (count >= 10) {
+		alert('count is dangerously high!');
+		count = 9;
+	}
+
+	function handleClick() {
+		count += 1;
+	}
+</script>
+
+<button on:click={handleClick}>
+	Clicked {count}
+	{count === 1 ? 'time' : 'times'}
+</button>
+```
+
 ## d. Updating arrays and objects
 
 Svelte's reactivity is triggered by assignments. Methods that mutate arrays or objects will not trigger updates by themselves.
 
 In this example, clicking the "Add a number" button calls the addNumber function, which appends a number to the array but doesn't trigger the recalculation of sum.
+
+```html
+<script>
+	let numbers = [1, 2, 3, 4];
+
+	function addNumber() {
+		numbers.push(numbers.length + 1);
+	}
+
+	$: sum = numbers.reduce((t, n) => t + n, 0);
+</script>
+
+<p>{numbers.join(' + ')} = {sum}</p>
+
+<button on:click={addNumber}> Add a number </button>
+```
+
+🍋 First Way to Trigger Array
 
 One way to fix that is to assign numbers to itself to tell the compiler it has changed:
 
@@ -301,7 +410,9 @@ function addNumber() {
 
 ```
 
-You could also write this more concisely using the ES6 spread syntax:
+🍋 Second Way : Trigger Array 
+
+You could also write this more concisely using `the ES6 spread` syntax:
 
 ```js
 function addNumber() {
@@ -312,7 +423,7 @@ function addNumber() {
 
 The same rule applies to array methods such as pop, shift, and splice and to object methods such as Map.set, Set.add, etc.
 
-Assignments to properties of arrays and objects — e.g. obj.foo += 1 or array[i] = x — work the same way as assignments to the values themselves.
+Assignments to properties of arrays and objects — `e.g. obj.foo += 1 or array[i] = x` — work the same way as assignments to the values themselves.
 
 ```js
 function addNumber() {
@@ -340,7 +451,7 @@ quox(obj);
 
 ...won't trigger reactivity on obj.foo.bar, unless you follow it up with `obj = obj`.
 
-*A simple rule of thumb*: the updated variable must directly appear on the left hand side of the assignment.
+💡 *A simple rule of thumb* : the updated variable must directly appear on the left hand side of the assignment.
 
 # 3 Props
 
@@ -348,7 +459,7 @@ quox(obj);
 
 So far, we've dealt exclusively with internal state — that is to say, the values are only accessible within a given component.
 
-In any real application, you'll need to pass data from one component down to its children. To do that, we need to declare properties, generally shortened to 'props'. In Svelte, we do that with the export keyword. Edit the Nested.svelte component:
+In any real application, you'll need to pass data from one component down to its children. To do that, we need to declare properties, generally shortened to 'props'. In Svelte, we do that with the `export keyword`. Edit the `Nested.svelte` component:
 
 ```js
 <script>
@@ -357,7 +468,31 @@ export let answer;
 
 ```
 
-Just like $:, this may feel a little weird at first. That's not how export normally works in JavaScript modules! Just roll with it for now — it'll soon become second nature.
+Just like `$:`, this may feel a little weird at first. That's not how export normally works in JavaScript modules! Just roll with it for now — it'll soon become second nature.
+
+*App.svelte*
+
+```html
+<script>
+	import Nested from './Nested.svelte';
+</script>
+
+<Nested answer={42} /> <!-- sending a prop -->
+
+```
+
+
+*Nested.Svelte*
+
+```html
+<script>
+	export let answer; /* accepting/receiving a prop */
+</script>
+
+<p>The answer is {answer}</p>
+
+```
+
 
 ## b. Default values
 
@@ -377,6 +512,34 @@ If we now add a second component without an answer prop, it will fall back to th
 
 ```
 
+*App*
+
+```html
+<script>
+	import Nested from './Nested.svelte';
+</script>
+
+<Nested answer={42} />
+<Nested />
+
+```
+
+*Nested*
+```html
+<script>
+	export let answer = 'a mystery';
+</script>
+
+<p>The answer is {answer}</p>
+```
+
+*Result*
+
+```bash
+The answer is 42
+The answer is a mystery
+```
+
 ## c. Spread Props
 
 If you have an object of properties, you can 'spread' them onto a component instead of specifying each one:
@@ -386,7 +549,44 @@ If you have an object of properties, you can 'spread' them onto a component inst
 
 ```
 
-Conversely, if you need to reference all the props that were passed into a component, including ones that weren't declared with export, you can do so by accessing $$props directly. It's not generally recommended, as it's difficult for Svelte to optimise, but it's useful in rare cases.
+✏ Conversely, if you need to reference all the props that were passed into a component, including ones that weren't declared with export, you can do so by accessing `$$props` directly. It's not generally recommended, as it's difficult for Svelte to optimise, but it's useful in rare cases.
+
+*App.svelte*
+
+```html
+<script>
+	import Info from './Info.svelte';
+
+	const pkg = {
+		name: 'svelte',
+		version: 3,
+		speed: 'blazing',
+		website: 'https://svelte.dev'
+	};
+</script>
+
+<Info {...pkg} />
+
+```
+
+*info.svelte*
+
+```html
+<script>
+	export let name;
+	export let version;
+	export let speed;
+	export let website;
+</script>
+
+<p>
+	The <code>{name}</code> package is {speed} fast. Download version {version} from
+	<a href="https://www.npmjs.com/package/{name}">npm</a>
+	and <a href={website}>learn more here</a>
+</p>
+
+```
+
 
 # 4 Logic
 
@@ -411,11 +611,30 @@ To conditionally render some markup, we wrap it in an if block:
 
 ```
 
-Try it — update the component, and click on the buttons.
+*app.svelte*
+
+```html
+<script>
+	let user = { loggedIn: false };
+
+	function toggle() {
+		user.loggedIn = !user.loggedIn;
+	}
+</script>
+
+{#if user.loggedIn}
+	<button on:click={toggle}> Log out </button>
+{/if}
+
+{#if !user.loggedIn}
+	<button on:click={toggle}> Log in </button>
+{/if}
+
+```
 
 ## b. Else blocks
 
-Since the two conditions — if user.loggedIn and if !user.loggedIn — are mutually exclusive, we can simplify this component slightly by using an else block:
+Since the two conditions — if `user.loggedIn` and if `!user.loggedI`n — are mutually exclusive, we can simplify this component slightly by using an else block:
 
 ```html
 {#if user.loggedIn}
@@ -430,7 +649,11 @@ Since the two conditions — if user.loggedIn and if !user.loggedIn — are mutu
 
 ```
 
-A # character always indicates a block opening tag. A / character always indicates a block closing tag. A : character, as in {:else}, indicates a block continuation tag. Don't worry — you've already learned almost all the syntax Svelte adds to HTML.
+❗ A `#` character always indicates `a block opening tag`. A `/` character always indicates `a block closing tag`. 
+
+❗ A `:` character, as in `{:else}`, indicates `a block continuation tag`. 
+
+Don't worry — you've already learned almost all the syntax Svelte adds to HTML.
 
 ## c. Else-if blocks
 
@@ -452,6 +675,14 @@ Multiple conditions can be 'chained' together with else if:
 If you need to loop over lists of data, use an each block:
 
 ```html
+<script>
+	let cats = [
+		{ id: 'J---aiyznGQ', name: 'Keyboard Cat' },
+		{ id: 'z_AbfPXTKms', name: 'Maru' },
+		{ id: 'OUtn3pvWmpg', name: 'Henri The Existential Cat' }
+	];
+</script>
+
 <ul>
 	{#each cats as cat}
 		<li><a target="_blank" href="https://www.youtube.com/watch?v={cat.id}" rel="noreferrer">
@@ -462,7 +693,7 @@ If you need to loop over lists of data, use an each block:
 
 ```
 
-The expression (cats, in this case) can be any array or array-like object (i.e. it has a length property). You can loop over generic iterables with each [...iterable].
+The expression (cats, in this case) can be `any array or array-like object (i.e. it has a length property)`. You can loop over generic iterables with each [...iterable].
 
 You can get the current index as a second argument, like so:
 
@@ -475,17 +706,19 @@ You can get the current index as a second argument, like so:
 
 ```
 
-If you prefer, you can use destructuring — each cats as { id, name } — and replace cat.id and cat.name with id and name.
+If you prefer, you can use destructuring — `each cats as { id, name }` — and replace `cat.id and cat.name with id and name`.
 
 ## e. Keyed each blocks
 
-By default, when you modify the value of an each block, it will add and remove items at the end of the block, and update any values that have changed. That might not be what you want.
 
-It's easier to show why than to explain. Click to expand the Console, then click the 'Remove first thing' button a few times, and notice what happens: it does not remove the first <Thing> component, but rather the last DOM node. Then it updates the name value in the remaining DOM nodes, but not the emoji.
 
-Instead, we'd like to remove only the first <Thing> component and its DOM node, and leave the others unaffected.
+By default, when you modify the value of an `each` block, it will add and remove items at the end of the block, and update any values that have changed. That might not be what you want.
 
-To do that, we specify a unique identifier (or "key") for the each block:
+It's easier to show why than to explain. (https://svelte.dev/tutorial/keyed-each-blocks ) Click to expand the Console, then click the `'Remove first thing'` button a few times, and notice what happens: it does not remove the first `<Thing>` component, but rather `the last DOM node`. Then it updates the name value in the remaining DOM nodes, but not the emoji.
+
+Instead, we'd like to remove only the first `<Thing>` component and `its DOM node`, and leave the others unaffected.
+
+To do that, we specify `a unique identifier (or "key")` for the each block:
 
 ```html
 {#each things as thing (thing.id)}
@@ -494,9 +727,80 @@ To do that, we specify a unique identifier (or "key") for the each block:
 
 ```
 
-Here, (thing.id) is the key, which tells Svelte how to figure out which DOM node to change when the component updates.
+Here, `(thing.id)` is the key, which tells Svelte how to figure out `which DOM node to change when the component updates`.
 
-You can use any object as the key, as Svelte uses a Map internally — in other words you could do (thing) instead of (thing.id). Using a string or number is generally safer, however, since it means identity persists without referential equality, for example when updating with fresh data from an API server.
+✏ You can use any object as the key, as Svelte uses a Map internally — in other words you could do <span style="color:red">(thing) instead of (thing.id)</span>. Using a string or number is generally safer, however, since it means <span style="color:red">identity persists without referential equality</span>, for example when updating with fresh data from an API server.
+
+*app.svelte*
+
+```html
+<script>
+	import Thing from './Thing.svelte';
+
+	let things = [
+		{ id: 1, name: 'apple' },
+		{ id: 2, name: 'banana' },
+		{ id: 3, name: 'carrot' },
+		{ id: 4, name: 'doughnut' },
+		{ id: 5, name: 'egg' }
+	];
+
+	function handleClick() {
+		things = things.slice(1);
+	}
+</script>
+
+<button on:click={handleClick}> Remove first thing </button>
+
+{#each things as thing (thing.id)}
+	<Thing name={thing.name} />
+{/each}
+```
+
+*thing.svelte*
+
+```html
+<script>
+	import { onDestroy } from 'svelte';
+
+	const emojis = {
+		apple: '🍎',
+		banana: '🍌',
+		carrot: '🥕',
+		doughnut: '🍩',
+		egg: '🥚'
+	};
+
+	// the name is updated whenever the prop value changes...
+	export let name;
+
+	// ...but the "emoji" variable is fixed upon initialisation of the component
+	const emoji = emojis[name];
+
+	// observe in the console which entry is removed
+	onDestroy(() => {
+		console.log('thing destroyed: ' + name);
+	});
+</script>
+
+<p>
+	<span>The emoji for {name} is {emoji}</span>
+</p>
+
+<style>
+	p {
+		margin: 0.8em 0;
+	}
+	span {
+		display: inline-block;
+		padding: 0.2em 1em 0.3em;
+		text-align: center;
+		border-radius: 0.2em;
+		color:#333333;
+		background-color: #ffdfd3;
+	}
+</style>
+```
 
 ## f. Await blocks
 
@@ -513,9 +817,9 @@ Most web applications have to deal with asynchronous data at some point. Svelte 
 
 ```
 
-Only the most recent promise is considered, meaning you don't need to worry about race conditions.
+✏ Only the most recent promise is considered, meaning you don't need to worry about race conditions.
 
-If you know that your promise can't reject, you can omit the catch block. You can also omit the first block if you don't want to show anything until the promise resolves:
+If you know that your promise can't reject, you can <span style="color:red">omit the catch block</span>. You can also omit <span style="color:red">the first block</span> if you don't want to show anything until the promise resolves:
 
 ```html
 {#await promise then number}
@@ -523,4 +827,50 @@ If you know that your promise can't reject, you can omit the catch block. You ca
 {/await}
 
 ```
+
+*app.svelte*
+
+```html
+<script>
+	async function getRandomNumber() {
+		const res = await fetch(`/tutorial/random-number`);
+		const text = await res.text();
+
+		if (res.ok) {
+			return text;
+		} else {
+			throw new Error(text);
+		}
+	}
+
+	let promise = getRandomNumber();
+
+	function handleClick() {
+		promise = getRandomNumber();
+	}
+</script>
+
+<button on:click={handleClick}> generate random number </button>
+
+{#await promise}
+	<p>...waiting</p>
+{:then number}
+	<p>The number is {number}</p>
+{:catch error}
+	<p style="color: red">{error.message}</p>
+{/await}
+```
+
+*Result*
+
+```bash
+The number is 87
+```
+
+or
+
+```bash
+Failed to generate random number. Please try again
+```
+
 

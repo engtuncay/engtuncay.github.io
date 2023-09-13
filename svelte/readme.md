@@ -16,7 +16,7 @@
 
 Topic                                                 | Note
 ------------------------------------------------------|-----
-[1 Core](./svelte-01-core.md) |
+[1 Core](./svelte-01-core.md)                         | ✔
 [2 Events - Bindings](./svelte-02-events-bindings.md) |
 
 
