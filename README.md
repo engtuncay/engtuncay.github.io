@@ -16,6 +16,10 @@ These notes are taken from web resources. Some sections can be modified.
 
 [XML](./xml/readme.md)
 
+---
+
+[Coding Resources](./mix/coding-resources.md)
+
 *Deprecated Tutors*
 
 [Vue Tutors](./vue/README.md)
