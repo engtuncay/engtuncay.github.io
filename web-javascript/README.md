@@ -31,6 +31,10 @@
 
 - W3Schools, https://www.w3schools.com/js/default.asp 
 
+- http://es6-features.org
+
+- https://exploringjs.com/
+
 # Js Notes
 
 These notes are mainly from Asabeneh's 30-Days-Of-JavaScript tutorials.  Thanks.
