@@ -20,6 +20,8 @@ These notes are taken from web resources. Some sections can be modified.
 
 [Coding Resources](./mix/coding-resources.md)
 
+[DevHints Cheat Sheets](https://devhints.io/)
+
 ---
 
 *Deprecated Tutors*
