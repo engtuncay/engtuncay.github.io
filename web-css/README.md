@@ -73,6 +73,16 @@ Topic | Note
 [Sizing and Spacing](./tw-sizing.md) |
 [Backgrounds](./tw-background.md) |
 [Flexbox and Grid](./tw-flexbox-grid.md) |
+[Typography](./tw-typoghraphy.md)
+[Borders](./tw-borders.md)
+
+Topics Will be Added
+
+- Effects, Filters, Transitions and Animations, Transforms
+
+- Interactivity, SVG, Accesibility, Official Plugins
+
+- Base Styles, Customization, Core Concepts, Getting Started
 
 # Tailwind References
 

@@ -84,8 +84,6 @@ CONTENT |
 
 # Other Cheatsheets
 
-- https://github.com/wilfredinni/javascript-cheatsheet
-
 - https://github.com/Sunil-Pradhan/javascript-cheatsheet
 
 - https://github.com/krishnr/JavaScript-cheat-sheet
