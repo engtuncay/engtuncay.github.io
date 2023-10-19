@@ -56,7 +56,7 @@ Rules for PHP variables:
 
 Remember that PHP variable names are case-sensitive!
 
-Output Variables
+🔔 Output Variables
 
 The PHP echo statement is often used to output data to the screen.
 
@@ -105,9 +105,9 @@ In the example above, notice that we did not have to tell PHP which data type th
 
 PHP automatically associates a data type to the variable, depending on its value. Since the data types are not set in a strict sense, you can do things like adding a string to an integer without causing an error.
 
-In PHP 7, type declarations were added. This gives an option to specify the data type expected when declaring a function, and by enabling the strict requirement, it will throw a "Fatal Error" on a type mismatch.
+In PHP 7, `type declarations` were added. This gives an option to specify the data type expected when declaring a function, and by enabling the strict requirement, it will throw a "Fatal Error" on a type mismatch.
 
-You will learn more about strict and non-strict requirements, and data type declarations in the PHP Functions chapter.
+You will learn more about `strict and non-strict` requirements, and data type declarations in the PHP Functions chapter.
 
 # PHP Variables Scope
 
@@ -144,7 +144,7 @@ echo "<p>Variable x outside function is: $x</p>";
 
 ```
 
-A variable declared within a function has a LOCAL SCOPE and can only be accessed within that function:
+A variable `declared within a function` has a LOCAL SCOPE and can only be accessed within that function:
 
 Example
 
@@ -152,6 +152,7 @@ Variable with local scope:
 
 ```php
 <?php
+
 function myTest() {
   $x = 5; // local scope
   echo "<p>Variable x inside function is: $x</p>";
@@ -160,6 +161,7 @@ myTest();
 
 // using x outside the function will generate an error
 echo "<p>Variable x outside function is: $x</p>";
+
 ?>
 
 ```
@@ -168,7 +170,7 @@ You can have local variables with the same name in different functions, because 
 
 ## The global Keyword
 
-The global keyword is used to access a global variable from within a function.
+The `global` keyword is used to access a global variable from within a function.
 
 To do this, use the global keyword before the variables (inside the function):
 
@@ -180,7 +182,7 @@ $x = 5;
 $y = 10;
 
 function myTest() {
-  global $x, $y;
+  global $x, $y; // !!!
   $y = $x + $y;
 }
 
@@ -190,7 +192,7 @@ echo $y; // outputs 15
 
 ```
 
-PHP also stores all global variables in an array called $GLOBALS[index]. The index holds the name of the variable. This array is also accessible from within functions and can be used to update global variables directly.
+PHP also stores all global variables in an array called `$GLOBALS[index]`. The index holds the name of the variable. This array is also accessible from within functions and can be used to update global variables directly.
 
 The example above can be rewritten like this:
 
@@ -221,7 +223,7 @@ Example
 ```php
 <?php
 function myTest() {
-  static $x = 0;
+  static $x = 0; // static member !!!
   echo $x;
   $x++;
 }
@@ -237,25 +239,23 @@ Then, each time the function is called, that variable will still have the inform
 
 Note: The variable is still local to the function.
 
-
-
 # PHP echo and print Statements
 
-With PHP, there are two basic ways to get output: echo and print.
+With PHP, there are two basic ways to get output: `echo and print`.
 
 In this tutorial we use echo or print in almost every example. So, this chapter contains a little more info about those two output statements.
 
 echo and print are more or less the same. They are both used to output data to the screen.
 
-The differences are small: echo has no return value while print has a return value of 1 so it can be used in expressions. echo can take multiple parameters (although such usage is rare) while print can take one argument. echo is marginally faster than print.
+The differences are small: `echo has no return value` while `print has a return value of 1` so it can be used in expressions. echo can take multiple parameters (although such usage is rare) while print can take one argument. echo is marginally faster than print.
 
 ## echo Statement
 
 The echo statement can be used with or without parentheses: echo or echo().
 
-Display Text
+🔔 Display Text
 
-The following example shows how to output text with the echo command (notice that the text can contain HTML markup):
+The following example shows how to output text with the echo command (notice that the text can contain HTML markup) :
 
 Example
 
@@ -269,7 +269,7 @@ echo "This ", "string ", "was ", "made ", "with multiple parameters.";
 
 ```
 
-Display Variables
+🔔 Display Variables
 
 The following example shows how to output text and variables with the echo statement:
 
@@ -293,9 +293,9 @@ echo $x + $y;
 
 The print statement can be used with or without parentheses: print or print().
 
-Display Text
+🔔 Display Text
 
-The following example shows how to output text with the print command (notice that the text can contain HTML markup):
+The following example shows how to output text with the print command (notice that the text can contain HTML markup) :
 
 Example
 
@@ -308,9 +308,9 @@ print "I'm about to learn PHP!";
 
 ```
 
-Display Variables
+🔔 Display Variables 
 
-The following example shows how to output text and variables with the print statement:
+The following example shows how to output text and variables with the print statement :
 
 *Example*
 
@@ -322,8 +322,9 @@ $x = 5;
 $y = 4;
 
 print "<h2>" . $txt1 . "</h2>";
-print "Study PHP at " . $txt2 . "<br>";
+print "study PHP at " . $txt2 . "<br>";
 print $x + $y;
+
 ?>
 
 ```

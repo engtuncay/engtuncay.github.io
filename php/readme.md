@@ -1,16 +1,42 @@
 
 Php Tutorial
 
-*Sources:*
+# Cheatsheets
+
+- https://front-line-php.com/cheat-sheet
+
+- https://quickref.me/php.html
+
+- https://dev.to/ericchapman/php-cheat-sheet-updated-to-php-81-3o4p
+
+- Php Function Reference
+
+https://overapi.com/php
+
+- New Php features
+
+https://github.com/smknstd/modern-php-cheatsheet
+
+
+# References
 
 - https://www.w3schools.com/php/default.asp
 
+- https://learnxinyminutes.com/docs/php/
+
+# Other cheatsheets
+
+- https://websitesetup.org/php-cheat-sheet/
+
+- https://www.keycdn.com/blog/php-cheat-sheet
+
+# Notes
 
 Content                                                                               | Note
 --------------------------------------------------------------------------------------|-----
-[1 Intro- Install - Syntax - Comments](./php-w3-01-intro.md)                          | 🆗
-[2 Variables - Scope - Echo / Print ](./php-w3-02-variables.md)                       |
-[3 Data Types](./php-w3-03-data-types.md)                                             | 🆗
+[1 Intro- Install - Syntax - Comments](./php-w3-01-intro.md)                          | ✔ 
+[2 Variables - Scope - Echo / Print ](./php-w3-02-variables.md)                       | ✔ 
+[3 Data Types](./php-w3-03-data-types.md)                                             | ✔
 [4 String - Numbers - Math - Constants - Date](./php-w3-04-string-and-other-types.md) |
 5 Operators                                                                           |
 6 If/Else/Elseif - Switch - Loops                                                     |
