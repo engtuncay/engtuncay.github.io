@@ -1,13 +1,20 @@
 
 Php Tutorial
 
+- [Cheatsheets](#cheatsheets)
+- [References](#references)
+- [Other cheatsheets](#other-cheatsheets)
+- [Notes](#notes)
+
 # Cheatsheets
 
-- https://front-line-php.com/cheat-sheet
+- Quick Reference - Php CheatSheet
 
-- https://quickref.me/php.html
+https://quickref.me/php.html
 
-- https://dev.to/ericchapman/php-cheat-sheet-updated-to-php-81-3o4p
+- A to-the-point summary of all awesome PHP features
+
+https://front-line-php.com/cheat-sheet
 
 - Php Function Reference
 
@@ -29,6 +36,8 @@ https://github.com/smknstd/modern-php-cheatsheet
 - https://websitesetup.org/php-cheat-sheet/
 
 - https://www.keycdn.com/blog/php-cheat-sheet
+
+- https://dev.to/ericchapman/php-cheat-sheet-updated-to-php-81-3o4p
 
 # Notes
 
