@@ -75,11 +75,11 @@ Let's look at some examples.
 ````warn header="`try...catch` only works for runtime errors"
 For `try...catch` to work, the code must be runnable. In other words, it should be valid JavaScript.
 
-It won't work if the code is syntactically wrong, for instance it has unmatched curly braces:
+It won't work if the code is syntactically wrong, for instance it has unmatched curly braces: (commented)
 
 ```js run
 try {
-  {{{{{{{{{{{{
+  //{{{{{{{{{{{{
 } catch (err) {
   alert("The engine can't understand this code, it's invalid");
 }
