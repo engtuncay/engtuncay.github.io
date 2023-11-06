@@ -34,7 +34,7 @@ Topic                                                 | Note
 
 # Articles
 
-- [Svelte For New Developers](./arts/art-svelte-for-new-developers.md)
+- [Svelte For New Developers (Creating New App)](./arts/art-svelte-for-new-developers.md)
 
 - [Svelte Vite Setup](./arts/art-svelte-vite-setup.md)
 
