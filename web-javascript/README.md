@@ -15,6 +15,8 @@
 
 # Js Cheats
 
+- QuickRef Javascript, https://quickref.me/javascript
+
 - Interactive Js Cheat, https://htmlcheatsheet.com/js/
 
 - Wilfredinni Js Cheat, https://github.com/wilfredinni/javascript-cheatsheet 
