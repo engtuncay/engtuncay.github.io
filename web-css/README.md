@@ -10,7 +10,9 @@
 
 # CSS Cheats
 
-- Interactive CSS Cheat Sheet *5, https://htmlcheatsheet.com/css/
+- QuickRef Css, https://quickref.me/css3
+
+- Interactive CSS Cheat Sheet, https://htmlcheatsheet.com/css/
 
 - CSS Tricks Almanac, https://css-tricks.com/almanac/
 
