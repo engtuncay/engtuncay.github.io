@@ -1,5 +1,12 @@
 
-- [Sources](#sources)
+**Sources**
+
+- https://github.com/Asabeneh/30-Days-Of-JavaScript 
+
+---
+
+*Content*
+
 - [Operators, Conditionals and Loops](#operators-conditionals-and-loops)
   - [Operators](#operators)
     - [Assignment operators](#assignment-operators)
@@ -25,9 +32,7 @@
     - [continue](#continue)
     - [`For of` for arrays and `For in` for objects](#for-of-for-arrays-and-for-in-for-objects)
 
-# Sources
-
-- Main source, https://github.com/Asabeneh/30-Days-Of-JavaScript 
+---
 
 # Operators, Conditionals and Loops
 
@@ -42,9 +47,17 @@ let firstName = 'Asabeneh'
 let country = 'Finland'
 ```
 
-Assignment Operators
+*Assignment Operators*
 
-![Assignment operators](../images/assignment_operators.png)
+```
+x=y
+x+=y
+x/=y
+x*=y
+x-=y
+x%=y
+x**=y
+```
 
 ### Arithmetic Operators
 
@@ -67,31 +80,30 @@ let div = numOne / numTwo
 let remainder = numOne % numTwo
 let powerOf = numOne ** numTwo
 
-console.log(sum, diff, mult, div, remainder, powerOf) // 7,1,12,1.33,1, 64
+console.log(sum, diff, mult, div, remainder, powerOf) // 7,1,12,1.33,1,64
 
 ```
 
 ```js
 const PI = 3.14
-let radius = 100          // length in meter
+let radius = 100 // length in meter
 
 //Let us calculate area of a circle
 const areaOfCircle = PI * radius * radius
 console.log(areaOfCircle)  //  314 m
 
-
-const gravity = 9.81      // in m/s2
-let mass = 72             // in Kilogram
+const gravity = 9.81 // in m/s2
+let mass = 72  // in Kilogram
 
 // Let us calculate weight of an object
 const weight = mass * gravity
-console.log(weight)        // 706.32 N(Newton)
+console.log(weight) // 706.32 N(Newton)
 
-const boilingPoint = 100  // temperature in oC, boiling point of water
-const bodyTemp = 37       // body temperature in oC
-
+const boilingPoint = 100 // temperature in oC, boiling point of water
+const bodyTemp = 37 // body temperature in oC
 
 // Concatenating string with numbers using string interpolation
+
 /*
  The boiling point of water is 100 oC.
  Human body temperature is 37 oC.
@@ -106,17 +118,11 @@ console.log(
 
 In programming we compare values, we use comparison operators to compare two values. We check if a value is greater or less or equal to other value.
 
-![Comparison Operators](../images/comparison_operators.png)
+![Comparison Operators](./img/comparison_operators.png)
+
 **Example: Comparison Operators**
 
 ```js
-console.log(3 > 2)              // true, because 3 is greater than 2
-console.log(3 >= 2)             // true, because 3 is greater than 2
-console.log(3 < 2)              // false,  because 3 is greater than 2
-console.log(2 < 3)              // true, because 2 is less than 3
-console.log(2 <= 3)             // true, because 2 is less than 3
-console.log(3 == 2)             // false, because 3 is not equal to 2
-console.log(3 != 2)             // true, because 3 is not equal to 2
 console.log(3 == '3')           // true, compare only value
 console.log(3 === '3')          // false, compare both value and data type
 console.log(3 !== '3')          // true, compare both value and data type
@@ -145,6 +151,7 @@ console.log('python'.length > 'dragon'.length)   // false
 ```
 
 Try to understand the above comparisons with some logic. Remembering without any logic might be difficult.
+
 JavaScript is somehow a wired kind of programming language. JavaScript code run and give you a result but unless you are good at it may not be the desired result.
 
 As rule of thumb, if a value is not true with == it will not be equal with ===. Using === is safer than using ==. The following [link](https://dorey.github.io/JavaScript-Equality-Table/) has an exhaustive list of comparison of data types.
@@ -152,12 +159,17 @@ As rule of thumb, if a value is not true with == it will not be equal with ===. 
 ### Logical Operators
 
 The following symbols are the common logical operators:
+
 &&(ampersand) , ||(pipe) and !(negation).
+
 The && operator gets true only if the two operands are true.
+
 The || operator gets true either of the operand is true.
+
 The ! operator negates true to false and false to true.
 
 ```js
+
 // && ampersand operator example
 
 const check = 4 > 3 && 10 > 5         // true && true -> true
