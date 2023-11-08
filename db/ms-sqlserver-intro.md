@@ -8,6 +8,8 @@
   - [DELETE](#delete)
     - [DELETE WITH JOIN](#delete-with-join)
   - [INSERT](#insert)
+  - [CREATE TABLE](#create-table)
+  - [ALTER TABLE](#alter-table)
 - [SQL JOINLER](#sql-joinler)
   - [JOINLER](#joinler)
     - [Outer Join Usage : Draft](#outer-join-usage--draft)
@@ -121,6 +123,14 @@ SELECT  table2.column1, table2.column2, 8, 'some string etc.'
 FROM    table2
 WHERE   table2.ID = 7;
 ```
+
+## CREATE TABLE
+
+
+## ALTER TABLE
+
+
+
 
 # SQL JOINLER
 
