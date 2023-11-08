@@ -47,8 +47,10 @@ CONTENT |Note|
 [Data Types](./js-notes-2-1-data-types.md) |
 [Operators,Conditions,Loops](./js-notes-2-2-oper-cond-loop.md) |
 [Functions](./js-notes-2-3-functions.md) | ✔ 
-[Error Handling](./js-notes-2-4-error-handling.md) |
-[Map Set](./js-notes-2-5-map-set.md) |
+[Error Handling](./js-notes-2-4-error-handling.md) | ✔ 
+[Map,Set,Destructuring,Spread,Rest](./js-notes-2-5-map-set.md) | ✔ 
+[Regular Expression](./js-notes-2-6-reg-ex.md) |
+[JSON](./js-notes-2-7-json.md) |
 [Window Methods](./js-notes-3-window-methods.md)|
 [OOP Principles](./js-notes-4-OOP-tor.md) |
 [Storage](./js-notes-5-storage.md) | ✔ 
