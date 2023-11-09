@@ -56,25 +56,26 @@ real	|Floating precision number data from -3.40E + 38 to 3.40E + 38	|4 bytes
 
 <h2>Date and Time Data Types</h2>
 
-Data type	Description	Storage
-
-datetime	From January 1, 1753 to December 31, 9999 with an accuracy of 3.33 milliseconds	8 bytes
-datetime2	From January 1, 0001 to December 31, 9999 with an accuracy of 100 nanoseconds	6-8 bytes
-smalldatetime	From January 1, 1900 to June 6, 2079 with an accuracy of 1 minute	4 bytes
-date	Store a date only. From January 1, 0001 to December 31, 9999	3 bytes
-time	Store a time only to an accuracy of 100 nanoseconds	3-5 bytes
-datetimeoffset	The same as datetime2 with the addition of a time zone offset	8-10 bytes
-timestamp	Stores a unique number that gets updated every time a row gets created or modified. The timestamp value is based upon an internal clock and does not correspond to real time. Each table may have only one timestamp variable	 
+Data type|	Description	|Storage
+---|---|---|
+datetime	|From January 1, 1753 to December 31, 9999 with an accuracy of 3.33 milliseconds	|8 bytes
+datetime2	|From January 1, 0001 to December 31, 9999 with an accuracy of 100 nanoseconds|	6-8 bytes
+smalldatetime|	From January 1, 1900 to June 6, 2079 with an accuracy of 1 minute	|4 bytes
+date	|Store a date only. From January 1, 0001 to December 31, 9999	|3 bytes
+time	|Store a time only to an accuracy of 100 nanoseconds	|3-5 bytes
+datetimeoffset	|The same as datetime2 with the addition of a time zone offset	|8-10 bytes
+timestamp	|Stores a unique number that gets updated every time a row gets created or modified. The timestamp value is based upon an internal clock and does not correspond to real time. Each table may have only one timestamp variable	 
 
 <h2>Other Data Types</h2>
 
 Data type	Description
-
-sql_variant	Stores up to 8,000 bytes of data of various data types, except text, ntext, and timestamp
-uniqueidentifier	Stores a globally unique identifier (GUID)
-xml	Stores XML formatted data. Maximum 2GB
-cursor	Stores a reference to a cursor used for database operations
-table	Stores a result-set for later processing
+Data type|	Description	
+---|---|
+sql_variant	|Stores up to 8,000 bytes of data of various data types, except text, ntext, and timestamp
+uniqueidentifier	|Stores a globally unique identifier (GUID)
+xml	|Stores XML formatted data. Maximum 2GB
+cursor	|Stores a reference to a cursor used for database operations
+table	|Stores a result-set for later processing
 
 
 ## MySQL Data Types (Version 8.0)
@@ -130,7 +131,6 @@ DATE	|A date. Format: YYYY-MM-DD. The supported range is from '1000-01-01' to '9
 DATETIME(fsp)	| A date and time combination. Format: YYYY-MM-DD hh:mm:ss. The supported range is from '1000-01-01 00:00:00' to '9999-12-31 23:59:59'. Adding DEFAULT and ON UPDATE in the column definition to get automatic initialization and updating to the current date and time
 TIMESTAMP(fsp)	| A timestamp. TIMESTAMP values are stored as the number of seconds since the Unix epoch ('1970-01-01 00:00:00' UTC). Format: YYYY-MM-DD hh:mm:ss. The supported range is from '1970-01-01 00:00:01' UTC to '2038-01-09 03:14:07' UTC. Automatic initialization and updating to the current date and time can be specified using DEFAULT CURRENT_TIMESTAMP and ON UPDATE CURRENT_TIMESTAMP in the column definition
 TIME(fsp)	| A time. Format: hh:mm:ss. The supported range is from '-838:59:59' to '838:59:59'
-YEAR	| A year in four-digit format. Values allowed in four-digit format: 1901 to 2155, and 0000.
-<br/> MySQL 8.0 does not support year in two-digit format.
+YEAR	| A year in four-digit format. Values allowed in four-digit format: 1901 to 2155, and 0000.<br/> MySQL 8.0 does not support year in two-digit format.
 
 
