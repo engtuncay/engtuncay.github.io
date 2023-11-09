@@ -45,7 +45,7 @@ CONTENT |Note|
 --- | -- |
 [Intro](./js-notes-1-1-intro.md) |
 [Data Types](./js-notes-2-1-data-types.md) |
-[Operators,Conditions,Loops](./js-notes-2-2-oper-cond-loop.md) |
+[Operators,Conditions,Loops](./js-notes-2-2-oper-cond-loop.md) | Comparison Operators tbc
 [Functions](./js-notes-2-3-functions.md) | ✔ 
 [Error Handling](./js-notes-2-4-error-handling.md) | ✔ 
 [Map,Set,Destructuring,Spread,Rest](./js-notes-2-5-map-set.md) | ✔ 
@@ -66,7 +66,7 @@ CONTENT |Note|
 --- | -- |
 [1-1 Intro and Syntax](./js-info/js-intro-01-01-intro-and-syntax.md) |
 [2-1 Variables and Data Types](./js-info/js-intro-02-01-data-types.md) |
-[2-2 Operators](./js-info/js-intro-02-02-operators.md) |
+[2-2 Operators](./js-info/js-intro-02-02-operators.md) | 
 [2-3 Conditions Loop Vs](./js-info/js-intro-02-03-if-and-loops.md) |
 [2-4 Functions](./js-info/js-intro-02-04-functions.md) |🆗
 [3 Code Quality](./js-info/js-intro-3-code-quality.md) |

@@ -42,11 +42,11 @@
 
 ## Document Object Model (DOM) (1)
 
-HTML document is structured as a JavaScript Object. Every HTML element has a different properties which can help to manipulate it. It is possible to get, create, append or remove HTML elements using JavaScript. Check the examples below. Selecting HTML element using JavaScript is similar to selecting using CSS. To select an HTML element, we use tag name, id, class name or other attributes.
+HTML document is structured as a JavaScript Object. Every HTML element has a different properties which can help to manipulate it. It is possible to get, create, append or remove HTML elements using JavaScript. Check the examples below. Selecting HTML element using JavaScript is similar to selecting using CSS. To select an HTML element, we use `tag name, id, class name or other attributes`.
 
 ### Getting Element
 
-We can access already created element or elements using JavaScript. To access or get elements we use different methods. The code below has four _h1_ elements. Let us see the different methods to access the _h1_ elements.
+We can access already created element or elements using JavaScript. To access or get elements we use different methods. The code below has four `_h1_` elements. Let us see the different methods to access the `_h1_` elements.
 
 ```html
 <!DOCTYPE html>
@@ -67,7 +67,7 @@ We can access already created element or elements using JavaScript. To access or
 
 #### Getting elements by tag name - getElementsByTagName()
 
-**_getElementsByTagName()_**: takes a tag name as a string parameter and this method returns an <span style="color:red">HTMLCollection</span> object. An HTMLCollection is an array like object of HTML elements. The length property provides the size of the collection. Whenever we use this method we access the individual elements using index or after loop through each individual items. An HTMLCollection does not support all array methods therefore we should use regular for loop instead of forEach.
+🔔 `getElementsByTagName()` : takes a tag name as a string parameter and this method returns an <span style="color:red">HTMLCollection</span> object. An HTMLCollection is an array like object of HTML elements. The length property provides the size of the collection. Whenever we use this method we access the individual elements using index or after loop through each individual items. An HTMLCollection does not support all array methods therefore we should use regular for loop instead of forEach.
 
 ```js
 // syntax
@@ -87,7 +87,7 @@ for (let i = 0; i < allTitles.length; i++) {
 
 #### Getting elements by class name - getElementsByClassName()
 
-**_getElementsByClassName()_** method returns an <span style="color:red">HTMLCollection</span> object. An HTMLCollection is an array like list of HTML elements. The length property provides the size of the collection. It is possible to loop through all the HTMLCollection elements. See the example below
+`getElementsByClassName()` method returns an <span style="color:red">HTMLCollection</span> object. An HTMLCollection is an array like list of HTML elements. The length property provides the size of the collection. It is possible to loop through all the HTMLCollection elements. See the example below
 
 ```js
 //syntax
@@ -121,9 +121,9 @@ console.log(firstTitle) // <h1>First Title</h1>
 
 #### Getting elements by using querySelector methods - querySelector()
 
-The _document.querySelector_ method can select an HTML or HTML elements by tag name, by id or by class name.
+The `document.querySelector` method can select an HTML or HTML elements by tag name, by id or by class name.
 
-**_querySelector_**: can be used to select HTML element by its tag name, id or class. If the tag name is used it selects <span style="color:red">only the first element</span>.
+_querySelector_ : can be used to select HTML element by its tag nme, id or class. If the tag name is used it selects <span style="color:red">only the first element</span>.
 
 ```js
 let firstTitle = document.querySelector('h1') // select the first available h1 element
@@ -133,7 +133,7 @@ let firstTitle = document.querySelector('.title') // select the first available 
 
 #### querySelectorAll() 
 
-**_querySelectorAll_**: can be used to select html elements by its tag name or class. It returns a nodeList which is an array like object which supports array methods. We can use **_for loop_** or **_forEach_** to loop through each nodeList elements.
+_querySelectorAll_ : can be used to select html elements by its tag name or class. It returns a nodeList which is an array like object which supports array methods. We can use **_for loop_** or **_forEach_** to loop through each nodeList elements.
 
 ```js
 const allTitles = document.querySelectorAll('h1') # selects all the available h1 elements in the page
