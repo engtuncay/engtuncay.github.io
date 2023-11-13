@@ -1,29 +1,39 @@
 
 # Useful Emoji List And Usage Recommendations
 
-🔔 bell ( for small headers )
+For Sub Headers
+
+🔔 bell ( for sub headers )
+
+🍋 lemon  (subheader or topic of following paragrahp )
+
+For Notes
 
 ✏ pencil (for notes)
 
 📝 memo (for notes)
 
+For Questions
+
 💡 electric-light-bulb  (for questions)
+
+For Warnings
 
 ❗ heavy-exclamation-mark   (for warning notes)
 
+🔨 hammer
+
+🤝 handshake (for important warning)
+
+For Very Interesting Notes
+
 😯 hushed-face  (for very interesting notes )
 
-🤝 handshake ( for important warning)
-
-🧲 magnet (for warnings)
+For Check Marks
 
 ✔ heavy-check-mark
 
-🍋 lemon  (topic of following paragrahp - sub header)
-
 ---
-
-🔨 hammer
 
 👀 eyes
 
@@ -31,14 +41,14 @@
 
 🔵 large blue circle
 
-
-
 🔗 link symbol
 
 🔒 lock
 
+🧲 magnet (deprecated for warnings)
 
 ---
+
 
 🥓 bacon
 
@@ -64,13 +74,9 @@
 
 🔵 large blue circle
 
-🍋 lemon
-
 🔗 link symbol
 
 🔒 lock
-
-🧲 magnet
 
 📝 memo
 

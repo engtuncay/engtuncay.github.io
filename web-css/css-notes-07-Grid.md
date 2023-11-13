@@ -1,11 +1,13 @@
 
-- [CSS Grid Layout Module](#css-grid-layout-module)
+Source : https://www.w3schools.com/css/css_grid.asp
+
+- [Grid Layout Module](#grid-layout-module)
   - [Display Property](#display-property)
   - [Grid Columns](#grid-columns)
   - [Grid Rows](#grid-rows)
   - [Grid Gaps](#grid-gaps)
-  - [Gap property (sh)](#gap-property-sh)
-  - [Grid Lines (grid-column-start and end)](#grid-lines-grid-column-start-and-end)
+  - [Gap property (shorthand)](#gap-property-shorthand)
+  - [Grid Lines (grid-column-start and end) (Span Cells)](#grid-lines-grid-column-start-and-end-span-cells)
   - [All CSS Grid Properties](#all-css-grid-properties)
 - [Grid Container](#grid-container)
   - [The grid-template-columns Property](#the-grid-template-columns-property)
@@ -19,10 +21,9 @@
   - [The grid-area Property](#the-grid-area-property)
   - [The Order of the Items](#the-order-of-the-items)
 
+---
 
-Source : https://www.w3schools.com/css/css_grid.asp
-
-# CSS Grid Layout Module
+# Grid Layout Module
 
 *Example grid layout*
 
@@ -44,16 +45,9 @@ Example
   <div class="grid-item">2</div>
   <div class="grid-item">3</div>
   <div class="grid-item">4</div>
-  <div class="grid-item">5</div>
-  <div class="grid-item">6</div>
-  <div class="grid-item">7</div>
-  <div class="grid-item">8</div>
-  <div class="grid-item">9</div>
 </div>
 
 ```
-
-![grid example 2](./img/grid-ex2.jpg)
 
 ## Display Property
 
@@ -189,7 +183,7 @@ The row-gap property sets the gap between the rows:
 
 ![grid row gap](./img/grid-row-gap1.jpg)
 
-## Gap property (sh)
+## Gap property (shorthand)
 
 The gap property is a *shorthand* property for the row-gap and the column-gap properties:
 
@@ -213,7 +207,7 @@ The gap property can also be used to set both the row gap and the column gap in 
 
 ```
 
-## Grid Lines (grid-column-start and end)
+## Grid Lines (grid-column-start and end) (Span Cells)
 
 The lines between columns are called column lines.
 
@@ -294,28 +288,35 @@ Place a grid item at row line 1, and let it end on row line 3:
 ## All CSS Grid Properties
 
 Property              | Description
-----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------|-------------------------------------------------------------------------
+row-gap               | Specifies the gap between the grid rows
 column-gap            | Specifies the gap between the columns
-gap                   | A shorthand property for the row-gap and the column-gap properties
-grid                  | A shorthand property for the grid-template-rows, grid-template-columns, grid-template-areas, grid-auto-rows, grid-auto-columns, and the grid-auto-flow properties
-grid-area             | Either specifies a name for the grid item, or this property is a shorthand property for the grid-row-start, grid-column-start, grid-row-end, and grid-column-end properties
 grid-auto-columns     | Specifies a default column size
 grid-auto-flow        | Specifies how auto-placed items are inserted in the grid
 grid-auto-rows        | Specifies a default row size
-grid-column           | A shorthand property for the grid-column-start and the grid-column-end properties
-grid-column-end       | Specifies where to end the grid item
+grid-row-gap          | Specifies the size of the gap between rows
 grid-column-gap       | Specifies the size of the gap between columns
 grid-column-start     | Specifies where to start the grid item
-grid-gap              | A shorthand property for the grid-row-gap and grid-column-gap properties
-grid-row              | A shorthand property for the grid-row-start and the grid-row-end properties
-grid-row-end          | Specifies where to end the grid item
-grid-row-gap          | Specifies the size of the gap between rows
+grid-column-end       | Specifies where to end the grid item
 grid-row-start        | Specifies where to start the grid item
-grid-template         | A shorthand property for the grid-template-rows, grid-template-columns and grid-areas properties
+grid-row-end          | Specifies where to end the grid item
 grid-template-areas   | Specifies how to display columns and rows, using named grid items
 grid-template-columns | Specifies the size of the columns, and how many columns in a grid layout
 grid-template-rows    | Specifies the size of the rows in a grid layout
-row-gap               | Specifies the gap between the grid rows
+
+🔔 Shorthand Properties
+
+Property      | Description
+--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+gap           | A shorthand property for the row-gap and the column-gap properties
+grid          | A shorthand property for the grid-template-rows, grid-template-columns,grid-template-areas, grid-auto-rows, grid-auto-columns, and the grid-auto-flow properties
+grid-column   | A shorthand property for the grid-column-start and the grid-column-end properties
+grid-gap      | A shorthand property for the grid-row-gap and grid-column-gap properties
+grid-row      | A shorthand property for the grid-row-start and the grid-row-end properties
+grid-template | A shorthand property for the grid-template-rows, grid-template-columns and grid-areas properties
+grid-area     | Either specifies a name for the grid item, or this property is a shorthand property for the grid-row-start, grid-column-start, grid-row-end, and grid-column-end properties
+
+🔔 Section 2
 
 # Grid Container
 

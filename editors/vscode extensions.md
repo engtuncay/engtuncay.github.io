@@ -1,7 +1,5 @@
 
 
-<!-- TOC -->
-
 - [Debug (web)](#debug-web)
   - [Debugger for Chrome - Must have extension for Angular development.](#debugger-for-chrome---must-have-extension-for-angular-development)
   - [Template Productivity](#template-productivity)
@@ -20,8 +18,7 @@
 - [Git](#git)
   - [Git History (git log)](#git-history-git-log)
 
-<!-- /TOC -->
-
+---
 
 This extension pack packages some of the most popular (and some I find very useful) VS Code Angular extensions.
 

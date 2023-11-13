@@ -1,8 +1,8 @@
 <h1>Tailwind CSS Tutorial for Beginners: A Guide to Get Started in 2023</h1>
 
-Source : [Article](https://www.codeinwp.com/blog/tailwind-css-tutorial/#gref)
+Source : https://www.codeinwp.com/blog/tailwind-css-tutorial
 
-by Louis Lazaris Louis Lazaris - January 1, 2023 - web design & development
+by Louis Lazaris - January 1, 2023
 
 One of the hottest and admittedly controversial CSS frameworks to land on the front-end scene in recent years is Tailwind CSS, and this Tailwind CSS tutorial for beginners will try to get you up to speed with what it’s all about.
 
@@ -13,9 +13,7 @@ I’ll also show you how to automatically optimize your Tailwind builds to ensur
 Tailwind CSS Tutorial
 
 📚 Table of contents:
-- Background: Atomic CSS #
-- Why Atomic CSS? #
-- What is Tailwind CSS? #
+
 - Getting started in Tailwind developer mode #
 - Using Tailwind’s utility classes #
 - Learning Tailwind’s “language” #
@@ -109,7 +107,7 @@ The HTML looks like this (text removed for brevity):
 </main>
 ```
 
-![ss](./img/css/tw1.jpg)
+![ss](./img/tw1.jpg)
 
 As you can see, Tailwind’s utility classes more or less have their own language, based on each of the property/value pairs they represent in natural CSS.
 
@@ -175,18 +173,28 @@ Assigns the selected utility classes to the btn-main class name
 With that, I can use .btn-main anywhere I want and all buttons will inherit the same styles. You can see this in action on this demo which I created using Tailwind’s official playground. Click the CSS tab to view the code that encapsulates all the button classes into .btn-main.
 
 Tailwind Playground
-Go to top
-Installing Tailwind’s full toolset
+
+
+## Installing Tailwind’s full toolset
+
 As mentioned, the examples I’ve shown you up to this point are not ideal. The CodePen, for instance, uses the Tailwind Play CDN, which means all of Tailwind’s classes are included in the page, even though I’m only using a few.
 
 To use Tailwind properly, let’s install it and configure it to build only the CSS that I need. In my project folder I’m going to run the following two commands in my terminal:
 
+```bash
 npm install -D tailwindcss
+```
+
 This installs Tailwind along with all its dependencies in my project folder. Next, I want to initiate Tailwind to create my config file:
 
+```bash
 npx tailwindcss init
+
+```
+
 This generates a file called tailwind.config.js in the root of my project folder with the following content inside:
 
+```js
 module.exports = {
   content: [],
   theme: {
@@ -194,11 +202,14 @@ module.exports = {
   },
   plugins: [],
 }
-Code language: JavaScript (javascript)
-Adding anything to this file is optional. If you leave any parts blank, Tailwind will use its default configuration options, which you can view here. The Tailwind docs recommend filling in only the options you want changed, rather than including the full default config file (which you can do by using npx tailwindcss init --full when initiating the project).
 
-Go to top
-Configuring Tailwind projects
+```
+
+Adding anything to this file is optional. If you leave any parts blank, Tailwind will use its default configuration options, which you can view here (https://github.com/tailwindlabs/tailwindcss/blob/master/stubs/defaultConfig.stub.js). The Tailwind docs recommend filling in only the options you want changed, rather than including the full default config file (which you can do by using npx tailwindcss init --full when initiating the project).
+
+
+## Configuring Tailwind projects
+
 Going into advanced customizations is beyond the scope of this Tailwind CSS tutorial for beginners, but here’s a basic outline of some of the things you can do in the config file:
 
 content – Define paths to your HTML templates, JavaScript components, and other files that use Tailwind class names.

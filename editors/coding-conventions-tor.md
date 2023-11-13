@@ -1,60 +1,29 @@
 
 
-
-    - [Değişken İsimlendirme](#de%C4%9Fi%C5%9Fken-i%CC%87simlendirme)
-
-
-
-## Değişken İsimlendirme
-
-Camel Case , nMusteriUnvan   , tür karakteri küçük , digerleri büyük harfle başlayacak
-
-- nMiktar
-- sUnvan
-- dTarih
-- bIptalMi
-- tsTutar
-
-
-
-Genel Türler
-
-s : string
-n : number
-d : date
-b : boolean
-y : binary
-
-tx : transient alanlar (x türü)
-
-(sened boyutu)
-
-Ayrıntılı tür kullanılmayacak , number double , int, float alanlara karşılık gelir.
-
-
+- [Değişken İsimlendirme](#değişken-i̇simlendirme)
+- [Standard Method Naming](#standard-method-naming)
+- [Bazı Kısaltmalar (Metod ismi içerisindeki)](#bazı-kısaltmalar-metod-ismi-içerisindeki)
 
 ---
 
+## Değişken İsimlendirme
 
+- Camel Case 
+- Type prefix
 
-# Cat
+```
+st,tx : string
+nm : number 
+dt : date
+bo : boolean
+bn : binary,byte
+ln : integer
+db : double
 
-## Variable Naming
+```
+Ayrıntılı tür kullanılmayacak , number double , int, float alanlara karşılık gelir.
 
-| Prefix | Type  |
-| --- | --- |
-| tx | String / Chars   |
-| ln | Integer   |
-| dm | Decimal Numbar   |
-| ty | Tiny Int  |
-| dt | Date Time   |
-| by | Byte  |
-
-
-
-
-## Standard Methods
-
+## Standard Method Naming
 
 | Controller Method | Meaning  |
 | --- | --- |
@@ -82,9 +51,5 @@ Wit : With
 By : e göre 
 
 Lim : Limit
-
-
-
-
 
 

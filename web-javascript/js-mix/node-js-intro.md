@@ -1,8 +1,8 @@
 
 
 
-[TOC]
 - [Introduction to Node Js](#introduction-to-node-js)
+- [Creating Node Project](#creating-node-project)
 - [Executing Js File with Node](#executing-js-file-with-node)
 - [Bölüm 8 Node Paket Yöneticisi (NPM)](#bölüm-8-node-paket-yöneticisi-npm)
   - [45 Paket Nedir](#45-paket-nedir)
@@ -19,11 +19,32 @@
   - [68 Pug: Pug Nedir](#68-pug-pug-nedir)
   - [69-76 Pug Konular](#69-76-pug-konular)
   - [77 Express Statik Klasör Belirleme](#77-express-statik-klasör-belirleme)
-  - [](#)
+
 
 
 # Introduction to Node Js
 
+
+# Creating Node Project
+
+```bash
+npm init
+```
+
+Bazı seçeneklerde parantez içinde bir değer vardır. Bu varsayılan değerdir, direk enter’a bastığınızda bu değer kullanılacaktır.
+
+```text
+package name: (merhaba-nodejs)
+version: (1.0.0)
+description: İlk node.js projem.
+entry point: (index.js)
+test command:
+git repository:
+keywords:
+author: erhan kocabuga
+license: (ISC)
+
+```
 
 # Executing Js File with Node
 
@@ -268,4 +289,4 @@ Allows you to selectively upgrade specific packages in a simple way
 
 ## 77 Express Statik Klasör Belirleme
 
-## 
+ 
