@@ -19,6 +19,7 @@ Source : https://www.w3schools.com/css/css_grid.asp
   - [The grid-column Property:](#the-grid-column-property)
   - [The grid-row Property:](#the-grid-row-property)
   - [The grid-area Property](#the-grid-area-property)
+    - [Naming Grid Items](#naming-grid-items)
   - [The Order of the Items](#the-order-of-the-items)
 
 ---
@@ -516,9 +517,7 @@ Make "item2" start on column 2 and span 3 columns:
 
 ## The grid-row Property:
 
-The grid-row property defines on which row to place an item.
-
-You define where the item will start, and where the item will end.
+The grid-row property defines on which row to place an item. You define where the item will start, and where the item will end.
 
 💡 Note: The grid-row property is a shorthand property for the grid-row-start and the grid-row-end properties.
 
@@ -550,8 +549,6 @@ Make "item1" start on row 1 and span 2 rows:
 
 ![image](./img/grid-row-prop2.png)
 
---*LINK - tbc
-
 ## The grid-area Property
 
 The grid-area property can be used as a *shorthand* property for the *grid-row-start, grid-column-start, grid-row-end and the grid-column-end* properties.
@@ -578,15 +575,20 @@ Make "item8" start on row-line 2 and column-line 1, and span 2 rows and 3 column
 
 ```
 
-Naming Grid Items
+### Naming Grid Items
 
 The grid-area property can also be used to assign names to grid items.
 
+<!-- --*REVIEW - review photo here  -->
+
+```
 Header
 Menu
 Main
 Right
 Footer
+
+```
 
 Named grid items can be referred to by the grid-template-areas property of the grid container.
 
@@ -604,11 +606,11 @@ Item1 gets the name "myArea" and spans all five columns in a five columns grid l
 
 ```
 
-Each row is defined by apostrophes (' ')
+Each row is defined by apostrophes `(' ')`
 
 The columns in each row is defined inside the apostrophes, separated by a space.
 
-Note: A period sign represents a grid item with no name.
+✏ Note: A period (.) sign represents a grid item with no name.
 
 Example
 
@@ -663,6 +665,8 @@ The Grid Layout allows us to position the items anywhere we like.
 
 The first item in the HTML code does not have to appear as the first item in the grid.
 
+<!-- --*REVIEW - photo -->
+
 1
 2
 3
@@ -698,3 +702,4 @@ Example
 
 ```
 
+--end--
