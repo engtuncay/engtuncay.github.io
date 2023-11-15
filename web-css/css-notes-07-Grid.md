@@ -10,7 +10,7 @@ Source : https://www.w3schools.com/css/css_grid.asp
   - [Grid Lines (grid-column-start and end) (Span Cells)](#grid-lines-grid-column-start-and-end-span-cells)
   - [All CSS Grid Properties](#all-css-grid-properties)
 - [Grid Container](#grid-container)
-  - [The grid-template-columns Property](#the-grid-template-columns-property)
+  - [The grid-template-columns property](#the-grid-template-columns-property)
   - [The grid-template-rows Property](#the-grid-template-rows-property)
   - [The justify-content Property](#the-justify-content-property)
   - [The align-content Property](#the-align-content-property)
@@ -320,11 +320,11 @@ grid-area     | Either specifies a name for the grid item, or this property is a
 
 # Grid Container
 
-To make an HTML element behave as a grid container, you have to set the display property to grid or inline-grid.
+To make an HTML element behave as a grid container, you have to set the display property to `grid or inline-grid`.
 
-Grid containers consist of grid items, placed inside columns and rows.
+Grid containers consist of `grid items`, placed inside columns and rows.
 
-## The grid-template-columns Property
+## The grid-template-columns property
 
 The grid-template-columns property defines *the number of columns* in your grid layout, and it can define *the width of each column*.
 

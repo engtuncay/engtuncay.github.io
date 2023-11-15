@@ -7,15 +7,23 @@ For Sub Headers
 
 🍋 lemon  (subheader or topic of following paragrahp )
 
+---
+
 For Notes
 
 ✏ pencil (for notes)
 
 📝 memo (for notes)
 
+ℹ information-source (for notes)
+
+---
+
 For Questions
 
 💡 electric-light-bulb  (for questions)
+
+---
 
 For Warnings
 
@@ -25,15 +33,21 @@ For Warnings
 
 🤝 handshake (for important warning)
 
+---
+
 For Very Interesting Notes
 
 😯 hushed-face  (for very interesting notes )
+
+---
 
 For Check Marks
 
 ✔ heavy-check-mark
 
 ---
+
+Other Emojis than may be used
 
 👀 eyes
 
@@ -48,7 +62,6 @@ For Check Marks
 🧲 magnet (deprecated for warnings)
 
 ---
-
 
 🥓 bacon
 
@@ -70,13 +83,9 @@ For Check Marks
 
 ➕ heavy-plus-sign
 
-ℹ information-source
-
 🔵 large blue circle
 
 🔗 link symbol
 
 🔒 lock
-
-📝 memo
 
