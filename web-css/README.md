@@ -38,7 +38,6 @@ Source : [W3Schools]()
 | [1-1 Intro](./css-notes-01-1-Intro.md)                                 |
 | [1-2 Selectors](./css-notes-01-2-Selectors.md)                         |
 | [1-3 Cascading and Specifity](./css-notes-01-3-Cascading-Specifity.md) |
-| [1- Intro, Selectors and Specifity](./css-notes-01-Intro-Selector.md)  |
 | [2-1 Color](./css-notes-02-1-Color.md)                                 |
 | [2-2 Text ,Font, Icons](./css-notes-02-2-Text.md)                      |
 | [2-3 Backgrounds](./css-notes-02-3-Backgrounds.md)                     |

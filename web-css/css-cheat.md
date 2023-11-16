@@ -1,10 +1,11 @@
 **CSS Cheatsheet**
 
-- [Selectors](#selectors)
+[Go Css Readme](./README.md)
+
 - [Ways to Insert Css](#ways-to-insert-css)
-- [Multiple Style Sheets](#multiple-style-sheets)
-- [Cascading Order](#cascading-order)
 - [Comments](#comments)
+- [Selectors](#selectors)
+- [Cascading Order](#cascading-order)
 - [Specifity](#specifity)
 - [Element Size](#element-size)
   - [Units](#units)
@@ -17,95 +18,6 @@
 - [Color](#color)
 - [Background](#background)
 - [Flexbox Cheat](#flexbox-cheat)
-
-
-# Selectors
-
-*Simple selectors* 
-
-select elements based on tag name, id, class.
-
-Simple       | Selectors
--------------|---------------
-Id (#)       | #idName
-Class (.)    | .className
-Universal    | *
-Grouping (,) | selA,selB
-Chaining     | .footer.center
-
-Class Chaining : elements that have footer and center classes,order is not important
-
-*Combinator selectors* 
-
-select elements based on a specific relationship between them
-
-Combinator Sel.      | Example | Note
----------------------|---------|-----------------------
-Descendant (space)   | div p   | Nesil Seçici
-Child (>)            | div > p | Çocuk Seç.
-Adjacent Sibling (+) | div + p | Takip eden kardeş seç.
-General Sibling (~)  | div ~ p | Genel kardeş seç.
-
-*Pseudo-classes*
-
-select elements based on a certain state of a tag element.
-
-Syntax | 
---- | 
-selector:pseudo-class
-
-
-*Pseudo Elements*
-
-select and style a part of an element
-
-Syntax | 
---- | 
-selector::pseudo-element
-
-Selector       | Example
----------------|----------------
-::after        | p::after
-::before       | p::before
-::first-letter | p::first-letter
-::first-line   | p::first-line
-::selection    | p::selection
-
-you can see the detail from this [link](./css-notes-01-Intro-Selector.md)
-
-*Attribute Selectors*
-
-select elements based on an attribute or attribute value
-
-Examples
-
-```css
-a[target] {
-  background-color: yellow;
-}
-
-a[target="_blank"] {
-  background-color: yellow;
-}
-
-```
-
-```text
-Selector	Example	(Example description)
-[attribute]	[target]	Selects all elements with a target attribute
-
-[attribute=value]	[target=_blank]	Selects all elements with (*equals*) target="_blank"
-
-[attribute~=value]	[title~=flower]	Selects all elements with a title attribute *containing* the word "flower"
-
-[attribute|=value]	[lang|=en]	Selects all elements with a lang attribute value *starting with* "en"
-
-[attribute^=value]	a[href^="https"]	Selects every <a> element whose href attribute value *begins with* "https"
-
-[attribute$=value]	a[href$=".pdf"]	Selects every <a> element whose href attribute value *ends with* ".pdf"
-
-[attribute*=value]	a[href*="w3schools"]	Selects every <a> element whose href attribute value *contains* the substring "w3schools"
-```
 
 # Ways to Insert Css
 
@@ -137,18 +49,6 @@ body {
 
 ```
 
-# Multiple Style Sheets
-
-If some properties have been defined for the same selector (element) in different style sheets, *the value from the last read style sheet* will be used. 
-
-# Cascading Order
-
-All the styles in a page will "cascade" into a new "virtual" style sheet by the following rules, where number one has the highest priority:
-
-1. Inline style (inside an HTML element)
-2. External and internal style sheets (in the head section)
-3. Browser default
-
 # Comments
 
 ```css
@@ -158,7 +58,107 @@ p {
 }
 ```
 
+
+# Selectors
+
+*Simple selectors* 
+
+Simple       | Selectors
+-------------|---------------
+Id (#)       | #idName
+Class (.)    | .className
+Universal    | *
+Grouping (,) | selA,selB
+Chaining     | .footer.center
+
+Class Chaining : elements that have footer and center classes,order is not important
+
+*Combinator selectors* 
+
+Combinator Sel.      | Example | Note
+---------------------|---------|-----------------------
+Descendant (space)   | div p   | 
+Child (>)            | div > p | 
+Adjacent Sibling (+) | div + p | 
+General Sibling (~)  | div ~ p | 
+
+🔔 Pseudo-classes
+
+select elements based on a certain state of a tag element.
+
+*Syntax*
+
+```css
+selector:pseudo-class
+
+```
+
+🔔 Pseudo Elements
+
+select and style a part of an element
+
+
+```css
+selector::pseudo-element
+
+```
+
+Selector       | Example
+---------------|----------------
+::after        | p::after
+::before       | p::before
+::first-letter | p::first-letter
+::first-line   | p::first-line
+::selection    | p::selection
+
+you can see the detail from this [link](./css-notes-01-Intro-Selector.md)
+
+🔔 *Attribute Selectors*
+
+select elements based on an attribute or attribute value
+
+Examples
+
+```css
+a[target] {
+  background-color: yellow;
+}
+
+a[target="_blank"] {
+  background-color: yellow;
+}
+
+```
+
+```text
+Selector	Example	(Example description)
+[attribute]	[target]	Selects all elements with a target attribute
+
+[attribute=value]	[target=_blank]	target attribute *equals* "_blank"
+
+[attribute~=value]	[title~=flower]	title attribute *containing* the word "flower"
+
+[attribute|=value]	[lang|=en]	lang attribute *starting with* "en"
+
+[attribute^=value]	a[href^="https"]	href attribute value *begins with* "https"
+
+[attribute$=value]	a[href$=".pdf"]	Selects every <a> element whose href attribute value *ends with* ".pdf"
+
+[attribute*=value]	a[href*="w3schools"]	Selects every <a> element whose href attribute value *contains* the substring "w3schools"
+
+```
+
 --*LINK - tbc
+
+# Cascading Order
+
+If some properties have been defined for the same selector (element) in different style sheets, *the value from the last read style sheet* will be used. 
+
+All the styles in a page will "cascade" into a new "virtual" style sheet by the following rules, where number one has the highest priority:
+
+1. Inline style (inside an HTML element)
+2. External and internal style sheets (in the head section)
+3. Browser default
 
 # Specifity
 
@@ -414,12 +414,4 @@ flex-direction : [ row , row-reverse , column ,column-reverse ]
 flex-wrap : [ nowrap , wrap , wrap-reverse];
 flex-flow : flex-direction , flex-wrap ;  /*sh prop*/ 
 ```
-
-
-
-
-
-
-
-
 
