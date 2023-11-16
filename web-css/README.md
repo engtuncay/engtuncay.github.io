@@ -33,7 +33,6 @@ This tutorial is prepared from web resources and some additions from me.
 
 Source : [W3Schools]()
 
-
 | CONTENT                                                                | Note |
 |------------------------------------------------------------------------|------|
 | [1-1 Intro](./css-notes-01-1-Intro.md)                                 |
@@ -64,8 +63,7 @@ Source : [W3Schools]()
 
 - Mdn , https://developer.mozilla.org/en-US/
 
-
-
+- W3Docs, https://www.w3docs.com/learn-css.html
 
 
 # Tailwind Notes
