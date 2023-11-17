@@ -27,7 +27,6 @@ The PHP superglobal variables are:
 - $_COOKIE
 - $_SESSION
 
-The next chapters will explain some of the superglobals, and the rest will be explained in later chapters.
 
 ## $GLOBALS
 
