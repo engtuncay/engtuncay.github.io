@@ -70,23 +70,23 @@ Content                                                                         
 
 Php Advanced Topics
 
-Content                                | Note
----------------------------------------|-----
-PHP Date and Time                      |
-[PHP Include](./php-adv-02-include.md) | 🆗
-File Handling                          |
-File Open/Read                         |
-File Create/Write                      |
-File Upload                            |
-Cookies                                |
-PHP Sessions                           |
-PHP Filters                            |
-PHP Filters Advanced                   |
-PHP Callback Functions                 |
-PHP JSON                               |
-PHP Exceptions                         |
-[Php Mysql-Pdo](./php-mysql-tutor-pdo.md)      |
-[Php Mysql-Mysqli-Pdo](./php-mysql-tutor.md)      |
+| Content                                      | Note |
+|----------------------------------------------|------|
+| PHP Date and Time                            |
+| [PHP Include](./php-adv-02-include.md)       | 🆗   |
+| File Handling                                |
+| File Open/Read                               |
+| File Create/Write                            |
+| File Upload                                  |
+| Cookies                                      |
+| PHP Sessions                                 |
+| PHP Filters                                  |
+| PHP Filters Advanced                         |
+| PHP Callback Functions                       |
+| PHP JSON                                     |
+| PHP Exceptions                               |
+| [Php Mysql-Pdo](./php-mysql-tutor-pdo.md)    | ✔    |
+| [Php Mysql-Mysqli-Pdo](./php-mysql-tutor.md) |
 
 
 
