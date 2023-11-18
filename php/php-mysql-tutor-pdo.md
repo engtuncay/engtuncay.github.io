@@ -3,27 +3,25 @@
 
 Source : 
 
-- [PHP MySQL Database](#php-mysql-database)
-- [PHP Connect to MySQL](#php-connect-to-mysql)
+- [MySQL Database](#mysql-database)
+- [Connecting to MySQL](#connecting-to-mysql)
   - [Open a Connection to MySQL](#open-a-connection-to-mysql)
   - [Close the Connection](#close-the-connection)
-- [PHP Create a MySQL Database](#php-create-a-mysql-database)
+- [Creating a MySQL Database](#creating-a-mysql-database)
 - [Include database helper scripts (for PDO)](#include-database-helper-scripts-for-pdo)
-- [PHP MySQL Create Table](#php-mysql-create-table)
-- [PHP MySQL Insert Data](#php-mysql-insert-data)
-- [PHP MySQL Get Last Inserted ID](#php-mysql-get-last-inserted-id)
-- [PHP MySQL Insert Multiple Records](#php-mysql-insert-multiple-records)
-- [PHP MySQL Prepared Statements](#php-mysql-prepared-statements)
-- [PHP MySQL Select Data](#php-mysql-select-data)
-- [PHP MySQL Use The ORDER BY Clause](#php-mysql-use-the-order-by-clause)
-- [PHP MySQL Use The WHERE Clause](#php-mysql-use-the-where-clause)
-- [PHP MySQL Delete Data](#php-mysql-delete-data)
-- [PHP MySQL Update Data](#php-mysql-update-data)
-- [PHP MySQL Limit Data Selections](#php-mysql-limit-data-selections)
+- [Creating Table](#creating-table)
+- [MySQL Insert Data](#mysql-insert-data)
+- [MySQL Get Last Inserted ID](#mysql-get-last-inserted-id)
+- [MySQL Transactions](#mysql-transactions)
+- [MySQL Prepared Statements](#mysql-prepared-statements)
+- [MySQL Select Data](#mysql-select-data)
+- [MySQL Delete Data](#mysql-delete-data)
+- [MySQL Update Data](#mysql-update-data)
+- [MySQL Limit Data Selections](#mysql-limit-data-selections)
 
 
 
-# PHP MySQL Database
+# MySQL Database
 
 With PHP, you can connect to and manipulate databases.
 
@@ -81,7 +79,7 @@ Another great thing about MySQL is that it can be scaled down to support embedde
 
 Look at http://www.mysql.com/customers/ for an overview of companies using MySQL.
 
-# PHP Connect to MySQL
+# Connecting to MySQL
 
 PHP 5 and later can work with a MySQL database using:
 
@@ -219,7 +217,7 @@ mysqli_close($conn);
 
 ```
 
-# PHP Create a MySQL Database
+# Creating a MySQL Database
 
 A database consists of one or more tables. You will need special CREATE privileges to create or to delete a MySQL database.
 
@@ -296,7 +294,7 @@ try {
 require_once './pdo-db-conn.php';
 ```
 
-# PHP MySQL Create Table
+# Creating Table
 
 A database table has its own unique name and consists of columns and rows.
 
@@ -361,7 +359,7 @@ $conn = null;
 
 ```
 
-# PHP MySQL Insert Data
+# MySQL Insert Data
 
 *Insert Data Into MySQL Using MySQLi and PDO*
 
@@ -413,7 +411,7 @@ $conn = null;
 
 --*LINK - tbc
 
-# PHP MySQL Get Last Inserted ID
+# MySQL Get Last Inserted ID
 
 *Get ID of The Last Inserted Record*
 
@@ -456,7 +454,7 @@ $conn = null;
 
 ```
 
-# PHP MySQL Insert Multiple Records
+# MySQL Transactions
 
 *Insert Multiple Records Into MySQL Using MySQLi and PDO*
 
@@ -495,7 +493,7 @@ $conn = null;
 
 ```
 
-# PHP MySQL Prepared Statements
+# MySQL Prepared Statements
 
 Prepared statements are very useful against SQL injections.
 
@@ -562,7 +560,7 @@ $conn = null;
 
 ```
 
-# PHP MySQL Select Data
+# MySQL Select Data
 
 *Select Data From a MySQL Database*
 
@@ -632,138 +630,7 @@ echo "</table>";
 
 ```
 
-# PHP MySQL Use The ORDER BY Clause
-
-*Select and Order Data From a MySQL Database*
-
-The ORDER BY clause is used to sort the result-set in ascending or descending order.
-
-The ORDER BY clause sorts the records in ascending order by default. To sort the records in descending order, use the DESC keyword.
-
-```sql
-SELECT column_name(s) FROM table_name ORDER BY column_name(s) ASC|DESC 
-
-```
-
-To learn more about SQL, please visit our SQL tutorial.
-
-*Select Data With PDO (+ Prepared Statements)*
-
-The following example uses prepared statements.
-
-Here we select the id, firstname and lastname columns from the MyGuests table. The records will be ordered by the lastname column, and it will be displayed in an HTML table:
-
-Example (PDO)
-
-```php
-<?php
-require_once './pdo-db-conn.php';
-
-echo "<table style='border: solid 1px black;'>";
-echo "<tr><th>Id</th><th>Firstname</th><th>Lastname</th></tr>";
-
-class TableRows extends RecursiveIteratorIterator {
-  function __construct($it) {
-    parent::__construct($it, self::LEAVES_ONLY);
-  }
-
-  function current() {
-    return "<td style='width:150px;border:1px solid black;'>" . parent::current(). "</td>";
-  }
-
-  function beginChildren() {
-    echo "<tr>";
-  }
-
-  function endChildren() {
-    echo "</tr>" . "\n";
-  }
-}
-
-try {
-  $stmt = $conn->prepare("SELECT id, firstname, lastname FROM MyGuests ORDER BY lastname");
-  $stmt->execute();
-
-  // set the resulting array to associative
-  $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-  foreach(new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k=>$v) {
-    echo $v;
-  }
-} catch(PDOException $e) {
-  echo "Error: " . $e->getMessage();
-}
-$conn = null;
-echo "</table>";
-?>
-
-```
-
-# PHP MySQL Use The WHERE Clause
-
-*Select and Filter Data From a MySQL Database*
-
-The WHERE clause is used to filter records.
-
-The WHERE clause is used to extract only those records that fulfill a specified condition.
-
-```sql
-SELECT column_name(s) FROM table_name WHERE column_name operator value 
-
-```
-
-*Select Data With PDO (+ Prepared Statements)*
-
-The following example uses prepared statements.
-
-It selects the id, firstname and lastname columns from the MyGuests table where the lastname is "Doe", and displays it in an HTML table:
-
-Example (PDO)
-
-```php
-<?php
-require_once './pdo-db-conn.php';
-
-echo "<table style='border: solid 1px black;'>";
-echo "<tr><th>Id</th><th>Firstname</th><th>Lastname</th></tr>";
-
-class TableRows extends RecursiveIteratorIterator {
-  function __construct($it) {
-    parent::__construct($it, self::LEAVES_ONLY);
-  }
-
-  function current() {
-    return "<td style='width:150px;border:1px solid black;'>" . parent::current(). "</td>";
-  }
-
-  function beginChildren() {
-    echo "<tr>";
-  }
-
-  function endChildren() {
-    echo "</tr>" . "\n";
-  }
-}
-
-try {
-  $stmt = $conn->prepare("SELECT id, firstname, lastname FROM MyGuests WHERE lastname='Doe'");
-  $stmt->execute();
-
-  // set the resulting array to associative
-  $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-  foreach(new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k=>$v) {
-    echo $v;
-  }
-}
-catch(PDOException $e) {
-  echo "Error: " . $e->getMessage();
-}
-$conn = null;
-echo "</table>";
-?>
-
-```
-
-# PHP MySQL Delete Data
+# MySQL Delete Data
 
 *Delete Data From a MySQL Table Using MySQLi and PDO*
 
@@ -822,7 +689,7 @@ id	firstname	lastname	email	reg_date
 
 ```
 
-# PHP MySQL Update Data
+# MySQL Update Data
 
 *Update Data In a MySQL Table Using MySQLi and PDO*
 
@@ -883,7 +750,7 @@ id	firstname	lastname	email	reg_date
 
 ```
 
-# PHP MySQL Limit Data Selections
+# MySQL Limit Data Selections
 
 *Limit Data Selections From a MySQL Database*
 
