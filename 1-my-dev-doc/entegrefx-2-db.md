@@ -11,6 +11,8 @@
   - [Lokal Aktarım Sablon 2](#lokal-aktarım-sablon-2)
 - [FiQuery Metodları](#fiquery-metodları)
   - [convertUserParamsToValue()](#convertuserparamstovalue)
+- [FiKeyBean Metodlar](#fikeybean-metodlar)
+  - [Entity'nin FiKeyBean'e çevrilmesi](#entitynin-fikeybeane-çevrilmesi)
 - [Hata Çözümleri](#hata-çözümleri)
   - [Sorgularda Db Collation CS CI cakismasi](#sorgularda-db-collation-cs-ci-cakismasi)
 
@@ -165,6 +167,14 @@ FiQuery fiQuery = new FiQuery(sql, fkbQuery);
 fiQuery.convertUserParamsToValue();
 
 return jdUpdateBindMapMain(fiQuery);
+```
+
+# FiKeyBean Metodlar
+
+## Entity'nin FiKeyBean'e çevrilmesi
+
+```java
+FiKeyBean fkbUpdate = FiReflection.convertEntityToFiKeybean(EntMikroAktarilmayanBelge.class, entMikroAktarilmayanBelge);
 ```
 
 
