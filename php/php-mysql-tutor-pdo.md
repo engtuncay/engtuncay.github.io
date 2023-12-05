@@ -252,8 +252,6 @@ $conn = null;
 
 ```
 
-Tip: A great benefit of PDO is that it has *exception class* to handle any problems that may occur in our database queries. If an exception is thrown within the try{ } block, the script stops executing and flows directly to the first catch(){ } block. In the catch block above we echo the SQL statement and the generated error message.
-
 # Include database helper scripts (for PDO)
 
 *pdo-db-vars.php*
