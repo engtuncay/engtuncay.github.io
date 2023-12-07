@@ -5,7 +5,13 @@ For Sub Headers
 
 🔔 bell ( for sub headers )
 
-🍋 lemon  (subheader or topic of following paragrahp )
+🍋 lemon
+
+---
+
+For Tips
+
+🍓   
 
 ---
 
@@ -88,4 +94,29 @@ Other Emojis than may be used
 🔗 link symbol
 
 🔒 lock
+
+🤦‍♂️ man-facepalming
+
+💰 money-bag
+
+❌ 
+
+📄 
+
+⛏ 
+
+🍎 red apple  
+
+🧷 safety pin
+
+💀 skull
+
+⚽ soccer-ball
+
+⏱ stopwatch
+
+🍓 strawberry
+
+
+
 
