@@ -11,7 +11,7 @@
   - [Type Casting](#type-casting)
   - [Checking Types of A Variable](#checking-types-of-a-variable)
   - [Constants](#constants)
-  - [Sihirli Karakterler (magical characters)](#sihirli-karakterler-magical-characters)
+  - [Sihirli Karakterler (magical or escape characters)](#sihirli-karakterler-magical-or-escape-characters)
   - [Operators](#operators)
 - [Php Basic 2](#php-basic-2)
   - [Logical Operators](#logical-operators)
@@ -195,9 +195,9 @@ define('PI', 3.1415926);
 echo PI;
 ```
 
-## Sihirli Karakterler (magical characters)
+## Sihirli Karakterler (magical or escape characters)
 
-- Sihirli karakterler çift tırnak içinde kullanılabilir. Özel anlamı olan işaretlerdir.
+Sihirli karakterler çift tırnak içinde kullanılabilir. Özel anlamı olan işaretlerdir.
 
 Karakter | Açıklama
 ---------|---------

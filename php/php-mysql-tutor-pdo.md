@@ -560,25 +560,7 @@ $conn = null;
 
 # MySQL Select Data
 
-*Select Data From a MySQL Database*
-
-The SELECT statement is used to select data from one or more tables:
-
-```sql
-SELECT column_name(s) FROM table_name
-```
-
-or we can use the * character to select ALL columns from a table:
-
-```sql
-SELECT * FROM table_name
-```
-
-To learn more about SQL, please visit our SQL tutorial.
-
-Select Data With PDO (+ Prepared Statements)
-
-The following example uses prepared statements.
+The SELECT statement is used to select data from one or more tables. The following example uses *prepared statements*.
 
 It selects the id, firstname and lastname columns from the MyGuests table and displays it in an HTML table:
 

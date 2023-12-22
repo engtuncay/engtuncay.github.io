@@ -7,8 +7,8 @@ unassigned shortcuts available at aka.ms/vscodekeybindings
 (c+s) : means ctrl + shift in paranthesis
 
 - [General](#general)
-- [Basic editing](#basic-editing)
 - [Navigation](#navigation)
+- [Basic editing](#basic-editing)
 - [Search and replace](#search-and-replace)
 - [Multi-cursor and selection](#multi-cursor-and-selection)
 - [Rich languages editing](#rich-languages-editing)
@@ -33,6 +33,23 @@ Ctrl+Shift+N     | New window/instance
 Ctrl+Shift+W     | Close window/instance
 Ctrl+,           | User Settings
 Ctrl+K Ctrl+S    | Keyboard Shortcuts
+
+# Navigation 
+
+Shortcut       | Desc
+---------------|--------------------------------
+Ctrl+T         | Show all Symbols
+Ctrl+G         | Go to Line...
+Ctrl+P         | Go to File...
+Ctrl+Shift+O   | Go to Symbol...
+Ctrl+Shift+M   | Show Problems panel
+F8             | Go to next error or warning
+Shift+F8       | Go to previous error or warning
+Ctrl+Shift+Tab | Navigate editor group history
+Alt+ ← / →     | Go back / forward
+Ctrl+M         | Toggle Tab moves focus
+Ct + 1         | Focus Editor(1)
+Ct + "         | Focus Terminal
 
 # Basic editing 
 
@@ -64,20 +81,7 @@ Ctrl+/            | Toggle line comment
 Shift+Alt+A       | Toggle block comment
 Alt+Z             | Toggle word wrap
 
-# Navigation 
 
-Shortcut       | Desc
----------------|--------------------------------
-Ctrl+T         | Show all Symbols
-Ctrl+G         | Go to Line...
-Ctrl+P         | Go to File...
-Ctrl+Shift+O   | Go to Symbol...
-Ctrl+Shift+M   | Show Problems panel
-F8             | Go to next error or warning
-Shift+F8       | Go to previous error or warning
-Ctrl+Shift+Tab | Navigate editor group history
-Alt+ ← / →     | Go back / forward
-Ctrl+M         | Toggle Tab moves focus
 
 # Search and replace 
 
@@ -207,5 +211,4 @@ Ctrl+Home / End | Scroll to top/bottom
 ## Idea Keymap Changes
 
 ## Rider Changes
-
 
