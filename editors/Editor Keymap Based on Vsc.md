@@ -36,20 +36,21 @@ Ctrl+K Ctrl+S    | Keyboard Shortcuts
 
 # Navigation 
 
-Shortcut       | Desc
----------------|--------------------------------
-Ctrl+T         | Show all Symbols
-Ctrl+G         | Go to Line...
-Ctrl+P         | Go to File...
-Ctrl+Shift+O   | Go to Symbol...
-Ctrl+Shift+M   | Show Problems panel
-F8             | Go to next error or warning
-Shift+F8       | Go to previous error or warning
-Ctrl+Shift+Tab | Navigate editor group history
-Alt+ ← / →     | Go back / forward
-Ctrl+M         | Toggle Tab moves focus
-Ct + 1         | Focus Editor(1)
-Ct + "         | Focus Terminal
+| Shortcut       | Desc                                             |
+|----------------|--------------------------------------------------|
+| Ctrl+T         | Show all Symbols                                 |
+| Ctrl+G         | Go to Line...                                    |
+| Ctrl+P         | Go to File...                                    |
+| Ctrl+Shift+O   | Go to Symbol...                                  |
+| Ctrl+Shift+M   | Show Problems panel                              |
+| F8             | Go to next error or warning                      |
+| Shift+F8       | Go to previous error or warning                  |
+| Ctrl+Shift+Tab | Navigate editor group history                    |
+| Alt+ ← / →     | Go back / forward                                |
+| C + m          | Toggle Tab moves focus                           |
+| C + 1          | Focus Editor(1)                                  |
+| C + j          | (workbench.action.focusActiveEditorGroup)        |
+| C + " , C+Down | Focus Terminal (workbench.action.terminal.focus) |
 
 # Basic editing 
 
