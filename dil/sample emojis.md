@@ -1,67 +1,75 @@
 
+- [Useful Emoji List And Usage Recommendations](#useful-emoji-list-and-usage-recommendations)
+  - [For Subheaders](#for-subheaders)
+  - [For Tips](#for-tips)
+  - [For Notes](#for-notes)
+  - [For Questions](#for-questions)
+  - [For Warning Notes](#for-warning-notes)
+  - [For Very Interesting Notes](#for-very-interesting-notes)
+  - [For Check Marks](#for-check-marks)
+- [Other Emojis than may be used](#other-emojis-than-may-be-used)
+
+
 # Useful Emoji List And Usage Recommendations
 
-For Sub Headers
+## For Subheaders
 
-🔔 bell ( for sub headers )
+🔔 bell
 
 🍋 lemon
 
----
-
-For Tips
-
-🍓   
+🔗 link symbol
 
 ---
 
-For Notes
+## For Tips
 
-✏ pencil (for notes)
-
-📝 memo (for notes)
-
-ℹ information-source (for notes)
+🍓 strawberry 
 
 ---
 
-For Questions
+## For Notes
 
-💡 electric-light-bulb  (for questions)
+✏ pencil 
 
----
+📝 memo 
 
-For Warnings
+ℹ information-source 
 
-❗ heavy-exclamation-mark   (for warning notes)
 
-🔨 hammer
+## For Questions
 
-🤝 handshake (for important warning)
+💡 electric-light-bulb
 
----
+❓ black-question-mark-ornament
 
-For Very Interesting Notes
+❔ white-question-mark-ornament
+
+
+## For Warning Notes
+
+❗ heavy-exclamation-mark  
+
+🔨 hammer (for important warning)
+
+
+## For Very Interesting Notes
 
 😯 hushed-face  (for very interesting notes )
 
----
 
-For Check Marks
+## For Check Marks
 
 ✔ heavy-check-mark
 
----
 
-Other Emojis than may be used
+# Other Emojis than may be used
 
 👀 eyes
 
 ➖ heavy-minus-sign
 
 🔵 large blue circle
-
-🔗 link symbol
 
 🔒 lock
 
@@ -91,15 +99,13 @@ Other Emojis than may be used
 
 🔵 large blue circle
 
-🔗 link symbol
-
 🔒 lock
 
 🤦‍♂️ man-facepalming
 
 💰 money-bag
 
-❌ 
+❌  
 
 📄 
 
@@ -115,8 +121,6 @@ Other Emojis than may be used
 
 ⏱ stopwatch
 
-🍓 strawberry
+⛔ no-entry
 
-
-
-
+🤝 handshake (deprecated for important warning)
