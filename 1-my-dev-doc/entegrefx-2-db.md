@@ -4,6 +4,8 @@
     - [Select Count Where Id In List (Toplu Kayıt Sayısı Kontrolü)](#select-count-where-id-in-list-toplu-kayıt-sayısı-kontrolü)
   - [Oto Update Sorgular](#oto-update-sorgular)
     - [Update Where Id In List (Toplu Güncelleme)](#update-where-id-in-list-toplu-güncelleme)
+  - [Sorgu Teknikleri](#sorgu-teknikleri)
+    - [Insert - Update İkili İşlem](#insert---update-i̇kili-i̇şlem)
   - [FiQuery](#fiquery)
     - [FiQueryTools metodlar](#fiquerytools-metodlar)
 - [Db Aktarım](#db-aktarım)
@@ -60,6 +62,52 @@ System.out.println(sqlQuery2);
 
 
 ```
+
+## Sorgu Teknikleri
+
+### Insert - Update İkili İşlem
+
+- jdUpdate işleminde '@__' ile başlayan değişkenleri java değişkenlerine (:named_var) değiştirmez.
+
+```java
+/**
+	 * insup : Insert - Update (update öncesi yoksa, tabloya ekler ve update yapar)
+	 *
+	 * @param fkbParams
+	 * @return
+	 */
+	public Fdr insupAktarilmayanBelge(FiKeyBean fkbParams) {
+
+		//sq202311301609
+		String sql = "--sq202311301609\n" +
+				"--$ver 1\n" +
+				"DECLARE @__countKasaUser AS int = 0\n" +
+				"\n" +
+				"SELECT @__countKasaUser = count(maeId) FROM EntMaeMikroAktarilmayan\n" +
+				"WHERE maeTxFirmaKodu = @maeTxFirmaKodu\n" +
+				"and maeTxSorMer = @maeTxSorMer\n" +
+				"and maeLnEvrakId = @maeLnEvrakId\n" +
+				"and maeBoFatura = @maeBoFatura\n" +
+				"\n" +
+				"--PRINT @__countKasaUser\n" +
+				"\n" +
+				"IF @__countKasaUser = 0 \n" +
+				"BEGIN\n" +
+				"  INSERT INTO EntMaeMikroAktarilmayan (maeTxFirmaKodu,maeTxSorMer,maeLnEvrakId,maeBoFatura)\n" +
+				"  VALUES (@maeTxFirmaKodu,@maeTxSorMer,@maeLnEvrakId,@maeBoFatura);\n" +
+				"END\n" +
+				"\n" +
+				"UPDATE EntMaeMikroAktarilmayan SET maeDtCreated= @maeDtCreated, maeDtEvrakIslem = @maeDtEvrakIslem, maeTxFailReason = @maeTxFailReason\n" +
+				"WHERE maeTxFirmaKodu = @maeTxFirmaKodu\n" +
+				"and maeTxSorMer = @maeTxSorMer\n" +
+				"and maeLnEvrakId = @maeLnEvrakId\n" +
+				"and maeBoFatura = @maeBoFatura";
+
+		return jdUpdateBindMapMain(sql, fkbParams);
+	}
+```
+
+
 
 ## FiQuery
 
