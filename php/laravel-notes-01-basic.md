@@ -1,4 +1,5 @@
 
+- [Laravel projesini çalıştırma](#laravel-projesini-çalıştırma)
 - [Laravelin Çalışma Yapısı](#laravelin-çalışma-yapısı)
 - [Route Yapısı](#route-yapısı)
 
@@ -29,6 +30,14 @@ ya da php artisan komutu ile de kurulabilir.
 
 ```bash
 
+```
+
+ya da composer komutu ile de proje oluşturulabilir.
+
+# Laravel projesini çalıştırma
+
+```bash
+php artisan serve
 ```
 
 # Laravelin Çalışma Yapısı

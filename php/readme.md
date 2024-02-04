@@ -89,6 +89,10 @@ Php Advanced Topics
 | [Php Mysql-Mysqli-Pdo](./php-mysql-tutor.md) |
 
 
+Content                                          | Topic
+-------------------------------------------------|------
+[L1 - Installation](./laravel-notes-01-basic.md) |
+[L2 - Api](./laravel-notes-02-api.md)            |
 
 
 Old content
