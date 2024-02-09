@@ -16,8 +16,6 @@
 
 🔔 bell
 
-🍋 lemon
-
 🔗 link symbol
 
 ---
@@ -25,6 +23,8 @@
 ## For Tips
 
 🍓 strawberry 
+
+🍋 lemon
 
 ---
 

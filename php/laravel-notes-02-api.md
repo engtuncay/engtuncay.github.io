@@ -1,5 +1,6 @@
 
 - [Laravel Web Routes](#laravel-web-routes)
+- [Route Yapısında Parametre Kullanımı](#route-yapısında-parametre-kullanımı)
 - [Laravel Api Routes](#laravel-api-routes)
 
 
@@ -43,10 +44,37 @@ Route::get('/merhaba-json2', function () {
 ```php
 Route::get('/merhaba-json3', function () {
     return response(['message' => 'Merhaba API JSON3'], 200)
-        ->header('Content-Type', 'text/plain');
+        ->header('Content-Type', 'application/json'); // text/plain
 });
 
 ```
+
+# Route Yapısında Parametre Kullanımı
+
+```php
+Route::get('/product/$id', function ($id) {
+    return "Product Id:$id";
+});
+
+Route::get('/product/$id/$type', function ($id, $typeParam) {
+    return "Product Id:$id Type: $typeParam";
+});
+```
+
+- opsiyonel parametre kullanımı, callback function'ında ilgili argumana default değer verilmesi gerekir.
+
+```php
+Route::get('/product/{$id}/{$type?}', function ($id, $typeParam = '') {
+    return "Product Id:$id Type: $typeParam";
+});
+
+```
+
+
+
+
+
+
 
 
 

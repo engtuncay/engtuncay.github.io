@@ -1,17 +1,17 @@
 
-- [PHP OOP - Classes and Objects](#php-oop---classes-and-objects)
+- [Classes and Objects](#classes-and-objects)
   - [Define a Class](#define-a-class)
   - [Define Objects](#define-objects)
-  - [PHP - The $this Keyword](#php---the-this-keyword)
-  - [PHP - instanceof](#php---instanceof)
+  - [The $this Keyword](#the-this-keyword)
+  - [instanceof operator](#instanceof-operator)
 
 Source : https://www.w3schools.com/php/php_oop_classes_objects.asp
 
-# PHP OOP - Classes and Objects
+# Classes and Objects
 
 A class is a template for objects, and an object is an instance of class.
 
-*OOP Case*
+ *OOP Case*
 
 Let's assume we have a class named Fruit. A Fruit can have properties like name, color, weight, etc. We can define variables like $name, $color, and $weight to hold the values of these properties.
 
@@ -19,7 +19,7 @@ When the individual objects (apple, banana, etc.) are created, they inherit all 
 
 ## Define a Class
 
-A class is defined by using the class keyword, followed by the name of the class and a pair of curly braces ({}). All its properties and methods go inside the braces:
+A class is defined by using the class keyword and class block.
 
 Syntax
 
@@ -37,7 +37,7 @@ Below we declare a class named Fruit consisting of two properties ($name and $co
 ```php
 <?php
 class Fruit {
-  // Properties
+  // Properties / Fields
   public $name;
   public $color;
 
@@ -53,7 +53,7 @@ class Fruit {
 
 ```
 
-*Note:* In a class, variables are called properties and functions are called methods!
+✏ *Note:* In a class, variables are called properties and functions are called methods!
 
 ## Define Objects
 
@@ -61,26 +61,13 @@ Classes are nothing without objects! We can create multiple objects from a class
 
 Objects of a class are created using the new keyword.
 
-In the example below, $apple and $banana are instances of the class Fruit:
+In the example below, $apple and $banana are instances (objects) of the class Fruit:
 
 Example
 
 ```php
 <?php
-class Fruit {
-  // Properties
-  public $name;
-  public $color;
-
-  // Methods
-  function set_name($name) {
-    $this->name = $name;
-  }
-  function get_name() {
-    return $this->name;
-  }
-}
-
+// using previous example Fruit class
 $apple = new Fruit();
 $banana = new Fruit();
 $apple->set_name('Apple');
@@ -129,7 +116,7 @@ echo "Color: " . $apple->get_color();
 
 ```
 
-## PHP - The $this Keyword
+## The $this Keyword
 
 The $this keyword refers to the current object, and is only available inside methods.
 
@@ -186,18 +173,24 @@ echo $apple->name;
 
 ```
 
-## PHP - instanceof
+## instanceof operator
 
-You can use the instanceof keyword to check if an object belongs to a specific class:
+You can use the instanceof keyword to check if an object belongs to a specific class :
 
 Example
 
 ```php
 <?php
+class Fruit {
+  public $name;
+}
+
 $apple = new Fruit();
 var_dump($apple instanceof Fruit);
 ?>
 
+// Output
+// bool(true)
 ```
 
 --end--

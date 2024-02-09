@@ -1,13 +1,13 @@
 
-- [PHP OOP - Constructor](#php-oop---constructor)
+- [OOP - Constructor](#oop---constructor)
 - [PHP OOP - Destructor](#php-oop---destructor)
 - [PHP OOP - Access Modifiers](#php-oop---access-modifiers)
 - [PHP OOP - Class Constants](#php-oop---class-constants)
 
 
-# PHP OOP - Constructor
+# OOP - Constructor
 
-*PHP - The __construct Function*
+🔔  *The __construct Function*
 
 A constructor allows you to initialize an object's properties upon creation of the object.
 
