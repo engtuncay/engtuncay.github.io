@@ -43,8 +43,8 @@ https://github.com/smknstd/modern-php-cheatsheet
 
 Content                                                                               | Note
 --------------------------------------------------------------------------------------|-----
-[1 Intro- Install - Syntax - Comments](./php-w3-01-intro.md)                          | ✔ 
-[2 Variables - Scope - Echo / Print ](./php-w3-02-variables.md)                       | ✔ 
+[1 Intro- Install - Syntax - Comments](./php-w3-01-intro.md)                          | ✔
+[2 Variables - Scope - Echo / Print ](./php-w3-02-variables.md)                       | ✔
 [3 Data Types](./php-w3-03-data-types.md)                                             | ✔
 [4 String - Numbers - Math - Constants - Date](./php-w3-04-string-and-other-types.md) |
 5 Operators                                                                           |
@@ -89,10 +89,10 @@ Php Advanced Topics
 | [Php Mysql-Mysqli-Pdo](./php-mysql-tutor.md) |
 
 
-Content                                          | Topic
--------------------------------------------------|------
-[L1 - Installation](./laravel-notes-01-basic.md) |
-[L2 - Api](./laravel-notes-02-api.md)            |
+Content                                | Topic
+---------------------------------------|------
+[L1 - Installation](./lrv-01-basic.md) |
+[L2 - Api](./lrv-02-api.md)            |
 
 
 Old content
