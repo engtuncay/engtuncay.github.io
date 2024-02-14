@@ -5,6 +5,8 @@ Php Tutorial
 - [References](#references)
 - [Other cheatsheets](#other-cheatsheets)
 - [Notes](#notes)
+- [Laravel](#laravel)
+- [Kurs Notları](#kurs-notları)
 
 # Cheatsheets
 
@@ -88,11 +90,19 @@ Php Advanced Topics
 | [Php Mysql-Pdo](./php-mysql-tutor-pdo.md)    | ✔    |
 | [Php Mysql-Mysqli-Pdo](./php-mysql-tutor.md) |
 
+# Laravel
 
-Content                                | Topic
+Content                                | Note
 ---------------------------------------|------
 [L1 - Installation](./lrv-01-basic.md) |
-[L2 - Api](./lrv-02-api.md)            |
+[L2 - Api](./lrv-02-api.md) 
+
+
+# Kurs Notları
+
+Content                                   | Note
+------------------------------------------|-----
+[Laravel Api - CG](./udemy-lrv-api-cg.md) |
 
 
 Old content
