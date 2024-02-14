@@ -1,5 +1,5 @@
 
-Laravel 7 ile Sıfırdan RESTful API Uygulamaları Geliştirme
+Laravel 7 ile Sıfırdan RESTful API Uygulamaları Geliştirme Kurs Notlarım
 
 # B1 Giriş
 
