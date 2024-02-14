@@ -1,4 +1,10 @@
 
+- [chocolatey](#chocolatey)
+- [cmd ilgili klasörde açma kısayolu](#cmd-ilgili-klasörde-açma-kısayolu)
+
+
+# chocolatey
+
 https://chocolatey.org/install adresine giriyoruz.
 
 Kurulum için powershelli admin yetkisi ile başlaratak aşağıdaki komutu girmemiz yeterli olacaktır.
@@ -13,3 +19,7 @@ Peki ihtiyacınız olan programın install komutunu bilmiyorsanız ne olacak. Bu
 Peki kurulumlarınızı bitirdiniz aradan bir ay geçti ve bi kaç programın güncellemesi çıktı bunları update etmeniz gerekiyor yine komut satırını açarak cup all komutu ile cohoco ile yüklenmiş tüm uygulamaları zahmetsizce update edebilirsiniz.
 
 Elinizdeki yüklü paketlerin listesini clist -l –idonly komutu ile alabilirsiniz ve yeni bir bilgisayarda choco install paket adlarını birer boşluk kullanarak hızlıca kurabilirsiniz.Chocolatey is software management automation
+
+# cmd ilgili klasörde açma kısayolu
+
+windows dosya explorer da adres çubuğuna cmd yazarsak, o klasörde terminali açar.
