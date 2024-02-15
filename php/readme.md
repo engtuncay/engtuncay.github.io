@@ -5,6 +5,7 @@ Php Tutorial
 - [References](#references)
 - [Other cheatsheets](#other-cheatsheets)
 - [Notes](#notes)
+- [Php Advanced Topics](#php-advanced-topics)
 - [Laravel](#laravel)
 - [Kurs Notları](#kurs-notları)
 
@@ -70,12 +71,12 @@ Content                                                                         
 [7 Namespaces](./php-oop-07-namespaces.md)                                                      | 🆗
 [8 Iterables](./php-oop-08-iterables.md)                                                        | 🆗
 
-Php Advanced Topics
+# Php Advanced Topics
 
 | Content                                      | Note |
 |----------------------------------------------|------|
 | PHP Date and Time                            |
-| [PHP Include](./php-adv-02-include.md)       | 🆗   |
+| [PHP Include](./php-adv-02-include.md)       | 🆗   
 | File Handling                                |
 | File Open/Read                               |
 | File Create/Write                            |
@@ -87,15 +88,15 @@ Php Advanced Topics
 | PHP Callback Functions                       |
 | PHP JSON                                     |
 | PHP Exceptions                               |
-| [Php Mysql-Pdo](./php-mysql-tutor-pdo.md)    | ✔    |
+| [Php Mysql-Pdo](./php-mysql-tutor-pdo.md)    | ✔    
 | [Php Mysql-Mysqli-Pdo](./php-mysql-tutor.md) |
 
 # Laravel
 
-Content                                | Note
----------------------------------------|------
-[L1 - Installation](./lrv-01-basic.md) |
-[L2 - Api](./lrv-02-api.md) 
+| Content                                | Note |
+|----------------------------------------|------|
+| [L1 - Installation](./lrv-01-basic.md) |
+| [L2 - Api](./lrv-02-api.md)            |
 
 
 # Kurs Notları
