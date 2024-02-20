@@ -1,84 +1,170 @@
 
 Laravel 7 ile Sıfırdan RESTful API Uygulamaları Geliştirme Kurs Notlarım
 
+- [B1 Giriş](#b1-giriş)
+  - [1. 1.0. Giriş](#1-10-giriş)
+  - [2. 1.1. API Nedir?](#2-11-api-nedir)
+  - [3. 1.2. REST ve RESTful Nedir?](#3-12-rest-ve-restful-nedir)
+  - [4. 1.3. REST Yapısının Özellikleri ve SOAP Yapısı ile Kıyaslanması](#4-13-rest-yapısının-özellikleri-ve-soap-yapısı-ile-kıyaslanması)
+  - [5. 1.4. Örnek API İncelemeleri](#5-14-örnek-api-i̇ncelemeleri)
+- [B2 Laravel'in Temelleri](#b2-laravelin-temelleri)
+  - [6. 2.0. Laravel'in Temelleri](#6-20-laravelin-temelleri)
+  - [7. 2.1. Laravel Nedir?](#7-21-laravel-nedir)
+  - [8. 2.2. XAMPP ve Composer Kurulumu](#8-22-xampp-ve-composer-kurulumu)
+  - [9. 2.3. Laravel Projesi Oluşturma](#9-23-laravel-projesi-oluşturma)
+  - [10. 2.4. Geliştirme Ortamı Alanadını Ayarlama](#10-24-geliştirme-ortamı-alanadını-ayarlama)
+  - [11. 2.5. PhpStorm ve Postman Kurulumu](#11-25-phpstorm-ve-postman-kurulumu)
+  - [12. 2.6. Laravel Projesi Dosya ve Klasör Yapısı](#12-26-laravel-projesi-dosya-ve-klasör-yapısı)
+  - [13. 2.7. Laravel'in Çalışma Yapısı](#13-27-laravelin-çalışma-yapısı)
+  - [14. 2.8. Web Route Yapısı](#14-28-web-route-yapısı)
+  - [15.  2.9. Route Yapısı Yanıt Türleri](#15--29-route-yapısı-yanıt-türleri)
+  - [16. 2.10. Route Yapısında Parametre Kullanımı](#16-210-route-yapısında-parametre-kullanımı)
+  - [17. 2.11. Route Tanımlarını İsimlendirme](#17-211-route-tanımlarını-i̇simlendirme)
+  - [18. 2.12. Route Tanımlarını Gruplama](#18-212-route-tanımlarını-gruplama)
+  - [19. 2.13. Controller Yapısı](#19-213-controller-yapısı)
+  - [20. 2.14. View Yapısı ve Blade Template Engine](#20-214-view-yapısı-ve-blade-template-engine)
+  - [21. 2.15. View Yapısı ve Blade Template Engine-2](#21-215-view-yapısı-ve-blade-template-engine-2)
+  - [22. 2.16. Veritabanı Bağlantısı](#22-216-veritabanı-bağlantısı)
+  - [23. 2.17. Migration Yapısı](#23-217-migration-yapısı)
+  - [24. 2.18. Raw SQL Query](#24-218-raw-sql-query)
+- [B3 - RESTful API Geliştirme](#b3---restful-api-geliştirme)
+  - [32. 3.0. RESTful API Geliştirme](#32-30-restful-api-geliştirme)
+  - [33. 3.1. API Route Dosyası](#33-31-api-route-dosyası)
+  - [34. 3.2. API İsteklerini Test Etme](#34-32-api-i̇steklerini-test-etme)
+
+
+
+
 # B1 Giriş
 
-Oynat
-1. 1.0. Giriş
+## 1. 1.0. Giriş
 
-2. 1.1. API Nedir?
-2 dak
+## 2. 1.1. API Nedir?
 
+## 3. 1.2. REST ve RESTful Nedir?
 
-1. 1.2. REST ve RESTful Nedir?
-2 dak
+## 4. 1.3. REST Yapısının Özellikleri ve SOAP Yapısı ile Kıyaslanması
 
-
-1. 1.3. REST Yapısının Özellikleri ve SOAP Yapısı ile Kıyaslanması
-2 dak
-
-
-1. 1.4. Örnek API İncelemeleri
-11 dak
+## 5. 1.4. Örnek API İncelemeleri
 
 
 # B2 Laravel'in Temelleri
 
-6. 2.0. Laravel'in Temelleri
-1 dak
+## 6. 2.0. Laravel'in Temelleri
 
-7. 2.1. Laravel Nedir?
-1 dak
 
-8. 2.2. XAMPP ve Composer Kurulumu
-5 dak
+## 7. 2.1. Laravel Nedir?
 
-9. 2.3. Laravel Projesi Oluşturma
-5 dak
 
-10. 2.4. Geliştirme Ortamı Alanadını Ayarlama
+## 8. 2.2. XAMPP ve Composer Kurulumu
+
+
+## 9. 2.3. Laravel Projesi Oluşturma
+
+
+## 10. 2.4. Geliştirme Ortamı Alanadını Ayarlama
+
+
+## 11. 2.5. PhpStorm ve Postman Kurulumu
+
+
+## 12. 2.6. Laravel Projesi Dosya ve Klasör Yapısı
+
+
+## 13. 2.7. Laravel'in Çalışma Yapısı
+
+
+## 14. 2.8. Web Route Yapısı
+
+- default index web rutu, view template sisteminde welcome view'ni açar. (resources/views/welcome.blade.php)
+
+```php
+Route::get('/', function () {
+    return view('welcome');
+});
+
+```
+
+- routes/web.php dosyasına rut eklediğimizde text olarak dönüş yapabiliriz. (http://127.0.0.1:8000/merhaba)
+
+```php
+Route::get('/merhaba', function () {
+    return 'Merhaba';
+});
+```
+
+- json dönüş yapabiliriz.
+
+```php
+Route::get('/merhaba-json', function () {
+    return ['message' => 'Merhaba API'];
+});
+```
+
+- json dönüşünü Laravel fonksiyonları ile de yapabiliriz.
+
+```php
+Route::get('/merhaba-json2', function () {
+    return response(['message' => 'Merhaba API Json2'], 200);
+});
+```
+
+- laravel metodları ile response header ları dönüş yapabiliriz.
+
+```php
+Route::get('/merhaba-json3', function () {
+    return response(['message' => 'Merhaba API JSON3'], 200)
+        ->header('Content-Type', 'application/json'); // text/plain
+});
+
+```
+
+## 15.  2.9. Route Yapısı Yanıt Türleri
+
+
+## 16. 2.10. Route Yapısında Parametre Kullanımı
+
+```php
+Route::get('/product/$id', function ($id) {
+    return "Product Id:$id";
+});
+
+Route::get('/product/$id/$type', function ($id, $typeParam) {
+    return "Product Id:$id Type: $typeParam";
+});
+```
+
+- opsiyonel parametre kullanımı, callback function'ında ilgili argumana default değer verilmesi gerekir.
+
+```php
+Route::get('/product/{$id}/{$type?}', function ($id, $typeParam = '') {
+    return "Product Id:$id Type: $typeParam";
+});
+
+```
+
+## 17. 2.11. Route Tanımlarını İsimlendirme
 4 dak
 
-11. 2.5. PhpStorm ve Postman Kurulumu
-3 dak
-
-12. 2.6. Laravel Projesi Dosya ve Klasör Yapısı
-9 dak
-
-13. 2.7. Laravel'in Çalışma Yapısı
+## 18. 2.12. Route Tanımlarını Gruplama
 2 dak
 
-14. 2.8. Route Yapısı
-3 dak
-
-15. 2.9. Route Yapısı Yanıt Türleri
-6 dak
-
-16. 2.10. Route Yapısı Parametre Kullanımı
+## 19. 2.13. Controller Yapısı
 5 dak
 
-17. 2.11. Route Tanımlarını İsimlendirme
-4 dak
-
-18. 2.12. Route Tanımlarını Gruplama
-2 dak
-
-19. 2.13. Controller Yapısı
-5 dak
-
-20. 2.14. View Yapısı ve Blade Template Engine
+## 20. 2.14. View Yapısı ve Blade Template Engine
 7 dak
 
-21. 2.15. View Yapısı ve Blade Template Engine-2
+## 21. 2.15. View Yapısı ve Blade Template Engine-2
 7 dak
 
-22. 2.16. Veritabanı Bağlantısı
+## 22. 2.16. Veritabanı Bağlantısı
 7 dak
 
-23. 2.17. Migration Yapısı
+## 23. 2.17. Migration Yapısı
 12 dak
 
-24. 2.18. Raw SQL Query
+## 24. 2.18. Raw SQL Query
 6 dak
 
 25. 2.19. Query Builder Yapısı
@@ -102,13 +188,42 @@ Oynat
 31. 2.25. Seed Yapısı
 10 dak
 
-32. 3.0. RESTful API Geliştirme
-1 dak
+# B3 - RESTful API Geliştirme 
 
-33. 3.1. API Route Dosyası
-4 dak
+## 32. 3.0. RESTful API Geliştirme
 
-34. 3.2. API İsteklerini Test Etme
+🔔 Neler öğrenilecek
+
+## 33. 3.1. API Route Dosyası
+
+- routes klasörünün altında api.php dosyasından api rutları ayarlanır.
+- İlk ayarlamalar Providers klasörü içerisindeki RouteServiceProvider tarafından gerçekleştirilir.
+  map metodunda iki metod çalıştırır. mapApiRoutes ve mapWebRoutes. 
+
+- api route ları otomatik `/api` prefix ile tanımlanmış. 'myurl/api/' gibi alt dizinde belirtilir.
+
+- api middleware kullanılmış. group metodu ile route tanımlarının nerede yapılacağı belirtilir.
+
+Example 1 
+
+```php
+Route::get('/merhaba', function () {
+    return "Merhaba Restful API";
+});
+```
+
+
+
+- return olarak factory fonksiyonunu kullanabiliriz.
+
+```php
+Route::get('/users', function () {
+    return factory(User::class,10)->make()";
+});
+```
+
+
+## 34. 3.2. API İsteklerini Test Etme
 2 dak
 
 35. 3.3. HTTP Metotları
