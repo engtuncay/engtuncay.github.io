@@ -33,9 +33,11 @@
 
 - W3Schools, https://www.w3schools.com/js/default.asp 
 
-- http://es6-features.org
+- Es6 Features, http://es6-features.org
 
-- https://exploringjs.com/
+- Exploring Js, https://exploringjs.com/
+
+- Developer Mozilla Docs, https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/JavaScript_basics
 
 # Js Notes
 
