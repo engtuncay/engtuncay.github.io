@@ -16,6 +16,10 @@ These notes are taken from web resources. Some sections can be modified.
 
 [XML](./xml/readme.md)
 
+[React Notes](./react/README.md)
+
+[Progressive Web Application](./pwa/readme.md)
+
 ---
 
 [Coding Resources](./mix/coding-resources.md)
@@ -28,6 +32,6 @@ These notes are taken from web resources. Some sections can be modified.
 
 [Vue Tutors](./vue/README.md)
 
-[React Tutors](./react/README.md)
+
 
 
