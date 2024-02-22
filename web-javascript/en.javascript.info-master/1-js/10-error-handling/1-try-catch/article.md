@@ -36,7 +36,7 @@ Let's look at some examples.
 
 - An errorless example: shows `alert` `(1)` and `(2)`:
 
-    ```js run
+```js run
     try {
 
       alert('Start of try runs');  // *!*(1) <--*/!*
@@ -69,7 +69,8 @@ Let's look at some examples.
       alert(`Error has occurred!`); // *!*(3) <--*/!*
 
     }
-    ```
+
+```
 
 
 warn header="`try...catch` only works for runtime errors"
@@ -80,10 +81,11 @@ It won't work if the code is syntactically wrong, for instance it has unmatched 
 
 ```js
 try {
-  // {{{{{{{{{{{{
+  // {{
 } catch (err) {
   alert("The engine can't understand this code, it's invalid");
 }
+// }}
 ```
 
 The JavaScript engine first reads the code, and then runs it. The errors that occur on the reading phase are called "parse-time" errors and are unrecoverable (from inside that code). That's because the engine can't understand the code.
