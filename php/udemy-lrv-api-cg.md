@@ -218,7 +218,7 @@ Route::get('/merhaba', function () {
 
 ```php
 Route::get('/users', function () {
-    return factory(User::class,10)->make()";
+    return factory(User::class,10)->make();
 });
 ```
 

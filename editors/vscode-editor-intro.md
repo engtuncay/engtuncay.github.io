@@ -1,82 +1,18 @@
 
 **Visual Studio Code**
 
-<!-- TOC -->
-
-- [Shortcuts](#shortcuts)
-    - [File](#file)
-    - [Edit](#edit)
-    - [Selection](#selection)
-    - [View](#view)
-    - [Navigation or Go](#navigation-or-go)
-    - [Debug and Run](#debug-and-run)
-    - [Tasks](#tasks)
-    - [Help](#help)
 - [Other Important Articles](#other-important-articles)
-    - [Navigating to the borders of a code block](#navigating-to-the-borders-of-a-code-block)
+  - [Navigating to the borders of a code block](#navigating-to-the-borders-of-a-code-block)
 - [Extensions List](#extensions-list)
-    - [Html](#html)
-    - [Css](#css)
-    - [Js](#js)
-    - [Angular](#angular)
-    - [Java](#java)
-    - [Dot Net C](#dot-net-c)
+  - [Html](#html)
+  - [Css](#css)
+  - [Js](#js)
+  - [Java](#java)
+  - [Dot Net C#](#dot-net-c)
 - [Extension Tutors](#extension-tutors)
-    - [Emmet (Zen Coding)](#emmet-zen-coding)
-    - [](#)
-    - [Region Folding Extension](#region-folding-extension)
-
-<!-- /TOC -->
-
-
----
-
-
-## Shortcuts
-
-
-
-### File
-
-- Ctrl + P : Go To File
-
-
-
-Known Shortcuts
-
-- C + N : New File
-
-### Edit
-
-
-
-### Selection
-
-
-
-### View
-
-- Ctrl + Shift + P : Show All Commands - Command Palette
-
-
-
-
-
-### Navigation or Go
-
-- Find in File : C,S + F
-
-- Toggle Terminal C + "
-
-
-### Debug and Run
-- Start Debugging F5
-
-### Tasks
-
-### Help
-
-
+  - [Emmet (Zen Coding)](#emmet-zen-coding)
+  - [](#)
+  - [Region Folding Extension](#region-folding-extension)
 
 ## Other Important Articles 
 
@@ -130,13 +66,9 @@ Key. Shortcut ı için File -> Pref -> Keyb. Shortcuts buradan bulunur ve kısay
 
 ### Js
 
-### Angular
-
 ### Java
 
 ### Dot Net C#
-
-
 
 
 ## Extension Tutors
@@ -253,10 +185,4 @@ For HTML style languages, you could define a fodable region with the following t
 ```
 
 The extension is still alpha quality, so please do log any bugs on Github here.
-
-
-
-
-
-
 
