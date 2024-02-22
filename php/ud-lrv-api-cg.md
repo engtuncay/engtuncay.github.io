@@ -31,6 +31,8 @@ Laravel 7 ile Sıfırdan RESTful API Uygulamaları Geliştirme Kurs Notlarım
   - [32. 3.0. RESTful API Geliştirme](#32-30-restful-api-geliştirme)
   - [33. 3.1. API Route Dosyası](#33-31-api-route-dosyası)
   - [34. 3.2. API İsteklerini Test Etme](#34-32-api-i̇steklerini-test-etme)
+  - [35.  3.4. HTTP Status Codes](#35--34-http-status-codes)
+  - [36. 3.5. Resource Controller ve Route Tanımları](#36-35-resource-controller-ve-route-tanımları)
 
 
 
@@ -245,13 +247,41 @@ Route::get('/users', function () {
 
 - Genel Http Metotları
 
+Verb   | Description
+-------|----------------
+GET    | Read
+POST   | Create
+PUT    | UPDATE /Replace
+DELETE | Delete
+Patch  | Update / Modify
+
+## 35.  3.4. HTTP Status Codes
+
+- Some Http Status Codes
+
+Code | Type        | Desc
+-----|-------------|-------------
+200  | Ok          | Success Code
+400  | Bad request |
+404 | Not Foundd
+500  | Internal Server Error |
+
+![](./img/udc1/http-status-codes.jpg)
 
 
-1.  3.4. HTTP Status Codes
-2 dak
+## 36. 3.5. Resource Controller ve Route Tanımları
 
-1.  3.5. Resource Controller ve Route Tanımları
-9 dak
+- api controller oluşturma komutu
+
+model vermezsek, metodlara argüman olarak obje yerine $id tanımlar.
+
+```bash
+php artisan make:controller ProductController --resource --model=Product
+```
+
+
+
+
 
 1.  3.6. API Resource Controller ve Route Tanımları
 6 dak
