@@ -103,7 +103,7 @@ Content                                                                         
 
 Content                                   | Note
 ------------------------------------------|-----
-[Laravel Api - CG](./udemy-lrv-api-cg.md) |
+[Laravel Api - CG](./ud-lrv-api-cg.md) |
 
 
 Old content
