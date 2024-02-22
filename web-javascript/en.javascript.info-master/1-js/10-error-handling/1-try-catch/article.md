@@ -81,11 +81,11 @@ It won't work if the code is syntactically wrong, for instance it has unmatched 
 
 ```js
 try {
-  // {{
+  // open-curlybraces
 } catch (err) {
   alert("The engine can't understand this code, it's invalid");
 }
-// }}
+
 ```
 
 The JavaScript engine first reads the code, and then runs it. The errors that occur on the reading phase are called "parse-time" errors and are unrecoverable (from inside that code). That's because the engine can't understand the code.
