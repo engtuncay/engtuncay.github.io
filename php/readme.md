@@ -5,9 +5,9 @@ Php Tutorial
 - [References](#references)
 - [Other cheatsheets](#other-cheatsheets)
 - [Notes](#notes)
+- [Kurs Notları](#kurs-notları)
 - [Php Advanced Topics](#php-advanced-topics)
 - [Laravel](#laravel)
-- [Kurs Notları](#kurs-notları)
 
 # Cheatsheets
 
@@ -58,6 +58,12 @@ Content                                                                         
 10 RegEx                                                                              |
 
 
+# Kurs Notları
+
+Content                                                 | Note
+--------------------------------------------------------|-----
+[Laravel Api Kurs Notları 1 - CG](./laravel-api-kn1.md) |
+
 Php OOP
 
 Content                                                                                         | Note
@@ -99,11 +105,7 @@ Content                                                                         
 | [L2 - Api](./lrv-02-api.md)            |
 
 
-# Kurs Notları
 
-Content                                   | Note
-------------------------------------------|-----
-[Laravel Api - CG](./ud-lrv-api-cg.md) |
 
 
 Old content

@@ -1,82 +1,104 @@
 
+Laravel Api Kurs Notlarım
+
 Laravel 7 ile Sıfırdan RESTful API Uygulamaları Geliştirme Kurs Notlarım
 
 - [B1 Giriş](#b1-giriş)
-  - [1. 1.0. Giriş](#1-10-giriş)
-  - [2. 1.1. API Nedir?](#2-11-api-nedir)
-  - [3. 1.2. REST ve RESTful Nedir?](#3-12-rest-ve-restful-nedir)
-  - [4. 1.3. REST Yapısının Özellikleri ve SOAP Yapısı ile Kıyaslanması](#4-13-rest-yapısının-özellikleri-ve-soap-yapısı-ile-kıyaslanması)
-  - [5. 1.4. Örnek API İncelemeleri](#5-14-örnek-api-i̇ncelemeleri)
+  - [1.0. Giriş](#10-giriş)
+  - [1.1. API Nedir?](#11-api-nedir)
+  - [1.2. REST ve RESTful Nedir?](#12-rest-ve-restful-nedir)
+  - [1.3. REST Yapısının Özellikleri ve SOAP Yapısı ile Kıyaslanması](#13-rest-yapısının-özellikleri-ve-soap-yapısı-ile-kıyaslanması)
+  - [1.4. Örnek API İncelemeleri](#14-örnek-api-i̇ncelemeleri)
 - [B2 Laravel'in Temelleri](#b2-laravelin-temelleri)
-  - [6. 2.0. Laravel'in Temelleri](#6-20-laravelin-temelleri)
-  - [7. 2.1. Laravel Nedir?](#7-21-laravel-nedir)
-  - [8. 2.2. XAMPP ve Composer Kurulumu](#8-22-xampp-ve-composer-kurulumu)
-  - [9. 2.3. Laravel Projesi Oluşturma](#9-23-laravel-projesi-oluşturma)
-  - [10. 2.4. Geliştirme Ortamı Alanadını Ayarlama](#10-24-geliştirme-ortamı-alanadını-ayarlama)
-  - [11. 2.5. PhpStorm ve Postman Kurulumu](#11-25-phpstorm-ve-postman-kurulumu)
-  - [12. 2.6. Laravel Projesi Dosya ve Klasör Yapısı](#12-26-laravel-projesi-dosya-ve-klasör-yapısı)
-  - [13. 2.7. Laravel'in Çalışma Yapısı](#13-27-laravelin-çalışma-yapısı)
-  - [14. 2.8. Web Route Yapısı](#14-28-web-route-yapısı)
-  - [15.  2.9. Route Yapısı Yanıt Türleri](#15--29-route-yapısı-yanıt-türleri)
-  - [16. 2.10. Route Yapısında Parametre Kullanımı](#16-210-route-yapısında-parametre-kullanımı)
-  - [17. 2.11. Route Tanımlarını İsimlendirme](#17-211-route-tanımlarını-i̇simlendirme)
-  - [18. 2.12. Route Tanımlarını Gruplama](#18-212-route-tanımlarını-gruplama)
-  - [19. 2.13. Controller Yapısı](#19-213-controller-yapısı)
-  - [20. 2.14. View Yapısı ve Blade Template Engine](#20-214-view-yapısı-ve-blade-template-engine)
-  - [21. 2.15. View Yapısı ve Blade Template Engine-2](#21-215-view-yapısı-ve-blade-template-engine-2)
-  - [22. 2.16. Veritabanı Bağlantısı](#22-216-veritabanı-bağlantısı)
-  - [23. 2.17. Migration Yapısı](#23-217-migration-yapısı)
-  - [24. 2.18. Raw SQL Query](#24-218-raw-sql-query)
+  - [2.0. Laravel'in Temelleri](#20-laravelin-temelleri)
+  - [2.1. Laravel Nedir?](#21-laravel-nedir)
+  - [2.2. XAMPP ve Composer Kurulumu](#22-xampp-ve-composer-kurulumu)
+  - [2.3. Laravel Projesi Oluşturma](#23-laravel-projesi-oluşturma)
+  - [2.4. Geliştirme Ortamı Alanadını Ayarlama](#24-geliştirme-ortamı-alanadını-ayarlama)
+  - [2.5. PhpStorm ve Postman Kurulumu](#25-phpstorm-ve-postman-kurulumu)
+  - [2.6. Laravel Projesi Dosya ve Klasör Yapısı](#26-laravel-projesi-dosya-ve-klasör-yapısı)
+  - [2.7. Laravel'in Çalışma Yapısı](#27-laravelin-çalışma-yapısı)
+  - [2.8. Web Route Yapısı](#28-web-route-yapısı)
+  - [2.9. Route Yapısı Yanıt Türleri](#29-route-yapısı-yanıt-türleri)
+  - [2.10. Route Yapısında Parametre Kullanımı](#210-route-yapısında-parametre-kullanımı)
+  - [2.11. Route Tanımlarını İsimlendirme](#211-route-tanımlarını-i̇simlendirme)
+  - [2.12. Route Tanımlarını Gruplama](#212-route-tanımlarını-gruplama)
+  - [2.13. Controller Yapısı](#213-controller-yapısı)
+  - [2.14. View Yapısı ve Blade Template Engine](#214-view-yapısı-ve-blade-template-engine)
+  - [2.15. View Yapısı ve Blade Template Engine-2](#215-view-yapısı-ve-blade-template-engine-2)
+  - [2.16. Veritabanı Bağlantısı](#216-veritabanı-bağlantısı)
+  - [2.17. Migration Yapısı](#217-migration-yapısı)
+  - [2.18. Raw SQL Query](#218-raw-sql-query)
+  - [2.19. Query Builder Yapısı](#219-query-builder-yapısı)
+  - [2.20. Eloquent ORM ve Model Yapısı](#220-eloquent-orm-ve-model-yapısı)
+  - [2.21. Eloquent ORM - Kayıt Ekleme](#221-eloquent-orm---kayıt-ekleme)
+  - [2.22. Eloquent ORM - Kayıt Çekme](#222-eloquent-orm---kayıt-çekme)
+  - [2.23. Eloquent ORM - Güncelleme ve Silme](#223-eloquent-orm---güncelleme-ve-silme)
+  - [2.24. Factory Yapısı](#224-factory-yapısı)
+  - [2.25. Seed Yapısı](#225-seed-yapısı)
 - [B3 - RESTful API Geliştirme](#b3---restful-api-geliştirme)
-  - [32. 3.0. RESTful API Geliştirme](#32-30-restful-api-geliştirme)
-  - [33. 3.1. API Route Dosyası](#33-31-api-route-dosyası)
-  - [34. 3.2. API İsteklerini Test Etme](#34-32-api-i̇steklerini-test-etme)
-  - [35.  3.4. HTTP Status Codes](#35--34-http-status-codes)
-  - [36. 3.5. Resource Controller ve Route Tanımları](#36-35-resource-controller-ve-route-tanımları)
-
-
-
+  - [3.0. RESTful API Geliştirme](#30-restful-api-geliştirme)
+  - [3.1. API Route Dosyası](#31-api-route-dosyası)
+  - [3.2. API İsteklerini Test Etme](#32-api-i̇steklerini-test-etme)
+  - [3.3. HTTP Metotları](#33-http-metotları)
+  - [3.4. HTTP Status Codes](#34-http-status-codes)
+  - [3.5 Resource Controller ve Route Tanımları](#35-resource-controller-ve-route-tanımları)
+  - [3.6. API Resource Controller ve Route Tanımları](#36-api-resource-controller-ve-route-tanımları)
+  - [3.7. Product API Read (GET)](#37-product-api-read-get)
+  - [3.8. Product API Insert (POST)](#38-product-api-insert-post)
+  - [3.9. Product API Update (PUT)](#39-product-api-update-put)
+  - [3.10. Product API Delete (DELETE)](#310-product-api-delete-delete)
+  - [3.11. Sayfalandırma](#311-sayfalandırma)
+  - [3.12. Filtreleme ve Sıralama](#312-filtreleme-ve-sıralama)
+  - [3.13. Category API İşlemleri](#313-category-api-i̇şlemleri)
+  - [3.14. User API İşlemleri](#314-user-api-i̇şlemleri)
+  - [3.15. İlişkili Tablo Yapısını Oluşturma](#315-i̇lişkili-tablo-yapısını-oluşturma)
+  - [3.16. Product ve Category Model İlişkileri](#316-product-ve-category-model-i̇lişkileri)
+  - [3.17. İlişkili Tablo Verilerini Çekme](#317-i̇lişkili-tablo-verilerini-çekme)
+- [B4 Veri Dönüşümleri](#b4-veri-dönüşümleri)
+  - [4.0. Veri Dönüşümleri](#40-veri-dönüşümleri)
+- [Sources](#sources)
 
 # B1 Giriş
 
-## 1. 1.0. Giriş
+## 1.0. Giriş
 
-## 2. 1.1. API Nedir?
+## 1.1. API Nedir?
 
-## 3. 1.2. REST ve RESTful Nedir?
+## 1.2. REST ve RESTful Nedir?
 
-## 4. 1.3. REST Yapısının Özellikleri ve SOAP Yapısı ile Kıyaslanması
+## 1.3. REST Yapısının Özellikleri ve SOAP Yapısı ile Kıyaslanması
 
-## 5. 1.4. Örnek API İncelemeleri
+## 1.4. Örnek API İncelemeleri
 
 
 # B2 Laravel'in Temelleri
 
-## 6. 2.0. Laravel'in Temelleri
+## 2.0. Laravel'in Temelleri
 
 
-## 7. 2.1. Laravel Nedir?
+## 2.1. Laravel Nedir?
 
 
-## 8. 2.2. XAMPP ve Composer Kurulumu
+## 2.2. XAMPP ve Composer Kurulumu
 
 
-## 9. 2.3. Laravel Projesi Oluşturma
+## 2.3. Laravel Projesi Oluşturma
 
 
-## 10. 2.4. Geliştirme Ortamı Alanadını Ayarlama
+## 2.4. Geliştirme Ortamı Alanadını Ayarlama
 
 
-## 11. 2.5. PhpStorm ve Postman Kurulumu
+## 2.5. PhpStorm ve Postman Kurulumu
 
 
-## 12. 2.6. Laravel Projesi Dosya ve Klasör Yapısı
+## 2.6. Laravel Projesi Dosya ve Klasör Yapısı
 
 
-## 13. 2.7. Laravel'in Çalışma Yapısı
+## 2.7. Laravel'in Çalışma Yapısı
 
 
-## 14. 2.8. Web Route Yapısı
+## 2.8. Web Route Yapısı
 
 - default index web rutu, view template sisteminde welcome view'ni açar. (resources/views/welcome.blade.php)
 
@@ -121,10 +143,10 @@ Route::get('/merhaba-json3', function () {
 
 ```
 
-## 15.  2.9. Route Yapısı Yanıt Türleri
+## 2.9. Route Yapısı Yanıt Türleri
 
 
-## 16. 2.10. Route Yapısında Parametre Kullanımı
+## 2.10. Route Yapısında Parametre Kullanımı
 
 ```php
 Route::get('/product/$id', function ($id) {
@@ -145,58 +167,58 @@ Route::get('/product/{$id}/{$type?}', function ($id, $typeParam = '') {
 
 ```
 
-## 17. 2.11. Route Tanımlarını İsimlendirme
+## 2.11. Route Tanımlarını İsimlendirme
 4 dak
 
-## 18. 2.12. Route Tanımlarını Gruplama
+## 2.12. Route Tanımlarını Gruplama
 2 dak
 
-## 19. 2.13. Controller Yapısı
+## 2.13. Controller Yapısı
 5 dak
 
-## 20. 2.14. View Yapısı ve Blade Template Engine
+## 2.14. View Yapısı ve Blade Template Engine
 7 dak
 
-## 21. 2.15. View Yapısı ve Blade Template Engine-2
+## 2.15. View Yapısı ve Blade Template Engine-2
 7 dak
 
-## 22. 2.16. Veritabanı Bağlantısı
+## 2.16. Veritabanı Bağlantısı
 7 dak
 
-## 23. 2.17. Migration Yapısı
+## 2.17. Migration Yapısı
 12 dak
 
-## 24. 2.18. Raw SQL Query
+## 2.18. Raw SQL Query
 6 dak
 
-25. 2.19. Query Builder Yapısı
+## 2.19. Query Builder Yapısı
 7 dak
 
-26. 2.20. Eloquent ORM ve Model Yapısı
+## 2.20. Eloquent ORM ve Model Yapısı
 6 dak
 
-27. 2.21. Eloquent ORM - Kayıt Ekleme
+## 2.21. Eloquent ORM - Kayıt Ekleme
 6 dak
 
-28. 2.22. Eloquent ORM - Kayıt Çekme
+## 2.22. Eloquent ORM - Kayıt Çekme
 2 dak
 
-29. 2.23. Eloquent ORM - Güncelleme ve Silme
+## 2.23. Eloquent ORM - Güncelleme ve Silme
 6 dak
 
-30. 2.24. Factory Yapısı
+## 2.24. Factory Yapısı
 10 dak
 
-31. 2.25. Seed Yapısı
+## 2.25. Seed Yapısı
 10 dak
 
 # B3 - RESTful API Geliştirme 
 
-## 32. 3.0. RESTful API Geliştirme
+## 3.0. RESTful API Geliştirme
 
 🔔 Neler öğrenilecek
 
-## 33. 3.1. API Route Dosyası
+## 3.1. API Route Dosyası
 
 - routes klasörünün altında api.php dosyasından api rutları ayarlanır.
   
@@ -227,7 +249,7 @@ Example 1
 Route::get('/merhaba', function () {
     return "Merhaba Restful API";
 });
-```xx
+```
 
 - return olarak factory fonksiyonunu kullanabiliriz. laravel 10 ile çalışmıyor.
 
@@ -236,14 +258,15 @@ Route::get('/users', function () {
     return factory(User::class,10)->make();
 });
 ```
+🔚
 
-
-## 34. 3.2. API İsteklerini Test Etme
-2 dak
+## 3.2. API İsteklerini Test Etme
 
 - Api isteklerini postman ile test edebiliriz.
 
-35.  3.3. HTTP Metotları
+🔚
+
+## 3.3. HTTP Metotları
 
 - Genel Http Metotları
 
@@ -255,7 +278,9 @@ PUT    | UPDATE /Replace
 DELETE | Delete
 Patch  | Update / Modify
 
-## 35.  3.4. HTTP Status Codes
+🔚
+
+## 3.4. HTTP Status Codes
 
 - Some Http Status Codes
 
@@ -268,8 +293,9 @@ Code | Type        | Desc
 
 ![](./img/udc1/http-status-codes.jpg)
 
+🔚
 
-## 36. 3.5. Resource Controller ve Route Tanımları
+## 3.5 Resource Controller ve Route Tanımları
 
 - api controller oluşturma komutu
 
@@ -279,47 +305,72 @@ model vermezsek, metodlara argüman olarak obje yerine $id tanımlar.
 php artisan make:controller ProductController --resource --model=Product
 ```
 
+- controller dan otomatik metodların tanımlanması
+
+```php
+Route::resource('/products','ProductController');
+```
+
+- uygulama içindeki tüm rutların listesini almak
+
+```bash
+php artisan route:list
+```
+
+- controller içerisindeki tümünü değil bazı metodları kullanma
+
+```php
+Route::resource('/products','ProductController')->only(['index','show']);
+```
+
+- controller içerisindeki bazı metodları hariç tutma
+
+```php
+Route::resource('/products','ProductController')->except(['destroy']);
+```
+
+🔚
+
+## 3.6. API Resource Controller ve Route Tanımları
 
 
 
-
-1.  3.6. API Resource Controller ve Route Tanımları
-6 dak
-
-1.  3.7. Product API Read (GET)
+## 3.7. Product API Read (GET)
 8 dak
 
-1.  3.8. Product API Insert (POST)
+## 3.8. Product API Insert (POST)
 13 dak
 
-1.  3.9. Product API Update (PUT)
+## 3.9. Product API Update (PUT)
 8 dak
 
-1.  3.10. Product API Delete (DELETE)
+## 3.10. Product API Delete (DELETE)
 2 dak
 
-1.  3.11. Sayfalandırma
+## 3.11. Sayfalandırma
 10 dak
 
-1.  3.12. Filtreleme ve Sıralama
+## 3.12. Filtreleme ve Sıralama
 8 dak
 
-1.  3.13. Category API İşlemleri
+## 3.13. Category API İşlemleri
 7 dak
 
-1.  3.14. User API İşlemleri
+## 3.14. User API İşlemleri
 5 dak
 
-1.  3.15. İlişkili Tablo Yapısını Oluşturma
+## 3.15. İlişkili Tablo Yapısını Oluşturma
 12 dak
 
-1.  3.16. Product ve Category Model İlişkileri
+## 3.16. Product ve Category Model İlişkileri
 6 dak
 
-1.  3.17. İlişkili Tablo Verilerini Çekme
+## 3.17. İlişkili Tablo Verilerini Çekme
 4 dak
 
-1.  4.0. Veri Dönüşümleri
+# B4 Veri Dönüşümleri
+
+## 4.0. Veri Dönüşümleri
 1 dak
 
 1.  4.1. Dönüş Kolonlarını Özelleştirme
@@ -545,3 +596,10 @@ php artisan make:controller ProductController --resource --model=Product
 5 dak
 
 1.   10.6. Yayınlama Sonrası İşlemler
+2.   
+
+
+# Sources
+
+- Udemy Course, https://www.udemy.com/course/laravel-ile-sifirdan-restful-api-uygulamalari-gelistirme (recommended)
+
