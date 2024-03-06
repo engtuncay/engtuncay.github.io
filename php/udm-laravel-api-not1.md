@@ -333,10 +333,147 @@ Route::resource('/products','ProductController')->except(['destroy']);
 
 ## 3.6. API Resource Controller ve Route Tanımları
 
+- api argumanını, model baglamak istiyorsak da modeli belirtiriz. app/http/controllers/Api içerisine ProductController.php dosyasını oluşturur.
+
+```bash
+php artisan make:controller Api\ProductController --api --model=Product
+```
+
+- oluşturulan örnek api resource controller dosyası 
+
+```php
+namespace App\Http\Controllers\Api;
+
+use App\Http\Controllers\Controller;
+use App\Models\Product;
+use Illuminate\Http\Request;
+
+class ProductController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(Product $product)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, Product $product)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(Product $product)
+    {
+        //
+    }
+}
+
+```
+
+model bağlanmasaydı argüman olarak product yerine id alırdı. api uygulamalarında , web uygulamalarındaki create metodu yok. create metodu form gösterimi için kullanılan metoddur.
+
+- Api.php de kayıt etmek için
+
+
+```php
+// api.php file
+Route::apiResource('/product','Api\ProductController');
+// another way
+Route::apiResource('/product', ProductController::class);
+```
+
+- route listelemek için
+
+```bash
+php artisan route:list
+```
+
+- api.php de toplu olarak tanımlayabiliriz.
+
+```php
+Route::apiResources([
+  'products' => 'Api\ProductController',
+  'users' => 'Api\UserController'
+]);
+```
+
+
 
 
 ## 3.7. Product API Read (GET)
-8 dak
+
+- Elaquent ile Product:all() veritabanındaki tüm ürünleri çekebiliriz.
+
+- normalde laravel content type application/json çeviriyor, fakat apiResouce controller metodunda detaylı dönüş de yapabiliriz.
+
+```php
+return response()->json(Product:all(),200);
+// veya
+return respone(Product:all(),200);
+```
+
+- show metodunda laravel $product parametresini id sini alarak direk $product objesini dönüş yapabiliriz.
+
+```php
+public function show(Product $product)
+  {
+    //
+    return $product;
+  }
+```
+
+- ürünün id'sini url'den veririz. /api/products/1 gibi.
+
+- response function ile de dönüş yapabiliriz.
+
+```php
+return respone($product,200);
+```
+
+- olmayan ürünün id'si istenirse laravel html çıktı gönderir, bunu önlemek için request'in header'da Accept anahtarını ve değerini `application/json` olarak belirtmek gerekir. laravel dönüşü json yapar.
+
+- isteği model binding yapısı ile degilde, id ile gönderip gerçekleştirebiliriz.
+
+```php
+public function show($id)
+  {
+    //
+    $product = Product::find($id); 
+
+    if($product){
+      return respone($product,200);
+    }else {
+      return respone(['message'=>'Product not found!'],404);   
+    }
+    
+  }
+```
+
+🔚
+
 
 ## 3.8. Product API Insert (POST)
 13 dak
