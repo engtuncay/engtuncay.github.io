@@ -60,9 +60,9 @@ Content                                                                         
 
 # Kurs Notları
 
-Content                                                 | Note
---------------------------------------------------------|-----
-[Laravel Api Kurs Notları 1 - CG](./laravel-api-kn1.md) |
+Content                                                      | Note
+-------------------------------------------------------------|-----
+[Laravel Api Kurs Notları 1 - CG](./udm-laravel-api-not1.md) |
 
 Php OOP
 
