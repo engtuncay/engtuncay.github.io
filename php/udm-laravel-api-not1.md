@@ -253,32 +253,49 @@ Route::get('/merhaba-json', function () {
 Route::get('/merhaba-json2', function () {
     return response(['message' => 'Merhaba API Json2'], 200);
 });
-```
+```  
 
 - laravel metodları ile response header ları dönüş yapabiliriz.
 
 ```php
-Route::get('/merhaba-json3', function () {
+Route::get('/merhaba-json2', function () {
     return response(['message' => 'Merhaba API JSON3'], 200)
         ->header('Content-Type', 'application/json'); // text/plain
 });
 
 ```
 
+- json metodu ile dönüş yapabiliriz. laravel otomatik content/type 'nı app/json yapar.
+
+```php
+Route::get('/merhaba-json3', function () {
+    return response()->json((['message' => 'Merhaba API Json2'], 200));
+});
+```
+
+- content-type değerini chrome'dan görebiliriz.
+
+![alt](./img/lrv-notes/lv-request-response.png)
+
+🔚
 
 ## 2.10. Route Yapısında Parametre Kullanımı
 
+- parametre almak için süslü parentez kullanırız.
+
 ```php
-Route::get('/product/$id', function ($id) {
+Route::get('/product/{$id}', function ($id) {
     return "Product Id:$id";
 });
 
-Route::get('/product/$id/$type', function ($id, $typeParam) {
+- parametre sırasıyla, değişken sırası aynı olmalı
+
+Route::get('/product/{$id}/{$type}', function ($id, $typeParam) {
     return "Product Id:$id Type: $typeParam";
 });
 ```
 
-- opsiyonel parametre kullanımı, callback function'ında ilgili argumana default değer verilmesi gerekir.
+- opsiyonel parametre kullanımı : (süslü parentezden önce ? konulur ve parametreye default değer verilir.)
 
 ```php
 Route::get('/product/{$id}/{$type?}', function ($id, $typeParam = '') {
@@ -286,6 +303,8 @@ Route::get('/product/{$id}/{$type?}', function ($id, $typeParam = '') {
 });
 
 ```
+
+
 
 ## 2.11. Route Tanımlarını İsimlendirme
 4 dak
