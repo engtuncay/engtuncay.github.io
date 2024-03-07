@@ -79,35 +79,157 @@ Laravel 7 ile Sıfırdan RESTful API Uygulamaları Geliştirme Kurs Notlarım
 
 ## 2.1. Laravel Nedir?
 
-
 ## 2.2. XAMPP ve Composer Kurulumu
 
+- composer u windows'a composer setup 'dan kurabiliriz.
+
+- composer versiyonunu görme
+
+```bash
+composer -v
+```
+
+🔚
 
 ## 2.3. Laravel Projesi Oluşturma
 
+- laravel komutu kurulumu :
+
+```bash
+composer global require laravel/installer
+```
+
+- laravel komutu ile proje oluşturma :
+
+```bash
+laravel new example-app
+
+```
+- composer global paket kaldırmak için
+
+```bash
+composer global remove the-package-name
+```
+
+
+- composer komutu ile de proje kurulabilir. bakınız web
+
+- laravel kurulumumuzu ayağa kaldırmak için :
+
+```bash
+php artisan serve
+```
+
+🔚
 
 ## 2.4. Geliştirme Ortamı Alanadını Ayarlama
 
+- Apache virtual host tanımı yapılması 
+  
+apache/conf/extra klasöründen httpd-vhosts.conf dosyasında aşağıdaki ayarları yaparız.
+
+```xml
+<VirtualHost localweb.test:80>
+	ServerName localweb.test
+  ServerAdmin abc@gmail.com
+  DocumentRoot "Y:\xampp\htdocs"
+  <Directory "Y:\xampp\htdocs">
+    AllowOverride All
+    Require all granted
+    Options Indexes FollowSymLinks
+	</Directory>
+</VirtualHost>
+
+<VirtualHost laravelapi.test:80>
+ServerName laravelapi.test
+ServerAdmin abc@gmail.com
+DocumentRoot "Y:\dev-demo\lr-proje1\public"
+<Directory "Y:\dev-demo\lr-proje1\public">
+  AllowOverride All
+  Require all granted
+  Options Indexes FollowSymLinks
+</Directory>
+</VirtualHost>
+```
+
+- Windows dns yönlendirmenin yapılması : 
+ 
+hosts dosyasının vscode ile açarsak kaydetmemize izin verir.
+
+```bash
+C:\Windows\System32\drivers\etc\hosts dosyasından ayar yaparız.
+
+```
+- laravelapi.test adresini 127.0.0.1'e yönlendirilmesi
+
+```
+127.0.0.1 laravelapi.test
+```
+
+🔚
 
 ## 2.5. PhpStorm ve Postman Kurulumu
 
+- Webden phpstorm ve postman uygulamalar kurulur.
+
+🔚
 
 ## 2.6. Laravel Projesi Dosya ve Klasör Yapısı
 
+- app uygulamamızın temel kodları bulunur. controller,middleware, model klasörleri buradadır.
+  
+- config klasöründe konfigürasyon dosyaları bulunur.
+
+- database klasöründe veritabanı tanımlamaları bulunur.
+
+- public klasörü internet dogrudan erişimi olacak klasördür. bu klasör dışındaki dosyalara internet üzerinden erişilemez olmalı.
+
+- resources da ise javascript,css tanımlamaları olur.
+
+- route klasöründe rut tanımlamaları bulunur.
+
+- storage klasöründe laravel oluşturulan fiziksel dosyalar burada tutulur.
+
+- .env dosyasında projemizle ilgili konfigürasyon bilgilerini tutar. vt baglantı tipi, kullanıcı adı, şifre vs... (env fonksiyonu buradaki değişkenleri almamızı sağlar.)
+
+- composer.json ile php proje bilgileri tutulur.
+
+- package.json ile front-end bağımlılık yönetilir.
+
+🔚
 
 ## 2.7. Laravel'in Çalışma Yapısı
 
+🔔 laravel'de ilk public klasöründeki index.php'i çalışır. 
+
+- bu dosyada autoload ve bootstrap işlemi yapılır.
+
+- gelen istek analiz edilip uygun sayfaya route edilir.
+
+```
+index.php (autoload+bootstrap) -> middleware -> routes -> controllers -> response (string/json/html view)
+
+```
+
+- middleware, isteklerin filtrelenmesi için kullanılır. mesela dosyalara sadece yetkili kişiler ulaşsın istiyorsun auth middleware kullanılır. kendiniz de özel middleware tanımlaması yapabiliriz.
+
+🔚
 
 ## 2.8. Web Route Yapısı
 
 - default index web rutu, view template sisteminde welcome view'ni açar. (resources/views/welcome.blade.php)
 
 ```php
+// get metodu isteği belirtir. view (html) dönüş yapılmış.
 Route::get('/', function () {
     return view('welcome');
 });
 
 ```
+
+🔚
+
+## 2.9. Route Yapısı Yanıt Türleri
 
 - routes/web.php dosyasına rut eklediğimizde text olarak dönüş yapabiliriz. (http://127.0.0.1:8000/merhaba)
 
@@ -142,8 +264,6 @@ Route::get('/merhaba-json3', function () {
 });
 
 ```
-
-## 2.9. Route Yapısı Yanıt Türleri
 
 
 ## 2.10. Route Yapısında Parametre Kullanımı
@@ -476,7 +596,10 @@ public function show($id)
 
 
 ## 3.8. Product API Insert (POST)
-13 dak
+
+
+
+
 
 ## 3.9. Product API Update (PUT)
 8 dak
