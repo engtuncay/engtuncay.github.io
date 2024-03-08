@@ -64,7 +64,13 @@ composer require paket_adi:paket_surumu
 ```bash
 composer require tolgabulca/coremvc:dev-master
 ```
-    
+
+- engtuncay/phputils paketini yüklenmesi
+
+```bash
+composer require engtuncay/phputils
+```
+
 
 ## Composer kendisini güncellemek için
 

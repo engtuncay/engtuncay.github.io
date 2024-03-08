@@ -5,6 +5,7 @@
 		}
 	],
 	"settings": {
-    "git.autofetch": true
+    "git.autofetch": true,
+    "window.title": "engtuncay"
   }
 }
