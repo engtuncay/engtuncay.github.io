@@ -284,13 +284,13 @@ Route::get('/merhaba-json3', function () {
 - parametre almak için süslü parentez kullanırız.
 
 ```php
-Route::get('/product/{$id}', function ($id) {
+Route::get('/product/{id}', function ($id) {
     return "Product Id:$id";
 });
 
 - parametre sırasıyla, değişken sırası aynı olmalı
 
-Route::get('/product/{$id}/{$type}', function ($id, $typeParam) {
+Route::get('/product/{id}/{type}', function ($id, $typeParam) {
     return "Product Id:$id Type: $typeParam";
 });
 ```
@@ -298,22 +298,106 @@ Route::get('/product/{$id}/{$type}', function ($id, $typeParam) {
 - opsiyonel parametre kullanımı : (süslü parentezden önce ? konulur ve parametreye default değer verilir.)
 
 ```php
-Route::get('/product/{$id}/{$type?}', function ($id, $typeParam = '') {
+Route::get('/product/{id}/{type?}', function ($id, $typeParam = '') {
     return "Product Id:$id Type: $typeParam";
 });
 
 ```
 
-
+🔚
 
 ## 2.11. Route Tanımlarını İsimlendirme
-4 dak
+
+- route'ları isimlendirerek, redirect'de kullanabiliriz.
+
+```php
+Route::get('/category/{slug}', function ($slug) {
+    return "Category Slug:$slug";
+})->name('category.show');
+
+```
+
+bu isimlendirmeyi yönlendirmede belirtiriz ve parametre alıyorsa ikinci argümanda array içinde belirtiriz.
+
+```php
+Route::get('/', function () {
+    return redirect()->route('category.show',['slug'=>'books']);
+});
+
+```
+
+- view içerisinde de kullanılabilir.
+
+```html
+<a href="{{ route('category.show',['slug'=>'books']) }}">Books Category</a>
+```
+
+🔚
 
 ## 2.12. Route Tanımlarını Gruplama
-2 dak
+
+- route tanımlarını gruplaya onlara belli prefix , üst dizin belirtmiş oluruz.
+
+```php
+Route::prefix('basics')->group(function(){
+  // Route tanımlarını buraya ekleriz.
+  Route::get('/merhaba', function () {
+    return 'Merhaba';
+  });
+  //...
+
+})
+```
+
+merhaba rutuna, `basics/merhaba` üzerinden ulaşabiliriz.
+
+🔚
 
 ## 2.13. Controller Yapısı
-5 dak
+
+- route tanımlarında function yerine controller'da kullanılabilir.
+
+- artisan komutu ile oluşturabiliriz.
+
+```bash
+php artisan make:controller ProductController
+
+```
+
+- route tanımını yapma:
+
+```php
+// in web.php
+Route::get('/product/{id}/{type}', 'ProductController@show');
+});
+```
+
+```php
+// in ProductController class
+namespace App\Http\Controllers
+
+class ProductController extends Controller
+{
+  public function show($id,$typeParam='test'){
+    return "Product Id:$id Type: $typeParam";
+  }
+
+  //...
+}
+```
+
+- name'de verebiliriz.
+
+```php
+// in web.php
+Route::get('/product/{id}/{type}', 'ProductController@show')->name('product.show');
+});
+```
+
+
+
+
+
 
 ## 2.14. View Yapısı ve Blade Template Engine
 7 dak
