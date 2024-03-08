@@ -7,7 +7,9 @@
   - [For Warning Notes](#for-warning-notes)
   - [For Very Interesting Notes](#for-very-interesting-notes)
   - [For Check Marks](#for-check-marks)
-- [Other Emojis than may be used](#other-emojis-than-may-be-used)
+  - [Alternative to list item](#alternative-to-list-item)
+  - [For end of section](#for-end-of-section)
+- [Other Emojis that may be used](#other-emojis-that-may-be-used)
 
 
 # Useful Emoji List And Usage Recommendations
@@ -62,12 +64,17 @@
 
 ✔ heavy-check-mark
 
-
-# Other Emojis than may be used
-
-👀 eyes
+## Alternative to list item 
 
 ➖ heavy-minus-sign
+
+## For end of section
+
+🔚 end with leftwards
+
+# Other Emojis that may be used
+
+👀 eyes
 
 🔵 large blue circle
 
@@ -125,6 +132,6 @@
 
 🤝 handshake (deprecated for important warning)
 
-🔚 end of section
+
 
  

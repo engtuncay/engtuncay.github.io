@@ -1,19 +1,24 @@
 
-- [PHP Arrays](#php-arrays)
-- [Array Examples](#array-examples)
-  - [Array Examples (1) (Declaration)](#array-examples-1-declaration)
-  - [Array Examples (2)](#array-examples-2)
-  - [Array Examples (3)](#array-examples-3)
-- [PHP equivalent for Java's Map and List?](#php-equivalent-for-javas-map-and-list)
-- [PHP Array Functions](#php-array-functions)
+- [Arrays](#arrays)
+  - [Intro](#intro)
+  - [Indexed Arrays](#indexed-arrays)
+  - [Associative Arrays](#associative-arrays)
+  - [Array Examples](#array-examples)
+    - [Array Examples (1) (Declaration)](#array-examples-1-declaration)
+    - [Array Examples (2)](#array-examples-2)
+    - [Array Examples (3)](#array-examples-3)
+  - [PHP equivalent for Java's Map and List?](#php-equivalent-for-javas-map-and-list)
+  - [PHP Array Functions](#php-array-functions)
+
+Php Manual : http://php.net/manual/en/language.types.array.php
+
+# Arrays
 
 Source : https://www.w3schools.com/php/php_arrays.asp
 
-Manual : http://php.net/manual/en/language.types.array.php
+## Intro
 
-# PHP Arrays
-
-An array stores multiple values in one single variable:
+An array stores multiple values in one single variable. To create an Array : `array()` function is used to create an array.
 
 Example
 
@@ -25,41 +30,16 @@ echo "I like " . $cars[0] . ", " . $cars[1] . " and " . $cars[2] . ".";
 
 ```
 
-*What is an Array?*
+An array can hold many values under a single name, and you can access the values by referring to an index number as shown above.
 
-An array is a special variable, which can hold more than one value at a time.
 
-If you have a list of items (a list of car names, for example), storing the cars in single variables could look like this:
-
-```php
-$cars1 = "Volvo";
-$cars2 = "BMW";
-$cars3 = "Toyota";
-
-```
-
-However, what if you want to loop through the cars and find a specific one? And what if you had not 3 cars, but 300?
-
-The solution is to create an array!
-
-An array can hold many values under a single name, and you can access the values by referring to an index number.
-
-*Create an Array in PHP*
-
-In PHP, the array() function is used to create an array:
-
-```php
-array();
-
-```
-
-In PHP, there are three types of arrays:
+➖ In PHP, there are three types of arrays:
 
 - Indexed arrays - Arrays with a numeric index
 - Associative arrays - Arrays with named keys
 - Multidimensional arrays - Arrays containing one or more arrays
 
-*Get The Length of an Array - The count() Function*
+➖ Get The Length of an Array - The count() Function
 
 The count() function is used to return the length (the number of elements) of an array:
 
@@ -73,9 +53,158 @@ echo count($cars);
 
 ```
 
-# Array Examples
+## Indexed Arrays
 
-## Array Examples (1) (Declaration)
+Source : https://www.w3schools.com/php/php_arrays_indexed.asp
+
+In indexed arrays each item has an index number.
+
+By default, the first item has index 0, the second item has item 1, etc.
+
+Example : Create and display an indexed array:
+
+```php
+$cars = array("Volvo", "BMW", "Toyota");
+var_dump($cars);
+
+```
+🔔 Access Indexed Arrays
+
+To access an array item you can refer to the index number.
+
+Example : Display the first array item:
+
+```php
+$cars = array("Volvo", "BMW", "Toyota");
+echo $cars[0];
+
+```
+🔔 Change Value
+
+To change the value of an array item, use the index number:
+
+Example : Change the value of the second item:
+
+```php
+$cars = array("Volvo", "BMW", "Toyota");
+$cars[1] = "Ford";
+var_dump($cars);
+
+```
+🔔 Loop Through an Indexed Array
+
+To loop through and print all the values of an indexed array, you could use a foreach loop, like this:
+
+Example : Display all array items:
+
+```php
+$cars = array("Volvo", "BMW", "Toyota");
+foreach ($cars as $x) {
+  echo "$x <br>";
+}
+
+```
+
+For a complete reference of all array functions, go to our complete PHP Array Reference. (https://www.w3schools.com/php/php_ref_array.asp)
+
+🔔 Index Number
+
+The key of an indexed array is a number, by default the first item is 0 and the second is 1 etc., but there are exceptions.
+
+New items get the next index number, meaning one higher than the highest existing index.
+
+So if you have an array like this:
+
+```php
+$cars[0] = "Volvo";
+$cars[1] = "BMW";
+$cars[2] = "Toyota";
+
+```
+
+And if you use the array_push() function to add a new item, the new item will get the index 3:
+
+Example
+
+```php
+array_push($cars, "Ford");
+var_dump($cars);
+
+```
+
+But if you have an array with random index numbers, like this:
+
+```php
+$cars[5] = "Volvo";
+$cars[7] = "BMW";
+$cars[14] = "Toyota";
+
+```
+
+And if you use the array_push() function to add a new item, what will be the index number of the new item?
+
+Example
+
+```php
+array_push($cars, "Ford");
+var_dump($cars);
+
+```
+
+## Associative Arrays
+
+Associative arrays are arrays that use named keys that you assign to them.
+
+Example
+
+```php
+$car = array("brand"=>"Ford", "model"=>"Mustang", "year"=>1964);
+var_dump($car);
+
+```
+ 
+🔔  Access Associative Arrays
+
+To access an array item you can refer to the key name.
+
+Example : Display the model of the car:
+
+```php
+$car = array("brand"=>"Ford", "model"=>"Mustang", "year"=>1964);
+echo $car["model"];
+
+```
+🔔 Change Value
+
+To change the value of an array item, use the key name:
+
+Example : Change the year item:
+
+```php
+$car = array("brand"=>"Ford", "model"=>"Mustang", "year"=>1964);
+$car["year"] = 2024;
+var_dump($car);
+
+```
+🔔 Loop Through an Associative Array
+
+To loop through and print all the values of an associative array, you could use a foreach loop, like this:
+
+Example : Display all array items, keys and values:
+
+```php
+$car = array("brand"=>"Ford", "model"=>"Mustang", "year"=>1964);
+
+foreach ($car as $x => $y) {
+  echo "$x: $y <br>";
+}
+
+```
+
+
+## Array Examples
+
+### Array Examples (1) (Declaration)
 
 *Examples*
 
@@ -108,7 +237,7 @@ $bestFriends = $bestFriends + $customer;
 
 ```
 
-## Array Examples (2)
+### Array Examples (2)
 
 ```php
 <?php
@@ -314,7 +443,7 @@ c anahtarı var!
 
 ```
 
-## Array Examples (3)
+### Array Examples (3)
 
 ```php
 
@@ -458,7 +587,7 @@ print_r($arr2);
 
 ```
 
-# PHP equivalent for Java's Map and List?
+## PHP equivalent for Java's Map and List?
 
 Source : https://stackoverflow.com/questions/10597996/searching-for-php-equivalent-for-javas-map-and-list
 
@@ -517,7 +646,7 @@ If using PHP5, you can also look at SPL data structures. (http://us3.php.net/man
 
 
 
-# PHP Array Functions
+## PHP Array Functions
 
 The array functions allow you to access and manipulate arrays.
 
