@@ -52,10 +52,10 @@ Content                                                                         
 [4 String - Numbers - Math - Constants - Date](./php-w3-04-string-and-other-types.md) |
 5 Operators                                                                           |
 6 If/Else/Elseif - Switch - Loops                                                     |
-7 Functions                                                                           |
-[8 Arrays](./php-w3-08-arrays.md)                                                     | 🆗
+[7 Functions](./php-w3-07-functions.md)                                                                           |
+[8 Arrays](./php-w3-08-arrays.md)                                                     | ✔ 
 [9 Superglobals](./php-w3-09-superglobals.md)                                         |
-10 RegEx                                                                              |
+[10 RegEx](./php-w3-10-regex.md)                                                                              |
 
 
 # Kurs Notları
