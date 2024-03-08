@@ -20,6 +20,8 @@
 
 🔗 link symbol
 
+🔲 black-square-button
+
 ---
 
 ## For Tips
@@ -88,7 +90,7 @@
 
 ◼ black-medium-square
 
-🔲 black-square-button
+
 
 🆕 squared-new
 
