@@ -393,23 +393,137 @@ class ProductController extends Controller
 Route::get('/product/{id}/{type}', 'ProductController@show')->name('product.show');
 });
 ```
-
-
-
-
-
+🔚
 
 ## 2.14. View Yapısı ve Blade Template Engine
-7 dak
+
+- view yapısına değişken göndermek için
+
+```php
+//...
+return view('product',['id'=>$id, 'r_type'=>$rType]);
+
+```
+
+bu gönderilen değişkenleri template'de kullanmak için çift süslü parentezi kullanırız:
+
+```php
+Product Id : {{id}} Type : {{r_type}}
+
+```
+
+- compact ile sadece değişken adı ile de gönderebiliriz.
+
+```php
+//...
+return view('product', compact('id','r_type'));
+
+```
+
+- with metodu ile de gönderebiliriz.
+
+- compact ile sadece değişken adı ile de gönderebiliriz.
+
+```php
+//...
+return view('product')->with('id',$id)->with('r_type',$r_type);
+
+```
+
+🔚
 
 ## 2.15. View Yapısı ve Blade Template Engine-2
-7 dak
+
+- if kullanımı : 
+
+```php
+<div>
+
+@if ($id==1)
+ 1 numaralı id 
+@elseif ($id==2)
+ 2 numaralı id
+@else
+ Diger numaralı id
+@endif
+
+</div>
+
+```
+
+- for bloğu
+
+```php
+<div>
+ @for ($i=0;$i<=10;$i++)
+   <p>Döngü Değeri {{$i}}</p>
+ @endfor
+</div>
+```
+
+- foreach bloğu
+
+```php
+ @foreach ($categories as $category)
+  {{ $category }} <br/>
+ @endforeach
+```
+
+- blade yorum satırı. sayfa kaynağında görünmez.
+
+```php
+{{-- Yorum Satırı --}}
+
+```
+
+🔚
 
 ## 2.16. Veritabanı Bağlantısı
-7 dak
+
+➖ database baglantı ayarları \config\database.php içerisinde yapılır.
+
+- hangi bağlantı kullanılacağı 
+- bağlantı ayarları bulunur
+
+➖ .env içerisinden ayarlarız. hangi bağlantı kullanacağı, kullanıcı adı, şifre belirtilir.
+
+➖ mysql komutu ile veritabanı oluşturma
+
+öncelikle mysql'e login oluruz.
+
+```bash
+mysql -u root
+```
+
+➖ mysql komutu yoksa path'e xampp\mysql\bin dizinini ekleriz.
+
+➖ veritabanı oluşturma komutu
+
+```bash
+create database laravel_api
+```
+
+karakter seti ve collate de tanımlanabilir.
+
+```bash
+create database laravel_api set utf8 collate utf8_general_ci
+```
+
+➖ veritabanı seçmek için
+
+```bash
+use laravel_api
+```
+
+➖ phpstorm 'da veritabanı tanımı eklenip, sorgular çalıştırılabilir. (mysql 5.1 tanımından eklemiş)
+
+🔚
 
 ## 2.17. Migration Yapısı
 12 dak
+
+
+
 
 ## 2.18. Raw SQL Query
 6 dak
