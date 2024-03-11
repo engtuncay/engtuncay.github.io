@@ -506,7 +506,7 @@ create database laravel_api
 karakter seti ve collate de tanımlanabilir.
 
 ```bash
-create database laravel_api set utf8 collate utf8_general_ci
+create database laravel_api character set utf8 collate utf8_general_ci
 ```
 
 ➖ veritabanı seçmek için
@@ -521,6 +521,58 @@ use laravel_api
 
 ## 2.17. Migration Yapısı
 12 dak
+
+- migration up metodu ile oluşturulacak tablo, down ile de kaldırılacak tabloları belirtiriz.
+
+
+```php
+// otomatik oluşturulan create_users_table.php dosyası
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('users', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+            $table->rememberToken();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('users');
+    }
+};
+```
+
+- tabloları oluşturma komutu
+
+```bash
+php artisan migrate
+```
+
+- bu işlemi geri almak için (son yapılan migrate işlemini geri alır)
+
+```bash
+php artisan migrate:rollback 
+```
+
+- yeni migration dosyası oluşturma
+
+```bash
+php artisan make:migration create_products_table --create=product
+```
 
 
 
@@ -853,6 +905,7 @@ public function show($id)
     }
     
   }
+
 ```
 
 🔚
