@@ -526,7 +526,53 @@ use laravel_api
 
 
 ## 2.18. Raw SQL Query
-6 dak
+
+➖ komut satırından laravel metodlarını kullanarak veritabanı işlemleri yapabiliriz.
+
+➖ Bunun için tinker çalıştırmamız gerekir.
+
+```bash
+php artisan tinker
+```
+
+➖ örnek bir insert işlemi
+
+```php
+DB::insert ('insert into products ...')
+```
+
+➖ örnek bir select işlemi
+
+```bash
+DB::select ('select * from product')
+
+# Output :  json düzeninde çıktı verir
+
+```
+
+➖ sorguda parametrik değerler kullanabiliriz.
+
+```php
+DB::select ('select * from product where id = ?',[1])
+
+```
+
+named parameter :
+
+```php
+DB::select ('select * from product where id = :id',['id'=>1])
+
+```
+
+➖ özel sorguları da çalıştırabiliriz.
+
+
+```php
+DB::statement('truncate table product')
+
+```
+
+
 
 ## 2.19. Query Builder Yapısı
 7 dak

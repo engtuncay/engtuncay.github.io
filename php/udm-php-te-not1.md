@@ -14,6 +14,15 @@ Php Kurs Notları
   - [87 Pdo ile Baglantı](#87-pdo-ile-baglantı)
   - [88 Pdo Insert](#88-pdo-insert)
   - [89 Pdo Select](#89-pdo-select)
+- [B17 - Nesne Yönelimli Programlama (OOP)](#b17---nesne-yönelimli-programlama-oop)
+  - [107. Nesne Yönelimli Programlama (OOP) Nedir?](#107-nesne-yönelimli-programlama-oop-nedir)
+- [B19 - Regular Expression](#b19---regular-expression)
+  - [125. RegEx Desenleri ve Modifier'lar](#125-regex-desenleri-ve-modifierlar)
+  - [126. PHP ve RegEx #1 - preg\_match()](#126-php-ve-regex-1---preg_match)
+  - [127. php.ini Nedir? Ne işe yarar?](#127-phpini-nedir-ne-işe-yarar)
+- [B20 - Hata Yönetimi](#b20---hata-yönetimi)
+- [B21 - Güvenlik](#b21---güvenlik)
+- [B22 - Curl (Bot Yapımı)](#b22---curl-bot-yapımı)
 - [Diger Notlar](#diger-notlar)
 
 
@@ -294,7 +303,7 @@ try {
   $db = new PDO('mysql:host=localhost;dbname=uyeler', 'root', '');
   //printf("Baglantı kuruldu");
 } catch (PDOException $e){
-    echo $e->getMessage();
+  echo $e->getMessage();
 }
 ```
 
@@ -332,6 +341,7 @@ $db->query('INSERT INTO dersler SET baslik = "başlık", icerik = "deneme içeri
 $kategoriler = $db->query('SELECT kategoriler.*, COUNT(dersler.id) as toplamDers FROM kategoriler
 LEFT JOIN dersler ON FIND_IN_SET(kategoriler.id, dersler.kategori_id)
 GROUP BY kategoriler.id')->fetchAll(PDO::FETCH_ASSOC);
+
 ```
 
 
@@ -388,8 +398,11 @@ GROUP BY kategoriler.id')->fetchAll(PDO::FETCH_ASSOC);
 106. PHP'de DateTime() Sınıfı
 11 dak
 
-107. Nesne Yönelimli Programlama (OOP) Nedir?
+# B17 - Nesne Yönelimli Programlama (OOP)
+
+## 107. Nesne Yönelimli Programlama (OOP) Nedir?
 8 dak
+
 
 108. OOP Sınıflar (Class)
 14 dak
@@ -442,14 +455,23 @@ GROUP BY kategoriler.id')->fetchAll(PDO::FETCH_ASSOC);
 124. PHP'de SimpleXMLElement Sınıfı
 9 dak
 
-125. RegEx Desenleri ve Modifier'lar
+# B19 - Regular Expression 
+
+(Düzenli ifadeler)
+
+## 125. RegEx Desenleri ve Modifier'lar
 20 dak
 
-126. PHP ve RegEx #1 - preg_match()
+
+
+## 126. PHP ve RegEx #1 - preg_match()
 23 dak
 
-127. php.ini Nedir? Ne işe yarar?
+
+## 127. php.ini Nedir? Ne işe yarar?
 5 dak
+
+# B20 - Hata Yönetimi
 
 128. Hata Bastırma Operatörü
 2 dak
@@ -465,6 +487,8 @@ GROUP BY kategoriler.id')->fetchAll(PDO::FETCH_ASSOC);
 
 132. PHP'de Ölümcül Hataları (Fatal Errors) Yakalamak
 4 dak
+
+# B21 - Güvenlik
 
 133. Başlamadan Önce
 1 dak
@@ -489,6 +513,8 @@ GROUP BY kategoriler.id')->fetchAll(PDO::FETCH_ASSOC);
 
 140. Google reCaptcha Kullanımı
 18 dak
+
+# B22 - Curl (Bot Yapımı)
 
 141. Curl'e Giriş
 8 dak
