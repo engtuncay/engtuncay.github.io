@@ -705,13 +705,13 @@ Route::get('/users', function () {
 
 - Genel Http Metotları
 
-Verb   | Description
--------|----------------
-GET    | Read
-POST   | Create
-PUT    | UPDATE /Replace
-DELETE | Delete
-Patch  | Update / Modify
+| Verb   | Description     |
+|--------|-----------------|
+| PUT    | UPDATE /Replace |
+| POST   | Create          |
+| Patch  | Update / Modify |
+| GET    | Read            |
+| DELETE | Delete          |
 
 🔚
 
@@ -913,9 +913,66 @@ public function show($id)
 
 ## 3.8. Product API Insert (POST)
 
+➖ `$request->all();` ile tüm gönderdiğimiz değerleri alırız.
+
+```php
+//controller dosyası
+
+public function store(Request $request) {
+    $input = $request->all();
+  echo $input;
+}
+```
+
+- orm ile kaydetmek için
+
+```php
+$product = Product::create($input);
+```
+
+```php
+//controller dosyası
+
+public function store(Request $request) {
+    $input = $request->all();
+    $product = Product::create($input);
+
+    return response([
+      'data' => $product,
+      'message' =>'Product created'
+    ],201); // 201:veritabanına kayıt edildiğini gösterir
+  
+}
+```
+
+- dönüş html olarak gelirse accept anahtarını application/json olarak girmeliyiz.
 
 
+- fillable property'si ile hangi alanları kaydedileceği belirtilebilir. fazla gönderilen olursa itibar edilmez.
 
+```php
+protected $fillable = [
+        'name',
+        'email',
+        'password',
+    ];
+```
+
+➖ request objesinden tek tek alanları almak için:
+
+```php
+$product->name = $request->input('name');
+```
+
+veya
+
+```php
+$product->name = $request->name;
+//...
+$product->save();
+```
+
+🔚
 
 ## 3.9. Product API Update (PUT)
 8 dak
