@@ -121,7 +121,33 @@ Delete | Delete
 8 dak
 
 ## 5. ASP.NET WEB API Projesi Oluşturma
-11 dak
+
+➖ New Project -> Asp.Net Web Application Seçilir 
+
+➖ Template'den Web Api seçilir. Aşağıda varsayılan olarak Mvc ve Web Api tikli olacaktır.
+
+➖ sağda authentication tipleri vardır, unit test seçeneği var, bunları değiştirmiyoruz, örnek proje için.
+
+➖ böylelik bize solution'u oluşturur. burada önemli dizinler controllers'dur. Mvc Controller'ı Controller sınıfını miras alır, Api Controller'ı ise ApiController sınıfını miras alır.
+
+➖ proje ayağa kalkarken global.asax bulunan Application_Start metodu çalışacaktır. Burada ayarlar yapılmıştır. App_Start dizininde ayarlar sınıfları vardır. WebApiConfig sınıfı api ayarları yapılır.
+
+➖ controller içerisindeki metodlara action diyoruz.
+
+➖ routeTemplate görüldüğü üzere controller istekte bulunmak için api/{controller} ismini vermek yeterlidir. controller dan sonra optional değer verilmiştir.
+
+```csharp
+routeTemplate : "api/{controller}/{id}",
+defaults : new { id = RouteParameter.Optional}
+```
+
+- sınıf ismi ValuesController 'u api/values şeklinde istekte bulunuruz.
+
+- bir sınfa [Authorize] attribute verilirse, yetki alınıp kullanabileceği gösterilir.
+
+- visual studion run yaptığımızda her değişiklikte durdurup tekrar çalıştırmamız gerekir. bunun yerine views\home\index.cshtml açıp editorde sağ klik view in browser 'ı tıklayıp proje çalıştırabiliriz. değişikliklerin aktif olması için build solutions yapmamız gerekir.
+
+🔚
 
 ## 6. Fiddler Aracını Tanımak ve Kullanmak
 12 dak
