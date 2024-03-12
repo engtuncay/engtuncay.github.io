@@ -506,7 +506,7 @@ create database laravel_api
 karakter seti ve collate de tanımlanabilir.
 
 ```bash
-create database laravel_api set utf8 collate utf8_general_ci
+create database laravel_api character set utf8 collate utf8_general_ci
 ```
 
 ➖ veritabanı seçmek için
@@ -521,6 +521,58 @@ use laravel_api
 
 ## 2.17. Migration Yapısı
 12 dak
+
+- migration up metodu ile oluşturulacak tablo, down ile de kaldırılacak tabloları belirtiriz.
+
+
+```php
+// otomatik oluşturulan create_users_table.php dosyası
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('users', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+            $table->rememberToken();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('users');
+    }
+};
+```
+
+- tabloları oluşturma komutu
+
+```bash
+php artisan migrate
+```
+
+- bu işlemi geri almak için (son yapılan migrate işlemini geri alır)
+
+```bash
+php artisan migrate:rollback 
+```
+
+- yeni migration dosyası oluşturma
+
+```bash
+php artisan make:migration create_products_table --create=product
+```
 
 
 
@@ -653,13 +705,13 @@ Route::get('/users', function () {
 
 - Genel Http Metotları
 
-Verb   | Description
--------|----------------
-GET    | Read
-POST   | Create
-PUT    | UPDATE /Replace
-DELETE | Delete
-Patch  | Update / Modify
+| Verb   | Description     |
+|--------|-----------------|
+| PUT    | UPDATE /Replace |
+| POST   | Create          |
+| Patch  | Update / Modify |
+| GET    | Read            |
+| DELETE | Delete          |
 
 🔚
 
@@ -853,6 +905,7 @@ public function show($id)
     }
     
   }
+
 ```
 
 🔚
@@ -860,9 +913,66 @@ public function show($id)
 
 ## 3.8. Product API Insert (POST)
 
+➖ `$request->all();` ile tüm gönderdiğimiz değerleri alırız.
+
+```php
+//controller dosyası
+
+public function store(Request $request) {
+    $input = $request->all();
+  echo $input;
+}
+```
+
+- orm ile kaydetmek için
+
+```php
+$product = Product::create($input);
+```
+
+```php
+//controller dosyası
+
+public function store(Request $request) {
+    $input = $request->all();
+    $product = Product::create($input);
+
+    return response([
+      'data' => $product,
+      'message' =>'Product created'
+    ],201); // 201:veritabanına kayıt edildiğini gösterir
+  
+}
+```
+
+- dönüş html olarak gelirse accept anahtarını application/json olarak girmeliyiz.
 
 
+- fillable property'si ile hangi alanları kaydedileceği belirtilebilir. fazla gönderilen olursa itibar edilmez.
 
+```php
+protected $fillable = [
+        'name',
+        'email',
+        'password',
+    ];
+```
+
+➖ request objesinden tek tek alanları almak için:
+
+```php
+$product->name = $request->input('name');
+```
+
+veya
+
+```php
+$product->name = $request->name;
+//...
+$product->save();
+```
+
+🔚
 
 ## 3.9. Product API Update (PUT)
 8 dak
