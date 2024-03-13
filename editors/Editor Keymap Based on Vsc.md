@@ -82,8 +82,6 @@ Ctrl+/            | Toggle line comment
 Shift+Alt+A       | Toggle block comment
 Alt+Z             | Toggle word wrap
 
-
-
 # Search and replace 
 
 Shortcut      | Desc
@@ -144,65 +142,65 @@ Ctrl+K ← / →           | Move active editor group
 
 # File management 
 
-Shortcut       | Desc
----------------|----------------------------------------
-Ctrl+N         | New File
-Ctrl+O         | Open File...
-Ctrl+S         | Save
-Ctrl+Shift+S   | Save As...
-Ctrl+K S       | Save All
-Ctrl+F4        | Close
-Ctrl+K Ctrl+W  | Close All
-Ctrl+Shift+T   | Reopen closed editor
-Ctrl+K         | Enter Keep preview mode editor open
-Ctrl+Tab       | Open next
-Ctrl+Shift+Tab | Open previous
-Ctrl+K P       | Copy path of active file
-Ctrl+K R       | Reveal active file in Explorer
-Ctrl+K O       | Show active file in new window/instance
+| Shortcut       | Desc                                    |
+|----------------|-----------------------------------------|
+| Ctrl+N         | New File                                |
+| Ctrl+O         | Open File...                            |
+| Ctrl+S         | Save                                    |
+| Ctrl+Shift+S   | Save As...                              |
+| Ctrl+K S       | Save All                                |
+| Ctrl+F4        | Close                                   |
+| Ctrl+K Ctrl+W  | Close All                               |
+| Ctrl+Shift+T   | Reopen closed editor                    |
+| Ctrl+K         | Enter Keep preview mode editor open     |
+| Ctrl+Tab       | Open next                               |
+| Ctrl+Shift+Tab | Open previous                           |
+| Ctrl+K P       | Copy path of active file                |
+| Ctrl+K R       | Reveal active file in Explorer          |
+| Ctrl+K O       | Show active file in new window/instance |
 
 # Display 
 
-Shortcut         | Desc
------------------|------------------------
-F11 Toggle full screen 
-Shift+Alt+0 Toggle editor layout (horizontal/vertical) 
-Ctrl+ = / - Zoom in/out 
-Ctrl+B Toggle Sidebar visibility 
-Ctrl+Shift+E Show Explorer / Toggle focus 
-Ctrl+Shift+F Show Search 
-Ctrl+Shift+G Show Source Control 
-Ctrl+Shift+D Show Debug 
-Ctrl+Shift+X Show Extensions 
-Ctrl+Shift+H Replace in files 
-Ctrl+Shift+J Toggle Search details 
-Ctrl+Shift+U Show Output panel 
-Ctrl+Shift+V Open Markdown preview 
-Ctrl+K V Open Markdown preview to the side 
-Ctrl+K Z Zen Mode (Esc Esc to exit) 
+| Shortcut     | Desc                                       |
+|--------------|--------------------------------------------|
+| F11          | Toggle full screen                         |
+| Shift+Alt+0  | Toggle editor layout (horizontal/vertical) |
+| Ctrl+ = /-   | Zoom in/out                                |
+| Ctrl+B       | Toggle Sidebar visibility                  |
+| Ctrl+Shift+E | Show Explorer / Toggle focus               |
+| Ctrl+Shift+F | Show Search                                |
+| Ctrl+Shift+G | Show Source Control                        |
+| Ctrl+Shift+D | Show Debug                                 |
+| Ctrl+Shift+X | Show Extensions                            |
+| Ctrl+Shift+H | Replace in files                           |
+| Ctrl+Shift+J | Toggle Search details                      |
+| Ctrl+Shift+U | Show Output panel                          |
+| Ctrl+Shift+V | Open Markdown preview                      |
+| Ctrl+K V     | Open Markdown preview to the side          |
+| Ctrl+K Z     | Zen Mode (Esc Esc to exit)                 |
 
 # Debug 
 
-Shortcut        | Desc
-----------------|------------------
-F9              | Toggle breakpoint
-F5              | Start/Continue
-Shift+F5        | Stop
-F11 / Shift+F11 | Step into/out
-F10             | Step over
-Ctrl+K Ctrl+I   | Show hover
+| Shortcut        | Desc              |
+|-----------------|-------------------|
+| F9              | Toggle breakpoint |
+| F5              | Start/Continue    |
+| Shift+F5        | Stop              |
+| F11 / Shift+F11 | Step into/out     |
+| F10             | Step over         |
+| Ctrl+K Ctrl+I   | Show hover        |
 
 # Integrated terminal 
 
-Shortcut         | Desc
------------------|------------------------
-Ctrl+` | Show integrated terminal 
-Ctrl+Shift+` | Create new terminal 
-(C+S)+C | Copy selection 
-(C+S)+V | Paste into active terminal 
-Ctrl+↑ / ↓ | Scroll up/down 
-Shift+PgUp / PgDn | Scroll | page up/down 
-Ctrl+Home / End | Scroll to top/bottom 
+| Shortcut          | Desc                       |
+|-------------------|----------------------------|
+| Ctrl+`            | Show integrated terminal   |
+| Ctrl+Shift+`      | Create new terminal        |
+| (C+S)+C           | Copy selection             |
+| (C+S)+V           | Paste into active terminal |
+| Ctrl+↑ / ↓        | Scroll up/down             |
+| Shift+PgUp / PgDn | Scroll page up/down        |
+| Ctrl+Home / End   | Scroll to top/bottom       |
 
 
 # Notes
