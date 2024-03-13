@@ -153,7 +153,12 @@ defaults : new { id = RouteParameter.Optional}
 12 dak
 
 ## 7. Postman Aracını Tanımak ve Kullanmak
-13 dak
+
+- fake online rest api : jsonplaceholder.typicode.com
+- postman : www.getpostman.com
+- fiddler : www.telerik.com/fiddler
+
+
 
 # B2 - Routing
 

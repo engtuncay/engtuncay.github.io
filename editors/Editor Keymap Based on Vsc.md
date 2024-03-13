@@ -72,6 +72,9 @@ Ctrl+↑ / ↓        | Scroll line up/down
 Alt+PgUp / PgDn   | Scroll page up/down
 Ctrl+Shift+[      | Fold (collapse) region
 Ctrl+Shift+]      | Unfold (uncollapse) region
+
+
+
 Ctrl+K Ctrl+[     | Fold (collapse) all subregions
 Ctrl+K Ctrl+]     | Unfold (uncollapse) all subregions
 Ctrl+K Ctrl+0     | Fold (collapse) all regions

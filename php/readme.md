@@ -5,7 +5,7 @@ Php Tutorial
 - [References](#references)
 - [Other cheatsheets](#other-cheatsheets)
 - [Notes](#notes)
-- [Kurs Notları](#kurs-notları)
+- [Kurs Notları ve Makaleler](#kurs-notları-ve-makaleler)
 - [Php Advanced Topics](#php-advanced-topics)
 - [Laravel](#laravel)
 
@@ -58,11 +58,13 @@ Content                                                                         
 [10 RegEx](./php-w3-10-regex.md)                                                                              |
 
 
-# Kurs Notları
+# Kurs Notları ve Makaleler
 
 Content                                                      | Note
 -------------------------------------------------------------|-----
 [Laravel Api Kurs Notları 1 - CG](./udm-laravel-api-not1.md) |
+[The Ultimate Guide to .htaccess Files](./article/art-htaccess1.md)
+
 
 Php OOP
 
