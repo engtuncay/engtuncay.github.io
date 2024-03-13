@@ -313,12 +313,8 @@ try {
 
 ```php
 $sorgu = $db->prepare('INSERT INTO dersler2 SET
-baslik = ?,
-icerik = ?,
-onay = ?');
-$ekle = $sorgu->execute([
-    'deneme başlık', 'içerik', 1
-]);
+baslik = ?,icerik = ?,onay = ?');
+$ekle = $sorgu->execute(['deneme başlık', 'içerik', 1]);
 
 if ($ekle){
     echo 'verilerini eklendi!';
