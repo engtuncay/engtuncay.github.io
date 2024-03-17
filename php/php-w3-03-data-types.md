@@ -7,7 +7,7 @@
   - [PHP Array](#php-array)
   - [PHP Object](#php-object)
   - [PHP NULL Value](#php-null-value)
-  - [PHP Resource](#php-resource)
+  - [PHP Resource (reference)](#php-resource-reference)
 
 Source : https://www.w3schools.com/php/php_datatypes.asp
 
@@ -101,7 +101,7 @@ Booleans are often used in conditional testing. You will learn more about condit
 
 An array stores multiple values in one single variable.
 
-In the following example $cars is an array. The PHP var_dump() function returns the data type and value:
+In the following example $cars is an array.
 
 Example
 
@@ -136,15 +136,18 @@ Example
 class Car {
   public $color;
   public $model;
+
   public function __construct($color, $model) {
     $this->color = $color;
     $this->model = $model;
   }
+
   public function message() {
     return "My car is a " . $this->color . " " . $this->model . "!";
   }
 }
 
+// 
 $myCar = new Car("black", "Volvo");
 echo $myCar -> message();
 echo "<br>";
@@ -154,6 +157,8 @@ echo $myCar -> message();
 
 ```
 ## PHP NULL Value
+
+--*REVIEW - değer verilmemiş değişkenler null mu, object de olmuyordu ?
 
 Null is a special data type which can have only one value: NULL.
 
@@ -170,18 +175,19 @@ Example
 $x = "Hello world!";
 $x = null;
 var_dump($x);
+
 // ---Output---
 // NULL
 ?>
 
 ```
 
-## PHP Resource
+## PHP Resource (reference)
 
-The special resource type is not an actual data type. It is *the storing of a reference* to functions and resources external to PHP.
+The special resource type is not an actual data type. It is the storing of *a reference* to functions and resources external to PHP.
 
 A common example of using the resource data type is a *database call*.
 
 We will not talk about the resource type here, since it is an advanced topic.
 
---end--
+🔚

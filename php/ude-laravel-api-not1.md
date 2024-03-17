@@ -719,12 +719,12 @@ Route::get('/users', function () {
 
 - Some Http Status Codes
 
-Code | Type        | Desc
------|-------------|-------------
-200  | Ok          | Success Code
-400  | Bad request |
-404 | Not Foundd
-500  | Internal Server Error |
+| Code | Type | Desc         |
+|------|------|--------------|
+| 200  | Ok   | Success Code |
+| 400  | Bad request           |
+| 404  | Not Foundd            |
+| 500  | Internal Server Error |
 
 ![](./img/udc1/http-status-codes.jpg)
 
