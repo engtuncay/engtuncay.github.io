@@ -48,8 +48,8 @@ Content                                                                         
 --------------------------------------------------------------------------------------|-----
 [1 Intro- Install - Syntax - Comments](./php-w3-01-intro.md)                          | ✔
 [2 Variables - Scope - Echo / Print ](./php-w3-02-variables.md)                       | ✔
-[3 Data Types](./php-w3-03-data-types.md)                                             | ✔
-[4 String - Numbers - Math - Constants - Date](./php-w3-04-string-and-other-types.md) |
+[3 Data Types Intro](./php-w3-03-data-types.md)                                             | ✔
+[4 String - Numbers - Math - Constants - Date](./php-w3-04-data-types-detail.md) |
 5 Operators                                                                           |
 6 If/Else/Elseif - Switch - Loops                                                     |
 [7 Functions](./php-w3-07-functions.md)                                                                           |
