@@ -1,9 +1,10 @@
-<h1>Introduction to Php</h1> 
+<h1>Php Data Types Details</h1> 
 
 - [Php Strings (W3S)](#php-strings-w3s)
-  - [String concentation](#string-concentation)
-  - [Template Literal (Format Strings)](#template-literal-format-strings)
-  - [String functions](#string-functions)
+  - [Modify Strings](#modify-strings)
+  - [Concatenate Strings](#concatenate-strings)
+  - [Slicing Strings](#slicing-strings)
+  - [Escape Characters](#escape-characters)
 - [Php Numbers (W3S)](#php-numbers-w3s)
   - [Integers](#integers)
   - [Floats](#floats)
@@ -16,125 +17,341 @@
 - [PHP Constants](#php-constants)
 - [Date And Time](#date-and-time)
 
-Sources
-
-- 
-
 # Php Strings (W3S)
+
+Source : https://www.w3schools.com/php/php_string.asp
 
 A string is a sequence of characters, like "Hello world!".
 
-In this chapter we will look at some commonly used functions to manipulate strings.
+Strings in PHP are surrounded by either double quotation marks, or single quotation marks.
 
-## String concentation 
-
-- '.' işareti ile string birleştirme yapılır.
-
-(tor:concentation:birleştirme)
+Example
 
 ```php
-$adi = 'Ali';
-$sayi1 = 10;
-echo $adi . $sayi1;
-// Output
-// Ali10
+echo "Hello";
+echo 'Hello';
 
 ```
 
-## Template Literal (Format Strings)
+❗ Note There is a big difference between double quotes and single quotes in PHP.
 
+Double quotes process special characters, single quotes does not.
 
-## String functions
+🔔 Double or Single Quotes?
 
-- strlen() - Return the Length of a String
+You can use double or single quotes, but you should be aware of the differences between the two.
+
+Double quoted strings perform action on special characters.
+
+E.g. when there is a variable in the string, it returns the value of the variable:
+
+Example : Double quoted string literals perform operations for special characters:
+
+```php
+$x = "John";
+echo "Hello $x";
+
+```
+
+Single quoted strings does not perform such actions, it returns the string like it was written, with the variable name:
+
+Example :Single quoted string literals returns the string as it is:
+
+```php
+$x = "John";
+echo 'Hello $x';
+
+```
+
+🔔 String Length
 
 The PHP strlen() function returns the length of a string.
 
-*Example*
-
-Return the length of the string "Hello world!":
+Example : Return the length of the string "Hello world!":
 
 ```php
-<?php
-echo strlen("Hello world!"); // outputs 12
-?>
+echo strlen("Hello world!");
+
+// -- Output --
+// 12
+```
+
+🔔 Word Count
+
+The PHP str_word_count() function counts `the number of words` in a string.
+
+Example : Count the number of word in the string "Hello world!":
+
+```php
+echo str_word_count("Hello world!");
+
+// -- Output --
+// 2
+```
+
+🔔 Search For Text Within a String
+
+The PHP strpos() function searches for a specific text within a string.
+
+If a match is found, the function returns `the character position of the first match`. If no match is found, it will return `FALSE`.
+
+Example : Search for the text "world" in the string "Hello world!":
+
+```php
+echo strpos("Hello world!", "world");
+
+// -- Output --
+// 6
+```
+
+❗ Tip: The first character position in a string is 0 (not 1).
+
+🔔 Complete PHP String Reference
+
+For a complete reference of all string functions, go to our complete PHP String Reference. (https://www.w3schools.com/php/php_ref_string.asp)
+
+## Modify Strings
+
+PHP has a set of built-in functions that you can use to modify strings.
+
+🔔 Upper Case
+
+Example : The strtoupper() function returns the string in upper case:
+
+```php
+$x = "Hello World!";
+echo strtoupper($x);
 
 ```
 
-- str_word_count() - Count Words in a String
+🔔 Lower Case
 
-The PHP str_word_count() function counts the number of words in a string.
-
-*Example*
+Example : The strtolower() function returns the string in lower case:
 
 ```php
-<?php
-echo str_word_count("Hello world!"); // outputs 2
-?>
+$x = "Hello World!";
+echo strtolower($x);
 
 ```
 
-- strrev() - Reverse a String
-
-The PHP strrev() function reverses a string.
-
-Example
-
-```php
-<?php
-echo strrev("Hello world!"); // outputs !dlrow olleH
-?>
-
-```
-
-- strpos() - Search For a Text Within a String
-
-The PHP strpos() function searches for a specific text within a string. If a match is found, the function returns the character position of the first match. If no match is found, it will return FALSE.
-
-*Example*
-
-Search for the text "world" in the string "Hello world!":
-
-```php
-<?php
-echo strpos("Hello world!", "world"); // outputs 6
-?>
-
-```
-
-**Tip**: The first character position in a string is 0 (not 1).
-
-- str_replace() - Replace Text Within a String
+🔔 Replace String
 
 The PHP str_replace() function replaces some characters with some other characters in a string.
 
-Example
-
-Replace the text "world" with "Dolly":
+Example : Replace the text "World" with "Dolly":
 
 ```php
-<?php
-echo str_replace("world", "Dolly", "Hello world!"); // outputs Hello Dolly!
-?>
+$x = "Hello World!";
+echo str_replace("World", "Dolly", $x);
+
+```
+🔔 Reverse a String
+
+The PHP strrev() function reverses a string.
+
+Example : Reverse the string "Hello World!":
+
+```php
+$x = "Hello World!";
+echo strrev($x);
 
 ```
 
-Complete PHP String Reference (https://www.w3schools.com/php/php_ref_string.asp)
+🔔 Remove Whitespace
 
-For a complete reference of all string functions, go to our complete PHP String Reference.
+Whitespace is the space before and/or after the actual text, and very often you want to remove this space.
 
-The PHP string reference contains description and example of use, for each function!
+Example : The trim() removes any whitespace from the beginning or the end:
 
+```php
+$x = " Hello World! ";
+echo trim($x);
+
+```
+Learn more in our trim() Function Reference.
+
+🔔 Convert String into Array
+
+The PHP explode() function splits a string into an array.
+
+The first parameter of the explode() function represents the "separator". The "separator" specifies where to split the string.
+
+❗ Note: The separator is required.
+
+Example : Split the string into an array. Use the space character as separator:
+
+```php
+$x = "Hello World!";
+$y = explode(" ", $x);
+
+//Use the print_r() function to display the result:
+print_r($y);
+
+/*
+Result:
+Array ( [0] => Hello [1] => World! )
+*/
+
+```
+
+
+## Concatenate Strings
+
+To concatenate, or combine, two strings you can use the `.` operator:
+
+Example
+
+```php
+$x = "Hello";
+$y = "World";
+$z = $x . $y;
+echo $z;
+
+```
+
+The result of the example above is HelloWorld, without a space between the two words.
+
+You can add a space character like this:
+
+Example
+
+```php
+$x = "Hello";
+$y = "World";
+$z = $x . " " . $y;
+echo $z;
+
+```
+
+An easier and better way is by using the power of double quotes.
+
+By surrounding the two variables in double quotes with a white space between them, the white space will also be present in the result:
+
+Example
+
+```php
+$x = "Hello";
+$y = "World";
+$z = "$x $y";
+echo $z;
+
+```
+## Slicing Strings
+
+Source : https://www.w3schools.com/php/php_string_slicing.asp
+
+You can return a range of characters by using the substr() function.
+
+Specify the start index and the number of characters you want to return.
+
+Example : Start the slice at index 6 and end the slice 5 positions later:
+
+```php
+$x = "Hello World!";
+echo substr($x, 6, 5);
+
+```
+
+❗ Note The first character has index 0.
+
+🔔 Slice to the End
+
+By leaving out the length parameter, the range will go to the end:
+
+Example : Start the slice at index 6 and go all the way to the end:
+
+```php
+$x = "Hello World!";
+echo substr($x, 6);
+
+```
+
+🔔 Slice From the End
+
+Use negative indexes to start the slice from the end of the string:
+
+Example : Get the 3 characters, starting from the "o" in world (index -5):
+
+
+```php
+$x = "Hello World!";
+echo substr($x, -5, 3);
+
+// -- Output --
+// orl
+
+```
+
+❗ Note The last character has index -1.
+
+🔔 Negative Length
+
+Use negative length to specify how many characters to omit, starting from the end of the string:
+
+Example : From the string "Hi, how are you?", get the characters starting from index 5, and continue until you reach the 3. character from the end (index -3).
+
+Should end up with "ow are y":
+
+```php
+$x = "Hi, how are you?";
+echo substr($x, 5, -3);
+
+// -- Output --
+// ow are y
+
+```
+
+## Escape Characters
+
+Source : https://www.w3schools.com/php/php_string_escape.asp
+
+To insert characters that are illegal in a string, use an escape character.
+
+An escape character is a backslash `\` followed by the character you want to insert.
+
+An example of an illegal character is a double quote inside a string that is surrounded by double quotes:
+
+Example
+
+```php
+$x = "We are the so-called "Vikings" from the north.";
+
+```
+
+To fix this problem, use the escape character `\"`:
+
+Example
+
+```php
+$x = "We are the so-called \"Vikings\" from the north.";
+
+```
+
+🔔 Escape Characters
+
+Other escape characters used in PHP:
+
+Code | Result
+-----|----------------
+\'   | Single Quote
+\"   | Double Quote
+\$   | PHP variables
+\n   | New Line
+\r   | Carriage Return
+\t   | Tab
+\f   | Form Feed
+\ooo | Octal value
+\xhh | Hex value
+
+🔚
 
 # Php Numbers (W3S)
 
 Source : https://www.w3schools.com/php/php_numbers.asp 
 
-<a href="https://www.w3schools.com/php/php_numbers.asp" target="_blank">W3Schools</a> 
-
 In this chapter we will look in depth into *Integers, Floats, and Number Strings*.
 
-One thing to notice about PHP is that it provides automatic data type conversion.
+One thing to notice about PHP is that it provides `automatic data type conversion`.
 
 So, if you assign an integer value to a variable, the type of that variable will automatically be an integer. Then, if you assign a string to the same variable, the type will change to a string (dynamic type).
 
