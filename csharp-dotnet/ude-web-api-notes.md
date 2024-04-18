@@ -130,7 +130,7 @@ Delete | Delete
 
 ➖ böylelik bize solution'u oluşturur. burada önemli dizinler controllers'dur. Mvc Controller'ı Controller sınıfını miras alır, Api Controller'ı ise ApiController sınıfını miras alır.
 
-➖ proje ayağa kalkarken global.asax bulunan Application_Start metodu çalışacaktır. Burada ayarlar yapılmıştır. App_Start dizininde ayarlar sınıfları vardır. WebApiConfig sınıfı api ayarları yapılır.
+➖ Proje ayağa kalkarken global.asax bulunan Application_Start metodu çalışacaktır. Burada ayarlar yapılmıştır. App_Start dizininde ayarlar sınıfları vardır. WebApiConfig sınıfı api ayarları yapılır.
 
 ➖ controller içerisindeki metodlara action diyoruz.
 
