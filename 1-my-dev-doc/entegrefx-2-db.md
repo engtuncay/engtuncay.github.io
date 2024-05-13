@@ -1,5 +1,6 @@
 
 - [Db İşlemler](#db-i̇şlemler)
+  - [Sayfalama Sorguları](#sayfalama-sorguları)
   - [Oto Select Sorgular](#oto-select-sorgular)
     - [Select Count Where Id In List (Toplu Kayıt Sayısı Kontrolü)](#select-count-where-id-in-list-toplu-kayıt-sayısı-kontrolü)
   - [Oto Update Sorgular](#oto-update-sorgular)
@@ -20,6 +21,67 @@
 
 
 # Db İşlemler
+
+## Sayfalama Sorguları
+
+```java
+/**
+     * Zorunlu alanlar : lnBegin,lnEnd,cha_evrak_tip
+     * <p>
+     * filterFkb.putKeyTos(FiColsEntegre.lnBegin(), lnBeginIndex);
+     * filterFkb.putKeyTos(FiColsEntegre.lnEnd(), lnEndIndex);
+     * filterFkb.putKeyTos(FiColsMikroCha.cha_evrak_tip(), metaMikroEvrakTip.getCha_evrak_tip());
+     *
+     * @param fkbSorgu
+     * @return
+     */
+    public Fdr<List<MkCariHesapHareketleri>> selEvraklarCarisizV1(FiKeyBean fkbSorgu) {
+
+        // Integer lnBegin, Integer lnEnd, Integer cha_evrak_tip, MkCariHesapHareketleri cariHar
+
+        // Sql Sorgusunun Where parçası aynısı count sorgusunda da kullanmak için
+        String sqlWhere = "";
+        
+        // sqid
+        String sql = "";
+
+        sql += sqlWhere +
+                ") AS mainQuery\n" +
+                "WHERE mainQuery.lnRowNo >= @lnBegin AND mainQuery.lnRowNo <= @lnEnd";
+
+        //sqid
+        String sqlCount = "--sq200307_1248_2\n" +
+                "SELECT count(chh.cha_RECno) as lnCount\n" +
+                "FROM OZV_CARI_HESAP_EVRAKLAR_OZEL2 chh\n" +
+                sqlWhere;
+
+        FiQuery fiQuery = new FiQuery(sql, fkbSorgu);
+        fiQuery.activateParamsOnlyFull();
+        fiQuery.deActivateAllOptParams();
+
+        // Loghelper.get(getClass()).debug(FiConsole.textFiKeyBean(fiQuery.getMapParams()));
+        // Loghelper.get(getClass()).debug(fiQuery.getTxQuery());
+
+        Fdr<List<MkCariHesapHareketleri>> listFdr = jdSelectListBindMap(fiQuery);
+
+        //FiKeyBean fkbCount = getFkbSelCariEvrak(null, null, cha_evrak_tip, cariHar);
+
+        FiQuery fiQuery2 = new FiQuery(sqlCount, fkbSorgu);
+        fiQuery2.activateParamsOnlyFull();
+        fiQuery2.deActivateOptParamsNotUsed();
+
+        //Loghelper.debug(getClass(), "sql count:"+spSqlCount.get());
+        Fdr<Optional<Integer>> opCount = jdSelectSingleOpInt(fiQuery2.getTxQuery(), fiQuery2.getMapParams());
+
+        if (opCount.isTrueBoResult()) {
+            //Loghelper.debug(getClass(), "Query Count:" + opCount.getValue().get());
+            listFdr.setLnTotalCount(opCount.getValue().get());
+        }
+
+        return listFdr;
+    }
+
+```
 
 ## Oto Select Sorgular
 
@@ -106,8 +168,6 @@ System.out.println(sqlQuery2);
 		return jdUpdateBindMapMain(sql, fkbParams);
 	}
 ```
-
-
 
 ## FiQuery
 

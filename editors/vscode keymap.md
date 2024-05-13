@@ -85,8 +85,8 @@
 | Rename Symbol               | F2               | editor.action.rename                       |
 | Replace with Next Value     | Ctrl+Shift+.     | editor.action.inPlaceReplace.down          |
 | Replace with Previous Value | Ctrl+Shift+,     | editor.action.inPlaceReplace.up            |
-| Expand AST Selection        | Shift+Alt+Right  | editor.action.smartSelect.expand           |
-| Shrink AST Selection        | Shift+Alt+Left   | editor.action.smartSelect.shrink           |
+| Expand AST Selection ***    | Shift+Alt+Right  | editor.action.smartSelect.expand           |
+| Shrink AST Selection ***    | Shift+Alt+Left   | editor.action.smartSelect.shrink           |
 | Trim Trailing Whitespace    | Ctrl+K Ctrl+X    | editor.action.trimTrailingWhitespace       |
 | Change Language Mode        | Ctrl+K M         | workbench.action.editor.changeLanguageMode |
 

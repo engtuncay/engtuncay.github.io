@@ -4,9 +4,10 @@
 Java Fx ile geliştirdiğim uygulama için aldığım notlar. 
 
 - [Kısaltmalar](#kısaltmalar)
+- [Helper Sınıfları](#helper-sınıfları)
 - [Meta Datalar](#meta-datalar)
   - [FiColsEntegre - Entegre Sütun Objeleri](#ficolsentegre---entegre-sütun-objeleri)
-  - [MetaEntConst (String vs sabitler)](#metaentconst-string-vs-sabitler)
+  - [MetaEntConst Entegre Meta Sabitler (String degerler)](#metaentconst-entegre-meta-sabitler-string-degerler)
 - [Layout](#layout)
   - [Hide Component](#hide-component)
 - [Module Oluşturma](#module-oluşturma)
@@ -41,6 +42,14 @@ Vim      | view modal (Class isminde)
 Ehp      | Entegre Fx Helper (Class isminde)
 Esr      | EntegreServer
 Emk      | Entegre Mikro
+Emhp| Entegre Mikro Helper (emh de kullanılabilir)
+
+# Helper Sınıfları
+
+Sınıf    | Açıklama
+---------|----------------
+EmhpIcon | Kullanılan icon
+  
 
 # Meta Datalar
 
@@ -49,6 +58,8 @@ Emk      | Entegre Mikro
 - FiColsEntegre : Entegre ile ilgili alanlar burada tutulur.
   
 - FiColsMikro : Mikro alanları burada tutulur.
+
+İlgili tablo ismindeki sınıfın içerisine çekildi. (FiColsCariHesap,FiColsCha gibi...)
 
 örnek alan objesi dönen metod :
 
@@ -60,7 +71,7 @@ public static FiCol aucTxValue() {
 }
 ```
 
-## MetaEntConst (String vs sabitler)
+## MetaEntConst Entegre Meta Sabitler (String degerler)
 
 String sabitler burada tutulur.
 
