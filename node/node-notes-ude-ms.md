@@ -61,16 +61,16 @@ console.log(userDataCount);
 
 
 
-14. Açıklama satırları
+## 14. Açıklama satırları
 3 dak
 
-15. Birleştirme operatörü
+## 15. Birleştirme operatörü
 1 dak
 
-16. Aritmetik operatörler
+## 16. Aritmetik operatörler
 7 dak
 
-17. Karşılaştırma operatörleri
+## 17. Karşılaştırma operatörleri
 5 dak
 
 18. Mantıksal operatörler
