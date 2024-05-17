@@ -24,11 +24,12 @@ Java Fx ile geliştirdiğim uygulama için aldığım notlar.
   - [Excel Dosya Seçimi ve Yüklemesi](#excel-dosya-seçimi-ve-yüklemesi)
 - [Table](#table)
 - [Formlar](#formlar)
+  - [Form oluşturma](#form-oluşturma)
   - [Form elemanlarının otomatik kontrolü](#form-elemanlarının-otomatik-kontrolü)
   - [Form Kontrol Helper](#form-kontrol-helper)
   - [Form verilerinin fikeybean olarak almak](#form-verilerinin-fikeybean-olarak-almak)
-  - [Form Elements](#form-elements)
-    - [ComboBox Element](#combobox-element)
+  - [Form Elements (FiCols)](#form-elements-ficols)
+    - [ComboBox FiCol Element](#combobox-ficol-element)
 - [Karalama Notlar - İnceleneecek](#karalama-notlar---i̇nceleneecek)
 
 
@@ -42,7 +43,7 @@ Vim      | view modal (Class isminde)
 Ehp      | Entegre Fx Helper (Class isminde)
 Esr      | EntegreServer
 Emk      | Entegre Mikro
-Emhp| Entegre Mikro Helper (emh de kullanılabilir)
+Emhp     | Entegre Mikro Helper (emh de kullanılabilir)
 
 # Helper Sınıfları
 
@@ -291,6 +292,10 @@ Tablo ile ilgili bilgiler
 
 # Formlar
 
+## Form oluşturma
+
+
+
 ## Form elemanlarının otomatik kontrolü
 
 ```java
@@ -316,13 +321,30 @@ FiKeyBean fkbForm = getFxFormMig().getFormAsFiKeyBean();
 ```
 
 
-## Form Elements
+## Form Elements (FiCols)
 
-### ComboBox Element
+### ComboBox FiCol Element
 
-combobox içeriği `buildFnEditorRendererAfterFormLoad((o,node)->{ /*..*/})` veya `buiFnEditorNodeRendererBeforeSettingValue((o, node) -> {}` metodları ile doldurulabilir. Burada node, componenti (combobox,choicebox vs) gösterir.
+Combobox içeriği `buildFnEditorRendererAfterFormLoad((o,node)->{ /*..*/})` veya `buiFnEditorNodeRendererBeforeSettingValue((o, node) -> {}` metodları ile doldurulabilir. Burada node, componenti (combobox,choicebox vs) gösterir.
 
 Örnek
+
+```java
+  // EhpFormCols
+  FiCol fiCol = FiColsEntegre.bui().apcTxGrup();
+
+  fiCol.buildEditorNodeClass(FxComboBoxSimple.class.getName());
+  fiCol.buiFnEditorNodeRendererBeforeSettingValue((o, node) -> {
+    FxComboBoxSimple fxNode = (FxComboBoxSimple) node;
+
+    Fdr<List<EntAppConfig>> listFdr = new RepoEntAppConfig().selTxGrupDistinct2(MetaAppConfigs.bui().edmWebServiceUser().getApcGuid());
+
+    for (EntAppConfig entAppConfig : listFdr.getValueOr(new ArrayList<>())) {
+      fxNode.addComboItem(new ComboItem(entAppConfig.getApcTxGrup(),entAppConfig.getApcTxGrup()));
+    }
+  });
+
+```
 
 ```java
 listTableCols.add(FiTableColBuildHelper.build(EntegreField.akesTxGrupKod)
@@ -333,25 +355,6 @@ listTableCols.add(FiTableColBuildHelper.build(EntegreField.akesTxGrupKod)
     })
   );
 
-```
-
-```java
-// EhpFormCols
-public FiCol formEdmAyarGruplari_ApcTxGrup() {
-  FiCol fiCol = FiColsEntegre.bui().apcTxGrup();
-
-  fiCol.buildEditorNodeClass(FxComboBoxSimple.class.getName())
-      .buiFnEditorNodeRendererBeforeSettingValue((o, node) -> {
-        FxComboBoxSimple fxNode = (FxComboBoxSimple) node;
-
-        Fdr<List<EntAppConfig>> listFdr = new RepoEntAppConfig().selTxGrupDistinct2(MetaAppConfigs.bui().edmWebServiceUser().getApcGuid());
-
-        for (EntAppConfig entAppConfig : listFdr.getValueOr(new ArrayList<>())) {
-          fxNode.addComboItem(new ComboItem(entAppConfig.getApcTxGrup(),entAppConfig.getApcTxGrup()));
-        }
-      });
-  return fiCol;
-}
 ```
 			
 - Sor. Mer. Form Elemanı

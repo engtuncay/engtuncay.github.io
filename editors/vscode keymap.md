@@ -67,6 +67,7 @@
 | Toggle Use of Tab Key for Setting Focus     | Ctrl+M           | editor.action.toggleTabFocusMode                  |
 | Toggle Render Whitespace                    | unassigned       | toggleRenderWhitespace                            |
 | Toggle Word Wrap                            | Alt+Z            | editor.action.toggleWordWrap                      |
+| Duplicate Line                              | a+s,down         |                                                   |
 
 # Rich Languages Editing                      
 

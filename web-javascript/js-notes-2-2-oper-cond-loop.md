@@ -514,9 +514,7 @@ Another way to write conditionals is using ternary operators. We have covered th
 
 ```js
 let isRaining = true
-isRaining
-  ? console.log('You need a rain coat.')
-  : console.log('No need for a rain coat.')
+isRaining ? console.log('You need a rain coat.') : console.log('No need for a rain coat.')
 ```
 
 ## Loops
@@ -586,7 +584,6 @@ for (const element of arr) {
 ```
 
 ```js
-
 const numbers = [1, 2, 3, 4, 5]
 
 for (const num of numbers) {
