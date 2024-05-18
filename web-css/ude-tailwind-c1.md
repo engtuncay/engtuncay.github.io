@@ -47,7 +47,16 @@ Udemy Kurs Notları
   - [37. Tailwind css margin](#37-tailwind-css-margin)
   - [38. Tailwind css padding](#38-tailwind-css-padding)
   - [39. Tailwind css space-between](#39-tailwind-css-space-between)
-- [B10 -](#b10--)
+- [B10 - Sizing - Boyutlandırma (width,height,mw,mh)](#b10---sizing---boyutlandırma-widthheightmwmh)
+  - [41. Tailwind css width, max-width, min-width](#41-tailwind-css-width-max-width-min-width)
+  - [42. Tailwind css height, max-height, min-height](#42-tailwind-css-height-max-height-min-height)
+  - [43. Proje dosyalarını indir.](#43-proje-dosyalarını-indir)
+- [B11 - Backgrounds](#b11---backgrounds)
+  - [44. Background color](#44-background-color)
+  - [45. Background opacity](#45-background-opacity)
+  - [46. Background gradıent \& backgroudn image](#46-background-gradıent--backgroudn-image)
+  - [47. Background image repeat](#47-background-image-repeat)
+  - [48. Background size](#48-background-size)
 
 
 # B1 Giriş
@@ -176,8 +185,18 @@ Udemy Kurs Notları
 ## 22.  Tailwind css visibility 
 5 dak
 
+- invisible sınıf tanımı yer tutar, ama gösterilmez.
+
+- tamamıyla göstermemesi için `display:none` yaparız.
+
+- collapse sınıf tanımı ile tablolarda satırı göstermeyebiliriz.
+
 ## 23.  Tailwind css z-index
 6 dak
+
+- module ayarlarında özelleştirebiliriz. (theme::extend::zIndex::'100':'100')
+
+- class="z-[100]" şeklinde istediğimiz değeri de verebiliriz.
 
 ## 24.  Proje dosyalarını indir.
 1 dak
@@ -231,33 +250,45 @@ Udemy Kurs Notları
 ## 39. Tailwind css space-between
 5 dak
 
+- flex elemanlarının arasında boşluğu tanımlar.
+
+
 40. Proje dosyalarını indir.
 1 dak
 
-# B10 - 
+# B10 - Sizing - Boyutlandırma (width,height,mw,mh)
 
-41. Tailwind css width, max-width, min-width
+## 41. Tailwind css width, max-width, min-width
 11 dak
-
-42. Tailwind css height, max-height, min-height
+ 
+## 42. Tailwind css height, max-height, min-height
 6 dak
 
-43. Proje dosyalarını indir.
+## 43. Proje dosyalarını indir.
 1 dak
 
-44. Background color
+# B11 - Backgrounds
+
+## 44. Background color
 5 dak
 
-45. Background opacity
+## 45. Background opacity
 5 dak
 
-46. Background gradıent & backgroudn image
+- opacity / işareti ile belirtiriz. Örneğin `class="bg-sky-500/75"` burada opacity 75 olarak belirtmiş oluruz.
+
+- `bg-[#50d71e]`   ile özel renk belirtebiliriz.
+
+## 46. Background gradıent & backgroudn image
 9 dak
 
-47. Background image repeat
+- `class="bg-[url('img/myimage.svg')]"` tanımlaması gibi kendi resim dosyamızı da belirtebiliriz.
+
+
+## 47. Background image repeat
 4 dak
 
-48. Background size
+## 48. Background size
 6 dak
 
 49. Background position
