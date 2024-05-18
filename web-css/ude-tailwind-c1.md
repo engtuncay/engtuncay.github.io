@@ -21,7 +21,33 @@ Udemy Kurs Notları
   - [14. Proje dosyalarını indir.](#14-proje-dosyalarını-indir)
 - [B7 Layout](#b7-layout)
   - [15. Projeye başlangıç - Tailwind CSS Container](#15-projeye-başlangıç---tailwind-css-container)
+  - [16. Tailwind css box model](#16-tailwind-css-box-model)
+  - [17. Tailwind css display. (block,inline,flex vb.)](#17-tailwind-css-display-blockinlineflex-vb)
+  - [18. Tailwind css float ve clear](#18-tailwind-css-float-ve-clear)
+  - [19. Tailwind css object fit ve object position](#19-tailwind-css-object-fit-ve-object-position)
+  - [20. Tailwind css overflow](#20-tailwind-css-overflow)
+  - [21.  Tailwind css position (relative,absolute,fixed vs.) - top-right-bottom-left](#21--tailwind-css-position-relativeabsolutefixed-vs---top-right-bottom-left)
+  - [22.  Tailwind css visibility](#22--tailwind-css-visibility)
+  - [23.  Tailwind css z-index](#23--tailwind-css-z-index)
+  - [24.  Proje dosyalarını indir.](#24--proje-dosyalarını-indir)
 - [B8 Flexbox](#b8-flexbox)
+  - [25. Tailwind css flexbox container hazırlanması](#25-tailwind-css-flexbox-container-hazırlanması)
+  - [26. Tailwind css flexbox flex-direction](#26-tailwind-css-flexbox-flex-direction)
+  - [27. Tailwind css flexbox --\> flex-wrap](#27-tailwind-css-flexbox----flex-wrap)
+  - [28. Tailwind css flexbox --\> justify-content](#28-tailwind-css-flexbox----justify-content)
+  - [29. Tailwind css flexbox --\> align-items](#29-tailwind-css-flexbox----align-items)
+  - [30. Tailwind css flexbox and grid --\> align-content](#30-tailwind-css-flexbox-and-grid----align-content)
+  - [31. Tailwind css flexbox and grid --\> order](#31-tailwind-css-flexbox-and-grid----order)
+  - [32. Tailwind css flexbox --\> flex-grow](#32-tailwind-css-flexbox----flex-grow)
+  - [33. Tailwind css flexbox --\> flex-shrink](#33-tailwind-css-flexbox----flex-shrink)
+  - [34. Tailwind css flexbox --\> flex-grow-shrink tek seferde kullanım](#34-tailwind-css-flexbox----flex-grow-shrink-tek-seferde-kullanım)
+  - [35. Proje dosyalarını indir.](#35-proje-dosyalarını-indir)
+- [B9 - Spacing (Margin,Padding,Space Between)](#b9---spacing-marginpaddingspace-between)
+  - [36. Margin ve padding nedir, ne amaç ile kullanılır? Hatırlatma](#36-margin-ve-padding-nedir-ne-amaç-ile-kullanılır-hatırlatma)
+  - [37. Tailwind css margin](#37-tailwind-css-margin)
+  - [38. Tailwind css padding](#38-tailwind-css-padding)
+  - [39. Tailwind css space-between](#39-tailwind-css-space-between)
+- [B10 -](#b10--)
 
 
 # B1 Giriş
@@ -105,82 +131,110 @@ Udemy Kurs Notları
 ## 15. Projeye başlangıç - Tailwind CSS Container
 10 dak
 
-16. Tailwind css box model
+## 16. Tailwind css box model
 6 dak
 
-17. Tailwind css display. (block,inline,flex vb.)
-9 dak
+- box-border, box-content 
 
-18. Tailwind css float ve clear
+
+
+## 17. Tailwind css display. (block,inline,flex vb.)
+
+- html elementinin blok özelliği : block, inline, inline-block, flex, grid vs...
+
+## 18. Tailwind css float ve clear
 8 dak
 
-19. Tailwind css object fit ve object position
+- float-right, float-left ve float-none sınıfları
+
+- float ile resim ile yazımızı yanyana yapabiliriz, clear ile yanyana özelliği kesmiş oluruz.
+
+
+## 19. Tailwind css object fit ve object position
 7 dak
 
-20. Tailwind css overflow
+- web sitenizi ekleyeceğimiz görsel alana uymaz ve bu sorunu object-fit ile çözeriz. (alanı kaplaması,stretch vs...)
+
+- object position ile sığmadığında nasıl konumlandırıcağını belirleyebiliriz.
+
+## 20. Tailwind css overflow
 5 dak
 
-21. Tailwind css position (relative,absolute,fixed vs.) - top-right-bottom-left
+
+- overflow-scroll tanımladığımızda, div içerisindeki p elementinde alt scroll çıkması için width belirlenmesi gerekir.
+
+```html
+<div class="overflow-scroll">
+  <p class="w-96"> burada width belirlenmezse alt scroll görünmez.
+  </p>
+</div>
+```
+
+## 21.  Tailwind css position (relative,absolute,fixed vs.) - top-right-bottom-left
 11 dak
 
-22. Tailwind css visibility
+## 22.  Tailwind css visibility 
 5 dak
 
-23. Tailwind css z-index
+## 23.  Tailwind css z-index
 6 dak
 
-24. Proje dosyalarını indir.
+## 24.  Proje dosyalarını indir.
 1 dak
 
 # B8 Flexbox
 
-25. Tailwind css flexbox container hazırlanması
+## 25. Tailwind css flexbox container hazırlanması
 6 dak
 
-26. Tailwind css flexbox flex-direction
+## 26. Tailwind css flexbox flex-direction
 2 dak
 
-27. Tailwind css flexbox --> flex-wrap
+## 27. Tailwind css flexbox --> flex-wrap
 4 dak
 
-28. Tailwind css flexbox --> justify-content
+## 28. Tailwind css flexbox --> justify-content
 4 dak
 
-29. Tailwind css flexbox --> align-items
+## 29. Tailwind css flexbox --> align-items
 4 dak
 
-30. Tailwind css flexbox and grid --> align-content
+## 30. Tailwind css flexbox and grid --> align-content
 7 dak
 
-31. Tailwind css flexbox and grid --> order
+## 31. Tailwind css flexbox and grid --> order
 2 dak
 
-32. Tailwind css flexbox --> flex-grow
+## 32. Tailwind css flexbox --> flex-grow
 3 dak
 
-33. Tailwind css flexbox --> flex-shrink
+## 33. Tailwind css flexbox --> flex-shrink
 4 dak
 
-34. Tailwind css flexbox --> flex-grow-shrink tek seferde kullanım
+## 34. Tailwind css flexbox --> flex-grow-shrink tek seferde kullanım
 5 dak
 
-35. Proje dosyalarını indir.
+## 35. Proje dosyalarını indir.
 1 dak
 
-36. Margin ve padding nedir, ne amaç ile kullanılır? Hatırlatma
+# B9 - Spacing (Margin,Padding,Space Between)
+
+## 36. Margin ve padding nedir, ne amaç ile kullanılır? Hatırlatma
 6 dak
 
-37. Tailwind css margin
+## 37. Tailwind css margin
 9 dak
 
-38. Tailwind css padding
+## 38. Tailwind css padding
 8 dak
 
-39. Tailwind css space-between
+## 39. Tailwind css space-between
 5 dak
 
 40. Proje dosyalarını indir.
 1 dak
+
+# B10 - 
 
 41. Tailwind css width, max-width, min-width
 11 dak
