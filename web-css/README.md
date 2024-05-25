@@ -72,15 +72,19 @@ Source : [W3Schools]()
 # Tailwind Notes
 
 | Topic                                    | Note |
-|------------------------------------------|------|
-| [Tailwind Cheat - All](./tw-cheat.md)    |
-| [Tailwind Intro](./tw-intro.md)          |
-| [Layout](./tw-layout.md)                 |
-| [Sizing and Spacing](./tw-sizing.md)     |
-| [Backgrounds](./tw-background.md)        |
-| [Flexbox and Grid](./tw-flexbox-grid.md) |
-| [Typography](./tw-typoghraphy.md)        |
-| [Borders](./tw-borders.md)               |
+| ---------------------------------------- | ---- |
+| [Tailwind Cheat - All](./tw-cheat.md)    |      |
+| [Tailwind Intro](./tw-intro.md)          |      |
+| [Layout](./tw-layout.md)                 |      |
+| [Sizing and Spacing](./tw-sizing.md)     |      |
+| [Backgrounds](./tw-background.md)        |      |
+| [Flexbox and Grid](./tw-flexbox-grid.md) |      |
+| [Typography](./tw-typoghraphy.md)        |      |
+| [Borders](./tw-borders.md)               |      |
+
+| Topic                                | Note |
+|--------------------------------------|------|
+| [Kurs Notları](./ude-tailwind-c1.md) |      |
 
 Topics Will be Added
 
