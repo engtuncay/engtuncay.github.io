@@ -17,7 +17,7 @@ Udemy Kurs Notları
 - [B4 Apply Layer Base and Component Kullanımı](#b4-apply-layer-base-and-component-kullanımı)
   - [9. Tailwind CSS Apply - Layer Base and Component kullanımı.](#9-tailwind-css-apply---layer-base-and-component-kullanımı)
 - [B5 React ile Tailwind Kullanımı](#b5-react-ile-tailwind-kullanımı)
-  - [11. React ile Tailwind CSS kurulumu, light/dark modu ve daha fazlası. Açıklama](#11-react-ile-tailwind-css-kurulumu-lightdark-modu-ve-daha-fazlası-açıklama)
+  - [11. React ile Tailwind CSS kurulumu, light/dark modu](#11-react-ile-tailwind-css-kurulumu-lightdark-modu)
   - [12. Tailwind css with React.js](#12-tailwind-css-with-reactjs)
 - [B6 Breakpoints - Responsive Design](#b6-breakpoints---responsive-design)
   - [13. Tailwind css breakpoints - Responsive design](#13-tailwind-css-breakpoints---responsive-design)
@@ -131,7 +131,7 @@ Udemy Kurs Notları
 
 # B5 React ile Tailwind Kullanımı
 
-## 11. React ile Tailwind CSS kurulumu, light/dark modu ve daha fazlası. Açıklama
+## 11. React ile Tailwind CSS kurulumu, light/dark modu
 1 dak
 
 ## 12. Tailwind css with React.js

@@ -46,6 +46,7 @@ shadow-inner
 ```
 ​
 Removing the shadow
+
 Use shadow-none to remove an existing box shadow from an element. This is most commonly used to remove a shadow that was applied at a smaller breakpoint.
 
 shadow-none
