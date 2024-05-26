@@ -13,14 +13,12 @@ Udemy Kurs Notları
   - [5. Tailwind CLI kurulumu. Node.js ile](#5-tailwind-cli-kurulumu-nodejs-ile)
   - [6. Proje dosyalarını indir.](#6-proje-dosyalarını-indir)
 - [B3 Light ve Dark Modu](#b3-light-ve-dark-modu)
-  - [7. Tailwind css light ve dark modu](#7-tailwind-css-light-ve-dark-modu)
-  - [8. Proje dosyalarını indir.](#8-proje-dosyalarını-indir)
+  - [7. Light ve Dark modu](#7-light-ve-dark-modu)
 - [B4 Apply Layer Base and Component Kullanımı](#b4-apply-layer-base-and-component-kullanımı)
   - [9. Tailwind CSS Apply - Layer Base and Component kullanımı.](#9-tailwind-css-apply---layer-base-and-component-kullanımı)
-  - [10. Bölüm sonu dosyalarını indir](#10-bölüm-sonu-dosyalarını-indir)
 - [B5 React ile Tailwind Kullanımı](#b5-react-ile-tailwind-kullanımı)
   - [11. React ile Tailwind CSS kurulumu, light/dark modu ve daha fazlası. Açıklama](#11-react-ile-tailwind-css-kurulumu-lightdark-modu-ve-daha-fazlası-açıklama)
-  - [12. Tailwindcss with React.js](#12-tailwindcss-with-reactjs)
+  - [12. Tailwind css with React.js](#12-tailwind-css-with-reactjs)
 - [B6 Breakpoints - Responsive Design](#b6-breakpoints---responsive-design)
   - [13. Tailwind css breakpoints - Responsive design](#13-tailwind-css-breakpoints---responsive-design)
 - [B7 Layout](#b7-layout)
@@ -29,10 +27,10 @@ Udemy Kurs Notları
   - [17. display. (block,inline,flex vb.)](#17-display-blockinlineflex-vb)
   - [18. float ve clear](#18-float-ve-clear)
   - [19. object fit ve object position](#19-object-fit-ve-object-position)
-  - [20. Tailwind css overflow](#20-tailwind-css-overflow)
-  - [21.  Tailwind css position (relative,absolute,fixed vs.) - top-right-bottom-left](#21--tailwind-css-position-relativeabsolutefixed-vs---top-right-bottom-left)
-  - [22.  Tailwind css visibility](#22--tailwind-css-visibility)
-  - [23.  Tailwind css z-index](#23--tailwind-css-z-index)
+  - [20. overflow](#20-overflow)
+  - [21.  position (relative,absolute,fixed vs.) - top-right-bottom-left](#21--position-relativeabsolutefixed-vs---top-right-bottom-left)
+  - [22.  Visibility](#22--visibility)
+  - [23. z-index](#23-z-index)
 - [B8 Flexbox](#b8-flexbox)
   - [25. flexbox container hazırlanması](#25-flexbox-container-hazırlanması)
   - [26. flexbox flex-direction](#26-flexbox-flex-direction)
@@ -46,17 +44,16 @@ Udemy Kurs Notları
   - [34. flex-grow-shrink tek seferde kullanım](#34-flex-grow-shrink-tek-seferde-kullanım)
 - [B9 - Spacing (Margin,Padding,Space Between)](#b9---spacing-marginpaddingspace-between)
   - [36. Margin ve padding nedir, ne amaç ile kullanılır? Hatırlatma](#36-margin-ve-padding-nedir-ne-amaç-ile-kullanılır-hatırlatma)
-  - [37. Tailwind css margin](#37-tailwind-css-margin)
-  - [38. Tailwind css padding](#38-tailwind-css-padding)
-  - [39. Tailwind css space-between](#39-tailwind-css-space-between)
+  - [37. margin](#37-margin)
+  - [38. padding](#38-padding)
+  - [39. space-between](#39-space-between)
 - [B10 - Sizing - Boyutlandırma (width,height,mw,mh)](#b10---sizing---boyutlandırma-widthheightmwmh)
-  - [41. Tailwind css width, max-width, min-width](#41-tailwind-css-width-max-width-min-width)
-  - [42. Tailwind css height, max-height, min-height](#42-tailwind-css-height-max-height-min-height)
-  - [43. Proje dosyalarını indir.](#43-proje-dosyalarını-indir)
+  - [41. width, max-width, min-width](#41-width-max-width-min-width)
+  - [42. height, max-height, min-height](#42-height-max-height-min-height)
 - [B11 - Backgrounds](#b11---backgrounds)
   - [44. Background color](#44-background-color)
   - [45. Background opacity](#45-background-opacity)
-  - [46. Background gradıent \& backgroudn image](#46-background-gradıent--backgroudn-image)
+  - [46. Background gradient \& background image](#46-background-gradient--background-image)
   - [47. Background image repeat](#47-background-image-repeat)
   - [48. Background size](#48-background-size)
   - [49. Background position](#49-background-position)
@@ -97,10 +94,10 @@ Udemy Kurs Notları
 
 # B3 Light ve Dark Modu
 
-## 7. Tailwind css light ve dark modu
+## 7. Light ve Dark modu
 16 dak
 
-## 8. Proje dosyalarını indir.
+8. Proje dosyalarını indir.
 1 dak
 
 # B4 Apply Layer Base and Component Kullanımı
@@ -129,7 +126,7 @@ Udemy Kurs Notları
 }
 ```
 
-## 10. Bölüm sonu dosyalarını indir
+10. Bölüm sonu dosyalarını indir
 1 dak
 
 # B5 React ile Tailwind Kullanımı
@@ -137,7 +134,7 @@ Udemy Kurs Notları
 ## 11. React ile Tailwind CSS kurulumu, light/dark modu ve daha fazlası. Açıklama
 1 dak
 
-## 12. Tailwindcss with React.js
+## 12. Tailwind css with React.js
 1 sa 24 dak
 
 # B6 Breakpoints - Responsive Design
@@ -179,7 +176,7 @@ Udemy Kurs Notları
 
 - object position ile sığmadığında nasıl konumlandırıcağını belirleyebiliriz.
 
-## 20. Tailwind css overflow
+## 20. overflow
 5 dak
 
 
@@ -192,10 +189,10 @@ Udemy Kurs Notları
 </div>
 ```
 
-## 21.  Tailwind css position (relative,absolute,fixed vs.) - top-right-bottom-left
+## 21.  position (relative,absolute,fixed vs.) - top-right-bottom-left
 11 dak
 
-## 22.  Tailwind css visibility 
+## 22.  Visibility 
 5 dak
 
 - invisible sınıf tanımı yer tutar, ama gösterilmez.
@@ -204,7 +201,7 @@ Udemy Kurs Notları
 
 - collapse sınıf tanımı ile tablolarda satırı göstermeyebiliriz.
 
-## 23.  Tailwind css z-index
+## 23. z-index
 6 dak
 
 - module ayarlarında özelleştirebiliriz. (theme::extend::zIndex::'100':'100')
@@ -254,13 +251,13 @@ Udemy Kurs Notları
 ## 36. Margin ve padding nedir, ne amaç ile kullanılır? Hatırlatma
 6 dak
 
-## 37. Tailwind css margin
+## 37. margin
 9 dak
 
-## 38. Tailwind css padding
+## 38. padding
 8 dak
 
-## 39. Tailwind css space-between
+## 39. space-between
 5 dak
 
 - flex elemanlarının arasında boşluğu tanımlar.
@@ -271,13 +268,13 @@ Udemy Kurs Notları
 
 # B10 - Sizing - Boyutlandırma (width,height,mw,mh)
 
-## 41. Tailwind css width, max-width, min-width
+## 41. width, max-width, min-width
 11 dak
  
-## 42. Tailwind css height, max-height, min-height
+## 42. height, max-height, min-height
 6 dak
 
-## 43. Proje dosyalarını indir.
+43. Proje dosyalarını indir.
 1 dak
 
 # B11 - Backgrounds
@@ -292,7 +289,7 @@ Udemy Kurs Notları
 
 - `bg-[#50d71e]`   ile özel renk belirtebiliriz.
 
-## 46. Background gradıent & backgroudn image
+## 46. Background gradient & background image
 9 dak
 
 - `class="bg-[url('img/myimage.svg')]"` tanımlaması gibi kendi resim dosyamızı da belirtebiliriz.
@@ -334,7 +331,7 @@ Udemy Kurs Notları
 
 - text align ile yazının yatayda hizalanmasını sağlarız. örnek sınıflar text-left,text-center, text-justify (iki tarafa yaslama)
 
-- 
+
 
 ## 53. text color, text-transform, text-indent
 7 dak
