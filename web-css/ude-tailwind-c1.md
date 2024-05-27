@@ -1,13 +1,17 @@
 
 Udemy Kurs Notları
 
+Sources
+
+- https://www.udemy.com/course/tailwind-css-sifirdan-gercek-web-tasarim-projeleri-ile-ogrenin
+
 # Contents
 
 - [Contents](#contents)
 - [B1 Giriş](#b1-giriş)
   - [1. Tailwind CSS Nedir?](#1-tailwind-css-nedir)
   - [2. Tailwind UI, Tailwind Components ve Tailwind Templates.](#2-tailwind-ui-tailwind-components-ve-tailwind-templates)
-  - [3. Download /Install VS CODE - Tailwind extension, Auto Rename Tag and Live Server](#3-download-install-vs-code---tailwind-extension-auto-rename-tag-and-live-server)
+  - [3. Download - Install VS CODE - Tailwind extension, Auto Rename Tag and Live Server](#3-download---install-vs-code---tailwind-extension-auto-rename-tag-and-live-server)
 - [B2 Tailwind Css Proje Kurulumu](#b2-tailwind-css-proje-kurulumu)
   - [4. Tailwind CSS Play CDN ile kullanımı](#4-tailwind-css-play-cdn-ile-kullanımı)
   - [5. Tailwind CLI kurulumu. Node.js ile](#5-tailwind-cli-kurulumu-nodejs-ile)
@@ -77,9 +81,12 @@ Udemy Kurs Notları
 ## 2. Tailwind UI, Tailwind Components ve Tailwind Templates.
 6 dak
 
-## 3. Download /Install VS CODE - Tailwind extension, Auto Rename Tag and Live Server
+## 3. Download - Install VS CODE - Tailwind extension, Auto Rename Tag and Live Server
 5 dak
 
+🔔 Tavsiye Edilen Eklentiler
+
+- Live Server, 
 
 # B2 Tailwind Css Proje Kurulumu
 
@@ -88,6 +95,9 @@ Udemy Kurs Notları
 
 ## 5. Tailwind CLI kurulumu. Node.js ile
 8 dak
+
+
+
 
 ## 6. Proje dosyalarını indir.
 1 dak
@@ -126,9 +136,6 @@ Udemy Kurs Notları
 }
 ```
 
-10. Bölüm sonu dosyalarını indir
-1 dak
-
 # B5 React ile Tailwind Kullanımı
 
 ## 11. React ile Tailwind CSS kurulumu, light/dark modu
@@ -142,9 +149,6 @@ Udemy Kurs Notları
 ## 13. Tailwind css breakpoints - Responsive design
 11 dak
 
-14. Proje dosyalarını indir.
-1 dak
-
 # B7 Layout
 
 ## 15. Container
@@ -154,7 +158,6 @@ Udemy Kurs Notları
 6 dak
 
 - box-border, box-content 
-
 
 
 ## 17. display. (block,inline,flex vb.)
@@ -178,7 +181,6 @@ Udemy Kurs Notları
 
 ## 20. overflow
 5 dak
-
 
 - overflow-scroll tanımladığımızda, div içerisindeki p elementinde alt scroll çıkması için width belirlenmesi gerekir.
 
@@ -262,10 +264,6 @@ Udemy Kurs Notları
 
 - flex elemanlarının arasında boşluğu tanımlar.
 
-
-40. Proje dosyalarını indir.
-1 dak
-
 # B10 - Sizing - Boyutlandırma (width,height,mw,mh)
 
 ## 41. width, max-width, min-width
@@ -273,9 +271,6 @@ Udemy Kurs Notları
  
 ## 42. height, max-height, min-height
 6 dak
-
-43. Proje dosyalarını indir.
-1 dak
 
 # B11 - Backgrounds
 
@@ -303,9 +298,6 @@ Udemy Kurs Notları
 
 ## 49. Background position
 4 dak
-
-50. Proje dosyalarını indir.
-1 dak
 
 # B12 - Font Family
 
@@ -344,9 +336,6 @@ Udemy Kurs Notları
 ## 55. Proje 1 - Responsive Lamborghini Website. Light and dark mode.
 22 dak
 
-56. Proje dosyalarını indir.
-1 dak
-
 # B14 - Proje 2
 
 ## 57. Web sitesi tanıtım
@@ -354,8 +343,5 @@ Udemy Kurs Notları
 
 ## 58. Responsive Music Website
 42 dak
-
-59. Proje dosyalarını indir.
-1 dak
 
 60. Bu alan hazırlanıyor
