@@ -59,7 +59,7 @@ Udemy Kurs Notları
   - [49. Background position](#49-background-position)
 - [B12 - Font Family](#b12---font-family)
   - [51. Font-family, font-size, font-style, font-weight](#51-font-family-font-size-font-style-font-weight)
-  - [52. Align-items, vertical-align](#52-align-items-vertical-align)
+  - [52. text-align, vertical-align](#52-text-align-vertical-align)
   - [53. text color, text-transform, text-indent](#53-text-color-text-transform-text-indent)
 - [B13 - Proje 1](#b13---proje-1)
   - [54. Web sitesi tanıtım.](#54-web-sitesi-tanıtım)
@@ -326,11 +326,12 @@ Udemy Kurs Notları
 
 - font-[x] ile yazı kalınlığını x olarak belirleriz.
 
-## 52. Align-items, vertical-align
+## 52. text-align, vertical-align
 8 dak
 
 - text align ile yazının yatayda hizalanmasını sağlarız. örnek sınıflar text-left,text-center, text-justify (iki tarafa yaslama)
 
+- vertical align için align-top, align-middle
 
 
 ## 53. text color, text-transform, text-indent
