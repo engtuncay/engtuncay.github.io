@@ -323,11 +323,21 @@ Sources
 
 - text align ile yazının yatayda hizalanmasını sağlarız. örnek sınıflar text-left,text-center, text-justify (iki tarafa yaslama)
 
-- vertical align için align-top, align-middle
+- vertical align için align-top, align-middle,align-sub ... sınıflar dikeyde hizalamamazı sağlar.
 
+- align-[4px] gibi özel bir pixel de verebiliriz.
+  
 
 ## 53. text color, text-transform, text-indent
 7 dak
+
+- text-sky-100 , text-red-100 gibi text color verebiliriz.
+
+- lowercase, uppercase, capitalize (baş harfleri büyük yapar), normal-case gibi sınıflar var.
+
+- parağraf başındaki satırda ne kadar boşluk bırakılacağını gösterir.
+
+
 
 # B13 - Proje 1 
 
