@@ -103,23 +103,33 @@ PHP dünyasının gerilmesini, tartışmasız composer engellemiştir. Çünkü 
 
 ➖ Composer Nasıl Kurulur?
 
+
 Linux/Unix İşletim Sistemlerinde:
 
 1. Seçenek: Curl yüklü ise:
 
+```bash
 curl -sS https://getcomposer.org/installer | php
 
-2. Seçenek: Eğer yüklü değilse aşağıdaki kod ile composer.phar dosyasını indirin:
+```
 
+1. Seçenek: Eğer yüklü değilse aşağıdaki kod ile composer.phar dosyasını indirin:
+
+```bash
 php -r "readfile('https://getcomposer.org/installer');" | php
+
+```
 
 composer.phar dosyasını indirdikten sonra aşağıdaki kod ile sistem dizininize taşıyın.
 
+```
 mv composer.phar /usr/local/bin/composer
+
+```
 
 ➖ Windows İşletim Sisteminde:
 
-Composer-Setup.exe dosyasını indirin ve kurun.
+`Composer-Setup.exe` dosyasını indirin ve kurun.
 
 ➖ Composer Nasıl Kullanılır?
 
@@ -129,23 +139,32 @@ composer.json dosyasını elinizle oluşturabilceğiniz gibi herhangi bir kütü
 
 Composer ile en çok yüklenen paket olan "monolog" kütüphanesini yükleyelim. Terminal yada Komut İstemini açın projenizin kök klasörüne gidin. Ardından aşağıdaki kodu çalıştırın.
 
+```bash
 composer require monolog/monolog
+
+```
 
 Tebrikler ilk kütüphanenizi projenize dahil ettiniz, ilk yükleme olduğu için composer kendi kurulumunu da yapmış oldu. Eğer composer.json dosyası tanımlıysa ve vendor klasörü bulunmuyorsa ilk olarak aşağıdaki kod ile yükleme yapacağınızı da unutmayın.
 
+```bash
 composer install
+
+```
 
 Şimdi oluşan dosyaları inceleyelim.
 
 composer.json dosyası:
 
+```
 {
     "require": {
         "monolog/monolog": "^1.14"
     }
 }
 
-Biraz önce biz composer'a monolog kütüphanesine ihtiyacım var dedik, o da .json dosyasının içine bu ifadeyi yazdı. Ardından gerekli dosyaları indirip ayarlarını yaptı.
+```
+
+Biraz önce biz composer'a monolog kütüphanesine ihtiyacım var dedik, o da json dosyasının içine bu ifadeyi yazdı. Ardından gerekli dosyaları indirip ayarlarını yaptı.
 
 composer.json dosyasında require anahtarımızın içinde ihityacımız olan kütüphaneleri ve özellikleri belirtiyoruz. Composer da require dışında bir çok ifade var bunları kafanızı karıştırmamak için bu yazımda anlatmayacağım.
 
@@ -153,11 +172,14 @@ composer.json dosyasında require anahtarımızın içinde ihityacımız olan k�
 
 Bu klasörde composer tarafından indirilen sınıflar ve composer'ın autoload dosyası bulunmaktadır.
 
+```
 vendor/autoload.php
+
+```
 
 İsminden de anlaşılacağı gibi composer'ın autoload dosyası. Biz sadece bu dosyayı projemize dahil edeceğiz.
 
-Projelerde kullanma
+➖ Projelerde kullanma
 
 Monolog kütüphanesini madem indirdik hadi test yapalım.
 

@@ -76,13 +76,13 @@ Sources
 # B1 Giriş
 
 ## 1. Tailwind CSS Nedir?
-10 dak
+10 
 
 ## 2. Tailwind UI, Tailwind Components ve Tailwind Templates.
-6 dak
+6 
 
 ## 3. Download - Install VS CODE - Tailwind extension, Auto Rename Tag and Live Server
-5 dak
+5 
 
 🔔 Tavsiye Edilen Eklentiler
 
@@ -91,24 +91,24 @@ Sources
 # B2 Tailwind Css Proje Kurulumu
 
 ## 4. Tailwind CSS Play CDN ile kullanımı
-7 dak
+7 
 
 ## 5. Tailwind CLI kurulumu. Node.js ile
-8 dak
+8 
 
 
 
 
 ## 6. Proje dosyalarını indir.
-1 dak
+1 
 
 # B3 Light ve Dark Modu
 
 ## 7. Light ve Dark modu
-16 dak
+16 
 
 8. Proje dosyalarını indir.
-1 dak
+1 
 
 # B4 Apply Layer Base and Component Kullanımı
 
@@ -139,23 +139,23 @@ Sources
 # B5 React ile Tailwind Kullanımı
 
 ## 11. React ile Tailwind CSS kurulumu, light/dark modu
-1 dak
+1 
 
 ## 12. Tailwind css with React.js
-1 sa 24 dak
+1 sa 24 
 
 # B6 Breakpoints - Responsive Design
 
 ## 13. Tailwind css breakpoints - Responsive design
-11 dak
+11 
 
 # B7 Layout
 
 ## 15. Container
-10 dak
+10 
 
 ## 16. box model
-6 dak
+6 
 
 - box-border, box-content 
 
@@ -165,7 +165,7 @@ Sources
 - html elementinin blok özelliği : block, inline, inline-block, flex, grid vs...
 
 ## 18. float ve clear
-8 dak
+8 
 
 - float-right, float-left ve float-none sınıfları
 
@@ -173,14 +173,14 @@ Sources
 
 
 ## 19. object fit ve object position
-7 dak
+7 
 
 - web sitenizi ekleyeceğimiz görsel alana uymaz ve bu sorunu object-fit ile çözeriz. (alanı kaplaması,stretch vs...)
 
 - object position ile sığmadığında nasıl konumlandırıcağını belirleyebiliriz.
 
 ## 20. overflow
-5 dak
+5 
 
 - overflow-scroll tanımladığımızda, div içerisindeki p elementinde alt scroll çıkması için width belirlenmesi gerekir.
 
@@ -192,10 +192,10 @@ Sources
 ```
 
 ## 21.  position (relative,absolute,fixed vs.) - top-right-bottom-left
-11 dak
+11 
 
 ## 22.  Visibility 
-5 dak
+5 
 
 - invisible sınıf tanımı yer tutar, ama gösterilmez.
 
@@ -204,105 +204,105 @@ Sources
 - collapse sınıf tanımı ile tablolarda satırı göstermeyebiliriz.
 
 ## 23. z-index
-6 dak
+6 
 
 - module ayarlarında özelleştirebiliriz. (theme::extend::zIndex::'100':'100')
 
 - class="z-[100]" şeklinde istediğimiz değeri de verebiliriz.
 
 24.  Proje dosyalarını indir.
-1 dak
+1 
 
 # B8 Flexbox
 
 ## 25. flexbox container hazırlanması
-6 dak
+6 
 
 ## 26. flexbox flex-direction
-2 dak
+2 
 
 ## 27. flex-wrap
-4 dak
+4 
 
 ## 28. justify-content
-4 dak
+4 
 
 ## 29. align-items
-4 dak
+4 
 
 ## 30. align-content (flexbox and grid)
-7 dak
+7 
 
 ## 31. order (flexbox and grid)
-2 dak
+2 
 
 ## 32. flex-grow
-3 dak
+3 
 
 ## 33. flex-shrink
-4 dak
+4 
 
 ## 34. flex-grow-shrink tek seferde kullanım
-5 dak
+5 
 
 35. Proje dosyalarını indir.
-1 dak
+1 
 
 # B9 - Spacing (Margin,Padding,Space Between)
 
 ## 36. Margin ve padding nedir, ne amaç ile kullanılır? Hatırlatma
-6 dak
+6 
 
 ## 37. margin
-9 dak
+9 
 
 ## 38. padding
-8 dak
+8 
 
 ## 39. space-between
-5 dak
+5 
 
 - flex elemanlarının arasında boşluğu tanımlar.
 
 # B10 - Sizing - Boyutlandırma (width,height,mw,mh)
 
 ## 41. width, max-width, min-width
-11 dak
+11 
  
 ## 42. height, max-height, min-height
-6 dak
+6 
 
 # B11 - Backgrounds
 
 ## 44. Background color
-5 dak
+5 
 
 ## 45. Background opacity
-5 dak
+5 
 
 - opacity / işareti ile belirtiriz. Örneğin `class="bg-sky-500/75"` burada opacity 75 olarak belirtmiş oluruz.
 
 - `bg-[#50d71e]`   ile özel renk belirtebiliriz.
 
 ## 46. Background gradient & background image
-9 dak
+9 
 
 - `class="bg-[url('img/myimage.svg')]"` tanımlaması gibi kendi resim dosyamızı da belirtebiliriz.
 
 
 ## 47. Background image repeat
-4 dak
+4 
 
 ## 48. Background size
-6 dak
+6 
 
 ## 49. Background position
-4 dak
+4 
 
 # B12 - Font Family
 
 ## 51. Font-family, font-size, font-style, font-weight
-13 dak
+13 
 
 - font-sans (arial türü) , font-serif (times new roman türü) ve font-mono (eşit büyüklükte harfler) olmak üzere üç adet ana sınıf vardır.
 
@@ -319,7 +319,7 @@ Sources
 - font-[x] ile yazı kalınlığını x olarak belirleriz.
 
 ## 52. text-align, vertical-align
-8 dak
+8 
 
 - text align ile yazının yatayda hizalanmasını sağlarız. örnek sınıflar text-left,text-center, text-justify (iki tarafa yaslama)
 
@@ -329,30 +329,30 @@ Sources
   
 
 ## 53. text color, text-transform, text-indent
-7 dak
+7 
 
 - text-sky-100 , text-red-100 gibi text color verebiliriz.
 
 - lowercase, uppercase, capitalize (baş harfleri büyük yapar), normal-case gibi sınıflar var.
 
-- parağraf başındaki satırda ne kadar boşluk bırakılacağını gösterir.
+- parağraf başıni satırda ne kadar boşluk bırakılacağını gösterir.
 
 
 
 # B13 - Proje 1 
 
 ## 54. Web sitesi tanıtım.
-1 dak
+1 
 
 ## 55. Proje 1 - Responsive Lamborghini Website. Light and dark mode.
-22 dak
+22 
 
 # B14 - Proje 2
 
 ## 57. Web sitesi tanıtım
-2 dak
+2 
 
 ## 58. Responsive Music Website
-42 dak
+42 
 
 60. Bu alan hazırlanıyor
