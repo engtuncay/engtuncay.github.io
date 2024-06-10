@@ -6,7 +6,9 @@
   - [Composer kendisini güncellemek için](#composer-kendisini-güncellemek-için)
   - [Composer projesini klonlamak için](#composer-projesini-klonlamak-için)
   - [Composer Documentation](#composer-documentation)
-- [Article - Composer Nedir](#article---composer-nedir)
+- [Articles](#articles)
+  - [Composer Nedir](#composer-nedir)
+  - [Composer: Autoload Sınıf Yükleme](#composer-autoload-sınıf-yükleme)
 
 
 # Composer
@@ -91,7 +93,9 @@ composer create-project tolgabulca/coremvc:dev-master
 - http://getcomposer.org detay komutları görebilirsiniz.
 
 
-# Article - Composer Nedir 
+# Articles
+
+## Composer Nedir 
 
 Source : https://www.rizagunes.com/Composer_Nedir 
 
@@ -325,4 +329,119 @@ Sitede her paketin sayfasında; composer require xxx kodu yani yükleme kodu var
 Konu basit ama uzun olduğu için ortaya nasıl bi anlatım çıktı karar vermiş değilim. Yorumlarınızla belirtirseniz sevinirim. Bir sonraki yazımda Composer autoload'ına kendi sınıflarımızı dahil etmeyi anlatacağım.
 
 Composer hakkında daha detaylı bilgi istiyorsanız sizi buraya, composer.json dosyasındaki anahtar kelimler için ise sizi buraya alalım.
+
+
+## Composer: Autoload Sınıf Yükleme 
+
+Source : https://www.rizagunes.com/composer-autoload-sinif-yukleme , 29-06-2015
+
+Bir önceki yazımda; "Composer'ın nedir, ne işe yarar?" konusundan bahsetmiştim. Bu yazımda ise composer'da autoload'ların nasıl tanımlanacağından bahsedeceğim.
+
+Composer ile 4 farklı autoload tanımlaması yapabilirsiniz.
+
+```
+PSR-4
+Classmap
+files
+PSR-0
+
+```
+
+➖ PSR-4 Standartlarında Autoload:
+
+```
+{
+    "autoload": {
+        "psr-4": {
+            "Illuminate\\": "src/Illuminate/"
+        }
+    }
+}
+
+```
+
+Yukarıdaki örnek: laravel paketlerinin autoload tanımlamasıdır. Illuminate\ adında sağlayıcı adı kullanılmıştır ve bu namespace'in dizin(klasör) karşığı "src/Illuminate" olarak ayarlanmıştır.
+
+Aşağıdaki örnekte bir nesne oluşturdum ve yukarıdaki PSR-4 autoload tanımlamasındaki dizin karşılığını belirttim.
+
+```php
+new \Illuminate\Auth\AuthManger;
+
+// src\Illuminate\Auth\AuthManager.php
+
+```
+Aynı namespace'i birden fazla dizine tanımlayabilrsiniz.
+
+```
+{
+    "autoload": {
+        "psr-4": {
+            "Illuminate\\": ["src/Illuminate/", "lib/"]
+        }
+    }
+}
+
+```
+
+Yukarıdaki örnekte Illuminate\ namespace'ini hem "src/Illuminate" dizinine hemde "lib" dizinine tanımladım. Dizinleri ","  karakteri ile istediğiniz kadar çoğaltabilirsiniz.
+
+```
+new \Illuminate\Database\Connect;
+
+// |->src/Illuminate/Auth/AuthManager.php
+// |->lib/​Database/Connect.php
+
+```
+
+Alt namespace ekleyebileceğiniz gibi namespace kısmını, global de bırakabilirsiniz.
+{
+    "autoload": {
+        "psr-4": {
+            "": ["lib/"]
+        }
+    }
+}
+
+OOP geliştiriclerin bir çoğu namespace'lerine özel bir isim(sağlayıcı adı) vermektedir. Bu psr-4 standartlarında da yer almaktadır. Ama tabi verip vermemek size kalmış.
+
+new \Database\Connect;
+lib
+​​Database
+Connect.php
+
+Classmap
+{
+"autoload": {
+            "classmap": [
+            "app/commands",
+            "app/controllers",
+            "app/models",
+            "app/library"
+            ]
+            }
+}
+
+Namespace tanımlamadığınız sınıfların dizin konumunu classmap anahtarıyla tanımlayabilirsiniz.
+
+Files
+{
+    "autoload": {
+        "files": ["src/MyLibrary/functions.php"]
+    }
+}
+Namespace tanımlamadığınız sınıfların tam adresini files anahtarıyla tanımlayabilirsiniz.
+Bunların dışında PSR-0 tanımlaması da vardır. Artık kullanılmadığı için yazıma dahil etmedim. 
+
+Son olarak testleriniz için ayrı autload tanımlaması da yapabilirsiniz. Yukarıdaki işlemlerin hepsi autoload-dev anahrarı için geçerlidir.
+
+{
+    "autoload": {
+        "psr-4": { "MyLibrary\\": "src/" }
+    },
+    "autoload-dev": {
+        "psr-4": { "MyLibrary\\Tests\\": "tests/" }
+    }
+}
+
+
 
