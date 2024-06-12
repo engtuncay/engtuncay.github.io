@@ -128,7 +128,12 @@ Delete | Delete
 
 ➖ sağda authentication tipleri vardır, unit test seçeneği var, bunları değiştirmiyoruz, örnek proje için.
 
-➖ böylelik bize solution'u oluşturur. burada önemli dizinler controllers'dur. Mvc Controller'ı Controller sınıfını miras alır, Api Controller'ı ise ApiController sınıfını miras alır.
+➖ böylelik bize solution'u oluşturur. burada önemli dizinler controllers'dur. 
+
+![web-api-sol](./img/web-api-sol.jpg)
+
+- Mvc Controller'ı Controller sınıfını miras alır
+- Api Controller'ı ise ApiController sınıfını miras alır.
 
 ➖ Proje ayağa kalkarken global.asax bulunan Application_Start metodu çalışacaktır. Burada ayarlar yapılmıştır. App_Start dizininde ayarlar sınıfları vardır. WebApiConfig sınıfı api ayarları yapılır.
 
@@ -145,7 +150,7 @@ defaults : new { id = RouteParameter.Optional}
 
 - bir sınfa [Authorize] attribute verilirse, yetki alınıp kullanabileceği gösterilir.
 
-- visual studion run yaptığımızda her değişiklikte durdurup tekrar çalıştırmamız gerekir. bunun yerine views\home\index.cshtml açıp editorde sağ klik view in browser 'ı tıklayıp proje çalıştırabiliriz. değişikliklerin aktif olması için build solutions yapmamız gerekir.
+- visual studion run yaptığımızda her değişiklikte durdurup tekrar çalıştırmamız gerekir. bunun yerine views\home\index.cshtml açıp editorde sağ klik `view in browser` 'ı tıklayıp proje çalıştırabiliriz. değişikliklerin aktif olması için build solutions yapmamız gerekir.
 
 🔚
 
