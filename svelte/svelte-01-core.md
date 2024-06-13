@@ -178,13 +178,15 @@ Notice that even though Nested.svelte has a `<p>` element, the styles from App.s
 
 Also notice that the component name Nested is capitalised. This convention has been adopted to allow us to differentiate between user-defined components and regular HTML tags.
 
---*REVIEW - improve f madde
+Try : https://learn.svelte.dev/tutorial/nested-components
+
+--*REVIEW - improve f maddesi
 
 ## f. Making an app - Installing
 
 This tutorial is designed to get you familiar with the process of writing components. But at some point, you'll want to start writing components in the comfort of your own text editor.
 
-First, you'll need to integrate Svelte with a build tool. We recommend using *SvelteKit*, which sets up Vite with vite-plugin-svelte for you...
+First, you'll need to integrate Svelte with a `build tool`. We recommend using *SvelteKit*, which sets up Vite with vite-plugin-svelte for you...
 
 ```bash
 npm create svelte@latest myapp
@@ -219,32 +221,9 @@ You can then interact with the app using `the component API` if you need to.
 
 At the heart of Svelte is a powerful system of reactivity for keeping the DOM in sync with your application state — for example, in response to an event.
 
-🍋 First situation
-
-```html
-<script>
-	let count = 0;
-
-	function incrementCount() {
-		// event handler code goes here
-	}
-</script>
-
-<button>
-	Clicked {count}
-	{count === 1 ? 'time' : 'times'}
-</button>
-
-<style>
-	button {
-		width:200px;
-	}
-</style>
-```
-
 🍋 how can add click event to button
 
-To demonstrate it, we first need to wire up an event handler. Replace line 9 with this:
+To demonstrate it, we first need to wire up an event handler :
 
 ```html
 <button on:click={incrementCount}>
@@ -258,9 +237,7 @@ function incrementCount() {
 }
 
 ```
-
 Svelte 'instruments' this assignment with some code that tells it the DOM will need to be updated.
-
 
 🍋 Last Situation
 
@@ -286,7 +263,6 @@ Svelte 'instruments' this assignment with some code that tells it the DOM will n
 
 ```
 
-
 ## b. Declarations
 
 Svelte's reactivity not only keeps the DOM in sync with your application's variables as shown in the previous section, it can also keep variables in sync with each other using reactive declarations. They look like this:
@@ -296,6 +272,8 @@ let count = 0;
 $: doubled = count * 2;
 
 ```
+
+--*ANCHOR - tbc
 
 Don't worry if this looks a little alien. It's valid (if unconventional) JavaScript, which Svelte interprets to mean 're-run this code whenever any of the referenced values change'. Once you get used to it, there's no going back.
 
