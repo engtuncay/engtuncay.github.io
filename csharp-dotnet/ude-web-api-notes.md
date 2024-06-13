@@ -170,8 +170,121 @@ defaults : new { id = RouteParameter.Optional}
 ## 8. Convention Based Routing Kavramı
 15 dak
 
+```cs
+    public class ValuesController : ApiController
+    {
+        static List<string> degerler = new List<string>()
+        {
+            "value0","value1","value2","value3"
+        };
+
+        // GET api/values
+        public IEnumerable<string> Get()
+        {
+            return degerler;
+        }
+
+        // GET api/values/5
+        public string Get(int id)
+        {
+            return degerler[id];
+        }
+
+        // POST api/values
+        public void Post([FromBody] string value)
+        {
+            degerler.Add(value);
+        }
+
+        // PUT api/values/5
+        public void Put(int id, [FromBody] string value)
+        {
+            degerler[id] = value;
+        }
+
+        // DELETE api/values/5
+        public void Delete(int id)
+        {
+            degerler.RemoveAt(id);
+        }
+    }
+}
+```
+
+✏ Fiddler post yaparkent `Content-Type:application/json` değerini header'a eklememiz gerekir.
+
 ## 9. Action Based Routing Kavramı
 6 dak
+
+➖ öncelikle Webapiconfig dosyasında routeTemplate alanımızda değişiklik yaparız.
+
+```cs
+public static void Register(HttpConfiguration config)
+  {
+      // Web API configuration and services
+
+      // Web API routes
+      config.MapHttpAttributeRoutes();
+
+      config.Routes.MapHttpRoute(
+          name: "DefaultApi",
+          routeTemplate: "api/{controller}/{action}/{id}",
+          defaults: new { id = RouteParameter.Optional }
+      );
+  }
+```
+
+➖ ValuesController metod isimlerinde değişiklik yaparız. İlgili request tipini annotation olarak belirtmemiz gerekir. HttpGet,HttpPost gibi...
+
+```cs
+    public class ValuesController : ApiController
+    {
+        static List<string> degerler = new List<string>()
+        {
+            "value0","value1","value2","value3"
+        };
+
+        // GET api/values
+        [HttpGet]
+        public IEnumerable<string> Degerler()
+        {
+            return degerler;
+        }
+
+        // GET api/values/5
+        [HttpGet]
+        public string DegerGetir(int id)
+        {
+            return degerler[id];
+        }
+
+        // POST api/values
+        [HttpPost]      
+        public void DegerEkle([FromBody] string value)
+        {
+            degerler.Add(value);
+        }
+
+        // PUT api/values/5
+        [HttpPut]
+        public void DegerGuncelle(int id, [FromBody] string value)
+        {
+            degerler[id] = value;
+        }
+
+        // DELETE api/values/5
+        [HttpDelete]
+        public void DegerSil(int id)
+        {
+            degerler.RemoveAt(id);
+        }
+    }
+}
+
+```
+
+➖ request isteğimiz `https://localhost:44355/api/values/degerler` şeklinde yapmamız gerekir.
+
 
 ## 10. Attribute Based Routing
 11 dak
