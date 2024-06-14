@@ -306,9 +306,23 @@ Value attribute of input element binded to the name variable in the parent compo
 
 Try : https://learn.svelte.dev/tutorial/text-inputs
 
+🔔 Binding object field
+
+```html
+<script>
+	let formx = { name : '', surname: ''};
+</script>
+
+<input bind:value={formx.name} />
+<input bind:value={formx.surname} />
+
+<h1>Hello {formx.name} {formx.surname} !</h1>
+```
+
+
 ## b. Numeric inputs
 
-In the DOM, everything is a string. That's unhelpful when you're dealing with numeric inputs — type="number" and type="range" — as it means you have to remember to coerce input.value before using it. (tor:coerce zorla-,mecbur et-,baskı yap-)
+In the DOM, everything is a string. That's unhelpful when you're dealing with numeric inputs — type="number" and type="range" — as it means you have to remember to coerce input.value before using it.
 
 With bind:value, Svelte takes care of it for you:
 
@@ -329,9 +343,9 @@ Checkboxes are used for toggling between states. Instead of binding to input.val
 
 ## d. Group inputs
 
-If you have multiple inputs relating to the same value, you can use bind:group along with the value attribute. Radio inputs in the same group are mutually exclusive; checkbox inputs in the same group form an array of selected values.
+If you have multiple inputs relating to the same value, you can use `bind:group` along with the value attribute. Radio inputs in the same group are mutually exclusive; checkbox inputs in the same group form an array of selected values.
 
-Add bind:group to each input:
+Add `bind:group` to each input:
 
 ```html
 <input type=radio bind:group={scoops} name="scoops" value={1}>
@@ -385,7 +399,7 @@ This applies to all bindings, not just textareas.
 
 ## f. Select bindings
 
-We can also use bind:value with `<select>` elements. Update line 20:
+We can also use bind:value with `<select>` elements.
 
 ```html
 <select bind:value={selected} on:change="{() => answer = ''}">
@@ -394,7 +408,7 @@ We can also use bind:value with `<select>` elements. Update line 20:
 
 Note that the `<option>` values are objects rather than strings. Svelte doesn't mind.
 
-Because we haven't set an initial value of selected, the binding will set it to the default value (the first in the list) automatically. Be careful though — until the binding is initialised, selected remains undefined, so we can't blindly reference e.g. selected.id in the template. If your use case allows it, you could also set an initial value to bypass this problem.
+Because we haven't set an initial value of selected, the binding will set it to the default value (the first in the list) automatically. Be careful though — until the binding is initialized, selected remains undefined, so we can't blindly reference e.g. selected.id in the template. If your use case allows it, you could also set an initial value to bypass this problem.
 
 *Full Example*
 
@@ -443,6 +457,8 @@ Because we haven't set an initial value of selected, the binding will set it to 
 	}
 </style>
 ```
+
+Try : https://learn.svelte.dev/tutorial/select-bindings
 
 ## g. Select multiple
 

@@ -5,13 +5,13 @@
   - [a. Basics](#a-basics)
   - [b. Adding Data - Declaring Variable](#b-adding-data---declaring-variable)
   - [c. Dynamic Attributes - String Interpolation](#c-dynamic-attributes---string-interpolation)
-  - [d Styling](#d-styling)
+  - [d. Component Styling](#d-component-styling)
   - [e Using Components - Nested Components (Parent - Child)](#e-using-components---nested-components-parent---child)
-  - [f. Installing a svelte app](#f-installing-a-svelte-app)
+  - [f. Making an app - Installing](#f-making-an-app---installing)
 - [2 Reactivity](#2-reactivity)
   - [a. Assignments](#a-assignments)
   - [b. Declarations](#b-declarations)
-  - [c. Statements](#c-statements)
+  - [c. Reactive Statements](#c-reactive-statements)
   - [d. Updating arrays and objects](#d-updating-arrays-and-objects)
 - [3 Props](#3-props)
   - [a. Declaring props](#a-declaring-props)
@@ -182,7 +182,7 @@ Try : https://learn.svelte.dev/tutorial/nested-components
 
 --*REVIEW - improve f maddesi
 
-## f. Making an app - Installing
+## f. Creating Svelte Project
 
 This tutorial is designed to get you familiar with the process of writing components. But at some point, you'll want to start writing components in the comfort of your own text editor.
 
