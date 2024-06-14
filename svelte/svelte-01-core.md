@@ -7,7 +7,7 @@
   - [c. Dynamic Attributes - String Interpolation](#c-dynamic-attributes---string-interpolation)
   - [d. Component Styling](#d-component-styling)
   - [e Using Components - Nested Components (Parent - Child)](#e-using-components---nested-components-parent---child)
-  - [f. Making an app - Installing](#f-making-an-app---installing)
+  - [f. Creating Svelte Project](#f-creating-svelte-project)
 - [2 Reactivity](#2-reactivity)
   - [a. Assignments](#a-assignments)
   - [b. Declarations](#b-declarations)
@@ -25,8 +25,6 @@
   - [e. Keyed each blocks](#e-keyed-each-blocks)
   - [f. Await blocks](#f-await-blocks)
 
-
----
 
 # Introduction
 
