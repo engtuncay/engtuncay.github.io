@@ -303,7 +303,7 @@ Of course, you could just write {count * 2} in the markup instead — you don't 
 <p>{count} doubled is {doubled}</p>
 ```
 
-## c. Statements
+## c. Reactive Statements
 
 We're not limited to declaring reactive values — we can also run arbitrary statements reactively. For example, we can log the value of count whenever it changes:
 
@@ -340,7 +340,7 @@ $: if (count >= 10) {
 
 	$: if (count >= 10) {
 		alert('count is dangerously high!');
-		count = 9;
+		count = 0;
 	}
 
 	function handleClick() {
@@ -354,43 +354,27 @@ $: if (count >= 10) {
 </button>
 ```
 
+Try : https://learn.svelte.dev/tutorial/reactive-statements
+
 ## d. Updating arrays and objects
 
-Svelte's reactivity is triggered by assignments. Methods that mutate arrays or objects will not trigger updates by themselves.
+Because Svelte's reactivity is triggered by assignments, using array methods like push and splice won't automatically cause updates. For example, clicking the 'Add a number' button doesn't currently do anything, even though we're calling `numbers.push(...)` inside addNumber.
 
-In this example, clicking the "Add a number" button calls the addNumber function, which appends a number to the array but doesn't trigger the recalculation of sum.
+One way to fix that is to add an assignment that would otherwise be redundant:
 
-```html
-<script>
-	let numbers = [1, 2, 3, 4];
-
-	function addNumber() {
-		numbers.push(numbers.length + 1);
-	}
-
-	$: sum = numbers.reduce((t, n) => t + n, 0);
-</script>
-
-<p>{numbers.join(' + ')} = {sum}</p>
-
-<button on:click={addNumber}> Add a number </button>
-```
-
-🍋 First Way to Trigger Array
-
-One way to fix that is to assign numbers to itself to tell the compiler it has changed:
+App.svelte
 
 ```js
 function addNumber() {
 	numbers.push(numbers.length + 1);
-	numbers = numbers; // triggers numbers array changed
+	numbers = numbers;
 }
 
 ```
 
-🍋 Second Way : Trigger Array 
+But there's a more idiomatic solution:
 
-You could also write this more concisely using `the ES6 spread` syntax:
+App.svelte
 
 ```js
 function addNumber() {
@@ -399,9 +383,11 @@ function addNumber() {
 
 ```
 
-The same rule applies to array methods such as pop, shift, and splice and to object methods such as Map.set, Set.add, etc.
+You can use similar patterns to replace pop, shift, unshift and splice.
 
-Assignments to properties of arrays and objects — `e.g. obj.foo += 1 or array[i] = x` — work the same way as assignments to the values themselves.
+Assignments to properties of arrays and objects — e.g. obj.foo += 1 or array[i] = x — work the same way as assignments to the values themselves.
+
+App.svelte
 
 ```js
 function addNumber() {
@@ -410,26 +396,18 @@ function addNumber() {
 
 ```
 
-However, indirect assignments to references such as this...
+❗ A simple rule of thumb: the name of the updated variable must appear on the left hand side of the assignment. For example this...
 
 ```js
+const obj = { foo: { bar: 1 } };
 const foo = obj.foo;
-foo.bar = 'baz';
-
-```
-or
-
-```js
-function quox(thing) {
-	thing.foo.bar = 'baz';
-}
-quox(obj);
+foo.bar = 2;
 
 ```
 
 ...won't trigger reactivity on obj.foo.bar, unless you follow it up with `obj = obj`.
 
-💡 *A simple rule of thumb* : the updated variable must directly appear on the left hand side of the assignment.
+Try : https://learn.svelte.dev/tutorial/updating-arrays-and-objects
 
 # 3 Props
 
@@ -437,7 +415,7 @@ quox(obj);
 
 So far, we've dealt exclusively with internal state — that is to say, the values are only accessible within a given component.
 
-In any real application, you'll need to pass data from one component down to its children. To do that, we need to declare properties, generally shortened to 'props'. In Svelte, we do that with the `export keyword`. Edit the `Nested.svelte` component:
+In any real application, you'll need to `pass data from one component down to its children`. To do that, we need to declare properties, generally shortened to 'props'. In Svelte, we do that with the `export keyword`. Edit the `Nested.svelte` component:
 
 ```js
 <script>
@@ -459,7 +437,6 @@ Just like `$:`, this may feel a little weird at first. That's not how export nor
 
 ```
 
-
 *Nested.Svelte*
 
 ```html
@@ -470,6 +447,8 @@ Just like `$:`, this may feel a little weird at first. That's not how export nor
 <p>The answer is {answer}</p>
 
 ```
+
+Try : https://learn.svelte.dev/tutorial/declaring-props
 
 
 ## b. Default values
@@ -484,70 +463,46 @@ We can easily specify default values for props in Nested.svelte:
 
 If we now add a second component without an answer prop, it will fall back to the default:
 
-```html
-<Nested answer={42}/>
-<Nested/>
-
-```
-
-*App*
+*App.svelte*
 
 ```html
 <script>
 	import Nested from './Nested.svelte';
 </script>
 
-<Nested answer={42} />
-<Nested />
+<Nested answer={42}/>
+<Nested/>
 
-```
-
-*Nested*
-```html
-<script>
-	export let answer = 'a mystery';
-</script>
-
-<p>The answer is {answer}</p>
 ```
 
 *Result*
 
-```bash
+```
 The answer is 42
 The answer is a mystery
 ```
 
 ## c. Spread Props
 
-If you have an object of properties, you can 'spread' them onto a component instead of specifying each one:
-
-```html
-<Info {...pkg}/>
-
-```
-
-✏ Conversely, if you need to reference all the props that were passed into a component, including ones that weren't declared with export, you can do so by accessing `$$props` directly. It's not generally recommended, as it's difficult for Svelte to optimise, but it's useful in rare cases.
-
-*App.svelte*
+We can pass an object to a component by 'spreading' them onto a component instead of specifying each one:
 
 ```html
 <script>
-	import Info from './Info.svelte';
+	import PackageInfo from './PackageInfo.svelte';
 
 	const pkg = {
 		name: 'svelte',
-		version: 3,
 		speed: 'blazing',
+		version: 4,
 		website: 'https://svelte.dev'
 	};
 </script>
 
-<Info {...pkg} />
+<PackageInfo {...pkg} />
 
 ```
 
-*info.svelte*
+*PackageInfo.svelte*
 
 ```html
 <script>
@@ -565,6 +520,9 @@ If you have an object of properties, you can 'spread' them onto a component inst
 
 ```
 
+✏ Conversely, if you need to reference all the props that were passed into a component, including ones that weren't declared with export, you can do so by accessing `$$props` directly. It's not generally recommended, as it's difficult for Svelte to optimise, but it's useful in rare cases.
+
+Try : https://learn.svelte.dev/tutorial/spread-props
 
 # 4 Logic
 
