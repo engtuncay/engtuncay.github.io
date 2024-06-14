@@ -68,7 +68,7 @@ Then make an app.css file in the src directory with this code in it.
 
 ## Step 4
 
-Then in your main.js file, make sure to include the app.css file using an import statement.
+Then in your `main.js or main.ts` file, make sure to include the `app.css` file using an import statement.
 
 ```js
 import './app.css'
@@ -77,7 +77,8 @@ import './app.css'
 
 Then all you need to do is run your code and make sure everything is working.
 
-```
+```bash
 npm run dev
-
+# or
+yarn run dev
 ```
