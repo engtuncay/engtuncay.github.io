@@ -84,11 +84,9 @@ You can also declare event handlers inline:
 
 The quote marks are optional, but they're helpful for syntax highlighting in some environments.
 
----
-
 In some frameworks you may see recommendations to avoid *inline event handlers* for performance reasons, particularly inside loops. That advice doesn't apply to Svelte — the compiler will always do the right thing, whichever form you choose.
 
----
+
 
 ## c. Event modifiers
 
@@ -123,7 +121,24 @@ You can chain modifiers together, e.g. on:click|once|capture={...}.
 
 ## d. Component events (Event Dispatcher)
 
-Components can also dispatch events. To do so, they must create an event dispatcher. Update Inner.svelte: (tor:dispatch:gönder-,sevket-)
+Components can also dispatch events. To do so, they must create an event dispatcher. 
+
+(trans:dispatch=gönder-,sevket-)
+
+*app.svelte*
+
+```html
+<script>
+	import Inner from './Inner.svelte';
+
+	function handleMessage(event) {
+    // gönderilen argümanlar event.detail objesinin içerisinde
+		alert(event.detail.text);
+	}
+</script>
+
+<Inner on:message={handleMessage}/>
+```
 
 *inner.svelte*
 
@@ -142,24 +157,8 @@ Components can also dispatch events. To do so, they must create an event dispatc
 </script>
 
 ```
-*app.svelte*
-```html
-<script>
-	import Inner from './Inner.svelte';
 
-	function handleMessage(event) {
-    // gönderilen argümanlar event.detail objesinin içerisinde
-		alert(event.detail.text);
-	}
-</script>
-
-<Inner on:message={handleMessage}/>
-```
----
-
-*Note:* createEventDispatcher must be called when the component is first instantiated — you can't do it later inside e.g. a setTimeout callback. This links dispatch to the component instance.
-
----
+✏ *Note:* createEventDispatcher must be called when the component is first instantiated — you can't do it later inside e.g. a setTimeout callback. This links dispatch to the component instance.
 
 Notice that the App component is listening to the messages dispatched by *Inner component* thanks to the on:message directive. This directive is an attribute *prefixed* with "on:" followed by the event name that we are dispatching (in this case, message).
 
@@ -167,7 +166,7 @@ Without this attribute, messages would still be dispatched, but the App would no
 
 ## e. Event forwarding
 
-Unlike DOM events, component events don't bubble. If you want to listen to an event on some deeply nested component, the intermediate components must forward the event. (tor:bubble:köpür-,fokurda-)
+Unlike DOM events, component events don't bubble ❗. If you want to listen to an event on some deeply nested component, the intermediate components must forward the event.
 
 In this case, we have the same App.svelte and Inner.svelte as in the previous chapter, but there's now an Outer.svelte component that contains `<Inner/>`.
 
@@ -193,18 +192,6 @@ One way we could solve the problem is adding createEventDispatcher to Outer.svel
 
 But that's a lot of code to write, so Svelte gives us an equivalent shorthand — an on:message event directive without a value means 'forward all message events'.
 
-*child.svelte*
-
-```html
-<script>
-	import GrandChild from './GrandChild.svelte';
-</script>
-
-<!-- inform parent for granchild messages -->
-<GrandChild on:message/>
-
-```
-
 *app.svelte* (parent component)
 
 ```html
@@ -219,6 +206,17 @@ But that's a lot of code to write, so Svelte gives us an equivalent shorthand �
 <Child on:message={handleMessage}/>
 ```
 
+*child.svelte*
+
+```html
+<script>
+	import GrandChild from './GrandChild.svelte';
+</script>
+
+<!-- inform parent for granchild messages -->
+<GrandChild on:message/>
+
+```
 
 *grandchild.svelte*
 
@@ -244,18 +242,23 @@ But that's a lot of code to write, so Svelte gives us an equivalent shorthand �
 
 Event forwarding works for DOM events too.
 
-We want to get notified of clicks on our `<CustomButton> `— to do that, we just need to forward click events on the `<button>` element in CustomButton.svelte:
+We want to get notified of clicks on our `<CustomButton> `— to do that, we just need to forward click events on the `<button>` element in CustomButton component:
+
+*App.svelte*
 
 ```html
-<button on:click>
-	Click me
-</button>
+<script>
+	import CustomButton from './CustomButton.svelte';
 
+	function handleClick() {
+		alert('Button Clicked');
+	}
+</script>
+
+<CustomButton on:click={handleClick}/>
 ```
 
-*Full Example*
-
-*customButton.svelte*
+*CustomButton.svelte*
 
 ```html
 <button on:click>
@@ -271,10 +274,12 @@ We want to get notified of clicks on our `<CustomButton> `— to do that, we jus
 		padding: .75rem 1.5rem;
 		cursor: pointer;
 	}
+
 	button:hover {
 		background: #CBD5E1;
 		color: #475569;
 	}
+
 	button:focus {
 		background: #94A3B8;
 		color: #F1F5F9;
@@ -282,26 +287,11 @@ We want to get notified of clicks on our `<CustomButton> `— to do that, we jus
 </style>
 ```
 
-*app.svelte*
-
-```html
-<script>
-	import CustomButton from './CustomButton.svelte';
-
-	function handleClick() {
-		alert('Button Clicked');
-	}
-</script>
-
-<CustomButton on:click={handleClick}/>
-```
-
-
 # 6 Bindings (child to parent communications)
 
 ## a. Text inputs
 
-As a general rule, *data flow in Svelte is top down* — a parent component can set props on a child component, and a component can set attributes on an element, but not the other way around.
+As a general rule, data flow in Svelte is top down (parent to child) ❗ — a parent component can set props on a child component, and a component can set attributes on an element, but not the other way around.
 
 Sometimes it's useful to break that rule. Take the case of the `<input>` element in this component — we could add an on:input event handler that sets the value of name to `event.target.value`, but it's a bit... boilerplatey. It gets even worse with other form elements, as we'll see.
 
@@ -312,7 +302,9 @@ Instead, we can use the bind:value directive:
 
 ```
 
-This means that not only will changes to the value of name update the input value, but changes to the input value will update name.
+Value attribute of input element binded to the name variable in the parent component (reactively). any changes of the value attribute will reflect name variable.
+
+Try : https://learn.svelte.dev/tutorial/text-inputs
 
 ## b. Numeric inputs
 
