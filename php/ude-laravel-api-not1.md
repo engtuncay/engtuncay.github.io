@@ -57,6 +57,17 @@ Laravel 7 ile Sıfırdan RESTful API Uygulamaları Geliştirme Kurs Notlarım
   - [3.17. İlişkili Tablo Verilerini Çekme](#317-i̇lişkili-tablo-verilerini-çekme)
 - [B4 Veri Dönüşümleri](#b4-veri-dönüşümleri)
   - [4.0. Veri Dönüşümleri](#40-veri-dönüşümleri)
+- [B7 Dosya Kullanımı](#b7-dosya-kullanımı)
+- [B8 Özel Middleware Tanımları](#b8-özel-middleware-tanımları)
+- [B9 API Belgelendirme ve Test İşlemleri](#b9-api-belgelendirme-ve-test-i̇şlemleri)
+- [B10 API Uygulamasını Yayınlama](#b10-api-uygulamasını-yayınlama)
+  - [10.0. API Uygulamasını Yayınlama](#100-api-uygulamasını-yayınlama)
+  - [10.1. Paylaşımlı Sunucuda Veritabanı İşlemleri](#101-paylaşımlı-sunucuda-veritabanı-i̇şlemleri)
+  - [10.2. Proje Dosyalarının Sunucuya Yüklenmesi](#102-proje-dosyalarının-sunucuya-yüklenmesi)
+  - [10.3. Symbolic Link Verme İşlemi](#103-symbolic-link-verme-i̇şlemi)
+  - [10.4. Yayınlama Sonrası Hatalar ve Düzenlemeler](#104-yayınlama-sonrası-hatalar-ve-düzenlemeler)
+  - [10.5. Subdomain Olarak Yayınlama](#105-subdomain-olarak-yayınlama)
+  - [10.6. Yayınlama Sonrası İşlemler](#106-yayınlama-sonrası-i̇şlemler)
 - [Sources](#sources)
 
 # B1 Giriş
@@ -1102,6 +1113,8 @@ $product->save();
 1.  6.8. Basic Authentication
 3 dak
 
+# B7 Dosya Kullanımı
+
 1.  7.0. Dosya Kullanımı
 1 dak
 
@@ -1129,6 +1142,8 @@ $product->save();
 1.  7.8. API ile Dosya Download
 10 dak
 
+# B8 Özel Middleware Tanımları
+
 1.  8.0 Özel Middleware Tanımları
 1 dak
 
@@ -1155,6 +1170,8 @@ $product->save();
 
 1.   8.8. Header Middleware
 4 dak
+
+# B9 API Belgelendirme ve Test İşlemleri
 
 1.   9.0. API Belgelendirme ve Test İşlemleri
 1 dak
@@ -1210,26 +1227,43 @@ $product->save();
 1.   9.17. Server, ExternalDocumentation
 9 dak
 
-1.   10.0. API Uygulamasını Yayınlama
+# B10 API Uygulamasını Yayınlama
+
+## 10.0. API Uygulamasını Yayınlama
 1 dak
 
-1.   10.1. Paylaşımlı Sunucuda Veritabanı İşlemleri
+## 10.1. Paylaşımlı Sunucuda Veritabanı İşlemleri
 6 dak
 
-1.   10.2. Proje Dosyalarının Sunucuya Yüklenmesi
+## 10.2. Proje Dosyalarının Sunucuya Yüklenmesi
 5 dak
 
-1.   10.3. Symbolic Link Verme İşlemi
+## 10.3. Symbolic Link Verme İşlemi
 8 dak
 
-1.   10.4. Yayınlama Sonrası Hatalar ve Düzenlemeler
+- örnegin assets dosyasına symbolic link verme. (önce source dizin, sonra da symbolic link konumu verilir.)
+
+```
+ln -s /home/bitutamy/assets /home/bitutamy/public_html/trex/assets
+```
+
+- windows'da önce symbolic link konumu, sonra source dizin belirtilir.
+
+```
+mklink /D "Y:\xampp\htdocs\bitutamyasemin\trex\assets" "Y:\xampp\htdocs\bitutam-assets"
+```
+
+- source dizini, dosyaların bulunduğu dizindir.
+
+
+## 10.4. Yayınlama Sonrası Hatalar ve Düzenlemeler
 5 dak
 
-1.   10.5. Subdomain Olarak Yayınlama
+## 10.5. Subdomain Olarak Yayınlama
 5 dak
 
-1.   10.6. Yayınlama Sonrası İşlemler
-2.   
+## 10.6. Yayınlama Sonrası İşlemler
+1.   
 
 
 # Sources

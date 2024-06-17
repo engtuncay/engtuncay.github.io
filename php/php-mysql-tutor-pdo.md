@@ -3,6 +3,10 @@
 
 Source : 
 
+---
+
+Contents
+
 - [MySQL Database](#mysql-database)
 - [Connecting to MySQL](#connecting-to-mysql)
   - [Open a Connection to MySQL](#open-a-connection-to-mysql)
@@ -10,16 +14,16 @@ Source :
 - [Creating a MySQL Database](#creating-a-mysql-database)
 - [Include database helper scripts (for PDO)](#include-database-helper-scripts-for-pdo)
 - [Creating Table](#creating-table)
-- [MySQL Insert Data](#mysql-insert-data)
-- [MySQL Get Last Inserted ID](#mysql-get-last-inserted-id)
-- [MySQL Transactions](#mysql-transactions)
-- [MySQL Prepared Statements](#mysql-prepared-statements)
-- [MySQL Select Data](#mysql-select-data)
-- [MySQL Delete Data](#mysql-delete-data)
-- [MySQL Update Data](#mysql-update-data)
-- [MySQL Limit Data Selections](#mysql-limit-data-selections)
+- [Insert Data](#insert-data)
+- [Get Last Inserted ID](#get-last-inserted-id)
+- [Transactions - Multiple Records](#transactions---multiple-records)
+- [Prepared Statements and Bound Parameters](#prepared-statements-and-bound-parameters)
+- [Select Data](#select-data)
+- [Delete Data](#delete-data)
+- [Update Data](#update-data)
+- [Limit Data Selections](#limit-data-selections)
 
-
+---
 
 # MySQL Database
 
@@ -52,7 +56,7 @@ Databases are useful for storing information categorically. A company may have a
 
 PHP combined with MySQL are cross-platform (you can develop in Windows and serve on a Unix platform)
 
-*Database Queries*
+🔔 *Database Queries*
 
 A query is a question or a request.
 
@@ -144,7 +148,7 @@ try {
 
 ```
 
-Note: In the PDO example above we have also specified a database (myDB). PDO require a valid database to connect to. If no database is specified, an exception is thrown.
+Note: In the PDO example above we have also specified a database (myDB). PDO require a valid database to connect to. If no database is specified, an exception is thrown ❗.
 
 *Tip:* A great benefit of PDO is that it has an exception class to handle any problems that may occur in our database queries. If an exception is thrown within the try{ } block, the script stops executing and flows directly to the first catch(){ } block.
 
@@ -219,27 +223,25 @@ mysqli_close($conn);
 
 # Creating a MySQL Database
 
-A database consists of one or more tables. You will need special CREATE privileges to create or to delete a MySQL database.
-
-*Create a MySQL Database Using PDO*
+A database consists of one or more tables. You will need special `CREATE privileges` to create or to delete a MySQL database.
 
 The CREATE DATABASE statement is used to create a database in MySQL.
 
 *Example (PDO)*
 
-The following PDO example *create a database* named "myDBPDO":
+The following PDO example *create a database* named "test":
 
 ```php
 <?php
 $servername = "localhost";
-$username = "username";
-$password = "password";
+$username = "root";
+$password = "";
 
 try {
   $conn = new PDO("mysql:host=$servername", $username, $password);
   // set the PDO error mode to exception
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  $sql = "CREATE DATABASE myDBPDO";
+  $sql = "CREATE DATABASE test";
   // use exec() because no results are returned
   $conn->exec($sql);
   echo "Database created successfully<br>";
@@ -296,9 +298,7 @@ require_once './pdo-db-conn.php';
 
 A database table has its own unique name and consists of columns and rows.
 
-*Create a MySQL Table Using MySQLi and PDO*
-
-The CREATE TABLE statement is used to create a table in MySQL.
+The `CREATE TABLE` statement is used to create a table in MySQL.
 
 We will create a table named "MyGuests", with five columns: "id", "firstname", "lastname", "email" and "reg_date":
 
@@ -315,9 +315,9 @@ reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 
 Notes on the table above:
 
-The data type specifies what type of data the column can hold. For a complete reference of all the available data types, go to our Data Types reference. (https://www.w3schools.com/sql/sql_datatypes.asp)
+The data type specifies what type of data the column can hold. For a complete reference of all the available data types, go to the Data Types reference. (https://www.w3schools.com/sql/sql_datatypes.asp)
 
-After the data type, you can specify other optional attributes for each column:
+After the data type, you can specify other `optional attributes` for each column:
 
 - NOT NULL - Each row must contain a value for that column, null values are not allowed
 - DEFAULT value - Set a default value that is added when no other value is passed
@@ -325,7 +325,7 @@ After the data type, you can specify other optional attributes for each column:
 - AUTO INCREMENT - MySQL automatically increases the value of the field by 1 each time a new record is added
 - PRIMARY KEY - Used to uniquely identify the rows in a table. The column with PRIMARY KEY setting is often an ID number, and is often used with AUTO_INCREMENT
 
-Each table should have a primary key column (in this case: the "id" column). Its value must be unique for each record in the table.
+Each table should have a `primary key column` (in this case: the "id" column). Its value must be unique for each record in the table.
 
 The following examples shows how to create the table in PHP:
 
@@ -357,9 +357,7 @@ $conn = null;
 
 ```
 
-# MySQL Insert Data
-
-*Insert Data Into MySQL Using MySQLi and PDO*
+# Insert Data
 
 After a database and a table have been created, we can start adding data in them. For PDO, `$conn->exec($sql);` exec metod is used.
 
@@ -377,8 +375,6 @@ INSERT INTO table_name (column1, column2, column3,...)
 VALUES (value1, value2, value3,...)
 
 ```
-
-To learn more about SQL, please visit our SQL tutorial.
 
 In the previous chapter we created an empty table named "MyGuests" with five columns: "id", "firstname", "lastname", "email" and "reg_date". Now, let us fill the table with data.
 
@@ -407,28 +403,13 @@ $conn = null;
 
 ```
 
---*LINK - tbc
-
-# MySQL Get Last Inserted ID
-
-*Get ID of The Last Inserted Record*
+# Get Last Inserted ID
 
 If we perform an INSERT or UPDATE on a table with an AUTO_INCREMENT field, we can get the ID of the last inserted/updated record immediately.
 
 In the table "MyGuests", the "id" column is an AUTO_INCREMENT field:
 
-```sql
-CREATE TABLE MyGuests (
-id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-firstname VARCHAR(30) NOT NULL,
-lastname VARCHAR(30) NOT NULL,
-email VARCHAR(50),
-reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-)
-
-```
-
-The following examples are equal to the examples from the previous page (PHP Insert Data Into MySQL), except that we have added one single line of code to retrieve the ID of the last inserted record. We also echo the last inserted ID:
+The following examples are equal to the examples from the previous page, except that we have added one single line of code to retrieve the ID of the last inserted record.
 
 Example (PDO)
 
@@ -448,17 +429,12 @@ try {
 }
 
 $conn = null;
-?>
 
 ```
 
-# MySQL Transactions
+# Transactions - Multiple Records
 
-*Insert Multiple Records Into MySQL Using MySQLi and PDO*
-
-Multiple SQL statements must be executed with the mysqli_multi_query() function.
-
-The following examples add three new records to the "MyGuests" table:
+The following examples add three new records to the "MyGuests" table in one transaction:
 
 Example (PDO)
 
@@ -491,17 +467,15 @@ $conn = null;
 
 ```
 
-# MySQL Prepared Statements
+# Prepared Statements and Bound Parameters
 
 Prepared statements are very useful against SQL injections.
-
-*Prepared Statements and Bound Parameters*
 
 A prepared statement is a feature used to execute the same (or similar) SQL statements repeatedly with high efficiency.
 
 Prepared statements basically work like this:
 
-- Prepare: An SQL statement template is created and sent to the database. Certain values are left unspecified, called parameters (labeled "?"). Example: INSERT INTO MyGuests VALUES(?, ?, ?)
+- Prepare: An SQL statement template is created and sent to the database. Certain values are left unspecified, called parameters (labeled "?"). Example: `INSERT INTO MyGuests VALUES(?, ?, ?)`
 
 - The database parses, compiles, and performs query optimization on the SQL statement template, and stores the result without executing it
 
@@ -510,10 +484,10 @@ Prepared statements basically work like this:
 Compared to executing SQL statements directly, prepared statements have three main advantages:
 
 - Prepared statements reduce parsing time as the preparation on the query is done only once (although the statement is executed multiple times)
-- Bound parameters minimize bandwidth to the server as you need send only the parameters each time, and not the whole query
-- Prepared statements are very useful *against SQL injections*, because parameter values, which are transmitted later using a different protocol, need not be *correctly escaped*. If the original statement template is not derived from external input, SQL injection cannot occur.
 
-*Prepared Statements in PDO*
+- Bound parameters minimize bandwidth to the server as you need send only the parameters each time, and not the whole query
+  
+- Prepared statements are very useful *against SQL injections*, because parameter values, which are transmitted later using a different protocol, need not be *correctly escaped*. If the original statement template is not derived from external input, SQL injection cannot occur.
 
 The following example uses prepared statements and bound parameters in PDO:
 
@@ -558,7 +532,7 @@ $conn = null;
 
 ```
 
-# MySQL Select Data
+# Select Data
 
 The SELECT statement is used to select data from one or more tables. The following example uses *prepared statements*.
 
@@ -610,9 +584,7 @@ echo "</table>";
 
 ```
 
-# MySQL Delete Data
-
-*Delete Data From a MySQL Table Using MySQLi and PDO*
+# Delete Data
 
 The DELETE statement is used to delete records from a table:
 
@@ -623,8 +595,6 @@ WHERE some_column = some_value
 ```
 
 Notice the WHERE clause in the DELETE syntax: The WHERE clause specifies which record or records that should be deleted. If you omit the WHERE clause, all records will be deleted!
-
-To learn more about SQL, please visit our SQL tutorial.
 
 Let's look at the "MyGuests" table:
 
@@ -656,7 +626,6 @@ try {
 }
 
 $conn = null;
-?>
 
 ```
 
@@ -669,9 +638,7 @@ id	firstname	lastname	email	reg_date
 
 ```
 
-# MySQL Update Data
-
-*Update Data In a MySQL Table Using MySQLi and PDO*
+# Update Data
 
 The UPDATE statement is used to update existing records in a table:
 
@@ -730,9 +697,7 @@ id	firstname	lastname	email	reg_date
 
 ```
 
-# MySQL Limit Data Selections
-
-*Limit Data Selections From a MySQL Database*
+# Limit Data Selections
 
 MySQL provides a LIMIT clause that is used to specify the number of records to return.
 
@@ -766,4 +731,3 @@ $sql = "SELECT * FROM Orders LIMIT 15, 10";
 ```
 
 Notice that the numbers are reversed when you use a comma.
-
