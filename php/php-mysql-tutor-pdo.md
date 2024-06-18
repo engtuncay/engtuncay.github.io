@@ -463,7 +463,6 @@ try {
 }
 
 $conn = null;
-?>
 
 ```
 
@@ -532,38 +531,44 @@ $conn = null;
 
 ```
 
+- bind params as array
+
+```php
+try {
+  // prepare sql and bind parameters
+  $stmt = $pdo->prepare("INSERT INTO MyGuests (firstname,lastname)
+  VALUES (:firstname,:lastname)");
+
+  // insert a row
+  $firstname = "John";
+  $lastname = "Doe";
+  //$email = "john@example.com";
+
+  $arr = array();
+  $arr["firstname"] = $firstname;
+  $arr["lastname"] = $lastname;
+  $stmt->execute($arr);
+
+  echo "New records created successfully";
+} catch (PDOException $e) {
+  echo "Error: " . $e->getMessage();
+}
+
+//$pdo = null;
+
+```
+
 # Select Data
 
-The SELECT statement is used to select data from one or more tables. The following example uses *prepared statements*.
+The SELECT statement is used to select data from one or more tables. The following example uses *prepared statements*. Use prepare and execute method.
 
-It selects the id, firstname and lastname columns from the MyGuests table and displays it in an HTML table:
+It selects the id, firstname and lastname columns from the MyGuests table.
 
 Example (PDO)
 
 ```php
 <?php
 require_once './pdo-db-conn.php';
-
-echo "<table style='border: solid 1px black;'>";
-echo "<tr><th>Id</th><th>Firstname</th><th>Lastname</th></tr>";
-
-class TableRows extends RecursiveIteratorIterator {
-  function __construct($it) {
-    parent::__construct($it, self::LEAVES_ONLY);
-  }
-
-  function current() {
-    return "<td style='width:150px;border:1px solid black;'>" . parent::current(). "</td>";
-  }
-
-  function beginChildren() {
-    echo "<tr>";
-  }
-
-  function endChildren() {
-    echo "</tr>" . "\n";
-  }
-}
 
 try {
 
@@ -572,15 +577,18 @@ try {
 
   // set the resulting array to associative
   $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-  foreach(new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k=>$v) {
-    echo $v;
+
+  foreach ($stmt->fetchAll() as $row) {
+    foreach ($row as $field => $value) {
+      echo $field . ' => ' . $value . '<br/>';
+    }
   }
+
 } catch(PDOException $e) {
   echo "Error: " . $e->getMessage();
 }
+
 $conn = null;
-echo "</table>";
-?>
 
 ```
 
@@ -595,16 +603,6 @@ WHERE some_column = some_value
 ```
 
 Notice the WHERE clause in the DELETE syntax: The WHERE clause specifies which record or records that should be deleted. If you omit the WHERE clause, all records will be deleted!
-
-Let's look at the "MyGuests" table:
-
-```text
-id	firstname	lastname	email	reg_date
-1	John	Doe	john@example.com	2014-10-22 14:26:15
-2	Mary	Moe	mary@example.com	2014-10-23 10:22:30
-3	Julie	Dooley	julie@example.com	2014-10-26 10:48:23
-
-```
 
 The following examples delete the record with id=3 in the "MyGuests" table:
 
@@ -629,15 +627,6 @@ $conn = null;
 
 ```
 
-After the record is deleted, the table will look like this:
-
-```
-id	firstname	lastname	email	reg_date
-1	John	Doe	john@example.com	2014-10-22 14:26:15
-2	Mary	Moe	mary@example.com	2014-10-23 10:22:30
-
-```
-
 # Update Data
 
 The UPDATE statement is used to update existing records in a table:
@@ -646,17 +635,6 @@ The UPDATE statement is used to update existing records in a table:
 UPDATE table_name
 SET column1=value, column2=value2,...
 WHERE some_column=some_value 
-
-```
-
-Notice the WHERE clause in the UPDATE syntax: The WHERE clause specifies which record or records that should be updated. If you omit the WHERE clause, all records will be updated!
-
-Let's look at the "MyGuests" table:
-
-```text
-id	firstname	lastname	email	reg_date
-1	John	Doe	john@example.com	2014-10-22 14:26:15
-2	Mary	Moe	mary@example.com	2014-10-23 10:22:30
 
 ```
 
@@ -684,16 +662,6 @@ try {
 }
 
 $conn = null;
-?>
-
-```
-
-After the record is updated, the table will look like this:
-
-```text
-id	firstname	lastname	email	reg_date
-1	John	Doe	john@example.com	2014-10-22 14:26:15
-2	Mary	Doe	mary@example.com	2014-10-23 10:22:30
 
 ```
 
