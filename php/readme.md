@@ -50,8 +50,8 @@ Content                                                                         
 [2 Variables - Scope - Echo / Print ](./php-w3-02-variables.md)                       | ✔
 [3 Data Types Intro](./php-w3-03-data-types.md)                                             | ✔
 [4 String - Numbers - Math - Constants - Date](./php-w3-04-data-types-detail.md) |
-5 Operators                                                                           |
-6 If/Else/Elseif - Switch - Loops                                                     |
+[5 Operators](./php-w3-05.md)                                                                           |
+[6 If/Else/Elseif - Switch - Loops](./php-w3-06.md)|
 [7 Functions](./php-w3-07-functions.md)                                                                           |
 [8 Arrays](./php-w3-08-arrays.md)                                                     | ✔ 
 [9 Superglobals](./php-w3-09-superglobals.md)                                         |
