@@ -12,8 +12,6 @@ Source : https://www.w3schools.com/php/php_oop_classes_objects.asp
 
 A class is a template for objects, and an object is an instance of class.
 
- *OOP Case*
-
 Let's assume we have a class named Fruit. A Fruit can have properties like name, color, weight, etc. We can define variables like $name, $color, and $weight to hold the values of these properties.
 
 When the individual objects (apple, banana, etc.) are created, they inherit all the properties and behaviors from the class, but each object will have different values for the properties.
@@ -194,15 +192,13 @@ var_dump($apple instanceof Fruit);
 // bool(true)
 ```
 
---end--
+--end of w3--
 
 ## Article - Typed Properties in PHP 7.4
 
 Source : https://php.watch/versions/7.4/typed-properties
 
-PHP 7.4 finally brings typed properties. This is a feature I have been looking forward, and I have been spending some quality time working on my existing projects to add support for typed properties.
-
-With typed properties, you can set a type for all class properties. When a type is set, PHP engine prevents anyone from setting a different type to the class property.
+PHP 7.4 finally brings typed properties. With typed properties, you can set a type for all class properties. When a type is set, PHP engine prevents anyone from setting a different type to the class property.
 
 ```php
 class Example {
@@ -212,25 +208,29 @@ class Example {
 
 ```
 
-The snippet above will make sure that `Example::$birthday property` will always be a DateTime object. Prior to PHP 7.4, this sort of strict data patterns would have required to have `setBirthDate(DateTime $birthdate): void` and `getBirthDate(): \DateTime` methods to enforce the data integrity.
+The snippet above will make sure that `Example::$birthday property` will always be a DateTime object. Prior to PHP 7.4, this sort of strict data patterns would have required to have `setBirthDate(DateTime $birthdate): void` and `getBirthDate(): DateTime` methods to enforce the data integrity.
 
 🔔 Supported property types
 
 Types supported for class properties.
 
 - Scalar types: int, string, bool, and float.
+
 - Compound types: array, iterable and object.
+
 - Any class or interface name (such as DateTime, Foo\Bar) and stdClass.
+
 - References to parent and own objects: self and parent.
 
 Types not supported for class properties
 
 - void: Having a void property wouldn't make sense.
+
 - callable: Not supported because its behavior is unpredictable. Take a look at consistent callables RFC (https://wiki.php.net/rfc/consistent_callables) for more background. This basically becomes troublesome when callables can be declared with array syntax, e.g. as [$this, 'buildForm'].
 
 🔔 The uninitialized state
 
-This will be where most of the hair pulling might occur. With PHP 7.4 typed properties, class properties have an uninitialized state. This simply means that the property is not initialized yet. This is not the same as `null`..
+This will be where most of the hair pulling might occur. With PHP 7.4 typed properties, class properties have an uninitialized state. This simply means that the property is not initialized yet. This is not the same as `null`.
 
 If there is no type is declared, properties have null as their uninitialized value:
 
@@ -263,7 +263,7 @@ Fatal error: Uncaught Error: Typed property Example::$name must not be accessed 
 
 ```
 
-🔔 Check uninitialized state
+🔔 Check uninitialized state ❗
 
 You can check if a class property is uninitialized using `isset($foo->name)`. Because this value is not the same as null, you cannot use `$foo->name === null` to check if the property is uninitialized.
 
@@ -271,7 +271,7 @@ You can check if a class property is uninitialized using `isset($foo->name)`. Be
 
 To reset a property back to its uninitialized state, use `unset($foo->name)`. Once unset, trying to access the property without assigning it a value will throw the same `Typed property ... must not be accessed before initialization ...` error.
 
-🔔 Nullable types
+🔔 Nullable types ❗
 
 Similar to PHP 7.1's nullable types, property types can be marked nullable as well. To mark a property can be null, prefix its type with a question mark, e.g: `?string`.
 

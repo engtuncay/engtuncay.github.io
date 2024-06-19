@@ -8,11 +8,8 @@ Source : w3,
 - [If Statements](#if-statements)
   - [Comparison Operators](#comparison-operators)
   - [Logical Operators](#logical-operators)
-  - [if...else Statements](#ifelse-statements)
-  - [if...elseif...else Statement](#ifelseifelse-statement)
   - [Shorthand if Statements](#shorthand-if-statements)
   - [Short Hand If...Else](#short-hand-ifelse)
-  - [Nested if Statement](#nested-if-statement)
 - [Switch Statement](#switch-statement)
 - [Loops](#loops)
   - [while Loop](#while-loop)
@@ -117,22 +114,21 @@ if ($a > $b && $a < $c ) {
 
 Here are the PHP logical operators to use in if statements:
 
-```
-Operator	Name	Description	Try it
-and	And	True if both conditions are true	
-&&	And	True if both conditions are true	
-or	Or	True if either condition is true	
-||	Or	True if either condition is true	
-xor	Xor	True if either condition is true, but not both	
-!	Not	True if condition is not true	
+Operator | Name     | Description
+---------|----------|-----------------------------------------------
+and      | And      | True if both conditions are true
+&&       | And      | True if both conditions are true
+or       | Or       | True if either condition is true
+\|\|     | Or       | True if either condition is true
+xor      | Xor      | True if either condition is true, but not both
+!        | Not	True | if condition is not true
 
-```
 
 We can compare as many conditions as we like in one if statement:
 
 Example : Check if $a is either 2, 3, 4, 5, 6, or 7:
 
-```
+```php
 $a = 5;
 
 if ($a == 2 || $a == 3 || $a == 4 || $a == 5 || $a == 6 || $a == 7) {
@@ -141,7 +137,7 @@ if ($a == 2 || $a == 3 || $a == 4 || $a == 5 || $a == 6 || $a == 7) {
 
 ```
 
-## if...else Statements
+🔔 if...else Statements
 
 The if...else statement executes some code if a condition is true and another code if that condition is false.
 
@@ -168,7 +164,8 @@ if ($t < "20") {
 }
 
 ```
-## if...elseif...else Statement
+
+🔔 if...elseif...else Statement
 
 The if...elseif...else statement executes different codes for more than two conditions.
 
@@ -232,7 +229,7 @@ echo $b;
 
 This technique is known as Ternary Operators, or Conditional Expressions.
 
-## Nested if Statement
+🔔 Nested if Statement
 
 You can have if statements inside if statements, this is called nested if statements.
 

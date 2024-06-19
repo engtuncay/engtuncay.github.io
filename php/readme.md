@@ -5,8 +5,12 @@ Php Tutorial
 - [References](#references)
 - [Other cheatsheets](#other-cheatsheets)
 - [Notes](#notes)
-- [Kurs Notları ve Makaleler](#kurs-notları-ve-makaleler)
-- [Php Advanced Topics](#php-advanced-topics)
+  - [W3 Notes](#w3-notes)
+  - [Kurs Notları ve Makaleler](#kurs-notları-ve-makaleler)
+  - [W3 Php OOP](#w3-php-oop)
+  - [W3 Php Advanced Topics](#w3-php-advanced-topics)
+  - [PHP XML](#php-xml)
+  - [PHP - AJAX](#php---ajax)
 - [Laravel](#laravel)
 
 # Cheatsheets
@@ -44,6 +48,10 @@ https://github.com/smknstd/modern-php-cheatsheet
 
 # Notes
 
+## W3 Notes
+
+Source : 
+
 Content                                                                               | Note
 --------------------------------------------------------------------------------------|-----
 [1 Intro- Install - Syntax - Comments](./php-w3-01-intro.md)                          | ✔
@@ -58,7 +66,7 @@ Content                                                                         
 [10 RegEx](./php-w3-10-regex.md)                                                                              |
 
 
-# Kurs Notları ve Makaleler
+## Kurs Notları ve Makaleler
 
 Content                                                      | Note
 -------------------------------------------------------------|-----
@@ -67,7 +75,7 @@ Content                                                      | Note
 [Php Kurs Notları](./ude-php-te-not1.md) | 
 
 
-Php OOP
+## W3 Php OOP
 
 Content                                                                                         | Note
 ------------------------------------------------------------------------------------------------|-----
@@ -80,51 +88,28 @@ Content                                                                         
 [7 Namespaces](./php-oop-07-namespaces.md)                                                      | 🆗
 [8 Iterables](./php-oop-08-iterables.md)                                                        | 🆗
 
-# Php Advanced Topics
+## W3 Php Advanced Topics
 
-| Content                                      | Note |
-|----------------------------------------------|------|
-| PHP Date and Time                            |
-| [PHP Include](./php-adv-02-include.md)       | 🆗   
-| File Handling                                |
-| File Open/Read                               |
-| File Create/Write                            |
-| File Upload                                  |
-| Cookies                                      |
-| PHP Sessions                                 |
-| PHP Filters                                  |
-| PHP Filters Advanced                         |
-| PHP Callback Functions                       |
-| PHP JSON                                     |
-| PHP Exceptions                               |
-| [Php Mysql-Pdo](./php-mysql-tutor-pdo.md)    | ✔    
-| [Php Mysql-Mysqli-Pdo](./php-mysql-tutor.md) |
+ Content                                      | Note |
+----------------------------------------------|------|
+ PHP Date and Time                            |
+ [PHP Include](./php-adv-02-include.md)       | 🆗   
+ File Handling                                |
+ File Open/Read                               |
+ File Create/Write                            |
+ File Upload                                  |
+ Cookies                                      |
+ PHP Sessions                                 |
+ PHP Filters                                  |
+ PHP Filters Advanced                         |
+ PHP Callback Functions                       |
+ PHP JSON                                     |
+ PHP Exceptions                               |
+[Php Mysql-Pdo](./php-mysql-tutor-pdo.md)    | ✔    
+ [Php Mysql-Mysqli-Pdo](./php-mysql-tutor.md) |
+ [Autoloader](./php-w3-11-autoloader.md)|
 
-# Laravel
-
-| Content                                | Note |
-|----------------------------------------|------|
-| [L1 - Installation](./lrv-01-basic.md) |
-| [L2 - Api](./lrv-02-api.md)            |
-
-
-
-
-
-Old content
-
-Content                                              | Note
------------------------------------------------------|-----
-[1 Php Basics](./php-01-basics.md)                   |
-[2 Data Types](./php-02-data-types-1.md)             |
-[3 Functions](./php-03-functions.md)                 |
-[4 Classes](./php-04-classes.md)                     |
-[5 Special Variables](./php-05-Special-Variables.md) |
-[6 Database](./php-06-Database.md)                   |
-[7 Composer](./php-07-Composer.md)                   |
-
-
-PHP XML
+## PHP XML
 
 PHP XML Parsers
 PHP SimpleXML Parser
@@ -132,7 +117,7 @@ PHP SimpleXML - Get
 PHP XML Expat
 PHP XML DOM
 
-PHP - AJAX
+## PHP - AJAX
 
 AJAX Intro
 AJAX PHP
@@ -142,6 +127,7 @@ AJAX Live Search
 AJAX Poll
 
 PHP Examples
+
 PHP Examples
 PHP Compiler
 PHP Quiz
@@ -149,6 +135,7 @@ PHP Exercises
 PHP Certificate
 
 PHP Reference
+
 PHP Overview
 PHP Array
 PHP Calendar
@@ -176,3 +163,22 @@ PHP Variable Handling
 PHP XML Parser
 PHP Zip
 PHP Timezones
+
+# Laravel
+
+| Content                                | Note |
+|----------------------------------------|------|
+| [L1 - Installation](./lrv-01-basic.md) |
+| [L2 - Api](./lrv-02-api.md)            |
+
+Old content
+
+Content                                              | Note
+-----------------------------------------------------|-----
+[1 Php Basics](./php-01-basics.md)                   |
+[2 Data Types](./php-02-data-types-1.md)             |
+[3 Functions](./php-03-functions.md)                 |
+[4 Classes](./php-04-classes.md)                     |
+[5 Special Variables](./php-05-Special-Variables.md) |
+[6 Database](./php-06-Database.md)                   |
+[7 Composer](./php-07-Composer.md)                   |
