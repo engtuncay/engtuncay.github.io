@@ -74,7 +74,7 @@ There are two main purposes of types in TypeScript:
 
 *Examples of TypeScript types*
 
-The following example uses the querySelector() method to select the <h1> element:
+The following example uses the querySelector() method to select the `<h1>` element:
 
 ```js
 const heading = document.querySelector('h1');

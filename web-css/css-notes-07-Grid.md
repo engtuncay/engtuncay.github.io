@@ -54,8 +54,8 @@ Example
 
 An HTML element becomes a grid container when its display property is set to `grid or inline-grid`.
 
-- Use display: grid; to make a block-level grid container
-- Use display: inline-grid; to make a inline grid container
+- Use `display: grid;` to make a block-level grid container
+- Use `display: inline-grid;` to make a inline grid container
 
 *Syntax*
 
