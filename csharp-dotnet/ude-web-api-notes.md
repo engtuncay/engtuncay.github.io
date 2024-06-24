@@ -283,7 +283,7 @@ public static void Register(HttpConfiguration config)
 
 ```
 
-➖ request isteğimiz `https://localhost:44355/api/values/degerler` şeklinde yapmamız gerekir.
+➖ request isteğimizi örneğin `https://localhost:44355/api/values/degerler` şeklinde yapmamız gerekir.
 
 
 ## 10. Attribute Based Routing
