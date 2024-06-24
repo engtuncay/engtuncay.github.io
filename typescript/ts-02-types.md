@@ -18,7 +18,7 @@ See the following value:
 
 When you look at this value, you can say that it’s a string. And this value has properties and methods that a string has.
 
-For example, the 'Hello' value has a property called length that returns the number of characters:
+
 
 ```js
  console.log('Hello'.length); // 5

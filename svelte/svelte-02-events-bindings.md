@@ -10,7 +10,7 @@ https://svelte.dev/tutorial/basics
   - [d. Component events (Event Dispatcher)](#d-component-events-event-dispatcher)
   - [e. Event forwarding](#e-event-forwarding)
   - [f. DOM event forwarding](#f-dom-event-forwarding)
-- [6 Bindings (child to parent communications)](#6-bindings-child-to-parent-communications)
+- [6 Bindings](#6-bindings)
   - [a. Text inputs](#a-text-inputs)
   - [b. Numeric inputs](#b-numeric-inputs)
   - [c. Checkbox inputs](#c-checkbox-inputs)
@@ -287,7 +287,9 @@ We want to get notified of clicks on our `<CustomButton> `— to do that, we jus
 </style>
 ```
 
-# 6 Bindings (child to parent communications)
+# 6 Bindings 
+
+- it is a way of child to parent communications. child component, for example, input value is binded to a variable in the parent component.
 
 ## a. Text inputs
 
