@@ -1,9 +1,7 @@
 
 **Sources**
 
-- Main source, https://github.com/Asabeneh/30-Days-Of-JavaScript 
-
-There may be changes or additions to some section of the tutorial.
+- https://github.com/Asabeneh/30-Days-Of-JavaScript , there may be changes or additions to some section of the tutorial.
 
 ---
 
