@@ -55,15 +55,15 @@ Source :
 Content                                                                               | Note
 --------------------------------------------------------------------------------------|-----
 [1 Intro- Install - Syntax - Comments](./php-w3-01-intro.md)                          | ✔
-[2 Variables - Scope - Echo / Print ](./php-w3-02-variables.md)                       | ✔
-[3 Data Types Intro](./php-w3-03-data-types.md)                                             | ✔
+[2 Variables - Scope - Echo / Print ](./php-w3-02-variables.md) | ✔
+[3 Data Types Intro](./php-w3-03-data-types.md)     | ✔
 [4 String - Numbers - Math - Constants - Date](./php-w3-04-data-types-detail.md) |
-[5 Operators](./php-w3-05-operators.md)                                                                           |
+[5 Operators](./php-w3-05-operators.md)   |
 [6 If/Else/Elseif - Switch - Loops](./php-w3-06-if-loops.md)|
-[7 Functions](./php-w3-07-functions.md)                                                                           |
-[8 Arrays](./php-w3-08-arrays.md)                                                     | ✔ 
-[9 Superglobals](./php-w3-09-superglobals.md)                                         |
-[10 RegEx](./php-w3-10-regex.md)                                                                              |
+[7 Functions](./php-w3-07-functions.md)                     |
+[8 Arrays](./php-w3-08-arrays.md)                   | ✔ 
+[9 Superglobals](./php-w3-09-superglobals.md)       |
+[10 RegEx](./php-w3-10-regex.md)                    |
 
 
 ## Kurs Notları ve Makaleler
@@ -102,7 +102,7 @@ Content                                                                         
  PHP Sessions                                 |
  PHP Filters                                  |
  PHP Filters Advanced                         |
- PHP Callback Functions                       |
+ PHP Callback Functions (arrow functions)|
  PHP JSON                                     |
  PHP Exceptions                               |
 [Php Mysql-Pdo](./php-mysql-tutor-pdo.md)    | ✔    
