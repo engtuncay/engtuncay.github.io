@@ -34,7 +34,7 @@ Source : https://www.w3schools.com/cs/index.php
 9 C# Booleans
 10 C# If- Switch- While- For - Break/Continue
 11 C# Arrays
-[12 C# Methods - Parameters - Overloading](./cs-12-methods.md)
+[12 C# Methods - Overloading](./cs-12-methods.md)
 [13 C# Regex](./cs-13-regex.md)
 
 # C# OOP AND ADVANCE TOPICS
