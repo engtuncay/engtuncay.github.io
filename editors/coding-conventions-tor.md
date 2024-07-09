@@ -3,6 +3,7 @@
 - [Değişken İsimlendirme](#değişken-i̇simlendirme)
 - [Standard Method Naming](#standard-method-naming)
 - [Bazı Kısaltmalar (Metod ismi içerisindeki)](#bazı-kısaltmalar-metod-ismi-içerisindeki)
+- [File Prefix](#file-prefix)
 
 ---
 
@@ -11,35 +12,34 @@
 - Camel Case 
 - Type prefix
 
-```
-st,tx : string
-nm : number 
-dt : date
-bo : boolean
-bn : binary,byte
-ln : integer
-db : double
+Prefix | Alt | Description
+-------|-----|----------------
+tx     | st  | : string
+ln     |     | integer
+db     |     | double
+dt     |     | date
+bo     |     | boolean
+ref    |     | reference types
+by     |     | binary,byte
+nm     |     | number
 
-```
-Ayrıntılı tür kullanılmayacak , number double , int, float alanlara karşılık gelir.
 
 ## Standard Method Naming
 
-| Controller Method | Meaning  |
-| --- | --- |
-| act....... | View üzerinden gelen actionlara karşılık metodlar   |
-| actBtn... | button üzerinden gelen action |
+| Controller Method | Meaning                                           |
+|-------------------|---------------------------------------------------|
+| act.......        | View üzerinden gelen actionlara karşılık metodlar |
+| actBtn...         | button üzerinden gelen action                     |
 
 
-| Model And Repo Method | Meaning  |
-| --- | --- |
-| checkExist......OnDb |  Veritabanın olup olmadığı kontrol edilir  |
+| Model And Repo Method | Meaning                                  |
+|-----------------------|------------------------------------------|
+| checkExist......OnDb  | Veritabanın olup olmadığı kontrol edilir |
 
 
-| View Method | Meaning  |
-| --- | --- |
-| ..... |   |
-
+| View Method | Meaning |
+|-------------|---------|
+| .....       |         |
 
 
 ## Bazı Kısaltmalar (Metod ismi içerisindeki)
@@ -52,4 +52,10 @@ By : e göre
 
 Lim : Limit
 
+## File Prefix
 
+Pref | Desc
+-----|----------------------
+Mxx  | Modal of xx project
+Dxx  | Modules of xx project
+Com  | Component
