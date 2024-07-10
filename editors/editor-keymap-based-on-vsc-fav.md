@@ -36,44 +36,52 @@ Ctrl+Shift+N     | New window/instance
 Ctrl+Shift+W     | Close window/instance
 Ctrl+,           | User Settings
 Ctrl+K Ctrl+S    | Keyboard Shortcuts
+c+Pup/PDown      | Prev/Next Tab
 
 # Code Navigation 
 
+kod içerisinde gezinme için kısayollar
+
 Shortcut           | Desc
--------------------|-------------------------------------------------
+-------------------|--------------------------------
 Ctrl+T             | Show all Symbols
 Ctrl+G             | Go to Line...
 Ctrl+P             | Go to File...
 Ctrl+Shift+O (c+*) | Go to Symbol...
-Ctrl+Shift+M       | Show Problems panel
+Alt+left/right     | Go back / forward
 F8                 | Go to next error or warning
 Shift+F8           | Go to previous error or warning
-Ctrl+Shift+Tab     | Navigate editor group history
-Alt+left/right     | Go back / forward
-C + m              | Toggle Tab moves focus
-C + 1              | Focus Editor(1)
-C + j              | (workbench.action.focusActiveEditorGroup)
-C + " , C+Down     | Focus Terminal (workbench.action.terminal.focus)
+
 
 # Display / Editor Navigation 
 
-Shortcut     | Desc
--------------|-------------------------------------------
-F11          | Toggle full screen
-Shift+Alt+0  | Toggle editor layout (horizontal/vertical)
-Ctrl+ = /-   | Zoom in/out
-Ctrl+B       | Toggle Sidebar visibility
-Ctrl+Shift+E | Show Explorer / Toggle focus
-Ctrl+Shift+F | Show Search
-Ctrl+Shift+G | Show Source Control
-Ctrl+Shift+D | Show Debug
-Ctrl+Shift+X | Show Extensions
-Ctrl+Shift+H | Replace in files
-Ctrl+Shift+J | Toggle Search details
-Ctrl+Shift+U | Show Output panel
-Ctrl+Shift+V | Open Markdown preview
-Ctrl+K V     | Open Markdown preview to the side
-Ctrl+K Z     | Zen Mode (Esc Esc to exit)
+Editor panelleri arasında gezinmek için kısayollar
+
+Shortcut       | Desc                                             | Note
+---------------|--------------------------------------------------|-----
+F11            | Toggle full screen                               |
+Shift+Alt+0    | Toggle editor layout (horizontal/vertical)       |
+Ctrl+ = /-     | Zoom in/out                                      |
+Ctrl+B (cs+s)  | Toggle Sidebar visibility                        |
+Ctrl+Shift+E   | Show Explorer / Toggle focus                     |
+Ctrl+Shift+F   | Show Search                                      |
+Ctrl+Shift+G   | Show Source Control                              |
+Ctrl+Shift+D   | Show Debug                                       |
+Ctrl+Shift+X   | Show Extensions                                  |
+Ctrl+Shift+H   | Replace in files                                 |
+Ctrl+Shift+J   | Toggle Search details                            |
+cs+u           | Show Output panel                                |
+Ctrl+Shift+V   | Open Markdown preview                            |
+Ctrl+K V       | Open Markdown preview to the side                |
+Ctrl+K Z       | Zen Mode (Esc Esc to exit)                       |
+a+o            | Open In Default Browser                          | User
+C+",C+Down     | Focus Terminal (workbench.action.terminal.focus) |
+C+m , C+m      | Toggle Tab moves focus                           | ??
+C + 1          | Focus Editor(1)                                  |
+C + j          | (workbench.action.focusActiveEditorGroup)        |
+Ctrl+Shift+M   | Show Problems panel                              |
+Ctrl+Shift+Tab | Navigate editor group history                    |
+
 
 # Editor management 
 
