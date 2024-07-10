@@ -243,13 +243,27 @@ Sources
 
 - flex-wrap, flex-wrap-reverse, flex-nowrap
   
-
+- flex-wrap-reverse, flex-row durumunda satır alta geçeği yerde, yeni satırı bir üste açar.
 
 ## 28. justify-content
-4 
+
+- flex-row, yatayda hizalandırmak için kullanılır. (sağa,sola,ortaya vs.)
+
+- justify-between (en baştaki en başta, en sondaki en sonda köşede olacaktır.)
+
+- justify-around , elementin sağında ve solunda eşit boşluk bırakır. haliyle ortadakilerin boşluğu daha çok olur.
+
+- justify-evenly , her elementin sağında solunda eşit boşluk bırakır. (en başta en başta değil, boşluktan sonra yerleştirilir.)
 
 ## 29. align-items
-4 
+
+- items-[start|end|center|baseline|stretch] sentaksı şeklindedir.
+
+- flex-row, dikeyde boyutunu ayarlar. mesela start olursa hepsinin dikeyde en yukarıdan başlar, kendi yüksekliği kadardır.
+
+- flex-row, stretch tanımlarsak dikeyde full alanı kaplar.
+
+
 
 ## 30. align-content (flexbox and grid)
 7 
@@ -265,9 +279,6 @@ Sources
 
 ## 34. flex-grow-shrink tek seferde kullanım
 5 
-
-35. Proje dosyalarını indir.
-1 
 
 # B9 - Spacing (Margin,Padding,Space Between)
 
