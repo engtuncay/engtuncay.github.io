@@ -294,10 +294,59 @@ Sources
 4 
 
 ## 48. Background size
-6 
+
+Source : https://tailwindcss.com/docs/background-size
+
+- h-x ön tanımlı size'ları  kullanabiliriz.
+
+- h-[xxx] ile özel pixel tanımlaması yapabiliriz.
+
+```html
+<div class="bg-[url('https://picsum.photos/seed/picsum/536/354')] h-[354px] bg-no-repeat mb-10"></div>
+
+<div class="bg-[url('https://picsum.photos/seed/picsum/536/354')] h-52 w-96 bg-repeat mb-10 bg-auto">
+
+```
+
+- bg-auto (default-size) , bg-cover (fill background layer) ve bg-contain (scale to fit) üç opsiyonumuz var.
+
+
+- özel length verebiliriz
+
+```html
+<div
+        class="bg-[url('https://picsum.photos/seed/picsum/536/354')] h-52 w-96 bg-no-repeat mb-10 bg-[length:200px_100px] border dark:border-gray-600">
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus,
+          facere. Eligendi amet quibusdam, autem quas debitis nam culpa unde
+          pariatur, in id quo ducimus rem at labore perspiciatis voluptate
+          dolorum.
+        </p>
+      </div>
+```
+
+- imaj içinde olduğu kutudaki pozisyonu için bg-position kullanırız.
+
 
 ## 49. Background position
-4 
+
+Source : https://tailwindcss.com/docs/background-position
+
+- aşağıdaki opsiyonlar imajın div içerisinde görünen kısmını ayarlayabiliriz.
+
+```
+bg-bottom
+bg-center	
+bg-left	
+bg-left-bottom	
+bg-left-top	
+bg-right	
+bg-right-bottom	
+bg-right-top	
+bg-top	
+
+```
+
 
 # B12 - Font Family
 
