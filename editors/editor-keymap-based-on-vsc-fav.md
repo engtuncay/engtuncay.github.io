@@ -4,17 +4,17 @@ Keyboard shortcuts for Windows
 Other operating systems’ keyboard shortcuts and additional 
 unassigned shortcuts available at aka.ms/vscodekeybindings  
 
-(c+s) : means ctrl + shift in paranthesis
+- cs+s means ctrl + shift + s
 
 - [General](#general)
-- [Navigation](#navigation)
+- [Code Navigation](#code-navigation)
+- [Display / Editor Navigation](#display--editor-navigation)
 - [Basic editing](#basic-editing)
 - [Search and replace](#search-and-replace)
 - [Multi-cursor and selection](#multi-cursor-and-selection)
 - [Rich languages editing](#rich-languages-editing)
 - [Editor management](#editor-management)
 - [File management](#file-management)
-- [Display](#display)
 - [Debug](#debug)
 - [Integrated terminal](#integrated-terminal)
 - [Notes](#notes)
@@ -34,23 +34,55 @@ Ctrl+Shift+W     | Close window/instance
 Ctrl+,           | User Settings
 Ctrl+K Ctrl+S    | Keyboard Shortcuts
 
-# Navigation 
+# Code Navigation 
 
-| Shortcut       | Desc                                             |
-|----------------|--------------------------------------------------|
-| Ctrl+T         | Show all Symbols                                 |
-| Ctrl+G         | Go to Line...                                    |
-| Ctrl+P         | Go to File...                                    |
-| Ctrl+Shift+O   | Go to Symbol...                                  |
-| Ctrl+Shift+M   | Show Problems panel                              |
-| F8             | Go to next error or warning                      |
-| Shift+F8       | Go to previous error or warning                  |
-| Ctrl+Shift+Tab | Navigate editor group history                    |
-| Alt+ ← / →     | Go back / forward                                |
-| C + m          | Toggle Tab moves focus                           |
-| C + 1          | Focus Editor(1)                                  |
-| C + j          | (workbench.action.focusActiveEditorGroup)        |
-| C + " , C+Down | Focus Terminal (workbench.action.terminal.focus) |
+Shortcut           | Desc
+-------------------|-------------------------------------------------
+Ctrl+T             | Show all Symbols
+Ctrl+G             | Go to Line...
+Ctrl+P             | Go to File...
+Ctrl+Shift+O (c+*) | Go to Symbol...
+Ctrl+Shift+M       | Show Problems panel
+F8                 | Go to next error or warning
+Shift+F8           | Go to previous error or warning
+Ctrl+Shift+Tab     | Navigate editor group history
+Alt+left/right     | Go back / forward
+C + m              | Toggle Tab moves focus
+C + 1              | Focus Editor(1)
+C + j              | (workbench.action.focusActiveEditorGroup)
+C + " , C+Down     | Focus Terminal (workbench.action.terminal.focus)
+
+# Display / Editor Navigation 
+
+Shortcut     | Desc
+-------------|-------------------------------------------
+F11          | Toggle full screen
+Shift+Alt+0  | Toggle editor layout (horizontal/vertical)
+Ctrl+ = /-   | Zoom in/out
+Ctrl+B       | Toggle Sidebar visibility
+Ctrl+Shift+E | Show Explorer / Toggle focus
+Ctrl+Shift+F | Show Search
+Ctrl+Shift+G | Show Source Control
+Ctrl+Shift+D | Show Debug
+Ctrl+Shift+X | Show Extensions
+Ctrl+Shift+H | Replace in files
+Ctrl+Shift+J | Toggle Search details
+Ctrl+Shift+U | Show Output panel
+Ctrl+Shift+V | Open Markdown preview
+Ctrl+K V     | Open Markdown preview to the side
+Ctrl+K Z     | Zen Mode (Esc Esc to exit)
+
+# Editor management 
+
+Shortcut               | Desc
+-----------------------|----------------------------------------
+Ctrl+F4, Ctrl+W        | Close editor
+Ctrl+K F               | Close folder
+Ctrl+\                 | Split editor
+Ctrl+ 1 / 2 / 3        | Focus into 1st, 2nd or 3rd editor group
+Ctrl+K Ctrl+ ←/→       | Focus into previous/next editor group
+Ctrl+Shift+PgUp / PgDn | Move editor left/right
+Ctrl+K ← / →           | Move active editor group
 
 # Basic editing 
 
@@ -72,9 +104,6 @@ Ctrl+↑ / ↓        | Scroll line up/down
 Alt+PgUp / PgDn   | Scroll page up/down
 Ctrl+Shift+[      | Fold (collapse) region
 Ctrl+Shift+]      | Unfold (uncollapse) region
-
-
-
 Ctrl+K Ctrl+[     | Fold (collapse) all subregions
 Ctrl+K Ctrl+]     | Unfold (uncollapse) all subregions
 Ctrl+K Ctrl+0     | Fold (collapse) all regions
@@ -131,57 +160,6 @@ F2                 | Rename Symbol
 Ctrl+K Ctrl+X      | Trim trailing whitespace
 Ctrl+K M           | Change file language
 
-# Editor management 
-
-Shortcut               | Desc
------------------------|----------------------------------------
-Ctrl+F4, Ctrl+W        | Close editor
-Ctrl+K F               | Close folder
-Ctrl+\                 | Split editor
-Ctrl+ 1 / 2 / 3        | Focus into 1st, 2nd or 3rd editor group
-Ctrl+K Ctrl+ ←/→       | Focus into previous/next editor group
-Ctrl+Shift+PgUp / PgDn | Move editor left/right
-Ctrl+K ← / →           | Move active editor group
-
-# File management 
-
-| Shortcut       | Desc                                    |
-|----------------|-----------------------------------------|
-| Ctrl+N         | New File                                |
-| Ctrl+O         | Open File...                            |
-| Ctrl+S         | Save                                    |
-| Ctrl+Shift+S   | Save As...                              |
-| Ctrl+K S       | Save All                                |
-| Ctrl+F4        | Close                                   |
-| Ctrl+K Ctrl+W  | Close All                               |
-| Ctrl+Shift+T   | Reopen closed editor                    |
-| Ctrl+K         | Enter Keep preview mode editor open     |
-| Ctrl+Tab       | Open next                               |
-| Ctrl+Shift+Tab | Open previous                           |
-| Ctrl+K P       | Copy path of active file                |
-| Ctrl+K R       | Reveal active file in Explorer          |
-| Ctrl+K O       | Show active file in new window/instance |
-
-# Display 
-
-| Shortcut     | Desc                                       |
-|--------------|--------------------------------------------|
-| F11          | Toggle full screen                         |
-| Shift+Alt+0  | Toggle editor layout (horizontal/vertical) |
-| Ctrl+ = /-   | Zoom in/out                                |
-| Ctrl+B       | Toggle Sidebar visibility                  |
-| Ctrl+Shift+E | Show Explorer / Toggle focus               |
-| Ctrl+Shift+F | Show Search                                |
-| Ctrl+Shift+G | Show Source Control                        |
-| Ctrl+Shift+D | Show Debug                                 |
-| Ctrl+Shift+X | Show Extensions                            |
-| Ctrl+Shift+H | Replace in files                           |
-| Ctrl+Shift+J | Toggle Search details                      |
-| Ctrl+Shift+U | Show Output panel                          |
-| Ctrl+Shift+V | Open Markdown preview                      |
-| Ctrl+K V     | Open Markdown preview to the side          |
-| Ctrl+K Z     | Zen Mode (Esc Esc to exit)                 |
-
 # Debug 
 
 | Shortcut        | Desc              |
@@ -205,6 +183,24 @@ Ctrl+K ← / →           | Move active editor group
 | Shift+PgUp / PgDn | Scroll page up/down        |
 | Ctrl+Home / End   | Scroll to top/bottom       |
 
+# File management 
+
+| Shortcut       | Desc                                    |
+|----------------|-----------------------------------------|
+| Ctrl+N         | New File                                |
+| Ctrl+O         | Open File...                            |
+| Ctrl+S         | Save                                    |
+| Ctrl+Shift+S   | Save As...                              |
+| Ctrl+K S       | Save All                                |
+| Ctrl+F4        | Close                                   |
+| Ctrl+K Ctrl+W  | Close All                               |
+| Ctrl+Shift+T   | Reopen closed editor                    |
+| Ctrl+K         | Enter Keep preview mode editor open     |
+| Ctrl+Tab       | Open next                               |
+| Ctrl+Shift+Tab | Open previous                           |
+| Ctrl+K P       | Copy path of active file                |
+| Ctrl+K R       | Reveal active file in Explorer          |
+| Ctrl+K O       | Show active file in new window/instance |
 
 # Notes
 
