@@ -154,6 +154,10 @@ Sources
 ## 15. Container
 10 
 
+- 
+
+- container sınıfı, belli media boyutlarına göre max-widht tanımlaması getiriyor.
+
 ## 16. box model
 6 
 
@@ -215,14 +219,31 @@ Sources
 
 # B8 Flexbox
 
+- Doc : https://tailwindcss.com/docs/flex (dökümanda container konusu yok)
+
 ## 25. flexbox container hazırlanması
-6 
+
+- flex class ile flex container tanımlaması yapmış oluruz.
+
+```html
+<div class="container flex mx-auto text-green-600 border border-green-800">
+      <div class="w-24 p-5 m-3 text-3xl text-center bg-gray-300">1</div>
+      <div class="w-24 p-5 m-3 text-3xl text-center bg-gray-300">2</div>
+      <div class="w-24 p-5 m-3 text-3xl text-center bg-gray-300">3</div>
+    </div>
+```
 
 ## 26. flexbox flex-direction
-2 
+
+- flex-row, flex-col, flex-row-reverse, flex-col-reverse 
+
+- flex elementlerinin sıralanış biçimi
 
 ## 27. flex-wrap
-4 
+
+- flex-wrap, flex-wrap-reverse, flex-nowrap
+  
+
 
 ## 28. justify-content
 4 
