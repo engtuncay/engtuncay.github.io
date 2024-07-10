@@ -1,27 +1,30 @@
 
 Keyboard shortcuts for Windows 
 
-Other operating systems’ keyboard shortcuts and additional 
-unassigned shortcuts available at aka.ms/vscodekeybindings  
-
-- cs+s means ctrl + shift + s
-
 - [General](#general)
 - [Code Navigation](#code-navigation)
 - [Display / Editor Navigation](#display--editor-navigation)
+- [Editor management](#editor-management)
 - [Basic editing](#basic-editing)
 - [Search and replace](#search-and-replace)
 - [Multi-cursor and selection](#multi-cursor-and-selection)
 - [Rich languages editing](#rich-languages-editing)
-- [Editor management](#editor-management)
-- [File management](#file-management)
 - [Debug](#debug)
 - [Integrated terminal](#integrated-terminal)
+- [File management](#file-management)
 - [Notes](#notes)
   - [Visual Studio Keymaps Changes](#visual-studio-keymaps-changes)
   - [Idea Keymap Changes](#idea-keymap-changes)
   - [Rider Changes](#rider-changes)
  
+---
+
+Info About This Article
+
+Other operating systems’ keyboard shortcuts and additional 
+unassigned shortcuts available at aka.ms/vscodekeybindings  
+
+- cs+s means ctrl + shift + s
 
 # General 
 
