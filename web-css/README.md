@@ -84,7 +84,7 @@ Source : [W3Schools]()
 
 | Topic                                | Note |
 |--------------------------------------|------|
-| [Kurs Notları](./ude-tailwind-c1.md) |      |
+| [Kurs Notları](./ude-tailwind-ck.md) |      |
 
 Topics Will be Added
 
