@@ -5,7 +5,7 @@
 - [CSS3 Media Types](#css3-media-types)
 - [Media Queries Simple Examples](#media-queries-simple-examples)
 - [More Media Query Examples](#more-media-query-examples)
-- [CSS @media Reference](#css-media-reference)
+- [CSS `@media` Reference](#css-media-reference)
 
 **Source**
 
@@ -34,7 +34,7 @@ Using media queries are a popular technique for delivering a tailored style shee
 
 # Media Query Syntax
 
-A media query consists of *a media typ*e and can contain *one or more expressions*, which resolve to either true or false.
+A media query consists of *a media type* and can contain *one or more expressions*, which resolve to either true or false.
 
 ```css
 @media not|only mediatype and (expressions) {
@@ -65,9 +65,9 @@ speech | Used for screenreaders that "reads" the page out loud
 
 # Media Queries Simple Examples
 
-One way to use media queries is to have an alternate CSS section right inside your style sheet.
+The following example changes the background-color to lightgreen if **the viewport** is 480 pixels wide or wider :
 
-The following example changes the background-color to lightgreen if the viewport is 480 pixels wide or wider (if the viewport is less than 480 pixels, the background-color will be pink):
+- min-width means here that `viewport-width >= 480px`
 
 Example
 
@@ -80,7 +80,7 @@ Example
 
 ```
 
-The following example shows a menu that will float to the left of the page if the viewport is 480 pixels wide or wider (if the viewport is less than 480 pixels, the menu will be on top of the content):
+The following example shows a menu that will float to the left of the page if the viewport is 480 pixels wide or wider
 
 Example
 
@@ -94,14 +94,14 @@ Example
 
 # More Media Query Examples
 
-For much more examples on media queries, go to the next page: CSS MQ Examples.
+For much more examples on media queries, go to the next page: CSS MQ (Media Query) Examples.
 
 https://www.w3schools.com/css3_mediaqueries_ex.asp
 
-# CSS @media Reference
+# CSS `@media` Reference
 
 For a full overview of all the media types and features/expressions, please look at the @media rule in our CSS reference.
 
 https://www.w3schools.com/cssref/css3_pr_mediaquery.asp
 
--- end --
+🔚
