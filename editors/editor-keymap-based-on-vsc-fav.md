@@ -19,38 +19,42 @@ Keyboard shortcuts for Windows
  
 ---
 
-Info About This Article
+<h2>Info About This Article</h2> 
 
-Other operating systems’ keyboard shortcuts and additional 
-unassigned shortcuts available at aka.ms/vscodekeybindings  
+- Other operating systems’ keyboard shortcuts and additional unassigned shortcuts available at aka.ms/vscodekeybindings  (Key Bindings for Visual Studio Code)
 
 - cs+s means ctrl + shift + s
 
 # General 
 
-Shortcut         | Desc
------------------|------------------------
-Ctrl+Shift+P, F1 | Show Command Palette
-Ctrl+P           | Quick Open, Go to File…
-Ctrl+Shift+N     | New window/instance
-Ctrl+Shift+W     | Close window/instance
-Ctrl+,           | User Settings
-Ctrl+K Ctrl+S    | Keyboard Shortcuts
-c+Pup/PDown      | Prev/Next Tab
+Shortcut       | Desc
+---------------|------------------------
+CS + P (F1)    | Show Command Palette
+C + P          | Quick Open, Go to File…
+CS + N         | New window/instance
+CS + W         | Close window/instance
+C + ,          | User Settings
+C+K,C+S (CA+D) | Keyboard Shortcuts
+C+Pup/PDown    | Prev/Next Tab
+
 
 # Code Navigation 
 
-kod içerisinde gezinme için kısayollar
+Kod içerisinde gezinme için kısayollar
 
-Shortcut           | Desc
--------------------|--------------------------------
-Ctrl+T             | Show all Symbols
-Ctrl+G             | Go to Line...
-Ctrl+P             | Go to File...
-Ctrl+Shift+O (c+*) | Go to Symbol...
-Alt+left/right     | Go back / forward
-F8                 | Go to next error or warning
-Shift+F8           | Go to previous error or warning
+Shortcut       | Desc
+---------------|--------------------------------
+Ctrl+T         | Show all Symbols
+Ctrl+P         | Go to File
+CS+O (c+*)     | Go to Symbol...
+Alt+left/right | Go back / forward
+Ctrl+G         | Go to Line
+F8             | Go to next error or warning
+Shift+F8       | Go to previous error or warning
+C+k,C+b        | Toogle Bookmark (idea)
+C+F11          | Toggle Bookmark Mnemonic (idea)
+CS+[0-9]       | Toggle Bookmark [0-9] (idea)
+C+[0-9]        | Go to Bookmark (idea)
 
 
 # Display / Editor Navigation 
