@@ -105,38 +105,53 @@ Scientific Numbers
 A floating point number can also be a scientific number with an "e" to indicate the power of 10:
 
 Example
+```cs
 float f1 = 35e3F;
 double d1 = 12E4D;
 Console.WriteLine(f1);
 Console.WriteLine(d1);
+
+```
 
 ## Booleans
 
 A boolean data type is declared with the bool keyword and can only take the values true or false:
 
 Example
+
+```cs
 bool isCSharpFun = true;
 bool isFishTasty = false;
 Console.WriteLine(isCSharpFun);   // Outputs True
 Console.WriteLine(isFishTasty);   // Outputs False
 
+```
+
 Boolean values are mostly used for conditional testing, which you will learn more about in a later chapter.
 
 ## Characters
 
-The char data type is used to store a single character. The character must be surrounded by single quotes, like 'A' or 'c':
+The char data type is used to store `a single character`. The character must be surrounded by single quotes, like 'A' or 'c':
 
 Example
+
+```cs
 char myGrade = 'B';
 Console.WriteLine(myGrade);
 
+```
+
 ## Strings
 
-The string data type is used to store a sequence of characters (text). String values must be surrounded by double quotes:
+The string data type is used to store `a sequence of characters (text)`. String values must be surrounded by double quotes:
 
 Example
+
+```cs
 string greeting = "Hello World";
 Console.WriteLine(greeting);
+
+```
 
 # C# Type Casting
 
@@ -144,36 +159,47 @@ Type casting is when you assign a value of one data type to another type.
 
 In C#, there are two types of casting:
 
-Implicit Casting (automatically) - converting a smaller type to a larger type size
+➖ Implicit Casting (automatically) - converting a smaller type to a larger type size
 
 char -> int -> long -> float -> double
 
-Explicit Casting (manually) - converting a larger type to a smaller size type
+➖ Explicit Casting (manually) - converting a larger type to a smaller size type
 
 double -> float -> long -> int -> char
 
-Implicit Casting
+🔔 Implicit Casting
 
 Implicit casting is done automatically when passing a smaller size type to a larger size type:
 
 Example
+
+```css
 int myInt = 9;
 double myDouble = myInt;       // Automatic casting: int to double
 
 Console.WriteLine(myInt);      // Outputs 9
 Console.WriteLine(myDouble);   // Outputs 9
 
-Explicit Casting
+```
+
+🔔 Explicit Casting
+
 Explicit casting must be done manually by placing the type in parentheses in front of the value:
 
 Example
+
+```cs
 double myDouble = 9.78;
 int myInt = (int) myDouble;    // Manual casting: double to int
 
 Console.WriteLine(myDouble);   // Outputs 9.78
 Console.WriteLine(myInt);      // Outputs 9
 
-Type Conversion Methods
+```
+--*ANCHOR - tbc
+
+🔔 Type Conversion Methods
+
 It is also possible to convert data types explicitly by using built-in methods, such as Convert.ToBoolean, Convert.ToDouble, Convert.ToString, Convert.ToInt32 (int) and Convert.ToInt64 (long):
 
 Example
