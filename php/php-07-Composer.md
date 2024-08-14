@@ -9,6 +9,7 @@
 - [Articles](#articles)
   - [Composer Nedir](#composer-nedir)
   - [Composer: Autoload Sınıf Yükleme](#composer-autoload-sınıf-yükleme)
+  - [Script çalıştırma](#script-çalıştırma)
 
 
 # Composer
@@ -444,5 +445,30 @@ Son olarak testleriniz için ayrı autload tanımlaması da yapabilirsiniz. Yuka
     }
 }
 
+## Script çalıştırma
 
+Source : https://stackoverflow.com/questions/48682416/run-command-line-command-in-composer-json
+
+If you want to run a command that should run for forever this will help you
+
+in composer.json
+
+```json
+"scripts": {
+   
+    "start-lumen" : [
+        "php -S localhost:8000 -t public"
+    ]
+}
+
+```
+
+add --timeout=0 to run for forever
+
+```bash
+composer run-script  start-lumen --timeout=0
+
+```
+
+extra info about script : https://matthewsetter.com/series/tooling/composer/automation-scripts/
 
