@@ -10,7 +10,7 @@ Source : https://www.w3schools.com/php/php_oop_classes_objects.asp
 
 # Classes and Objects
 
-A class is a template for objects, and an object is an instance of class.
+A class is `a template for objects`, and an object is `an instance of class`.
 
 Let's assume we have a class named Fruit. A Fruit can have properties like name, color, weight, etc. We can define variables like $name, $color, and $weight to hold the values of these properties.
 
@@ -25,6 +25,7 @@ Syntax
 ```php
 <?php
 class Fruit {
+  // class block
   // code goes here...
 }
 ?>
@@ -58,7 +59,7 @@ class Fruit {
 
 Classes are nothing without objects! We can create multiple objects from a class. Each object has all the properties and methods defined in the class, but they will have different property values.
 
-Objects of a class are created using the new keyword.
+Objects of a class are created using the `new` keyword.
 
 In the example below, $apple and $banana are instances (objects) of the class Fruit:
 
