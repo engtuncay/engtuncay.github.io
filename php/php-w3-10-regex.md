@@ -1,15 +1,18 @@
 
 - [PHP Regular Expressions](#php-regular-expressions)
   - [Regular Expression Functions](#regular-expression-functions)
-  - [Using preg\_match()](#using-preg_match)
-  - [Using preg\_match\_all()](#using-preg_match_all)
-  - [Using preg\_replace()](#using-preg_replace)
+  - [preg\_match()](#preg_match)
+  - [preg\_match\_all()](#preg_match_all)
+  - [preg\_replace()](#preg_replace)
   - [Regular Expression Modifiers](#regular-expression-modifiers)
   - [Regular Expression Patterns](#regular-expression-patterns)
-  - [Metacharacters](#metacharacters)
-  - [Quantifiers](#quantifiers)
-  - [Grouping](#grouping)
+    - [Metacharacters](#metacharacters)
+    - [Quantifiers](#quantifiers)
+    - [Grouping](#grouping)
   - [Complete RegExp Reference](#complete-regexp-reference)
+- [Loop In Matches](#loop-in-matches)
+- [Online Code Plays](#online-code-plays)
+- [Articles](#articles)
  
 
 # PHP Regular Expressions
@@ -18,7 +21,7 @@ Source : https://www.w3schools.com/php/php_regex.asp
 
 💡 What is a Regular Expression?
 
-A regular expression is a sequence of characters that forms a search pattern. When you search for data in a text, you can use this search pattern to describe what you are searching for.
+A regular expression is a sequence of characters that forms `a search pattern`. When you search for data in a text, you can use this search pattern to describe what you are searching for.
 
 A regular expression can be a single character, or a more complicated pattern.
 
@@ -26,7 +29,7 @@ Regular expressions can be used to perform all types of text search and text rep
 
 Syntax
 
-In PHP, regular expressions are strings composed of `delimiters, a pattern and optional modifiers`.
+In PHP, regular expressions are strings composed of `delimiters (/), a pattern and optional modifiers`.
 
 ```php
 $exp = "/w3schools/i";
@@ -44,12 +47,12 @@ PHP provides a variety of functions that allow you to use regular expressions.
 The most common functions are:
 
 Function         | Description
------------------|-------------------------------------------------------------------------------------
-preg_match()     | Returns 1 if the pattern was found in the string and 0 if not
-preg_match_all() | Returns the number of times the pattern was found in the string, which may also be 0
+-----------------|---------------------------------------------------------------------------------------
+preg_match()     | Returns 1 if `the pattern was found` in the string and 0 if not
+preg_match_all() | Returns `the number of times the pattern` was found in the string, which may also be 0 or to find the matched parts
 preg_replace()   | Returns a new string where matched patterns have been replaced with another string
 
-## Using preg_match()
+## preg_match()
 
 The preg_match() function will tell you whether a string contains matches of a pattern.
 
@@ -62,7 +65,7 @@ echo preg_match($pattern, $str);
 
 ```
 
-## Using preg_match_all()
+## preg_match_all()
 
 The preg_match_all() function will tell you how many matches were found for a pattern in a string.
 
@@ -75,7 +78,39 @@ $pattern = "/ain/i";
 echo preg_match_all($pattern, $str);
 
 ```
-## Using preg_replace()
+
+➖ find the matched parts
+
+```php
+preg_match_all($pattern, $str, $matches, PREG_SET_ORDER);
+
+foreach ($matches as $m) {
+  echo $m[0];
+  echo "\n";
+}
+```
+
+```php
+$str2 = "The rain in SPAIN falls mainly on the plains.";
+$pattern2 = "/f(all).*(ain)/i";
+
+preg_match_all($pattern2, $str2, $matches2, PREG_SET_ORDER);
+
+foreach ($matches2 as $m) {
+  echo "m0:" . $m[0];
+  echo "\n";
+  if (!empty($m[1])) {
+    echo "m1:" . $m[1];
+    echo "\n";
+  }
+}
+```
+
+
+
+
+
+## preg_replace()
 
 The preg_replace() function will replace all of the matches of the pattern in a string with another string.
 
@@ -114,7 +149,7 @@ Expression | Description
 [0-5]      | Find any digits between the two numbers
 [0-9]      | Find any digits
 
-## Metacharacters
+### Metacharacters
 
 Metacharacters are characters with a special meaning:
 
@@ -133,7 +168,7 @@ $	|Finds a match at the end of the string as in: World$
 \b|	Find a match at the beginning of a word like this: \bWORD, or at the end of a word like this: WORD\b	
 \uxxxx	|Find the Unicode character specified by the hexadecimal number xxxx	
 
-## Quantifiers
+### Quantifiers
 
 Quantifiers define quantities:
 
@@ -148,7 +183,7 @@ n{3,}      | Matches any string that contains a sequence of at least 3 n's
 
 Note: If your expression needs to search for one of the special characters you can use a backslash `( \ )` to escape them. For example, to search for one or more question marks you can use the following expression: `$pattern = '/\?+/';`
 
-## Grouping
+### Grouping
 
 You can use parentheses `( )` to apply quantifiers to entire patterns. They also can be used to select parts of the pattern to be used as a match.
 
@@ -166,4 +201,43 @@ echo preg_match($pattern, $str);
 For a complete reference, go to our Complete PHP Regular Expression Reference.
 
 The reference contains descriptions and examples of all Regular Expression functions.
+
+# Loop In Matches
+
+```php
+$re = '@\[([a-zA-Z0-9]+)\]|[][=?~#!]@';
+$strs =array('DeviceLocation[West12]', '#=Device', '?[1234]=#Martin');
+
+preg_match_all($re, $str, $matches, PREG_SET_ORDER);
+$results = array();
+$match_val = "";
+foreach ($matches as $m) {
+    if (!empty($m[1])) {
+        $match_val = trim($m[1], "[]");
+        array_push($results, "[]");
+    } else {
+        array_push($results, $m[0]);
+    } 
+}
+echo "Value: " . $match_val . "\n";
+echo "Symbols: " . implode(", ", $results);
+echo "\n-----\n";
+
+
+```
+
+# Online Code Plays
+
+- https://regex101.com
+
+
+# Articles
+
+Official Docs
+
+- https://www.php.net/manual/en/function.preg-match-all.php
+
+Articles
+
+- https://dev.to/nnekajenny/php-regular-expressions-35dh
 

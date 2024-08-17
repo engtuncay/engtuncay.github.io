@@ -44,17 +44,18 @@ Kod içerisinde gezinme için kısayollar
 
 Shortcut       | Desc
 ---------------|--------------------------------
-Ctrl+T         | Show all Symbols
-Ctrl+P         | Go to File
-CS+O (c+*)     | Go to Symbol...
+C+t            | Show all Symbols
+C+p            | Go to File
+CS+o (c+*)     | Go to Symbol...
 Alt+left/right | Go back / forward
-Ctrl+G         | Go to Line
+Ctrl+g         | Go to Line
 F8             | Go to next error or warning
 Shift+F8       | Go to previous error or warning
 C+k,C+b        | Toogle Bookmark (idea)
 C+F11          | Toggle Bookmark Mnemonic (idea)
 CS+[0-9]       | Toggle Bookmark [0-9] (idea)
 C+[0-9]        | Go to Bookmark (idea)
+A + d          | Open file from path (extension)
 
 
 # Display / Editor Navigation 
