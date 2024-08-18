@@ -19,7 +19,7 @@
     - [More Characters](#more-characters)
     - [Logic](#logic)
     - [More White-Space](#more-white-space)
-    - [More Quantifiers](#more-quantifiers)
+    - [More Quantifiers (Greedy and Lazy)](#more-quantifiers-greedy-and-lazy)
     - [Character Classes](#character-classes)
     - [Anchors and Boundaries](#anchors-and-boundaries)
     - [POSIX Classes](#posix-classes)
@@ -310,23 +310,18 @@ Logic   | Legend                   | Example               | Sample Match
 
 ### More White-Space
 
-Character	Legend	Example	Sample Match
-\t	Tab	T\t\w{2}	T     ab
-\r	Carriage return character	see below	
-\n	Line feed character	see below	
-\r\n	Line separator on Windows	AB\r\nCD	AB
-CD
-\N	Perl, PCRE (C, PHP, R…): one character that is not a line break	\N+	ABC
-\h	Perl, PCRE (C, PHP, R…), Java: one horizontal whitespace character: tab or Unicode space separator		
-\H	One character that is not a horizontal whitespace		
-\v	.NET, JavaScript, Python, Ruby: vertical tab		
-\v	Perl, PCRE (C, PHP, R…), Java: one vertical whitespace character: line feed, carriage return, vertical tab, form feed, paragraph or line separator		
-\V	Perl, PCRE (C, PHP, R…), Java: any character that is not a vertical whitespace		
-\R	Perl, PCRE (C, PHP, R…), Java: one line break (carriage return + line feed pair, and all the characters matched by \v)		
+Character | Legend                              | Example    | Sample Match
+----------|-------------------------------------|------------|-------------
+\t        | Tab                                 | T\\t\\w{2} | T     ab
+\r        | Carriage return character	see below |            |
+\n|	Line feed character	see below	|
+\r\n|	Line separator on Windows	|AB\r\nCD	|AB\nCD
+\N	|Perl, PCRE (C, PHP, R…): one character that is not a line break	|\N+	|ABC
+
+➖ see more from the ref. article
 
 
-
-### More Quantifiers
+### More Quantifiers (Greedy and Lazy)
 
 Quantifier | Legend                           | Example  | Sample Match
 -----------|----------------------------------|----------|-------------
@@ -340,40 +335,33 @@ Quantifier | Legend                           | Example  | Sample Match
 
 ### Character Classes
 
-Character	Legend	Example	Sample Match
-[ … ]	One of the characters in the brackets	[AEIOU]	One uppercase vowel
-[ … ]	One of the characters in the brackets	T[ao]p	Tap or Top
--	Range indicator	[a-z]	One lowercase letter
-[x-y]	One of the characters in the range from x to y	[A-Z]+	GREAT
-[ … ]	One of the characters in the brackets	[AB1-5w-z]	One of either: A,B,1,2,3,4,5,w,x,y,z
-[x-y]	One of the characters in the range from x to y	[ -~]+	Characters in the printable section of the ASCII table.
-[^x]	One character that is not x	[^a-z]{3}	A1!
-[^x-y]	One of the characters not in the range from x to y	[^ -~]+	Characters that are not in the printable section of the ASCII table.
-[\d\D]	One character that is a digit or a non-digit	[\d\D]+	Any characters, inc-
-luding new lines, which the regular dot doesn't match
-[\x41]	Matches the character at hexadecimal position 41 in the ASCII table, i.e. A	[\x41-\x45]{3}	ABE
+Character | Legend                                                                      | Example        | Sample Match
+----------|-----------------------------------------------------------------------------|----------------|-------------------------------------------------------------------------
+[ … ]     | One of the characters in the brackets                                       | T[ao]p         | Tap or Top
+\-        | Range indicator                                                             | [a-z]          | One lowercase letter
+[x-y]     | One of the characters in the range from x to y                              | [A-Z]+         | GREAT
+[ … ]     | One of the characters in the brackets                                       | [AB1-5w-z]     | One of either: A,B,1,2,3,4,5,w,x,y,z
+[x-y]     | One of the characters in the range from x to y                              | [ -~]+         | Characters in the printable section of the ASCII table.
+[^x]      | One character that is not x                                                 | [^a-z]{3}      | A1!
+[^x-y]    | One of the characters not in the range from x to y                          | [^ -~]+        | Characters that are not in the printable section of the ASCII table.
+[\d\D]    | One character that is a digit or a non-digit                                | [\d\D]+        | Any characters, including new lines, which the regular dot doesn't match
+[\x41]    | Matches the character at hexadecimal position 41 in the ASCII table, i.e. A | [\x41-\x45]{3} | ABE
 
 
 
 ### Anchors and Boundaries
 
-Anchor	Legend	Example	Sample Match
-^	Start of string or start of line depending on multiline mode. (But when [^inside brackets], it means "not")	^abc .*	abc (line start)
-$	End of string or end of line depending on multiline mode. Many engine-dependent subtleties.	.*? the end$	this is the end
-\A	Beginning of string
-(all major engines except JS)	\Aabc[\d\D]*	abc (string...
-...start)
-\z	Very end of the string
-Not available in Python and JS	the end\z	this is...\n...the end
-\Z	End of string or (except Python) before final line break
-Not available in JS	the end\Z	this is...\n...the end\n
-\G	Beginning of String or End of Previous Match
-.NET, Java, PCRE (C, PHP, R…), Perl, Ruby		
-\b	Word boundary
-Most engines: position where one side only is an ASCII letter, digit or underscore	Bob.*\bcat\b	Bob ate the cat
-\b	Word boundary
-.NET, Java, Python 3, Ruby: position where one side only is a Unicode letter, digit or underscore	Bob.*\b\кошка\b	Bob ate the кошка
-\B	Not a word boundary	c.*\Bcat\B.*	copycats
+Anchor | Legend                                                                                   | Example    | Sample Match
+----------|------------------------------------------------------------------------------------------|------------|-------------
+^	|Start of string or start of line depending on multiline mode. (But when [^inside brackets], it means "not")	^abc .*	abc (line start)
+$	|End of string or end of line depending on multiline mode. Many engine-dependent subtleties.	.*? the end$	this is the end
+\A|	Beginning of string (all major engines except JS)	\Aabc[\d\D]*	abc (string... ...start)
+\z |	Very end of the string Not available in Python and JS	the end\z	this is...\n...the end
+\Z	| End of string or (except Python) before final line break Not available in JS	the end\Z	this is...\n...the end\n
+\G	| Beginning of String or End of Previous Match .NET, Java, PCRE (C, PHP, R…), Perl, Ruby		
+\b	| Word boundary Most engines: position where one side only is an ASCII letter, digit or underscore	Bob.*\bcat\b	Bob ate the cat
+\b	|Word boundary .NET, Java, Python 3, Ruby: position where one side only is a Unicode letter, digit or underscore	Bob.*\b\кошка\b	Bob ate the кошка
+\B	| Not a word boundary	c.*\Bcat\B.*	copycats
 
 
 ### POSIX Classes
