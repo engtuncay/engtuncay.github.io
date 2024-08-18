@@ -14,9 +14,19 @@
 - [Online Code Plays](#online-code-plays)
 - [Articles](#articles)
   - [Regex Cheat Sheet on Rex Egg](#regex-cheat-sheet-on-rex-egg)
-- [comment](#comment)
-- [lines](#lines)
-- [in brackets	abc d](#in-bracketsabc-d)
+    - [Characters](#characters)
+    - [Quantifiers](#quantifiers-1)
+    - [More Characters](#more-characters)
+    - [Logic](#logic)
+    - [More White-Space](#more-white-space)
+    - [More Quantifiers](#more-quantifiers)
+    - [Character Classes](#character-classes)
+    - [Anchors and Boundaries](#anchors-and-boundaries)
+    - [POSIX Classes](#posix-classes)
+    - [Inline Modifiers](#inline-modifiers)
+    - [Lookarounds](#lookarounds)
+    - [Character Class Operations](#character-class-operations)
+    - [Other Syntax](#other-syntax)
  
 
 # PHP Regular Expressions
@@ -232,6 +242,8 @@ echo "\n-----\n";
 
 # Online Code Plays
 
+- https://regexr.com/
+
 - https://regex101.com
 
 # Articles
@@ -249,73 +261,55 @@ Articles
 
 Source : https://www.rexegg.com/regex-quickstart.php
 
-✽ Characters
-✽ Quantifiers
-✽ More Characters
-✽ Logic
-✽ More White-Space
-✽ More Quantifiers
-✽ Character Classes
-✽ Anchors and Boundaries
-✽ POSIX Classes
-✽ Inline Modifiers
-✽ Lookarounds
-✽ Character Class Operations
-✽ Other Syntax
+some parts may be removed and changed.
+
+### Characters
+
+Character | Legend                                                                                          | Example    | Sample Match
+----------|-------------------------------------------------------------------------------------------------|------------|-------------
+\d        | Most engines: one digit from 0 to 9                                                             | file_\d\d  | file_25
+\w        | Most engines: "word character": ASCII letter, digit or underscore (alphanumeric and underscore) | \w-\w\w\w  | A-b_1
+\s        | Most engines: "whitespace character": space, tab, newline, carriage return, vertical tab        | a\sb\sc    | a b \nc
+\D        | One character that is not a digit as defined by your engine's \d                                | \D\D\D     | ABC
+\W        | One character that is not a word character as defined by your engine's \w                       | \W\W\W\W\W | *-+=)
+\S        | One character that is not a whitespace character as defined by your engine's \s                 | \S\S\S\S   | Yoyo
+
+### Quantifiers
+
+Quantifier | Legend              | Example        | Sample Match
+-----------|---------------------|----------------|---------------
+\+         | One or more         | Version \w-\w+ | Version A-b1_1
+{3}        | Exactly three times | \D{3}          | ABC
+{2,4}      | Two to four times   | \d{2,4}        | 156
+{3,}       | Three or more times | \w{3,}         | regex_tutorial
+\*         | Zero or more times  | A*B*C*         | AAACC
+?          | Once or none        | plurals?       | plural
 
 
+### More Characters
 
-(direct link)
-Characters
-Character	Legend	Example	Sample Match
-\d	Most engines: one digit
-from 0 to 9	file_\d\d	file_25
-\d	.NET, Python 3: one Unicode digit in any script	file_\d\d	file_9੩
-\w	Most engines: "word character": ASCII letter, digit or underscore	\w-\w\w\w	A-b_1
-\w	.Python 3: "word character": Unicode letter, ideogram, digit, or underscore	\w-\w\w\w	字-ま_۳
-\w	.NET: "word character": Unicode letter, ideogram, digit, or connector	\w-\w\w\w	字-ま‿۳
-\s	Most engines: "whitespace character": space, tab, newline, carriage return, vertical tab	a\sb\sc	a b
-c
-\s	.NET, Python 3, JavaScript: "whitespace character": any Unicode separator	a\sb\sc	a b
-c
-\D	One character that is not a digit as defined by your engine's \d	\D\D\D	ABC
-\W	One character that is not a word character as defined by your engine's \w	\W\W\W\W\W	*-+=)
-\S	One character that is not a whitespace character as defined by your engine's \s	\S\S\S\S	Yoyo
+Character | Legend                                                   | Example                   | Sample Match
+----------|----------------------------------------------------------|---------------------------|---------------
+.         | Any character except line break                          | a.c                       | abc
+.         | Any character except line break                          | .*                        | whatever, man.
+\.        | A period (special character: needs to be escaped by a \) | a\\.c                     | a.c
+\         | Escapes a special character                              | \\.\\*\\+\\? \\$\\^\\/\\\ | .*+? $^/\
+\         | Escapes a special character                              | \\[\\{\\(\\)\\}\\]        | [{()}]
 
 
-(direct link)
-Quantifiers
-Quantifier	Legend	Example	Sample Match
-+	One or more	Version \w-\w+	Version A-b1_1
-{3}	Exactly three times	\D{3}	ABC
-{2,4}	Two to four times	\d{2,4}	156
-{3,}	Three or more times	\w{3,}	regex_tutorial
-*	Zero or more times	A*B*C*	AAACC
-?	Once or none	plurals?	plural
+### Logic
+
+Logic   | Legend                   | Example               | Sample Match
+--------|--------------------------|-----------------------|------------------------
+\|      | Alternation - OR operand | 22\|33                | 33
+( … )   | Capturing group          | A(nt\|pple)           | Apple (captures "pple")
+\1      | Contents of Group 1      | r(\w)g\1x             | regex
+\2      | Contents of Group 2      | (\d\d)\+(\d\d)=\2\+\1 | 12+65=65+12
+(?: … ) | Non-capturing group      | A(?:nt\|pple)         | Apple
 
 
-(direct link)
-More Characters
-Character	Legend	Example	Sample Match
-.	Any character except line break	a.c	abc
-.	Any character except line break	.*	whatever, man.
-\.	A period (special character: needs to be escaped by a \)	a\.c	a.c
-\	Escapes a special character	\.\*\+\?    \$\^\/\\	.*+?    $^/\
-\	Escapes a special character	\[\{\(\)\}\]	[{()}]
+### More White-Space
 
-
-(direct link)
-Logic
-Logic	Legend	Example	Sample Match
-|	Alternation / OR operand	22|33	33
-( … )	Capturing group	A(nt|pple)	Apple (captures "pple")
-\1	Contents of Group 1	r(\w)g\1x	regex
-\2	Contents of Group 2	(\d\d)\+(\d\d)=\2\+\1	12+65=65+12
-(?: … )	Non-capturing group	A(?:nt|pple)	Apple
-
-
-(direct link)
-More White-Space
 Character	Legend	Example	Sample Match
 \t	Tab	T\t\w{2}	T     ab
 \r	Carriage return character	see below	
@@ -331,19 +325,21 @@ CD
 \R	Perl, PCRE (C, PHP, R…), Java: one line break (carriage return + line feed pair, and all the characters matched by \v)		
 
 
-(direct link)
-More Quantifiers
-Quantifier	Legend	Example	Sample Match
-+	The + (one or more) is "greedy"	\d+	12345
-?	Makes quantifiers "lazy"	\d+?	1 in 12345
-*	The * (zero or more) is "greedy"	A*	AAA
-?	Makes quantifiers "lazy"	A*?	empty in AAA
-{2,4}	Two to four times, "greedy"	\w{2,4}	abcd
-?	Makes quantifiers "lazy"	\w{2,4}?	ab in abcd
+
+### More Quantifiers
+
+Quantifier | Legend                           | Example  | Sample Match
+-----------|----------------------------------|----------|-------------
+\+         | The + (one or more) is "greedy"  | \d+      | 12345
+?          | Makes quantifiers "lazy"         | \d+?     | 1 in 12345
+\*         | The * (zero or more) is "greedy" | A*       | AAA
+?          | Makes quantifiers "lazy"         | A*?      | empty in AAA
+{2,4}      | Two to four times, "greedy"      | \w{2,4}  | abcd
+?          | Makes quantifiers "lazy"         | \w{2,4}? | ab in abcd
 
 
-(direct link)
-Character Classes
+### Character Classes
+
 Character	Legend	Example	Sample Match
 [ … ]	One of the characters in the brackets	[AEIOU]	One uppercase vowel
 [ … ]	One of the characters in the brackets	T[ao]p	Tap or Top
@@ -358,8 +354,9 @@ luding new lines, which the regular dot doesn't match
 [\x41]	Matches the character at hexadecimal position 41 in the ASCII table, i.e. A	[\x41-\x45]{3}	ABE
 
 
-(direct link)
-Anchors and Boundaries
+
+### Anchors and Boundaries
+
 Anchor	Legend	Example	Sample Match
 ^	Start of string or start of line depending on multiline mode. (But when [^inside brackets], it means "not")	^abc .*	abc (line start)
 $	End of string or end of line depending on multiline mode. Many engine-dependent subtleties.	.*? the end$	this is the end
@@ -379,20 +376,13 @@ Most engines: position where one side only is an ASCII letter, digit or undersco
 \B	Not a word boundary	c.*\Bcat\B.*	copycats
 
 
-(direct link)
-POSIX Classes
-Character	Legend	Example	Sample Match
-[:alpha:]	PCRE (C, PHP, R…): ASCII letters A-Z and a-z	[8[:alpha:]]+	WellDone88
-[:alpha:]	Ruby 2: Unicode letter or ideogram	[[:alpha:]\d]+	кошка99
-[:alnum:]	PCRE (C, PHP, R…): ASCII digits and letters A-Z and a-z	[[:alnum:]]{10}	ABCDE12345
-[:alnum:]	Ruby 2: Unicode digit, letter or ideogram	[[:alnum:]]{10}	кошка90210
-[:punct:]	PCRE (C, PHP, R…): ASCII punctuation mark	[[:punct:]]+	?!.,:;
-[:punct:]	Ruby: Unicode punctuation mark	[[:punct:]]+	‽,:〽⁆
+### POSIX Classes
 
+see the reference article
 
-(direct link)
-Inline Modifiers
+### Inline Modifiers
 None of these are supported in JavaScript. In Ruby, beware of (?s) and (?m).
+
 Modifier	Legend	Example	Sample Match
 (?i)	Case-insensitive mode
 (except JavaScript)	(?i)Monday	monDAY
@@ -406,27 +396,28 @@ to Z
 to Z
 (?x)	Free-Spacing Mode mode
 (except JavaScript). Also known as comment mode or whitespace mode	(?x) # this is a
-# comment
+\# comment
 abc # write on multiple
-# lines
+\# lines
 [ ]d # spaces must be
-# in brackets	abc d
+\# in brackets	abc d
 (?n)	.NET, PCRE 10.30+: named capture only	Turns all (parentheses) into non-capture groups. To capture, use named groups.	
 (?d)	Java: Unix linebreaks only	The dot and the ^ and $ anchors are only affected by \n	
 (?^)	PCRE 10.32+: unset modifiers	Unsets ismnx modifiers	
 
 
-(direct link)
-Lookarounds
-Lookaround	Legend	Example	Sample Match
-(?=…)	Positive lookahead	(?=\d{10})\d{5}	01234 in 0123456789
-(?<=…)	Positive lookbehind	(?<=\d)cat	cat in 1cat
-(?!…)	Negative lookahead	(?!theatre)the\w+	theme
-(?<!…)	Negative lookbehind	\w{3}(?<!mon)ster	Munster
+### Lookarounds
+
+Lookaround | Legend              | Example           | Sample Match
+-----------|---------------------|-------------------|--------------------
+(?=…)      | Positive lookahead  | (?=\d{10})\d{5}   | 01234 in 0123456789
+(?<=…)     | Positive lookbehind | (?<=\d)cat        | cat in 1cat
+(?!…)      | Negative lookahead  | (?!theatre)the\w+ | theme
+(?<!…)     | Negative lookbehind | \w{3}(?<!mon)ster | Munster
 
 
-(direct link)
-Character Class Operations
+### Character Class Operations
+
 Class Operation	Legend	Example	Sample Match
 […-[…]]	.NET: character class subtraction. One character that is in those on the left, but not in the subtracted class.	[a-z-[aeiou]]	Any lowercase consonant
 […-[…]]	.NET: character class subtraction.	[\p{IsArabic}-[\D]]	An Arabic character that is not a non-digit, i.e., an Arabic digit
@@ -437,7 +428,8 @@ Class Operation	Legend	Example	Sample Match
 
 
 (direct link)
-Other Syntax
+### Other Syntax
+
 Syntax	Legend	Example	Sample Match
 \K	Keep Out
 Perl, PCRE (C, PHP, R…), Python's alternate regex engine, Ruby 2+: drop everything that was matched so far from the overall match to be returned	prefix\K\d+	12
