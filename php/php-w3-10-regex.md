@@ -318,7 +318,7 @@ Character | Legend                              | Example    | Sample Match
 \r\n|	Line separator on Windows	|AB\r\nCD	|AB\nCD
 \N	|Perl, PCRE (C, PHP, R…): one character that is not a line break	|\N+	|ABC
 
-➖ see more from the ref. article
+➖ for more infro, see the ref. article
 
 
 ### More Quantifiers (Greedy and Lazy)
@@ -347,8 +347,6 @@ Character | Legend                                                              
 [\d\D]    | One character that is a digit or a non-digit                                | [\d\D]+        | Any characters, including new lines, which the regular dot doesn't match
 [\x41]    | Matches the character at hexadecimal position 41 in the ASCII table, i.e. A | [\x41-\x45]{3} | ABE
 
-
-
 ### Anchors and Boundaries
 
 Anchor | Legend                                                                                   | Example    | Sample Match
@@ -369,29 +367,21 @@ $	|End of string or end of line depending on multiline mode. Many engine-depende
 see the reference article
 
 ### Inline Modifiers
+
 None of these are supported in JavaScript. In Ruby, beware of (?s) and (?m).
 
-Modifier	Legend	Example	Sample Match
-(?i)	Case-insensitive mode
-(except JavaScript)	(?i)Monday	monDAY
-(?s)	DOTALL mode (except JS and Ruby). The dot (.) matches new line characters (\r\n). Also known as "single-line mode" because the dot treats the entire input as a single line	(?s)From A.*to Z	From A
-to Z
-(?m)	Multiline mode
-(except Ruby and JS) ^ and $ match at the beginning and end of every line	(?m)1\r\n^2$\r\n^3$	1
-2
-3
-(?m)	In Ruby: the same as (?s) in other engines, i.e. DOTALL mode, i.e. dot matches line breaks	(?m)From A.*to Z	From A
-to Z
-(?x)	Free-Spacing Mode mode
-(except JavaScript). Also known as comment mode or whitespace mode	(?x) # this is a
-\# comment
-abc # write on multiple
-\# lines
-[ ]d # spaces must be
-\# in brackets	abc d
-(?n)	.NET, PCRE 10.30+: named capture only	Turns all (parentheses) into non-capture groups. To capture, use named groups.	
-(?d)	Java: Unix linebreaks only	The dot and the ^ and $ anchors are only affected by \n	
-(?^)	PCRE 10.32+: unset modifiers	Unsets ismnx modifiers	
+Modifier | Legend                                                                                                                                                                      | Example                                                                                                                  | Sample Match
+---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------|------------------
+(?i)     | Case-insensitive mode (except JavaScript)                                                                                                                                   | (?i)Monday                                                                                                               | monDAY
+(?s)     | DOTALL mode (except JS and Ruby). The dot (.) matches new line characters (\r\n). Also known as "single-line mode" because the dot treats the entire input as a single line | (?s)From A.*to Z                                                                                                         | From A <br/>to Z
+(?m)     | Multiline mode (except Ruby and JS) ^ and $ match at the beginning and end of every line                                                                                    | `(?m)1\r\n^2$\r\n^3$`                                                                                                    | 1 <br/>2 <br/>  3
+(?m)     | In Ruby: the same as (?s) in other engines, i.e. DOTALL mode, i.e. dot matches line breaks                                                                                  | (?m)From A.*to Z                                                                                                         | From A <br/>to Z
+(?x)     | Free-Spacing Mode mode (except JavaScript). Also known as comment mode or whitespace mode                                                                                   | (?x) # this is a <br/># comment <br/>abc # write on multiple <br/> # lines <br/>[ ]d # spaces must be <br/># in brackets | abc d
+(?n)	|.NET, PCRE 10.30+: named capture only	|Turns all (parentheses) into non-capture groups. To capture, use named groups.
+(?d)	|Java: Unix linebreaks only	|The dot and the ^ and $ anchors are only affected by \n	
+(?^)	|PCRE 10.32+: unset modifiers	| Unsets ismnx modifiers	
+
+named groups for more information : (https://www.rexegg.com/regex-capture.html#namedgroups)	
 
 
 ### Lookarounds
@@ -406,19 +396,15 @@ Lookaround | Legend              | Example           | Sample Match
 
 ### Character Class Operations
 
-Class Operation	Legend	Example	Sample Match
-[…-[…]]	.NET: character class subtraction. One character that is in those on the left, but not in the subtracted class.	[a-z-[aeiou]]	Any lowercase consonant
-[…-[…]]	.NET: character class subtraction.	[\p{IsArabic}-[\D]]	An Arabic character that is not a non-digit, i.e., an Arabic digit
-[…&&[…]]	Java, Ruby 2+: character class intersection. One character that is both in those on the left and in the && class.	[\S&&[\D]]	An non-whitespace character that is a non-digit.
-[…&&[…]]	Java, Ruby 2+: character class intersection.	[\S&&[\D]&&[^a-zA-Z]]	An non-whitespace character that a non-digit and not a letter.
-[…&&[^…]]	Java, Ruby 2+: character class subtraction is obtained by intersecting a class with a negated class	[a-z&&[^aeiou]]	An English lowercase letter that is not a vowel.
-[…&&[^…]]	Java, Ruby 2+: character class subtraction	[\p{InArabic}&&[^\p{L}\p{N}]]	An Arabic character that is not a letter or a number
+Class Operation | Legend                                                                                                          | Example       | Sample Match
+----------------|-----------------------------------------------------------------------------------------------------------------|---------------|------------------------
+[…-[…]]         | .NET: character class subtraction. One character that is in those on the left, but not in the subtracted class. | [a-z-[aeiou]] | Any lowercase consonant
 
+➖ for more info, see the ref article
 
-(direct link)
 ### Other Syntax
 
-Syntax	Legend	Example	Sample Match
-\K	Keep Out
-Perl, PCRE (C, PHP, R…), Python's alternate regex engine, Ruby 2+: drop everything that was matched so far from the overall match to be returned	prefix\K\d+	12
-\Q…\E	Perl, PCRE (C, PHP, R…), Java: treat anything between the delimiters as a literal string. Useful to escape metacharacters.
+Syntax | Legend                                                                                                                                                          | Example     | Sample Match
+-------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------|-------------
+\K     | Keep Out <br/> Perl, PCRE (C, PHP, R…), Python's alternate regex engine, Ruby 2+: drop everything that was matched so far from the overall match to be returned | prefix\K\d+ | 12
+\Q…\E  | Perl, PCRE (C, PHP, R…), Java: treat anything between the delimiters as a literal string. Useful to escape metacharacters.                                      | \Q(C++ ?)\E | (C++ ?)
