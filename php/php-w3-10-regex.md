@@ -351,9 +351,9 @@ Character | Legend                                                              
 
 Anchor | Legend                                                                                   | Example    | Sample Match
 ----------|------------------------------------------------------------------------------------------|------------|-------------
-^	|Start of string or start of line depending on multiline mode. (But when [^inside brackets], it means "not")	^abc .*	abc (line start)
-$	|End of string or end of line depending on multiline mode. Many engine-dependent subtleties.	.*? the end$	this is the end
-\A|	Beginning of string (all major engines except JS)	\Aabc[\d\D]*	abc (string... ...start)
+^	|Start of string or start of line depending on multiline mode. (But when [^inside brackets], it means "not")	|^abc.*	|abc (line start)
+$	|End of string or end of line depending on multiline mode. Many engine-dependent subtleties.	|.*? the end$|	this is the end
+\A|	Beginning of string (all major engines except JS)	|\Aabc[\d\D]*	abc (string... ...start)
 \z |	Very end of the string Not available in Python and JS	the end\z	this is...\n...the end
 \Z	| End of string or (except Python) before final line break Not available in JS	the end\Z	this is...\n...the end\n
 \G	| Beginning of String or End of Previous Match .NET, Java, PCRE (C, PHP, R…), Perl, Ruby		
