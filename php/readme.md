@@ -80,7 +80,7 @@ Content                                                             | Note
 | Content                                                                       | Note |
 |-------------------------------------------------------------------------------|------|
 | [1 What is OOP](./php-oop-01-intro.md)                                        | 🆗   |
-| [2 Classes/Objects](./php-oop-02-classes.md)                                  | 🆗   |
+| [2 Classes/Objects](./php-oop-S02-classes.md)                                  | 🆗   |
 | [3 Constructor - Access Modifiers - Constants ](./php-oop-03-constructor.md)  | 🆗   |
 | [4 Inheritance - Abstract Classes - Interfaces ](./php-oop-04-inheritance.md) | 🆗   |
 | [5 Traits](./php-oop-05-traits.md)                                            | 🆗   |
