@@ -4,10 +4,10 @@ Php Operators
 Source : https://www.w3schools.com/php/php_operators.asp
 
 ---
-- [PHP Operators](#php-operators)
-  - [PHP Assignment Operators](#php-assignment-operators)
-  - [PHP Comparison Operators](#php-comparison-operators)
-  - [PHP Increment / Decrement Operators](#php-increment--decrement-operators)
+- [Operators](#operators)
+  - [Assignment Operators](#assignment-operators)
+  - [Comparison Operators](#comparison-operators)
+  - [Increment / Decrement Operators](#increment--decrement-operators)
   - [PHP Logical Operators](#php-logical-operators)
   - [PHP String Operators](#php-string-operators)
   - [PHP Array Operators](#php-array-operators)
@@ -16,9 +16,9 @@ Source : https://www.w3schools.com/php/php_operators.asp
 ---
 
 
-# PHP Operators
+# Operators
 
-Operators are used to perform operations on variables and values.
+Operators are used to perform `operations on variables and values`.
 
 PHP divides the operators in the following groups:
 
@@ -47,7 +47,7 @@ Operator            | Name     | Example
 `%`	Modulus         | $x % $y  | Remainder of $x divided by $y
 `**` Exponentiation | $x ** $y | Result of raising $x to the $y'th power
 
-## PHP Assignment Operators
+## Assignment Operators
 
 The PHP assignment operators are used with numeric values to write a value to a variable.
 
@@ -66,7 +66,7 @@ x %= y   | x = x % y | Modulus
 
 
 
-## PHP Comparison Operators
+## Comparison Operators
 
 The PHP comparison operators are used to compare two values (number or string) :
 
@@ -84,9 +84,9 @@ Operator                      | Name      | Example
 `<=>`	Spaceship               | $x <=> $y | Returns an integer less than, equal to, or greater than zero, depending on if $x is less than, equal to, or greater than $y. Introduced in PHP 7.
 
 
-## PHP Increment / Decrement Operators
+## Increment / Decrement Operators
 
-The PHP increment operators are used to increment a variable's value.
+The increment operators are used to increment a variable's value.
 
 Operator | Name           | Description
 ---------|----------------|--------------------------------------
@@ -95,7 +95,7 @@ $x++     | Post-increment | Returns $x, then increments $x by one
 --$x     | Pre-decrement  | Decrements $x by one, then returns $x
 $x--     | Post-decrement | Returns $x, then decrements $x by one
 
-## PHP Logical Operators
+## Logical Operators
 
 The PHP logical operators are used to combine conditional statements.
 
@@ -109,7 +109,7 @@ xor      | Xor  | $x xor $y | True if either $x or $y is true, but not both
 \|       | Or   | $x \| $y  | True if either $x or $y is true
 !        | Not  | !$x       | True if $x is not true
 
-## PHP String Operators
+## String Operators
 
 PHP has two operators that are specially designed for strings.
 
@@ -118,7 +118,7 @@ Operator | Name                     | Example        | Result
 .        | Concatenation            | $txt1 . $txt2  | Concatenation of $txt1 and $txt2
 .=       | Concatenation assignment | $txt1 .= $txt2 | Appends $txt2 to $txt1
 
-## PHP Array Operators
+## Array Operators
 
 The PHP array operators are used to compare arrays.
 
@@ -131,7 +131,7 @@ Operator | Name         | Example   | Result
 <>       | Inequality   | $x <> $y  | Returns true if $x is not equal to $y
 !==      | Non-identity | $x !== $y | Returns true if $x is not identical to $y
 
-## PHP Conditional Assignment Operators
+## Conditional Assignment Operators
 
 The PHP conditional assignment operators are used to set a value depending on conditions:
 

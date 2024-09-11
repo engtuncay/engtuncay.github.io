@@ -1,11 +1,11 @@
 <h1>Php Data Types Details</h1> 
 
-- [Php Strings (W3S)](#php-strings-w3s)
+- [Strings](#strings)
   - [Modify Strings](#modify-strings)
   - [Concatenate Strings](#concatenate-strings)
   - [Slicing Strings](#slicing-strings)
   - [Escape Characters](#escape-characters)
-- [Php Numbers (W3S)](#php-numbers-w3s)
+- [Numbers](#numbers)
   - [Integers](#integers)
   - [Floats](#floats)
   - [Infinity](#infinity)
@@ -17,7 +17,7 @@
 - [PHP Constants](#php-constants)
 - [Date And Time](#date-and-time)
 
-# Php Strings (W3S)
+# Strings
 
 Source : https://www.w3schools.com/php/php_string.asp
 
@@ -345,7 +345,7 @@ Code | Result
 
 🔚
 
-# Php Numbers (W3S)
+# Numbers
 
 Source : https://www.w3schools.com/php/php_numbers.asp 
 

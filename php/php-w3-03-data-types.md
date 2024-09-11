@@ -4,7 +4,7 @@
   - [PHP Integer](#php-integer)
   - [PHP Float](#php-float)
   - [PHP Boolean](#php-boolean)
-  - [PHP Array](#php-array)
+  - [Array](#array)
   - [PHP Object](#php-object)
   - [PHP NULL Value](#php-null-value)
   - [PHP Resource (reference)](#php-resource-reference)
@@ -97,11 +97,11 @@ $y = false;
 
 Booleans are often used in conditional testing. You will learn more about conditional testing in a later chapter of this tutorial.
 
-## PHP Array
+## Array
 
 An array stores multiple values in one single variable.
 
-In the following example $cars is an array.
+In the following example `$cars` is an array.
 
 Example
 

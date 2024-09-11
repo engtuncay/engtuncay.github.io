@@ -7,7 +7,8 @@
   - [For Warning Notes](#for-warning-notes)
   - [For Very Interesting Notes](#for-very-interesting-notes)
   - [For Check Marks , Ok sign](#for-check-marks--ok-sign)
-  - [For list items](#for-list-items)
+  - [For new paragraph (as different topic)](#for-new-paragraph-as-different-topic)
+  - [For list item](#for-list-item)
   - [For end of section](#for-end-of-section)
   - [For Examples](#for-examples)
 - [Other Emojis that may be used](#other-emojis-that-may-be-used)
@@ -35,9 +36,9 @@
 
 ## For Notes
 
-✏ pencil 
-
 📝 memo 
+
+✏ pencil 
 
 ℹ information-source 
 
@@ -50,27 +51,36 @@
 
 ❔ white-question-mark-ornament
 
+
 ## For Warning Notes
 
 ❗ heavy-exclamation-mark  
 
 🔨 hammer (for important warning)
 
+
 ## For Very Interesting Notes
 
 😯 hushed-face  (for very interesting notes )
+
 
 ## For Check Marks , Ok sign
 
 ✔ heavy-check-mark
 
-## For list items
+
+## For new paragraph (as different topic)
 
 ➖ heavy-minus-sign
+
+## For list item
+
+⚪ medium white circle
 
 ## For end of section
 
 🔚 end with leftwards
+
 
 ## For Examples
 
@@ -92,8 +102,6 @@
 🥓 bacon
 
 ◼ black-medium-square
-
-
 
 🆕 squared-new
 
@@ -119,8 +127,6 @@
 
 ❌  
 
-📄 
-
 ⛏ 
 
 🍎 red apple  
@@ -139,8 +145,6 @@
 
 🛰 satellite
 
-📝 memo
-
 😐 neutral face
 
 🚫 no entry sign
@@ -148,6 +152,9 @@
 🧿 nazar
 
 🦅 eagle
+
+💛 yellow heart
+
 
 
  
