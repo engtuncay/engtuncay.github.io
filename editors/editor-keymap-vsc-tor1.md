@@ -1,9 +1,9 @@
 
-Keyboard shortcuts for Windows 
+Keyboard shortcuts for Windows Based On Visual Studio Code
 
 - [General](#general)
 - [Code Navigation](#code-navigation)
-- [Display / Editor Navigation](#display--editor-navigation)
+- [Display / Editor Navigation / View](#display--editor-navigation--view)
 - [Editor management](#editor-management)
 - [Basic editing](#basic-editing)
 - [Search and replace](#search-and-replace)
@@ -12,6 +12,7 @@ Keyboard shortcuts for Windows
 - [Debug](#debug)
 - [Integrated terminal](#integrated-terminal)
 - [File management](#file-management)
+- [Alphatic Order](#alphatic-order)
 - [Notes](#notes)
   - [Visual Studio Keymaps Changes](#visual-studio-keymaps-changes)
   - [Idea Keymap Changes](#idea-keymap-changes)
@@ -58,7 +59,7 @@ C+[0-9]        | Go to Bookmark (idea)
 A + d          | Open file from path (extension)
 
 
-# Display / Editor Navigation 
+# Display / Editor Navigation / View 
 
 Editor panelleri arasında gezinmek için kısayollar
 
@@ -217,6 +218,101 @@ Ctrl+K M           | Change file language
 | Ctrl+K P       | Copy path of active file                |
 | Ctrl+K R       | Reveal active file in Explorer          |
 | Ctrl+K O       | Show active file in new window/instance |
+
+
+# Alphatic Order
+
+Key | Desc
+----|-----------------
+c+a | select all
+ctb |
+c+c | cut
+c+d |
+c+e |
+c+f |
+c+g |
+c+h |
+c+ı |
+c+i |
+c+j |
+c+k | multi key
+c+l | delete line
+c+m | screen to center
+c+n |
+c+o |
+c+p |
+c+r |
+c+s |
+c+ş |
+c+t |
+c+u |
+c+ü |
+c+v | paste
+c+y |
+c+z |
+
+shift + ctrl 
+
+Key | Desc
+----|-----
+a   |
+b   |
+c   |
+d   |
+e   |
+f   |
+g   |
+h   |
+ı   |
+i   |
+j   |
+k   |
+l   |
+m   |
+n   |
+o   |
+p   |
+r   |
+s   |
+ş   |
+t   |
+u   |
+ü   |
+v   |
+y   |
+z   |
+
+Boş
+
+Key | Desc
+----|-----
+a   |
+b   |
+c   |
+d   |
+e   |
+f   |
+g   |
+h   |
+ı   |
+i   |
+j   |
+k   |
+l   |
+m   |
+n   |
+o   |
+p   |
+r   |
+s   |
+ş   |
+t   |
+u   |
+ü   |
+v   |
+y   |
+z   |
+
 
 # Notes
 
