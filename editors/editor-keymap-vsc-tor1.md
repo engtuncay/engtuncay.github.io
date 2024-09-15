@@ -3,7 +3,7 @@ Keyboard shortcuts for Windows Based On Visual Studio Code
 
 - [General](#general)
 - [Code Navigation](#code-navigation)
-- [Display / Editor Navigation / View](#display--editor-navigation--view)
+- [Display And Editor Navigation](#display-and-editor-navigation)
 - [Editor management](#editor-management)
 - [Basic editing](#basic-editing)
 - [Search and replace](#search-and-replace)
@@ -62,7 +62,7 @@ C+[0-9]        | Go to Bookmark (idea)
 A + d          | Open file from path (extension)
 
 
-# Display / Editor Navigation / View 
+# Display And Editor Navigation
 
 Editor panelleri arasında gezinmek, panellerin görüntülemesini açmak ve kapatmak için kısayollar
 
