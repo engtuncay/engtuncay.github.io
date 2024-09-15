@@ -13,6 +13,9 @@ Keyboard shortcuts for Windows Based On Visual Studio Code
 - [Integrated terminal](#integrated-terminal)
 - [File management](#file-management)
 - [Alphatic Order](#alphatic-order)
+  - [Ctrl Shortcuts](#ctrl-shortcuts)
+  - [multi keys](#multi-keys)
+  - [shift + ctrl](#shift--ctrl)
 - [Notes](#notes)
   - [Visual Studio Keymaps Changes](#visual-studio-keymaps-changes)
   - [Idea Keymap Changes](#idea-keymap-changes)
@@ -61,33 +64,36 @@ A + d          | Open file from path (extension)
 
 # Display / Editor Navigation / View 
 
-Editor panelleri arasında gezinmek için kısayollar
+Editor panelleri arasında gezinmek, panellerin görüntülemesini açmak ve kapatmak için kısayollar
 
-Shortcut       | Desc                                             | Note
----------------|--------------------------------------------------|-----
+Shortcut  | Desc                                                  | Note
+----------|-------------------------------------------------------|--------
+CS+s      | Toggle Sidebar Panel                                  | C+B old
+CS+e      | Show Explorer                                         |
+CS+f      | Show Search                                           |
+CS+g      | Show Source Control                                   |
+CS+d      | Show Debug                                            |
+CS+x      | Show Extensions                                       |
+CS+h      | Replace in files                                      |
+CS+j      | Toggle Search details                                 |
+CS+u      | Show Output panel                                     |
+CS+m      | Show Problems panel                                   |
+CS+v      | Open Markdown preview                                 |
+C+k C+v   | Open Markdown preview to the side                     |
+C+k C+z   | Zen Mode (Esc Esc to exit)                            |
+A+o       | Open In Default Browser                               | User
+C+"       | Focus-Open Terminal (workbench.action.terminal.focus) |
+C+1       | Focus Editor(1)                                       |
+C+= / c+- | Zoom in/out                                           |
+
+
+unfavs
+```
 F11            | Toggle full screen                               |
 Shift+Alt+0    | Toggle editor layout (horizontal/vertical)       |
-Ctrl+ = /-     | Zoom in/out                                      |
-Ctrl+B (cs+s)  | Toggle Sidebar visibility                        |
-Ctrl+Shift+E   | Show Explorer / Toggle focus                     |
-Ctrl+Shift+F   | Show Search                                      |
-Ctrl+Shift+G   | Show Source Control                              |
-Ctrl+Shift+D   | Show Debug                                       |
-Ctrl+Shift+X   | Show Extensions                                  |
-Ctrl+Shift+H   | Replace in files                                 |
-Ctrl+Shift+J   | Toggle Search details                            |
-cs+u           | Show Output panel                                |
-Ctrl+Shift+V   | Open Markdown preview                            |
-Ctrl+K V       | Open Markdown preview to the side                |
-Ctrl+K Z       | Zen Mode (Esc Esc to exit)                       |
-a+o            | Open In Default Browser                          | User
-C+",C+Down     | Focus Terminal (workbench.action.terminal.focus) |
-C+m , C+m      | Toggle Tab moves focus                           | ??
-C + 1          | Focus Editor(1)                                  |
-C + j          | (workbench.action.focusActiveEditorGroup)        |
-Ctrl+Shift+M   | Show Problems panel                              |
-Ctrl+Shift+Tab | Navigate editor group history                    |
-
+CS+tab    | Navigate editor group history                         |
+C+j       | (workbench.action.focusActiveEditorGroup)             |
+```
 
 # Editor management 
 
@@ -222,9 +228,11 @@ Ctrl+K M           | Change file language
 
 # Alphatic Order
 
-Key | Desc
-----|-----------------
-c+a | select all
+## Ctrl Shortcuts
+
+Key | Desc       | User Change
+----|------------|------------
+c+a | select all |
 ctb |
 c+c | cut
 c+d |
@@ -234,15 +242,15 @@ c+g |
 c+h |
 c+ı |
 c+i |
-c+j |
+c+j | multi key
 c+k | multi key
 c+l | delete line
 c+m | screen to center
-c+n |
-c+o |
-c+p |
-c+r |
-c+s |
+c+n | Create New File
+c+o | Open File
+c+p | Navigate Project File
+c+r | Open Recent | ctr c+r
+c+s | Save
 c+ş |
 c+t |
 c+u |
@@ -251,7 +259,16 @@ c+v | paste
 c+y |
 c+z |
 
-shift + ctrl 
+## multi keys
+
+Key     | Exp
+--------|------------
+c+k     | x
+c+k c+f | Format File
+c+j     | x
+c+r     | x
+
+## shift + ctrl 
 
 Key | Desc
 ----|-----

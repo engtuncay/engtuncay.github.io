@@ -26,6 +26,6 @@ What is Xaml
 
 ➖ Xaml overview and Xaml Syntax in Detail are recommended to read on msdn.
 
-
+  
 
 
