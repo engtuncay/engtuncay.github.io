@@ -60,8 +60,6 @@ Note that we use the dot syntax (.) to access variables/fields inside a class (m
 
 # C# Multiple Classes
 
-*Using Multiple Classes*
-
 You can also create an object of a class and access it in another class. This is often used for better organization of classes (one class has all the fields and methods, while the other class holds the Main() method (code to be executed)).
 
 ```cs
