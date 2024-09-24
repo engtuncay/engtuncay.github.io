@@ -195,6 +195,7 @@ class Car
 {
   string color;                 // field
   int maxSpeed;                 // field
+
   public void fullThrottle()    // method
   {
     Console.WriteLine("The car is going as fast as it can!"); 
@@ -214,6 +215,7 @@ Why did we declare the method as public, and not static, like in the examples fr
 The reason is simple: a static method can be accessed without creating an object of the class, while public methods can only be accessed by objects.
 
 Use Multiple Classes
+
 Remember from the last chapter, that we can use multiple classes for better organization (one for fields and methods, and another one for execution). This is recommended:
 
 ```cs
@@ -256,7 +258,7 @@ You will learn more about *Access Modifiers* in a later chapter.
 
 Tip: As you continue to read, you will also learn more about other class members, such as constructors and properties.
 
-# C# Constructors
+# Constructors
 
 A constructor is a special method that is used to initialize objects. The advantage of a constructor, is that it is called when an object of a class is created. It can be used to set initial values for fields:
 
@@ -428,7 +430,7 @@ There's also two combinations: protected internal and private protected.
 
 For now, lets focus on public and private modifiers.
 
-*Private Modifier*
+🛎 Private Modifier
 
 If you declare a field with a private access modifier, it can only be accessed within the same class:
 
