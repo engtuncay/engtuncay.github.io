@@ -5,6 +5,7 @@
   - [The $this Keyword](#the-this-keyword)
   - [instanceof operator](#instanceof-operator)
   - [Article - Typed Properties in PHP 7.4](#article---typed-properties-in-php-74)
+- [Other Articles](#other-articles)
 
 Source : https://www.w3schools.com/php/php_oop_classes_objects.asp
 
@@ -467,6 +468,7 @@ Fatal error: Type of Banana::$nullable must be ?string (as in class Fruits) in .
 Fatal error: Type of Banana::$non_nullable must be string (as in class Fruits) in ... on line 17
 
 ```
+
 🔔 Backwards compatibility
 
 Declaring property types is optional, and all your existing code should work. If you plan to upgrade an existing code base to typed properties, keep an eye on the uninitialized state, and inheritance where rules are enforced rather strictly. Further, property types do not carry the legacy behavior of allowing null values in their function/method arguments, and it can come as a surprise.
@@ -478,3 +480,8 @@ Property types is a feature that I was personally excited about, and now that it
 Even in projects that had 100% test coverage, I still discovered a few bugs that were there all the time, but property types bring them front and center!
 
 Open source projects might take some time to require PHP 7.4 as the minimum version, but it wouldn't prevent you from using them in your private projects.
+
+# Other Articles
+
+➖ https://www.php.net/manual/en/language.types.declarations.php
+

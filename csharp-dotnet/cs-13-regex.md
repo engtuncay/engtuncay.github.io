@@ -1,17 +1,17 @@
 
 - [C# Regular Expressions](#c-regular-expressions)
-  - [C# regex isMatch](#c-regex-ismatch)
-  - [C# regex Match index](#c-regex-match-index)
-  - [C# regex Matches](#c-regex-matches)
-  - [C# regex Count](#c-regex-count)
-  - [C# regex word boundaries](#c-regex-word-boundaries)
-  - [C# regex implicit word boundaries](#c-regex-implicit-word-boundaries)
-  - [C# regex currency symbols](#c-regex-currency-symbols)
-  - [C# regex anchors](#c-regex-anchors)
-  - [C# regex alternations](#c-regex-alternations)
-  - [C# regex capturing groups](#c-regex-capturing-groups)
-  - [C# regex captures](#c-regex-captures)
-  - [C# regex replacing strings](#c-regex-replacing-strings)
+  - [isMatch](#ismatch)
+  - [Match index](#match-index)
+  - [Matches](#matches)
+  - [Count](#count)
+  - [regex word boundaries](#regex-word-boundaries)
+  - [regex implicit word boundaries](#regex-implicit-word-boundaries)
+  - [regex currency symbols](#regex-currency-symbols)
+  - [regex anchors](#regex-anchors)
+  - [regex alternations](#regex-alternations)
+  - [regex capturing groups](#regex-capturing-groups)
+  - [regex captures](#regex-captures)
+  - [regex replacing strings](#regex-replacing-strings)
   - [C# regex splitting text](#c-regex-splitting-text)
   - [C# case-insensitive regular expression](#c-case-insensitive-regular-expression)
   - [C# regex subpatterns](#c-regex-subpatterns)
@@ -44,14 +44,14 @@ Regex  | Meaning
 \*    | Matches the preceding element zero or more times.
 ^      | Matches the starting position within the string.
 `$`      | Matches the ending position within the string.
-`|`     | Alternation operator.
+`\|`     | Alternation operator.
 [abc]  | Matches a or b, or c.
 [a-c]  | Range; matches a or b, or c.
 [^abc] | Negation, matches everything except a, or b, or c.
 \s     | Matches white space character.
 \w     | Matches a word character; equivalent to [a-zA-Z_0-9]
 
-## C# regex isMatch
+## isMatch
 
 The isMatch method indicates whether the regular expression finds a match in the input string.
 
@@ -123,7 +123,7 @@ eleven does match
 
 ```
 
-## C# regex Match index
+## Match index
 
 The Match's Success property returns a boolean value indicating whether the match is successful. The NextMatch method returns a new Match object with the results for the next match, starting at the position at which the last match ended.
 
@@ -180,7 +180,7 @@ fox at index 307
 
 ```
 
-## C# regex Matches
+## Matches
 
 The Matches method searches an input string for all occurrences of a regular expression and returns all the matches.
 
@@ -232,7 +232,7 @@ $ dotnet run
 
 ```
 
-## C# regex Count
+## Count
 
 With Count, we can count the number of occurrences of the pattern. We have static and instance overloads of the method.
 
@@ -276,7 +276,7 @@ There are 5 matches
 
 ```
 
-## C# regex word boundaries
+## regex word boundaries
 
 The metacharacter \b is an anchor which matches at a position that is called a word boundary. It allows to search for whole words.
 
@@ -308,7 +308,7 @@ is at 12
 
 ```
 
-## C# regex implicit word boundaries
+## regex implicit word boundaries
 
 The \w is a character class used for a character allowed in a word. For the \w+ regular expression, which denotes a word, the leading and trailing word boundary metacharacters are implicit; i.e. \w+ is equal to \b\w+\b.
 
@@ -341,7 +341,7 @@ Console.WriteLine(matches.Count);
 
 The Count property returns the number of matches.
 
-## C# regex currency symbols
+## regex currency symbols
 
 The \p{Sc} regular expresion can be used to look for currency symbols.
 
@@ -398,7 +398,7 @@ $ is at 74
 
 ```
 
-## C# regex anchors
+## regex anchors
 
 Anchors match positions of characters inside a given text. In the next example, we look if a string is located at the beginning of a sentence.
 
@@ -427,7 +427,7 @@ foreach (string sentence in sentences)
 
 We have three sentences. The search pattern is ^Jane. The pattern checks if the "Jane" string is located at the beginning of the text. `Jane\.$` would look for "Jane" at the end of the sentence.
 
-## C# regex alternations
+## regex alternations
 
 The alternation operator | enables to create a regular expression with several choices.
 
@@ -460,7 +460,7 @@ var rx = new Regex("Jane|Beky|Robert", RegexOptions.Compiled);
 
 This regular expression looks for "Jane", "Beky", or "Robert" strings.
 
-## C# regex capturing groups
+## regex capturing groups
 
 Round brackets are used to create capturing groups. This allows us to apply a quantifier to the entire group or to restrict alternation to a part of the regular expression.
 
@@ -615,7 +615,8 @@ $ dotnet run
 2 - 8 = -6
 
 ```
-## C# regex captures
+
+## regex captures
 
 When we use quantifiers, the group can capture zero, one, or more strings in a single match. All the substrings matched by a single capturing group are available from the Group.Captures property. In such as case, the Group object contains information about the last captured substring.
 
@@ -692,7 +693,7 @@ Matched sentence: The sun is shining.
 
 This is the output. Remember that match.Groups[0].Value equals to match.Value.
 
-## C# regex replacing strings
+## regex replacing strings
 
 It is possible to replace strings with Replace. The method returns the modified string.
 
