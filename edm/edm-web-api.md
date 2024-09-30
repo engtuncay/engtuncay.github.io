@@ -33,7 +33,7 @@
 - [5.FONKSİYONLAR](#5fonksi̇yonlar)
   - [5.1. LOGIN](#51-login)
   - [5.2. LOGOUT](#52-logout)
-  - [5.3.LOAD INVOICE](#53load-invoice)
+  - [5.3. LOAD INVOICE](#53-load-invoice)
   - [5.4.SEND INVOICE](#54send-invoice)
   - [5.5.GET INVOICE](#55get-invoice)
   - [5.6.GET INVOICE STATUS](#56get-invoice-status)
@@ -419,7 +419,7 @@ NESNE	ALAN ADI	VERİ TİPİ	AÇIKLAMASI	SPESİFİK DEĞER
 LogoutResponse	REQUEST_RETURN	REQUEST_RETURNType	Bkz.:(Ortak veri tipleri)	
 
 
-## 5.3.LOAD INVOICE
+## 5.3. LOAD INVOICE
 
 EFATURA Entegrasyon Platformu üzerinden bir ya da daha fazla faturanın- daha sonra gönderilmek üzere- taslak olarak EDM sistemine yüklenmesini sağlar.
 
@@ -506,6 +506,7 @@ LoadInvoice ile taslak olarak yüklenmiş faturanın SendInvoice metodu ile gön
         </SendInvoiceRequest>
     </s:Body>
 </s:Envelope>
+
 ```
 
 ## 5.5.GET INVOICE
@@ -513,6 +514,7 @@ LoadInvoice ile taslak olarak yüklenmiş faturanın SendInvoice metodu ile gön
 GetInvoiceResponse ← GetInvoiceRequest
 
 GIB (Gelir İdaresi Başkanlığı) sisteminden gelen ve/veya EDM platformuna gönderilen faturaların listelenmesi, sorgulanması ve indirilmesini sağlar.
+
 NESNE	ALAN ADI	VERİ TİPİ	AÇIKLAMASI	SPESİFİK DEĞER
 GetInvoiceRequest	REQUEST_HEADER	REQUEST_HEADERType	Oturum bilgisini taşır. Detaylar için bkz.:(Ortak Veri Tipleri)	SESSION_ID alanı dolu olmalı
 	INVOICE_SEARCH_KEY	INVOICE_SEARCH_KEY	Fatura sorgulama kriterlerini taşıyan veri tipidir. Bkz.:(Ortak veri tipleri)	
@@ -540,14 +542,14 @@ Gelen Response, Reuqest'te verilen limit kadar gelmişse, yine ilgili fatura tar
 Bu işlem, isteğe gelen yanıttaki INVOICE [] dizi eleman sayısı, verilen limite eşit olduğu sürece devam ettirilmelidir.
 
 
-
-Öneri:
-Belirlenmiş belge için, ek olarak, belgeyi gönderirken eklemiş olduğunuz ERPREFERANCE alanından belge alınabilir. GetInvoiceRequestINVOICE_SEARCH_KEY metodunda sorgulama yapabilmek için, ERPREFERANCENO parametresi eklenmelidir. 
+✏ Öneri: Belirlenmiş belge için, ek olarak, belgeyi gönderirken eklemiş olduğunuz ERPREFERANCE alanından belge alınabilir. GetInvoiceRequestINVOICE_SEARCH_KEY metodunda sorgulama yapabilmek için, ERPREFERANCENO parametresi eklenmelidir. 
 
 ## 5.6.GET INVOICE STATUS
 
 Belirlenen Fatura No veya UUID bilgisi ile mevcut faturaların zarf durumu ve portal durumunu kontrol etmeyi sağlar. Elde edilen bilgiler ışığında faturaların tutarlılığı sağlanır
+
 GetInvoiceStatusResponse ← GetInvoiceStatusRequest
+
 NESNE	ALAN ADI	VERİ TİPİ	AÇIKLAMASI	SPESİFİK DEĞER
 GetInvoiceStatusRequest	INVOICE	INVOICE	Bkz.:(Ortak veri tipleri)	
 	REQUEST_HEADER	REQUEST_HEADERType	Bkz.:(Ortak veri tipleri)	
@@ -573,8 +575,6 @@ GetInvoiceStatusResponseINVOICE_STATUS	STATUS	String	Faturanın EDM ‘deki duru
 	UUID	String	Fatura UUID
 
 
-
-
 NESNE	ALAN ADI	VERİ TİPİ	AÇIKLAMASI
 INVOICE_HEADER	EXPORT_GTB_REFNO	String	Gümrük Ticaret Referans NO
 	EXPORT_GTB_GCB_TESCILNO	String	Gümrük Ticaret Tescil NO
@@ -585,9 +585,13 @@ INVOICE_HEADER	EXPORT_GTB_REFNO	String	Gümrük Ticaret Referans NO
 ## 5.7.MARK INVOICE
 
 Faturanın işaretlenmesini sağlar.  Faturanın işaretlenmesi, GetInvoice ile sorgulamada dönen fatura listesine dahil edilmesini önlemek amacıyla kullanılmaktadır. 
+
 GetInvoice metodu kullanılarak dönemsel kriterlerle yapılan fatura sorgularında INVOICE_SEARCH_KEY kriterinde READ_INCLUDED=False olarak kullanıldığı durumda işaretlenen faturaların sistemden çekilmemesini sağlar. İşaretlenen faturaların sorgulanması gerektiğinde, sorgulama kriterine READ_INCLUDED=True olarak verilmelidir.
+
 İşaret bilgisi eklendiği gibi, iptal de edilebilir.
+
 MarkInvoiceResponse ← MarkInvoiceRequest
+
 NESNE	ALAN ADI	VERİ TİPİ	AÇIKLAMASI	SPESİFİK DEĞER
 MarkInvoiceRequest	REQUEST_HEADER	REQUEST_HEADERType	İşaret konacak faturanın ID veya UUID bilgisi	
 	Mark	MarkInvoiceRequestMARK	İşaretleme bilgisi	
@@ -612,6 +616,7 @@ MarkInvoiceResponse	REQUEST_RETURN	REQUEST_RETURNType	Metot sonucu. Metot hatas�
 ## 5.8.GET USER LIST
 
 GIB EFATURA sistemine kayıtlı kullanıcıların listesini ve bilgilerini getirir. 
+
 GetUserListResponse ← GetUserListRequest
 
 NESNE	ALAN ADI	VERİ TİPİ	AÇIKLAMASI	SPESİFİK DEĞER
@@ -655,15 +660,10 @@ Gelen yanıtlarda gereken ALIAS_REMOVAL_TIME alanı dolu olanlar, PASİF hesapla
 NESNE	ALAN ADI	VERİ TİPİ	AÇIKLAMASI	SPESİFİK DEĞER
 GetUserListResponse	Items	GIBUSER[]	GIBUSER dizisi olarak hesap listesi	
 
-
-
-
-
-
-
-
 ## 5.9.GET USER LIST BINARY
+
 GIB EFATURA sistemine kayıtlı kullanıcıların listesinin tamamının XML veya CSV olarak alınmasını sağlar
+
 GetUserListBinaryResponse ← GetUserListBinaryRequest
 
 NESNE	ALAN ADI	VERİ TİPİ	AÇIKLAMASI	SPESİFİK DEĞER
@@ -674,7 +674,9 @@ NESNE	ALAN ADI	VERİ TİPİ	AÇIKLAMASI	SPESİFİK DEĞER
 GetUserListBinaryResponse		Item	base64Binary	GIB e-fatura kullanıcı listesinin istenen dosya formatında Byte[] dizisi olarak içeriği 	
 
 ## 5.10.CHECK USER
+
 Verilen kriterlere uyan GIB EFATURA hesabının varlığını kontrol eder ve uyan kayıt veya kayıtları liste olarak geri döner. 
+
 GIBUSER[] ← CheckUserRequest
 
 NESNE	ALAN ADI	VERİ TİPİ	AÇIKLAMASI
@@ -763,9 +765,6 @@ GetInvoiceResponseDateRequest	INVOICERESPONSEDATE_SEARCH_KEY_SEARCH_KEY	GetInvoi
 
 
 
-
-
-
 # 6.FATURA DURUMLARI
 
 EXCEL formatında doküman olarak pakette bulunmaktadır.
@@ -777,11 +776,16 @@ Verilen örnekler C# ile yazılmıştır.
 
 ## 7.1.SERVİS BAĞLANTISI
 
+```csharp
 EFaturaEDMPortClient client = new EFaturaEDMPortClient();
+
+```
 
 ## 7.2.ÖNERİLEN HATA YAKALAMA MEKANİZMASI
 
 Hata yakalama yöntemi, kademeli hata yakalama yöntemidir. 
+
+```csharp
 try
 {
 SendInvoiceResponse sendInvoiceResponse 
@@ -809,4 +813,6 @@ catch (Exception ex) // ÇAĞIRAN UYGUALAMA (CLIENT) TARAFINDAKİ BİR SORUNA İ
 {
 Console.WriteLine(ex.Message);
 }
+
+```
 
