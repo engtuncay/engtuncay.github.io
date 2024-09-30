@@ -50,9 +50,9 @@ LoginRequest
 
 ```
 
+➖ LoginResponse
 
-
-LoginResponse
+```xml
 <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
     <s:Body xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
         <LoginResponse xmlns="http://tempuri.org/">
@@ -61,14 +61,13 @@ LoginResponse
     </s:Body>
 </s:Envelope>
 
-
-
-
+```
 
 ## 1.2 LOGOUT
 
 LogoutRequest
 
+```xml
 <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
     <s:Header>
         <ActivityId CorrelationId="3115b262-9639-413f-ab73-a120343eda58" xmlns="http://schemas.microsoft.com/2004/09/ServiceModel/Diagnostics">00000000-0000-0000-0000-000000000000</ActivityId>
@@ -89,10 +88,13 @@ LogoutRequest
     </s:Body>
 </s:Envelope>
 
+```
+
 
 
 LogoutResponse
 
+```xml
 <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
     <s:Body xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
         <LogoutResponse xmlns="http://tempuri.org/">
@@ -103,6 +105,8 @@ LogoutResponse
         </LogoutResponse>
     </s:Body>
 </s:Envelope>
+
+```
  
 
 
@@ -182,6 +186,7 @@ SendInvoiceRequest
 
 GetInvoiceRequest
 
+```
 <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
     <s:Header>
         <ActivityId CorrelationId="ed41b0da-c7c3-47b3-abd1-76e691973c0e" xmlns="http://schemas.microsoft.com/2004/09/ServiceModel/Diagnostics">00000000-0000-0000-0000-000000000000</ActivityId>
@@ -212,9 +217,13 @@ GetInvoiceRequest
     </s:Body>
 </s:Envelope>
 
+```
+
+
 
 GetInvoiceResponse
 
+```xml
 <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
     <s:Body xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
         <GetInvoiceResponse xmlns="http://tempuri.org/">
@@ -257,11 +266,14 @@ GetInvoiceResponse
     </s:Body>
 </s:Envelope>
 
+```
+
 
 ## 1.5 GET INVOICE STATUS
 
 GetInvoiceStatusRequest
 
+```xml
 <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
     <s:Header>
         <ActivityId CorrelationId="a753802c-b9fc-465a-87cb-aaf3b8ad34ac" xmlns="http://schemas.microsoft.com/2004/09/ServiceModel/Diagnostics">00000000-0000-0000-0000-000000000000</ActivityId>
@@ -283,9 +295,12 @@ GetInvoiceStatusRequest
     </s:Body>
 </s:Envelope>
 
+```
 
-GetInvoiceStatusResponse
 
+➖ GetInvoiceStatusResponse
+
+```xml
 <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
     <s:Body xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
         <GetInvoiceStatusResponse xmlns="http://tempuri.org/">
@@ -312,6 +327,9 @@ GetInvoiceStatusResponse
         </GetInvoiceStatusResponse>
     </s:Body>
 </s:Envelope>
+
+```
+
 
 
 
@@ -366,8 +384,9 @@ MarkInvoiceRequest
 
 ## 1.7 GET USER LIST
 
-GetUserListRequest
+➖ GetUserListRequest
 
+```xml
 <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
     <s:Header>
         <ActivityId CorrelationId="f70f37fd-57ab-46da-843b-5d0cbd4146de" xmlns="http://schemas.microsoft.com/2004/09/ServiceModel/Diagnostics">00000000-0000-0000-0000-000000000000</ActivityId>
@@ -388,9 +407,12 @@ GetUserListRequest
     </s:Body>
 </s:Envelope>
 
+```
 
-GetUserListResponse
 
+➖ GetUserListResponse
+
+```xml
 <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
     <s:Body xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
         <GetUserListResponse xmlns="http://tempuri.org/">
@@ -418,10 +440,13 @@ GetUserListResponse
     </s:Body>
 </s:Envelope>
 
+```
+
 ## 1.8 CHECK USER
 
 CheckUserRequest
 
+```xml
 <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
     <s:Header>
         <ActivityId CorrelationId="ecc07b28-8950-4efb-96db-62ce9c7e52d9" xmlns="http://schemas.microsoft.com/2004/09/ServiceModel/Diagnostics">00000000-0000-0000-0000-000000000000</ActivityId>
@@ -445,9 +470,12 @@ CheckUserRequest
     </s:Body>
 </s:Envelope>
 
+```
+
 
 CheckUserResponse
 
+```xml
 <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
     <s:Body xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
         <CheckUserResponse xmlns="http://tempuri.org/">
@@ -464,10 +492,13 @@ CheckUserResponse
     </s:Body>
 </s:Envelope>
 
+```
+
 ## 1.9 SEND INVOICE RESPONSEWITH SERVER SIGN
 
 SendInvoiceResponseWithServerSignRequest
 
+```xml
 <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
     <s:Header>
         <ActivityId CorrelationId="a7c2623c-ffe7-4b8f-a58e-2f4fbf43ddb7" xmlns="http://schemas.microsoft.com/2004/09/ServiceModel/Diagnostics">00000000-0000-0000-0000-000000000000</ActivityId>
@@ -490,9 +521,12 @@ SendInvoiceResponseWithServerSignRequest
     </s:Body>
 </s:Envelope>
 
+```
+
 
 SendInvoiceResponseWithServerSignResponse
 
+```xml
 <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
     <s:Body xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
         <SendInvoiceResponseWithServerSignResponse xmlns="http://tempuri.org/">
@@ -505,15 +539,14 @@ SendInvoiceResponseWithServerSignResponse
     </s:Body>
 </s:Envelope>
 
-
-
-
+```
 
  
 ## 1.10 CANCEL INVOICE
 
 CancelInvoiceRequest
 
+```xml
 <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
     <s:Header>
         <ActivityId CorrelationId="c1479431-55b5-426c-9e37-c8137e398171" xmlns="http://schemas.microsoft.com/2004/09/ServiceModel/Diagnostics">00000000-0000-0000-0000-000000000000</ActivityId>
@@ -535,10 +568,13 @@ CancelInvoiceRequest
     </s:Body>
 </s:Envelope>
 
+```
 
 
-CancelInvoiceResponse
 
+➖ CancelInvoiceResponse
+
+```xml
 <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
     <s:Body xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
         <CancelInvoiceResponse xmlns="http://tempuri.org/">
@@ -551,12 +587,15 @@ CancelInvoiceResponse
     </s:Body>
 </s:Envelope>
 
+```
+
 
 
 ## 1.11 CHECK COUNTER
 
 CheckCounterRequest
 
+```xml
 <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
     <s:Header>
         <ActivityId CorrelationId="5634bb85-abc6-4dd4-aed9-68c6c8cee33d" xmlns="http://schemas.microsoft.com/2004/09/ServiceModel/Diagnostics">00000000-0000-0000-0000-000000000000</ActivityId>
@@ -576,8 +615,12 @@ CheckCounterRequest
     </s:Body>
 </s:Envelope>
 
+```
+
 
 CheckCounterResponse
+
+```xml
 <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
     <s:Body xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
         <CheckCounterResponse xmlns="http://tempuri.org/">
@@ -586,11 +629,14 @@ CheckCounterResponse
     </s:Body>
 </s:Envelope>
 
+```
+
 
 ## 1.12 GET INVOICE RESPONSE DATE
 
 GetInvoiceResponseDateRequest
 
+```xml
 <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
     <s:Body xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
         <GetInvoiceResponseDateRequest xmlns="http://tempuri.org/">
@@ -615,8 +661,12 @@ GetInvoiceResponseDateRequest
     </s:Body>
 </s:Envelope>
 
+```
+
 
 GetInvoiceResponseDateResponse
+
+```xml
 
 <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
     <s:Body xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
@@ -636,12 +686,16 @@ GetInvoiceResponseDateResponse
     </s:Body>
 </s:Envelope>
 
+```
+
 
 
 ## 1.13 UYGULAMA TARAFINDAN ÜRETİLEN SOAP FAULT EXCEPTION
 
 Web servis işleminde uygulama ve sistem hataları vb. gibi her türlü olumsuz sonuç, “REQUEST_ERRORType “  tipinde SOAP Fault exception ile dönülmektedir. Örneğin, hatalı kullanıcı ve şifre verildiğinde dönen soap fault exception aşağıda verilmiştir.
 
+
+```xml
 <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
 	<s:Body>
 		<s:Fault>
@@ -660,5 +714,7 @@ Web servis işleminde uygulama ve sistem hataları vb. gibi her türlü olumsuz 
 		</s:Fault>
 	</s:Body>
 </s:Envelope>
+
+```
 
 
