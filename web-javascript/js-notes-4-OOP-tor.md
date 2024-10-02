@@ -14,7 +14,6 @@
     - [Overriding methods](#overriding-methods)
   - [JSON](#json)
     - [Converting JSON to JavaScript Object](#converting-json-to-javascript-object)
-      - [JSON.parse()](#jsonparse)
     - [Using a reviver function with JSON.parse()](#using-a-reviver-function-with-jsonparse)
     - [Converting Object to JSON](#converting-object-to-json)
     - [Using a Filter Array with JSON.stringify](#using-a-filter-array-with-jsonstringify)
@@ -468,22 +467,28 @@ class Person {
     this.score = 0
     this.skills = []
   }
+
   getFullName() {
     const fullName = this.firstName + ' ' + this.lastName
     return fullName
   }
+
   get getScore() {
     return this.score
   }
+
   get getSkills() {
     return this.skills
   }
+
   set setScore(score) {
     this.score += score
   }
+
   set setSkill(skill) {
     this.skills.push(skill)
   }
+
   getPersonInfo() {
     let fullName = this.getFullName()
     let skills =
@@ -496,11 +501,13 @@ class Person {
     let info = `${fullName} is ${this.age}. He lives ${this.city}, ${this.country}. ${formattedSkills}`
     return info
   }
+  
   static favoriteSkill() {
     const skills = ['HTML', 'CSS', 'JS', 'React', 'Python', 'Node']
     const index = Math.floor(Math.random() * skills.length)
     return skills[index]
   }
+
   static showDateTime() {
     let now = new Date()
     let year = now.getFullYear()
@@ -782,7 +789,7 @@ Let us see the above example in more detail, it starts with a curly bracket. Ins
 
 Mostly we fetch JSON data from HTTP response or from a file, but we can store the JSON as a string and we can change to Object for sake of demonstration. In JavaScript the keyword _JSON_ has _parse()_ and _stringify()_ methods. When we want to change the JSON to an object we parse the JSON using _JSON.parse()_. When we want to change the object to JSON we use _JSON.stringify()_.
 
-#### JSON.parse()
+➖ JSON.parse()
 
 ```js
 JSON.parse(json[, reviver])

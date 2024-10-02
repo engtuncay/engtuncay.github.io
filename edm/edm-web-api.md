@@ -1,6 +1,12 @@
 
 <h1>EDM E-FATURA WEB SERVİS API GELİŞTİRİCİ KILAVUZU V4.2.1</h1> 
- 
+
+Source : 
+
+- https://docs.edmbilisim.com.tr/api/api-documentation/introduction.html
+
+- https://docs.edmbilisim.com.tr/api/api-documentation/einvoice/efatura-soap-envelopes.html
+
 <h2>İÇİNDEKİLER</h2>
 
 - [BAŞLARKEN](#başlarken)
