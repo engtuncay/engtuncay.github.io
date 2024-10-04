@@ -409,7 +409,7 @@ First of all, let's throw in more columns and even some rows, for a true tabular
 
 ![text](https://wpf-tutorial.com/Images/ArticleImages/1/chapters/panels/grid_tabular.png)
 
-A total of nine buttons, each placed in their own cell in a grid containing three rows and three columns. We once again use a star based width, but this time we assign a number as well - the first row and the first column has a width of 2*, which basically means that it uses twice the amount of space as the rows and columns with a width of 1* (or just * - that's the same).
+A total of nine buttons, each placed in their own cell in a grid containing three rows and three columns. We once again use a star based width, but this time we assign a number as well - the first row and the first column has a width of `2*`, which basically means that it uses twice the amount of space as the rows and columns with a width of `1*` (or just * - that's the same).
 
 You will also notice that I use the Attached properties Grid.Row and Grid.Column to place the controls in the grid, and once again you will notice that I have omitted these properties on the controls where I want to use either the first row or the first column (or both). This is essentially the same as specifying a zero. This saves a bit of typing, but you might prefer to assign them anyway for a better overview - that's totally up to you!
 
@@ -417,7 +417,7 @@ You will also notice that I use the Attached properties Grid.Row and Grid.Column
 
 Source : https://wpf-tutorial.com/panels/grid-units/
 
-So far we have mostly used the star width/height, which specifies that a row or a column should take up a certain percentage of the combined space. However, there are two other ways of specifying the width or height of a column or a row: Absolute units and the Auto width/height. Let's try creating a Grid where we mix these:
+So far we have mostly used the star width/height, which specifies that a row or a column should take up a certain percentage of the combined space. However, there are two other ways of specifying the width or height of a column or a row: `Absolute units and the Auto width/height`. Let's try creating a Grid where we mix these:
 
 ```xml
 <Window x:Class="WpfTutorialSamples.Panels.GridUnits"
@@ -444,7 +444,6 @@ In this example, the first button has a star width, the second one has its width
 
 The result can be seen on the screenshot, where the second button only takes exactly the amount of space it needs to render its longer text, the third button takes exactly the 100 pixels it was promised and the first button, with the variable width, takes the rest.
 
-
 In a Grid where one or several columns (or rows) have a variable (star) width, they automatically get to share the width/height not already used by the columns/rows which uses an absolute or Auto width/height. This becomes more obvious when we resize the window:
 
 ![text](https://wpf-tutorial.com/Images/ArticleImages/1/chapters/panels/grid_units_small.png)
@@ -457,7 +456,7 @@ This can be a very useful technique when designing a wide range of dialogs. For 
 
 ### The Grid - Spanning
 
-The default Grid behavior is that each control takes up one cell, but sometimes you want a certain control to take up more rows or columns. Fortunately the Grid makes this very easy, with the Attached properties ColumnSpan and RowSpan. The default value for this property is obviously 1, but you can specify a bigger number to make the control span more rows or columns.
+The default Grid behavior is that each control takes up one cell, but sometimes you want a certain control to take up more rows or columns. Fortunately the Grid makes this very easy, with the attached properties `ColumnSpan and RowSpan`. The default value for this property is obviously 1, but you can specify a bigger number to make the control span more rows or columns.
 
 Here's a very simple example, where we use the ColumnSpan property:
 
