@@ -14,17 +14,17 @@
 
 A method is a block of code which only runs when it is called.
 
-You can pass data, known as parameters, into a method.
+You can pass data, known as `parameters`, into a method.
 
 Methods are used to perform certain actions, and they are also known as functions.
 
 Why use methods? To reuse code: define the code once, and use it many times.
 
-*Create a Method*
+➖ Create a Method
 
 A method is defined with the *name* of the method, followed by parentheses (). C# provides some pre-defined methods, which you already are familiar with, such as Main(), but you can also create your own methods to perform certain actions:
 
-Example
+ Example
 
 Create a method inside the Program class:
 

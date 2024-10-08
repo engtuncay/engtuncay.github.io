@@ -3,6 +3,7 @@
 - [References](#references)
 - [Notes](#notes)
 - [C# OOP AND ADVANCE TOPICS](#c-oop-and-advance-topics)
+- [C# Other Topics](#c-other-topics)
 
 
 # Cheatsheets
@@ -47,6 +48,13 @@ Source : https://www.w3schools.com/cs/index.php
 C# Enums
 C# Files
 C# Exceptions
+
+# C# Other Topics
+
+Topic                             | Note
+----------------------------------|-----
+[Wpf Tutorial](./wpf-tutorial.md) |
+
 
 
 | C# How To

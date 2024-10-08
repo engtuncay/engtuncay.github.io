@@ -7,7 +7,7 @@
   - [For Warning Notes](#for-warning-notes)
   - [For Very Interesting Notes](#for-very-interesting-notes)
   - [For Check Marks , Ok sign](#for-check-marks--ok-sign)
-  - [For new paragraph (as different topic)](#for-new-paragraph-as-different-topic)
+  - [For new topic under a header](#for-new-topic-under-a-header)
   - [For list item](#for-list-item)
   - [For end of section](#for-end-of-section)
   - [For Examples](#for-examples)
@@ -61,7 +61,7 @@
 
 ## For Very Interesting Notes
 
-😯 hushed-face  (for very interesting notes )
+😯 hushed-face
 
 
 ## For Check Marks , Ok sign
@@ -69,9 +69,9 @@
 ✔ heavy-check-mark
 
 
-## For new paragraph (as different topic)
+## For new topic under a header
 
-➖ heavy-minus-sign
+➖ heavy-minus-sign or use -- (double minus)
 
 ## For list item
 
@@ -84,7 +84,9 @@
 
 ## For Examples
 
-🍎 red apple
+🍎 red apple,
+
+🧲 magnet (deprecated for warnings)
 
 
 # Other Emojis that may be used
@@ -94,8 +96,6 @@
 🔵 large blue circle
 
 🔒 lock
-
-🧲 magnet (deprecated for warnings)
 
 ---
 
@@ -125,11 +125,9 @@
 
 💰 money-bag
 
-❌  
+❌ cross-mark
 
-⛏ 
-
-🍎 red apple  
+🔨 hammer
 
 🧷 safety pin
 
