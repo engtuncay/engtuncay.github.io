@@ -23,7 +23,7 @@
     - [Değişkene Değer Atama](#değişkene-değer-atama)
     - [Fonksiyondan değer atama](#fonksiyondan-değer-atama)
   - [Stored Procedure](#stored-procedure)
-  - [Cursor Tanımlama](#cursor-tanımlama)
+  - [Sql Loop - Cursor Tanımlama](#sql-loop---cursor-tanımlama)
   - [Case When Yapısı](#case-when-yapısı)
     - [Case When Multiple Values](#case-when-multiple-values)
   - [IIF YAPISI](#iif-yapisi)
@@ -289,7 +289,7 @@ exec IletisimUnvani @ContactTitle  = 'Owner';
 ```
 
 
-## Cursor Tanımlama
+## Sql Loop - Cursor Tanımlama
 
 ```sql
 -- Sqlserverdaki Veritabanlarını Listeler
@@ -298,9 +298,9 @@ DECLARE @name VARCHAR(50) -- database name
 
 -- Cursor lenecek sorgu yazılır
 DECLARE db_cursor CURSOR FOR 
-SELECT name 
-FROM MASTER.dbo.sysdatabases 
-WHERE name NOT IN ('master','model','msdb','tempdb') 
+  SELECT name 
+  FROM MASTER.dbo.sysdatabases 
+  WHERE name NOT IN ('master','model','msdb','tempdb') 
 
 -- Cursor açılır, Cursor sorgusundan dönecek alanlar , hangi değişkene bağlanacağı belirlenir
 --, sırasına göre değişkene bağlar, aynı ismi olması gerekmez
