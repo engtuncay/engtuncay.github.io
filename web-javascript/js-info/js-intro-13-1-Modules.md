@@ -1,11 +1,7 @@
 
 <h2>13 - Modules (1-2-3)</h2>
 
-<h3>Source</h3>
-
-- These are articles from Javascript.info [Js Info - Modules](https://javascript.info/modules-intro)
-
-- Some modifications may be done.
+Source : https://javascript.info/modules-intro (some modifications may be done.)
 
 <h3>Content</h3>
 
@@ -55,7 +51,7 @@ To name some (for historical reasons):
 
 Now all these slowly become a part of history, but we still can find them in old scripts.
 
-The language-level module system appeared in the standard in **2015**, gradually evolved since then, and is now supported by all major browsers and in Node.js. So we'll study the modern JavaScript modules from now on.
+The language-level module system appeared in the standard in **2015**, gradually evolved since then, and is now supported by all major browsers and in Node.js. So we'll study `the modern JavaScript modules` from now on.
 
 ## What is a module?
 
@@ -85,11 +81,11 @@ alert(sayHi); // function...
 sayHi('John'); // Hello, John!
 ```
 
-The `import` directive loads the module by path `./sayHi.js` relative to the current file, and assigns exported function `sayHi` to the corresponding variable (`{sayHi}`). (tor:köşeli parentez için karşılık gelen variable atar.)
+The `import` directive loads the module by path `./sayHi.js` relative to the current file, and assigns exported function `sayHi` to the corresponding variable (`{sayHi}`). (tor:köşeli parentez için karşılık gelen referensa atama yapar.)
 
 Let's run the example in-browser. [Live Ex](https://codesandbox.io/s/tor-js-demo-9bzgfg?file=/module1.html)
 
-*Module Mode Script*
+➖ Module Mode Script
 
 As modules support special keywords and features, we must tell the browser that a script should be treated as a module, by using the attribute `<script type="module">`.
 
@@ -106,7 +102,7 @@ Like this:
 
 The browser automatically fetches and evaluates the imported module (and its imports if needed), and then runs the script.
 
-**Warn!!: Modules work only via HTTP(s), not locally**
+❗ Modules work only via HTTP(s), not locally
 
 If you try to open a web-page locally, via `file://` protocol, you'll find that `import/export` directives don't work. Use a local web-server, such as [static-server](https://www.npmjs.com/package/static-server#getting-started) or use the "live server" capability of your editor, such as VS Code [Live Server Extension](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) to test modules.
 
@@ -118,7 +114,7 @@ What's different in modules, compared to "regular" scripts?
 
 There are core features, valid both for browser and server-side JavaScript.
 
-*Always "use strict"*
+- Always "use strict"
 
 Modules always work in strict mode. E.g. assigning to an undeclared variable will give an error.
 
@@ -128,9 +124,9 @@ Modules always work in strict mode. E.g. assigning to an undeclared variable wil
 </script>
 ```
 
-*Module-level scope (no global variable)*
+- Module-level scope (no global variable)
 
-Each module has its own top-level scope. In other words, top-level variables and functions from a module are not seen in other scripts (tor:no global).
+Each module has its own top-level scope. In other words, top-level variables and functions from a module are not seen in other scripts.
 
 In the example below, two scripts are imported, and `hello.js` tries to use `user` variable declared in `user.js`. It fails, because it's a separate module (you'll see the error in the console):
 
@@ -158,7 +154,7 @@ Modules should `export` what they want to be accessible from outside and `import
 
 In other words, with modules we use import/export instead of relying on global variables.
 
-*Import script as module mode*
+- Import script as module mode
 
 This is the correct variant:
 
@@ -182,7 +178,7 @@ In the browser, if we talk about HTML pages, independent top-level scope also ex
 
 Here are two scripts on the same page, both `type="module"`. They don't see each other's top-level variables:
 
-```html run
+```html
 <script type="module">
   // The variable is only visible in this module script
   let user = "John";
@@ -193,15 +189,15 @@ Here are two scripts on the same page, both `type="module"`. They don't see each
 </script>
 ```
 
-*Info : window-level global*
+📝 Info : window-level global
 
 In the browser, we can make a variable window-level global by explicitly assigning it to a `window` property, e.g. `window.user = "John"`. 
 
 Then all scripts will see it, both with `type="module"` and without it. 
 
-That said, making such global variables is frowned upon. Please try to avoid them. (tor:frown upon hoşgörmemek,ayıplamak)
+That said, making such global variables is frowned upon. Please try to avoid them. 
 
----
+(frown upon hoşgörülmeyen)
 
 - A module code is evaluated only the first time when imported
 
@@ -243,11 +239,13 @@ export let admin = {
 };
 ```
 
-*Important : what if same exported identifier (variable,reference etc) is used in multiple modules*
+🔨 Important : what if same exported identifier (variable,reference etc) is used in multiple modules
 
 If this module is imported from multiple files, the module is only evaluated the first time, `admin` object is created, and then passed to all further importers.
 
 All importers get exactly the one and only `admin` object:
+
+--*TBC - modules
 
 ```js
 // 📁 1.js

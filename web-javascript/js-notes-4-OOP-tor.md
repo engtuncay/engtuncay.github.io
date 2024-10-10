@@ -1,41 +1,41 @@
 
 - [Section - Object Oriented Programming (OOP)](#section---object-oriented-programming-oop)
   - [Classes](#classes)
-    - [Defining a classes](#defining-a-classes)
+    - [Defining a class](#defining-a-class)
     - [Class Instantiation](#class-instantiation)
     - [Class Constructor](#class-constructor)
-    - [Default values with constructor](#default-values-with-constructor)
+    - [Default values for method parameters](#default-values-for-method-parameters)
     - [Class methods](#class-methods)
     - [Properties with initial value](#properties-with-initial-value)
     - [Getter](#getter)
-    - [setter](#setter)
+    - [Setter](#setter)
     - [Static method](#static-method)
   - [Inheritance](#inheritance)
     - [Overriding methods](#overriding-methods)
   - [JSON](#json)
     - [Converting JSON to JavaScript Object](#converting-json-to-javascript-object)
-    - [Using a reviver function with JSON.parse()](#using-a-reviver-function-with-jsonparse)
+      - [Using a reviver function with JSON.parse()](#using-a-reviver-function-with-jsonparse)
     - [Converting Object to JSON](#converting-object-to-json)
-    - [Using a Filter Array with JSON.stringify](#using-a-filter-array-with-jsonstringify)
+      - [Using a Filter Array with JSON.stringify](#using-a-filter-array-with-jsonstringify)
 
 
 # Section - Object Oriented Programming (OOP)
 
 ## Classes
 
---*TBC - oop js 
+JavaScript is an object oriented programming language (??). Everything in JavaScript is an object, with its properties and methods. We create class to create an object. A Class is like `an object constructor, or a blueprint for creating objects`. We instantiate a class to create an object. The class defines attributes and methods (the behavior of the object).
 
-JavaScript is an object oriented programming language. Everything in JavScript is an object, with its properties and methods. We create class to create an object. A Class is like an object constructor, or a "blueprint" for creating objects. We instantiate a class to create an object. The class defines attributes and the behavior of the object, while the object, on the other hand, represents the class.
+(instantiate:örneklendirmek)
 
-Once we create a class we can create object from it whenever we want. Creating an object from a class is called class instantiation.
+Creating an object from a class is called `class instantiation`.
 
-In the object section, we saw how to create an object literal. Object literal is a singleton. If we want to get a similar object , we have to write it. However, class allows to create many objects. This helps to reduce amount of code and repetition of code.
+In the object section, we saw how to create `an object literal`. Object literal is a singleton. If we want to get a similar object , we have to write it. However, class allows to create many objects. This helps to reduce amount of code and repetition of code.
 
-### Defining a classes
+### Defining a class
 
 To define a class in JavaScript we need the keyword _class_ , the name of a class in **CamelCase** and block code(two curly brackets). Let us create a class name Person.
 
-```sh
+```js
 // syntax
 class ClassName {
     //  code goes here
@@ -43,7 +43,7 @@ class ClassName {
 
 ```
 
-**Example:**
+🧲 Example
 
 ```js
 class Person {
@@ -51,24 +51,24 @@ class Person {
 }
 ```
 
-We have created an Person class but it does not have any thing inside...
+We have created a Person class but it does not have any thing inside...
 
 ### Class Instantiation
 
-Instantiation class means creating an object from a class. We need the keyword _new_ and we call the name of the class after the word new.
+Instantiation class means creating an object from a class. We need the keyword _new_.
 
-Let us create a dog object from our Person class.
+Let us create a object from our Person class.
 
 ```js
 class Person {
   // code goes here
 }
+
 const person = new Person()
 console.log(person)
-```
 
-```sh
-Person {}
+// -- Output --
+// Person {}
 ```
 
 As you can see, we have created a person object. Since the class did not have any properties yet the object is also empty.
@@ -77,14 +77,14 @@ Let use the class constructor to pass different properties for the class.
 
 ### Class Constructor
 
-The constructor is a builtin function which allows as to create a blueprint for our object. The constructor function starts with a keyword constructor followed by a parenthesis. Inside the parenthesis we pass the properties of the object as parameter. We use the _this_ keyword to attach the constructor parameters with the class.
+The constructor is `a builtin function` which allows as to create a blueprint for our object. The constructor function starts with a keyword `constructor` followed by a parenthesis. Constructor method can have parameters. _this_ keyword is used  to attach the constructor parameters with the class.
 
-The following Person class constructor has firstName and lastName property. These properties are attached to the Person class using _this_ keyword. _This_ refers to the class itself.
+The following Person class constructor has firstName and lastName parameters. These parameters are attached to the Person object using _this_ keyword. _This_ refers to the object itself.
 
 ```js
 class Person {
   constructor(firstName, lastName) {
-    console.log(this) // Check the output from here
+    console.log(this)
     this.firstName = firstName
     this.lastName = lastName
   }
@@ -93,10 +93,9 @@ class Person {
 const person = new Person()
 
 console.log(person)
-```
 
-```sh
-Person {firstName: undefined, lastName:undefined}
+// -- Output --
+// Person {firstName: undefined, lastName:undefined}
 ```
 
 All the keys of the object are undefined. When ever we instantiate we should pass the value of the properties. Let us pass value at this time when we instantiate the class.
@@ -112,10 +111,9 @@ class Person {
 const person1 = new Person('Asabeneh', 'Yetayeh')
 
 console.log(person1)
-```
 
-```sh
-Person {firstName: "Asabeneh", lastName: "Yetayeh"}
+// -- Output --
+// Person {firstName: "Asabeneh", lastName: "Yetayeh"}
 ```
 
 As we have stated at the very beginning that once we create a class we can create many object using the class. Now, let us create many person objects using the Person class.
@@ -123,7 +121,7 @@ As we have stated at the very beginning that once we create a class we can creat
 ```js
 class Person {
   constructor(firstName, lastName) {
-    console.log(this) // Check the output from here
+    console.log(this) // Check the output : empty object
     this.firstName = firstName
     this.lastName = lastName
   }
@@ -136,17 +134,17 @@ const person3 = new Person('Abraham', 'Yetayeh')
 console.log(person1)
 console.log(person2)
 console.log(person3)
-```
 
-```sh
-Person {firstName: "Asabeneh", lastName: "Yetayeh"}
-Person {firstName: "Lidiya", lastName: "Tekle"}
-Person {firstName: "Abraham", lastName: "Yetayeh"}
+// -- Output --
+// Person {firstName: "Asabeneh", lastName: "Yetayeh"}
+// Person {firstName: "Lidiya", lastName: "Tekle"}
+// Person {firstName: "Abraham", lastName: "Yetayeh"}
 ```
 
 Using the class Person we created three persons object. As you can see our class did not many properties let us add more properties to the class.
 
 ```js
+
 class Person {
   constructor(firstName, lastName, age, country, city) {
     console.log(this) // Check the output from here
@@ -158,16 +156,15 @@ class Person {
   }
 }
 
-const person1 = new Person('Asabeneh', 'Yetayeh', 250, 'Finland', 'Helsinki')
+const person1 = new Person('Asabeneh', 'Yetayeh', 250, 'Finland', 'Helsinki');
 
-console.log(person1)
+console.log(person1);
+
+// -- Output --
+// Person {firstName: "Asabeneh", lastName: "Yetayeh", age: 250, country: "Finland", city: "Helsinki"}
 ```
 
-```sh
-Person {firstName: "Asabeneh", lastName: "Yetayeh", age: 250, country: "Finland", city: "Helsinki"}
-```
-
-### Default values with constructor
+### Default values for method parameters
 
 The constructor function properties may have a default value like other regular functions.
 
@@ -176,33 +173,26 @@ class Person {
   constructor(
     firstName = 'Asabeneh',
     lastName = 'Yetayeh',
-    age = 250,
-    country = 'Finland',
-    city = 'Helsinki'
   ) {
     this.firstName = firstName
     this.lastName = lastName
-    this.age = age
-    this.country = country
-    this.city = city
   }
 }
 
 const person1 = new Person() // it will take the default values
-const person2 = new Person('Lidiya', 'Tekle', 28, 'Finland', 'Espoo')
+const person2 = new Person('Lidiya', 'Tekle')
 
 console.log(person1)
 console.log(person2)
-```
 
-```sh
-Person {firstName: "Asabeneh", lastName: "Yetayeh", age: 250, country: "Finland", city: "Helsinki"}
-Person {firstName: "Lidiya", lastName: "Tekle", age: 28, country: "Finland", city: "Espoo"}
-```
+// -- Output --
+// Person {firstName: "Asabeneh", lastName: "Yetayeh"}
+// Person {firstName: "Lidiya", lastName: "Tekle"}
 
+```
 ### Class methods
 
-The constructor inside a class is a builtin function which allow us to create a blueprint for the object. In a class we can create class methods. Methods are JavaScript functions inside the class. Let us create some class methods.
+In a class we can create class methods. Methods are JavaScript functions inside the class. Let us create some class methods.
 
 ```js
 class Person {
@@ -213,9 +203,10 @@ class Person {
     this.country = country
     this.city = city
   }
+
   getFullName() {
-    const fullName = this.firstName + ' ' + this.lastName
-    return fullName
+    const fullName = this.firstName + ' ' + this.lastName;
+    return fullName;
   }
 }
 
@@ -224,49 +215,45 @@ const person2 = new Person('Lidiya', 'Tekle', 28, 'Finland', 'Espoo')
 
 console.log(person1.getFullName())
 console.log(person2.getFullName())
-```
 
-```sh
-Asabeneh Yetayeh
-test.js:19 Lidiya Tekle
+// -- Output --
+// Asabeneh Yetayeh
+// test.js:19 Lidiya Tekle
 ```
 
 ### Properties with initial value
 
-When we create a class for some properties we may have an initial value. For instance if you are playing a game, you starting score will be zero. So, we may have a starting score or score which is zero. In other way, we may have an initial skill and we will acquire some skill after some time.
+If you want to give initial value for fields of a class, you can do it in  the constructor method.
 
 ```js
 class Person {
-  constructor(firstName, lastName, age, country, city) {
+  constructor(firstName, lastName) {
     this.firstName = firstName
     this.lastName = lastName
-    this.age = age
-    this.country = country
-    this.city = city
     this.score = 0
     this.skills = []
   }
+
   getFullName() {
     const fullName = this.firstName + ' ' + this.lastName
     return fullName
   }
 }
 
-const person1 = new Person('Asabeneh', 'Yetayeh', 250, 'Finland', 'Helsinki')
-const person2 = new Person('Lidiya', 'Tekle', 28, 'Finland', 'Espoo')
+const person1 = new Person('Asabeneh', 'Yetayeh')
+const person2 = new Person('Lidiya', 'Tekle')
 
 console.log(person1.score)
 console.log(person2.score)
 
 console.log(person1.skills)
 console.log(person2.skills)
-```
 
-```sh
-0
-0
-[]
-[]
+// -- Output --
+// 0
+// 0
+// []
+// []
 ```
 
 A method could be regular method or a getter or a setter. Let us see, getter and setter.
@@ -277,12 +264,9 @@ The get method allow us to access value from the object. We write a get method u
 
 ```js
 class Person {
-  constructor(firstName, lastName, age, country, city) {
+  constructor(firstName, lastName) {
     this.firstName = firstName
     this.lastName = lastName
-    this.age = age
-    this.country = country
-    this.city = city
     this.score = 0
     this.skills = []
   }
@@ -298,58 +282,61 @@ class Person {
   }
 }
 
-const person1 = new Person('Asabeneh', 'Yetayeh', 250, 'Finland', 'Helsinki')
-const person2 = new Person('Lidiya', 'Tekle', 28, 'Finland', 'Espoo')
+const person1 = new Person('Asabeneh', 'Yetayeh')
+const person2 = new Person('Lidiya', 'Tekle')
 
 console.log(person1.getScore) // We do not need parenthesis to call a getter method
 console.log(person2.getScore)
 
 console.log(person1.getSkills)
 console.log(person2.getSkills)
+
+// -- Output --
+// 0
+// 0
+// []
+// []
 ```
 
-```sh
-0
-0
-[]
-[]
-```
-
-### setter
+### Setter
 
 The setter method allow us to modify the value of certain properties. We write a setter method using keyword _set_ followed by a function. See the example bellow.
 
 ```js
+
 class Person {
-  constructor(firstName, lastName, age, country, city) {
+  constructor(firstName, lastName) {
     this.firstName = firstName
     this.lastName = lastName
-    this.age = age
-    this.country = country
-    this.city = city
     this.score = 0
     this.skills = []
   }
+
   getFullName() {
     const fullName = this.firstName + ' ' + this.lastName
     return fullName
   }
+
   get getScore() {
     return this.score
   }
+
   get getSkills() {
     return this.skills
   }
+
   set setScore(score) {
     this.score += score
   }
+
   set setSkill(skill) {
     this.skills.push(skill)
   }
+
 }
 
-const person1 = new Person('Asabeneh', 'Yetayeh', 250, 'Finland', 'Helsinki')
-const person2 = new Person('Lidiya', 'Tekle', 28, 'Finland', 'Espoo')
+const person1 = new Person('Asabeneh', 'Yetayeh')
+const person2 = new Person('Lidiya', 'Tekle')
 
 person1.setScore = 1
 person1.setSkill = 'HTML'
@@ -368,23 +355,20 @@ console.log(person1.skills)
 console.log(person2.skills)
 ```
 
-```sh
-1
-1
-["HTML", "CSS", "JavaScript"]
-["Planning", "Managing", "Organizing"]
+```js
+// 1
+// 1
+// ["HTML", "CSS", "JavaScript"]
+// ["Planning", "Managing", "Organizing"]
 ```
 
 Do not be puzzled by the difference between regular method and a getter. If you know how to make a regular method you are good. Let us add regular method called getPersonInfo in the Person class.
 
 ```js
 class Person {
-  constructor(firstName, lastName, age, country, city) {
+  constructor(firstName, lastName) {
     this.firstName = firstName
     this.lastName = lastName
-    this.age = age
-    this.country = country
-    this.city = city
     this.score = 0
     this.skills = []
   }
@@ -404,6 +388,7 @@ class Person {
   set setSkill(skill) {
     this.skills.push(skill)
   }
+
   getPersonInfo() {
     let fullName = this.getFullName()
     let skills =
@@ -443,15 +428,15 @@ console.log(person2.getPersonInfo())
 console.log(person3.getPersonInfo())
 ```
 
-```sh
-1
-1
-["HTML", "CSS", "JavaScript"]
-["Planning", "Managing", "Organizing"]
-[]
-Asabeneh Yetayeh is 250. He lives Helsinki, Finland. He knows HTML, CSS and JavaScript
-Lidiya Tekle is 28. He lives Espoo, Finland. He knows Planning, Managing and Organizing
-John Doe is 50. He lives Mars city, Mars.
+```js
+// 1
+// 1
+// ["HTML", "CSS", "JavaScript"]
+// ["Planning", "Managing", "Organizing"]
+// []
+// Asabeneh Yetayeh is 250. He lives Helsinki, Finland. He knows HTML, CSS and JavaScript
+// Lidiya Tekle is 28. He lives Espoo, Finland. He knows Planning, Managing and Organizing
+// John Doe is 50. He lives Mars city, Mars.
 ```
 
 ### Static method
@@ -460,12 +445,9 @@ The static keyword defines a static method for a class. Static methods are not c
 
 ```js
 class Person {
-  constructor(firstName, lastName, age, country, city) {
+  constructor(firstName, lastName) {
     this.firstName = firstName
     this.lastName = lastName
-    this.age = age
-    this.country = country
-    this.city = city
     this.score = 0
     this.skills = []
   }
@@ -535,9 +517,9 @@ console.log(Person.favoriteSkill())
 console.log(Person.showDateTime())
 ```
 
-```sh
-Node
-15.1.2020 23:56
+```js
+// Node
+// 15.1.2020 23:56
 ```
 
 The static methods are methods which can be used as utility functions.
@@ -548,7 +530,7 @@ Using inheritance we can access all the properties and the methods of the parent
 
 ```js
 // syntax
-class ChildClassName extends {
+class ChildClass extends ParentClass {
  // code goes here
 }
 ```
@@ -562,19 +544,19 @@ class Student extends Person {
   }
 }
 
-const s1 = new Student('Asabeneh', 'Yetayeh', 'Finland', 250, 'Helsinki')
+const s1 = new Student('Asabeneh', 'Yetayeh')
 console.log(s1)
 console.log(s1.saySomething())
 console.log(s1.getFullName())
 console.log(s1.getPersonInfo())
 ```
 
-```sh
-Student {firstName: "Asabeneh", lastName: "Yetayeh", age: "Finland", country: 250, city: "Helsinki", …}
-I am a child of the person class
-Asabeneh Yetayeh
-Student {firstName: "Asabeneh", lastName: "Yetayeh", age: "Finland", country: 250, city: "Helsinki", …}
-Asabeneh Yetayeh is Finland. He lives Helsinki, 250.
+```js
+// Student {firstName: "Asabeneh", lastName: "Yetayeh", age: "Finland", country: 250, city: "Helsinki", …}
+// I am a child of the person class
+// Asabeneh Yetayeh
+// Student {firstName: "Asabeneh", lastName: "Yetayeh", age: "Finland", country: 250, city: "Helsinki", …}
+// Asabeneh Yetayeh is Finland. He lives Helsinki, 250.
 ```
 
 ### Overriding methods
@@ -583,8 +565,8 @@ As you can see, we manage to access all the methods in the Person Class and we u
 
 ```js
 class Student extends Person {
-  constructor(firstName, lastName, age, country, city, gender) {
-    super(firstName, lastName, age, country, city)
+  constructor(firstName, lastName, gender) {
+    super(firstName, lastName)
     this.gender = gender
   }
 
@@ -606,15 +588,9 @@ class Student extends Person {
   }
 }
 
-const s1 = new Student(
-  'Asabeneh',
-  'Yetayeh',
-  250,
-  'Finland',
-  'Helsinki',
-  'Male'
-)
-const s2 = new Student('Lidiya', 'Tekle', 28, 'Finland', 'Helsinki', 'Female')
+const s1 = new Student('Asabeneh','Yetayeh','Male')
+const s2 = new Student('Lidiya', 'Tekle', 'Female')
+
 s1.setScore = 1
 s1.setSkill = 'HTML'
 s1.setSkill = 'CSS'
@@ -636,17 +612,17 @@ console.log(s2.getFullName())
 console.log(s2.getPersonInfo())
 ```
 
-```sh
-Student {firstName: "Asabeneh", lastName: "Yetayeh", age: 250, country: "Finland", city: "Helsinki", …}
-Student {firstName: "Lidiya", lastName: "Tekle", age: 28, country: "Finland", city: "Helsinki", …}
-I am a child of the person class
-Asabeneh Yetayeh
-Student {firstName: "Asabeneh", lastName: "Yetayeh", age: 250, country: "Finland", city: "Helsinki", …}
-Asabeneh Yetayeh is 250. He lives in Helsinki, Finland. He knows HTML, CSS and JavaScript
-I am a child of the person class
-Lidiya Tekle
-Student {firstName: "Lidiya", lastName: "Tekle", age: 28, country: "Finland", city: "Helsinki", …}
-Lidiya Tekle is 28. She lives in Helsinki, Finland. He knows Planning, Managing and Organizing
+```js
+// Student {firstName: "Asabeneh", lastName: "Yetayeh", age: 250, country: "Finland", city: "Helsinki", …}
+// Student {firstName: "Lidiya", lastName: "Tekle", age: 28, country: "Finland", city: "Helsinki", …}
+// I am a child of the person class
+// Asabeneh Yetayeh
+// Student {firstName: "Asabeneh", lastName: "Yetayeh", age: 250, country: "Finland", city: "Helsinki", …}
+// Asabeneh Yetayeh is 250. He lives in Helsinki, Finland. He knows HTML, CSS and JavaScript
+// I am a child of the person class
+// Lidiya Tekle
+// Student {firstName: "Lidiya", lastName: "Tekle", age: 28, country: "Finland", city: "Helsinki", …}
+// Lidiya Tekle is 28. She lives in Helsinki, Finland. He knows Planning, Managing and Organizing
 ```
 
 Now, the getPersonInfo method has been overridden and it identifies if the person is male or female.
@@ -654,9 +630,9 @@ Now, the getPersonInfo method has been overridden and it identifies if the perso
 
 ## JSON
 
-JSON stands for JavaScript Object Notation. The JSON syntax is derived from JavaScript object notation syntax, but the JSON format is text or string only. JSON is a light weight data format for storing and transporting. JSON is mostly used when data is sent from a server to a client. JSON is an easier-to-use alternative to XML.
+JSON stands for JavaScript Object Notation. The JSON syntax is derived from `JavaScript object notation syntax`, but the JSON format is text or string only. JSON is a lightweight data format for storing and transporting. JSON is mostly used when data is sent from a server to a client. JSON is an easier-to-use alternative to XML.
 
-**Example:**
+🧲 Example :
 
 ```js
 {
@@ -683,11 +659,11 @@ JSON stands for JavaScript Object Notation. The JSON syntax is derived from Java
 }
 ```
 
-The above JSON example is not much different from a normal object. Then, what is the difference ? The difference is the key of a JSON object should be with double quotes or it should be a string. JavaScript Object and JSON are very similar that we can change JSON to Object and Object to JSON.
+The above JSON example is not much different from a normal object. Then, what is the difference ? The difference is `the key of a JSON object` should be with `double quotes` or it should be a string. `JavaScript Object and JSON` are very similar that we can change JSON to Object and Object to JSON.
 
-Let us see the above example in more detail, it starts with a curly bracket. Inside the curly bracket, there is "users" key which has a value array. Inside the array we have different objects and each objects has keys, each keys has to have double quotes. For instance, we use "firstNaMe" instead of just firstName, however in object we use keys without double quotes. This is the major difference between an object and a JSON. Let's see more examples about JSON.
+Let us see the above example in more detail, it starts with a curly bracket. Inside the curly bracket, there is "users" key which has a value array. Inside the array we have different objects and each objects has keys, each keys has to have double quotes. For instance, we use "firstName" instead of just firstName, however in object we use keys without double quotes. This is the major difference between an object and a JSON. Let's see more examples about JSON.
 
-**Example:**
+🧲 Example: 
 
 ```js
 {
@@ -789,7 +765,7 @@ Let us see the above example in more detail, it starts with a curly bracket. Ins
 
 ### Converting JSON to JavaScript Object
 
-Mostly we fetch JSON data from HTTP response or from a file, but we can store the JSON as a string and we can change to Object for sake of demonstration. In JavaScript the keyword _JSON_ has _parse()_ and _stringify()_ methods. When we want to change the JSON to an object we parse the JSON using _JSON.parse()_. When we want to change the object to JSON we use _JSON.stringify()_.
+Mostly we fetch JSON data from HTTP response or from a file, but we can store the JSON as a string and we can change to Object for sake of demonstration. In JavaScript the keyword JSON has `parse() and stringify()` methods. When we want to change the JSON to an object we parse the JSON using `JSON.parse()`. When we want to change the object to JSON, we use `JSON.stringify()`.
 
 ➖ JSON.parse()
 
@@ -813,12 +789,6 @@ const usersText = `{
     "email":"asab@asb.com"
   },
   {
-    "firstName":"Alex",
-    "lastName":"James",
-    "age":25,
-    "email":"alex@alex.com"
-  },
-  {
   "firstName":"Lidiya",
   "lastName":"Tekle",
   "age":28,
@@ -831,7 +801,7 @@ const usersObj = JSON.parse(usersText, undefined, 4)
 console.log(usersObj)
 ```
 
-### Using a reviver function with JSON.parse()
+#### Using a reviver function with JSON.parse()
 
 To use the reviver function as a formatter, we put the keys we want to format first name and last name value. Let us say, we are interested to format the firstName and lastName of the JSON data .
 
@@ -871,7 +841,7 @@ The _JSON.parse()_ is very handy to use. You do not have to pass optional parame
 
 ### Converting Object to JSON
 
-When we want to change the object to JSON we use _JSON.stringify()_. The stringify method takes one required parameter and two optional parameters. The replacer is used as filter and the space is an indentations. If we do not want to filter out any of the keys from the object we can just pass undefined.
+When we want to change the object to JSON, we use `JSON.stringify()`. The stringify method takes one required parameter and two optional parameters. The replacer is used as filter and the space is an indentations. If we do not want to filter out any of the keys from the object we can just pass undefined.
 
 ```js
 JSON.stringify(obj, replacer, space)
@@ -1053,7 +1023,7 @@ console.log(txt) // text means JSON- because json is a string form of an object.
 }
 ```
 
-### Using a Filter Array with JSON.stringify
+#### Using a Filter Array with JSON.stringify
 
 Now, lets use the replacer as a filter. The user object has long list of keys but we are interested only in few of them. We put the keys we want to keep in array as show in the example and use it the place of the replacer.
 

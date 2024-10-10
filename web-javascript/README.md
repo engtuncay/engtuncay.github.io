@@ -54,7 +54,7 @@ CONTENT |Note|
 [Regular Expression](./js-notes-2-6-reg-ex.md) |
 [JSON](./js-notes-2-7-json.md) |
 [Window Methods](./js-notes-3-window-methods.md)|
-[OOP Principles](./js-notes-4-OOP-tor.md) |
+[OOP Principles](./js-notes-4-OOP-tor.md) | ✔ 
 [Storage](./js-notes-5-storage.md) | ✔ 
 [Promise,Async-Await and Closure](./js-notes-6-promise.md) | ✔ 
 [Clean Code](./js-notes-7-clean-code.md) |

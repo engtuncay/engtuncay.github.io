@@ -2,7 +2,7 @@
 - [Useful Emoji List And Usage Recommendations](#useful-emoji-list-and-usage-recommendations)
   - [For Subheaders](#for-subheaders)
   - [For Tips](#for-tips)
-  - [For Notes](#for-notes)
+  - [For Notes (info)](#for-notes-info)
   - [For Questions](#for-questions)
   - [For Warning Notes](#for-warning-notes)
   - [For Very Interesting Notes](#for-very-interesting-notes)
@@ -34,7 +34,7 @@
 
 ---
 
-## For Notes
+## For Notes (info)
 
 📝 memo 
 
