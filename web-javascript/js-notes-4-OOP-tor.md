@@ -7,7 +7,7 @@
     - [Default values with constructor](#default-values-with-constructor)
     - [Class methods](#class-methods)
     - [Properties with initial value](#properties-with-initial-value)
-    - [getter](#getter)
+    - [Getter](#getter)
     - [setter](#setter)
     - [Static method](#static-method)
   - [Inheritance](#inheritance)
@@ -22,6 +22,8 @@
 # Section - Object Oriented Programming (OOP)
 
 ## Classes
+
+--*TBC - oop js 
 
 JavaScript is an object oriented programming language. Everything in JavScript is an object, with its properties and methods. We create class to create an object. A Class is like an object constructor, or a "blueprint" for creating objects. We instantiate a class to create an object. The class defines attributes and the behavior of the object, while the object, on the other hand, represents the class.
 
@@ -49,7 +51,7 @@ class Person {
 }
 ```
 
-We have created an Person class but it does not have any thing inside.
+We have created an Person class but it does not have any thing inside...
 
 ### Class Instantiation
 
@@ -269,7 +271,7 @@ console.log(person2.skills)
 
 A method could be regular method or a getter or a setter. Let us see, getter and setter.
 
-### getter
+### Getter
 
 The get method allow us to access value from the object. We write a get method using keyword _get_ followed by a function. Instead of accessing properties directly from the object we use getter to get the value. See the example bellow
 

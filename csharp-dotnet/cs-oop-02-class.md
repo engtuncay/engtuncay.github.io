@@ -223,7 +223,7 @@ You will learn more about *Access Modifiers* in a later chapter.
 
 Tip: As you continue to read, you will also learn more about other class members, such as constructors and properties.
 
---*LINK - class csharp
+--*TBC - class csharp
 
 # Constructors
 

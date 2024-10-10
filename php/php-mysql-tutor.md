@@ -608,7 +608,7 @@ $conn = null;
 
 ```
 
---*LINK - tbc
+--*TBC - pdo mysql
 
 # PHP MySQL Get Last Inserted ID
 

@@ -992,7 +992,7 @@ b3 = 'z'; // => 0x7A
 - bytes1, bytes2, …, bytes32 store a sequence of bytes.
 - Has member called length.
 
---*LINK - tbc
+--*TBC - tbc
 
 ## 32 - Dynamically-sized arrays (draft)
 
