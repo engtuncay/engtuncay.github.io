@@ -1,13 +1,11 @@
 
-<h2> 2-3 Fundamentals-3 If and Loops Functions</h2>
+<h2> (2-3) Fundamentals 3 - If and Loops Functions</h2>
 
-<h3>Source</h3>
+Source : https://javascript.info/function-basics ( Some additions may be added in some parts)
 
-- These are articles from Javascript.info [Js Info - Functions](https://javascript.info/function-basics) 
+[Back To Home](../README.md)
 
-- Some additions may be added in some parts.
-
-* renewed
+--*TBC - js core if loops
 
 <h3>Contents</h3>
 
@@ -21,7 +19,7 @@
   - [Non-traditional use of '?'](#non-traditional-use-of-)
 - [Logical operators](#logical-operators)
   - [|| (OR)](#-or)
-  - [OR "||" finds the first truthy value \[#or-finds-the-first-truthy-value\]](#or--finds-the-first-truthy-value-or-finds-the-first-truthy-value)
+  - [OR "||" finds the first truthy value](#or--finds-the-first-truthy-value)
   - [\&\& (AND)](#-and)
   - [AND "\&\&" finds the first falsy value](#and--finds-the-first-falsy-value)
   - [! (NOT)](#-not)
@@ -36,7 +34,7 @@
   - [The "for" loop](#the-for-loop)
     - [Skipping parts](#skipping-parts)
   - [Breaking the loop](#breaking-the-loop)
-  - [Continue to the next iteration \[#continue\]](#continue-to-the-next-iteration-continue)
+  - [Continue to the next iteration](#continue-to-the-next-iteration)
   - [Labels for break/continue](#labels-for-breakcontinue)
   - [Summary](#summary-1)
 - [The "switch" statement](#the-switch-statement)
@@ -50,7 +48,7 @@
 
 Sometimes, we need to perform different actions based on different conditions.
 
-To do that, we can use the `if` statement and the conditional operator `?`, that's also called a "question mark" operator.
+To do that, we can use the `if` statement and `the conditional operator` `?`, that's also called `a question mark` operator.
 
 ## The "if" statement
 
@@ -58,7 +56,7 @@ The `if(...)` statement evaluates a condition in parentheses and, if the result 
 
 For example:
 
-```js run
+```js
 let year = prompt('In which year was ECMAScript-2015 specification published?', '');
 
 *!*
@@ -352,7 +350,7 @@ if (hour < 10 || hour > 18 || isWeekend) {
 }
 ```
 
-## OR "||" finds the first truthy value [#or-finds-the-first-truthy-value]
+## OR "||" finds the first truthy value
 
 The logic described above is somewhat classical. Now, let's bring in the "extra" features of JavaScript.
 
@@ -984,7 +982,7 @@ The `break` directive is activated at the line `(*)` if the user enters an empty
 
 The combination "infinite loop + `break` as needed" is great for situations when a loop's condition must be checked not in the beginning or end of the loop, but in the middle or even in several places of its body.
 
-## Continue to the next iteration [#continue]
+## Continue to the next iteration
 
 The `continue` directive is a "lighter version" of `break`. It doesn't stop the whole loop. Instead, it stops the current iteration and forces the loop to start a new one (if the condition allows).
 

@@ -3,22 +3,24 @@
 
 Source : https://javascript.info/modules-intro (some modifications may be done.)
 
+[Back To Home](../README.md)
+
 <h3>Content</h3>
 
-- [Modules, introduction](#modules-introduction)
+- [(M1) Modules, introduction](#m1-modules-introduction)
   - [What is a module?](#what-is-a-module)
   - [Core module features](#core-module-features)
     - [import.meta](#importmeta)
     - [In a module, "this" is undefined](#in-a-module-this-is-undefined)
   - [Browser-specific features](#browser-specific-features)
-    - [Module scripts are deferred](#module-scripts-are-deferred)
+    - [Module scripts are deferred (!)](#module-scripts-are-deferred-)
     - [Async works on inline scripts](#async-works-on-inline-scripts)
     - [External scripts](#external-scripts)
     - [No "bare" modules allowed (without import path)](#no-bare-modules-allowed-without-import-path)
     - [Compatibility, "nomodule"](#compatibility-nomodule)
   - [Build tools](#build-tools)
   - [Summary](#summary)
-- [Export and Import](#export-and-import)
+- [(M2) Export and Import](#m2-export-and-import)
   - [Export before declarations](#export-before-declarations)
   - [Export apart from declarations](#export-apart-from-declarations)
   - [Import \*](#import-)
@@ -30,12 +32,12 @@ Source : https://javascript.info/modules-intro (some modifications may be done.)
   - [Re-export and (export ... from) syntax](#re-export-and-export--from-syntax)
     - [Re-exporting the default export](#re-exporting-the-default-export)
   - [Summary](#summary-1)
-- [Dynamic imports](#dynamic-imports)
+- [(M3) Dynamic imports](#m3-dynamic-imports)
   - [The import() expression](#the-import-expression)
 
 
 
-# Modules, introduction
+# (M1) Modules, introduction
 
 As our application grows bigger, we want to split it into multiple files, so called "modules". A module may contain a class or a library of functions for a specific purpose.
 
@@ -239,13 +241,11 @@ export let admin = {
 };
 ```
 
-🔨 Important : what if same exported identifier (variable,reference etc) is used in multiple modules
+🔨 Very Important : what if same exported identifier (variable,reference etc) is used in multiple modules
 
 If this module is imported from multiple files, the module is only evaluated the first time, `admin` object is created, and then passed to all further importers.
 
 All importers get exactly the one and only `admin` object:
-
---*TBC - modules
 
 ```js
 // 📁 1.js
@@ -304,10 +304,8 @@ Further importers can call it, and it correctly shows the current user:
 // 📁 another.js
 import {sayHi} from './admin.js';
 
-sayHi(); // Ready to serve, *!*Pete*/!*!
+sayHi(); // Ready to serve, *!*Pete*!*
 ```
-
---*LINK - TBC
 
 ### import.meta
 
@@ -315,7 +313,7 @@ The object `import.meta` contains the information about the current module.
 
 Its content depends on the environment. In the browser, it contains the URL of the script, or a current webpage URL if inside HTML:
 
-```html run height=0
+```html
 <script type="module">
   alert(import.meta.url); // script URL
   // for an inline script - the URL of the current HTML-page
@@ -331,7 +329,7 @@ In a module, top-level `this` is undefined.
 
 Compare it to non-module scripts, where `this` is a global object:
 
-```html run height=0
+```html
 <script>
   alert(this); // window
 </script>
@@ -347,7 +345,7 @@ There are also several browser-specific differences of scripts with `type="modul
 
 You may want skip this section for now if you're reading for the first time, or if you don't use JavaScript in a browser.
 
-### Module scripts are deferred
+### Module scripts are deferred (!)
 
 Module scripts are *always* deferred, same effect as `defer` attribute (described in the chapter [script-async-defer](https://javascript.info/script-async-defer), for both external and inline scripts.
 
@@ -360,7 +358,7 @@ As a side-effect, module scripts always "see" the fully loaded HTML-page, includ
 
 For instance:
 
-```html run
+```html
 <script type="module">
   alert(typeof button); // object: the script can 'see' the button below
   // as modules are deferred, the script runs after the whole page is loaded
@@ -381,8 +379,6 @@ Please note: the second script actually runs before the first! So we'll see `und
 That's because modules are deferred, so we wait for the document to be processed. The regular script runs immediately, so we see its output first.
 
 When using modules, we should be aware that the HTML page shows up as it loads, and JavaScript modules run after that, so the user may see the page before the JavaScript application is ready. Some functionality may not work yet. We should put "loading indicators", or otherwise ensure that the visitor won't be confused by that. 
-
-(to:html önce render edileceği için bazı yerler boş görünebilir, kullanıcının kafası karışmaması için loading göstergeleri eklemeliyiz.)
 
 ### Async works on inline scripts
 
@@ -423,7 +419,7 @@ External scripts that have `type="module"` are different in two aspects:
 ```html
 <!-- another-site.com must supply Access-Control-Allow-Origin -->
 <!-- otherwise, the script won't execute -->
-<script type="module" src="*!*http://another-site.com/their.js*/!*"></script>
+<script type="module" src="http://another-site.com/their.js"></script>
 ```
 
 That ensures better security by default.
@@ -445,7 +441,7 @@ Certain environments, like Node.js or bundle tools allow bare modules, without a
 
 Old browsers do not understand `type="module"`. Scripts of an unknown type are just ignored. For them, it's possible to provide a fallback using the `nomodule` attribute:
 
-```html run
+```html
 <script type="module">
   alert("Runs in modern browsers");
 </script>
@@ -502,7 +498,7 @@ In production, people often use bundlers such as [Webpack](https://webpack.js.or
 
 In the next chapter we'll see more examples of modules, and how things can be exported/imported.
 
-# Export and Import
+# (M2) Export and Import
 
 Export and import directives have several syntax variants.
 
@@ -723,8 +719,6 @@ export class { // Error! (non-default export needs a name)
 }
 ```     
 
---*LINK TBC
-
 ### The "default" name (export as default separately)
 
 In some situations the `default` keyword is used to reference the default export.
@@ -773,6 +767,8 @@ import * as user from './user.js';
 let User = user.default; // the default export
 new User('John');
 ```
+
+--*TBC - modules
 
 ### A word against default exports
 
@@ -963,7 +959,7 @@ if (something) {
 
 We'll see dynamic imports in the next article.
 
-# Dynamic imports
+# (M3) Dynamic imports
 
 Export and import statements that we covered in previous chapters are called "static". The syntax is very simple and strict.
 

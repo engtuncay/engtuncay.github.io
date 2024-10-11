@@ -1,11 +1,9 @@
 
 <h2>9 - Classes</h2>
 
-<h3>Source</h3>
+Source : https://javascript.info/class (Some additions may be added in some parts.)
 
-- These are articles from Javascript.info [Js Info - Class](https://javascript.info/class) 
-
-- Some additions may be added in some parts.
+[Back To Home](../README.md)
 
 <h3>Contents</h3>
 
@@ -16,7 +14,7 @@
   - [Not just a syntactic sugar](#not-just-a-syntactic-sugar)
   - [Class Expression](#class-expression)
   - [Getters/setters](#getterssetters)
-  - [Computed names \[...\]](#computed-names-)
+  - [Computed names](#computed-names)
   - [Class fields](#class-fields)
     - [Making bound methods with class fields](#making-bound-methods-with-class-fields)
   - [Summary](#summary)
@@ -25,14 +23,14 @@
   - [Overriding a method](#overriding-a-method)
   - [Overriding constructor](#overriding-constructor)
     - [Overriding class fields: a tricky note](#overriding-class-fields-a-tricky-note)
-  - [Super: internals, \[\[HomeObject\]\]](#super-internals-homeobject)
+  - [Super: internals, `[[HomeObject]]`](#super-internals-homeobject)
     - [`[[HomeObject]]`](#homeobject)
     - [Methods are not "free"](#methods-are-not-free)
     - [Methods, not function properties](#methods-not-function-properties)
   - [Summary](#summary-1)
 - [Static properties and methods](#static-properties-and-methods)
   - [Static properties](#static-properties)
-  - [Inheritance of static properties and methods \[#statics-and-inheritance\]](#inheritance-of-static-properties-and-methods-statics-and-inheritance)
+  - [Inheritance of static properties and methods](#inheritance-of-static-properties-and-methods)
   - [Summary](#summary-2)
 - [Private and protected properties and methods](#private-and-protected-properties-and-methods)
   - [A real-life example](#a-real-life-example)
@@ -325,7 +323,7 @@ user = new User(""); // Name is too short.
 
 Technically, such class declaration works by creating getters and setters in `User.prototype`.
 
-## Computed names [...]
+## Computed names
 
 Here's an example with a computed method name using brackets `[...]`:
 
@@ -862,9 +860,10 @@ Luckily, this behavior only reveals itself if an overridden field is used in the
 If it becomes a problem, one can fix it by using methods or getters/setters instead of fields.
 
 
-## Super: internals, [[HomeObject]]
+## Super: internals, `[[HomeObject]]`
 
-```warn header="Advanced information"
+header="Advanced information"
+```warn 
 If you're reading the tutorial for the first time - this section may be skipped.
 
 It's about the internal mechanisms behind inheritance and `super`.
@@ -1241,7 +1240,7 @@ That is the same as a direct assignment to `Article`:
 Article.publisher = "Ilya Kantor";
 ```
 
-## Inheritance of static properties and methods [#statics-and-inheritance]
+## Inheritance of static properties and methods
 
 Static properties and methods are inherited.
 
