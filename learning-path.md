@@ -1,4 +1,3 @@
-
 Csharp + wpf + web api
 Php
 Javascript + node
@@ -10,21 +9,19 @@ Css
 Svelte
 Tailwind
 
-Mssql
 Mysql
+Mssql
 Sqlite
-Firebird (gelecek)
 
 Inkscape (grafik için)
 
+Firebird (gelecek)
 React + React Native (gelecek)
-
 Windows+IIS (gelecek)
-
+---
 Flutter (gelecek-2)
 Docker (gelecek-2)
 Devops (gelecek-2)
-
 ---
 
 Java

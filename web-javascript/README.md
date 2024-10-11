@@ -52,14 +52,14 @@ CONTENT |Note|
 [Error Handling](./js-notes-2-4-error-handling.md) | ✔ 
 [Map,Set,Destructuring,Spread,Rest](./js-notes-2-5-map-set.md) | ✔ 
 [Regular Expression](./js-notes-2-6-reg-ex.md) |
-[JSON](./js-notes-2-7-json.md) |
+[JSON](./js-notes-2-7-json.md) | ✔
 [Window Methods](./js-notes-3-window-methods.md)|
 [OOP Principles](./js-notes-4-OOP-tor.md) | ✔ 
 [Storage](./js-notes-5-storage.md) | ✔ 
 [Promise,Async-Await and Closure](./js-notes-6-promise.md) | ✔ 
 [Clean Code](./js-notes-7-clean-code.md) |
 [Dom](./js-notes-8-dom.md) | ✔ 
-[13 Modules](./js-info/js-intro-13-1-Modules.md)|
+[13 Modules](./js-info/js-intro-13-1-Modules.md)| ✔
 
 
 # Js Info Notes - Advanced Javascript
@@ -77,7 +77,7 @@ CONTENT |Note|
 [5-1 Advanced Data Types-1](./js-info/js-intro-05-01-advanced-data-types.md)|
 [5-2 Advanced Data Types-2](./js-info/js-intro-05-02-advanced-data-types-2.md)|
 [9 Classes](./js-info/js-intro-09-1-Classes.md)|
-[13 Modules](./js-info/js-intro-13-1-Modules.md)|
+[13 Modules](./js-info/js-intro-13-1-Modules.md)| ✔
 
 [Javascript W3 Tutorial](./w3/readme.md)
 

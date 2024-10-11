@@ -1,9 +1,7 @@
 
-Sources : 
+<h2>Regular Expression in Javascript</h2>
 
-- Main source, https://github.com/Asabeneh/30-Days-Of-JavaScript 
-
-There may be changes or additions to some section of the tutorial.
+Sources : https://github.com/Asabeneh/30-Days-Of-JavaScript (some modifications may be done.)
 
 - [Section - Regular Expressions](#section---regular-expressions)
   - [Regular Expressions](#regular-expressions)
@@ -16,15 +14,7 @@ There may be changes or additions to some section of the tutorial.
       - [Testing for  a match](#testing-for--a-match)
       - [Array containing all of the match](#array-containing-all-of-the-match)
       - [Replacing a substring](#replacing-a-substring)
-    - [Square Bracket](#square-bracket)
-    - [Escape character(\\) in RegExp](#escape-character-in-regexp)
-    - [One or more times(+)](#one-or-more-times)
-    - [Period(.)](#period)
-    - [Zero or more times (\*)](#zero-or-more-times-)
-    - [Zero or one times (?)](#zero-or-one-times-)
-    - [Quantifier in RegExp](#quantifier-in-regexp)
-    - [Cart ^](#cart-)
-    - [Exact match](#exact-match)
+    - [Meta Characters](#meta-characters)
 
 # Section - Regular Expressions
 
@@ -200,9 +190,11 @@ matches = txt.replace(/%/g, '')
 console.log(matches)  
 ```
 
-```sh
+```text
 I am teacher and  I love teaching.There is nothing as more rewarding as educating and empowering people.I found teaching more interesting than any other jobs.Does this motivate you to be a teacher.
 ```
+
+### Meta Characters
 
 * []:  A set of characters
   * [a-c] means, a or b or c
@@ -238,7 +230,7 @@ I am teacher and  I love teaching.There is nothing as more rewarding as educatin
 
 Let's use example to clarify the above meta characters
 
-### Square Bracket
+➖ Square Bracket
 
 Let's use square bracket to include lower and upper case
 
@@ -283,7 +275,7 @@ console.log(matches)
 
 Using the square bracket and or operator , we manage to extract Apple, apple, Banana and banana.
 
-### Escape character(\\) in RegExp
+➖ Escape character(\\) in RegExp
 
 ```js
 const pattern = /\d/g  // d is a special character which means digits
@@ -301,7 +293,7 @@ const matches = txt. match(pattern)
 console.log(matches)  // ["12", "2020"], this is not what we want
 ```
                         
-### One or more times(+)
+➖ One or more times(+)
 
 ```js
 const pattern = /\d+/g  // d is a special character which means digits
@@ -310,7 +302,7 @@ const matches = txt. match(pattern)
 console.log(matches)  // ["12", "2020"], this is not what we want
 ```
 
-### Period(.)
+➖ Period(.)
 
 ```js
 const pattern = /[a]./g  // this square bracket means a and then ".". "." means any character except new line. Caution: match two characters in the anywhere of whole text
@@ -328,7 +320,7 @@ const matches = txt.match(pattern)
 console.log(matches)  // ['and banana are fruits']
 ```
 
-### Zero or more times (*)
+➖ Zero or more times (*)
 
 Zero or many times. The pattern may not occur or it can occur many times.
 
@@ -342,10 +334,9 @@ console.log(matches)  // ['and banana are fruits']
 
 ```
 
+➖ Zero or one times (?) 
 
-### Zero or one times (?) 
-
-Zero or one times. The pattern may not occur or it may occur once❗ .
+Zero or one times. The pattern may not occur or it may occur once ❗
 
 ```js
 const txt = 'I am not sure if there is a convention how to write the word e-mail.\
@@ -360,7 +351,7 @@ console.log(matches)  // ["e-mail", "email", "Email", "E-mail"]
 --*LINK - tbc
 
 
-### Quantifier in RegExp
+➖ Quantifier in RegExp
 
 We can specify the length of the substring we look for in a text, using a curly bracket. Let us see, how to use RegExp quantifiers. Imagine, we are interested in substring that their length are 4 characters
 
@@ -392,7 +383,7 @@ const matches = txt.match(pattern)
 console.log(matches)  // ['6', '2019']
 ```
 
-### Cart ^
+➖ Cart ^
 
 - Starts with
   
@@ -403,7 +394,7 @@ const matches = txt.match(pattern)
 console.log(matches)  // ['This']
 ```
 
-- Negation
+➖ Negation
 
 ```js
 const txt = 'This regular expression example was made in December 6,  2019.'
@@ -412,7 +403,7 @@ const matches = txt.match(pattern)
 console.log(matches)  // ["6", "2019"]
 ```
 
-### Exact match
+➖ Exact match
 
 It should have ^ starting and $ which is an end.
 
@@ -423,3 +414,4 @@ let result = pattern.test(name)
 
 console.log(result) // true
 ```
+

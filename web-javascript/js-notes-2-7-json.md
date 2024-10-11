@@ -1,25 +1,18 @@
 
-Sources : 
+Sources : https://github.com/Asabeneh/30-Days-Of-JavaScript (some modifications may be done)
 
-- Main source, https://github.com/Asabeneh/30-Days-Of-JavaScript 
-
-There may be changes or additions to some section of the tutorial.
-
----
+[Back To Home](./README.md)
 
 - [Section - JSON](#section---json)
   - [JSON](#json)
-    - [Converting JSON to JavaScript Object](#converting-json-to-javascript-object)
-      - [JSON.parse()](#jsonparse)
-    - [Using a reviver function with JSON.parse()](#using-a-reviver-function-with-jsonparse)
-    - [Converting Object to JSON](#converting-object-to-json)
-    - [Using a Filter Array with JSON.stringify](#using-a-filter-array-with-jsonstringify)
+    - [Converting JSON to JavaScript Object (Parse)](#converting-json-to-javascript-object-parse)
+    - [Converting Object to JSON (stringify)](#converting-object-to-json-stringify)
 
 # Section - JSON
 
 ## JSON
 
-JSON stands for JavaScript Object Notation. The JSON syntax is derived from JavaScript object notation syntax, but the JSON format is text or string only. JSON is a light weight data format for storing and transporting. JSON is mostly used when data is sent from a server to a client. JSON is an easier-to-use alternative to XML.
+JSON stands for JavaScript Object Notation. The JSON syntax is derived from JavaScript object notation syntax, but the JSON format is text or string only. JSON is a lightweight data format for storing and transporting. JSON is mostly used when data is sent from a server to a client. JSON is an easier-to-use alternative to XML.
 
 **Example:**
 
@@ -48,9 +41,9 @@ JSON stands for JavaScript Object Notation. The JSON syntax is derived from Java
 }
 ```
 
-The above JSON example is not much different from a normal object. Then, what is the difference ? The difference is the key of a JSON object should be with double quotes or it should be a string. JavaScript Object and JSON are very similar that we can change JSON to Object and Object to JSON.
+The above JSON example is not much different from a normal object. Then, what is the difference ? The difference is the `key of a JSON object` should be with double quotes or it should be a string. JavaScript Object and JSON are very similar that we can change JSON to Object and Object to JSON.
 
-Let us see the above example in more detail, it starts with a curly bracket. Inside the curly bracket, there is "users" key which has a value array. Inside the array we have different objects and each objects has keys, each keys has to have double quotes. For instance, we use "firstNaMe" instead of just firstName, however in object we use keys without double quotes. This is the major difference between an object and a JSON. Let's see more examples about JSON.
+Let us see the above example in more detail, it starts with a curly bracket. Inside the curly bracket, there is "users" key which has a value array. Inside the array we have different objects and each objects has keys, each keys has to have double quotes. For instance, we use "firstName" instead of just firstName, however in object we use keys without double quotes. This is the major difference between an object and a JSON. Let's see more examples about JSON.
 
 **Example:**
 
@@ -152,11 +145,13 @@ Let us see the above example in more detail, it starts with a curly bracket. Ins
 }
 ```
 
-### Converting JSON to JavaScript Object
+### Converting JSON to JavaScript Object (Parse)
 
 Mostly we fetch JSON data from HTTP response or from a file, but we can store the JSON as a string and we can change to Object for sake of demonstration. In JavaScript the keyword _JSON_ has _parse()_ and _stringify()_ methods. When we want to change the JSON to an object we parse the JSON using _JSON.parse()_. When we want to change the object to JSON we use _JSON.stringify()_.
 
-#### JSON.parse()
+Two operations are there : to parse (text to object) or to stringify (object to text)
+
+➖ JSON.parse()
 
 ```js
 JSON.parse(json[, reviver])
@@ -196,7 +191,7 @@ const usersObj = JSON.parse(usersText, undefined, 4)
 console.log(usersObj)
 ```
 
-### Using a reviver function with JSON.parse()
+➖ Using a reviver function with JSON.parse()
 
 To use the reviver function as a formatter, we put the keys we want to format first name and last name value. Let us say, we are interested to format the firstName and lastName of the JSON data .
 
@@ -234,7 +229,7 @@ console.log(usersObj)
 
 The _JSON.parse()_ is very handy to use. You do not have to pass optional parameter, you can just use it with the required parameter and you will achieve quite a lot.
 
-### Converting Object to JSON
+### Converting Object to JSON (stringify)
 
 When we want to change the object to JSON we use _JSON.stringify()_. The stringify method takes one required parameter and two optional parameters. The replacer is used as filter and the space is an indentations. If we do not want to filter out any of the keys from the object we can just pass undefined.
 
@@ -418,7 +413,7 @@ console.log(txt) // text means JSON- because json is a string form of an object.
 }
 ```
 
-### Using a Filter Array with JSON.stringify
+➖ Using a Filter Array with JSON.stringify
 
 Now, lets use the replacer as a filter. The user object has long list of keys but we are interested only in few of them. We put the keys we want to keep in array as show in the example and use it the place of the replacer.
 

@@ -768,8 +768,6 @@ let User = user.default; // the default export
 new User('John');
 ```
 
---*TBC - modules
-
 ### A word against default exports
 
 Named exports are explicit. They exactly name what they import, so we have that information from them; that's a good thing.
@@ -1044,9 +1042,7 @@ let say = obj.default;
 say();
 ```
 
-Here's the full example:
-
-[codetabs src="say" current="index.html"]
+🧲 Here's the full example:
 
 ```html
 <!doctype html>
@@ -1076,18 +1072,10 @@ export default function() {
 }
 ```
 
-*Note :*
+📝 Note : Dynamic imports work in regular scripts, they don't require `script type="module"`.
 
-Dynamic imports work in regular scripts, they don't require `script type="module"`.
+📝 Note : Although `import()` looks like a function call, it's a special syntax that just happens to use parentheses (similar to `super()`). So we can't copy `import` to a variable or use `call/apply` with it. It's not a function.
 
----
 
-*Note :*
 
-Although `import()` looks like a function call, it's a special syntax that just happens to use parentheses (similar to `super()`).
-
-So we can't copy `import` to a variable or use `call/apply` with it. It's not a function.
-
----
-
---end--
+🔚
