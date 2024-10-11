@@ -57,7 +57,7 @@ CONTENT |Note|
 [OOP Principles](./js-notes-4-OOP-tor.md) | ✔ 
 [Storage](./js-notes-5-storage.md) | ✔ 
 [Promise,Async-Await and Closure](./js-notes-6-promise.md) | ✔ 
-[Clean Code](./js-notes-7-clean-code.md) |
+[Clean Code](./js-notes-7-clean-code.md) | ✔
 [Dom](./js-notes-8-dom.md) | ✔ 
 [13 Modules](./js-info/js-intro-13-1-Modules.md)| ✔
 

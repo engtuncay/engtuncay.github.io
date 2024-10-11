@@ -237,9 +237,9 @@ ctb |
 c+c | cut
 c+d |
 c+e |
-c+f |
-c+g |
-c+h |
+c+f | find
+c+g | go to
+c+h | multi | c+h+ h replace
 c+ı |
 c+i |
 c+j | multi key
@@ -252,7 +252,7 @@ c+p | Navigate Project File
 c+r | Open Recent | ctr c+r
 c+s | Save
 c+ş |
-c+t |
+c+t | go to symbol
 c+u |
 c+ü |
 c+v | paste
@@ -267,6 +267,7 @@ c+k     | x
 c+k c+f | Format File
 c+j     | x
 c+r     | x
+c+h     | x
 
 ## Shift + Control 
 

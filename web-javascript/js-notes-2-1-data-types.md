@@ -11,7 +11,7 @@
   - [Strings](#strings)
     - [String Concatenation](#string-concatenation)
       - [Concatenating Using Addition Operator](#concatenating-using-addition-operator)
-      - [Long Literal Strings](#long-literal-strings)
+      - [Long Literal Strings (\\)](#long-literal-strings-)
       - [Escape Sequences in Strings](#escape-sequences-in-strings)
       - [Template Literals (Template Strings)](#template-literals-template-strings)
     - [String Methods](#string-methods)
@@ -345,9 +345,10 @@ console.log(personInfoOne)
 Asabeneh Yetayeh. I am 250. I live in Finland
 ```
 
-#### Long Literal Strings
+#### Long Literal Strings (\\)
 
 A string could be a single character or paragraph or a page. If the string length is too big it does not fit in one line. We can use the backslash character (\\) at the end of each line to indicate that the string will continue on the next line.
+
 **Example:**
 
 ```js
@@ -456,6 +457,7 @@ console.log(`${a} is greater than ${b}: ${a > b}`)
 2 is greater than 3: false
 ```
 
+
 ### String Methods
 
 Everything in JavaScript is an object. A string is a primitive data type that means we can not modify it once it is created. The string object has many string methods. There are different string methods that can help us to work with strings.
@@ -473,8 +475,6 @@ console.log(firstName.length)  // 8
 
 2. *Accessing characters in a string*: We can access each character in a string using its index. In programming, counting starts from 0. The first index of the string is zero, and the last index is the length of the string minus one.
 
-  ![Accessing sting by index](../images/string_indexes.png)
-  
 Let us access different characters in 'JavaScript' string.
 
 ```js
@@ -494,6 +494,8 @@ let lastIndex = string.length - 1
 console.log(lastIndex)  // 9
 console.log(string[lastIndex])    // t
 ```
+
+--*TBC data types
 
 3. *toUpperCase()*: this method changes the string to uppercase letters.
 
