@@ -268,10 +268,18 @@ c+j     | x
 c+r     | x
 c+h     | x
 
+(c+k)
+
 Key   | Exp
 ------|------------
 c+k,f | Format File
 
+(c+h)
+
+Key   | Exp
+------|------------------
+c+h,p | Previewe Markdown
+c+h,r | Run File
 
 
 ## Shift + Control 
