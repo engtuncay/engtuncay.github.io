@@ -1,4 +1,6 @@
 
+[Back](README.md)
+
 **Sources**
 
 - https://github.com/Asabeneh/30-Days-Of-JavaScript , there may be changes or additions to some section of the tutorial.
@@ -18,7 +20,7 @@
     - [Difference of sets](#difference-of-sets)
   - [Map](#map)
     - [Creating an empty Map](#creating-an-empty-map)
-    - [Creating an Map from array](#creating-an-map-from-array)
+    - [Creating a Map from array](#creating-a-map-from-array)
     - [Adding values to the Map](#adding-values-to-the-map)
     - [Getting a value from Map](#getting-a-value-from-map)
     - [Checking key in Map](#checking-key-in-map)
@@ -295,7 +297,7 @@ console.log(map)
 Map(0) {}
 ```
 
-### Creating an Map from array
+### Creating a Map from array
 
 ```js
 countries = [

@@ -1,5 +1,5 @@
 
-Keyboard shortcuts for Windows Based On Visual Studio Code
+OrakSoft Keyboard shortcuts for Windows Based On Visual Studio Code
 
 - [General](#general)
 - [Code Navigation](#code-navigation)
@@ -15,11 +15,10 @@ Keyboard shortcuts for Windows Based On Visual Studio Code
 - [Alphatic Order](#alphatic-order)
   - [Ctrl Shortcuts](#ctrl-shortcuts)
   - [multi keys](#multi-keys)
+    - [(c+k)](#ck)
+    - [(c+h)](#ch)
   - [Shift + Control](#shift--control)
 - [Notes](#notes)
-  - [Visual Studio Keymaps Changes](#visual-studio-keymaps-changes)
-  - [Idea Keymap Changes](#idea-keymap-changes)
-  - [Rider Changes](#rider-changes)
  
 ---
 
@@ -27,7 +26,7 @@ Keyboard shortcuts for Windows Based On Visual Studio Code
 
 - Other operating systems’ keyboard shortcuts and additional unassigned shortcuts available at aka.ms/vscodekeybindings  (Key Bindings for Visual Studio Code)
 
-- cs+s means C + S + s
+- cs+s means Ctrl + Shift + S key
 
 # General 
 
@@ -268,18 +267,19 @@ c+j     | x
 c+r     | x
 c+h     | x
 
-(c+k)
+### (c+k)
 
 Key   | Exp
 ------|------------
 c+k,f | Format File
 
-(c+h)
+### (c+h)
 
 Key   | Exp
 ------|------------------
 c+h,p | Previewe Markdown
 c+h,r | Run File
+c+h,c | Clear Output (run panel)
 
 
 ## Shift + Control 
@@ -347,9 +347,4 @@ z   |
 
 # Notes
 
-## Visual Studio Keymaps Changes
-
-## Idea Keymap Changes
-
-## Rider Changes
 

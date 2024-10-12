@@ -1,5 +1,5 @@
 
-- [Section - Object Oriented Programming (OOP)](#section---object-oriented-programming-oop)
+- [Section - OOP (Classes)](#section---oop-classes)
   - [Classes](#classes)
     - [Defining a class](#defining-a-class)
     - [Creating Object (Class Instantiation)](#creating-object-class-instantiation)
@@ -15,7 +15,9 @@
 
 [Back - Home](README.md)
 
-# Section - Object Oriented Programming (OOP)
+# Section - OOP (Classes)
+
+Object Oriented Programming
 
 ## Classes
 
