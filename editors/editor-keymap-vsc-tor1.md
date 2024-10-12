@@ -261,15 +261,18 @@ c+z |
 
 ## multi keys
 
-<<<<<<< Updated upstream
 Key     | Exp
 --------|------------
 c+k     | x
-c+k c+f | Format File
 c+j     | x
 c+r     | x
 c+h     | x
-=======
+
+Key   | Exp
+------|------------
+c+k,f | Format File
+
+
 
 ## Shift + Control 
 
