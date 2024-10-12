@@ -269,6 +269,7 @@ c+k c+f | Format File
 c+j     | x
 c+r     | x
 c+h     | x
+=======
 
 ## Shift + Control 
 
