@@ -171,7 +171,6 @@ C+S+A +PgUp/PgDn    | Column (box) selection page up/down
 Shortcut     | Desc
 -------------|----------------------------
 C+Space, C+I | Trigger suggestion
-C+S+Space    | Trigger parameter hints
 S+A+F        | Format document
 C+K C+F      | Format selection
 F12          | Go to Definition
@@ -261,6 +260,7 @@ c+z |
 
 ## multi keys
 
+<<<<<<< Updated upstream
 Key     | Exp
 --------|------------
 c+k     | x

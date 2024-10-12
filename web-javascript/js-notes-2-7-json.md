@@ -1,20 +1,23 @@
 
-Sources : https://github.com/Asabeneh/30-Days-Of-JavaScript (some modifications may be done)
-
 [Back To Home](./README.md)
 
-- [Section - JSON](#section---json)
-  - [JSON](#json)
-    - [Converting JSON to JavaScript Object (Parse)](#converting-json-to-javascript-object-parse)
-    - [Converting Object to JSON (stringify)](#converting-object-to-json-stringify)
+<h2>Contents</h2>
 
-# Section - JSON
+- [SECTION - JSON](#section---json)
+  - [JSON](#json)
+    - [Converting JSON to JavaScript Object](#converting-json-to-javascript-object)
+    - [Converting Object to JSON](#converting-object-to-json)
+
+
+# SECTION - JSON
 
 ## JSON
 
-JSON stands for JavaScript Object Notation. The JSON syntax is derived from JavaScript object notation syntax, but the JSON format is text or string only. JSON is a lightweight data format for storing and transporting. JSON is mostly used when data is sent from a server to a client. JSON is an easier-to-use alternative to XML.
+Source : https://github.com/Asabeneh/30-Days-Of-JavaScript (some parts may be modified)
 
-**Example:**
+JSON stands for JavaScript Object Notation. The JSON syntax is derived from `JavaScript object notation syntax`, but the JSON format is text or string only. JSON is a lightweight data format for storing and transporting. JSON is mostly used when data is sent from a server to a client. JSON is an easier-to-use alternative to XML.
+
+🧲 Example :
 
 ```js
 {
@@ -41,11 +44,11 @@ JSON stands for JavaScript Object Notation. The JSON syntax is derived from Java
 }
 ```
 
-The above JSON example is not much different from a normal object. Then, what is the difference ? The difference is the `key of a JSON object` should be with double quotes or it should be a string. JavaScript Object and JSON are very similar that we can change JSON to Object and Object to JSON.
+The above JSON example is not much different from a normal object. Then, what is the difference ? The difference is `the key of a JSON object` should be with `double quotes` or it should be a string. `JavaScript Object and JSON` are very similar that we can change JSON to Object and Object to JSON.
 
 Let us see the above example in more detail, it starts with a curly bracket. Inside the curly bracket, there is "users" key which has a value array. Inside the array we have different objects and each objects has keys, each keys has to have double quotes. For instance, we use "firstName" instead of just firstName, however in object we use keys without double quotes. This is the major difference between an object and a JSON. Let's see more examples about JSON.
 
-**Example:**
+🧲 Example: 
 
 ```js
 {
@@ -145,11 +148,9 @@ Let us see the above example in more detail, it starts with a curly bracket. Ins
 }
 ```
 
-### Converting JSON to JavaScript Object (Parse)
+### Converting JSON to JavaScript Object
 
-Mostly we fetch JSON data from HTTP response or from a file, but we can store the JSON as a string and we can change to Object for sake of demonstration. In JavaScript the keyword _JSON_ has _parse()_ and _stringify()_ methods. When we want to change the JSON to an object we parse the JSON using _JSON.parse()_. When we want to change the object to JSON we use _JSON.stringify()_.
-
-Two operations are there : to parse (text to object) or to stringify (object to text)
+Mostly we fetch JSON data from HTTP response or from a file, but we can store the JSON as a string and we can change to Object for sake of demonstration. In JavaScript the keyword JSON has `parse() and stringify()` methods. When we want to change the JSON to an object we parse the JSON using `JSON.parse()`. When we want to change the object to JSON, we use `JSON.stringify()`.
 
 ➖ JSON.parse()
 
@@ -171,12 +172,6 @@ const usersText = `{
     "lastName":"Yetayeh",
     "age":250,
     "email":"asab@asb.com"
-  },
-  {
-    "firstName":"Alex",
-    "lastName":"James",
-    "age":25,
-    "email":"alex@alex.com"
   },
   {
   "firstName":"Lidiya",
@@ -229,9 +224,9 @@ console.log(usersObj)
 
 The _JSON.parse()_ is very handy to use. You do not have to pass optional parameter, you can just use it with the required parameter and you will achieve quite a lot.
 
-### Converting Object to JSON (stringify)
+### Converting Object to JSON
 
-When we want to change the object to JSON we use _JSON.stringify()_. The stringify method takes one required parameter and two optional parameters. The replacer is used as filter and the space is an indentations. If we do not want to filter out any of the keys from the object we can just pass undefined.
+When we want to change the object to JSON, we use `JSON.stringify()`. The stringify method takes one required parameter and two optional parameters. The replacer is used as filter and the space is an indentations. If we do not want to filter out any of the keys from the object we can just pass undefined.
 
 ```js
 JSON.stringify(obj, replacer, space)
@@ -443,4 +438,3 @@ console.log(txt)
     "age": 250
 }
 ```
-
