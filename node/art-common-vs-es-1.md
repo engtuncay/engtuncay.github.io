@@ -5,6 +5,17 @@ Jun 6, 2024 ⋅ 7 min read
 
 Source : https://blog.logrocket.com/commonjs-vs-es-modules-node-js/ (some parts may be modified)
 
+**Content**
+
+- [The evolution of JavaScript modules](#the-evolution-of-javascript-modules)
+- [CommonJS vs. ES modules’ syntax](#commonjs-vs-es-modules-syntax)
+- [Pros and cons of using ES modules and CommonJS modules in Node.js](#pros-and-cons-of-using-es-modules-and-commonjs-modules-in-nodejs)
+- [Node.js support for ES modules](#nodejs-support-for-es-modules)
+- [CommonJS offers flexibility with module imports](#commonjs-offers-flexibility-with-module-imports)
+- [CommonJS loads modules synchronously, ES modules are asynchronous](#commonjs-loads-modules-synchronously-es-modules-are-asynchronous)
+- [Conclusion: CommonJS or ES modules?](#conclusion-commonjs-or-es-modules)
+
+
 Editor’s note: This article was last updated by Pascal Akunne on 6 June 2024 to discuss how the latest Node versions support ES modules and to offer a brief evolution of JavaScript modules, a timeline from IIFE to ES modules.
 
 In modern software development, modules organize code into self-contained chunks that make up a larger, more complex application. In the browser JavaScript ecosystem, the use of JavaScript modules depends on the import and export statements; these statements load and export ECMAScript modules (or ES modules), respectively.
@@ -60,10 +71,12 @@ console.log(subtract(10, 5)) // 5
 
 If you are looking for a more in-depth tutorial on CommonJS modules, check this out. (https://blog.logrocket.com/es-modules-in-node-today/#commonjsmodulesystem )
 
-On the other hand, library authors can also simply enable ES modules in a Node.js package by changing the file extensions from .js to .mjs.. For example, here’s a simple ES module (with an .mjs extension) exporting two functions for public use:
+On the other hand, library authors can also simply enable ES modules in a Node.js package by `changing the file extensions from .js to .mjs.`. For example, here’s a simple ES module (with an .mjs extension) exporting two functions for public use:
 
+
+
+```js
 // util.mjs
-
 export function add(a, b) {
         return a + b;
 }
@@ -71,27 +84,40 @@ export function add(a, b) {
 export function subtract(a, b) {
         return a - b;
 }
+
+```
+
 We can then import both functions using the import statement:
 
+```js
 // app.mjs
 
 import {add, subtract} from './util.mjs'
 
 console.log(add(5, 5)) // 10
 console.log(subtract(10, 5)) // 5
-Another way to enable ES modules in your project can be by adding a "type: module" field inside the nearest package.json file (the same folder as the package you’re making):
 
+```
+
+Another way to enable ES modules in your project can be by adding a `"type: module"` field inside the nearest package.json file (the same folder as the package you’re making):
+
+```js
 {
   "name": "my-library",
   "version": "1.0.0",
   "type": "module",
   // ...
 }
+
+```
+
 With that inclusion, Node.js treats all files inside that package as ES modules, and you won’t have to change the file to a .mjs extension. You can learn more about ES modules here.
+(https://blog.logrocket.com/how-to-use-ecmascript-modules-with-node-js/)
 
 Alternatively, you can install and set up a transpiler like Babel to compile your ES module syntax down to CommonJS syntax. Projects like React and Vue support ES modules because they use Babel under the hood to compile the code.
 
-Pros and cons of using ES modules and CommonJS modules in Node.js
+# Pros and cons of using ES modules and CommonJS modules in Node.js
+
 The ES module format was created to standardize the JavaScript module system. It has become the standard format for encapsulating JavaScript code for reuse.
 
 The CommonJS module system, on the other hand, is built into Node.js. Prior to the introduction of the ES module in Node.js, CommonJS was the standard for Node.js modules. As a result, there are many Node.js libraries and modules written with CommonJS.
@@ -101,21 +127,15 @@ For browser support, all major browsers support the ES module syntax and you can
 
 Apart from being the standard for JavaScript modules, the ES module syntax is also much more readable than require. Web developers who primarily write JavaScript on the client will have no issues working with Node.js modules, thanks to the identical syntax.
 
-Node.js support for ES modules
+# Node.js support for ES modules
+
 While ES modules have become the standard module format in JavaScript, developers should consider that older versions of Node.js lack support (specifically Node.js v9 and under). In other words, using ES modules renders an application incompatible with earlier versions of Node.js that only support CommonJS modules (i.e., the require syntax).
 
-More great articles from LogRocket:
-Don't miss a moment with The Replay, a curated newsletter from LogRocket
-Learn how LogRocket's Galileo cuts through the noise to proactively resolve issues in your app
-Use React's useEffect to optimize your application's performance
-Switch between multiple versions of Node
-Discover how to use the React children prop with TypeScript
-Explore creating a custom mouse cursor with CSS
-Advisory boards aren’t just for executives. Join LogRocket’s Content Advisory Board. You’ll help inform the type of content we create and get access to exclusive meetups, social accreditation, and swag.
 But with the new conditional exports, we can build dual-mode libraries. These are libraries that are composed of the newer ES modules but are also backward-compatible with the CommonJS module format supported by older Node.js versions. In other words, we can build a library that supports both import and require, allowing us to solve compatibility issues.
 
 Consider the following Node.js project:
 
+```
 my-node-library
 ├── lib/
 │   ├── browser-lib.js (iife format)
@@ -126,6 +146,9 @@ my-node-library
 │       └── module-b.mjs
 ├── package.json
 └── …
+
+```
+
 Inside package.json, we can use the exports field to export the public module (module-a) in two different module formats while restricting access to the private module (module-b):
 
 // package.json
@@ -156,6 +179,7 @@ const moduleA = require('my-library/lib/module-a')
 import moduleA from 'my-awesome-lib/lib/public-module-a'
 const moduleB = require('my-library/private/module-b')
 import moduleB from 'my-library/private/module-b'
+
 Because of the paths in exports, we can import (and require) our public modules without specifying absolute paths. By including paths for .js and .mjs, we can solve the issue of incompatibility; we can map package modules for different environments like the browser and Node.js while restricting access to private modules.
 
 However, it’s important to remember that for Node.js to treat a module as an ES module, one of the following must happen: either the module’s file extension must convert from .js (for CommonJS) to .mjs (for ES modules) or we must set a {"type": "module"} field in the nearest package.json file.
@@ -168,7 +192,8 @@ This change improves the development experience for both client and server-side 
 
 Also, the Node.js standard libraries (such as fs, http, and url) now support the ES module syntax, so developers can use native Node.js APIs via import statements. For example, you can import the fs module to use the promise-based API for asynchronous file operations.
 
-CommonJS offers flexibility with module imports
+# CommonJS offers flexibility with module imports
+
 In an ES module, the import statement can only be called at the beginning of the file. Calling it anywhere else automatically shifts the expression to the file beginning or can even throw an error. On the other hand, the require function gets parsed at runtime. As a result, require can be called anywhere in the code. You can use it to load modules conditionally or dynamically from if statements, conditional loops, and functions.
 
 For example, you can call require inside a conditional statement like so:
@@ -177,9 +202,11 @@ if(user.length > 0){
    const userDetails = require(‘./userDetails.js’);
   // Do something ..
 }
+
 Here, we load a module called userDetails only if a user is present.
 
-CommonJS loads modules synchronously, ES modules are asynchronous
+# CommonJS loads modules synchronously, ES modules are asynchronous
+
 One of the limitations of using require is that it loads modules synchronously, which means that modules are loaded and processed one by one. A task can only begin once the preceding one is completed. This is known as “blocking” because if an operation takes a long time to complete, it prevents the following tasks from starting.
 
 Sync code is simple to write and read, and it follows a threaded execution model, making it easier to predict the code flow and result. However, it can cause serious performance issues because sync loading can cause an entire application or program to freeze or become unresponsive, particularly in scenarios involving I/O operations, long computations, or real-time responsiveness, resulting in poor user experience and scalability.
@@ -188,7 +215,7 @@ In such a case, import might outperform require based on its asynchronous behavi
 
 On the other hand, asynchronous operations are normally carried out with callbacks, promises, or async/await syntax. Async code, unlike synchronous code, can be harder to read, write, and debug, because it is non-linear. But it provides a better user experience because it works well on high-traffic web apps that don’t have to wait their turn to run.
 
-Conclusion: CommonJS or ES modules?
+# Conclusion: CommonJS or ES modules?
 
 For developers who still use an older version of Node.js, adopting the new ES module would be impractical due to the limited support, which could render an application incompatible with earlier versions of Node.js.
 
