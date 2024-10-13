@@ -2,7 +2,7 @@
 - [Svelte Cheats](#svelte-cheats)
 - [Svelte Reference](#svelte-reference)
 - [Svelte Notes](#svelte-notes)
-- [Articles](#articles)
+- [Articles and Others](#articles-and-others)
 
 # Svelte Cheats
 
@@ -32,7 +32,7 @@ Topic                                                 | Note
 [2 Events - Bindings](./svelte-02-events-bindings.md) |
 
 
-# Articles
+# Articles and Others
 
 - [Svelte For New Developers (Creating New App)](./arts/art-svelte-for-new-developers.md)
 
