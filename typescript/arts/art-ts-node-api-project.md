@@ -1,37 +1,55 @@
 
 
-A Step-by-Step Guide to Setting Up a Node.js Project with TypeScript
-Pabath Induwara
+<h1>A Step-by-Step Guide to Setting Up a Node.js Project with TypeScript  (And Rest Api) by Pabath Induwara</h1> 
 
 5 min read, Feb 10, 2024
 
 Integrating TypeScript with Node.js enhances the development process by improving code readability and maintainability. While it doesn’t increase runtime efficiency, TypeScript’s static typing helps detect errors early, simplifying the management of complex applications.
 
-Prerequisites: Install Node.js and Postman
+# Prerequisites: Install Node.js and Postman
 
 Before starting, ensure you have Node.js installed on your machine. Download it from the official website: Node.js.
 
 Additionally, for API testing, install Postman. You can download it from the official website: Postman
 
-Step 1: Create a new project folder
+# Step 1: Create a new project folder
+
 Create a new folder for your project and navigate to it using the terminal.
 
+```sh
 mkdir nodejs-typescript-guide
 cd nodejs-typescript-guide
-Step 2: Initialize a new Node.js project
+
+```
+# Step 2: Initialize a new Node.js project
+
 Run the following command to initialize a new Node.js project and create a package.json file.
 
+```sh
 npm init -y
-Step 3: Install TypeScript
+
+```
+# Step 3: Install TypeScript
+
 Install TypeScript as a development dependency:
 
+```sh
 npm install --save-dev typescript
-Step 4: Configure TypeScript
-Once TypeScript is installed, you’ll need to create and configure the tsconfig.json file, which is essential for defining compiler options and project settings. To generate a basic tsconfig.json file, execute the command:
 
+```
+
+# Step 4: Configure TypeScript
+
+Once TypeScript is installed, you’ll need to create and configure the `tsconfig.json file`, which is essential for defining compiler options and project settings. To generate a basic tsconfig.json file, execute the command:
+
+```sh
 npx tsc --init
+
+```
+
 After initializing the tsconfig.json file, it's time to tailor it to your project's needs. Open the tsconfig.json file and modify it to resemble the configuration below. This example provides a solid foundation for most projects, ensuring strict type-checking, consistent casing in filenames, and compatibility with common module systems:
 
+```sh
 {
   "compilerOptions": {
     "target": "es2016",
@@ -44,23 +62,42 @@ After initializing the tsconfig.json file, it's time to tailor it to your projec
     "skipLibCheck": true
   }
 }
+
+```
+
 "target": "es2016":Sets ECMAScript target version for output JavaScript to ES2016.
+
 "module": "commonjs": Use CommonJS module system for module loading compatibility.
+
 "rootDir": "./src": Source files located in ./src directory for compilation.
+
 "outDir": "./dist": Compiled JavaScript output to ./dist directory.
+
 "esModuleInterop": true: Enables compatibility with ES6 module imports.
+
 "forceConsistentCasingInFileNames": true: Ensures case sensitivity in file names.
+
 "strict": true: Enables all strict type-checking options.
+
 "skipLibCheck": true: Skip type checking of declaration files (`.d.ts`).
-Step 5: Install Express and @types/express @types/node
+
+
+# Step 5: Install Express and `@types/express @types/node`
+
 Install Express and TypeScript definitions for Express:
 
+```sh
 npm install express
 npm install --save-dev @types/express @types/node
+
+```
+
 (Optional) Install the touch-cli globally using npm to create files quickly from the command line
 
 npm install touch-cli -g 
-Step 6: Create the Project Structure and Initialize the Express Server Without Types
+
+# Step 6: Create the Project Structure and Initialize the Express Server Without Types
+
 First, create a src folder and inside it, a server.ts file for your project. This file will contain the source code for your Express server.
 
 mkdir src
@@ -87,7 +124,8 @@ app.listen(port, () => {
   // Log a message when the server is successfully running
   console.log(`Server is running on http://localhost:${port}`);
 });
-Step 7: Update package.json and Run the Project
+
+# Step 7: Update package.json and Run the Project
 Modify your package.json file to include TypeScript compilation scripts
 
 "scripts": {
@@ -102,7 +140,8 @@ npm run build
 npm start
 This will work, but the code lacks type annotations. Visit http://localhost:3000 in your browser, and you should see "Hello, TypeScript + Node.js + Express!"
 
-Step 8: Add types gradually
+# Step 8: Add types gradually
+
 Now, let’s add types incrementally:
 
 // Import the 'express' module along with 'Request' and 'Response' types from express
