@@ -6,6 +6,10 @@ These notes are taken from web resources. Some sections can be modified.
 
 [Javascript And Node Notes](./web-javascript/README.md)
 
+[Node](./node/readme.md)
+
+[Typescript](./typescript/readme.md)
+
 [Svelte Notes](./svelte/readme.md)
 
 [Php Notes](./php/readme.md)
@@ -19,6 +23,12 @@ These notes are taken from web resources. Some sections can be modified.
 [React Notes](./react/README.md)
 
 [Progressive Web Application](./pwa/readme.md)
+
+[Regex](./reg-ex/readme.md)
+
+[Tor VsCode Keymap](./editors/editor-keymap-vsc-tor1.md)
+
+[Db Notes](./db/readme.md)
 
 ---
 
