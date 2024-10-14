@@ -155,3 +155,8 @@ Improve testing using a testing framework such as Mocha or Jest
 Automate the publish process. You can take a look at release-it and semantic-release
 
 All the code for this tutorial is available on Github.
+
+
+Other Articles
+
+- https://medium.com/free-code-camp/how-to-publish-packages-that-can-be-used-in-browsers-and-node-c51274dca77c
