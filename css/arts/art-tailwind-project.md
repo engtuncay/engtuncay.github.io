@@ -102,3 +102,7 @@ Tailwind has some of the best docs I have seen. If this article didn’t answer 
 
 - Tailwind Docs on how to use utilities in HTML (https://tailwindcss.com/docs/installation)
 
+Other Resources
+
+- https://daily.dev/blog/how-to-use-tailwindcss-with-node-js-express-and-pug
+
