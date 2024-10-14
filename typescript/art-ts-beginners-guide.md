@@ -1,27 +1,24 @@
 
-Learn TypeScript – A Comprehensive Guide for Beginners By Isaiah Clifford Opoku
+<h1>Learn TypeScript – A Comprehensive Guide for Beginners By Isaiah Clifford Opoku</h1>
 
-Source : https://www.freecodecamp.org/news/typescript-for-beginners-guide/ , August 8, 2024
+Source : https://www.freecodecamp.org/news/typescript-for-beginners-guide/ (some parts may be modified)
 
-TypeScript has become an industry standard for building large-scale applications, with many organizations choosing it as their primary language for application development.
+August 8, 2024
 
-This tutorial will serve as your introductory guide to TypeScript. It's designed to cater to learners at all stages – from beginners to advanced users. It teaches both fundamental and advanced TypeScript concepts, making it a helpful resource for anyone looking to delve into TypeScript.
+**Contents**
 
-The aim of this guide is not to be an exhaustive resource, but rather a concise and handy reference. It distills the essence of TypeScript into a digestible format.
+- [Prerequisites](#prerequisites)
+- [Who is this Guide For?](#who-is-this-guide-for)
+- [TypeScript vs JavaScript](#typescript-vs-javascript)
+- [Advantages of TypeScript](#advantages-of-typescript)
+- [Code Generation](#code-generation)
+- [Watching for File Changes](#watching-for-file-changes)
+- [Configuring the TypeScript Compiler](#configuring-the-typescript-compiler)
+- [TypeScript Basics](#typescript-basics)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Understanding tsconfig.json](#understanding-tsconfigjson)
 
-Whether you're a novice just starting out, an intermediate learner aiming to consolidate your knowledge, or an advanced user in need of a quick refresher, this guide is crafted to meet your TypeScript learning requirements.
-
-After carefully reading through this tutorial and practicing the examples it contains, you should have the skills to build robust, scalable, and maintainable TypeScript applications. We'll cover key TypeScript concepts like types, functions, classes, interfaces, generics, and more.
-
-Table of Contents
-
-Prerequisites
-
-Who is this guide for?
-
-TypeScript vs. JavaScript
-
-Advantages of TypeScript
 
 Code Generation
 
@@ -45,17 +42,30 @@ Enums in TypeScript
 
 Generics in TypeScript
 
-Prerequisites
+TypeScript has become an industry standard for building large-scale applications, with many organizations choosing it as their primary language for application development.
+
+This tutorial will serve as your introductory guide to TypeScript. It's designed to cater to learners at all stages – from beginners to advanced users. It teaches both fundamental and advanced TypeScript concepts, making it a helpful resource for anyone looking to delve into TypeScript.
+
+The aim of this guide is not to be an exhaustive resource, but rather a concise and handy reference. It distills the essence of TypeScript into a digestible format.
+
+Whether you're a novice just starting out, an intermediate learner aiming to consolidate your knowledge, or an advanced user in need of a quick refresher, this guide is crafted to meet your TypeScript learning requirements.
+
+After carefully reading through this tutorial and practicing the examples it contains, you should have the skills to build robust, scalable, and maintainable TypeScript applications. We'll cover key TypeScript concepts like types, functions, classes, interfaces, generics, and more.
+
+# Prerequisites
+
 Before you begin going through this guide, you should have a basic understanding of JavaScript. Familiarity with object-oriented programming concepts like classes, interfaces, and inheritance is also recommended.
 
 But if you're new to these concepts, don't worry - we'll cover them in detail in this guide.
 
-Who is this Guide For?
+# Who is this Guide For?
+
 This guide is for anyone looking to learn TypeScript. Whether you're a beginner, an intermediate learner, or an advanced user, this guide is designed to meet your TypeScript learning needs.
 
 It's also a handy reference for anyone looking to brush up on their TypeScript skills.
 
-TypeScript vs JavaScript
+# TypeScript vs JavaScript
+
 TypeScript is a statically-typed superset of JavaScript, designed to enhance the development of large-scale applications.
 
 It introduces optional static typing, classes, and interfaces to JavaScript, drawing parallels with languages like C# and Java. TypeScript code is transpiled to plain JavaScript, ensuring compatibility across various JavaScript environments.
@@ -68,6 +78,7 @@ TypeScript code is written in .ts or .tsx files, whereas JavaScript code resides
 
 Let's explore the differences between JavaScript and TypeScript through an example:
 
+```js
 // JavaScript
 function add(a, b) {
   return a + b;
@@ -75,10 +86,15 @@ function add(a, b) {
 
 // Calling the function
 add(1, 2); // Returns: 3
+
+```
+
 In the JavaScript example above, the add function takes two parameters, a and b, and returns their sum. The function is invoked with the arguments 1 and 2, yielding 3. Notice that the function parameters are not annotated with types, which is typical in JavaScript.
 
 Now, let's see how we can write the same function in TypeScript:
 
+
+```ts
 // TypeScript
 function add(a: number, b: number): number {
   return a + b;
@@ -86,6 +102,9 @@ function add(a: number, b: number): number {
 
 // Calling the function
 add(1, 2); // Returns: 3
+
+```
+
 In the TypeScript version, we've annotated the parameters a and b with the number type. We've also specified that the function returns a number.
 
 This is a key difference between JavaScript and TypeScript. TypeScript enforces type safety, meaning it checks the types of values at compile time and throws errors if they don't match the expected types.
@@ -94,49 +113,62 @@ This feature helps catch errors early in the development process, making TypeScr
 
 TypeScript and JavaScript are both powerful languages used in a wide range of applications. Let's summarize their key differences:
 
-Feature	TypeScript	JavaScript
-Type System	Statically typed (types are checked at compile-time)	Dynamically typed (types are checked at run-time)
-Superset	Yes, TypeScript is a superset of JavaScript	N/A
-Compilation	Needs to be compiled (or transpiled) into JavaScript	Does not need to be compiled
-OOP Features	Includes advanced OOP features such as interfaces, generics, and decorators	Supports OOP through prototypes, does not natively support interfaces or generics
-Tooling	Offers better tooling with autocompletion, type checking, and source map support	Basic tooling
-Community and Ecosystem	Newer, smaller community and ecosystem	Large community and vast ecosystem of libraries and frameworks since 1995
-Learning Curve	Steeper due to additional features	Generally easier for beginners
-Use Cases	Typically used in larger codebases where the benefits of type checking and autocompletion are most noticeable	Used for both client-side and server-side development, can be executed natively in the browser
-Advantages of TypeScript
+Feature        | TypeScript                                                                                                                                                         | JavaScript
+---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------
+Type           | System	Statically typed (types are checked at compile-time)                                                                                                        | Dynamically typed (types are checked at run-time)
+Superset       | Yes, TypeScript is a superset of JavaScript                                                                                                                        | N/A <br/> Compilation	Needs to be compiled (or transpiled) into JavaScript	Does not need to be compiled
+OOP Features   | Includes advanced OOP features such as interfaces, generics, and decorators                                                                                        | Supports OOP through prototypes, does not natively support interfaces or generics
+Tooling        | Offers better tooling with autocompletion, type checking, and source map support	Basic tooling <br/>Community and Ecosystem	Newer, smaller community and ecosystem | Large community and vast ecosystem of libraries and frameworks since 1995
+Learning Curve | Steeper due to additional features                                                                                                                                 | Generally easier for beginners
+Use Cases      | Typically used in larger codebases where the benefits of type checking and autocompletion are most noticeable                                                      | Used for both client-side and server-side development, can be executed natively in the browser
+
+# Advantages of TypeScript
+
 TypeScript offers several advantages over JavaScript:
 
-Improved Tooling: TypeScript's static typing enables better tooling support. Features like autocompletion, type inference, and type checking make the development process more efficient and enjoyable.
+- **Improved Tooling**: TypeScript's static typing enables better tooling support. Features like autocompletion, type inference, and type checking make the development process more efficient and enjoyable.
 
-Better Documentation: TypeScript codebases are often easier to understand and maintain. The type annotations serve as implicit documentation, making it easier to understand what kind of values a function expects and returns.
+- **Better Documentation**: TypeScript codebases are often easier to understand and maintain. The type annotations serve as implicit documentation, making it easier to understand what kind of values a function expects and returns.
 
-Advanced Features: TypeScript supports advanced JavaScript features such as decorators and async/await, and it also introduces features not available in JavaScript, such as interfaces, enums, and tuples.
+- **Advanced Features**: TypeScript supports advanced JavaScript features such as decorators and async/await, and it also introduces features not available in JavaScript, such as interfaces, enums, and tuples.
 
-Refactoring: TypeScript's tooling makes refactoring larger codebases safer and more predictable. You can make large-scale changes with confidence.
+- **Refactoring**: TypeScript's tooling makes refactoring larger codebases safer and more predictable. You can make large-scale changes with confidence.
 
-Gradual Adoption: TypeScript is a superset of JavaScript, which means you can gradually adopt TypeScript in your projects. You can start by renaming your .js files to .ts and then you can gradually add type annotations as you see fit.
+- **Gradual Adoption**: TypeScript is a superset of JavaScript, which means you can gradually adopt TypeScript in your projects. You can start by renaming your .js files to .ts and then you can gradually add type annotations as you see fit.
 
-Community and Ecosystem: TypeScript has a growing community and ecosystem. Many popular JavaScript libraries, such as React and Angular, have TypeScript definitions, which makes it easier to use them in a TypeScript project.
+- **Community and Ecosystem**: TypeScript has a growing community and ecosystem. Many popular JavaScript libraries, such as React and Angular, have TypeScript definitions, which makes it easier to use them in a TypeScript project.
 
-Code Generation
+# Code Generation
+
 TypeScript code isn't natively understood by browsers or Node.js, so it needs to be transpiled into JavaScript. This transpilation process is handled by the TypeScript compiler (tsc), which reads TypeScript code and generates equivalent JavaScript code.
 
 To transpile a TypeScript file, you can use the tsc command followed by the filename:
 
-$ tsc index.ts
+```sh
+tsc index.ts
+
+```
+
 This command transpiles the index.ts file into a index.js file in the same directory. The resulting JavaScript code can be executed in any JavaScript environment, such as a browser or Node.js.
 
-Watching for File Changes
+# Watching for File Changes
+
 During active development, it's beneficial to have your TypeScript code automatically recompiled whenever you make changes. The TypeScript compiler provides a --watch option for this purpose:
 
-$ tsc index.ts --watch
+```sh
+tsc index.ts --watch
+
+```
+
 With this command, the compiler will monitor the index.ts file and automatically recompile it whenever it detects a change.
 
-Configuring the TypeScript Compiler
+# Configuring the TypeScript Compiler
+
 For larger projects, it's common to have a configuration file, tsconfig.json, to manage compiler options. This file allows you to specify the root level files and the compiler options required to compile the project.
 
 Here's an example of a tsconfig.json file:
 
+```js
 {
   "compilerOptions": {
     "target": "es5",
@@ -147,6 +179,9 @@ Here's an example of a tsconfig.json file:
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules"]
 }
+
+```
+
 In this configuration, the compilerOptions object contains options for the compiler. The target option specifies the ECMAScript target version, the module option sets the module system, the strict option enables a wide range of type checking behavior, and the outDir option specifies the output directory for the compiled JavaScript files.
 
 The include and exclude options are used to specify the files to be compiled and ignored, respectively.
@@ -156,10 +191,12 @@ To compile the project based on the tsconfig.json file, you can run the tsc comm
 $ tsc
 This command will compile all TypeScript files in the project according to the options specified in the tsconfig.json file.
 
-TypeScript Basics
+# TypeScript Basics
+
 In this section , we'll go through the basics of TypeScript. You'll see more examples of how TypeScript is statically typed, and you'll learn more about its tooling and error checking.
 
-Installation
+# Installation
+
 Before we dive into TypeScript, you'll need to make sure that you have Node.js installed on your system. Node.js is a runtime environment that allows you to run JavaScript outside of the browser. You can download Node.js from the official website.
 
 Once Node.js is installed, you can install TypeScript using the Node Package Manager (npm), which comes bundled with Node.js.
@@ -167,14 +204,17 @@ Once Node.js is installed, you can install TypeScript using the Node Package Man
 Open your terminal and run the following command:
 
 npm install -g typescript
+
 This command installs TypeScript globally on your system. You can confirm the installation by running the tsc command, which stands for TypeScript compiler:
 
 tsc --version
+
 This command should display the version of TypeScript that you've installed.
 
 Now that TypeScript is installed, we're ready to start our journey into the world of TypeScript!
 
-Configuration
+# Configuration
+
 Great! Now that we have TypeScript installed, let's talk about something else important: configuration. For larger projects, it's common to have a configuration file, tsconfig.json, to manage compiler options. This file allows you to specify the root level files and the compiler options required to compile the project.
 
 When you run the tsc command, the compiler looks for a tsconfig.json file in the current directory. If it finds one, it uses the options specified in the file to compile the project. If it doesn't find one, it uses the default options.
@@ -182,7 +222,9 @@ When you run the tsc command, the compiler looks for a tsconfig.json file in the
 To generate a tsconfig.json file, you can run the following command:
 
 tsc --init
-Understanding tsconfig.json
+
+# Understanding tsconfig.json
+
 Now that we have TypeScript installed and configured, let's dive deeper into the tsconfig.json file. This file is a crucial part of any TypeScript project. It holds various settings that determine how your TypeScript code gets compiled into JavaScript.
 
 To create a tsconfig.json file, you can use the tsc --init command as I showed above. This command generates a tsconfig.json file in your current directory with some default settings.
@@ -689,7 +731,8 @@ You also learned about TypeScript's built-in types, such as numbers, strings, an
 
 We discussed TypeScript's built-in enumerations, such as number enums, string enums, and computed enums. And you learned about TypeScript's generic types, such as generic functions and classes.
 
-Thank you for reading!
+
+About Author
 
 About Author : Isaiah Clifford Opoku
 
