@@ -2,9 +2,9 @@
 
 These notes are taken from web resources. Some sections can be modified.
 
-[CSS Notes](./web-css/README.md)
+[CSS Notes](./css/README.md)
 
-[Javascript And Node Notes](./web-javascript/README.md)
+[Javascript And Node Notes](./javascript/README.md)
 
 [Node](./node/readme.md)
 
