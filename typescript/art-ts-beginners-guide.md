@@ -12,37 +12,31 @@ August 8, 2024
 - [TypeScript vs JavaScript](#typescript-vs-javascript)
 - [Advantages of TypeScript](#advantages-of-typescript)
 - [Code Generation](#code-generation)
-- [Watching for File Changes](#watching-for-file-changes)
-- [Configuring the TypeScript Compiler](#configuring-the-typescript-compiler)
 - [TypeScript Basics](#typescript-basics)
 - [Installation](#installation)
 - [Configuration](#configuration)
 - [Understanding tsconfig.json](#understanding-tsconfigjson)
 - [Type Declarations and Variables in TypeScript](#type-declarations-and-variables-in-typescript)
+  - [Type Aliases](#type-aliases)
+  - [Intersection Types](#intersection-types)
+  - [Union Types](#union-types)
+  - [Type Assertions](#type-assertions)
+- [Functions in TypeScript](#functions-in-typescript)
+  - [Function Declarations](#function-declarations)
+  - [Arrow Functions](#arrow-functions)
+  - [Function Parameter Types](#function-parameter-types)
+  - [Optional and Default Parameters](#optional-and-default-parameters)
+  - [Rest Parameters (arbitrary arguments)](#rest-parameters-arbitrary-arguments)
 - [Classes and Objects in TypeScript](#classes-and-objects-in-typescript)
+- [Inheritance](#inheritance)
+- [Abstract Classes](#abstract-classes)
+- [Encapsulation](#encapsulation)
+- [Polymorphism](#polymorphism)
+- [Access Modifiers](#access-modifiers)
+- [Interfaces in TypeScript](#interfaces-in-typescript)
+- [Enums in TypeScript](#enums-in-typescript)
+- [Generics in TypeScript](#generics-in-typescript)
 
-
-Code Generation
-
-Installation
-
-Configuration
-
-Understanding tsconfig.json
-
-TypeScript Basics
-
-Type Declarations and Variables in TypeScript
-
-Functions in TypeScript
-
-Classes and Objects in TypeScript
-
-Interfaces in TypeScript
-
-Enums in TypeScript
-
-Generics in TypeScript
 
 TypeScript has become an industry standard for building large-scale applications, with many organizations choosing it as their primary language for application development.
 
@@ -153,7 +147,7 @@ tsc index.ts
 
 This command transpiles the index.ts file into a index.js file in the same directory. The resulting JavaScript code can be executed in any JavaScript environment, such as a browser or Node.js.
 
-# Watching for File Changes
+➖ Watching for File Changes
 
 During active development, it's beneficial to have your TypeScript code automatically recompiled whenever you make changes. The TypeScript compiler provides a --watch option for this purpose:
 
@@ -164,7 +158,7 @@ tsc index.ts --watch
 
 With this command, the compiler will monitor the index.ts file and automatically recompile it whenever it detects a change.
 
-# Configuring the TypeScript Compiler
+➖ Configuring the TypeScript Compiler
 
 For larger projects, it's common to have a configuration file, tsconfig.json, to manage compiler options. This file allows you to specify the root level files and the compiler options required to compile the project.
 
@@ -217,7 +211,10 @@ npm install -g typescript
 
 This command installs TypeScript globally on your system. You can confirm the installation by running the tsc command, which stands for TypeScript compiler:
 
+```sh
 tsc --version
+
+```
 
 This command should display the version of TypeScript that you've installed.
 
@@ -231,13 +228,16 @@ When you run the tsc command, the compiler looks for a tsconfig.json file in the
 
 To generate a tsconfig.json file, you can run the following command:
 
+```sh
 tsc --init
+
+```
 
 # Understanding tsconfig.json
 
 Now that we have TypeScript installed and configured, let's dive deeper into the tsconfig.json file. This file is a crucial part of any TypeScript project. It holds various settings that determine how your TypeScript code gets compiled into JavaScript.
 
-To create a tsconfig.json file, you can use the tsc --init command as I showed above. This command generates a tsconfig.json file in your current directory with some default settings.
+To create a tsconfig.json file, you can use the `tsc --init` command as I showed above. This command generates a tsconfig.json file in your current directory with some default settings.
 
 Here's an example of what a tsconfig.json file might look like:
 
@@ -269,11 +269,11 @@ The outDir option specifies the directory where the compiled JavaScript files wi
 
 The include and exclude options tell the compiler which files to include and exclude during the compilation process.
 
-After setting up your tsconfig.json file, you can compile your TypeScript project by simply running the tsc command in your terminal. This command will compile all TypeScript files in your project according to the options specified in your tsconfig.json file.
+After setting up your tsconfig.json file, you can compile your TypeScript project by simply running the `tsc` command in your terminal. This command will compile all TypeScript files in your project according to the options specified in your tsconfig.json file.
 
 # Type Declarations and Variables in TypeScript
 
-Let's now learn more about types. TypeScript supports several types, including number, string, boolean, object, null, undefined, symbol, bigint, and any. Let's explore each of these types in detail.
+Let's now learn more about types. TypeScript supports several types, including `number, string, boolean, object, null, undefined, symbol, bigint, and any`. Let's explore each of these types in detail.
 
 - number: This type is used for numeric values. It can be an integer or floating-point value.
 
@@ -355,7 +355,7 @@ let anotherBigNumber: bigint = BigInt(9007199254740993);
 
 ```
 
-- any: This type is used when the type of a variable could be anything. It is a way of opting out of type-checking.
+- any: This type is used when the type of a variable could be anything. It is a way of `opting out of type-checking`.
 
 Example:
 
@@ -369,20 +369,30 @@ Now let talk about some different ways you can declare variables in TypeScript.
 
 TypeScript provides a way to define the shape of an object, including its properties and methods, using type declarations. This allows you to create reusable types that can be used to define the structure of objects throughout your codebase.
 
-Type Aliases: Type aliases are a way to create a new name for an existing type. They are often used to define complex types that are used in multiple places.
+## Type Aliases
+
+Type aliases are a way to create `a new name for an existing type`. They are often used to define complex types that are used in multiple places.
+
 Example:
 
+```js
 type Point = {
   x: number;
   y: number;
 }
 
 let origin: Point = { x: 0, y: 0 };
+```
+
 In this example, Point is a type alias for an object with x and y properties. It is used to define the type of the origin object.
 
-Intersection Types: Intersection types are a way to combine multiple types into a single type. They are often used to create complex types that have the properties of multiple other types.
+## Intersection Types 
+
+Intersection types are a way to combine multiple types into a single type. They are often used to create complex types that have the properties of multiple other types.
+
 Example:
 
+```js
 type Printable = {
   print: () => void;
 };
@@ -397,87 +407,142 @@ let logger: Logger = {
   print: () => console.log('Printing...'),
   log: () => console.log('Logging...'),
 };
-In this example, Printable and Loggable are two types that have a print and log method, respectively. The Logger type is an intersection of Printable and Loggable, so it has both a print and log method.
+```
 
-Union Types: Union types are a way to define a type that can be one of several different types. They are often used to create flexible types that can represent a variety of values.
+In this example, Printable and Loggable are two types that have a print and log method, respectively. `The Logger type is an intersection of Printable and Loggable, so it has both a print and log method`.
+
+## Union Types
+
+Union types are a way to define a type that can be `one of several different types`. They are often used to create flexible types that can represent a variety of values.
+
 Example:
 
+```js
 type ID = string | number;
 
 let id: ID = '123';
 id = 123;
+
+```
+
 In this example, ID is a union type that can be either a string or a number. It is used to define the type of the id variable, which can be assigned a string or a number.
 
-Type Assertions: Type assertions are a way to tell the TypeScript compiler that you know more about the type of a value than it does. They are similar to type casting in other languages.
+## Type Assertions 
+
+Type assertions are a way to tell the TypeScript compiler that you know more about the type of a value than it does. They are similar to `type casting` in other languages.
+
 Example:
 
+```js
 let value: any = 'Hello, TypeScript!';
 let length: number = (value as string).length;
+
+```
+
 In this example, the as keyword is used to assert that value is of type string. This allows us to access the length property of the string.
 
-Functions in TypeScript
+# Functions in TypeScript
+
 Functions are the building blocks of any programming language. They encapsulate logic into reusable units of code, promoting code reuse and modularity. In TypeScript, functions can be defined using the function keyword or arrow functions (=>). Both methods have their own use cases and characteristics.
 
 Let's talk about some types of functions in TypeScript:
 
-Function Declarations: Functions can be declared using the function keyword followed by a unique function name. The function body is enclosed in curly braces {}.
+## Function Declarations
+
+Functions can be declared using the function keyword followed by a unique function name. The function body is enclosed in curly braces `{}`.
+
 Example:
 
+```js
 function greet(name: string): void {
   console.log(`Hello, ${name}!`);
 }
 
 greet('Alice');  // Outputs: Hello, Alice!
+
+```
+
 In this example, greet is a function that takes one parameter, name, of type string. The function doesn't return anything, so its return type is void.
 
-Arrow Functions: Arrow functions are a more modern syntax for writing functions in TypeScript and JavaScript. They are especially useful when writing small, inline functions.
+## Arrow Functions
+
+Arrow functions are a more modern syntax for writing functions in TypeScript and JavaScript. They are especially useful when writing small, inline functions.
+
 Example:
 
+```js
 const greet = (name: string): void => {
   console.log(`Hello, ${name}!`);
 }
 
 greet('Bob');  // Outputs: Hello, Bob!
-In this example, greet is an arrow function that behaves exactly the same as the greet function in the previous example. The => symbol separates the function parameters and the function body.
 
-Function Types: In TypeScript, you can specify the types of the parameters and the return value of a function. This provides type safety, ensuring that the function is called with the correct types of arguments and that it returns the correct type of value.
+```
+
+In this example, greet is an arrow function that behaves exactly the same as the greet function in the previous example. The `=>` symbol separates the function parameters and the function body.
+
+## Function Parameter Types 
+
+In TypeScript, you can specify the types of the parameters and the return value of a function. This provides type safety, ensuring that the function is called with the correct types of arguments and that it returns the correct type of value.
+
 Example:
 
+```js
 function add(a: number, b: number): number {
   return a + b;
 }
 
 let sum: number = add(1, 2);  // sum is 3
+
+```
+
 In this example, the add function takes two parameters, a and b, both of type number, and returns a number.
 
-Optional and Default Parameters: TypeScript allows function parameters to be optional or have default values.
+## Optional and Default Parameters
+
+TypeScript allows function parameters to be optional or have default values.
+
 Example:
 
+```js
 function greet(name: string, greeting: string = 'Hello'): void {
   console.log(`${greeting}, ${name}!`);
 }
 
 greet('Charlie');  // Outputs: Hello, Charlie!
 greet('Charlie', 'Hi');  // Outputs: Hi, Charlie!
+
+```
+
 In this example, the greet function has two parameters, name and greeting. The greeting parameter is optional and has a default value of 'Hello'.
 
-Rest Parameters: TypeScript supports rest parameters, which allow you to pass an arbitrary number of arguments to a function.
+## Rest Parameters (arbitrary arguments)
+
+TypeScript supports rest parameters, which allow you to pass an arbitrary number of arguments to a function.
+
 Example:
 
+```js
 function sum(...numbers: number[]): number {
   return numbers.reduce((a, b) => a + b, 0);
 }
 
 let total: number = sum(1, 2, 3, 4, 5); // total is 15
+
+```
+
 In this example, the sum function takes an arbitrary number of arguments and returns their sum.
 
 # Classes and Objects in TypeScript
 
 Classes are a fundamental part of object-oriented programming (OOP). They are templates for creating objects, providing initial values for state (member variables) and implementations of behavior (member functions or methods).
 
-TypeScript supports classes, which are declared using the class keyword. One advantage of TypeScript classes is that they support object-oriented programming (OOP) features such as inheritance, encapsulation, and polymorphism.
+TypeScript supports classes, which are declared using the class keyword. One advantage of TypeScript classes is that they support object-oriented programming (OOP) features such as `inheritance, encapsulation, and polymorphism`.
 
-Class Declaration: In TypeScript, classes are declared using the class keyword.
+➖ Class Declaration
+
+In TypeScript, classes are declared using the class keyword.
+
 Example:
 
 ```js
@@ -502,7 +567,9 @@ john.greet(); // Outputs: Hello, my name is John and I am 25 years old.
 
 In this example, Person is a class with two properties, name and age, and a method greet. The constructor is a special method for creating and initializing an object created with a class.
 
-Inheritance: TypeScript supports inheritance, a mechanism of basing a class upon another class, retaining similar implementation. Inheritance is achieved using the extends keyword.
+# Inheritance
+
+TypeScript supports inheritance, a mechanism of basing a class upon another class, retaining similar implementation. Inheritance is achieved using the extends keyword.
 
 Example:
 
@@ -522,13 +589,18 @@ class Employee extends Person {
 }
 
 let jane = new Employee('Jane', 30, 'HR');
-jane.greet(); // Outputs: Hello, my name is Jane and I am 30 years old. I work in HR.
+jane.greet(); 
+
+// Outputs: Hello, my name is Jane and I am 30 years old. I work in HR.
 
 ```
 
 In this example, Employee is a class that extends Person. It adds a new property department and overrides the greet method. The super keyword is used to call corresponding methods of the parent class.
 
-Abstract Classes: Abstract classes are classes that cannot be instantiated directly. They are used as base classes for other classes and can contain abstract methods that must be implemented by derived classes.
+# Abstract Classes
+
+Abstract classes are classes that cannot be instantiated directly. They are used as base classes for other classes and can contain abstract methods that must be implemented by derived classes.
+
 Example:
 
 ```js
@@ -556,9 +628,13 @@ console.log(circle.area()); // Outputs: 78.54
 
 In this example, Shape is an abstract class with an abstract method area. The Circle class extends Shape and implements the area method. Abstract classes are useful for defining a common interface for a set of classes.
 
-Encapsulation: Encapsulation is the bundling of data (properties) and methods that operate on the data (methods) into a single unit called a class. In TypeScript, encapsulation is achieved by using access modifiers such as public, private, and protected.
+# Encapsulation
+
+Encapsulation is the bundling of data (properties) and methods that operate on the data (methods) into a single unit called a class. In TypeScript, encapsulation is achieved by using access modifiers such as `public, private, and protected`.
+
 Example:
 
+```js
 class Person {
   private name: string;
   protected age: number;
@@ -576,11 +652,18 @@ class Person {
 let john = new Person("John", 25);
 console.log(john.name); // Error: Property "name" is private
 console.log(john.age);  // Error: Property "age" is protected
+
+```
+
 In this example, name is a private property of the Person class, so it cannot be accessed from outside the class. age is a protected property, so it can be accessed from subclasses but not from outside the class.
 
-Polymorphism: Polymorphism is the ability of an object to take on many forms. In TypeScript, polymorphism is achieved through method overriding, where a method in a subclass has the same name and signature as a method in its superclass.
+# Polymorphism
+
+Polymorphism is the ability of an object to take on many forms. In TypeScript, polymorphism is achieved through method overriding, where a method in a subclass has the same name and signature as a method in its superclass.
+
 Example:
 
+```js
 class Animal {
   speak(): void {
     console.log('Animal makes a sound');
@@ -595,11 +678,18 @@ class Dog extends Animal {
 
 let animal: Animal = new Dog();
 animal.speak(); // Outputs: Dog barks
+
+```
+
 In this example, Animal is a base class with a speak method. Dog is a subclass that overrides the speak method. When an instance of Dog is assigned to a variable of type Animal, the speak method of Dog is called.
 
-Access Modifiers: TypeScript supports the access modifiers public, private, and protected. By default, each member is public.
+# Access Modifiers
+
+TypeScript supports the access modifiers `public, private, and protected`. By default, each member is `public`.
+
 Example:
 
+```js
 class Animal {
   private name: string;
 
@@ -614,38 +704,54 @@ class Animal {
 
 let dog = new Animal('Dog');
 console.log(dog.getName()); // Outputs: Dog
+
+```
+
 In this example, name is a private member of the Animal class. It can only be accessed within the Animal class. The getName method is public, so it can be called from outside the class.
 
-Interfaces in TypeScript
+# Interfaces in TypeScript
+
 Interfaces in TypeScript are powerful ways to define contracts within your code. They are used to type-check whether an object fits a certain structure.
 
 By defining an interface we can name a specific combination of variables, making sure they will always be used as a set.
 
 Interface Declaration: Interfaces are declared with the interface keyword.
+
 Example:
 
+```js
 interface Person {
   name: string;
   age: number;
 }
 
 let john: Person = { name: 'John', age: 25 };
+
+```
+
 In this example, Person is an interface that describes an object that has a name of type string and an age of type number.
 
-Optional Properties: Interface properties can be marked as optional with ?.
+➖ Optional Properties: Interface properties can be marked as optional with `?`.
+
 Example:
 
+```js
 interface Person {
   name: string;
   age?: number;
 }
 
 let alice: Person = { name: 'Alice' };
-In this example, age is an optional property in the Person interface. The object alice is still a Person even though it doesn't have an age.
 
-Function Types: Interfaces can also describe function types.
+```
+
+In this example, `age is an optional property in the Person interface`. The object alice is still a Person even though it doesn't have an age.
+
+➖ Function Types: Interfaces can also describe function types.
+
 Example:
 
+```js
 interface GreetFunction {
   (name: string, age: number): string;
 }
@@ -653,11 +759,18 @@ interface GreetFunction {
 let greet: GreetFunction = function(name: string, age: number): string {
   return `Hello, my name is ${name} and I am ${age} years old.`;
 };
+
+```
+
 In this example, GreetFunction is an interface that describes a function that takes a name and an age and returns a string.
 
-Extending Interfaces: Interfaces can extend one another, creating a new interface that inherits the members of the base interface.
+➖ Extending Interfaces: 
+
+Interfaces can extend one another, creating a new interface that inherits the members of the base interface.
+
 Example:
 
+```js
 interface Animal {
   name: string;
 }
@@ -667,9 +780,13 @@ interface Dog extends Animal {
 }
 
 let myDog: Dog = { name: 'Rex', breed: 'German Shepherd' };
+
+```
+
 In this example, Dog extends Animal, so a Dog has both a name and a breed.
 
-Enums in TypeScript
+# Enums in TypeScript
+
 Enums are a way to define a set of named constants. They are often used to represent a set of related values, such as the days of the week or the months of the year.
 
 TypeScript supports both numeric and string enums, providing a flexible way to define and work with sets of constants.
@@ -739,7 +856,8 @@ enum Day {
 let dayName: string = Day[1]; // 'Monday'
 In this example, the Day enum is used to access the name
 
-Generics in TypeScript
+# Generics in TypeScript
+
 Generics are a way to define a function or class that can be used with different types of data. They are often used to create reusable components that can work with different types of data.
 
 TypeScript supports generics, allowing you to write type-safe code that is flexible and reusable.
