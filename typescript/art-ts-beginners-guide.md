@@ -18,6 +18,8 @@ August 8, 2024
 - [Installation](#installation)
 - [Configuration](#configuration)
 - [Understanding tsconfig.json](#understanding-tsconfigjson)
+- [Type Declarations and Variables in TypeScript](#type-declarations-and-variables-in-typescript)
+- [Classes and Objects in TypeScript](#classes-and-objects-in-typescript)
 
 
 Code Generation
@@ -188,7 +190,11 @@ The include and exclude options are used to specify the files to be compiled and
 
 To compile the project based on the tsconfig.json file, you can run the tsc command without any arguments:
 
-$ tsc
+```sh
+tsc
+
+```
+
 This command will compile all TypeScript files in the project according to the options specified in the tsconfig.json file.
 
 # TypeScript Basics
@@ -203,7 +209,11 @@ Once Node.js is installed, you can install TypeScript using the Node Package Man
 
 Open your terminal and run the following command:
 
+```sh
 npm install -g typescript
+
+``` 
+
 
 This command installs TypeScript globally on your system. You can confirm the installation by running the tsc command, which stands for TypeScript compiler:
 
@@ -231,6 +241,7 @@ To create a tsconfig.json file, you can use the tsc --init command as I showed a
 
 Here's an example of what a tsconfig.json file might look like:
 
+```js
 {
  "compilerOptions": {
     "target": "es5",
@@ -241,6 +252,9 @@ Here's an example of what a tsconfig.json file might look like:
  "include": ["src/**/*.ts"],
  "exclude": ["node_modules"]
 }
+
+```
+
 In this configuration:
 
 The compilerOptions object contains settings for the TypeScript compiler.
@@ -257,54 +271,100 @@ The include and exclude options tell the compiler which files to include and exc
 
 After setting up your tsconfig.json file, you can compile your TypeScript project by simply running the tsc command in your terminal. This command will compile all TypeScript files in your project according to the options specified in your tsconfig.json file.
 
-Type Declarations and Variables in TypeScript
+# Type Declarations and Variables in TypeScript
+
 Let's now learn more about types. TypeScript supports several types, including number, string, boolean, object, null, undefined, symbol, bigint, and any. Let's explore each of these types in detail.
 
-number: This type is used for numeric values. It can be an integer or floating-point value.
+- number: This type is used for numeric values. It can be an integer or floating-point value.
+
 Example:
 
+```js
 let age: number = 30;
 let weight: number = 65.5;
-string: This type is used for textual data. It can be defined using single quotes, double quotes, or template literals.
+
+```
+
+- string: This type is used for textual data. It can be defined using single quotes, double quotes, or template literals.
+
 Example:
 
+```js
 let name: string = 'John Doe';
 let greeting: string = `Hello, ${name}`;
-boolean: This type is used for logical values. It can only be true or false.
+
+```
+
+- boolean: This type is used for logical values. It can only be true or false.
+
 Example:
 
+```js
 let isAdult: boolean = true;
 let isStudent: boolean = false;
-object: This type is used for complex data structures. An object can have properties and methods.
+
+```
+
+- object: This type is used for complex data structures. An object can have properties and methods.
+
 Example:
 
+```js
 let person: object = { name: 'John Doe', age: 30 };
 let date: object = new Date();
-null: This type has only one value: null. It is used when you want to explicitly set a variable to have no value or object.
+
+```
+
+- null: This type has only one value: null. It is used when you want to explicitly set a variable to have no value or object.
+
 Example:
 
+```js
 let emptyValue: null = null;
 let anotherEmptyValue: null = null;
-undefined: This type has only one value: undefined. It is used when a variable has been declared but has not yet been assigned a value.
+
+```
+
+- undefined: This type has only one value: undefined. It is used when a variable has been declared but has not yet been assigned a value.
+
 Example:
 
+```js
 let unassignedValue: undefined = undefined;
 let anotherUnassignedValue: undefined;
-symbol: This type is used to create unique identifiers for objects.
+
+```
+
+- symbol: This type is used to create unique identifiers for objects.
+
 Example:
 
+```js
 let symbol1: symbol = Symbol('symbol1');
 let symbol2: symbol = Symbol('symbol2');
-bigint: This type is used for whole numbers larger than 2^53 - 1, which is the upper limit for the number type.
+
+```
+
+- bigint: This type is used for whole numbers larger than 2^53 - 1, which is the upper limit for the number type.
+
 Example:
 
+```js
 let bigNumber: bigint = 9007199254740993n;
 let anotherBigNumber: bigint = BigInt(9007199254740993);
-any: This type is used when the type of a variable could be anything. It is a way of opting out of type-checking.
+
+```
+
+- any: This type is used when the type of a variable could be anything. It is a way of opting out of type-checking.
+
 Example:
 
+```js
 let variable: any = 'I am a string';
 variable = 42; // I am a number now
+
+```
+
 Now let talk about some different ways you can declare variables in TypeScript.
 
 TypeScript provides a way to define the shape of an object, including its properties and methods, using type declarations. This allows you to create reusable types that can be used to define the structure of objects throughout your codebase.
@@ -411,7 +471,8 @@ function sum(...numbers: number[]): number {
 let total: number = sum(1, 2, 3, 4, 5); // total is 15
 In this example, the sum function takes an arbitrary number of arguments and returns their sum.
 
-Classes and Objects in TypeScript
+# Classes and Objects in TypeScript
+
 Classes are a fundamental part of object-oriented programming (OOP). They are templates for creating objects, providing initial values for state (member variables) and implementations of behavior (member functions or methods).
 
 TypeScript supports classes, which are declared using the class keyword. One advantage of TypeScript classes is that they support object-oriented programming (OOP) features such as inheritance, encapsulation, and polymorphism.
@@ -419,6 +480,7 @@ TypeScript supports classes, which are declared using the class keyword. One adv
 Class Declaration: In TypeScript, classes are declared using the class keyword.
 Example:
 
+```js
 class Person {
   name: string;
   age: number;
@@ -435,11 +497,16 @@ class Person {
 
 let john = new Person('John', 25);
 john.greet(); // Outputs: Hello, my name is John and I am 25 years old.
+
+```
+
 In this example, Person is a class with two properties, name and age, and a method greet. The constructor is a special method for creating and initializing an object created with a class.
 
 Inheritance: TypeScript supports inheritance, a mechanism of basing a class upon another class, retaining similar implementation. Inheritance is achieved using the extends keyword.
+
 Example:
 
+```js
 class Employee extends Person {
   department: string;
 
@@ -456,11 +523,15 @@ class Employee extends Person {
 
 let jane = new Employee('Jane', 30, 'HR');
 jane.greet(); // Outputs: Hello, my name is Jane and I am 30 years old. I work in HR.
+
+```
+
 In this example, Employee is a class that extends Person. It adds a new property department and overrides the greet method. The super keyword is used to call corresponding methods of the parent class.
 
 Abstract Classes: Abstract classes are classes that cannot be instantiated directly. They are used as base classes for other classes and can contain abstract methods that must be implemented by derived classes.
 Example:
 
+```js
 abstract class Shape {
   abstract area(): number;
 }
@@ -480,6 +551,9 @@ class Circle extends Shape {
 
 let circle = new Circle(5);
 console.log(circle.area()); // Outputs: 78.54
+
+```
+
 In this example, Shape is an abstract class with an abstract method area. The Circle class extends Shape and implements the area method. Abstract classes are useful for defining a common interface for a set of classes.
 
 Encapsulation: Encapsulation is the bundling of data (properties) and methods that operate on the data (methods) into a single unit called a class. In TypeScript, encapsulation is achieved by using access modifiers such as public, private, and protected.

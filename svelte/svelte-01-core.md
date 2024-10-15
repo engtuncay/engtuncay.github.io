@@ -415,6 +415,8 @@ So far, we've dealt exclusively with internal state — that is to say, the valu
 
 In any real application, you'll need to `pass data from one component down to its children`. To do that, we need to declare properties, generally shortened to 'props'. In Svelte, we do that with the `export keyword`. Edit the `Nested.svelte` component:
 
+*Nested.svelte*
+
 ```js
 <script>
 export let answer;
@@ -484,6 +486,8 @@ The answer is a mystery
 
 We can pass an object to a component by 'spreading' them onto a component instead of specifying each one:
 
+*Parent-Component*
+
 ```html
 <script>
 	import PackageInfo from './PackageInfo.svelte';
@@ -518,7 +522,7 @@ We can pass an object to a component by 'spreading' them onto a component instea
 
 ```
 
-✏ Conversely, if you need to reference all the props that were passed into a component, including ones that weren't declared with export, you can do so by accessing `$$props` directly. It's not generally recommended, as it's difficult for Svelte to optimise, but it's useful in rare cases.
+📝 Conversely, if you need to reference all the props that were passed into a component, including ones that weren't declared with export, you can do so by accessing `$$props` directly. It's not generally recommended, as it's difficult for Svelte to optimise, but it's useful in rare cases.
 
 Try : https://learn.svelte.dev/tutorial/spread-props
 
