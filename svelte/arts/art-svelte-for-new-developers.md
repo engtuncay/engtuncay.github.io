@@ -1,7 +1,7 @@
 
 <h1>Svelte for new developers by Rich Harris (2019)</h1> 
 
-Source : https://svelte.dev/blog/svelte-for-new-developers (some parts may be modified)  
+Source : https://svelte.dev/blog/svelte-for-new-developers (some parts may be modified or added)  
 
 APR 16 2019
 
@@ -9,8 +9,10 @@ APR 16 2019
 
 - [Installing Node.js](#installing-nodejs)
 - [Installing a text editor](#installing-a-text-editor)
-- [Creating a svelte + vite project](#creating-a-svelte--vite-project)
+- [Creating a svelte + vite project (javascript)](#creating-a-svelte--vite-project-javascript)
+- [Creating a svelte + vite project (typescript)](#creating-a-svelte--vite-project-typescript)
 - [Building your app (production)](#building-your-app-production)
+- [Installing Tailwind](#installing-tailwind)
 - [Online Repl - Svelte Code Play](#online-repl---svelte-code-play)
 
 # Installing Node.js
@@ -35,7 +37,7 @@ a convenient way to run programs available on npm without permanently installing
 
 To write code, you need a good editor. The most popular choice is Visual Studio Code or VSCode, and justifiably so — it's well-designed and fully-featured, and has a wealth of extensions (including one for Svelte (https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode), which provides syntax highlighting and diagnostic messages when you're writing components).
 
-# Creating a svelte + vite project
+# Creating a svelte + vite project (javascript)
 
 We're going to use the `Svelte + Vite template`. You don't have to use a project template, but it means you have to do a lot less setup work (vite template).
 
@@ -44,14 +46,19 @@ On the command line, navigate to where you want to create a new project, then ty
 ```sh
 npm create vite@latest my-svelte-project -- --template svelte`
 cd my-svelte-project
+
 npm install
 
 ```
 
-✏ Note : If you prefer TypeScript, you can replace `--template svelte` with `--template svelte-ts`.
+# Creating a svelte + vite project (typescript)
+
+If you prefer TypeScript, you can replace `--template svelte` with `--template svelte-ts`.
 
 ```sh
 npm create vite@latest my-svelte-project -- --template svelte-ts
+
+npm install
 
 ```
 
@@ -74,11 +81,118 @@ In the last step, we were running the app in 'development mode'. In dev mode, Sv
 
 When you share your app with the world, you want to build it in `'production mode'`, so that it's as small and efficient as possible for end users. To do that, use the build command:
 
-- `npm run build`
+```sh
+npm run build
+# or
+yarn run build
+
+```
 
 Your dist directory now contains `an optimised version` of your app. You can run it like so:
 
+```sh
+npm run preview
+# or
+yarn run preview
+
+```
+
 - `npm run preview`
+
+# Installing Tailwind
+
+Source : https://tailwindcss.com/docs/guides/vite#svelte
+
+➖ 1 Create your project
+
+Start by creating a new Vite project if you don’t have one set up already. The most common approach is to use Create Vite.
+
+```sh
+npm create vite@latest my-project -- --template svelte
+
+cd my-project
+
+```
+
+or typescript 
+
+```sh
+npm create vite@latest my-project -- --template svelte-ts
+
+cd my-project
+
+npm install
+
+```
+
+➖ Install Tailwind CSS
+
+Install tailwindcss and its peer dependencies, then generate your tailwind.config.js and postcss.config.js files.
+
+```sh
+npm install -D tailwindcss postcss autoprefixer
+# or
+yarn add tailwindcss postcss autoprefixer --dev
+npx tailwindcss init -p
+
+```
+
+➖ Configure your template paths
+
+Add the paths to all of your template files in your tailwind.config.js file.
+
+tailwind.config.js
+
+```js
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{svelte,js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+
+```
+
+➖ Add the Tailwind directives to your CSS
+
+Add the @tailwind directives for each of Tailwind’s layers to your `./src/app.css` file.
+
+app.css
+
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+```
+
+➖ Start your build process
+
+Run your build process with npm run dev.
+
+```sh
+npm run dev
+# or
+yarn run dev
+```
+
+➖ Start using Tailwind in your project
+
+Start using Tailwind’s utility classes to style your content.
+
+App.svelte
+
+```html
+<h1 class="text-3xl font-bold underline">
+  Hello world!
+</h1>
+
+```
 
 # Online Repl - Svelte Code Play
 
