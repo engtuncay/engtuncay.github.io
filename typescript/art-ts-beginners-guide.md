@@ -34,8 +34,12 @@ August 8, 2024
 - [Polymorphism](#polymorphism)
 - [Access Modifiers](#access-modifiers)
 - [Interfaces in TypeScript](#interfaces-in-typescript)
+  - [Optional Properties](#optional-properties)
+  - [Function Types](#function-types)
+  - [Extending Interfaces:](#extending-interfaces)
 - [Enums in TypeScript](#enums-in-typescript)
 - [Generics in TypeScript](#generics-in-typescript)
+- [Conclusion](#conclusion)
 
 
 TypeScript has become an industry standard for building large-scale applications, with many organizations choosing it as their primary language for application development.
@@ -659,7 +663,7 @@ In this example, name is a private property of the Person class, so it cannot be
 
 # Polymorphism
 
-Polymorphism is the ability of an object to take on many forms. In TypeScript, polymorphism is achieved through method overriding, where a method in a subclass has the same name and signature as a method in its superclass.
+Polymorphism is the ability of an object to take on many forms. In TypeScript, polymorphism is achieved through method `overriding`, where a method in a subclass has the same name and signature as a method in its superclass.
 
 Example:
 
@@ -731,7 +735,9 @@ let john: Person = { name: 'John', age: 25 };
 
 In this example, Person is an interface that describes an object that has a name of type string and an age of type number.
 
-➖ Optional Properties: Interface properties can be marked as optional with `?`.
+## Optional Properties
+
+Interface properties can be marked as optional with `?`.
 
 Example:
 
@@ -747,7 +753,9 @@ let alice: Person = { name: 'Alice' };
 
 In this example, `age is an optional property in the Person interface`. The object alice is still a Person even though it doesn't have an age.
 
-➖ Function Types: Interfaces can also describe function types.
+## Function Types
+
+Interfaces can also describe function types.
 
 Example:
 
@@ -764,7 +772,7 @@ let greet: GreetFunction = function(name: string, age: number): string {
 
 In this example, GreetFunction is an interface that describes a function that takes a name and an age and returns a string.
 
-➖ Extending Interfaces: 
+## Extending Interfaces: 
 
 Interfaces can extend one another, creating a new interface that inherits the members of the base interface.
 
@@ -791,9 +799,11 @@ Enums are a way to define a set of named constants. They are often used to repre
 
 TypeScript supports both numeric and string enums, providing a flexible way to define and work with sets of constants.
 
-Numeric Enums: Numeric enums are a way to define a set of named constants with numeric values. By default, the values of the constants start at 0 and increment by 1 for each subsequent constant.
+➖ Numeric Enums: Numeric enums are a way to define a set of named constants with numeric values. By default, the values of the constants start at 0 and increment by 1 for each subsequent constant.
+
 Example:
 
+```js
 enum Day {
   Sunday,
   Monday,
@@ -805,11 +815,16 @@ enum Day {
 }
 
 let today: Day = Day.Monday;
+
+```
+
 In this example, Day is a numeric enum that represents the days of the week. The constants Sunday, Monday, Tuesday, and so on are assigned numeric values starting from 0.
 
-String Enums: String enums are a way to define a set of named constants with string values. Unlike numeric enums, the values of the constants in a string enum are initialized with the value of the constant name.
+➖ String Enums: String enums are a way to define a set of named constants with string values. Unlike numeric enums, the values of the constants in a string enum are initialized with the value of the constant name.
+
 Example:
 
+```js
 enum Month {
   January = 'January',
   February = 'February',
@@ -826,11 +841,14 @@ enum Month {
 }
 
 let currentMonth: Month = Month.June;
+```
+
 In this example, Month is a string enum that represents the months of the year. The constants January, February, March, and so on are assigned string values equal to their names.
 
-Computed Enums: Enums can have computed values, which are initialized with an expression instead of a constant value. This allows for more flexibility in defining the values of the constants.
+➖ Computed Enums: Enums can have computed values, which are initialized with an expression instead of a constant value. This allows for more flexibility in defining the values of the constants.
 Example:
 
+```js
 enum Color {
   Red = 1,
   Green = Math.pow(2, 2),
@@ -838,11 +856,16 @@ enum Color {
 }
 
 let color: Color = Color.Green;
+
+```
+
 In this example, Color is an enum with computed values. The constants Red, Green, and Blue are assigned the values 1, 4, and 8, respectively, using the Math.pow function.
 
-Reverse Mapping: Enums in TypeScript support reverse mapping, which means that you can access the name of a constant from its value. This is useful for debugging and logging purposes.
+➖ Reverse Mapping: Enums in TypeScript support reverse mapping, which means that you can access the name of a constant from its value. This is useful for debugging and logging purposes.
+
 Example:
 
+```js
 enum Day {
   Sunday,
   Monday,
@@ -854,6 +877,8 @@ enum Day {
 }
 
 let dayName: string = Day[1]; // 'Monday'
+```
+
 In this example, the Day enum is used to access the name
 
 # Generics in TypeScript
@@ -864,20 +889,27 @@ TypeScript supports generics, allowing you to write type-safe code that is flexi
 
 Now let's look at some examples of generic functions and classes.
 
-Generic Functions: Generic functions are functions that can work with a variety of data types. They are defined using type parameters, which are placeholders for the actual types that will be used when the function is called.
+➖ Generic Functions: Generic functions are functions that can work with a variety of data types. They are defined using type parameters, which are placeholders for the actual types that will be used when the function is called.
+
 Example:
 
+```js
 function identity<T>(value: T): T {
   return value;
 }
 
 let result1: number = identity<number>(42);
 let result2: string = identity<string>('Hello, TypeScript!');
+
+```
+
 In this example, identity is a generic function that takes a type parameter T and returns a value of type T. The type parameter T is used to specify the type of the argument and the return value.
 
-Generic Classes: Generic classes are classes that can work with a variety of data types. They are defined using type parameters, which are placeholders for the actual types that will be used when the class is instantiated.
+➖ Generic Classes: Generic classes are classes that can work with a variety of data types. They are defined using type parameters, which are placeholders for the actual types that will be used when the class is instantiated.
+
 Example:
 
+```js
 class Box<T> {
   value: T;
 
@@ -888,11 +920,16 @@ class Box<T> {
 
 let box1: Box<number> = new Box<number>(42);
 let box2: Box<string> = new Box<string>('Hello, TypeScript!');
+
+```
+
 In this example, Box is a generic class that takes a type parameter T and has a property value of type T. The type parameter T is used to specify the type of the value stored in the box.
 
-Generic Constraints: Generic constraints are a way to restrict the types that can be used with a generic function or class. They are defined using the extends keyword, followed by the type or interface that the type parameter must extend.
+➖ Generic Constraints: Generic constraints are a way to restrict the types that can be used with a generic function or class. They are defined using the extends keyword, followed by the type or interface that the type parameter must extend.
+
 Example:
 
+```js
 interface Printable {
   print(): void;
 }
@@ -909,11 +946,14 @@ class Person implements Printable {
 
 let person: Person = new Person();
 printValue(person);
+
+```
+
 In this example, Printable is an interface that defines a print method. The printValue function is a generic function that takes a type parameter T that must extend Printable. The Person class implements the Printable interface.
 
 At this point you have a basic understanding of TypeScript and you can start diving into more advanced concepts.
 
-Conclusion
+# Conclusion
 
 In this article, you've learned the basics of TypeScript.
 
@@ -923,12 +963,7 @@ You also learned about TypeScript's built-in types, such as numbers, strings, an
 
 We discussed TypeScript's built-in enumerations, such as number enums, string enums, and computed enums. And you learned about TypeScript's generic types, such as generic functions and classes.
 
-
-About Author
-
-About Author : Isaiah Clifford Opoku
-
-Hello, my name is Isaiah Clifford Opoku. I am a TypeScript and C# developer. I love solving problems using technology and sharing my knowledge through technical writing.
+🔚
 
 
 
