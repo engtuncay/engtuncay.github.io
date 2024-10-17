@@ -30,6 +30,9 @@
 - [Art - Data Binding In Svelte By Aagam Vadecha](#art---data-binding-in-svelte-by-aagam-vadecha)
   - [One-way vs two-way data binding](#one-way-vs-two-way-data-binding)
   - [Passing props down to a child](#passing-props-down-to-a-child)
+  - [Passing props back to a parent](#passing-props-back-to-a-parent)
+    - [Using bind](#using-bind)
+  - [Using a callback](#using-a-callback)
 
 [Back](readme.md)
 
@@ -1172,19 +1175,21 @@ Child.svelte
 
 ```
 
-Copy
 That’s it, here’s how the components will look with some decent styling.
 
 image1.png
 
-Passing props back to a parent
+## Passing props back to a parent
+
 As a general rule data flow goes from the parent to the child but there can be situations where we want to pass values back from the child to the parent. There are several ways we can achieve this in Svelte.
 
-Using bind
-We can use the bind component directive to bind a parent variable with a child prop. As we can see in the example below, the firstName variable from parent is bound with firstName prop in child. That’s it, any changes we make in the input box in the child component will reflect in the parent variable as well.
+### Using bind
+
+We can use the bind component directive to `bind a parent variable with a child prop`. As we can see in the example below, the firstName variable from parent is bound with firstName prop in child. That’s it, any changes we make in the input box in the child component will reflect in the parent variable as well.
 
 Parent.svelte
 
+```html
 <script lang="ts">  
   let firstName = "";  
   import Child from "./Child.svelte";  
@@ -1196,9 +1201,11 @@ Parent.svelte
   <Child bind:firstName={firstName} />  
 </div>
 
-Copy
+```
+
 Child.svelte
 
+```html
 <script>  
   export let firstName = "";  
 </script>
@@ -1211,12 +1218,15 @@ Child.svelte
   </p>  
 </div>
 
-Copy
-Using a callback
+```
+
+## Using a callback
+
 This pattern will be familiar if you are coming from React. Here, the parent component creates an onChange handler function and passes it to the child component. The child component accepts the variable, and its change handler function, and invokes it as shown below.
 
 Parent.svelte
 
+```html
 <script lang="ts">  
   let firstName = "";  
   import Child from "./Child.svelte";  
@@ -1231,6 +1241,8 @@ Parent.svelte
   <Child firstName={firstName} onChange={handleChange} />  
 </div>
 
+
+```
 Copy
 Child.svelte
 
