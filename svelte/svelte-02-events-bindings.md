@@ -27,7 +27,9 @@
   - [l. This](#l-this)
   - [m. Component bindings](#m-component-bindings)
   - [n. Binding to component instances](#n-binding-to-component-instances)
-- [Art - Data Binding In Svelte](#art---data-binding-in-svelte)
+- [Art - Data Binding In Svelte By Aagam Vadecha](#art---data-binding-in-svelte-by-aagam-vadecha)
+  - [One-way vs two-way data binding](#one-way-vs-two-way-data-binding)
+  - [Passing props down to a child](#passing-props-down-to-a-child)
 
 [Back](readme.md)
 
@@ -1099,10 +1101,205 @@ Note that we can't do `{field.focus}` since field is undefined when the button i
 
 - Try : https://svelte.dev/tutorial/component-this  
 
-# Art - Data Binding In Svelte
+# Art - Data Binding In Svelte By Aagam Vadecha
 
-- Source : https://hygraph.com/blog/data-binding-in-svelte
+- Source : https://hygraph.com/blog/data-binding-in-svelte , (some parts may be modified or added)
+ 
+Oct 11, 2024
 
+## One-way vs two-way data binding
+
+In one-way data binding, the data flow is from `the variable in your script to the UI element`. Changes to the variable will update the UI, but not the other way around. For example
+
+```html
+<script>  
+  let message = "Hello!";
+</script>
+
+<p>{message}</p>
+
+```
+
+In this case, any changes to the message variable in the `<script>` block will be reflected in the UI, but changes in the UI won’t affect the message.
+
+Svelte provides two-way data binding for form elements like `<input>, <textarea>, <select>, and more`, using the bind: directive. This means the variable can updated by the UI elements like input, and it will be reflected in the script tag, and any changes to the variable in the script tag will reflect in the input elements.
+
+```html
+<script>  
+  let message="How are you?";  
+</script>
+
+<input type="text" bind:value={message} />  
+<p>Hello, {message}!</p>
+
+```
+
+In the code above, the `bind:value={message}` creates two-way binding:
+
+When the user types into the input field, the message variable in the script will be updated. On other hand, when the message is updated in the script, the input field's value and the p tag UI will be updated accordingly.
+
+## Passing props down to a child
+
+Here's a super simple Parent.svelte that imports the Child.svelte component and passes a prop named message to it. It is almost the same way as we would pass props in React.
+
+➖ Parent.svelte
+
+```html
+<script lang="ts">  
+  import Child from "./Child.svelte";  
+</script>
+
+<div class="parent">  
+  <h2>Parent</h2>  
+  <Child message="Hello World" />  
+</div>
+
+```
+
+To define an incoming prop in Svelte, we need to declare it as a variable in the Child component and export it using the export keyword as shown below.
+
+Child.svelte
+
+```html
+<script lang="ts">  
+  export let message;  
+</script>
+
+<div class="child">  
+  <h2>Child</h2>  
+  <p>Received message: {message}</p>  
+</div>
+
+```
+
+Copy
+That’s it, here’s how the components will look with some decent styling.
+
+image1.png
+
+Passing props back to a parent
+As a general rule data flow goes from the parent to the child but there can be situations where we want to pass values back from the child to the parent. There are several ways we can achieve this in Svelte.
+
+Using bind
+We can use the bind component directive to bind a parent variable with a child prop. As we can see in the example below, the firstName variable from parent is bound with firstName prop in child. That’s it, any changes we make in the input box in the child component will reflect in the parent variable as well.
+
+Parent.svelte
+
+<script lang="ts">  
+  let firstName = "";  
+  import Child from "./Child.svelte";  
+</script>
+
+<div class="parent">  
+  <h2>Parent</h2>  
+  <p> {firstName} </p>  
+  <Child bind:firstName={firstName} />  
+</div>
+
+Copy
+Child.svelte
+
+<script>  
+  export let firstName = "";  
+</script>
+
+<div class="child">  
+  <h2>Child</h2>  
+  <input bind:value={firstName} placeholder="Enter Firstname" />  
+  <p>  
+    {firstName}  
+  </p>  
+</div>
+
+Copy
+Using a callback
+This pattern will be familiar if you are coming from React. Here, the parent component creates an onChange handler function and passes it to the child component. The child component accepts the variable, and its change handler function, and invokes it as shown below.
+
+Parent.svelte
+
+<script lang="ts">  
+  let firstName = "";  
+  import Child from "./Child.svelte";  
+  function handleChange(newValue: string) {  
+    firstName = newValue;  
+  }  
+</script>
+
+<div class="parent">  
+  <h2>Parent</h2>  
+  <p>{firstName}</p>  
+  <Child firstName={firstName} onChange={handleChange} />  
+</div>
+
+Copy
+Child.svelte
+
+<script>  
+  export let firstName = "";  
+  export let onChange;  
+</script>
+
+<div class="child">  
+  <h2>Child</h2>  
+  <input  
+    placeholder="Enter Firstname"  
+    on:input={(e) => onChange(e.target.value)}  
+  />  
+  <p>{firstName}</p>  
+</div>
+
+Copy
+Dispatching Events
+Last up is the event forwarding in Svelte because Svelte doesn't use a virtual DOM like Vue and React component events don't bubble. In this pattern, we can use the createEventDispatcher from Svelte to create a dispatch function to use in the child component. We can dispatch an update event from child, and capture that event in parent and update the parent variable accordingly as shown below.
+
+Parent.svelte
+
+<script lang="ts">  
+  let firstName = "";  
+  import Child from "./Child.svelte";
+
+  function handleUpdate(event) {  
+    firstName = event.detail;  
+  }  
+</script>
+
+<div class="parent">  
+  <h2>Parent</h2>  
+  <!-- Listen for the 'update' event from Child component -->  
+  <p>{firstName}</p>  
+  <Child firstName={firstName} on:update={handleUpdate} />  
+</div>
+
+Copy
+Child.svelte
+
+<script>  
+  import { createEventDispatcher } from "svelte";  
+  export let firstName = "";  
+  // Create event dispatcher  
+  const dispatch = createEventDispatcher();  
+  // Function to dispatch event on input change  
+  function handleInput(event) {  
+    dispatch("update", event.target.value);  
+  }  
+</script>
+
+<div class="child">  
+  <h2>Child</h2>  
+  <input  
+    bind:value={firstName}  
+    on:input={handleInput}  
+    placeholder="Enter Firstname"  
+  />  
+  <p>{firstName}</p>  
+</div>
+
+Copy
+You can use any of these three patterns for passing data from child to parent, here’s a short video on how any of these three patterns will look once implemented.
+
+
+Conclusion
+In this article, we understood data binding and how it works in Svelte. We then went through how to implement one-way and two-way data binding. We saw how to pass data as props from parent to child, and finally, we implemented multiple patterns to synchronize data from child to parent.
 
 
 [Back](readme.md)
