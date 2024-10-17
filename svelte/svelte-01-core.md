@@ -1,6 +1,10 @@
 
 - Source : https://svelte.dev/tutorial/basics
 
+[Back](readme.md)
+
+**Contents**
+
 - [Introduction](#introduction)
   - [a. Basics](#a-basics)
   - [b. Adding Data - Declaring Variable](#b-adding-data---declaring-variable)
@@ -25,6 +29,7 @@
   - [e. Keyed each blocks](#e-keyed-each-blocks)
   - [f. Await blocks](#f-await-blocks)
 
+[Back](readme.md)
 
 # Introduction
 
@@ -84,7 +89,7 @@ Inside the curly braces, we can put any JavaScript we want. Try changing name to
 
 ## c. Dynamic Attributes - String Interpolation
 
-You can use curly braces to control element attributes, just like you use them to control text.
+You can use curly braces to control `element attributes`, just like you use them to control text.
 
 Our image is missing a src attribute — let's add one:
 
@@ -147,7 +152,7 @@ Let's add a `<script>` tag to `App.svelte` that imports the file (our component)
 ```html
 <script>
   // importing component
-	import Nested from './Nested.svelte';
+  import Nested from './Nested.svelte';
 </script>
 
 ```
@@ -170,15 +175,13 @@ Let's add a `<script>` tag to `App.svelte` that imports the file (our component)
 
 Notice that even though Nested.svelte has a `<p>` element, the styles from App.svelte don't leak in. 
 
-(tor:leak in=sız-)
-
-🍋 Tag Name Convention
+➖ Tag Name Convention
 
 Also notice that the component name Nested is capitalised. This convention has been adopted to allow us to differentiate between user-defined components and regular HTML tags.
 
 Try : https://learn.svelte.dev/tutorial/nested-components
 
---*REVIEW - improve f maddesi
+--*REVIEW - improve aşağıdaki f maddesi
 
 ## f. Creating Svelte Project
 
@@ -213,13 +216,15 @@ const app = new App({
 
 You can then interact with the app using `the component API` if you need to.
 
+--*REVIEW - component api derken neyi kastetti
+
 # 2 Reactivity
 
 ## a. Assignments
 
-At the heart of Svelte is a powerful system of reactivity for keeping the DOM in sync with your application state — for example, in response to an event.
+At the heart of Svelte is a powerful system of reactivity for `keeping the DOM in sync with your application state` — for example, in response to an event.
 
-🍋 how can add click event to button
+➖ Adding click event to button
 
 To demonstrate it, we first need to wire up an event handler :
 
@@ -231,47 +236,46 @@ Inside the incrementCount function, all we need to do is change the value of cou
 
 ```js
 function incrementCount() {
-	count += 1;
+  count += 1;
 }
 
 ```
+
 Svelte 'instruments' this assignment with some code that tells it the DOM will need to be updated.
 
-🍋 Last Situation
+🍋 Full Solution
 
 ```html
 <script>
-	let count = 0;
+  let count = 0;
 
-	function incrementCount() {
-		count += 1;
-	}
+  function incrementCount() {
+    count += 1;
+  }
 </script>
 
 <button on:click={incrementCount}>
-	Clicked {count}
-	{count === 1 ? 'time' : 'times'}
+  Clicked {count}
+  {count === 1 ? 'time' : 'times'}
 </button>
 
 <style>
-	button {
-		width:200px;
-	}
+  button {
+    width:200px;
+  }
 </style>
 
 ```
 
 ## b. Declarations
 
-Svelte's reactivity not only keeps the DOM in sync with your application's variables as shown in the previous section, it can also keep variables in sync with each other using reactive declarations. They look like this:
+Svelte's reactivity not only keeps the DOM in sync with your application's variables as shown in the previous section, it can also keep variables in sync with each other `using reactive declarations`. They look like this:
 
 ```js
 let count = 0;
 $: doubled = count * 2;
 
 ```
-
---*ANCHOR - tbc
 
 Don't worry if this looks a little alien. It's valid (if unconventional) JavaScript, which Svelte interprets to mean 're-run this code whenever any of the referenced values change'. Once you get used to it, there's no going back.
 
@@ -303,14 +307,14 @@ Of course, you could just write {count * 2} in the markup instead — you don't 
 
 ## c. Reactive Statements
 
-We're not limited to declaring reactive values — we can also run arbitrary statements reactively. For example, we can log the value of count whenever it changes:
+We're not limited to `declaring reactive values` — we can also run arbitrary statements reactively. For example, we can log the value of count whenever it changes:
 
 ```js
 $: console.log('the count is ' + count);
 
 ```
 
-You can easily group statements together with a block:
+You can easily `group statements together with a block`:
 
 ```js
 $: {
@@ -324,13 +328,13 @@ You can even put the $: in front of things like if blocks:
 
 ```js
 $: if (count >= 10) {
-	alert('count is dangerously high!');
-	count = 9;
+  alert('count is dangerously high!');
+  count = 9;
 }
 
 ```
 
-*Full Solution*
+🍋 Full Solution
 
 ```html
 <script>
@@ -347,8 +351,8 @@ $: if (count >= 10) {
 </script>
 
 <button on:click={handleClick}>
-	Clicked {count}
-	{count === 1 ? 'time' : 'times'}
+  Clicked {count}
+  {count === 1 ? 'time' : 'times'}
 </button>
 ```
 
@@ -383,13 +387,13 @@ function addNumber() {
 
 You can use similar patterns to replace pop, shift, unshift and splice.
 
-Assignments to properties of arrays and objects — e.g. obj.foo += 1 or array[i] = x — work the same way as assignments to the values themselves.
+Assignments to properties of arrays and objects — `e.g. obj.foo += 1 or array[i] = x` — work the same way as assignments to the values themselves.
 
 App.svelte
 
 ```js
 function addNumber() {
-	numbers[numbers.length] = numbers.length + 1;
+  numbers[numbers.length] = numbers.length + 1;
 }
 
 ```
@@ -403,7 +407,7 @@ foo.bar = 2;
 
 ```
 
-...won't trigger reactivity on obj.foo.bar, unless you follow it up with `obj = obj`.
+❗ ...won't trigger reactivity on obj.foo.bar, unless you follow it up with `obj = obj`.
 
 Try : https://learn.svelte.dev/tutorial/updating-arrays-and-objects
 
@@ -414,8 +418,8 @@ Try : https://learn.svelte.dev/tutorial/updating-arrays-and-objects
 So far, we've dealt exclusively with internal state — that is to say, the values are only accessible within a given component.
 
 In any real application, you'll need to `pass data from one component down to its children`. To do that, we need to declare properties, generally shortened to 'props'. In Svelte, we do that with the `export keyword`. Edit the `Nested.svelte` component:
-
-*Nested.svelte*
+ 
+➖ *Nested.svelte*
 
 ```js
 <script>
@@ -426,22 +430,22 @@ export let answer;
 
 Just like `$:`, this may feel a little weird at first. That's not how export normally works in JavaScript modules! Just roll with it for now — it'll soon become second nature.
 
-*App.svelte*
+➖ *App.svelte*
 
 ```html
 <script>
-	import Nested from './Nested.svelte';
+  import Nested from './Nested.svelte';
 </script>
 
 <Nested answer={42} /> <!-- sending a prop -->
 
 ```
 
-*Nested.Svelte*
+➖ *Nested.Svelte*
 
 ```html
 <script>
-	export let answer; /* accepting/receiving a prop */
+  export let answer; /* accepting/receiving a prop */
 </script>
 
 <p>The answer is {answer}</p>
@@ -453,21 +457,23 @@ Try : https://learn.svelte.dev/tutorial/declaring-props
 
 ## b. Default values
 
-We can easily specify default values for props in Nested.svelte:
+We can easily specify default values for props 
+
+➖ In Nested.svelte :
 
 ```html
 <script>
-	export let answer = 'a mystery';
+  export let answer = 'a mystery';
 </script>
 ```
 
 If we now add a second component without an answer prop, it will fall back to the default:
 
-*App.svelte*
+➖ *App.svelte*
 
 ```html
 <script>
-	import Nested from './Nested.svelte';
+  import Nested from './Nested.svelte';
 </script>
 
 <Nested answer={42}/>
@@ -482,6 +488,8 @@ The answer is 42
 The answer is a mystery
 ```
 
+--*REVIEW - variable ın prop olarak gönderildiği örnek eklenir
+
 ## c. Spread Props
 
 We can pass an object to a component by 'spreading' them onto a component instead of specifying each one:
@@ -490,21 +498,21 @@ We can pass an object to a component by 'spreading' them onto a component instea
 
 ```html
 <script>
-	import PackageInfo from './PackageInfo.svelte';
+  import PackageInfo from './PackageInfo.svelte';
 
-	const pkg = {
-		name: 'svelte',
-		speed: 'blazing',
-		version: 4,
-		website: 'https://svelte.dev'
-	};
+  const pkg = {
+    name: 'svelte',
+    speed: 'blazing',
+    version: 4,
+    website: 'https://svelte.dev'
+  };
 </script>
 
 <PackageInfo {...pkg} />
 
 ```
 
-*PackageInfo.svelte*
+➖ *PackageInfo.svelte*
 
 ```html
 <script>
@@ -524,7 +532,11 @@ We can pass an object to a component by 'spreading' them onto a component instea
 
 📝 Conversely, if you need to reference all the props that were passed into a component, including ones that weren't declared with export, you can do so by accessing `$$props` directly. It's not generally recommended, as it's difficult for Svelte to optimise, but it's useful in rare cases.
 
+--*REVIEW - $$props detaylandırılmalı
+
 Try : https://learn.svelte.dev/tutorial/spread-props
+
+--*TBC - SVELTE CORE
 
 # 4 Logic
 
@@ -536,15 +548,15 @@ To conditionally render some markup, we wrap it in an if block:
 
 ```html
 {#if user.loggedIn}
-	<button on:click={toggle}>
-		Log out
-	</button>
+  <button on:click={toggle}>
+    Log out
+  </button>
 {/if}
 
 {#if !user.loggedIn}
-	<button on:click={toggle}>
-		Log in
-	</button>
+  <button on:click={toggle}>
+    Log in
+  </button>
 {/if}
 
 ```
@@ -553,19 +565,19 @@ To conditionally render some markup, we wrap it in an if block:
 
 ```html
 <script>
-	let user = { loggedIn: false };
+  let user = { loggedIn: false };
 
-	function toggle() {
-		user.loggedIn = !user.loggedIn;
-	}
+  function toggle() {
+    user.loggedIn = !user.loggedIn;
+  }
 </script>
 
 {#if user.loggedIn}
-	<button on:click={toggle}> Log out </button>
+  <button on:click={toggle}> Log out </button>
 {/if}
 
 {#if !user.loggedIn}
-	<button on:click={toggle}> Log in </button>
+  <button on:click={toggle}> Log in </button>
 {/if}
 
 ```
@@ -667,7 +679,7 @@ To do that, we specify `a unique identifier (or "key")` for the each block:
 
 Here, `(thing.id)` is the key, which tells Svelte how to figure out `which DOM node to change when the component updates`.
 
-✏ You can use any object as the key, as Svelte uses a Map internally — in other words you could do <span style="color:red">(thing) instead of (thing.id)</span>. Using a string or number is generally safer, however, since it means <span style="color:red">identity persists without referential equality</span>, for example when updating with fresh data from an API server.
+📝 You can use any object as the key, as Svelte uses a Map internally — in other words you could do <span style="color:red">(thing) instead of (thing.id)</span>. Using a string or number is generally safer, however, since it means <span style="color:red">identity persists without referential equality</span>, for example when updating with fresh data from an API server.
 
 *app.svelte*
 
@@ -807,7 +819,7 @@ The number is 87
 
 or
 
-```bash
+```
 Failed to generate random number. Please try again
 ```
 

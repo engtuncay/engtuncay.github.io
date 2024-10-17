@@ -1,7 +1,9 @@
 
-<h2>Source</h2>
+- Source : https://svelte.dev/tutorial/basics (some parts may be modified or added)
 
-https://svelte.dev/tutorial/basics
+[Back](readme.md)
+
+**Contents**
 
 - [5 Events](#5-events)
   - [a. DOM events](#a-dom-events)
@@ -25,7 +27,9 @@ https://svelte.dev/tutorial/basics
   - [l. This](#l-this)
   - [m. Component bindings](#m-component-bindings)
   - [n. Binding to component instances](#n-binding-to-component-instances)
+- [Art - Data Binding In Svelte](#art---data-binding-in-svelte)
 
+[Back](readme.md)
 
 # 5 Events
 
@@ -1092,3 +1096,13 @@ Note that we can't do `{field.focus}` since field is undefined when the button i
 
 <input bind:this={input} />
 ```
+
+- Try : https://svelte.dev/tutorial/component-this  
+
+# Art - Data Binding In Svelte
+
+- Source : https://hygraph.com/blog/data-binding-in-svelte
+
+
+
+[Back](readme.md)
