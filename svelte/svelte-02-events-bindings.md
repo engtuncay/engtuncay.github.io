@@ -32,7 +32,9 @@
   - [Passing props down to a child](#passing-props-down-to-a-child)
   - [Passing props back to a parent](#passing-props-back-to-a-parent)
     - [Using bind](#using-bind)
-  - [Using a callback](#using-a-callback)
+    - [Using a callback](#using-a-callback)
+    - [Dispatching Events](#dispatching-events)
+  - [Conclusion](#conclusion)
 
 [Back](readme.md)
 
@@ -1161,7 +1163,7 @@ Here's a super simple Parent.svelte that imports the Child.svelte component and 
 
 To define an incoming prop in Svelte, we need to declare it as a variable in the Child component and export it using the export keyword as shown below.
 
-Child.svelte
+➖ Child.svelte
 
 ```html
 <script lang="ts">  
@@ -1185,20 +1187,28 @@ As a general rule data flow goes from the parent to the child but there can be s
 
 ### Using bind
 
-We can use the bind component directive to `bind a parent variable with a child prop`. As we can see in the example below, the firstName variable from parent is bound with firstName prop in child. That’s it, any changes we make in the input box in the child component will reflect in the parent variable as well.
+We can use `the bind component directive` to `bind a parent variable with a child prop`. As we can see in the example below, the firstName variable from parent is bound with firstName prop in child. That’s it, any changes we make in the input box in the child component will reflect in the parent variable as well.
 
 Parent.svelte
 
 ```html
 <script lang="ts">  
-  let firstName = "";  
+  let parFirstName = "";  
   import Child from "./Child.svelte";  
+
+	function evClick() {
+		 parFirstName= "changed from parent";
+		 alert('executed evClick');
+	}
 </script>
 
 <div class="parent">  
   <h2>Parent</h2>  
-  <p> {firstName} </p>  
-  <Child bind:firstName={firstName} />  
+  <p>Parent Comp (parFirstName) : {parFirstName} </p>  
+  <Child bind:firstName={parFirstName} />
+	<!-- $ : parent.parFirstName = child.firstName (reactive two-way)  -->
+	<button on:click={evClick}>Change FirstName Value</button>
+	
 </div>
 
 ```
@@ -1214,38 +1224,51 @@ Child.svelte
   <h2>Child</h2>  
   <input bind:value={firstName} placeholder="Enter Firstname" />  
   <p>  
-    {firstName}  
+    Child firstName : {firstName}  
   </p>  
 </div>
 
 ```
 
-## Using a callback
+Try : https://svelte.dev/repl/59dc1cecb50e47fabb8f1f8f47f7f03f?version=4.2.19
+
+### Using a callback
 
 This pattern will be familiar if you are coming from React. Here, the parent component creates an onChange handler function and passes it to the child component. The child component accepts the variable, and its change handler function, and invokes it as shown below.
 
 Parent.svelte
 
 ```html
-<script lang="ts">  
-  let firstName = "";  
+<script>  
+  let parFirstName = "Write FirstName";  
   import Child from "./Child.svelte";  
-  function handleChange(newValue: string) {  
-    firstName = newValue;  
+  function handleChange(newValue) {  
+    parFirstName = newValue;  
   }  
 </script>
 
 <div class="parent">  
   <h2>Parent</h2>  
+  <p>{parFirstName}</p>  
+  <Child firstName={parFirstName} onChange={handleChange} />  
+  <!-- child.onChange = parent.handleChange (functions) -->
+  <!-- child.firstName = parent.parFirstName  -->
+</div>
+
+<div class="parent">  
+  <h2>Parent</h2>  
   <p>{firstName}</p>  
   <Child firstName={firstName} onChange={handleChange} />  
+  <!-- child.onChange = parent.handleChange -->
+  <!-- child.firstName = parent.firstName  -->
 </div>
 
 
 ```
-Copy
+
 Child.svelte
 
+```html
 <script>  
   export let firstName = "";  
   export let onChange;  
@@ -1260,12 +1283,18 @@ Child.svelte
   <p>{firstName}</p>  
 </div>
 
-Copy
-Dispatching Events
-Last up is the event forwarding in Svelte because Svelte doesn't use a virtual DOM like Vue and React component events don't bubble. In this pattern, we can use the createEventDispatcher from Svelte to create a dispatch function to use in the child component. We can dispatch an update event from child, and capture that event in parent and update the parent variable accordingly as shown below.
+```
+
+Try : https://svelte.dev/repl/83c47d0fc93a4bd8913606e26a00eb30?version=4.2.19
+
+
+### Dispatching Events
+
+Last up is the event forwarding in Svelte because `Svelte doesn't use a virtual DOM like Vue and React, component events don't bubble`. In this pattern, we can use the createEventDispatcher from Svelte to create a dispatch function to use in the child component. We can dispatch an update event from child, and capture that event in parent and update the parent variable accordingly as shown below.
 
 Parent.svelte
 
+```html
 <script lang="ts">  
   let firstName = "";  
   import Child from "./Child.svelte";
@@ -1277,21 +1306,25 @@ Parent.svelte
 
 <div class="parent">  
   <h2>Parent</h2>  
-  <!-- Listen for the 'update' event from Child component -->  
+  <!-- Listen for the custom 'update' event from Child component -->  
   <p>{firstName}</p>  
   <Child firstName={firstName} on:update={handleUpdate} />  
 </div>
 
-Copy
+```
+
+
 Child.svelte
 
+```html
 <script>  
   import { createEventDispatcher } from "svelte";  
   export let firstName = "";  
   // Create event dispatcher  
   const dispatch = createEventDispatcher();  
   // Function to dispatch event on input change  
-  function handleInput(event) {  
+  function handleInput(event) { 
+    // trigger the custom update event (function) with the parameter (event.target.value)
     dispatch("update", event.target.value);  
   }  
 </script>
@@ -1306,11 +1339,15 @@ Child.svelte
   <p>{firstName}</p>  
 </div>
 
-Copy
+```
+
 You can use any of these three patterns for passing data from child to parent, here’s a short video on how any of these three patterns will look once implemented.
 
+--*REVIEW - link eklenebilir video
 
-Conclusion
+
+## Conclusion
+
 In this article, we understood data binding and how it works in Svelte. We then went through how to implement one-way and two-way data binding. We saw how to pass data as props from parent to child, and finally, we implemented multiple patterns to synchronize data from child to parent.
 
 
