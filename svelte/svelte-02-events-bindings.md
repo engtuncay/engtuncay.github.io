@@ -42,134 +42,132 @@
 
 ## a. DOM events
 
-As we've briefly seen already, you can listen to any event on an element with the "on:" directive:
+As we've briefly seen already, you can listen to `any event` on an element with the `"on:" directive`:
 
-*app.svelte*
+➖ *app.svelte*
 
 ```html
 <script>
-	let m = { x: 0, y: 0 };
+  let m = { x: 0, y: 0 };
 
-	function handleMousemove(event) {
-		m.x = event.clientX;
-		m.y = event.clientY;
-	}
+  function handleMousemove(event) {
+    m.x = event.clientX;
+    m.y = event.clientY;
+  }
 </script>
 
 <div on:mousemove={handleMousemove}>
-	The mouse position is {m.x} x {m.y}
+  The mouse position is {m.x} x {m.y}
 </div>
 
 <style>
-	div { width: 100%; height: 100%; }
+  div { width: 100%; height: 100%; }
 </style>
 
 ```
 
 ## b. Inline handlers
 
-You can also declare event handlers inline:
+You can also declare event handlers inline (inside curly brackets):
 
 ```html
 <div on:mousemove="{e => m = { x: e.clientX, y: e.clientY }}">
-	The mouse position is {m.x} x {m.y}
+  The mouse position is {m.x} x {m.y}
 </div>
 
 ```
 
-*app.svelte*
+➖ *app.svelte*
 
 ```html
 <script>
-	let m = { x: 0, y: 0 };
+  let m = { x: 0, y: 0 };
 </script>
 
 <div on:mousemove="{e => m = { x: e.clientX, y: e.clientY }}">
-	The mouse position is {m.x} x {m.y}
+  The mouse position is {m.x} x {m.y}
 </div>
 
 <style>
-	div { width: 100%; height: 100%; }
+  div { width: 100%; height: 100%; }
 </style>
 ```
 
-The quote marks are optional, but they're helpful for syntax highlighting in some environments.
+The quote marks (after on:mouse directive) are optional, but they're helpful for syntax highlighting in some environments.
 
-In some frameworks you may see recommendations to avoid *inline event handlers* for performance reasons, particularly inside loops. That advice doesn't apply to Svelte — the compiler will always do the right thing, whichever form you choose.
+`In some frameworks` you may see recommendations to `avoid inline event handlers for performance reasons`, particularly inside loops. That advice doesn't apply to Svelte — the compiler will always do the right thing, whichever form you choose.
 
+## c. Event modifiers 
 
-
-## c. Event modifiers
+modifiers alter the behaviour of event handlers.
 
 DOM event handlers can have modifiers that alter their behaviour. For example, a handler with a once modifier will only run a single time:
 
 ```html
 <script>
-	function handleClick() {
-		alert('no more alerts')
-	}
+  function handleClick() {
+    alert('no more alerts')
+  }
 </script>
 
 <button on:click|once={handleClick}>
-	Click me
+  Click me
 </button>
 
 ```
 
 The full list of modifiers:
 
-- preventDefault — calls event.preventDefault() before running the handler. Useful for client-side form handling, for example.
-- stopPropagation — calls event.stopPropagation(), preventing the event reaching the next element
-- passive — improves scrolling performance on touch/wheel events (Svelte will add it automatically where it's safe to do so)
-- nonpassive — explicitly set passive: false
-- capture — fires the handler during the capture phase instead of the bubbling phase (MDN docs)
-- once — remove the handler after the first time it runs
-- self — only trigger handler if event.target is the element itself
-- trusted — only trigger handler if event.isTrusted is true. I.e. if the event is triggered by a user action.
+- **preventDefault** — calls event.preventDefault() before running the handler. Useful for client-side form handling, for example.
+- **stopPropagation** — calls event.stopPropagation(), preventing the event reaching the next element
+- **passive** — improves scrolling performance on touch/wheel events (Svelte will add it automatically where it's safe to do so)
+- **nonpassive** — explicitly set passive: false
+- **capture** — fires the handler during the capture phase instead of the bubbling phase (MDN docs)
+- **once** — remove the handler after the first time it runs
+- **self** — only trigger handler if event.target is the element itself
+- **trusted** — only trigger handler if event.isTrusted is true. I.e. if the event is triggered by a user action.
 
-You can chain modifiers together, e.g. on:click|once|capture={...}.
+You can chain modifiers together, e.g. `on:click|once|capture={...}.`
 
 
 ## d. Component events (Event Dispatcher)
 
-Components can also dispatch events. To do so, they must create an event dispatcher. 
+Components can also dispatch events. To do so, they must create `an event dispatcher`. 
 
-(trans:dispatch=gönder-,sevket-)
-
-*app.svelte*
+➖ *app.svelte*
 
 ```html
 <script>
-	import Inner from './Inner.svelte';
+  import Inner from './Inner.svelte';
 
-	function handleMessage(event) {
+  function handleMessage(event) {
     // gönderilen argümanlar event.detail objesinin içerisinde
-		alert(event.detail.text);
-	}
+    alert(event.detail.text);
+  }
 </script>
 
 <Inner on:message={handleMessage}/>
 ```
 
-*inner.svelte*
+➖ *inner.svelte*
 
 ```html
 <script>
-	import { createEventDispatcher } from 'svelte';
+  import { createEventDispatcher } from 'svelte';
 
   // createEventDispatcher() must be called to get dispatch object
-	const dispatch = createEventDispatcher();
+  const dispatch = createEventDispatcher();
 
-	function sayHello() {
-		dispatch('message', {
-			text: 'Hello!'
-		});
-	}
+  function sayHello() {
+    dispatch('message', {
+      text: 'Hello!'
+    });
+  }
 </script>
 
 ```
 
-✏ *Note:* createEventDispatcher must be called when the component is first instantiated — you can't do it later inside e.g. a setTimeout callback. This links dispatch to the component instance.
+📝 *Note:* createEventDispatcher must be called when the component is first instantiated — you can't do it later inside e.g. a setTimeout callback. This links dispatch to the component instance.
 
 Notice that the App component is listening to the messages dispatched by *Inner component* thanks to the on:message directive. This directive is an attribute *prefixed* with "on:" followed by the event name that we are dispatching (in this case, message).
 
@@ -187,14 +185,14 @@ One way we could solve the problem is adding createEventDispatcher to Outer.svel
 
 ```html
 <script>
-	import Inner from './Inner.svelte';
-	import { createEventDispatcher } from 'svelte';
+  import Inner from './Inner.svelte';
+  import { createEventDispatcher } from 'svelte';
 
-	const dispatch = createEventDispatcher();
+  const dispatch = createEventDispatcher();
 
-	function forward(event) {
-		dispatch('message', event.detail);
-	}
+  function forward(event) {
+    dispatch('message', event.detail);
+  }
 </script>
 
 <Inner on:message={forward}/>
@@ -207,11 +205,11 @@ But that's a lot of code to write, so Svelte gives us an equivalent shorthand �
 
 ```html
 <script>
-	import Child from './Outer.svelte';
+  import Child from './Outer.svelte';
 
-	function handleMessage(event) {
-		alert(event.detail.text);
-	}
+  function handleMessage(event) {
+    alert(event.detail.text);
+  }
 </script>
 
 <Child on:message={handleMessage}/>
@@ -221,7 +219,7 @@ But that's a lot of code to write, so Svelte gives us an equivalent shorthand �
 
 ```html
 <script>
-	import GrandChild from './GrandChild.svelte';
+  import GrandChild from './GrandChild.svelte';
 </script>
 
 <!-- inform parent for granchild messages -->
@@ -233,19 +231,19 @@ But that's a lot of code to write, so Svelte gives us an equivalent shorthand �
 
 ```html
 <script>
-	import { createEventDispatcher } from 'svelte';
+  import { createEventDispatcher } from 'svelte';
 
-	const dispatch = createEventDispatcher();
+  const dispatch = createEventDispatcher();
 
-	function sayHello() {
-		dispatch('message', {
-			text: 'Hello!'
-		});
-	}
+  function sayHello() {
+    dispatch('message', {
+      text: 'Hello!'
+    });
+  }
 </script>
 
 <button on:click={sayHello}>
-	Click to say hello
+  Click to say hello
 </button>
 ```
 
@@ -259,11 +257,11 @@ We want to get notified of clicks on our `<CustomButton> `— to do that, we jus
 
 ```html
 <script>
-	import CustomButton from './CustomButton.svelte';
+  import CustomButton from './CustomButton.svelte';
 
-	function handleClick() {
-		alert('Button Clicked');
-	}
+  function handleClick() {
+    alert('Button Clicked');
+  }
 </script>
 
 <CustomButton on:click={handleClick}/>
@@ -273,34 +271,36 @@ We want to get notified of clicks on our `<CustomButton> `— to do that, we jus
 
 ```html
 <button on:click>
-	Click me
+  Click me
 </button>
 
 <style>
-	button {
-		background: #E2E8F0;
-		color: #64748B;
-		border: unset;
-		border-radius: 6px;
-		padding: .75rem 1.5rem;
-		cursor: pointer;
-	}
+  button {
+    background: #E2E8F0;
+    color: #64748B;
+    border: unset;
+    border-radius: 6px;
+    padding: .75rem 1.5rem;
+    cursor: pointer;
+  }
 
-	button:hover {
-		background: #CBD5E1;
-		color: #475569;
-	}
+  button:hover {
+    background: #CBD5E1;
+    color: #475569;
+  }
 
-	button:focus {
-		background: #94A3B8;
-		color: #F1F5F9;
-	}
+  button:focus {
+    background: #94A3B8;
+    color: #F1F5F9;
+  }
 </style>
 ```
 
 # 6 Bindings 
 
-- it is a way of child to parent communications. child component, for example, input value is binded to a variable in the parent component.
+It is a way of child to parent communications. child component, for example, input value is binded to a variable in the parent component. 
+
+--*TBC - svetle bindings
 
 ## a. Text inputs
 
@@ -323,7 +323,7 @@ Try : https://learn.svelte.dev/tutorial/text-inputs
 
 ```html
 <script>
-	let formx = { name : '', surname: ''};
+  let formx = { name : '', surname: ''};
 </script>
 
 <input bind:value={formx.name} />
@@ -369,9 +369,9 @@ In this case, we could make the code simpler by moving the checkbox inputs into 
 
 ```js
 let menu = [
-	'Cookies and cream',
-	'Mint choc chip',
-	'Raspberry ripple'
+  'Cookies and cream',
+  'Mint choc chip',
+  'Raspberry ripple'
 ];
 
 ```
@@ -382,10 +382,10 @@ let menu = [
 <h2>Flavours</h2>
 
 {#each menu as flavour}
-	<label>
-		<input type=checkbox bind:group={flavours} name="flavours" value={flavour}>
-		{flavour}
-	</label>
+  <label>
+    <input type=checkbox bind:group={flavours} name="flavours" value={flavour}>
+    {flavour}
+  </label>
 {/each}
 
 ```
@@ -427,47 +427,47 @@ Because we haven't set an initial value of selected, the binding will set it to 
 
 ```html
 <script>
-	let questions = [
-		{ id: 1, text: `Where did you go to school?` },
-		{ id: 2, text: `What is your mother's name?` },
-		{ id: 3, text: `What is another personal fact that an attacker could easily find with Google?` }
-	];
+  let questions = [
+    { id: 1, text: `Where did you go to school?` },
+    { id: 2, text: `What is your mother's name?` },
+    { id: 3, text: `What is another personal fact that an attacker could easily find with Google?` }
+  ];
 
-	let selected;
+  let selected;
 
-	let answer = '';
+  let answer = '';
 
-	function handleSubmit() {
-		alert(`answered question ${selected.id} (${selected.text}) with "${answer}"`);
-	}
+  function handleSubmit() {
+    alert(`answered question ${selected.id} (${selected.text}) with "${answer}"`);
+  }
 </script>
 
 <h2>Insecurity questions</h2>
 
 <form on:submit|preventDefault={handleSubmit}>
-	<select value={selected} on:change="{() => answer = ''}">
-		{#each questions as question}
-			<option value={question}>
-				{question.text}
-			</option>
-		{/each}
-	</select>
+  <select value={selected} on:change="{() => answer = ''}">
+    {#each questions as question}
+      <option value={question}>
+        {question.text}
+      </option>
+    {/each}
+  </select>
 
-	<input bind:value={answer}>
+  <input bind:value={answer}>
 
-	<button disabled={!answer} type=submit>
-		Submit
-	</button>
+  <button disabled={!answer} type=submit>
+    Submit
+  </button>
 </form>
 
 <p>selected question {selected ? selected.id : '[waiting...]'}</p>
 
 <style>
-	input {
-		display: block;
-		width: 500px;
-		max-width: 100%;
-	}
+  input {
+    display: block;
+    width: 500px;
+    max-width: 100%;
+  }
 </style>
 ```
 
@@ -483,11 +483,11 @@ Returning to our earlier ice cream example, we can replace the checkboxes with a
 <h2>Flavours</h2>
 
 <select multiple bind:value={flavours}>
-	{#each menu as flavour}
-		<option value={flavour}>
-			{flavour}
-		</option>
-	{/each}
+  {#each menu as flavour}
+    <option value={flavour}>
+      {flavour}
+    </option>
+  {/each}
 </select>
 
 ```
@@ -498,57 +498,57 @@ Press and hold the control key (or the command key on MacOS) for selecting multi
 
 ```js
 <script>
-	let scoops = 1;
-	let flavours = ['Mint choc chip'];
+  let scoops = 1;
+  let flavours = ['Mint choc chip'];
 
-	let menu = [
-		'Cookies and cream',
-		'Mint choc chip',
-		'Raspberry ripple'
-	];
+  let menu = [
+    'Cookies and cream',
+    'Mint choc chip',
+    'Raspberry ripple'
+  ];
 
-	function join(flavours) {
-		if (flavours.length === 1) return flavours[0];
-		return `${flavours.slice(0, -1).join(', ')} and ${flavours[flavours.length - 1]}`;
-	}
+  function join(flavours) {
+    if (flavours.length === 1) return flavours[0];
+    return `${flavours.slice(0, -1).join(', ')} and ${flavours[flavours.length - 1]}`;
+  }
 </script>
 
 <h2>Size</h2>
 
 <label>
-	<input type=radio bind:group={scoops} value={1}>
-	One scoop
+  <input type=radio bind:group={scoops} value={1}>
+  One scoop
 </label>
 
 <label>
-	<input type=radio bind:group={scoops} value={2}>
-	Two scoops
+  <input type=radio bind:group={scoops} value={2}>
+  Two scoops
 </label>
 
 <label>
-	<input type=radio bind:group={scoops} value={3}>
-	Three scoops
+  <input type=radio bind:group={scoops} value={3}>
+  Three scoops
 </label>
 
 <h2>Flavours</h2>
 
 <select multiple bind:value={flavours}>
-	{#each menu as flavour}
-		<option value={flavour}>
-			{flavour}
-		</option>
-	{/each}
+  {#each menu as flavour}
+    <option value={flavour}>
+      {flavour}
+    </option>
+  {/each}
 </select>
 
 {#if flavours.length === 0}
-	<p>Please select at least one flavour</p>
+  <p>Please select at least one flavour</p>
 {:else if flavours.length > scoops}
-	<p>Can't order more flavours than scoops!</p>
+  <p>Can't order more flavours than scoops!</p>
 {:else}
-	<p>
-		You ordered {scoops} {scoops === 1 ? 'scoop' : 'scoops'}
-		of {join(flavours)}
-	</p>
+  <p>
+    You ordered {scoops} {scoops === 1 ? 'scoop' : 'scoops'}
+    of {join(flavours)}
+  </p>
 {/if}
 
 ```
@@ -565,8 +565,8 @@ There are slight differences between each of these, read more about them here.
 
 ```html
 <div
-	contenteditable="true"
-	bind:innerHTML={html}
+  contenteditable="true"
+  bind:innerHTML={html}
 ></div>
 
 ```
@@ -577,17 +577,17 @@ You can even bind to properties inside an each block.
 
 ```html
 {#each todos as todo}
-	<div class:done={todo.done}>
-		<input
-			type=checkbox
-			bind:checked={todo.done}
-		>
+  <div class:done={todo.done}>
+    <input
+      type=checkbox
+      bind:checked={todo.done}
+    >
 
-		<input
-			placeholder="What needs to be done?"
-			bind:value={todo.text}
-		>
-	</div>
+    <input
+      placeholder="What needs to be done?"
+      bind:value={todo.text}
+    >
+  </div>
 {/each}
 
 ```
@@ -602,53 +602,53 @@ Note that interacting with these `<input>` elements will mutate the array. If yo
 
 ```html
 <script>
-	let todos = [
-		{ done: false, text: 'finish Svelte tutorial' },
-		{ done: false, text: 'build an app' },
-		{ done: false, text: 'world domination' }
-	];
+  let todos = [
+    { done: false, text: 'finish Svelte tutorial' },
+    { done: false, text: 'build an app' },
+    { done: false, text: 'world domination' }
+  ];
 
-	function add() {
-		todos = todos.concat({ done: false, text: '' });
-	}
+  function add() {
+    todos = todos.concat({ done: false, text: '' });
+  }
 
-	function clear() {
-		todos = todos.filter(t => !t.done);
-	}
+  function clear() {
+    todos = todos.filter(t => !t.done);
+  }
 
-	$: remaining = todos.filter(t => !t.done).length;
+  $: remaining = todos.filter(t => !t.done).length;
 </script>
 
 <h1>Todos</h1>
 
 {#each todos as todo}
-	<div class:done={todo.done}>
-		<input
-			type=checkbox
-			bind:checked={todo.done}
-		>
+  <div class:done={todo.done}>
+    <input
+      type=checkbox
+      bind:checked={todo.done}
+    >
 
-		<input
-			placeholder="What needs to be done?"
-			bind:value={todo.text}
-		>
-	</div>
+    <input
+      placeholder="What needs to be done?"
+      bind:value={todo.text}
+    >
+  </div>
 {/each}
 
 <p>{remaining} remaining</p>
 
 <button on:click={add}>
-	Add new
+  Add new
 </button>
 
 <button on:click={clear}>
-	Clear completed
+  Clear completed
 </button>
 
 <style>
-	.done {
-		opacity: 0.4;
-	}
+  .done {
+    opacity: 0.4;
+  }
 </style>
 
 ```
@@ -661,16 +661,16 @@ On line 62, add currentTime={time}, duration and paused bindings:
 
 ```html
 <video
-	poster="https://sveltejs.github.io/assets/caminandes-llamigos.jpg"
-	src="https://sveltejs.github.io/assets/caminandes-llamigos.mp4"
-	on:mousemove={handleMove}
-	on:touchmove|preventDefault={handleMove}
-	on:mousedown={handleMousedown}
-	on:mouseup={handleMouseup}
-	bind:currentTime={time}
-	bind:duration
-	bind:paused>
-	<track kind="captions">
+  poster="https://sveltejs.github.io/assets/caminandes-llamigos.jpg"
+  src="https://sveltejs.github.io/assets/caminandes-llamigos.mp4"
+  on:mousemove={handleMove}
+  on:touchmove|preventDefault={handleMove}
+  on:mousedown={handleMousedown}
+  on:mouseup={handleMouseup}
+  bind:currentTime={time}
+  bind:duration
+  bind:paused>
+  <track kind="captions">
 </video>
 
 ```
@@ -712,135 +712,135 @@ Videos additionally have readonly videoWidth and videoHeight bindings.
 
 ```html
 <script>
-	// These values are bound to properties of the video
-	let time = 0;
-	let duration;
-	let paused = true;
+  // These values are bound to properties of the video
+  let time = 0;
+  let duration;
+  let paused = true;
 
-	let showControls = true;
-	let showControlsTimeout;
+  let showControls = true;
+  let showControlsTimeout;
 
-	// Used to track time of last mouse down event
-	let lastMouseDown;
+  // Used to track time of last mouse down event
+  let lastMouseDown;
 
-	function handleMove(e) {
-		// Make the controls visible, but fade out after
-		// 2.5 seconds of inactivity
-		clearTimeout(showControlsTimeout);
-		showControlsTimeout = setTimeout(() => showControls = false, 2500);
-		showControls = true;
+  function handleMove(e) {
+    // Make the controls visible, but fade out after
+    // 2.5 seconds of inactivity
+    clearTimeout(showControlsTimeout);
+    showControlsTimeout = setTimeout(() => showControls = false, 2500);
+    showControls = true;
 
-		if (!duration) return; // video not loaded yet
-		if (e.type !== 'touchmove' && !(e.buttons & 1)) return; // mouse not down
+    if (!duration) return; // video not loaded yet
+    if (e.type !== 'touchmove' && !(e.buttons & 1)) return; // mouse not down
 
-		const clientX = e.type === 'touchmove' ? e.touches[0].clientX : e.clientX;
-		const { left, right } = this.getBoundingClientRect();
-		time = duration * (clientX - left) / (right - left);
-	}
+    const clientX = e.type === 'touchmove' ? e.touches[0].clientX : e.clientX;
+    const { left, right } = this.getBoundingClientRect();
+    time = duration * (clientX - left) / (right - left);
+  }
 
-	// we can't rely on the built-in click event, because it fires
-	// after a drag — we have to listen for clicks ourselves
-	function handleMousedown(e) {
-		lastMouseDown = new Date();
-	}
+  // we can't rely on the built-in click event, because it fires
+  // after a drag — we have to listen for clicks ourselves
+  function handleMousedown(e) {
+    lastMouseDown = new Date();
+  }
 
-	function handleMouseup(e) {
-		if (new Date() - lastMouseDown < 300) {
-			if (paused) e.target.play();
-			else e.target.pause();
-		}
-	}
+  function handleMouseup(e) {
+    if (new Date() - lastMouseDown < 300) {
+      if (paused) e.target.play();
+      else e.target.pause();
+    }
+  }
 
-	function format(seconds) {
-		if (isNaN(seconds)) return '...';
+  function format(seconds) {
+    if (isNaN(seconds)) return '...';
 
-		const minutes = Math.floor(seconds / 60);
-		seconds = Math.floor(seconds % 60);
-		if (seconds < 10) seconds = '0' + seconds;
+    const minutes = Math.floor(seconds / 60);
+    seconds = Math.floor(seconds % 60);
+    if (seconds < 10) seconds = '0' + seconds;
 
-		return `${minutes}:${seconds}`;
-	}
+    return `${minutes}:${seconds}`;
+  }
 </script>
 
 <h1>Caminandes: Llamigos</h1>
 <p>From <a href="https://studio.blender.org/films">Blender Studio</a>. CC-BY</p>
 
 <div>
-	<video
-		poster="https://sveltejs.github.io/assets/caminandes-llamigos.jpg"
-		src="https://sveltejs.github.io/assets/caminandes-llamigos.mp4"
-		on:mousemove={handleMove}
-		on:touchmove|preventDefault={handleMove}
-		on:mousedown={handleMousedown}
-		on:mouseup={handleMouseup}
-		bind:currentTime={time}
-		bind:duration
-		bind:paused>
-		<track kind="captions">
-	</video>
+  <video
+    poster="https://sveltejs.github.io/assets/caminandes-llamigos.jpg"
+    src="https://sveltejs.github.io/assets/caminandes-llamigos.mp4"
+    on:mousemove={handleMove}
+    on:touchmove|preventDefault={handleMove}
+    on:mousedown={handleMousedown}
+    on:mouseup={handleMouseup}
+    bind:currentTime={time}
+    bind:duration
+    bind:paused>
+    <track kind="captions">
+  </video>
 
-	<div class="controls" style="opacity: {duration && showControls ? 1 : 0}">
-		<progress value="{(time / duration) || 0}"/>
+  <div class="controls" style="opacity: {duration && showControls ? 1 : 0}">
+    <progress value="{(time / duration) || 0}"/>
 
-		<div class="info">
-			<span class="time">{format(time)}</span>
-			<span>click anywhere to {paused ? 'play' : 'pause'} / drag to seek</span>
-			<span class="time">{format(duration)}</span>
-		</div>
-	</div>
+    <div class="info">
+      <span class="time">{format(time)}</span>
+      <span>click anywhere to {paused ? 'play' : 'pause'} / drag to seek</span>
+      <span class="time">{format(duration)}</span>
+    </div>
+  </div>
 </div>
 
 <style>
-	div {
-		position: relative;
-	}
+  div {
+    position: relative;
+  }
 
-	.controls {
-		position: absolute;
-		top: 0;
-		width: 100%;
-		transition: opacity 1s;
-	}
+  .controls {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    transition: opacity 1s;
+  }
 
-	.info {
-		display: flex;
-		width: 100%;
-		justify-content: space-between;
-	}
+  .info {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
 
-	span {
-		padding: 0.2em 0.5em;
-		color: white;
-		text-shadow: 0 0 8px black;
-		font-size: 1.4em;
-		opacity: 0.7;
-	}
+  span {
+    padding: 0.2em 0.5em;
+    color: white;
+    text-shadow: 0 0 8px black;
+    font-size: 1.4em;
+    opacity: 0.7;
+  }
 
-	.time {
-		width: 3em;
-	}
+  .time {
+    width: 3em;
+  }
 
-	.time:last-child { text-align: right }
+  .time:last-child { text-align: right }
 
-	progress {
-		display: block;
-		width: 100%;
-		height: 10px;
-		-webkit-appearance: none;
-		appearance: none;
-	}
+  progress {
+    display: block;
+    width: 100%;
+    height: 10px;
+    -webkit-appearance: none;
+    appearance: none;
+  }
 
-	progress::-webkit-progress-bar {
-		background-color: rgba(0,0,0,0.2);
-	}
+  progress::-webkit-progress-bar {
+    background-color: rgba(0,0,0,0.2);
+  }
 
-	progress::-webkit-progress-value {
-		background-color: rgba(255,255,255,0.6);
-	}
+  progress::-webkit-progress-value {
+    background-color: rgba(255,255,255,0.6);
+  }
 
-	video {
-		width: 100%;
-	}
+  video {
+    width: 100%;
+  }
 </style>
 ```
 
@@ -850,7 +850,7 @@ Every block-level element has clientWidth, clientHeight, offsetWidth and offsetH
 
 ```html
 <div bind:clientWidth={w} bind:clientHeight={h}>
-	<span style="font-size: {size}px">{text}</span>
+  <span style="font-size: {size}px">{text}</span>
 </div>
 
 ```
@@ -869,10 +869,10 @@ display: inline elements cannot be measured with this approach; nor can elements
 
 ```html
 <script>
-	let w;
-	let h;
-	let size = 42;
-	let text = 'edit me';
+  let w;
+  let h;
+  let size = 42;
+  let text = 'edit me';
 </script>
 
 <input type=range bind:value={size}>
@@ -881,13 +881,13 @@ display: inline elements cannot be measured with this approach; nor can elements
 <p>size: {w}px x {h}px</p>
 
 <div bind:clientWidth={w} bind:clientHeight={h}>
-	<span style="font-size: {size}px">{text}</span>
+  <span style="font-size: {size}px">{text}</span>
 </div>
 
 <style>
-	input { display: block; }
-	div { display: inline-block; }
-	span { word-break: break-all; }
+  input { display: block; }
+  div { display: inline-block; }
+  span { word-break: break-all; }
 </style>
 
 ```
@@ -898,9 +898,9 @@ The readonly this binding applies to every element (and component) and allows yo
 
 ```html
 <canvas
-	bind:this={canvas}
-	width={32}
-	height={32}
+  bind:this={canvas}
+  width={32}
+  height={32}
 ></canvas>
 ```
 
@@ -910,57 +910,57 @@ Note that the value of canvas will be undefined until the component has mounted,
 
 ```html
 <script>
-	import { onMount } from 'svelte';
+  import { onMount } from 'svelte';
 
-	let canvas;
+  let canvas;
 
-	onMount(() => {
-		const ctx = canvas.getContext('2d');
-		let frame = requestAnimationFrame(loop);
+  onMount(() => {
+    const ctx = canvas.getContext('2d');
+    let frame = requestAnimationFrame(loop);
 
-		function loop(t) {
-			frame = requestAnimationFrame(loop);
+    function loop(t) {
+      frame = requestAnimationFrame(loop);
 
-			const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
 
-			for (let p = 0; p < imageData.data.length; p += 4) {
-				const i = p / 4;
-				const x = i % canvas.width;
-				const y = i / canvas.width >>> 0;
+      for (let p = 0; p < imageData.data.length; p += 4) {
+        const i = p / 4;
+        const x = i % canvas.width;
+        const y = i / canvas.width >>> 0;
 
-				const r = 64 + (128 * x / canvas.width) + (64 * Math.sin(t / 1000));
-				const g = 64 + (128 * y / canvas.height) + (64 * Math.cos(t / 1000));
-				const b = 128;
+        const r = 64 + (128 * x / canvas.width) + (64 * Math.sin(t / 1000));
+        const g = 64 + (128 * y / canvas.height) + (64 * Math.cos(t / 1000));
+        const b = 128;
 
-				imageData.data[p + 0] = r;
-				imageData.data[p + 1] = g;
-				imageData.data[p + 2] = b;
-				imageData.data[p + 3] = 255;
-			}
+        imageData.data[p + 0] = r;
+        imageData.data[p + 1] = g;
+        imageData.data[p + 2] = b;
+        imageData.data[p + 3] = 255;
+      }
 
-			ctx.putImageData(imageData, 0, 0);
-		}
+      ctx.putImageData(imageData, 0, 0);
+    }
 
-		return () => {
-			cancelAnimationFrame(frame);
-		};
-	});
+    return () => {
+      cancelAnimationFrame(frame);
+    };
+  });
 </script>
 
 <canvas
-	bind:this={canvas}
-	width={32}
-	height={32}
+  bind:this={canvas}
+  width={32}
+  height={32}
 ></canvas>
 
 <style>
-	canvas {
-		width: 100%;
-		height: 100%;
-		background-color: #666;
-		-webkit-mask: url(/svelte-logo-mask.svg) 50% 50% no-repeat;
-		mask: url(/svelte-logo-mask.svg) 50% 50% no-repeat;
-	}
+  canvas {
+    width: 100%;
+    height: 100%;
+    background-color: #666;
+    -webkit-mask: url(/svelte-logo-mask.svg) 50% 50% no-repeat;
+    mask: url(/svelte-logo-mask.svg) 50% 50% no-repeat;
+  }
 </style>
 ```
 
@@ -985,14 +985,14 @@ Use component bindings sparingly. It can be difficult to track the flow of data 
 
 ```html
 <script>
-	import Keypad from './Keypad.svelte';
+  import Keypad from './Keypad.svelte';
 
-	let pin;
-	$: view = pin ? pin.replace(/\d(?!$)/g, '•') : 'enter your pin';
+  let pin;
+  $: view = pin ? pin.replace(/\d(?!$)/g, '•') : 'enter your pin';
 
-	function handleSubmit() {
-		alert(`submitted ${pin}`);
-	}
+  function handleSubmit() {
+    alert(`submitted ${pin}`);
+  }
 </script>
 
 <h1 style="color: {pin ? '#333' : '#ccc'}">{view}</h1>
@@ -1004,44 +1004,44 @@ Use component bindings sparingly. It can be difficult to track the flow of data 
 
 ```html
 <script>
-	import { createEventDispatcher } from 'svelte';
+  import { createEventDispatcher } from 'svelte';
 
-	export let value = '';
+  export let value = '';
 
-	const dispatch = createEventDispatcher();
+  const dispatch = createEventDispatcher();
 
-	const select = num => () => value += num;
-	const clear  = () => value = '';
-	const submit = () => dispatch('submit');
+  const select = num => () => value += num;
+  const clear  = () => value = '';
+  const submit = () => dispatch('submit');
 </script>
 
 <div class="keypad">
-	<button on:click={select(1)}>1</button>
-	<button on:click={select(2)}>2</button>
-	<button on:click={select(3)}>3</button>
-	<button on:click={select(4)}>4</button>
-	<button on:click={select(5)}>5</button>
-	<button on:click={select(6)}>6</button>
-	<button on:click={select(7)}>7</button>
-	<button on:click={select(8)}>8</button>
-	<button on:click={select(9)}>9</button>
+  <button on:click={select(1)}>1</button>
+  <button on:click={select(2)}>2</button>
+  <button on:click={select(3)}>3</button>
+  <button on:click={select(4)}>4</button>
+  <button on:click={select(5)}>5</button>
+  <button on:click={select(6)}>6</button>
+  <button on:click={select(7)}>7</button>
+  <button on:click={select(8)}>8</button>
+  <button on:click={select(9)}>9</button>
 
-	<button disabled={!value} on:click={clear}>clear</button>
-	<button on:click={select(0)}>0</button>
-	<button disabled={!value} on:click={submit}>submit</button>
+  <button disabled={!value} on:click={clear}>clear</button>
+  <button on:click={select(0)}>0</button>
+  <button disabled={!value} on:click={submit}>submit</button>
 </div>
 
 <style>
-	.keypad {
-		display: grid;
-		grid-template-columns: repeat(3, 5em);
-		grid-template-rows: repeat(4, 3em);
-		grid-gap: 0.5em
-	}
+  .keypad {
+    display: grid;
+    grid-template-columns: repeat(3, 5em);
+    grid-template-rows: repeat(4, 3em);
+    grid-gap: 0.5em
+  }
 
-	button {
-		margin: 0
-	}
+  button {
+    margin: 0
+  }
 </style>
 ```
 
@@ -1051,7 +1051,7 @@ Just as you can bind to DOM elements, you can bind to component instances themse
 
 ```html
 <script>
-	let field;
+  let field;
 </script>
 
 ```
@@ -1065,7 +1065,7 @@ Now we can programmatically interact with this component using field.
 
 ```html
 <button on:click="{() => field.focus()}">
-	Focus field
+  Focus field
 </button>
 
 ```
@@ -1080,9 +1080,9 @@ Note that we can't do `{field.focus}` since field is undefined when the button i
 
 ```html
 <script>
-	import InputField from './InputField.svelte';
+  import InputField from './InputField.svelte';
 
-	let field;
+  let field;
 </script>
 
 <InputField bind:this={field}/>
@@ -1094,11 +1094,11 @@ Note that we can't do `{field.focus}` since field is undefined when the button i
 
 ```html
 <script>
-	let input;
+  let input;
 
-	export function focus() {
-		input.focus();
-	}
+  export function focus() {
+    input.focus();
+  }
 </script>
 
 <input bind:this={input} />
@@ -1196,19 +1196,19 @@ Parent.svelte
   let parFirstName = "";  
   import Child from "./Child.svelte";  
 
-	function evClick() {
-		 parFirstName= "changed from parent";
-		 alert('executed evClick');
-	}
+  function evClick() {
+     parFirstName= "changed from parent";
+     alert('executed evClick');
+  }
 </script>
 
 <div class="parent">  
   <h2>Parent</h2>  
   <p>Parent Comp (parFirstName) : {parFirstName} </p>  
   <Child bind:firstName={parFirstName} />
-	<!-- $ : parent.parFirstName = child.firstName (reactive two-way)  -->
-	<button on:click={evClick}>Change FirstName Value</button>
-	
+  <!-- $ : parent.parFirstName = child.firstName (reactive two-way)  -->
+  <button on:click={evClick}>Change FirstName Value</button>
+  
 </div>
 
 ```
