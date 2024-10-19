@@ -47,7 +47,7 @@ class Program
 
 ```
 
-## C# Index
+## C# Tutorial Index
 
 .Net Framework
 

@@ -3,7 +3,7 @@
 - [References](#references)
 - [Notes (1) JavaTPoint](#notes-1-javatpoint)
 - [Notes(2) W3Schools](#notes2-w3schools)
-- [C# OOP AND ADVANCE TOPICS](#c-oop-and-advance-topics)
+  - [C# OOP AND ADVANCE TOPICS](#c-oop-and-advance-topics)
 - [C# Other Topics](#c-other-topics)
 
 
@@ -13,7 +13,7 @@
 
 - https://cheatography.com/pao361/cheat-sheets/c-cheatsheet/
 
-- https://developer.okta.com/blog/2021/01/13/developers-cheatsheet-csharp-9
+- For C# 9.0 (new features), https://developer.okta.com/blog/2021/01/13/developers-cheatsheet-csharp-9
 
 # References
 
@@ -25,6 +25,7 @@ Topic                                  | Note
 ---------------------------------------|-----
 [2 Cs Tutorial](cst-02-cs-tutorial.md) | ✔
 [5 Data Types](cst-05-data-types.md)   |
+[7 Operators](./cst-06-operators.md) |
 
 
 # Notes(2) W3Schools
@@ -47,7 +48,7 @@ Source : https://www.w3schools.com/cs/index.php
 [12 C# Methods - Overloading](./cs-12-methods.md)
 [13 C# Regex](./cs-13-regex.md)
 
-# C# OOP AND ADVANCE TOPICS
+## C# OOP AND ADVANCE TOPICS
 
 | C# Classes | Note
 | -- | -- 
@@ -58,14 +59,6 @@ C# Enums
 C# Files
 C# Exceptions
 
-# C# Other Topics
-
-Topic                             | Note
-----------------------------------|-----
-[Wpf Tutorial](./wpf-tutorial.md) |
-
-
-
 | C# How To
 | --
 Add Two Numbers
@@ -74,4 +67,14 @@ C# Compiler
 C# Exercises
 C# Quiz
 C# Server
+
+
+# C# Other Topics
+
+Topic                             | Note
+----------------------------------|-----
+[Wpf Tutorial](./wpf-tutorial.md) |
+
+
+
 
