@@ -298,28 +298,26 @@ We want to get notified of clicks on our `<CustomButton> `— to do that, we jus
 
 # 6 Bindings 
 
-It is a way of child to parent communications. child component, for example, input value is binded to a variable in the parent component. 
-
---*TBC - svetle bindings
+It is a way of `child to parent communications`. For example, input box value in the child component is binded to a variable in the parent component. 
 
 ## a. Text inputs
 
-As a general rule, data flow in Svelte is top down (parent to child) ❗ — a parent component can set props on a child component, and a component can set attributes on an element, but not the other way around.
+`As a general rule, data flow in Svelte is top down (parent to child)` — a parent component can set props on a child component, and a component can set attributes on an element, but not the other way around.
 
-Sometimes it's useful to break that rule. Take the case of the `<input>` element in this component — we could add an on:input event handler that sets the value of name to `event.target.value`, but it's a bit... boilerplatey. It gets even worse with other form elements, as we'll see.
+Sometimes it's useful to break that rule. Take the case of the `<input>` element in this component — we could add an `on:input`event handler that sets the value of name to `event.target.value`, but it's a bit... boilerplatey. It gets even worse with other form elements, as we'll see.
 
-Instead, we can use the bind:value directive:
+Instead, we can use the bind:value directive :
 
 ```html
 <input bind:value={name}>
-
+<!-- $: parent.name = input.value (two-way binding) -->
 ```
 
 Value attribute of input element binded to the name variable in the parent component (reactively). any changes of the value attribute will reflect name variable.
 
 Try : https://learn.svelte.dev/tutorial/text-inputs
 
-🔔 Binding object field
+🔔 Binding to object field
 
 ```html
 <script>
@@ -332,12 +330,15 @@ Try : https://learn.svelte.dev/tutorial/text-inputs
 <h1>Hello {formx.name} {formx.surname} !</h1>
 ```
 
+Try : https://svelte.dev/repl/edc48ddcd0b947c88a80f55ab35f224d?version=4.2.19
 
 ## b. Numeric inputs
 
-In the DOM, everything is a string. That's unhelpful when you're dealing with numeric inputs — type="number" and type="range" — as it means you have to remember to coerce input.value before using it.
+--*TBC - SVELTE
 
-With bind:value, Svelte takes care of it for you:
+In the DOM, everything is a string. That's unhelpful when you're dealing with numeric inputs — `type="number" and type="range"` — as it means you have to remember to coerce `input.value` before using it.
+
+With `bind:value`, Svelte takes care of it for you:
 
 ```html
 <input type=number bind:value={a} min=0 max=10>
@@ -394,7 +395,7 @@ It's now easy to expand our ice cream menu in new and exciting directions.
 
 ## e. Textarea inputs
 
-The `<textarea>` element behaves similarly to a text input in Svelte — use bind:value to create a two-way binding between the `<textarea>` content and the value variable:
+The `<textarea>` element behaves similarly to a text input in Svelte — use `bind:value` to create a two-way binding between the `<textarea>` content and the value variable:
 
 ```html
 <textarea bind:value={value}></textarea>
@@ -412,7 +413,7 @@ This applies to all bindings, not just textareas.
 
 ## f. Select bindings
 
-We can also use bind:value with `<select>` elements.
+We can also use `bind:value` with `<select>` elements.
 
 ```html
 <select bind:value={selected} on:change="{() => answer = ''}">
@@ -469,9 +470,12 @@ Because we haven't set an initial value of selected, the binding will set it to 
     max-width: 100%;
   }
 </style>
+
 ```
 
 Try : https://learn.svelte.dev/tutorial/select-bindings
+
+- https://svelte.dev/repl/cce6c205ac5743d9b5c11caa75bad477?version=4.2.19
 
 ## g. Select multiple
 
@@ -553,6 +557,8 @@ Press and hold the control key (or the command key on MacOS) for selecting multi
 
 ```
 
+➖ Try : https://svelte.dev/repl/92ad82988bcb42feb17a7abd704a9231?version=4.2.19
+
 ## h. Contenteditable bindings
 
 Elements with the contenteditable attribute support the following bindings:
@@ -570,6 +576,8 @@ There are slight differences between each of these, read more about them here.
 ></div>
 
 ```
+
+--*REVIEW - add an example
 
 ##  i. Each block bindings
 
@@ -653,6 +661,8 @@ Note that interacting with these `<input>` elements will mutate the array. If yo
 
 ```
 
+➖ Try : https://svelte.dev/repl/b970d91e8b0241079d4fa62d4f9fe403?version=4.2.19
+
 ##  j. Media elements
 
 The `<audio>` and `<video>` elements have several properties that you can bind to. This example demonstrates a few of them.
@@ -677,19 +687,13 @@ On line 62, add currentTime={time}, duration and paused bindings:
 
 ---
 
-(!!!) bind:duration is equivalent to bind:duration={duration}   
-
----
+❗ `bind:duration` is equivalent to `bind:duration={duration} (parent and child reference are same)`   
 
 Now, when you click on the video, it will update time, duration and paused as appropriate. This means we can use them to build custom controls.
 
----
+➖ Ordinarily on the web, you would track currentTime by listening for timeupdate events. But these events fire too infrequently, resulting in choppy UI. Svelte does better — it checks currentTime using requestAnimationFrame.
 
-Ordinarily on the web, you would track currentTime by listening for timeupdate events. But these events fire too infrequently, resulting in choppy UI. Svelte does better — it checks currentTime using requestAnimationFrame.
-
----
-
-The complete set of bindings for `<audio>` and `<video>` is as follows — six readonly bindings...
+➖ The complete set of bindings for `<audio>` and `<video>` is as follows — six readonly bindings...
 
 - duration (readonly) — the total duration of the video, in seconds
 - buffered (readonly) — an array of {start, end} objects
@@ -707,6 +711,8 @@ The complete set of bindings for `<audio>` and `<video>` is as follows — six r
 - muted — a boolean value where true is muted
 
 Videos additionally have readonly videoWidth and videoHeight bindings.
+
+➖ Example
 
 *app.svelte*
 
@@ -844,6 +850,8 @@ Videos additionally have readonly videoWidth and videoHeight bindings.
 </style>
 ```
 
+➖ Try : https://svelte.dev/repl/7770da3edcf4454a94afb2e289c6f32f?version=4.2.19
+
 ## k. Dimensions
 
 Every block-level element has clientWidth, clientHeight, offsetWidth and offsetHeight bindings:
@@ -857,13 +865,11 @@ Every block-level element has clientWidth, clientHeight, offsetWidth and offsetH
 
 These bindings are readonly — changing the values of w and h won't have any effect.
 
----
-
-Elements are measured using a technique similar to this one. There is some overhead involved, so it's not recommended to use this for large numbers of elements.
+➖ Elements are measured using a technique similar to this one. There is some overhead involved, so it's not recommended to use this for large numbers of elements.
 
 display: inline elements cannot be measured with this approach; nor can elements that can't contain other elements (such as `<canvas>`). In these cases you will need to measure a wrapper element instead.
 
----
+➖ Example
 
 *app.svelte*
 
@@ -892,6 +898,8 @@ display: inline elements cannot be measured with this approach; nor can elements
 
 ```
 
+➖ Try : https://svelte.dev/repl/d6fa682067ea428c8f1f6ab29ba0a476?version=4.2.19
+
 ## l. This
 
 The readonly this binding applies to every element (and component) and allows you to obtain a reference to rendered elements. For example, we can get a reference to a `<canvas>` element:
@@ -904,7 +912,9 @@ The readonly this binding applies to every element (and component) and allows yo
 ></canvas>
 ```
 
-Note that the value of canvas will be undefined until the component has mounted, so we put the logic inside the onMount lifecycle function.
+📝 Note that the value of canvas will be undefined until the component has mounted, so we put the logic inside the onMount lifecycle function.
+
+➖ Example
 
 *app.svelte*
 
@@ -966,7 +976,7 @@ Note that the value of canvas will be undefined until the component has mounted,
 
 ##  m. Component bindings
 
-Just as you can bind to properties of DOM elements, you can bind to component props. For example, we can bind to the value prop of this `<Keypad>` component as though it were a form element: (tor:child component'daki bir değeri , parent componentine bağlıyoruz. child to parent communication)
+Just as you can bind to properties of DOM elements, you can bind to component props. For example, we can bind to the value prop of this `<Keypad>` component as though it were a form element:
 
 ```html
 <Keypad bind:value={pin} on:submit={handleSubmit}/>
@@ -975,11 +985,9 @@ Just as you can bind to properties of DOM elements, you can bind to component pr
 
 Now, when the user interacts with the keypad, the value of pin in the parent component is immediately updated.
 
----
+➖ Use component bindings sparingly. It can be difficult to track the flow of data around your application if you have too many of them, especially if there is no 'single source of truth'. (tor:sparingly idareli)
 
-Use component bindings sparingly. It can be difficult to track the flow of data around your application if you have too many of them, especially if there is no 'single source of truth'. (tor:sparingly idareli)
-
----
+➖ Example
 
 *app.svelte*
 
@@ -1045,6 +1053,8 @@ Use component bindings sparingly. It can be difficult to track the flow of data 
 </style>
 ```
 
+➖ Try : https://svelte.dev/repl/ac4c84c4c51148b6b9f45a6032cc38fe?version=4.2.19
+
 ##  n. Binding to component instances
 
 Just as you can bind to DOM elements, you can bind to component instances themselves. For example, we can bind the instance of `<InputField>` to a variable named field in the same way we did when binding DOM Elements
@@ -1070,11 +1080,9 @@ Now we can programmatically interact with this component using field.
 
 ```
 
----
+❗ Note that we can't do `{field.focus}` since field is undefined when the button is first rendered and throws an error.
 
-Note that we can't do `{field.focus}` since field is undefined when the button is first rendered and throws an error.
-
----
+➖ Example
 
 *app.svelte*
 
@@ -1088,6 +1096,7 @@ Note that we can't do `{field.focus}` since field is undefined when the button i
 <InputField bind:this={field}/>
 
 <button on:click={() => field.focus()}>Focus field</button>
+
 ```
 
 *InputField.svelte*
@@ -1108,9 +1117,7 @@ Note that we can't do `{field.focus}` since field is undefined when the button i
 
 # Art - Data Binding In Svelte By Aagam Vadecha
 
-- Source : https://hygraph.com/blog/data-binding-in-svelte , (some parts may be modified or added)
- 
-Oct 11, 2024
+➖ Source : https://hygraph.com/blog/data-binding-in-svelte , (some parts may be modified or added) , Oct 11, 2024
 
 ## One-way vs two-way data binding
 

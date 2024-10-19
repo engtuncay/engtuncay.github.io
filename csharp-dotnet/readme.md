@@ -1,7 +1,8 @@
 
 - [Cheatsheets](#cheatsheets)
 - [References](#references)
-- [Notes](#notes)
+- [Notes (1) JavaTPoint](#notes-1-javatpoint)
+- [Notes(2) W3Schools](#notes2-w3schools)
 - [C# OOP AND ADVANCE TOPICS](#c-oop-and-advance-topics)
 - [C# Other Topics](#c-other-topics)
 
@@ -18,7 +19,15 @@
 
 - https://www.w3schools.com/cs/index.php
 
-# Notes
+# Notes (1) JavaTPoint
+
+Topic                                  | Note
+---------------------------------------|-----
+[2 Cs Tutorial](cst-02-cs-tutorial.md) | ✔
+[5 Data Types](cst-05-data-types.md)   |
+
+
+# Notes(2) W3Schools
 
 Source : https://www.w3schools.com/cs/index.php
 

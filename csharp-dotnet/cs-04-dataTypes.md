@@ -196,15 +196,16 @@ Console.WriteLine(myDouble);   // Outputs 9.78
 Console.WriteLine(myInt);      // Outputs 9
 
 ```
---*ANCHOR - tbc
 
 🔔 Type Conversion Methods
 
-It is also possible to convert data types explicitly by using built-in methods, such as Convert.ToBoolean, Convert.ToDouble, Convert.ToString, Convert.ToInt32 (int) and Convert.ToInt64 (long):
+It is also possible to convert data types explicitly by using built-in methods, such as `Convert.ToBoolean, Convert.ToDouble, Convert.ToString, Convert.ToInt32 (int) and Convert.ToInt64 (long)`:
 
 Example
+
+```cs
 int myInt = 10;
-double myDouble = 5.25;
+double myDouble = 5.65;
 bool myBool = true;
 
 Console.WriteLine(Convert.ToString(myInt));    // convert int to string
@@ -212,10 +213,19 @@ Console.WriteLine(Convert.ToDouble(myInt));    // convert int to double
 Console.WriteLine(Convert.ToInt32(myDouble));  // convert double to int
 Console.WriteLine(Convert.ToString(myBool));   // convert bool to string
 
+// -- Output --
+// 10
+// 10
+// 6
+// True
+
+```
+
 *Why Conversion?*
 
-Many times, there's no need for type conversion. But sometimes you have to. Take a look at the next chapter, when working with user input, to see an example of this.
+Many times, there's no need for type conversion. But sometimes you have to. Take a look at the User Input chapter, when working with user input, to see an example of this.
 
+--*TBC - csharp datetime
 
 # DateTime
 
@@ -1451,22 +1461,24 @@ We can overload the GetDateTimeFormats method, which takes the format specifier 
 
 We will show it with the code with the pattern in a table.
 
-Code	Pattern
-"d"	Short date
-"D"	Long date
-"f"	Full date time. Short time.
-"F"	Full date time. Long Time.
-"g"	Generate date time. Long Time.
-"G"	General date time. Long Time.
-"M","m."	Month/day
-"O","o"	Round trip date/time.
-"R","r"	RFC1123
-"s"	Sortable date time.
-"t"	Sort Time
-"T"	Long Time
-"u"	Universal sortable date time.
-"U"	Universal full date-time.
-"Y","y"	Year, Month
+Code     | Pattern
+---------|-------------------------------
+"d"      | Short date
+"D"      | Long date
+"f"      | Full date time. Short time.
+"F"      | Full date time. Long Time.
+"g"      | Generate date time. Long Time.
+"G"      | General date time. Long Time.
+"M","m." | Month/day
+"O","o"  | Round trip date/time.
+"R","r"  | RFC1123
+"s"      | Sortable date time.
+"t"      | Sort Time
+"T"      | Long Time
+"u"      | Universal sortable date time.
+"U"      | Universal full date-time.
+"Y","y"  | Year, Month
+
 We will specify the format of the DateTime in the below C# Code.
 
 ```cs
