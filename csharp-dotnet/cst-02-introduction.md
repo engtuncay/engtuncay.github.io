@@ -58,54 +58,56 @@ class Program
 
 .Net Framework
 
-.NET Framework
-1 CLR
-1 FCL
-1 C#
+1 .NET Framework
+CLR
+FCL
+C#
 
 2 C# Tutorial
 
 2 What is C#
 2 C++ vs C#
 2 Java vs C#
-3 C# History
-3 C# Features
-4 C# Example
-5 C# Variables
-5 C# Data Types
-6 C# Operators
-6 C# Keywords
+2 C# History
+2 C# Features
+2 C# Example
+3 C# Variables
+3 C# Data Types
+4 C# Operators
 
-7 C# Control Statements
+5 C# Keywords
 
-7 C# if-else
-7 C# switch
-7 C# For Loop
-7 C# While Loop
-7 C# Do-While Loop
-7 C# Break
-7 C# Continue
-7 C# Goto
-7 C# Comments
-7 C# Functions
+6 C# Control Statements
 
-8 C# Function
-8 C# Call By Value
-8 C# Call By Reference
-8 C# Out Parameter
+ C# if-else
+ C# switch
+ C# For Loop
+ C# While Loop
+ C# Do-While Loop
+ C# Break
+ C# Continue
+ C# Goto
+
+ C# Comments
+ C# Functions
+
+7 C# Function
+C# Call By Value
+C# Call By Reference
+C# Out Parameter
+
+8 C# Arrays
 
 C# Arrays
+C# Array to Function
+C# Multidimensional Array
+C# Jagged Arrays
+C# Params
+C# Array class
 
-9 C# Arrays
-9 C# Array to Function
-9 C# Multidimensional Array
-9 C# Jagged Arrays
-9 C# Params
-9 C# Array class
+9 C# Command Line Args
 
-10 C# Command Line Args
-
-C# Objects and Classes
+10 C# Objects and Classes
 
 C# Object and Class
 C# Constructor
@@ -114,32 +116,34 @@ C# this
 C# static
 C# static class
 C# static constructor
-C# Structs
-C# Enum
+11 C# Structs
+
+12 C# Enum
+
 C# Properties
 
 C# Properties
-C# Inheritance
+13 C# Inheritance
 
 C# Inheritance
 C# Aggregation
-C# Polymorphism
+14 C# Polymorphism
 
 C# Member Overloading
 C# Method Overriding
 C# Base
 C# Polymorphism
 C# Sealed
-C# Abstraction
+15 C# Abstraction 
 
 C# Abstract
-C# Interface
-C# Namespace
+16 C# Interface
+17 C# Namespace
 
 C# Namespaces
 C# Access Modifiers
 C# Encapsulation
-C# Strings
+18 C# Strings
 
 C# Strings
 C# String Functions
@@ -186,7 +190,8 @@ String ToUpperInvariant()
 String Trim()
 String TrimEnd()
 String TrimStart()
-C# Exceptions
+
+19 C# Exceptions
 
 C# Exception Handling
 C# try/catch
@@ -196,7 +201,7 @@ C# checked unchecked
 C# SystemException
 C# File I/O
 
-C# FileStream
+20 C# FileStream
 C# StreamWriter
 C# StreamReader
 C# TextWriter
@@ -212,7 +217,7 @@ C# Deserialization
 C# System.IO
 C# Collections
 
-C# Collections
+21 C# Collections
 C# List<T>
 C# HashSet<T>
 C# SortedSet<T>
@@ -222,19 +227,21 @@ C# LinkedList<T>
 C# Dictionary<K,V>
 C# SortedDictionary<K,V>
 C# SortedList<K,V>
-C# Generics
+
+22 C# Generics
 
 C# Generics
 C# Delegates
 
-C# Delegates
+23 C# Delegates
 C# Reflection
 
-C# Reflection
+24 C# Reflection
 C# Anonymous Functions
 
-Anonymous Function
-C# Multithreading
+25 Anonymous Function
+
+26 C# Multithreading
 
 C# Multithreading
 C# Thread Life Cycle
@@ -249,7 +256,7 @@ C# ThreadPriority
 C# Synchronization
 
 C# Synchronization
-C# New Features
+27 C# New Features
 
 C# New Features
 C# 2.0

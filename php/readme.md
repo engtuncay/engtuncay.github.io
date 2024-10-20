@@ -11,6 +11,7 @@ Php Tutorial
   - [W3 Php Advanced Topics](#w3-php-advanced-topics)
   - [PHP XML](#php-xml)
   - [PHP - AJAX](#php---ajax)
+- [Php Notes (JavaTPoint)](#php-notes-javatpoint)
 - [Laravel](#laravel)
 
 # Cheatsheets
@@ -163,6 +164,12 @@ PHP Variable Handling
 PHP XML Parser
 PHP Zip
 PHP Timezones
+
+# Php Notes (JavaTPoint)
+
+Source : https://www.javatpoint.com/php-tutorial
+
+
 
 # Laravel
 
