@@ -451,82 +451,70 @@ Output:
 Hello, this message is read by StringReader class
 
 ## C# FileInfo Class
+
+Source : https://www.javatpoint.com/c-sharp-fileinfo
+
 The FileInfo class is used to deal with file and its operations in C#. It provides properties and methods that are used to create, delete and read file. It uses StreamWriter class to write data to the file. It is a part of System.IO namespace.
 
 C# FileInfo Class Signature
+
+```cs
 [SerializableAttribute]  
 [ComVisibleAttribute(true)]  
 public sealed class FileInfo : FileSystemInfo  
-C# FileInfo Constructors
+
+```
+➖ C# FileInfo Constructors
+
 The following table contains constructors for the FileInfo class.
 
-Constructor
-Description
-FileInfo(String)
-It is used to initialize a new instance of the FileInfo class which acts as a wrapper for a file path.
-C# FileInfo Properties
+Constructor Description
+
+FileInfo(String): It is used to initialize a new instance of the FileInfo class which acts as a wrapper for a file path.
+
+➖  C# FileInfo Properties
+
 The following table contains properties of the FileInfo class.
 
-Properties
-Description
-Attributes
-It is used to get or set the attributes for the current file or directory.
-CreationTime
-It is used to get or set the creation time of the current file or directory.
-Directory
-It is used to get an instance of the parent directory.
-DirectoryName
-It is used to get a string representing the directory's full path.
-Exists
-It is used to get a value indicating whether a file exists.
-FullName
-It is used to get the full path of the directory or file.
-IsReadOnly
-It is used to get or set a value that determines if the current file is read only.
-LastAccessTime
-It is used to get or set the time from current file or directory was last accessed.
-Length
-It is used to get the size in bytes of the current file.
-Name
-It is used to get the name of the file.
-C# FileInfo Methods
+Properties     | Description
+---------------|------------------------------------------------------------------------------------
+Attributes     | It is used to get or set the attributes for the current file or directory.
+CreationTime   | It is used to get or set the creation time of the current file or directory.
+Directory      | It is used to get an instance of the parent directory.
+DirectoryName  | It is used to get a string representing the directory's full path.
+Exists         | It is used to get a value indicating whether a file exists.
+FullName       | It is used to get the full path of the directory or file.
+IsReadOnly     | It is used to get or set a value that determines if the current file is read only.
+LastAccessTime | It is used to get or set the time from current file or directory was last accessed.
+Length         | It is used to get the size in bytes of the current file.
+Name           | It is used to get the name of the file.
+
+➖ C# FileInfo Methods
+
 The following table contains methods of the FileInfo class.
 
-Method
-Description
-AppendText()
-It is used to create a StreamWriter that appends text to the file represented by this instance of the FileInfo.
-CopyTo(String)
-It is used to copy an existing file to a new file.
-Create()
-It is used to create a file.
-CreateText()
-It is used to create a StreamWriter that writes a new text file.
-Decrypt()
-It is used to decrypt a file that was encrypted by the current account using the Encrypt method.
-Delete()
-It is used to permanently delete a file.
-Encrypt()
-It is used to encrypt a file so that only the account used to encrypt the file can decrypt it.
-GetAccessControl()
-It is used to get a FileSecurity object that encapsulates the access control list (ACL) entries.
-MoveTo(String)
-It is used to move a specified file to a new specified location.
-Open(FileMode)
-It is used to open a file in the specified mode.
-OpenRead()
-It is used to create a read-only FileStream.
-OpenText()
-It is used to create a StreamReader with UTF8 encoding that reads from an existing text file.
-OpenWrite()
-It is used to create a write-only FileStream.
-Refresh()
-It is used to refresh the state of the object.
-Replace(String,String)
-It is used to replace the contents of a specified file with the file described by the current FileInfo object.
-ToString()
-It is used to return the path as a string.
-C# FileInfo Example: Creating a File
+Method                 | Description
+-----------------------|----------------------------------------------------------------------------------------------------------------
+AppendText()           | It is used to create a StreamWriter that appends text to the file represented by this instance of the FileInfo.
+CopyTo(String)         | It is used to copy an existing file to a new file.
+Create()               | It is used to create a file.
+CreateText()           | It is used to create a StreamWriter that writes a new text file.
+Decrypt()              | It is used to decrypt a file that was encrypted by the current account using the Encrypt method.
+Delete()               | It is used to permanently delete a file.
+Encrypt()              | It is used to encrypt a file so that only the account used to encrypt the file can decrypt it.
+GetAccessControl()     | It is used to get a FileSecurity object that encapsulates the access control list (ACL) entries.
+MoveTo(String)         | It is used to move a specified file to a new specified location.
+Open(FileMode)         | It is used to open a file in the specified mode.
+OpenRead()             | It is used to create a read-only FileStream.
+OpenText()             | It is used to create a StreamReader with UTF8 encoding that reads from an existing text file.
+OpenWrite()            | It is used to create a write-only FileStream.
+Refresh()              | It is used to refresh the state of the object.
+Replace(String,String) | It is used to replace the contents of a specified file with the file described by the current FileInfo object.
+ToString()             | It is used to return the path as a string.
+
+➖ C# FileInfo Example: Creating a File
+
+```cs
 using System;  
 using System.IO;  
 namespace CSharpProgram  
@@ -555,6 +543,9 @@ Output:
 
 File is created Successfully
 We can see inside the F drive a file abc.txt is created. A screenshot is given below.
+
+```
+
 
 CSharp File info 1
 C# FileInfo Example: writing to the file
@@ -621,7 +612,7 @@ Output:
 
 CSharp File info 3
 
-Source : https://www.javatpoint.com/c-sharp-fileinfo
+
 
 ## C# DirectoryInfo Class
 DirectoryInfo class is a part of System.IO namespace. It is used to create, delete and move directory. It provides methods to perform operations related to directory and subdirectory. It is a sealed class so, we cannot inherit it.
