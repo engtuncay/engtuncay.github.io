@@ -3,7 +3,7 @@
 - [Constants](#constants)
 - [C# Display Variables](#c-display-variables)
 - [C# Multiple Variables](#c-multiple-variables)
-- [C# Identifiers](#c-identifiers)
+- [C# Identifiers (variable names)](#c-identifiers-variable-names)
 
 # C# Variables
 
@@ -102,18 +102,22 @@ If you don't want others (or yourself) to overwrite existing values, you can add
 This will declare the variable as "constant", which means unchangeable and read-only:
 
 Example 
+
+```cs
 const int myNum = 15;
 myNum = 20; // error
 
+```
+
 The const keyword is useful when you want a variable to always store the same value, so that others (or yourself) won't mess up your code. An example that is often referred to as a constant, is PI (3.14159...).
 
-Note: You cannot declare a constant variable without assigning the value. If you do, an error will occur: A const field requires a value to be provided.
+📝 Note: You cannot declare a constant variable without assigning the value. If you do, an error will occur: A const field requires a value to be provided.
 
 # C# Display Variables
 
-The WriteLine() method is often used to display variable values to the console window.
+The `WriteLine()` method is often used to display variable values to the console window.
 
-To combine both text and a variable, use the + character:
+To combine both text and a variable, use the `+` character :
 
 Example
 
@@ -135,7 +139,7 @@ Console.WriteLine(fullName);
 
 ```
 
-For numeric values, the + character works as a mathematical operator (notice that we use int (integer) variables here):
+For numeric values, the `+` character works as a mathematical operator (notice that we use int (integer) variables here):
 
 Example
 
@@ -150,7 +154,7 @@ Console.WriteLine(x + y); // Print the value of x + y
 
 # C# Multiple Variables
 
-*Declare Many Variables*
+➖ Declare Many Variables
 
 To declare more than one variable of the same type, use a comma-separated list:
 
@@ -173,7 +177,7 @@ Console.WriteLine(x + y + z);
 
 ```
 
-# C# Identifiers
+# C# Identifiers (variable names)
 
 All C# variables must be identified with unique names.
 
@@ -181,7 +185,7 @@ These unique names are called *identifiers*.
 
 Identifiers can be short names (like x and y) or more descriptive names (age, sum, totalVolume).
 
-Note: It is recommended to use descriptive names in order to create understandable and maintainable code:
+📝 Note: It is recommended to use descriptive names in order to create understandable and maintainable code:
 
 Example
 
@@ -202,4 +206,4 @@ The general rules for naming variables are:
 - Names are case sensitive ("myVar" and "myvar" are different variables)
 Reserved words (like C# keywords, such as int or double) cannot be used as names
 
---end--
+🔚

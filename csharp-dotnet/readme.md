@@ -6,6 +6,7 @@
   - [C# OOP AND ADVANCE TOPICS](#c-oop-and-advance-topics)
 - [C# Other Topics](#c-other-topics)
 
+[Back](../readme.md)
 
 # Cheatsheets
 
@@ -23,10 +24,19 @@
 
 Topic                                  | Note
 ---------------------------------------|-----
+[1 What is Dot Net](cst-01.md)|
 [2 Introduction](cst-02-cs-tutorial.md) | 
 [3 Data Types](cst-05-data-types.md)   |
 [4 Operators](./cst-06-operators.md) |
+[5 Keywords](cst-05-keywords.md)|
 [7 Methods](cst-07-methods.md)| ✔
+[10 Class](cst-10-class.md)|
+[11 Structs](cst-11-structs.md)|
+[12 Enum](cst-12-enum.md)|
+[13 Properties](cst-13-properties.md)|
+[20 Strings](cst-20-strings.md)|
+[22 File](cst-22-file.md) |
+[23 Collections](cst-23-collections.md)|
 
 
 
