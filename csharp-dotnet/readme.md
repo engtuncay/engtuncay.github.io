@@ -26,8 +26,8 @@ Topic                                  | Note
 ---------------------------------------|-----
 [1 What is Dot Net](cst-01.md)|
 [2 Introduction](cst-02-cs-tutorial.md) | 
-[3 Data Types](cst-05-data-types.md)   |
-[4 Operators](./cst-06-operators.md) |
+[3 Data Types](cst-03-data-types.md)   |
+[4 Operators](./cst-04-operators.md) |
 [5 Keywords](cst-05-keywords.md)|
 [7 Methods](cst-07-methods.md)| ✔
 [10 Class](cst-10-class.md)|

@@ -468,9 +468,9 @@ public sealed class FileInfo : FileSystemInfo
 
 The following table contains constructors for the FileInfo class.
 
-Constructor Description
-
-FileInfo(String): It is used to initialize a new instance of the FileInfo class which acts as a wrapper for a file path.
+Constructor      | Description
+-----------------|-------------------------------------------------------------------------------------------------------
+FileInfo(String) | It is used to initialize a new instance of the FileInfo class which acts as a wrapper for a file path.
 
 ➖  C# FileInfo Properties
 
@@ -539,16 +539,19 @@ namespace CSharpProgram
         }  
     }  
 }  
-Output:
 
-File is created Successfully
-We can see inside the F drive a file abc.txt is created. A screenshot is given below.
+// Output:
+// 
+// File is created Successfully
+// We can see inside the F drive a file abc.txt is created. A screenshot is given below.
 
 ```
 
+➖ CSharp File info 1
 
-CSharp File info 1
 C# FileInfo Example: writing to the file
+
+```cs
 using System;  
 using System.IO;  
 namespace CSharpProgram  
@@ -577,6 +580,8 @@ namespace CSharpProgram
 }  
 Output:
 
+
+```
 CSharp File info 2
 C# FileInfo Example: Reading text from the file
 using System;  

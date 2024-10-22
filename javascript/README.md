@@ -4,6 +4,7 @@
 - [References](#references)
 - [Js Notes](#js-notes)
 - [Js Info Notes - Advanced Javascript](#js-info-notes---advanced-javascript)
+- [Notes (JavaTPoint)](#notes-javatpoint)
 - [Node Notes](#node-notes)
 - [Other Cheatsheets](#other-cheatsheets)
 - [Other Js Notes](#other-js-notes)
@@ -80,6 +81,10 @@ CONTENT |Note|
 [13 Modules](./js-info/js-intro-13-1-Modules.md)| ✔
 
 [Javascript W3 Tutorial](./w3/readme.md)
+
+# Notes (JavaTPoint)
+
+Source : 
 
 # Node Notes
 
