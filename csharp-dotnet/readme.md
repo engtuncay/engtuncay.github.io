@@ -37,6 +37,7 @@ Topic                                  | Note
 [14 Inheritance](cst-14-inheritance.md)| ✔
 [16 Polymorphism](cst-16-polymorphism.md)| 
 [17 Abstraction](cst-17-abstraction.md)| 
+[18 Interface](cst-18-interface.md)| 
 [20 Strings](cst-20-strings.md)|
 [22 File](cst-22-file.md) |
 [23 Collections](cst-23-collections.md)|
@@ -142,9 +143,6 @@ C# Array class
 
 15 C# Aggregation
  
-17 C# Abstraction
-18 C# Interface
-
 19 C# Namespace
 
 C# Namespaces
@@ -160,25 +158,8 @@ C# Custom Exception
 C# checked unchecked
 C# SystemException
 
-22 C# File I/O
-
-C# FileStream
-C# StreamWriter
-C# StreamReader
-C# TextWriter
-C# TextReader
-C# BinaryWriter
-C# BinaryReader
-C# StringWriter
-C# StringReader
-C# FileInfo
-C# DirectoryInfo
-C# Serialization
-C# Deserialization
-C# System.IO
-C# Collections
-
 23 C# Collections
+
 C# List<T>
 C# HashSet<T>
 C# SortedSet<T>
@@ -192,12 +173,15 @@ C# SortedList<K,V>
 24 C# Generics
 
 C# Generics
+
 C# Delegates
 
 25 C# Delegates
+
 C# Reflection
 
 26 C# Reflection
+
 C# Anonymous Functions
 
 27 Anonymous Function
@@ -214,12 +198,15 @@ C# Thread Abort
 C# Thread Join
 C# Thread Name
 C# ThreadPriority
+
 C# Synchronization
 
 C# Synchronization
+
 29 C# New Features
 
 C# New Features
+
 C# 2.0
 
 Partial types
@@ -229,6 +216,7 @@ Delegate Covariance
 Delegate inference
 Static classes
 Method group conversions (delegates)
+
 C# 3.0
 
 Anonymous types
@@ -240,16 +228,19 @@ Object and collection initializers
 Auto-Implemented properties
 Lambda expression
 Expression trees
+
 C# 4.0
 
 Dynamic binding
 Named and optional arguments
 Generic co and contravariance
 Embedded interop types ("NoPIA")
+
 C# 5.0
 
 Asynchronous methods
 Caller info attributes
+
 C# 6.0
 
 Using static directive
@@ -263,6 +254,7 @@ String interpolation
 Nameof operator
 Dictionary initializer
 Compiler-as-a-service (Roslyn)
+
 C# 7.0
 
 Pattern matching
@@ -276,13 +268,16 @@ Expression bodied constructors and finalizers
 Expression bodied getters and setters
 Out variables
 Generalized async return types
+
 C# 7.1
 
 Async main
 Default expressions
 C# Programs List
 
+
 C# Programs
+
 Fibonacci Series
 Prime Number
 Palindrome Number

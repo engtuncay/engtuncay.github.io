@@ -23,6 +23,7 @@ Source : https://www.javatpoint.com/c-sharp-filestream
 - [C# Deserialization](#c-deserialization)
 - [C# System.IO Namespace](#c-systemio-namespace)
 
+C# StreamReader eklenmemiş
 
 ## C# FileStream
 
