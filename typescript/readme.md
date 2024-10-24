@@ -1,9 +1,16 @@
 
 <h1>Typescript</h1>
 
+[Back](../readme.md)
+
+---
+
+**Contents**
+
 - [Cheats](#cheats)
 - [Notes](#notes)
 - [Arts](#arts)
+- [Code Play](#code-play)
 - [References](#references)
 
 These are mainly from online resource (some parts may be modified).
@@ -24,7 +31,20 @@ Topic                                            | Note
 Art                                                                                                               | Note
 ------------------------------------------------------------------------------------------------------------------|-----
 [How to install Typescript and create a simple webpage by Jaeho Kim](./arts/art-how-to-install-ts-project-web.md) |
-[How to Create Your Ts Library](./arts/art-how-to-create-your-ts-lib.md)                                          |
+[How to Create Your Ts Library](./arts/art-how-to-create-your-ts-lib.md)                                      
+
+- https://dev.to/fentybit/first-fiddle-on-typescript-3ni7
+    |
+
+# Code Play
+
+- Codepen (recommended)
+
+- https://playcode.io/typescript
+
+- https://www.typescriptlang.org/play
+
+- https://jsfiddle.net/engtuncay/sw0Lh1co/
 
 # References
 

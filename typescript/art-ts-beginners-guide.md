@@ -5,6 +5,10 @@ Source : https://www.freecodecamp.org/news/typescript-for-beginners-guide/ (some
 
 August 8, 2024
 
+[Back](./readme.md)
+
+---
+
 **Contents**
 
 - [Prerequisites](#prerequisites)
@@ -20,7 +24,7 @@ August 8, 2024
   - [Type Aliases](#type-aliases)
   - [Intersection Types](#intersection-types)
   - [Union Types](#union-types)
-  - [Type Assertions](#type-assertions)
+  - [Type Assertions (type casting)](#type-assertions-type-casting)
 - [Functions in TypeScript](#functions-in-typescript)
   - [Function Declarations](#function-declarations)
   - [Arrow Functions](#arrow-functions)
@@ -197,7 +201,7 @@ This command will compile all TypeScript files in the project according to the o
 
 # TypeScript Basics
 
-In this section , we'll go through the basics of TypeScript. You'll see more examples of how TypeScript is statically typed, and you'll learn more about its tooling and error checking.
+In this section , we'll go through the basics of TypeScript. You'll see more examples of how TypeScript is `statically typed`, and you'll learn more about its tooling and error checking.
 
 # Installation
 
@@ -279,7 +283,7 @@ After setting up your tsconfig.json file, you can compile your TypeScript projec
 
 Let's now learn more about types. TypeScript supports several types, including `number, string, boolean, object, null, undefined, symbol, bigint, and any`. Let's explore each of these types in detail.
 
-- number: This type is used for numeric values. It can be an integer or floating-point value.
+- number: This type is used for numeric values. It can be an `integer or floating-point value`.
 
 Example:
 
@@ -289,13 +293,13 @@ let weight: number = 65.5;
 
 ```
 
-- string: This type is used for textual data. It can be defined using single quotes, double quotes, or template literals.
+- string: This type is used for textual data. It can be defined using `single quotes, double quotes, or template literals`.
 
 Example:
 
 ```js
-let name: string = 'John Doe';
-let greeting: string = `Hello, ${name}`;
+let name: string = 'John Doe'; // single quotes
+let greeting: string = `Hello, ${name}`; // template literals
 
 ```
 
@@ -339,7 +343,7 @@ let anotherUnassignedValue: undefined;
 
 ```
 
-- symbol: This type is used to create unique identifiers for objects.
+- symbol: This type is used to create `unique identifiers for objects`.
 
 Example:
 
@@ -422,6 +426,7 @@ Union types are a way to define a type that can be `one of several different typ
 Example:
 
 ```js
+// ID is either a string or a number
 type ID = string | number;
 
 let id: ID = '123';
@@ -431,7 +436,7 @@ id = 123;
 
 In this example, ID is a union type that can be either a string or a number. It is used to define the type of the id variable, which can be assigned a string or a number.
 
-## Type Assertions 
+## Type Assertions (type casting)
 
 Type assertions are a way to tell the TypeScript compiler that you know more about the type of a value than it does. They are similar to `type casting` in other languages.
 
@@ -447,7 +452,7 @@ In this example, the as keyword is used to assert that value is of type string. 
 
 # Functions in TypeScript
 
-Functions are the building blocks of any programming language. They encapsulate logic into reusable units of code, promoting code reuse and modularity. In TypeScript, functions can be defined using the function keyword or arrow functions (=>). Both methods have their own use cases and characteristics.
+Functions are the building blocks of any programming language. They encapsulate logic into reusable units of code, promoting code reuse and modularity. In TypeScript, functions can be defined using `the function keyword or arrow functions (=>)`. Both methods have their own use cases and characteristics.
 
 Let's talk about some types of functions in TypeScript:
 
@@ -516,13 +521,19 @@ function greet(name: string, greeting: string = 'Hello'): void {
 greet('Charlie');  // Outputs: Hello, Charlie!
 greet('Charlie', 'Hi');  // Outputs: Hi, Charlie!
 
+greet('Kazım',undefined); // Outputs: Hello, Kazım!
+
 ```
 
-In this example, the greet function has two parameters, name and greeting. The greeting parameter is optional and has a default value of 'Hello'.
+In this example, the greet function has two parameters, name and greeting. The greeting parameter is optional and has a default value of 'Hello'. 
+
+Sending undefined value sets default value, sending null value gives error.
+
+Try : https://codepen.io/engtuncay/pen/LYwOzyJ?editors=0010
 
 ## Rest Parameters (arbitrary arguments)
 
-TypeScript supports rest parameters, which allow you to pass an arbitrary number of arguments to a function.
+TypeScript supports `rest parameters`, which allow you to pass an arbitrary number of arguments to a function.
 
 Example:
 
@@ -599,7 +610,9 @@ jane.greet();
 
 ```
 
-In this example, Employee is a class that extends Person. It adds a new property department and overrides the greet method. The super keyword is used to call corresponding methods of the parent class.
+In this example, Employee is a class that extends Person. It adds a new property department and overrides the greet method. The `super keyword` is used to call corresponding methods of the parent class.
+
+--*TBC - ts beginner
 
 # Abstract Classes
 
@@ -634,7 +647,7 @@ In this example, Shape is an abstract class with an abstract method area. The Ci
 
 # Encapsulation
 
-Encapsulation is the bundling of data (properties) and methods that operate on the data (methods) into a single unit called a class. In TypeScript, encapsulation is achieved by using access modifiers such as `public, private, and protected`.
+Encapsulation is the bundling of data (properties) and methods that operate on the data (methods) into a single unit called a class. In TypeScript, encapsulation is achieved by using `access modifiers` such as `public, private, and protected`.
 
 Example:
 
