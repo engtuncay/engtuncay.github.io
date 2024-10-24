@@ -69,7 +69,7 @@ CONTENT |Note|
 --- | -- |
 [1-1 Intro and Syntax](./js-info/js-intro-01-01-intro-and-syntax.md) |
 [2-1 Variables and Data Types](./js-info/js-intro-02-01-data-types.md) |
-[2-2 Operators](./js-info/js-intro-02-02-operators.md) | 
+[2-2 Operators](./js-info/js-intro-02-02-operators.md) |   
 [2-3 Conditions Loop Vs](./js-info/js-intro-02-03-if-and-loops.md) |
 [2-4 Functions](./js-info/js-intro-02-04-functions.md) |🆗
 [3 Code Quality](./js-info/js-intro-3-code-quality.md) |
@@ -84,7 +84,15 @@ CONTENT |Note|
 
 # Notes (JavaTPoint)
 
-Source : 
+Source : https://www.javatpoint.com/javascript-tutorial
+
+
+
+
+
+[index](js-jtp-index.md)
+
+
 
 # Node Notes
 
