@@ -3,7 +3,7 @@ C# operators
 
 Source : https://www.javatpoint.com/csharp-operators
 
-[Home](readme.md)
+[Back](readme.md)
 
 # C# operators
 
@@ -54,6 +54,6 @@ Null Coalescing              | `??`                                     | Left t
 Ternary                      | `?:`                                     | Right to Left
 Assignment                   | `= *= /= %= += - = <<= >>= &= ^= \|= =>` | Right
 
-[Home](readme.md)
-
 🔚
+
+[Back](readme.md)
