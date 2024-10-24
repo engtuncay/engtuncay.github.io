@@ -1,5 +1,7 @@
 <h2>Javascript and Node Notes</h2> 
 
+[Back](../readme.md)
+
 - [Js Cheats](#js-cheats)
 - [References](#references)
 - [Js Notes](#js-notes)
@@ -85,6 +87,10 @@ CONTENT |Note|
 # Notes (JavaTPoint)
 
 Source : 
+
+Topic | Note
+------|-----
+x     | x
 
 # Node Notes
 

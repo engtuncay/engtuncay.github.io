@@ -3,6 +3,8 @@
 
 - https://github.com/Asabeneh/30-Days-Of-JavaScript 
 
+[Back](readme.md)
+
 ---
 
 *Content*
@@ -19,15 +21,13 @@
     - [Operator Precedence](#operator-precedence)
   - [Conditionals](#conditionals)
     - [If](#if)
-    - [If Else](#if-else)
-    - [If  Else if Else](#if--else-if-else)
     - [Switch](#switch)
-    - [Ternary Operators](#ternary-operators-1)
+    - [Ternary Operators (?)](#ternary-operators-)
   - [Loops](#loops)
     - [For Loops](#for-loops)
     - [while loop](#while-loop)
     - [do while loop](#do-while-loop)
-    - [For of Loop](#for-of-loop)
+    - [For of Loop (for arrays)](#for-of-loop-for-arrays)
     - [break](#break)
     - [continue](#continue)
     - [`For of` for arrays and `For in` for objects](#for-of-for-arrays-and-for-in-for-objects)
@@ -324,7 +324,7 @@ if (isRaining) {
 
  The same goes for the second condition, if isRaining is false the if block will not be executed and we do not see any output. In order to see the result of a falsy condition, we should have another block, which is going to be _else_.
 
-### If Else
+➖ If Else
 
 If condition is true the first block will be executed, if not the else condition will be executed.
 
@@ -375,7 +375,7 @@ if (isRaining) {
 
 The last condition is false, therefore the else block was executed. What if we have more than two conditions? In that case,  we would use *else if* conditions.
 
-### If  Else if Else
+➖ If  Else if Else
 
 On our daily life, we make decisions on daily basis. We make decisions not by checking  one or two conditions instead we make decisions based on multiple conditions. As similar to our daily life, programming is also full of conditions. We use *else if* when we have multiple conditions.
 
@@ -508,7 +508,7 @@ switch (true) {
 }
 ```
 
-### Ternary Operators
+### Ternary Operators (?)
 
 Another way to write conditionals is using ternary operators. We have covered this in other sections, but we should also mention it here.
 
@@ -573,9 +573,9 @@ do {
 // 0 1 2 3 4 5
 ```
 
-### For of Loop
+### For of Loop (for arrays)
 
-We use for of loop for arrays. It is very hand way to iterate through an array if we are not interested in the index of each element in the array.
+We use for of loop for arrays. It is very hand way to iterate through an array if we are not interested in the index of each element in the array. it is similar to for each in other coding languages.
 
 ```js
 for (const element of arr) {

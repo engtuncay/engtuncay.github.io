@@ -106,6 +106,8 @@ console.log(result)
 // true
 ```
 
+- Try : https://jsfiddle.net/engtuncay/9x6kudz2
+
 #### Match Method
 
 `match()` method returns an array containing all of the matches, including capturing groups, or null if no match is found if we use a global flag in the pattern.
