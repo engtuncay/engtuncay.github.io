@@ -1,5 +1,13 @@
 
-- Fundamentals 2 - Operators,Conditions
+Fundamentals 2 - Operators,Conditions
+
+Source : 
+
+[Back](../readme.md)
+
+---
+
+**Contents**
 
 - [Basic operators, maths](#basic-operators-maths)
   - [Terms: "unary", "binary", "operand"](#terms-unary-binary-operand)
@@ -16,6 +24,16 @@
   - [Increment/decrement](#incrementdecrement)
   - [Bitwise operators](#bitwise-operators)
   - [Comma](#comma)
+- [Comparisons](#comparisons)
+  - [Boolean is the result](#boolean-is-the-result)
+  - [String comparison](#string-comparison)
+  - [Comparison of different types](#comparison-of-different-types)
+  - [Strict equality](#strict-equality)
+  - [Comparison with null and undefined](#comparison-with-null-and-undefined)
+    - [Strange result: null vs 0](#strange-result-null-vs-0)
+    - [An incomparable undefined](#an-incomparable-undefined)
+    - [Avoid problems](#avoid-problems)
+  - [Summary](#summary)
 
 
 # Basic operators, maths
