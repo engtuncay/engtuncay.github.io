@@ -2,19 +2,19 @@ C# Structs
 
 Source : https://javatpoint.com/c-sharp-structs
 
-[Home](readme.md)
+[Back](readme.md)
 
 ---
 
-
-
 In C#, classes and structs are blueprints that are used to create instance of a class. Structs are used for lightweight objects such as Color, Rectangle, Point etc.
 
-Unlike class, structs in C# are value type than reference type. It is useful if you have data that is not intended to be modified after creation of struct.
+Unlike class, structs in C# are `value type` than reference type. It is useful if you have data that is not intended to be modified after creation of struct.
 
-C# Struct Example
+➖ C# Struct Example
+
 Let's see a simple example of struct Rectangle which has two data members width and height.
 
+```cs
 using System;  
 public struct Rectangle  
 {  
@@ -31,13 +31,20 @@ public class TestStructs
         Console.WriteLine("Area of Rectangle is: " + (r.width * r.height));  
     }  
 }  
-Output:
 
-Area of Rectangle is: 20
-C# Struct Example: Using Constructor and Method
+// Output:
+
+// Area of Rectangle is: 20
+
+```
+
+➖ C# Struct Example: Using Constructor and Method
+
 Let's see another example of struct where we are using constructor to initialize data and method to calculate area of rectangle.
 
+```cs
 using System;  
+
 public struct Rectangle  
 {  
     public int width, height;  
@@ -49,7 +56,8 @@ public struct Rectangle
     }  
     public void areaOfRectangle() {   
      Console.WriteLine("Area of Rectangle is: "+(width*height)); }  
-    }  
+    }
+
 public class TestStructs  
 {  
     public static void Main()  
@@ -58,7 +66,11 @@ public class TestStructs
         r.areaOfRectangle();  
     }  
 }  
-Output:
+// Output:
+// 
+// Area of Rectangle is: 30
 
-Area of Rectangle is: 30
-Note: Struct doesn't support inheritance. But it can implement interfaces.
+```
+
+📝 Note: Struct doesn't support inheritance. But it can `implement interfaces`.
+

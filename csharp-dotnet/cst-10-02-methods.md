@@ -10,9 +10,9 @@ Source : https://www.javatpoint.com/c-sharp-function (some parts may be modified
 **Contents**
 
 - [C# Methods](#c-methods)
-- [C# Function: using no parameter and return type](#c-function-using-no-parameter-and-return-type)
-- [C# Function: using parameter but no return type](#c-function-using-parameter-but-no-return-type)
-- [C# Function: using parameter and return type](#c-function-using-parameter-and-return-type)
+- [C# Method: using no parameter and return type](#c-method-using-no-parameter-and-return-type)
+- [C# Method: using parameter but no return type](#c-method-using-parameter-but-no-return-type)
+- [C# Method: using parameter and return type](#c-method-using-parameter-and-return-type)
 - [C# Call By Value](#c-call-by-value)
 - [C# Call By Reference](#c-call-by-reference)
 - [C# Out Parameter](#c-out-parameter)
@@ -21,7 +21,7 @@ Source : https://www.javatpoint.com/c-sharp-function (some parts may be modified
 
 A Method (function) is a block of code that has a signature. Function is used to execute statements specified in the code block. A function consists of the following components:
 
-➖ Function name: It is a unique name that is used to make Function call.
+➖ Method name: It is a unique name that is used to make Function call.
 
 ➖ Return type: It is used to specify the data type of function return value.
 
@@ -46,7 +46,7 @@ Access-specifier, parameters and return statement are optional.
 
 Let's see an example in which we have created a function that returns a string value and takes a string parameter.
 
-## C# Function: using no parameter and return type
+## C# Method: using no parameter and return type
 
 A function that does not return any value specifies `void` type as a return type. In the following example, a function is created without return type.
 
@@ -76,7 +76,7 @@ namespace FunctionExample
 
 - Try : https://dotnetfiddle.net/SypzAS
 
-## C# Function: using parameter but no return type
+## C# Method: using parameter but no return type
 
 ```cs
 using System;  
@@ -106,7 +106,7 @@ namespace FunctionExample
 
 A function can have zero or any number of parameters to get data. In the following example, a function is created without parameters. A function without parameter is also known as non-parameterized function.
 
-## C# Function: using parameter and return type
+## C# Method: using parameter and return type
 
 ```cs
 using System;  

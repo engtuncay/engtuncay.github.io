@@ -29,11 +29,14 @@ Topic                                  | Note
 [3 Data Types](cst-03-data-types.md)   |
 [4 Operators](./cst-04-operators.md) |
 [5 Keywords](cst-05-keywords.md)|
-[7 Methods](cst-07-methods.md)| ✔
-[10 Class](cst-10-class.md)|
-[11 Structs](cst-11-structs.md)|
+[10-01 Class](cst-10-01-class.md)|
+[10-02 Methods](cst-10-02-methods.md)| ✔
+[11 Structs](cst-11-structs.md)| ✔
 [12 Enum](cst-12-enum.md)|
 [13 Properties](cst-13-properties.md)|
+[14 Inheritance](cst-14-inheritance.md)| ✔
+[16 Polymorphism](cst-16-polymorphism.md)| 
+[17 Abstraction](cst-17-abstraction.md)| 
 [20 Strings](cst-20-strings.md)|
 [22 File](cst-22-file.md) |
 [23 Collections](cst-23-collections.md)|
@@ -137,20 +140,9 @@ C# Array class
 
 9 C# Command Line Args
 
-14 C# Inheritance
-C# Inheritance
 15 C# Aggregation
  
-16 C# Polymorphism
-
-C# Member Overloading
-C# Method Overriding
-C# Base
-C# Polymorphism
-C# Sealed
-C# Abstraction 
-
-17 C# Abstract
+17 C# Abstraction
 18 C# Interface
 
 19 C# Namespace
