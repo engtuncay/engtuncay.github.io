@@ -20,7 +20,7 @@ August 8, 2024
 - [Installation](#installation)
 - [Configuration](#configuration)
 - [Understanding tsconfig.json](#understanding-tsconfigjson)
-- [Type Declarations and Variables in TypeScript](#type-declarations-and-variables-in-typescript)
+- [Data Types - Type Declarations  and Variables in TypeScript](#data-types---type-declarations--and-variables-in-typescript)
   - [Type Aliases](#type-aliases)
   - [Intersection Types](#intersection-types)
   - [Union Types](#union-types)
@@ -34,7 +34,7 @@ August 8, 2024
 - [Classes and Objects in TypeScript](#classes-and-objects-in-typescript)
 - [Inheritance](#inheritance)
 - [Abstract Classes](#abstract-classes)
-- [Encapsulation](#encapsulation)
+- [Encapsulation (access modifiers)](#encapsulation-access-modifiers)
 - [Polymorphism](#polymorphism)
 - [Access Modifiers](#access-modifiers)
 - [Interfaces in TypeScript](#interfaces-in-typescript)
@@ -279,11 +279,25 @@ The include and exclude options tell the compiler which files to include and exc
 
 After setting up your tsconfig.json file, you can compile your TypeScript project by simply running the `tsc` command in your terminal. This command will compile all TypeScript files in your project according to the options specified in your tsconfig.json file.
 
-# Type Declarations and Variables in TypeScript
+# Data Types - Type Declarations  and Variables in TypeScript
 
-Let's now learn more about types. TypeScript supports several types, including `number, string, boolean, object, null, undefined, symbol, bigint, and any`. Let's explore each of these types in detail.
+Let's now learn more about types. TypeScript supports several types, including `number, string, boolean, object, null, undefined, symbol, bigint, and any`. 
 
-- number: This type is used for numeric values. It can be an `integer or floating-point value`.
+Type      | Description
+----------|---------------------------------------------------------------------
+number    | int and double values
+string    | text values
+boolean   | true/false values
+object    | reference variable
+null      | explicitly set a variable to have no value or object (user-assigned)
+undefined | a variable has not yet been assigned a value
+symbol    | unique identifiers for objects
+bigint    | whole numbers larger than 2^53 - 1
+any       | the type of a variable could be anything
+
+Let's explore each of these types in detail.
+
+➖ number: This type is used for numeric values. It can be an `integer or floating-point value`.
 
 Example:
 
@@ -293,7 +307,7 @@ let weight: number = 65.5;
 
 ```
 
-- string: This type is used for textual data. It can be defined using `single quotes, double quotes, or template literals`.
+➖ string: This type is used for textual data. It can be defined using `single quotes, double quotes, or template literals`.
 
 Example:
 
@@ -303,7 +317,7 @@ let greeting: string = `Hello, ${name}`; // template literals
 
 ```
 
-- boolean: This type is used for logical values. It can only be true or false.
+➖ boolean: This type is used for logical values. It can only be true or false.
 
 Example:
 
@@ -313,7 +327,7 @@ let isStudent: boolean = false;
 
 ```
 
-- object: This type is used for complex data structures. An object can have properties and methods.
+➖ object: This type is used for complex data structures. An object can have properties and methods.
 
 Example:
 
@@ -323,7 +337,7 @@ let date: object = new Date();
 
 ```
 
-- null: This type has only one value: null. It is used when you want to explicitly set a variable to have no value or object.
+➖ null: This type has only one value: null. It is used when you want to explicitly set a variable to have no value or object.
 
 Example:
 
@@ -333,7 +347,7 @@ let anotherEmptyValue: null = null;
 
 ```
 
-- undefined: This type has only one value: undefined. It is used when a variable has been declared but has not yet been assigned a value.
+➖ undefined: This type has only one value: undefined. It is used when a variable has been declared but has not yet been assigned a value.
 
 Example:
 
@@ -343,7 +357,7 @@ let anotherUnassignedValue: undefined;
 
 ```
 
-- symbol: This type is used to create `unique identifiers for objects`.
+➖ symbol: This type is used to create `unique identifiers for objects`.
 
 Example:
 
@@ -353,7 +367,7 @@ let symbol2: symbol = Symbol('symbol2');
 
 ```
 
-- bigint: This type is used for whole numbers larger than 2^53 - 1, which is the upper limit for the number type.
+➖ bigint: This type is used for whole numbers larger than 2^53 - 1, which is the upper limit for the number type.
 
 Example:
 
@@ -363,7 +377,7 @@ let anotherBigNumber: bigint = BigInt(9007199254740993);
 
 ```
 
-- any: This type is used when the type of a variable could be anything. It is a way of `opting out of type-checking`.
+➖ any: This type is used when the type of a variable could be anything. It is a way of `opting out of type-checking`.
 
 Example:
 
@@ -616,7 +630,7 @@ In this example, Employee is a class that extends Person. It adds a new property
 
 # Abstract Classes
 
-Abstract classes are classes that cannot be instantiated directly. They are used as base classes for other classes and can contain abstract methods that must be implemented by derived classes.
+Abstract classes are classes that `cannot be instantiated directly`. They are `used as base classes` for other classes and can contain abstract methods that must be implemented by derived classes.
 
 Example:
 
@@ -645,7 +659,7 @@ console.log(circle.area()); // Outputs: 78.54
 
 In this example, Shape is an abstract class with an abstract method area. The Circle class extends Shape and implements the area method. Abstract classes are useful for defining a common interface for a set of classes.
 
-# Encapsulation
+# Encapsulation (access modifiers)
 
 Encapsulation is the bundling of data (properties) and methods that operate on the data (methods) into a single unit called a class. In TypeScript, encapsulation is achieved by using `access modifiers` such as `public, private, and protected`.
 

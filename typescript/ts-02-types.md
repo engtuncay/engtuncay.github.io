@@ -19,7 +19,6 @@ See the following value:
 When you look at this value, you can say that it’s a string. And this value has properties and methods that a string has.
 
 
-
 ```js
  console.log('Hello'.length); // 5
 
