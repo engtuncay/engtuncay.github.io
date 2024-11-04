@@ -1,4 +1,10 @@
 
+Composer
+
+[Back](../readme.md)
+
+---
+
 - [Composer](#composer)
   - [Installation](#installation)
   - [Usage](#usage)
