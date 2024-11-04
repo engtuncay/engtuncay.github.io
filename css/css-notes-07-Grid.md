@@ -327,9 +327,9 @@ Grid containers consist of `grid items`, placed inside columns and rows.
 
 ## The grid-template-columns property
 
-The grid-template-columns property defines *the number of columns* in your grid layout, and it can define *the width of each column*.
+The grid-template-columns property defines `the number of columns` in your grid layout, and it can define `the width of each column`.
 
-The value is a *space-separated-list*, where each value defines the width of the respective column.
+The value is a `space-separated-list`, where each value defines the width of the respective column.
 
 If you want your grid layout to contain 4 columns, specify the width of the 4 columns, or "auto" if all columns should have the same width.
 
@@ -366,9 +366,9 @@ Example : Set a size for the 4 columns
 
 ## The grid-template-rows Property
 
-The grid-template-rows property defines the height of each row.
+The grid-template-rows property defines `the height of each row`.
 
-The value is a space-separated-list, where each value defines the height of the respective row:
+The value is a `space-separated-list`, where each value defines the height of the respective row:
 
 Example
 
@@ -387,9 +387,9 @@ Example
 
 ## The justify-content Property
 
-The justify-content property is used to align the whole grid inside the container.
+The justify-content property is used to `align the whole grid inside the container`.
 
-✏ Note: The grid's total width has to be less than the container's width for the justify-content property to have any effect.
+📝 Note: The grid's total width has to be less than the container's width for the justify-content property to have any effect.
 
 *Syntax*
 

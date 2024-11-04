@@ -3,7 +3,7 @@
 
 Summary: in this tutorial, you’ll learn about the TypeScript types and their purposes.
 
-*What is a type in TypeScript*
+➖ What is a type in TypeScript
 
 In TypeScript, a type is a convenient way to refer to the different properties and functions that a value has.
 
@@ -40,7 +40,7 @@ In conclusion, in TypeScript:
 - a type is a label that describes the different properties and method that a value has
 - every value has a type.
 
-*Types in TypeScript*
+➖ Types in TypeScript
 
 TypeScript inherits the built-in types from JavaScript. TypeScript types is categorized into:
 
@@ -62,16 +62,16 @@ symbol    | represents a unique constant value
 
 *Object types*
 
-Objec types are functions, arrays, classes, etc. Later, you’ll learn how to create custom object types.
+Objec types are `functions, arrays, classes, etc.` Later, you’ll learn how to create custom object types.
 
-*Purposes of types in TypeScript*
+➖ Purposes of types in TypeScript
 
 There are two main purposes of types in TypeScript:
 
 - First, types are used by the TypeScript compiler to analyze your code for errors
 - Second, types allow you to understand what values are associated with variables.
 
-*Examples of TypeScript types*
+➖ Examples of TypeScript types
 
 The following example uses the querySelector() method to select the `<h1>` element:
 
@@ -80,9 +80,9 @@ const heading = document.querySelector('h1');
 
 ```
 
-The TypeScript compiler knows that the type of heading is *HTMLHeadingElement*:
+The TypeScript compiler knows that the type of heading is `HTMLHeadingElement`:
 
-And it shows a list of methods of the HTMLHeadingElement type that *heading* can access:
+And it shows a list of methods of the HTMLHeadingElement type that `heading` can access:
 
 If you try to access a property or method that doesn’t exist, the TypeScript compiler will show an error. For example:
 
@@ -90,7 +90,7 @@ If you try to access a property or method that doesn’t exist, the TypeScript c
 heading.rotate() // red underline is seen
 ```
 
-*Summary*
+➖ Summary
 
 - Every value in TypeScript has a type.
 - A type is a label that describes the properties and methods that a value has.

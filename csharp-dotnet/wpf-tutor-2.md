@@ -1,18 +1,6 @@
 
-<h1>The complete WPF tutorial</h1> 
-
 Source : https://wpf-tutorial.com/getting-started/hello-wpf/
 
-[Home](readme.md)
-
-<h2>Contents</h2>  
-
-- [1 About  WPF](#1-about--wpf)
-  - [Hello, WPF!](#hello-wpf)
-  - [What is XAML?](#what-is-xaml)
-- [2 Getting started](#2-getting-started)
-- [3 XAML](#3-xaml)
-- [4 A WPF application](#4-a-wpf-application)
 - [5 Basic controls](#5-basic-controls)
 - [6 Control concepts](#6-control-concepts)
 - [7 Panels](#7-panels)
@@ -28,213 +16,23 @@ Source : https://wpf-tutorial.com/getting-started/hello-wpf/
   - [The DockPanel control](#the-dockpanel-control)
   - [The Canvas control](#the-canvas-control)
 - [8 UserControls \& CustomControls](#8-usercontrols--customcontrols)
+  - [Introduction](#introduction)
+  - [Creating \& using a UserControl](#creating--using-a-usercontrol)
 - [9 Data binding](#9-data-binding)
+  - [Introduction to WPF data binding](#introduction-to-wpf-data-binding)
+  - [Hello, bound world!](#hello-bound-world)
+  - [Using the DataContext](#using-the-datacontext)
+  - [Data binding via Code-behind](#data-binding-via-code-behind)
+  - [The UpdateSourceTrigger property](#the-updatesourcetrigger-property)
+  - [Responding to changes](#responding-to-changes)
+  - [Value conversion with IValueConverter](#value-conversion-with-ivalueconverter)
+  - [The StringFormat property](#the-stringformat-property)
+  - [Debugging data bindings](#debugging-data-bindings)
 - [10 Commands](#10-commands)
 - [11 Dialogs](#11-dialogs)
 - [12 Common interface controls](#12-common-interface-controls)
 - [13 Rich Text controls](#13-rich-text-controls)
-- [14 Misc. controls](#14-misc-controls)
-  - [The Border control](#the-border-control)
-  - [The Slider control](#the-slider-control)
-  - [The ProgressBar control](#the-progressbar-control)
-  - [The WebBrowser control](#the-webbrowser-control)
-  - [The WindowsFormsHost control](#the-windowsformshost-control)
-  - [The GroupBox control](#the-groupbox-control)
-  - [The Calendar control](#the-calendar-control)
-  - [The DatePicker control](#the-datepicker-control)
-  - [The Expander control](#the-expander-control)
-- [15 The TabControl](#15-the-tabcontrol)
-- [16 List controls](#16-list-controls)
-- [17 The ListView control](#17-the-listview-control)
-- [18 The TreeView control](#18-the-treeview-control)
-- [19 The DataGrid control](#19-the-datagrid-control)
-- [20 Styles](#20-styles)
-- [21 Audio \& Video](#21-audio--video)
-- [22 Misc.](#22-misc)
-- [23 Creating a Game: SnakeWPF](#23-creating-a-game-snakewpf)
-- [The WPF Menu control](#the-wpf-menu-control)
-- [Introduction to WPF Rich Text controls](#introduction-to-wpf-rich-text-controls)
-- [Using the WPF TabControl](#using-the-wpf-tabcontrol)
-- [Multi Items Controls](#multi-items-controls)
-  - [The Items Controls](#the-items-controls)
-  - [The ListBox control](#the-listbox-control)
-  - [The Combobox Control](#the-combobox-control)
-- [List View Control](#list-view-control)
-- [Tree View Control](#tree-view-control)
-- [Data Grid Control](#data-grid-control)
 
-
-# 1 About  WPF
-
-What is WPF?
-WPF vs. WinForms
-
-## Hello, WPF!
-
-- MainWindow.xaml. This is the applications primary window
-
-```xml
-<Window x:Class="WpfApplication1.MainWindow"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    Title="MainWindow" Height="350" Width="525">
-    <Grid>
-
-    </Grid>
-</Window>
-
-```
-
-This is the base XAML that Visual Studio creates for our window, all parts of it explained in the chapters on XAML and "The Window". You can actually run the application now (select Debug -> Start debugging or press F5) to see the empty window that our application currently consists of, but now it's time to get our message on the screen.
-
-We'll do it by adding a TextBlock control to the Grid panel, with our aforementioned message as the content:
-
-```xml
-<Window x:Class="WpfApplication1.MainWindow"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="72">
-            Hello, WPF!
-        </TextBlock>
-    </Grid>
-</Window>
-```
-
-## What is XAML?
-
-XAML, which stands for eXtensible Application Markup Language, is Microsoft's variant of XML for describing a GUI. In previous GUI frameworks, like WinForms, a GUI was created in the same language that you would use for interacting with the GUI, e.g. C# or VB.NET and usually maintained by the designer (e.g.  Visual Studio), but with XAML, Microsoft is going another way. Much like with HTML, you are able to easily write and edit your GUI.
-
-This is not really a XAML tutorial, but I will briefly tell you about how you use it, because it's such an essential part of WPF. Whether you're creating a Window or a Page, it will consist of a XAML document and a CodeBehind file, which together creates the Window/Page. The XAML file describes the interface with all its elements, while the CodeBehind handles all the events and has access to manipulate with the XAML controls.
-
-In the next chapters, we will have a look at how XAML works and how you use it to create your interface.
-
-Basic XAML
-
-In the previous chapter, we talked about what XAML is and what you use it for, but how do you create a control in XAML? As you will see from the next example, creating a control in XAML is as easy as writing it's name, surrounded by angle brackets. For instance, a Button looks like this:
-
-```xml
-<Button>
-
-```
-
-XAML tags has to be ended, either by writing the end tag or by putting a forward slash at the end of the start tag:
-
-```xml
-<Button></Button>
-
-```
-
-Or
-
-```xml
-<Button />
-
-```
-
-A lot of controls allow you to put content between the start and end tags, which is then the content of the control. For instance, the Button control allows you to specify the text shown on it between the start and end tags:
-
-```xml
-<Button>A button</Button>
-
-```
-
-HTML is not case-sensitive, but XAML is, because the control name has to correspond to a type in the .NET framework. The same goes for attribute names, which corresponds to the properties of the control. Here's a button where we define a couple of properties by adding attributes to the tag:
-
-```xml
-<Button FontWeight="Bold" Content="A button" />
-
-```
-
-We set the FontWeight property, giving us bold text, and then we set the Content property, which is the same as writing the text between the start and end tag. However, all attributes of a control may also be defined like this, where they appear as child tags of the main control, using the Control-Dot-Property notation:
-
-```xml
-<Button>
-    <Button.FontWeight>Bold</Button.FontWeight>
-    <Button.Content>A button</Button.Content>
-</Button>
-
-```
-
-The result is exactly the same as above, so in this case, it's all about syntax and nothing else. However, a lot of controls allow content other than text, for instance other controls. Here's an example where we have text in different colors on the same button by using several TextBlock controls inside of the Button:
-
-```xml
-<Button>
-    <Button.FontWeight>Bold</Button.FontWeight>
-    <Button.Content>
-        <WrapPanel>
-            <TextBlock Foreground="Blue">Multi</TextBlock>
-            <TextBlock Foreground="Red">Color</TextBlock>
-            <TextBlock>Button</TextBlock>
-        </WrapPanel>
-    </Button.Content>
-</Button>
-
-```
-
-The Content property only allows for a single child element, so we use a WrapPanel to contain the differently colored blocks of text. Panels, like the WrapPanel, plays an important role in WPF and we will discuss them in much more details later on - for now, just consider them as containers for other controls.
-
-Code vs. XAML
-
-Hopefully the above examples show you that XAML is pretty easy to write, but with a lot of different ways of doing it, and if you think that the above example is a lot of markup to get a button with text in different colors, then try comparing it to doing the exact same thing in C#:
-
-```xml
-Button btn = new Button();
-btn.FontWeight = FontWeights.Bold;
-
-WrapPanel pnl = new WrapPanel();
-
-TextBlock txt = new TextBlock();
-txt.Text = "Multi";
-txt.Foreground = Brushes.Blue;
-pnl.Children.Add(txt);
-
-txt = new TextBlock();
-txt.Text = "Color";
-txt.Foreground = Brushes.Red;
-pnl.Children.Add(txt);
-
-txt = new TextBlock();
-txt.Text = "Button";
-pnl.Children.Add(txt);
-
-btn.Content = pnl;
-pnlMain.Children.Add(btn);
-
-```
-
-Of course the above example could be written less explicitly and using more syntactical sugar, but I think the point still stands: XAML is pretty short and concise for describing interfaces.
-
-# 2 Getting started
-
-Visual Studio Community
-
-Hello, WPF!
-
-# 3 XAML
-
-What is XAML?
-
-Basic XAML
-
-Events in XAML
-
-# 4 A WPF application
-
-A WPF Application - Introduction
-
-The Window
-
-Working with App.xaml
-
-Command-line parameters in WPF
-
-Resources
-
-Handling exceptions in WPF
-
-Application Culture / UICulture
 
 # 5 Basic controls
 
@@ -662,6 +460,7 @@ Notice how button 5 only uses the width - it doesn't care about the height, alth
 ## The StackPanel control
 
 
+
 ## The DockPanel control
 
 ## The Canvas control
@@ -671,22 +470,183 @@ Notice how button 5 only uses the width - it doesn't care about the height, alth
 
 Source : https://wpf-tutorial.com/usercontrols-and-customcontrols/introduction
 
-Introduction
-Creating & using a UserControl
+## Introduction
+
+So far in this tutorial, we have only used the built-in controls found in the WPF framework. They will get you a VERY long way, because they are so extremely flexible and can be styled and templated to do almost anything. However, at some point, you will likely benefit from creating your own controls. In other UI frameworks, this can be quite cumbersome, but WPF makes it pretty easy, offering you two ways of accomplishing this task: UserControls and Custom controls.
+
+➖ UserControls
+
+A WPF UserControl inherits the UserControl class and acts very much like a WPF Window: You have a XAML file and a Code-behind file. In the XAML file, you can add existing WPF controls to create the look you want and then combine it with code in the Code-behind file, to achieve the functionality you want. WPF will then allow you to embed this collection of functionality in one or several places in your application, allowing you to easily group and re-use functionality across your application(s).
+
+➖ Custom controls
+
+A Custom control is more low-level than a UserControl. When you create a Custom control, you inherit from an existing class, based on how deep you need to go. In many cases, you can inherit the Control class, which other WPF controls inherits from (e.g. the TextBox), but if you need to go even deeper, you can inherit the FrameworkElement or even the UIElement. The deeper you go, the more control you get and the less functionality is inherited.
+
+The look of the Custom control is usually controlled through styles in a theme file, while the look of the User control will follow the look of the rest of the application. That also highlights one of the major differences between a UserControl and a Custom control: The Custom control can be styled/templated, while a UserControl can't.
+
+➖ Summary
+
+Creating re-usable controls in WPF is very easy, especially if you take the UserControl approach. In the next article, we'll look into just how easy it is to create a UserControl and then use it in your own application.
+
+## Creating & using a UserControl
+
+User controls, in WPF represented by the UserControl class, is the concept of grouping markup and code into a reusable container, so that the same interface, with the same functionality, can be used in several different places and even across several applications.
+
+A user control acts much like a WPF Window - an area where you can place other controls, and then a Code-behind file where you can interact with these controls. The file that contains the user control also ends with .xaml, and the Code-behind ends with .xaml.cs - just like a Window. The starting markup looks a bit different though:
+
+```xml
+<UserControl x:Class="WpfTutorialSamples.User_Controls.LimitedInputUserControl"
+         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+         mc:Ignorable="d" 
+         d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        
+    </Grid>
+</UserControl>
+
+```
+
+Nothing too strange though - a root UserControl element instead of the Window element, and then the DesignHeight and DesignWidth properties, which controls the size of the user control in design-time (in runtime, the size will be decided by the container that holds the user control). You will notice the same thing in Code-behind, where it simply inherits UserControl instead of Window.
+
+➖ Creating a User Control
+
+Add a user control to your project just like you would add another Window, by right-clicking on the project or folder name where you want to add it, as illustrated on this screenshot (things might look a bit different, depending on the version of Visual Studio you're using):
+
+![Add a UserControl to the project](https://wpf-tutorial.com/Images/ArticleImages/1/usercontrols-customcontrols/add_user_control.png)
+
+For this article, we'll be creating a useful User control with the ability to limit the amount of text in a TextBox to a specific number of characters, while showing the user how many characters have been used and how many may be used in total. This is very simple to do, and used in a lot of web applications like Twitter. It would be easy to just add this functionality to your regular Window, but since it could be useful to do in several places in your application, it makes sense to wrap it in an easily reusable UserControl.
+
+Before we dive into the code, let's have a look at the end result that we're going for:
+
+![Limited Input UserControl](https://wpf-tutorial.com/Images/ArticleImages/1/usercontrols-customcontrols/limited_input_sample.png)
+
+Here's the code for the user control itself:
+
+```xml
+<UserControl x:Class="WpfTutorialSamples.User_Controls.LimitedInputUserControl"
+         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+         mc:Ignorable="d" 
+         d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+    <Grid.RowDefinitions>
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="*" />
+    </Grid.RowDefinitions>      
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="Auto" />
+    </Grid.ColumnDefinitions>
+    <Label Content="{Binding Title}" />
+    <Label Grid.Column="1">
+        <StackPanel Orientation="Horizontal">
+        <TextBlock Text="{Binding ElementName=txtLimitedInput, Path=Text.Length}" />
+        <TextBlock Text="/" />
+        <TextBlock Text="{Binding MaxLength}" />
+        </StackPanel>
+    </Label>
+    <TextBox MaxLength="{Binding MaxLength}" Grid.Row="1" Grid.ColumnSpan="2" Name="txtLimitedInput" ScrollViewer.VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" />
+    </Grid>
+</UserControl>
+
+```
+
+```cs
+using System;
+using System.Windows.Controls;
+
+namespace WpfTutorialSamples.User_Controls
+{
+    public partial class LimitedInputUserControl : UserControl
+    {
+    public LimitedInputUserControl()
+    {
+        InitializeComponent();
+        this.DataContext = this;
+    }
+
+    public string Title { get; set; }
+
+    public int MaxLength { get; set; }
+    }
+}
+
+```
+The markup is pretty straight forward: A Grid, with two columns and two rows. The upper part of the Grid contains two labels, one showing the title and the other one showing the stats. Each of them use data binding for all of the information needed - the Title and MaxLength comes from the Code-behind properties, which we have defined in as regular properties on a regular class.
+
+The current character count is obtained by binding to the Text.Length property directly on the TextBox control, which uses the lower part of the user control. The result can be seen on the screenshot above. Notice that because of all these bindings, we don't need any C# code to update the labels or set the MaxLength property on the TextBox - instead, we just bind directly to the properties.
+
+➖ Consuming/using the User Control
+
+With the above code in place, all we need is to consume (use) the User control within our Window. We'll do that by adding a reference to the namespace the UserControl lives in, in the top of the XAML code of your Window:
+
+`xmlns:uc="clr-namespace:WpfTutorialSamples.User_Controls"`
+After that, we can use the uc prefix to add the control to our Window like it was any other WPF control:
+
+`<uc:LimitedInputUserControl Title="Enter title:" MaxLength="30" Height="50" />`
+Notice how we use the Title and MaxLength properties directly in the XAML. Here's the full code sample for our window:
+
+```xml
+<Window x:Class="WpfTutorialSamples.User_Controls.LimitedInputSample"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:uc="clr-namespace:WpfTutorialSamples.User_Controls"
+    Title="LimitedInputSample" Height="200" Width="300">
+    <Grid Margin="10">
+    <Grid.RowDefinitions>
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="*" />
+    </Grid.RowDefinitions>
+    
+    <uc:LimitedInputUserControl Title="Enter title:" MaxLength="30" Height="50" />
+    <uc:LimitedInputUserControl Title="Enter description:" MaxLength="140" Grid.Row="1" />
+    
+    </Grid>
+</Window>
+
+```
+
+With that, we can reuse this entire piece of functionality in a single line of code, as illustrated in this example where we have the limited text input control two times. As already shown, the final result looks like this:
+
+![Limited Input UserControl in action](https://wpf-tutorial.com/Images/ArticleImages/1/usercontrols-customcontrols/limited_input_sample.png)
+
+➖ Summary
+
+Placing commonly used interfaces and functionality in User Controls is highly recommended, and as you can see from the above example, they are very easy to create and use.
 
 # 9 Data binding
 
 Source : https://wpf-tutorial.com/data-binding/introduction/
 
-Introduction to WPF data binding
-Hello, bound world!
-Using the DataContext
-Data binding via Code-behind
-The UpdateSourceTrigger property
-Responding to changes
-Value conversion with IValueConverter
-The StringFormat property
-Debugging data bindings
+## Introduction to WPF data binding
+
+Wikipedia describes the concept of data binding very well: (http://en.wikipedia.org/wiki/Data_binding)
+
+Data binding is general technique that binds two data/information sources together and maintains synchronization of data.
+
+With WPF, Microsoft has put data binding in the front seat and once you start learning WPF, you will realize that it's an important aspect of pretty much everything you do. If you come from the world of WinForms, then the huge focus on data binding might scare you a bit, but once you get used to it, you will likely come to love it, as it makes a lot of things cleaner and easier to maintain.
+
+Data binding in WPF is the preferred way to bring data from your code to the UI layer. Sure, you can set properties on a control manually or you can populate a ListBox by adding items to it from a loop, but the cleanest and purest WPF way is to add a binding between the source and the destination UI element.
+
+Summary
+In the next chapter, we'll look into a simple example where data binding is used and after that, we'll talk some more about all the possibilities. The concept of data binding is included pretty early in this tutorial, because it's such an integral part of using WPF, which you will see once you explore the rest of the chapters, where it's used almost all of the time.
+
+However, the more theoretical part of data binding might be too heavy if you just want to get started building a simple WPF application. In that case I suggest that you have a look at the "Hello, bound world!" article to get a glimpse of how data binding works, and then save the rest of the data binding articles for later, when you're ready to get some more theory.
+
+
+## Hello, bound world!
+## Using the DataContext
+## Data binding via Code-behind
+## The UpdateSourceTrigger property
+## Responding to changes
+## Value conversion with IValueConverter
+## The StringFormat property
+## Debugging data bindings
 
 # 10 Commands
 
@@ -708,6 +668,7 @@ The other dialogs
 Creating a custom input dialog
 
 # 12 Common interface controls
+
 The WPF Menu control
 The WPF ContextMenu
 The WPF ToolBar control
@@ -715,6 +676,7 @@ The WPF StatusBar control
 The Ribbon control
 
 # 13 Rich Text controls
+
 Introduction to WPF Rich Text controls
 The FlowDocumentScrollViewer control
 The FlowDocumentPageViewer control
@@ -724,128 +686,3 @@ Advanced FlowDocument content
 The RichTextBox control
 How-to: Creating a Rich Text Editor
 
-# 14 Misc. controls
-
-## The Border control
-
-Source : https://wpf-tutorial.com/misc-controls/the-border-control/
-
-
-## The Slider control
-## The ProgressBar control
-## The WebBrowser control
-## The WindowsFormsHost control
-## The GroupBox control
-## The Calendar control
-## The DatePicker control
-## The Expander control
-
-# 15 The TabControl
-Using the WPF TabControl
-WPF TabControl: Tab positions
-WPF TabControl: Styling the TabItems
-
-# 16 List controls
-The ItemsControl
-The ListBox control
-The ComboBox control
-
-# 17 The ListView control
-Introduction to the ListView control
-A simple ListView example
-ListView, data binding and ItemTemplate
-ListView with a GridView
-How-to: ListView with left aligned column names
-ListView grouping
-ListView sorting
-How-to: ListView with column sorting
-ListView filtering
-
-# 18 The TreeView control
-TreeView introduction
-A simple TreeView example
-TreeView, data binding and multiple templates
-TreeView - Selection/Expansion state
-Lazy loading TreeView items
-
-# 19 The DataGrid control
-The DataGrid control
-DataGrid columns
-DataGrid with row details
-
-# 20 Styles
-Introduction to WPF styles
-Using WPF styles
-Trigger, DataTrigger & EventTrigger
-WPF MultiTrigger and MultiDataTrigger
-Trigger animations
-
-# 21 Audio & Video
-Playing audio
-Playing video
-How-to: Creating a complete Audio/Video player
-Speech synthesis (making WPF talk)
-Speech recognition (making WPF listen)
-
-# 22 Misc.
-The DispatcherTimer
-Multi-threading with the BackgroundWorker
-Cancelling the BackgroundWorker
-
-# 23 Creating a Game: SnakeWPF
-Introduction
-Creating the game area
-Creating & moving the Snake
-Continuous movement with DispatcherTimer
-Adding food for the Snake
-Controlling the Snake
-Collision Detection
-Improving SnakeWPF: Making it look more like a game
-Improving SnakeWPF: Adding a high score list
-Improving SnakeWPF: Adding sound
-Full game & final words
-
-
-
-# The WPF Menu control
-
-Source : https://wpf-tutorial.com/common-interface-controls/menu-control/
-
-# Introduction to WPF Rich Text controls
-
-Source :  https://wpf-tutorial.com/rich-text-controls/introduction/
-
-
-# Using the WPF TabControl
-
-Source : https://wpf-tutorial.com/tabcontrol/using-the-tabcontrol/
-
-# Multi Items Controls
-
-## The Items Controls
-
-Source : https://wpf-tutorial.com/list-controls/itemscontrol/
-
-## The ListBox control
-
-Source : https://wpf-tutorial.com/list-controls/listbox-control/
-
-## The Combobox Control
-
-Source : https://wpf-tutorial.com/list-controls/combobox-control/
-
-
-# List View Control
-
-Source : https://wpf-tutorial.com/listview-control/introduction/
-
-# Tree View Control
-
-Source : https://wpf-tutorial.com/treeview-control/introduction/
-
-# Data Grid Control
-
-Source : https://wpf-tutorial.com/datagrid-control/introduction/
-
-
-[Home](readme.md)

@@ -42,7 +42,7 @@ p {
 
 ```
 
-✏ Note: A whitespace cannot appear between the number and the unit. (25 px --> wrong ) However, if the value is 0, the unit can be omitted.
+📝 Note: A whitespace cannot appear between the number and the unit. (25 px --> wrong ) However, if the value is 0, the unit can be omitted.
 
 For some CSS properties, negative lengths are allowed.
 
