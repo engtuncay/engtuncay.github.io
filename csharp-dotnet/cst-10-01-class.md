@@ -3,7 +3,7 @@ C# Object and Class
 
 Source : https://www.javatpoint.com/c-sharp-object-and-class
 
-[Home](readme.md)
+[Back](readme.md)
 
 ---
 
@@ -328,219 +328,252 @@ using System;
 
 Note: Destructor can't be public. We can't apply any modifier on destructors.
 
---*TBC - csh class
-
 ## C# this
 
 In c# programming, this is a keyword that refers to the current instance of the class. There can be 3 main usage of this keyword in C#.
 
-It can be used to refer current class instance variable. It is used if field names (instance variables) and parameter names are same, that is why both can be distinguish easily.
-It can be used to pass current object as a parameter to another method.
-It can be used to declare indexers.
-C# this example
+- It can be used to refer current class instance variable. It is used if field names (instance variables) and parameter names are same, that is why both can be distinguish easily.
+- It can be used to pass current object as a parameter to another method.
+- It can be used to declare indexers.
+
+➖ C# this example
+
 Let's see the example of this keyword in C# that refers to the fields of current class.
 
+```cs
 using System;  
-   public class Employee  
+public class Employee  
+{  
+    public int id;   
+    public String name;  
+    public float salary;  
+    
+    public Employee(int id, String name,float salary)  
     {  
-        public int id;   
-        public String name;  
-        public float salary;  
-        public Employee(int id, String name,float salary)  
-        {  
-            this.id = id;  
-            this.name = name;  
-            this.salary = salary;  
-        }  
-        public void display()  
-        {  
-            Console.WriteLine(id + " " + name+" "+salary);  
-        }  
-   }  
-   class TestEmployee{  
-       public static void Main(string[] args)  
-        {  
-            Employee e1 = new Employee(101, "Sonoo", 890000f);  
-            Employee e2 = new Employee(102, "Mahesh", 490000f);  
-            e1.display();  
-            e2.display();  
-  
-        }  
+        this.id = id;  
+        this.name = name;  
+        this.salary = salary;  
     }  
-Output:
+    
+    public void display()  
+    {  
+        Console.WriteLine(id + " " + name+" "+salary);  
+    }  
+}
+  
+class TestEmployee{  
+    public static void Main(string[] args)  
+    {  
+        Employee e1 = new Employee(101, "Sonoo", 890000f);  
+        Employee e2 = new Employee(102, "Mahesh", 490000f);  
+        e1.display();  
+        e2.display();  
 
-101 Sonoo 890000
-102 Mahesh 490000
+    }  
+}  
+// Output:
+// 
+// 101 Sonoo 890000
+// 102 Mahesh 490000
+
+```
 We will learn about other usage of this keyword in next chapters.
 
 ## C# static
-In C#, static is a keyword or modifier that belongs to the type not instance. So instance is not required to access the static members. In C#, static can be field, method, constructor, class, properties, operator and event.
 
-Note: Indexers and destructors cannot be static.
-Advantage of C# static keyword
-Memory efficient: Now we don't need to create instance for accessing the static members, so it saves memory. Moreover, it belongs to the type, so it will not get memory each time when instance is created.
+Source : https://www.javatpoint.com/c-sharp-static
 
-C# Static Field
+In C#, static is a keyword or modifier that belongs to the type not instance. So instance is not required to access the static members. ❗ `In C#, static can be field, method, constructor, class, properties, operator and event`.
+
+📝 Note: Indexers and destructors cannot be static.
+
+➖ Advantage of C# static keyword
+
+- Memory efficient: Now we don't need to create instance for accessing the static members, so it saves memory. Moreover, it belongs to the type, so it will not get memory each time when instance is created.
+
+➖ C# Static Field
+
 A field which is declared as static, is called static field. Unlike instance field which gets memory each time whenever you create object, there is only one copy of static field created in the memory. It is shared to all the objects.
 
 It is used to refer the common property of all objects such as rateOfInterest in case of Account, companyName in case of Employee etc.
-Pause
 
-Next
-Mute
-Current Time 
-0:07
-/
-Duration 
-18:10
- 
-Fullscreen
+➖ C# static field example
 
-C# static field example
 Let's see the simple example of static field in C#.
 
+```cs
 using System;  
-   public class Account  
+public class Account  
+{  
+    public int accno;   
+    public String name;  
+    public static float rateOfInterest=8.8f;  
+    
+    public Account(int accno, String name)  
     {  
-        public int accno;   
-        public String name;  
-        public static float rateOfInterest=8.8f;  
-        public Account(int accno, String name)  
-        {  
-            this.accno = accno;  
-            this.name = name;  
-        }  
-          
-        public void display()  
-        {  
-            Console.WriteLine(accno + " " + name + " " + rateOfInterest);  
-        }  
-   }  
-   class TestAccount{  
-       public static void Main(string[] args)  
-        {  
-         Account a1 = new Account(101, "Sonoo");  
-            Account a2 = new Account(102, "Mahesh");  
-            a1.display();  
-            a2.display();  
-  
-        }  
+        this.accno = accno;  
+        this.name = name;  
     }  
-Output:
+      
+    public void display()  
+    {  
+        Console.WriteLine(accno + " " + name + " " + rateOfInterest);  
+    }  
+}  
 
-101 Sonoo 8.8
-102 Mahesh 8.8
-C# static field example 2: changing static field
+class TestAccount{  
+
+    public static void Main(string[] args)  
+    {  
+      Account a1 = new Account(101, "Sonoo");  
+      Account a2 = new Account(102, "Mahesh");  
+      a1.display();  
+      a2.display();  
+    }  
+}  
+// Output:
+// 
+// 101 Sonoo 8.8
+// 102 Mahesh 8.8
+
+```
+
+➖ C# static field example 2: changing static field
+
 If you change the value of static field, it will be applied to all the objects.
 
-using System;  
-   public class Account  
-    {  
-        public int accno;   
-        public String name;  
-        public static float rateOfInterest=8.8f;  
-        public Account(int accno, String name)  
-        {  
-            this.accno = accno;  
-            this.name = name;  
-        }  
-          
-        public void display()  
-        {  
-            Console.WriteLine(accno + " " + name + " " + rateOfInterest);  
-        }  
-   }  
-   class TestAccount{  
-       public static void Main(string[] args)  
-        {  
-            Account.rateOfInterest = 10.5f;//changing value  
-            Account a1 = new Account(101, "Sonoo");  
-            Account a2 = new Account(102, "Mahesh");  
-            a1.display();  
-            a2.display();  
-  
-        }  
-    }  
-Output:
+```cs
+using System;
 
-101 Sonoo 10.5
-102 Mahesh 10.5
-C# static field example 3: Counting Objects
+public class Account  
+{  
+    public int accno;   
+    public String name;  
+    public static float rateOfInterest=8.8f;  
+    public Account(int accno, String name)  
+    {  
+        this.accno = accno;  
+        this.name = name;  
+    }  
+      
+    public void display()  
+    {  
+        Console.WriteLine(accno + " " + name + " " + rateOfInterest);  
+    }  
+}  
+class TestAccount{  
+    public static void Main(string[] args)  
+    {  
+        Account.rateOfInterest = 10.5f;//changing value  
+        Account a1 = new Account(101, "Sonoo");  
+        Account a2 = new Account(102, "Mahesh");  
+        a1.display();  
+        a2.display();  
+
+    }  
+}  
+// Output:
+
+// 101 Sonoo 10.5
+// 102 Mahesh 10.5
+
+```
+
+➖ C# static field example 3: Counting Objects
+
 Let's see another example of static keyword in C# which counts the objects.
 
+```cs
 using System;  
-   public class Account  
-    {  
-        public int accno;   
-        public String name;  
-        public static int count=0;  
-        public Account(int accno, String name)  
-        {  
-            this.accno = accno;  
-            this.name = name;  
-            count++;  
-        }  
-          
-        public void display()  
-        {  
-            Console.WriteLine(accno + " " + name);  
-        }  
-   }  
-   class TestAccount{  
-       public static void Main(string[] args)  
-        {  
-            Account a1 = new Account(101, "Sonoo");  
-            Account a2 = new Account(102, "Mahesh");  
-            Account a3 = new Account(103, "Ajeet");  
-            a1.display();  
-            a2.display();  
-            a3.display();  
-            Console.WriteLine("Total Objects are: "+Account.count);  
-        }  
-    }  
-Output:
+public class Account  
+{  
+    public int accno;   
+    public String name;  
+    public static int count=0; 
 
-101 Sonoo
-102 Mahesh
-103 Ajeet
-Total Objects are: 3
+    public Account(int accno, String name)  
+    {  
+        this.accno = accno;  
+        this.name = name;  
+        count++;  
+    }  
+      
+    public void display()  
+    {  
+        Console.WriteLine(accno + " " + name);  
+    }  
+}  
+class TestAccount{  
+    public static void Main(string[] args)  
+    {  
+        Account a1 = new Account(101, "Sonoo");  
+        Account a2 = new Account(102, "Mahesh");  
+        Account a3 = new Account(103, "Ajeet");  
+        a1.display();  
+        a2.display();  
+        a3.display();  
+        Console.WriteLine("Total Objects are: "+Account.count);  
+    }  
+}  
+// Output:
+// 
+// 101 Sonoo
+// 102 Mahesh
+// 103 Ajeet
+// Total Objects are: 3
+
+```
 
 ## C# static class
+
 The C# static class is like the normal class but it cannot be instantiated. It can have only static members. The advantage of static class is that it provides you guarantee that instance of static class cannot be created.
 
 Points to remember for C# static class
-C# static class contains only static members.
-C# static class cannot be instantiated.
-C# static class is sealed.
-C# static class cannot contain instance constructors.
-C# static class example
+
+- C# static class contains only static members.
+- C# static class cannot be instantiated.
+- C# static class is sealed.
+- C# static class cannot contain instance constructors.
+
+➖ C# static class example
+
 Let's see the example of static class that contains static field and static method.
 
+```cs
 using System;  
-   public static class MyMath  
-    {  
-        public static float PI=3.14f;   
-        public static int cube(int n){return n*n*n;}  
-    }  
-   class TestMyMath{  
-       public static void Main(string[] args)  
-        {  
-            Console.WriteLine("Value of PI is: "+MyMath.PI);  
-            Console.WriteLine("Cube of 3 is: " + MyMath.cube(3));  
-        }  
-    }  
-Output:
+public static class MyMath  
+{  
+    public static float PI=3.14f;   
+    public static int cube(int n){return n*n*n;}  
+}
 
-Value of PI is: 3.14
-Cube of 3 is: 27
+class TestMyMath{
+
+    public static void Main(string[] args)  
+    {  
+        Console.WriteLine("Value of PI is: "+MyMath.PI);  
+        Console.WriteLine("Cube of 3 is: " + MyMath.cube(3));  
+    }
+
+}  
+// Output:
+// 
+// Value of PI is: 3.14
+// Cube of 3 is: 27
+
+```
 
 ## C# static constructor
+
 C# static constructor is used to initialize static fields. It can also be used to perform any action that is to be performed only once. It is invoked automatically before first instance is created or any static member is referenced.
 
-Points to remember for C# Static Constructor
-C# static constructor cannot have any modifier or parameter.
-C# static constructor is invoked implicitly. It can't be called explicitly.
-C# Static Constructor example
+➖ Points to remember for C# Static Constructor
+
+- C# static constructor cannot have any modifier or parameter.
+- C# static constructor is invoked implicitly. It can't be called explicitly.
+
+➖ C# Static Constructor example
+
 Let's see the example of static constructor which initializes the static field rateOfInterest in Account class.
 
 using System;  
