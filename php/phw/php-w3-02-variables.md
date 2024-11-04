@@ -1,4 +1,10 @@
 
+Source : https://www.w3schools.com/php/php_variables.asp
+
+[Back](../readme.md)
+
+---
+
 - [PHP Variables](#php-variables)
   - [Creating (Declaring) PHP Variables](#creating-declaring-php-variables)
   - [PHP Variables](#php-variables-1)

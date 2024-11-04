@@ -1,5 +1,5 @@
 
-- [PHP Data Types](#php-data-types)
+- [PHP Data Types Intro](#php-data-types-intro)
   - [PHP String](#php-string)
   - [PHP Integer](#php-integer)
   - [PHP Float](#php-float)
@@ -12,7 +12,7 @@
 Source : https://www.w3schools.com/php/php_datatypes.asp
 
 
-# PHP Data Types
+# PHP Data Types Intro
 
 Variables can store data of different types, and different data types can do different things.
 
@@ -20,7 +20,7 @@ PHP supports the following data types:
 
 - String
 - Integer
-- Float (floating point numbers - also called double)
+- Float (aka double)
 - Boolean
 - Array
 - Object
@@ -46,6 +46,7 @@ echo $y;
 ?>
 
 ```
+
 ## PHP Integer
 
 An integer data type is a non-decimal number between -2,147,483,648 and 2,147,483,647.

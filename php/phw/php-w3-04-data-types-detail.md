@@ -1,4 +1,10 @@
-<h1>Php Data Types Details</h1> 
+<h1>Php Data Types - Advanced</h1> 
+
+Source : https://www.w3schools.com/php/php_string.asp
+
+[Back](../readme.md)
+
+---
 
 - [Strings](#strings)
   - [Modify Strings](#modify-strings)
@@ -12,9 +18,9 @@
   - [NaN](#nan)
   - [Numerical Strings](#numerical-strings)
   - [Casting Strings and Floats to Integers](#casting-strings-and-floats-to-integers)
-- [PHP Math](#php-math)
+- [Math](#math)
   - [Random Numbers](#random-numbers)
-- [PHP Constants](#php-constants)
+- [Constants](#constants)
 - [Date And Time](#date-and-time)
 
 # Strings
@@ -533,7 +539,7 @@ echo $int_cast;
 
 ```
 
-# PHP Math
+# Math
 
 PHP has a set of math functions that allows you to perform mathematical tasks on numbers.
 
@@ -630,7 +636,7 @@ echo(rand(10, 100));
 
 ```
 
-# PHP Constants
+# Constants
 
 Constants are like variables except that once they are defined they cannot be changed or undefined.
 

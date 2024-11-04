@@ -1,14 +1,16 @@
 
 
+Source : https://www.w3schools.com/php/default.asp
+
+[Back](../readme.md)
+
+---
+
 - [PHP Introduction](#php-introduction)
 - [PHP Installation](#php-installation)
   - [W3School's Compiler](#w3schools-compiler)
 - [PHP Syntax](#php-syntax)
 - [PHP Comments](#php-comments)
-
-<h2>Source </h2>
-
-- https://www.w3schools.com/php/default.asp
 
 # PHP Introduction
 

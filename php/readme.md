@@ -50,7 +50,7 @@ Content                                                      | Note
 [1 Intro- Install - Syntax - Comments](./phw/php-w3-01-intro.md) | ✔
 [2 Variables - Scope - Echo / Print ](./phw/php-w3-02-variables.md) | ✔
 [3 Data Types Intro](./phw/php-w3-03-data-types.md)                 | ✔
-[4 String - Numbers - Math - Constants - Date](./php-w3-04-data-types-detail.md) |
+[4 String - Numbers - Math - Constants - Date](./phw/php-w3-04-data-types-detail.md) |
 [5 Operators](./phw/php-w3-05-operators.md)                                          |
 [6 If/Else/Elseif - Switch - Loops](./phw/php-w3-06-if-loops.md)                     |
 [7 Functions](./phw/php-w3-07-functions.md)                                          |
@@ -175,10 +175,10 @@ Old content
 
 Content                                              | Note
 -----------------------------------------------------|-----
-[1 Php Basics](./php-01-basics.md)                   |
-[2 Data Types](./php-02-data-types-1.md)             |
-[3 Functions](./php-03-functions.md)                 |
-[4 Classes](./php-04-classes.md)                     |
-[5 Special Variables](./php-05-Special-Variables.md) |
-[6 Database](./php-06-Database.md)                   |
-[7 Composer](./php-07-Composer.md)                   |
+[1 Php Basics](./php1/php-01-basics.md)                   |
+[2 Data Types](./php1/php-02-data-types-1.md)             |
+[3 Functions](./php1/php-03-functions.md)                 |
+[4 Classes](./php1/php-04-classes.md)                     |
+[5 Special Variables](./php1/php-05-Special-Variables.md) |
+[6 Database](./php1/php-06-Database.md)                   |
+[7 Composer](./php1/php-07-Composer.md)                   |
