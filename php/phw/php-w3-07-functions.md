@@ -1,7 +1,14 @@
 
+Source : 
+
 - [Functions](#functions)
   - [PHP Built-in Functions](#php-built-in-functions)
   - [PHP User Defined Functions](#php-user-defined-functions)
+
+[Back](../readme.md)
+
+---
+
 
 
 # Functions

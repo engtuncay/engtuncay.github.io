@@ -129,8 +129,6 @@ $sayi1 = 10;
 
 ## Type Casting
 
-(tor:Veri Tipi Değiştirme)
-
 *Örnek*
 
 ```php

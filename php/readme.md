@@ -16,21 +16,13 @@ Php Tutorial
 
 # Cheatsheets
 
-- Quick Reference - Php CheatSheet
+- Quick Reference - Php CheatSheet, https://quickref.me/php.html
 
-https://quickref.me/php.html
+- A to-the-point summary of all awesome PHP features, https://front-line-php.com/cheat-sheet
 
-- A to-the-point summary of all awesome PHP features
+- Php Function Reference, https://overapi.com/php
 
-https://front-line-php.com/cheat-sheet
-
-- Php Function Reference
-
-https://overapi.com/php
-
-- New Php features
-
-https://github.com/smknstd/modern-php-cheatsheet
+- New Php features, https://github.com/smknstd/modern-php-cheatsheet
 
 
 # References
@@ -55,16 +47,16 @@ Source :
 
 Content                                                      | Note
 -------------------------------------------------------------|-----
-[1 Intro- Install - Syntax - Comments](./php-w3-01-intro.md) | ✔
-[2 Variables - Scope - Echo / Print ](./php-w3-02-variables.md) | ✔
-[3 Data Types Intro](./php-w3-03-data-types.md)                 | ✔
+[1 Intro- Install - Syntax - Comments](./phw/php-w3-01-intro.md) | ✔
+[2 Variables - Scope - Echo / Print ](./phw/php-w3-02-variables.md) | ✔
+[3 Data Types Intro](./phw/php-w3-03-data-types.md)                 | ✔
 [4 String - Numbers - Math - Constants - Date](./php-w3-04-data-types-detail.md) |
-[5 Operators](./php-w3-05-operators.md)                                          |
-[6 If/Else/Elseif - Switch - Loops](./php-w3-06-if-loops.md)                     |
-[7 Functions](./php-w3-07-functions.md)                                          |
-[8 Arrays](./php-w3-08-arrays.md)                                                | ✔
-[9 Superglobals](./php-w3-09-superglobals.md)                                    |
-[10 RegEx](./php-w3-10-regex.md)                                                 | ✔
+[5 Operators](./phw/php-w3-05-operators.md)                                          |
+[6 If/Else/Elseif - Switch - Loops](./phw/php-w3-06-if-loops.md)                     |
+[7 Functions](./phw/php-w3-07-functions.md)                                          |
+[8 Arrays](./phw/php-w3-08-arrays.md)                                                | ✔
+[9 Superglobals](./phw/php-w3-09-superglobals.md)                                    |
+[10 RegEx](./phw/php-w3-10-regex.md)                                                 | ✔
 
 
 ## Kurs Notları ve Makaleler

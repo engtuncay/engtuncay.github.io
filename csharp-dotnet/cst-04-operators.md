@@ -5,6 +5,12 @@ Source : https://www.javatpoint.com/csharp-operators
 
 [Back](readme.md)
 
+---
+
+- [C# operators](#c-operators)
+  - [Precedence of Operators in C#](#precedence-of-operators-in-c)
+
+
 # C# operators
 
 An operator is simply a symbol that is used to perform operations. There can be many types of operations like arithmetic, logical, bitwise etc.
