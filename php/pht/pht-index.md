@@ -4,6 +4,8 @@ PHP Tutorial
 Install PHP
 PHP Code
 
+---
+
 2 PHP Echo
 PHP Print
 PHP Echo vs Print
@@ -49,20 +51,24 @@ PHP Array Functions
 PHP String
 
 
-PHP Math
+10 PHP Math
 PHP Math Functions
 
-PHP Form
+11 PHP Form
 PHP Form: Get Post
 
-PHP Include
+12 PHP Include
 PHP include & require
 
-State Management
+(misc içinde)
+require_once
+include_once
+
+13 State Management
 PHP Cookie
 PHP Session
 
-PHP File
+14 PHP File
 PHP File Handling
 PHP Open File
 PHP Read File
@@ -70,14 +76,12 @@ PHP Write File
 PHP Append File
 PHP Delete File
 
-Upload Download
+15 Upload Download
 PHP File Upload
 PHP Download File
 
-PHP Misc
+16 PHP Misc
 
-require_once
-include_once
 MVC Architecture
 PHP vs. JavaScript
 PHP vs. HTML
@@ -85,7 +89,31 @@ PHP vs. Node.js
 PHP vs Python
 PhpStorm
 
-PHP PDO
+18 PHP Classes
+PHP OOPs Concepts
+
+OOPs Concepts
+OOPs Abstract Class
+OOPs Abstraction
+OOPs Access Specifiers
+OOPs Const Keyword
+OOPs Constructor
+OOPs Destructor
+Abstract vs Class vs Interface
+Encapsulation
+Final Keyword
+OOPs Functions
+OOPs Inheritance
+OOPs Interface
+OOPs Overloading
+OOPs Type Hinting
+
+19 PHP PDO
+
+
+Father of PHP
+
+
 
 Top 10 PHP frameworks
 
@@ -151,6 +179,7 @@ Why do we need Interfaces in PHP
 file_put_contents() Function in PHP
 Is_array() Function in PHP
 How to Use PHP Serialize() and Unserialize() Function
+
 PHP Unset() vs Unlink() Function
 
 PHP 5 vs PHP 7
@@ -164,10 +193,6 @@ PHP Imagecolorallocate() Function
 PHP Image createtruecolor( ) Function
 PHP Imagestring() Function
 
-PHP Classes
-
-Father of PHP
-
 get vs post method in PHP
 
 PHP append to array
@@ -175,17 +200,25 @@ fpassthru() Function in PHP
 Imagick::borderImage() method in PHP
 Imagick rotateImage() Function
 Imagick transposeImage() Function
+
 PHP Projects
+
 Imagick floodFillPaintImage() Function
 Imagick::charcoalImage() PHP
 Imagick adaptiveBlurImage() Function
 Imagick addImage() Function
 Imagick addNoiseImage() Function
+
 PHP Type Casting and Conversion of an Object to an Object of other class
+
 PHP PEAR
+
 PHP STR_CONTAINS()
+
 Multiple Inheritance in PHP
+
 What is a PHP Developer
+
 PHP ob_start() Function
 PHP Beautifier
 PHP imagepolygon() Function
@@ -198,7 +231,9 @@ PHP STATIC VARIABLES
 PHP IDE and Code Editor Software
 PHP file_get_contents() Function
 PHP sleep() Function
+
 PHP server
+
 PHP GMP Functions Detail Reference
 PHP gmp_abs() Function
 PHP gmp_add() Function
@@ -231,10 +266,16 @@ PHP gmp_setbit() function
 PHP GMP gmp_testbit() Function
 PHP gmp_random() function
 PHP gmp_xor() function
+
 How to create html table with a while loop in PHP
+
 How to Encrypt or Decrypt a String in PHP
+
 PHP Mail
 PHP Mail
+
+
+
 PHP MySQLi
 MySQLi CONNECT
 MySQLi CREATE DB
@@ -244,38 +285,37 @@ MySQLi UPDATE
 MySQLi DELETE
 MySQLi SELECT
 MySQLi Order by
+
 PHP JSON
 PHP JSON Example
-PHP OOPs Concepts
-OOPs Concepts
-OOPs Abstract Class
-OOPs Abstraction
-OOPs Access Specifiers
-OOPs Const Keyword
-OOPs Constructor
-OOPs Destructor
-Abstract vs Class vs Interface
-Encapsulation
-Final Keyword
-OOPs Functions
-OOPs Inheritance
-OOPs Interface
-OOPs Overloading
-OOPs Type Hinting
+
 PHP Topics
+
 Compound Types
 PHP Float
 PHP Integer
 is_null() Function
+
 PHP Boolean
+
 Special Types
 Inheritance Task
 Special Types
+
 PHP Encryption
 Two-way Encryption
+
 Heredoc Syntax
+
 PHP MCQ
+
 PHP MCQ
+
+
+
+
+
+
 Related Tutorials
 MySQL Tutorial
 WordPress Tutorial
@@ -288,6 +328,7 @@ PHP Interview
 WordPress Interview
 Joomla Interview
 Drupal Interview
+
 PHP FTP
 PHP FTP
 ftp_close()
@@ -334,7 +375,6 @@ Alphabet Triangle Method
 Alphabet Triangle
 Number Triangle
 Star Triangle
-
 
 PHP String Functions
 

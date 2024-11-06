@@ -9,9 +9,7 @@ Php Tutorial
   - [Kurs Notları ve Makaleler](#kurs-notları-ve-makaleler)
   - [W3 Php OOP](#w3-php-oop)
   - [W3 Php Advanced Topics](#w3-php-advanced-topics)
-  - [PHP XML](#php-xml)
-  - [PHP - AJAX](#php---ajax)
-- [Php Notes (JavaTPoint)](#php-notes-javatpoint)
+  - [Php Notes (JavaTPoint)](#php-notes-javatpoint)
 - [Laravel](#laravel)
 
 # Cheatsheets
@@ -102,66 +100,15 @@ Content                                                             | Note
  [Php Mysql-Mysqli-Pdo](./php-mysql-tutor.md) |
  [Autoloader](./php-w3-11-autoloader.md)|
 
-## PHP XML
 
-PHP XML Parsers
-PHP SimpleXML Parser
-PHP SimpleXML - Get
-PHP XML Expat
-PHP XML DOM
-
-## PHP - AJAX
-
-AJAX Intro
-AJAX PHP
-AJAX Database
-AJAX XML
-AJAX Live Search
-AJAX Poll
-
-PHP Examples
-
-PHP Examples
-PHP Compiler
-PHP Quiz
-PHP Exercises
-PHP Certificate
-
-PHP Reference
-
-PHP Overview
-PHP Array
-PHP Calendar
-PHP Date
-PHP Directory
-PHP Error
-PHP Exception
-PHP Filesystem
-PHP Filter
-PHP FTP
-PHP JSON
-PHP Keywords
-PHP Libxml
-PHP Mail
-PHP Math
-PHP Misc
-PHP MySQLi
-PHP Network
-PHP Output Control
-PHP RegEx
-PHP SimpleXML
-PHP Stream
-PHP String
-PHP Variable Handling
-PHP XML Parser
-PHP Zip
-PHP Timezones
-
-# Php Notes (JavaTPoint)
+## Php Notes (JavaTPoint)
 
 Source : https://www.javatpoint.com/php-tutorial
 
-
+Content                                            | Note
+---------------------------------------------------|-----
+[Data Types](./pht/pht-03-data-types.md)           |
+[Magic Constants](./pht/pht-04-magic-constants.md) |
 
 
 # Laravel

@@ -69,9 +69,9 @@ echo "float is: $y <br/>";
 
 ```
 
-PHP Variable: Sum of two variables
+➖ PHP Variable: Sum of two variables
 
-➖ File: variable2.php
+File: variable2.php
 
 ```php
 <?php  
@@ -112,7 +112,6 @@ echo "My boat is " . $coLOR . "<br>";
 ➖ PHP Variable: Rules
 
 - PHP variables must start with letter or underscore only.
-
 - PHP variable can't be start with numbers and special symbols.
 
 File: variablevalid.php
