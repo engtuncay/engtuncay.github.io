@@ -1,8 +1,27 @@
 
 Source : https://wpf-tutorial.com/getting-started/hello-wpf/
 
+[Back](readme.md)
+
+---
+
+**Contents**
+
 - [5 Basic controls](#5-basic-controls)
+  - [The TextBlock control](#the-textblock-control)
+  - [The TextBlock control - Inline formatting](#the-textblock-control---inline-formatting)
+  - [The Label control](#the-label-control)
+  - [The TextBox control](#the-textbox-control)
+  - [The Button control](#the-button-control)
+  - [The CheckBox control](#the-checkbox-control)
+  - [The RadioButton control](#the-radiobutton-control)
+  - [The PasswordBox control](#the-passwordbox-control)
+  - [The Image control](#the-image-control)
 - [6 Control concepts](#6-control-concepts)
+  - [Control ToolTips](#control-tooltips)
+  - [WPF text rendering](#wpf-text-rendering)
+  - [Tab Order](#tab-order)
+  - [Access Keys](#access-keys)
 - [7 Panels](#7-panels)
   - [Introduction to WPF panels](#introduction-to-wpf-panels)
   - [The Grid Control](#the-grid-control)
@@ -29,40 +48,64 @@ Source : https://wpf-tutorial.com/getting-started/hello-wpf/
   - [The StringFormat property](#the-stringformat-property)
   - [Debugging data bindings](#debugging-data-bindings)
 - [10 Commands](#10-commands)
+  - [Introduction to WPF Commands](#introduction-to-wpf-commands)
+  - [Using WPF commands](#using-wpf-commands)
+  - [Implementing a custom WPF Command](#implementing-a-custom-wpf-command)
 - [11 Dialogs](#11-dialogs)
+  - [The OpenFileDialog](#the-openfiledialog)
+  - [The SaveFileDialog](#the-savefiledialog)
+  - [The other dialogs](#the-other-dialogs)
+  - [Creating a custom input dialog](#creating-a-custom-input-dialog)
 - [12 Common interface controls](#12-common-interface-controls)
+  - [The WPF Menu control](#the-wpf-menu-control)
+  - [The WPF ContextMenu](#the-wpf-contextmenu)
+  - [The WPF ToolBar control](#the-wpf-toolbar-control)
+  - [The WPF StatusBar control](#the-wpf-statusbar-control)
+  - [The Ribbon control](#the-ribbon-control)
 - [13 Rich Text controls](#13-rich-text-controls)
+  - [Introduction to WPF Rich Text controls](#introduction-to-wpf-rich-text-controls)
+  - [The FlowDocumentScrollViewer control](#the-flowdocumentscrollviewer-control)
+  - [The FlowDocumentPageViewer control](#the-flowdocumentpageviewer-control)
+  - [The FlowDocumentReader control](#the-flowdocumentreader-control)
+  - [Creating a FlowDocument from Code-behind](#creating-a-flowdocument-from-code-behind)
+  - [Advanced FlowDocument content](#advanced-flowdocument-content)
+  - [The RichTextBox control](#the-richtextbox-control)
+  - [How-to: Creating a Rich Text Editor](#how-to-creating-a-rich-text-editor)
 
 
 # 5 Basic controls
 
-The TextBlock control
 
-The TextBlock control - Inline formatting
 
-The Label control
+## The TextBlock control
 
-The TextBox control
+Source : https://wpf-tutorial.com/basic-controls/the-textblock-control/
 
-The Button control
+## The TextBlock control - Inline formatting
 
-The CheckBox control
+## The Label control
 
-The RadioButton control
+## The TextBox control
 
-The PasswordBox control
+## The Button control
 
-The Image control
+## The CheckBox control
+
+## The RadioButton control
+
+## The PasswordBox control
+
+## The Image control
 
 # 6 Control concepts
 
-Control ToolTips
+## Control ToolTips
 
-WPF text rendering
+## WPF text rendering
 
-Tab Order
+## Tab Order
 
-Access Keys
+## Access Keys
 
 # 7 Panels
 
@@ -652,9 +695,9 @@ However, the more theoretical part of data binding might be too heavy if you jus
 
 Source : https://wpf-tutorial.com/commands/introduction/
 
-Introduction to WPF Commands
-Using WPF commands
-Implementing a custom WPF Command
+## Introduction to WPF Commands
+## Using WPF commands
+## Implementing a custom WPF Command
 
 # 11 Dialogs
 
@@ -662,27 +705,27 @@ The MessageBox
 
 Source : https://wpf-tutorial.com/dialogs/the-messagebox/
 
-The OpenFileDialog
-The SaveFileDialog
-The other dialogs
-Creating a custom input dialog
+## The OpenFileDialog
+## The SaveFileDialog
+## The other dialogs
+## Creating a custom input dialog
 
 # 12 Common interface controls
 
-The WPF Menu control
-The WPF ContextMenu
-The WPF ToolBar control
-The WPF StatusBar control
-The Ribbon control
+## The WPF Menu control
+## The WPF ContextMenu
+## The WPF ToolBar control
+## The WPF StatusBar control
+## The Ribbon control
 
 # 13 Rich Text controls
 
-Introduction to WPF Rich Text controls
-The FlowDocumentScrollViewer control
-The FlowDocumentPageViewer control
-The FlowDocumentReader control
-Creating a FlowDocument from Code-behind
-Advanced FlowDocument content
-The RichTextBox control
-How-to: Creating a Rich Text Editor
+## Introduction to WPF Rich Text controls
+## The FlowDocumentScrollViewer control
+## The FlowDocumentPageViewer control
+## The FlowDocumentReader control
+## Creating a FlowDocument from Code-behind
+## Advanced FlowDocument content
+## The RichTextBox control
+## How-to: Creating a Rich Text Editor
 

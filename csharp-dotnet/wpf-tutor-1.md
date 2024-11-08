@@ -126,9 +126,9 @@ The result is exactly the same as above, so in this case, it's all about syntax 
 
 The Content property only allows for a single child element, so we use a WrapPanel to contain the differently colored blocks of text. Panels, like the WrapPanel, plays an important role in WPF and we will discuss them in much more details later on - for now, just consider them as containers for other controls.
 
-Code vs. XAML
+➖ Code vs. XAML
 
-Hopefully the above examples show you that XAML is pretty easy to write, but with a lot of different ways of doing it, and if you think that the above example is a lot of markup to get a button with text in different colors, then try comparing it to doing the exact same thing in C#:
+Hopefully the above examples show you that XAML is pretty easy to write, but with a lot of different ways of doing it, and if you think that the above example is a lot of markup to get a button with text in different colors, then try comparing it to doing the exact same thing in `C#`:
 
 ```xml
 Button btn = new Button();
@@ -186,4 +186,7 @@ Resources
 Handling exceptions in WPF
 
 Application Culture / UICulture
+
+
+[Back](readme.md)
 

@@ -90,7 +90,10 @@ C# Server
 
 Topic                             | Note
 ----------------------------------|-----
-[Wpf Tutorial](./wpf-tutorial.md) |
+[Wpf Tutor-1](./wpf-tutor-1.md) |
+[Wpf Tutor-2](./wpf-tutor-2.md) |
+[Wpf Tutor-3](./wpf-tutor-3.md) |
+[Wpf Tutor-4](./wpf-tutor-4.md) |
 
 
 
