@@ -5,6 +5,19 @@ Source : https://medium.com/@jaeho.kim/how-to-install-typescript-and-create-a-si
 
 5 min read, Jul 26, 2022
 
+- [Install Typescript](#install-typescript)
+- [Steps](#steps)
+  - [1. Create the folder where you want to create the type script](#1-create-the-folder-where-you-want-to-create-the-type-script)
+  - [2. Create package.json file with the command below](#2-create-packagejson-file-with-the-command-below)
+  - [3. install Typescript](#3-install-typescript)
+  - [4. Install a runtime that allows Typescript to run on node](#4-install-a-runtime-that-allows-typescript-to-run-on-node)
+  - [5. Create tsconfig.json in the working folder](#5-create-tsconfigjson-in-the-working-folder)
+  - [6. Create a test file](#6-create-a-test-file)
+  - [7. Complie and Run](#7-complie-and-run)
+- [Create a simple webpage with TypeScript](#create-a-simple-webpage-with-typescript)
+- [Conclusion](#conclusion)
+
+
 # Install Typescript
 
 There are two ways to install Typescript in your computer.
@@ -217,7 +230,7 @@ document.body.textContent = greeter(user);
 After that, you can enter “npm start” command in the command window and run index.html file with web browser. Finally, the screen is displayed as follows.
 
 
-Conclusion
+# Conclusion
 
 Unlike JavaScript, TypeScript has a lot of work to be prepared in advance, and there is an inconvenience of not being able to use it immediately and having to compile it. Nevertheless, the reason why people use TypeScripts is that they can easily check errors during the code writing stage and use object-oriented programming, which was not shown in this blog. It is also compatible with languages such as React, Vue.js, and Angular, which are emerging front-end frameworks these days, and many programmers who use them choose TypeScript instead of JavaScript. As such, it is recommended to learn TypeScript that many programmers choose.
 

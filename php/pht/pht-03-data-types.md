@@ -3,21 +3,25 @@ PHP Variable and Data Types
 
 Source : https://javatpoint.com/php-data-types
 
-[Back](readme.md)
-
+[Back](../readme.md)
 ---
 
 - [PHP Variables](#php-variables)
 - [PHP Variable Scope](#php-variable-scope)
-- [PHP $ and $$ Variables](#php--and--variables)
+- [PHP `$ and $$` Variables](#php--and--variables)
 - [PHP Constants](#php-constants)
-- [Php Data Types](#php-data-types)
-  - [PHP Data Types: Scalar Types](#php-data-types-scalar-types)
-  - [PHP Data Types: Compound Types](#php-data-types-compound-types)
-  - [PHP Data Types: Special Types](#php-data-types-special-types)
-  - [PHP Boolean](#php-boolean)
-  - [PHP Integer](#php-integer)
-  - [PHP Float](#php-float)
+- [Data Types](#data-types)
+  - [Scalar Types](#scalar-types)
+  - [Compound Types](#compound-types)
+  - [Special Types](#special-types)
+  - [Boolean](#boolean)
+  - [Integer](#integer)
+  - [Float](#float)
+  - [String](#string)
+  - [Array](#array)
+  - [object](#object)
+  - [Resource](#resource)
+  - [Null](#null)
 
 # PHP Variables
 
@@ -318,11 +322,11 @@ Static: 5
 Non-static: 7
 You have to notice that $num1 regularly increments after each function call, whereas $num2 does not. This is why because $num1 is not a static variable, so it freed its memory after the execution of each function call.
 
-# PHP $ and $$ Variables
+# PHP `$ and $$` Variables
 
 The `$var` (single dollar) is a normal variable with the name var that stores any value like string, integer, float, etc.
 
-The `$$var` (double dollar) is a reference variable that stores the value of the $variable inside it.
+The `$$var` (double dollar) is `a reference variable` that stores the value of the $variable inside it.
 
 To understand the difference better, let's see some examples.
 
@@ -344,11 +348,11 @@ echo $abc;
 
 ```
 
-In the above example, we have assigned a value to the variable x as abc. Value of reference variable $$x is assigned as 200.
+In the above example, we have assigned a value to the variable x as abc. Value of reference variable `$$x` is assigned as 200.
 
-Now we have printed the values $x, $$x and $abc.
+Now we have printed the values `$x, $$x and $abc`.
 
-Example2
+Example 2
 
 ```php
 <?php  
@@ -365,11 +369,13 @@ echo "Capital of $x is " . $$x;
 
 ```
 
-In the above example, we have assigned a value to the variable x as U.P. Value of reference variable $$x is assigned as Lucknow.
+In the above example, we have assigned a value to the variable x as U.P. Value of reference variable `$$x` is assigned as Lucknow.
 
-Now we have printed the values $x, $$x and a string.
+Now we have printed the values `$x, $$x` and a string.
 
 Example3
+
+```php
 <?php  
 $name="Cat";  
 ${$name}="Dog";  
@@ -379,14 +385,14 @@ echo ${$name}. "<br>";
 echo $Cat. "<br>";  
 echo ${${$name}}. "<br>";  
 echo $Dog. "<br>";  
-?>  
-Output:
 
+// Output:
 
-PHP $ and $$ variables
-In the above example, we have assigned a value to the variable name Cat. Value of reference variable ${$name} is assigned as Dog and ${${$name}} as Monkey.
+```
 
-Now we have printed the values as $name, ${$name}, $Cat, ${${$name}} and $Dog.
+In the above example, we have assigned a value to the variable name Cat. Value of reference variable `${$name}` is assigned as Dog and `${${$name}}` as Monkey.
+
+Now we have printed the values as `$name, ${$name}, $Cat, ${${$name}} and $Dog`.
 
 # PHP Constants
 
@@ -495,7 +501,7 @@ Variables can be local, global, or static.
 
 
 
-# Php Data Types
+# Data Types
 
 PHP data types are used to hold different types of data or values. PHP supports 8 primitive data types that can be categorized further in 3 types:
 
@@ -503,7 +509,7 @@ PHP data types are used to hold different types of data or values. PHP supports 
 2. Compound Types (user-defined)
 3. Special Types
 
-## PHP Data Types: Scalar Types
+## Scalar Types
 
 It holds only single value. There are 4 scalar data types in PHP.
 
@@ -512,21 +518,21 @@ It holds only single value. There are 4 scalar data types in PHP.
 3. float
 4. string
 
-## PHP Data Types: Compound Types
+## Compound Types
 
 It can hold multiple values. There are 2 compound data types in PHP.
 
 1. array
 2. object
 
-## PHP Data Types: Special Types
+## Special Types
 
 There are 2 special data types in PHP.
 
 1. resource
 2. NULL
 
-## PHP Boolean
+## Boolean
 
 Booleans are the simplest data type works like switch. It holds only two values: TRUE (1) or FALSE (0). It is often used with conditional statements. If the condition is correct, it returns TRUE otherwise FALSE.
 
@@ -546,7 +552,7 @@ Example:
 ?>  
 
 ```
-## PHP Integer
+## Integer
 
 Integer means numeric data with a negative or positive sign. It holds only whole numbers, i.e., numbers without fractional part or decimal points.
 
@@ -576,22 +582,27 @@ Example:
 
 ```
 
-## PHP Float
+## Float
 
 A floating-point number is a number with a decimal point. Unlike integer, it can hold numbers with a fractional or decimal point, including a negative or positive sign.
 
 Example:
 
+```php
 <?php   
-    $n1 = 19.34;  
-    $n2 = 54.472;  
-    $sum = $n1 + $n2;  
-    echo "Addition of floating numbers: " .$sum;  
-?>  
-Output:
+$n1 = 19.34;  
+$n2 = 54.472;  
+$sum = $n1 + $n2;  
+echo "Addition of floating numbers: " .$sum;  
+ 
+// Output:
+
+```
 
 Addition of floating numbers: 73.812
-PHP String
+
+## String
+
 A string is a non-numeric data type. It holds letters or any alphabets, numbers, and even special characters.
 
 String values must be enclosed either within single quotes or in double quotes. But both are treated differently. To clarify this, see the example below:
@@ -610,7 +621,8 @@ Output:
 
 Hello Javatpoint
 Hello $company
-PHP Array
+
+## Array
 An array is a compound data type. It can store multiple values of same data type in a single variable.
 
 Example:
@@ -632,7 +644,8 @@ Array Element2: Yamaha
 Array Element3: KTM
 You will learn more about array in later chapters of this tutorial.
 
-PHP object
+## object
+
 Objects are the instances of user-defined classes that can store both values and functions. They must be explicitly declared.
 
 Example:
@@ -652,12 +665,13 @@ Output:
 Bike Model: Royal Enfield
 This is an advanced topic of PHP, which we will discuss later in detail.
 
-PHP Resource
+## Resource
+
 Resources are not the exact data type in PHP. Basically, these are used to store some function calls or references to external PHP resources. For example - a database call. It is an external resource.
 
 This is an advanced topic of PHP, so we will discuss it later in detail with examples.
 
-PHP Null
+## Null
 
 Null is a special data type that has only one value: NULL. There is a convention of writing it in capital letters as it is case sensitive.
 

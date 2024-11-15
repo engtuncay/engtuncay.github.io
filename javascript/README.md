@@ -62,7 +62,7 @@ CONTENT |Note|
 [Promise,Async-Await and Closure](./js-notes-6-promise.md) | ✔ 
 [Clean Code](./js-notes-7-clean-code.md) | ✔
 [Dom](./js-notes-8-dom.md) | ✔ 
-[13 Modules](./js-info/js-intro-13-1-Modules.md)| ✔
+[Modules (JsInfo)](./js-info/js-intro-13-1-Modules.md)| ✔
 
 
 # Js Info Notes - Advanced Javascript
@@ -127,8 +127,8 @@ Drafts
 
 # Other Js Notes
 
-Topic                                        | Notes
----------------------------------------------|------
+Topic                                               | Notes
+----------------------------------------------------|------
 [6 Es6 Classes](./js-mix/js-mosh-b6-es6-classes.md) |
 
 
