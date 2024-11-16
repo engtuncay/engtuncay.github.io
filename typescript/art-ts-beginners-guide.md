@@ -15,7 +15,7 @@ August 8, 2024
 - [Who is this Guide For?](#who-is-this-guide-for)
 - [TypeScript vs JavaScript](#typescript-vs-javascript)
 - [Advantages of TypeScript](#advantages-of-typescript)
-- [Code Generation](#code-generation)
+- [Code Generation (cli)](#code-generation-cli)
 - [TypeScript Basics](#typescript-basics)
 - [Installation](#installation)
 - [Configuration](#configuration)
@@ -142,7 +142,7 @@ TypeScript offers several advantages over JavaScript:
 
 - **Community and Ecosystem**: TypeScript has a growing community and ecosystem. Many popular JavaScript libraries, such as React and Angular, have TypeScript definitions, which makes it easier to use them in a TypeScript project.
 
-# Code Generation
+# Code Generation (cli)
 
 TypeScript code isn't natively understood by browsers or Node.js, so it needs to be transpiled into JavaScript. This transpilation process is handled by the TypeScript compiler (tsc), which reads TypeScript code and generates equivalent JavaScript code.
 
@@ -198,6 +198,13 @@ tsc
 ```
 
 This command will compile all TypeScript files in the project according to the options specified in the tsconfig.json file.
+
+➖ Defining Output Directory
+
+```sh
+tsc ./src/script.ts --outDir ./dist/
+
+```
 
 # TypeScript Basics
 

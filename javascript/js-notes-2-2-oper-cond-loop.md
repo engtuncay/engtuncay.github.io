@@ -13,10 +13,9 @@
   - [Operators](#operators)
     - [Assignment operators](#assignment-operators)
     - [Arithmetic Operators](#arithmetic-operators)
+    - [Increment,Decrement Operators](#incrementdecrement-operators)
     - [Comparison Operators](#comparison-operators)
     - [Logical Operators](#logical-operators)
-    - [Increment Operator](#increment-operator)
-    - [Decrement Operator](#decrement-operator)
     - [Ternary Operators](#ternary-operators)
     - [Operator Precedence](#operator-precedence)
   - [Conditionals](#conditionals)
@@ -114,6 +113,49 @@ console.log(
 )
 ```
 
+
+### Increment,Decrement Operators
+
+In JavaScript we use the increment operator to increase a value stored in a variable. The increment could be pre or post increment. Let us see each of them:
+
+1. Pre-increment
+
+```js
+let count = 0
+console.log(++count)        // 1
+console.log(count)          // 1
+```
+
+1. Post-increment
+
+```js
+let count = 0
+console.log(count++)        // 0
+console.log(count)          // 1
+```
+
+We use most of the time post-increment. At least you should remember how to use post-increment operator.
+
+➖ Decrement Operator
+
+In JavaScript we use the decrement operator to decrease a value stored in a variable. The decrement could be pre or post decrement. Let us see each of them:
+
+1. Pre-decrement
+
+```js
+let count = 0
+console.log(--count) // -1
+console.log(count)  // -1
+```
+
+2. Post-decrement
+
+```js
+let count = 0
+console.log(count--) // 0
+console.log(count)   // -1
+```
+
 ### Comparison Operators
 
 In programming we compare values, we use comparison operators to compare two values. We check if a value is greater or less or equal to other value.
@@ -152,9 +194,11 @@ console.log('python'.length > 'dragon'.length)   // false
 
 Try to understand the above comparisons with some logic. Remembering without any logic might be difficult.
 
-JavaScript is somehow a wired kind of programming language. JavaScript code run and give you a result but unless you are good at it may not be the desired result.
+JavaScript is `somehow a weird kind` of programming language. JavaScript code run and give you a result but unless you are good at it may not be the desired result. (to:wired converted to weird)
 
-As rule of thumb, if a value is not true with `==` it will not be equal with `===`. Using =`==` is safer than using `==`. The following [link](https://dorey.github.io/JavaScript-Equality-Table/) has an exhaustive list of comparison of data types.
+As rule of thumb, if a value is not true with `==` it will not be equal with `===`. Using `===` is safer than using `==`. 
+
+The following [link](https://dorey.github.io/JavaScript-Equality-Table/) has an exhaustive list of comparison of data types.
 
 ### Logical Operators
 
@@ -190,86 +234,42 @@ let isLightOn = true
 let isLightOff = !isLightOn           // false
 let isMarried = !false                // true
 ```
-
-### Increment Operator
-
-In JavaScript we use the increment operator to increase a value stored in a variable. The increment could be pre or post increment. Let us see each of them:
-
-1. Pre-increment
-
-```js
-let count = 0
-console.log(++count)        // 1
-console.log(count)          // 1
-```
-
-1. Post-increment
-
-```js
-let count = 0
-console.log(count++)        // 0
-console.log(count)          // 1
-```
-
-We use most of the time post-increment. At least you should remember how to use post-increment operator.
-
-### Decrement Operator
-
-In JavaScript we use the decrement operator to decrease a value stored in a variable. The decrement could be pre or post decrement. Let us see each of them:
-
-1. Pre-decrement
-
-```js
-let count = 0
-console.log(--count) // -1
-console.log(count)  // -1
-```
-
-2. Post-decrement
-
-```js
-let count = 0
-console.log(count--) // 0
-console.log(count)   // -1
-```
-
 ### Ternary Operators
 
 Ternary operator allows to write a condition.
+
 Another way to write conditionals is using ternary operators. Look at the following examples:
 
 ```js
 let isRaining = true
-isRaining
-  ? console.log('You need a rain coat.')
-  : console.log('No need for a rain coat.')
+
+isRaining ? console.log('You need a rain coat.') : console.log('No need for a rain coat.')
+
 isRaining = false
 
-isRaining
-  ? console.log('You need a rain coat.')
-  : console.log('No need for a rain coat.')
-```
+isRaining ? console.log('You need a rain coat.') : console.log('No need for a rain coat.')
 
-```sh
-You need a rain coat.
-No need for a rain coat.
+// -- Output --
+// You need a rain coat.
+// No need for a rain coat.
+
 ```
 
 ```js
 let number = 5
-number > 0
-  ? console.log(`${number} is a positive number`)
+
+number > 0 
+  ? console.log(`${number} is a positive number`) 
   : console.log(`${number} is a negative number`)
+
 number = -5
 
-number > 0
-  ? console.log(`${number} is a positive number`)
-  : console.log(`${number} is a negative number`)
-```
+number > 0 ? console.log(`${number} is a positive number`) : console.log(`${number} is a negative number`)
 
-```sh
-5 is a positive number
--5 is a negative number
+// -- Output --
+// 5 is a positive number
+// -5 is a negative number
+
 ```
 
 ### Operator Precedence
@@ -279,6 +279,7 @@ I would like to recommend you to read about operator precedence from this [link]
 ## Conditionals
 
 Conditional statements are used for  make decisions based on different conditions.
+
 By default , statements in JavaScript script executed sequentially from top to bottom. If the processing logic require so, the sequential flow of execution can be altered in two ways:
 
 - Conditional execution: a block of one or more statements will be executed if a certain expression is true

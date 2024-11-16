@@ -1,4 +1,16 @@
 
+OOP (Classes)
+
+Source : 
+
+- https://github.com/Asabeneh/30-Days-Of-JavaScript/blob/master/15_Day_Classes/15_day_classes.md , (some parts may be modified or added)
+
+
+
+[Back](readme.md)
+
+---
+
 - [Section - OOP (Classes)](#section---oop-classes)
   - [Classes](#classes)
     - [Defining a class](#defining-a-class)
@@ -22,19 +34,17 @@ Object Oriented Programming
 
 ## Classes
 
-Source : https://github.com/Asabeneh/30-Days-Of-JavaScript/blob/master/15_Day_Classes/15_day_classes.md (some parts may be modified)
-
 JavaScript is an object oriented programming language (??). Everything in JavaScript is an object, with its properties and methods. We create class to create an object. A Class is like `an object constructor, or a blueprint for creating objects`. We instantiate a class to create an object. The class defines attributes and methods (the behavior of the object).
 
-(instantiate:örneklendirmek)
-
-Creating an object from a class is called `class instantiation`.
+Creating an object from a class is called `class instantiation` (örnekleme).
 
 In the object section, we saw how to create `an object literal`. Object literal is a singleton. If we want to get a similar object , we have to write it. However, class allows to create many objects. This helps to reduce amount of code and repetition of code.
 
 ### Defining a class
 
-To define a class in JavaScript we need the keyword _class_ , the name of a class in **CamelCase** and block code(two curly brackets). Let us create a class name Person.
+To define a class in JavaScript we need the keyword `class` , the name of a class in **CamelCase** and block code (two curly brackets). 
+
+Let us create a class name Person.
 
 ```js
 // syntax
@@ -53,8 +63,6 @@ class Person {
 ```
 
 We have created a Person class but it does not have any thing inside...
-
-
 
 ### Creating Object (Class Instantiation)
 
