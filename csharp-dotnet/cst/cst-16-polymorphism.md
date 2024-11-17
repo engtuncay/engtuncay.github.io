@@ -153,26 +153,30 @@ public class TestOverriding
 
 ```
 
---*TBC - csh poly
-
 ## C# Base
 
 In C#, base keyword is used to access fields, constructors and methods of base class.
 
 You can use base keyword within instance method, constructor or instance property accessor only. You can't use it inside the static method.
 
-C# base keyword: accessing base class field
+🔔 C# base keyword: accessing base class field
+
 We can use the base keyword to access the fields of the base class within derived class. It is useful if base and derived classes have the same fields. If derived class doesn't define same field, there is no need to use base keyword. Base class field can be directly accessed by the derived class.
 
-Let's see the simple example of base keyword in C# which accesses the field of base class.
+🧲 Let's see the simple example of base keyword in C# which accesses the field of base class.
 
+
+```cs
 using System;  
+
 public class Animal{  
     public string color = "white";  
 }  
+
 public class Dog: Animal  
 {  
     string color = "black";  
+    
     public void showColor()  
     {  
         Console.WriteLine(base.color);  
@@ -188,11 +192,17 @@ public class TestBase
         d.showColor();  
     }  
 }  
-Output:
+// Output:
+// 
+// white
+// black
 
-white
-black
-C# base keyword example: calling base class method
+```
+
+--*TBC - csh poly
+
+🧲 C# base keyword example: calling base class method
+
 By the help of base keyword, we can call the base class method also. It is useful if base and derived classes defines same method. In other words, if method is overridden. If derived class doesn't define same method, there is no need to use base keyword. Base class method can be directly called by the derived class method.
 
 Let's see the simple example of base keyword which calls the method of base class.
