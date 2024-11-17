@@ -22,9 +22,9 @@ These are mainly from online resource (some parts may be modified).
 Topic                                            | Note
 -------------------------------------------------|-----
 [Beginners Guide By I.C.Opoku](./art-ts-beginners-guide.md) |
-[Ts1](./ts-01.md)                                |
-[2- Types](ts-02-types.md)                       |
-[3- Type Annotations](ts-03-type-annotations.md) |
+[Ts1](./notes/ts-01.md)                                |
+[2- Types](./notes/ts-02-types.md)                       |
+[3- Type Annotations](./notes/ts-03-type-annotations.md) |
 
 # Arts
 
@@ -32,9 +32,13 @@ Art                                                                             
 ------------------------------------------------------------------------------------------------------------------|-----
 [How to install Typescript and create a simple webpage by Jaeho Kim](./arts/art-how-to-install-ts-project-web.md) |
 [How to Create Your Ts Library](./arts/art-how-to-create-your-ts-lib.md)                                      
+[Setup Typescript Project with Vite](./arts/art-setup-typescript-project-with-vite.md)|
+
+
+Other Articles
 
 - https://dev.to/fentybit/first-fiddle-on-typescript-3ni7
-    |
+
 
 # Code Play
 
@@ -50,7 +54,7 @@ Art                                                                             
 
 - https://www.typescriptlang.org/docs/handbook/2/classes.html
 
-
+- https://www.typescripttutorial.net/
 
 
 
