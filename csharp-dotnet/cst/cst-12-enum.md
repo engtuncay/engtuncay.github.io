@@ -2,7 +2,7 @@ C# Enum
 
 Source : https://www.javatpoint.com/c-sharp-enum
 
-[Home](readme.md)
+[Back](../readme.md)
 
 ---
 

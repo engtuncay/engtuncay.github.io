@@ -3,7 +3,7 @@ C# FileStream
 
 Source : https://www.javatpoint.com/c-sharp-filestream
 
-[Back](readme.md)
+[Back](../readme.md)
 
 ---
 
@@ -971,4 +971,4 @@ Source : https://www.javatpoint.com/c-sharp-system-io
 
 ---
 
-[Back](readme.md)
+[Back](../readme.md)

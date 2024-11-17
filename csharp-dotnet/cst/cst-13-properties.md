@@ -2,7 +2,7 @@ C# Properties
 
 Source : https://www.javatpoint.com/c-sharp-properties
 
-[Home](readme.md)
+[Back](../readme.md)
 
 ---
 

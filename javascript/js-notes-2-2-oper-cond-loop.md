@@ -3,7 +3,7 @@
 
 - https://github.com/Asabeneh/30-Days-Of-JavaScript 
 
-[Back](readme.md)
+[Back](../readme.md)
 
 ---
 

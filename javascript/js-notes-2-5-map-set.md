@@ -5,7 +5,7 @@ Section - Set , Map, Destructuring, Spread and Rest
 
 - https://github.com/Asabeneh/30-Days-Of-JavaScript , (some parts may be modified or added)
 
-[Back](readme.md)
+[Back](../readme.md)
 
 ---
 

@@ -199,14 +199,13 @@ public class TestBase
 
 ```
 
---*TBC - csh poly
-
 🧲 C# base keyword example: calling base class method
 
 By the help of base keyword, we can call the base class method also. It is useful if base and derived classes defines same method. In other words, if method is overridden. If derived class doesn't define same method, there is no need to use base keyword. Base class method can be directly called by the derived class method.
 
-Let's see the simple example of base keyword which calls the method of base class.
+🧲 Let's see the simple example of base keyword which calls the method of base class.
 
+```cs
 using System;  
 public class Animal{  
     public virtual void eat(){  
@@ -230,18 +229,25 @@ public class TestBase
         d.eat();  
     }  
 }  
-Output:
+// Output:
+// 
+// eating...
+// eating bread...
 
-eating...
-eating bread...
+```
+
 C# inheritance: calling base class constructor internally
+
 Whenever you inherit the base class, base class constructor is internally invoked. Let's see the example of calling base constructor.
 
+```cs
 using System;  
 public class Animal{  
+
     public Animal(){  
         Console.WriteLine("animal...");  
-    }  
+    }
+
 }  
 public class Dog: Animal  
 {  
@@ -259,33 +265,47 @@ public class TestOverriding
           
     }  
 }  
-Output:
+// Output:
+// 
+// animal...
+// dog...
 
-animal...
-dog...
+```
 
 ## C# Polymorphism
-The term "Polymorphism" is the combination of "poly" + "morphs" which means many forms. It is a greek word. In object-oriented programming, we use 3 main concepts: inheritance, encapsulation and polymorphism.
 
-There are two types of polymorphism in C#: compile time polymorphism and runtime polymorphism. Compile time polymorphism is achieved by method overloading and operator overloading in C#. It is also known as static binding or early binding. Runtime polymorphism in achieved by method overriding which is also known as dynamic binding or late binding.
+The term "Polymorphism" is the combination of "poly" + "morphs" which means `many forms`. It is a greek word. In object-oriented programming, we use 3 main concepts: `inheritance, encapsulation and polymorphism`.
 
-C# Runtime Polymorphism Example
-Let's see a simple example of runtime polymorphism in C#.
+There are two types of polymorphism in C#: 
 
+- compile time polymorphism 
+- runtime polymorphism
+
+Compile time polymorphism is achieved by method overloading and operator overloading in C#. It is also known as static binding or early binding. 
+
+Runtime polymorphism in achieved by method overriding which is also known as dynamic binding or late binding.
+
+🧲 C# Runtime Polymorphism Example
+
+```cs
 using System;  
+
 public class Animal{  
     public virtual void eat(){  
         Console.WriteLine("eating...");  
     }  
 }  
+
 public class Dog: Animal  
-{  
+{
+
     public override void eat()  
     {  
         Console.WriteLine("eating bread...");  
     }  
       
 }  
+
 public class TestPolymorphism  
 {  
     public static void Main()  
@@ -294,12 +314,18 @@ public class TestPolymorphism
         a.eat();  
     }  
 }  
-Output:
 
-eating bread...
-C# Runtime Polymorphism Example 2
+// Output:
+// 
+// eating bread...
+
+```
+
+🧲 C# Runtime Polymorphism Example 2
+
 Let's see a another example of runtime polymorphism in C# where we are having two derived classes.
 
+```cs
 using System;  
 public class Shape{  
     public virtual void draw(){  
@@ -336,14 +362,20 @@ public class TestPolymorphism
   
     }  
 }  
-Output:
 
-drawing...
-drawing rectangle...
-drawing circle...
-Runtime Polymorphism with Data Members
-Runtime Polymorphism can't be achieved by data members in C#. Let's see an example where we are accessing the field by reference variable which refers to the instance of derived class.
+// Output:
+// 
+// drawing...
+// drawing rectangle...
+// drawing circle...
 
+```
+
+🧲 Runtime Polymorphism with Data Members
+
+Runtime Polymorphism can't be achieved by data members in C#. Let's see an example where we are accessing the field by reference variable which refers to the instance of derived class. ❗
+
+```cs
 using System;  
 public class Animal{  
     public string color = "white";  
@@ -352,7 +384,8 @@ public class Animal{
 public class Dog: Animal  
 {  
     public string color = "black";  
-}  
+}
+
 public class TestSealed  
 {  
     public static void Main()  
@@ -362,17 +395,24 @@ public class TestSealed
     
     }  
 }  
-Output:
 
-white
+// Output:
+// 
+// white
+
+```
 
 ## C# Sealed
-C# sealed keyword applies restrictions on the class and method. If you create a sealed class, it cannot be derived. If you create a sealed method, it cannot be overridden.
+
+C# sealed keyword applies restrictions on the class and method. If you create `a sealed class, it cannot be derived`. If you create `a sealed method, it cannot be overridden`.
 
 Note: Structs are implicitly sealed therefore they can't be inherited.
-C# Sealed class
+
+🔔 C# Sealed class
+
 C# sealed class cannot be derived by any class. Let's see an example of sealed class in C#.
 
+```cs
 using System;  
 sealed public class Animal{  
     public void eat() { Console.WriteLine("eating..."); }  
@@ -392,14 +432,19 @@ public class TestSealed
   
     }  
 }  
-Output:
 
-Compile Time Error: 'Dog': cannot derive from sealed type 'Animal'
-C# Sealed method
+// Output:
+// 
+// Compile Time Error: 'Dog': cannot derive from sealed type 'Animal'
+
+```
+🔔 C# Sealed method
+
 The sealed method in C# cannot be overridden further. It must be used with override keyword in method.
 
 Let's see an example of sealed method in C#.
 
+```cs
 using System;  
 public class Animal{  
     public virtual void eat() { Console.WriteLine("eating..."); }  
@@ -427,11 +472,17 @@ public class TestSealed
         d.run();  
     }  
 }  
-Output:
+// Output:
+// 
+// Compile Time Error: 'BabyDog.run()': cannot override inherited member 'Dog.run()' because it is sealed
 
-Compile Time Error: 'BabyDog.run()': cannot override inherited member 'Dog.run()' because it is sealed
+```
+
 Note: Local variables can't be sealed.
-using System;  
+  
+```cs
+using System;
+
 public class TestSealed  
 {  
     public static void Main()  
@@ -441,8 +492,12 @@ public class TestSealed
         Console.WriteLine(x);  
     }  
 }  
-Output:
+// Output:
+// 
+// Compile Time Error: Invalid expression term 'sealed'
 
-Compile Time Error: Invalid expression term 'sealed'
+```
+
+🔚
 
 [Back](../readme.md)

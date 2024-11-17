@@ -1,7 +1,7 @@
 
 - Source : https://svelte.dev/tutorial/basics
 
-[Back](readme.md)
+[Back](../readme.md)
 
 **Contents**
 
@@ -29,7 +29,7 @@
   - [e. Keyed each blocks](#e-keyed-each-blocks)
   - [f. Await blocks](#f-await-blocks)
 
-[Back](readme.md)
+[Back](../readme.md)
 
 # Introduction
 

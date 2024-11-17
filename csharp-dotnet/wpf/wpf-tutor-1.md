@@ -3,7 +3,7 @@
 
 Source : https://wpf-tutorial.com/getting-started/hello-wpf/
 
-[Home](readme.md)
+[Back](../readme.md)
 
 <h2>Contents</h2>  
 
@@ -188,5 +188,5 @@ Handling exceptions in WPF
 Application Culture / UICulture
 
 
-[Back](readme.md)
+[Back](../readme.md)
 

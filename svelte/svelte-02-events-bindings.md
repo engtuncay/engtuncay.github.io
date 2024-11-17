@@ -1,7 +1,7 @@
 
 - Source : https://svelte.dev/tutorial/basics (some parts may be modified or added)
 
-[Back](readme.md)
+[Back](../readme.md)
 
 **Contents**
 
@@ -36,7 +36,7 @@
     - [Dispatching Events](#dispatching-events)
   - [Conclusion](#conclusion)
 
-[Back](readme.md)
+[Back](../readme.md)
 
 # 5 Events
 
@@ -1358,4 +1358,4 @@ You can use any of these three patterns for passing data from child to parent, h
 In this article, we understood data binding and how it works in Svelte. We then went through how to implement one-way and two-way data binding. We saw how to pass data as props from parent to child, and finally, we implemented multiple patterns to synchronize data from child to parent.
 
 
-[Back](readme.md)
+[Back](../readme.md)
