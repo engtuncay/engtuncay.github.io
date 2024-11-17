@@ -2,7 +2,7 @@ C# Structs
 
 Source : https://javatpoint.com/c-sharp-structs
 
-[Back](readme.md)
+[Back](../readme.md)
 
 ---
 
@@ -74,3 +74,4 @@ public class TestStructs
 
 📝 Note: Struct doesn't support inheritance. But it can `implement interfaces`.
 
+[Back](../readme.md)

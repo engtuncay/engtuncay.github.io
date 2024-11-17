@@ -3,7 +3,7 @@ C# Polymorphism
 
 Source : https://www.javatpoint.com/c-sharp-member-overloading
 
-[Back](readme.md)
+[Back](../readme.md)
 
 ---
 
@@ -24,7 +24,7 @@ If we create two or more members having same name but different in number or typ
 - constructors, and
 - indexed properties
 
-It is because these members have parameters only (???).
+It is because these members have parameters only.
 
 ➖ C# Method Overloading
 
@@ -37,7 +37,7 @@ You can perform method overloading in C# by two ways:
 1. By changing number of arguments
 2. By changing data type of the arguments
 
-➖ C# Method Overloading Example: By changing number of arguments
+🧲 Example
 
 Let's see the simple example of method overloading where we are changing number of arguments of add() method.
 
@@ -71,7 +71,8 @@ public class TestMemberOverloading
 // 60
 
 ```
-➖ C# Member Overloading Example: By changing data type of arguments
+
+🧲 Example
 
 Let's see the another example of method overloading where we are changing data type of arguments.
 
@@ -113,17 +114,23 @@ public class TestMemberOverloading
 
 If derived class defines same method as defined in its base class, it is known as method overriding in C#. It is used to achieve runtime polymorphism. It enables you to provide specific implementation of the method which is already provided by its base class.
 
-To perform method overriding in C#, you need to use virtual keyword with base class method and override keyword with derived class method.
+To perform method overriding in C#, you need to use `virtual keyword` with base class method and `override keyword` with derived class method.
 
-C# Method Overriding Example
+🧲 Example
+
 Let's see a simple example of method overriding in C#. In this example, we are overriding the eat() method by the help of override keyword.
 
+```cs
 using System;  
-public class Animal{  
+
+public class Animal{ 
+
     public virtual void eat(){  
         Console.WriteLine("Eating...");  
     }  
+
 }  
+
 public class Dog: Animal  
 {  
     public override void eat()  
@@ -131,6 +138,7 @@ public class Dog: Animal
         Console.WriteLine("Eating bread...");  
     }  
 }  
+
 public class TestOverriding  
 {  
     public static void Main()  
@@ -139,11 +147,16 @@ public class TestOverriding
         d.eat();  
     }  
 }  
-Output:
+//Output:
+//
+//Eating bread...
 
-Eating bread...
+```
+
+--*TBC - csh poly
 
 ## C# Base
+
 In C#, base keyword is used to access fields, constructors and methods of base class.
 
 You can use base keyword within instance method, constructor or instance property accessor only. You can't use it inside the static method.
@@ -422,3 +435,4 @@ Output:
 
 Compile Time Error: Invalid expression term 'sealed'
 
+[Back](../readme.md)

@@ -3,7 +3,7 @@ C# operators
 
 Source : https://www.javatpoint.com/csharp-operators
 
-[Back](readme.md)
+[Back](../readme.md)
 
 ---
 
@@ -62,4 +62,4 @@ Assignment                   | `= *= /= %= += - = <<= >>= &= ^= \|= =>` | Right
 
 🔚
 
-[Back](readme.md)
+[Back](../readme.md)

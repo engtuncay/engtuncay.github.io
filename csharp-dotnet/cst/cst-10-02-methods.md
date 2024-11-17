@@ -3,7 +3,7 @@ C# Method
 
 Source : https://www.javatpoint.com/c-sharp-function (some parts may be modified or added)
 
-[Home](readme.md)
+[Back](../readme.md)
 
 ---
 
@@ -295,4 +295,4 @@ namespace OutParameter
 
 ```
 
-[Home](readme.md)
+[Back](../readme.md)

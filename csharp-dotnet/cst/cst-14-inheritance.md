@@ -3,7 +3,7 @@ C# Inheritance
 
 Source : https://www.javatpoint.com/c-sharp-inheritance (some parts may be modified or added)
 
-[Back](readme.md)
+[Back](../readme.md)
 
 ---
 
@@ -140,4 +140,4 @@ class TestInheritance2{
 
 ❗ Warn: Multiple inheritance is not supported in C# through class.
 
-[Back](readme.md)
+[Back](../readme.md)
