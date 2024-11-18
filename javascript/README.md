@@ -48,21 +48,21 @@ These notes are mainly from Asabeneh's 30-Days-Of-JavaScript tutorials.  Thanks.
 
 CONTENT |Note|
 --- | -- |
-[Intro](./js-notes-1-1-intro.md) |
-[Data Types](./js-notes-2-1-data-types.md) |
-[Operators,Conditions,Loops](./js-notes-2-2-oper-cond-loop.md) | Comparison Operators tbc
-[Functions](./js-notes-2-3-functions.md) | ✔ 
-[Error Handling](./js-notes-2-4-error-handling.md) | ✔ 
-[Map,Set,Destructuring,Spread,Rest](./js-notes-2-5-map-set.md) | ✔ 
-[Regular Expression](./js-notes-2-6-reg-ex.md) |
-[JSON](./js-notes-2-7-json.md) | ✔
-[Window Methods](./js-notes-3-window-methods.md)|
-[OOP Principles](./js-notes-4-OOP-class.md) | ✔ 
-[Storage](./js-notes-5-storage.md) | ✔ 
-[Promise,Async-Await and Closure](./js-notes-6-promise.md) | ✔ 
-[Clean Code](./js-notes-7-clean-code.md) | ✔
-[Dom](./js-notes-8-dom.md) | ✔ 
-[Modules (JsInfo)](./js-info/js-intro-13-1-Modules.md)| ✔
+[Intro](./notes/js-notes-1-1-intro.md) |
+[Data Types](./notes/js-notes-2-1-data-types.md) |
+[Operators,Conditions,Loops](./notes/js-notes-2-2-oper-cond-loop.md) | Comparison Operators tbc
+[Functions](./notes/js-notes-2-3-functions.md) | ✔ 
+[Error Handling](./notes/js-notes-2-4-error-handling.md) | ✔ 
+[Map,Set,Destructuring,Spread,Rest](./notes/js-notes-2-5-map-set.md) | ✔ 
+[Regular Expression](./notes/js-notes-2-6-reg-ex.md) |
+[JSON](./notes/js-notes-2-7-json.md) | ✔
+[Window Methods](./notes/js-notes-3-window-methods.md)|
+[OOP Principles](./notes/js-notes-4-OOP-class.md) | ✔ 
+[Storage](./notes/js-notes-5-storage.md) | ✔ 
+[Promise,Async-Await and Closure](./notes/js-notes-6-promise.md) | ✔ 
+[Clean Code](./notes/js-notes-7-clean-code.md) | ✔
+[Dom](./notes/js-notes-8-dom.md) | ✔ 
+[Modules (JsInfo)](./notes/js-info/js-intro-13-1-Modules.md)| ✔
 
 
 # Js Info Notes - Advanced Javascript
