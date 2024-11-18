@@ -9,14 +9,14 @@ Source : https://www.javatpoint.com/c-sharp-member-overloading
 
 **Contents**
 
-- [C# Member Overloading](#c-member-overloading)
-- [C# Method Overriding](#c-method-overriding)
+- [Member Overloading (same methods with different params)](#member-overloading-same-methods-with-different-params)
+- [Method Overriding](#method-overriding)
 - [C# Base](#c-base)
 - [C# Polymorphism](#c-polymorphism)
 - [C# Sealed](#c-sealed)
 
 
-## C# Member Overloading
+## Member Overloading (same methods with different params)
 
 If we create two or more members having same name but different in number or type of parameter, it is known as member overloading. In C#, we can overload:
 
@@ -110,7 +110,7 @@ public class TestMemberOverloading
 
 ```
 
-## C# Method Overriding
+## Method Overriding
 
 If derived class defines same method as defined in its base class, it is known as method overriding in C#. It is used to achieve runtime polymorphism. It enables you to provide specific implementation of the method which is already provided by its base class.
 

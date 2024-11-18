@@ -1,4 +1,9 @@
 
+Functions
+
+[Back](../readme.md)
+
+---
 
 - [Sources](#sources)
 - [Functions (1)](#functions-1)

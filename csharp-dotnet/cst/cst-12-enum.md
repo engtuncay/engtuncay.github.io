@@ -6,18 +6,23 @@ Source : https://www.javatpoint.com/c-sharp-enum
 
 ---
 
-Enum in C# is also known as enumeration. It is used to store a set of named constants such as season, days, month, size etc. The enum constants are also known as enumerators. Enum in C# can be declared within or outside class and structs.
+Enum in C# is also known as `enumeration`. It is used to store a set of named constants such as season, days, month, size etc. The enum constants are also known as enumerators. Enum in C# can be declared within or outside class and structs.
 
 Enum constants has default values which starts from 0 and incremented to one by one. But we can change the default value.
 
 Points to remember
-enum has fixed set of constants
-enum improves type safety
-enum can be traversed
-C# Enum Example
+
+- enum has fixed set of constants
+- enum improves type safety
+- enum can be traversed
+
+🧲 Example
+
 Let's see a simple example of C# enum.
 
-using System;  
+```cs
+using System;
+
 public class EnumExample  
 {  
     public enum Season { WINTER, SPRING, SUMMER, FALL }    
@@ -30,12 +35,18 @@ public class EnumExample
         Console.WriteLine("SUMMER = {0}", y);  
     }  
 }  
-Output:
+//Output:
+//
+//WINTER = 0
+//SUMMER = 2
 
-WINTER = 0
-SUMMER = 2
+```
+
 C# enum example changing start index
+
+```cs
 using System;  
+
 public class EnumExample  
 {  
     public enum Season { WINTER=10, SPRING, SUMMER, FALL }    
@@ -48,11 +59,16 @@ public class EnumExample
         Console.WriteLine("SUMMER = {0}", y);  
     }  
 }  
-Output:
+// Output:
+// 
+// WINTER = 10
+// SUMMER = 12
 
-WINTER = 10
-SUMMER = 12
+```
+
 C# enum example for Days
+
+```cs
 using System;  
 public class EnumExample  
 {  
@@ -73,7 +89,11 @@ Output:
 Sun = 0
 Mon = 1
 Sat = 6
+
+```
+
 C# enum example: traversing all values using getNames()
+
 using System;  
 public class EnumExample  
 {  
@@ -96,7 +116,9 @@ Wed
 Thu
 Fri
 Sat
+
 C# enum example: traversing all values using getValues()
+
 using System;  
 public class EnumExample  
 {  
