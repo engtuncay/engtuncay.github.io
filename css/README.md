@@ -39,26 +39,26 @@ Source : [W3Schools]()
 
 | CONTENT                                                                | Note |
 |------------------------------------------------------------------------|------|
-| [1-1 Intro](./css-notes-01-1-Intro.md)                                 |
-| [1-2 Selectors](./css-notes-01-2-Selectors.md)                         |
-| [1-3 Cascading and Specifity](./css-notes-01-3-Cascading-Specifity.md) |
-| [2-1 Color](./css-notes-02-1-Color.md)                                 |
-| [2-2 Text ,Font, Icons](./css-notes-02-2-Text.md)                      |
-| [2-3 Backgrounds](./css-notes-02-3-Backgrounds.md)                     |
-| [3- Links, Lists ](./css-notes-03-Links-Lists.md)                      |
-| [4-1 Size](./css-notes-04-01-size.md)                                  |
-| [4-2 Margin,Border,Padding,Outline](./css-notes-04-02-borders.md)      |
-| [5-1 Layout (Display,Position,Z-index)](./css-notes-05-01-Layout.md)   |
-| [5-2 Overflow,Align,Float](./css-notes-05-02-overflow.md)              |
-| [6- Flexbox](./css-notes-06-Flexbox.md)                                |
-| [7- Grid](./css-notes-07-Grid.md)                                      | ✔    |
-| [8- Variables](./css-notes-08-Variables.md)                            | ✔    |
-| [9- Media](./css-notes-09-media.md)                                    | ✔    |
-| [10- Examples](./css-notes-10-Examples.md)                             |      |
-| [11- Animation](./css-notes-11-Animation.md)                           |
-| [12- Advanced](./css-notes-12-Advanced.md)                             |
+| [1-1 Intro](./w3/css-notes-01-1-Intro.md)                                 |
+| [1-2 Selectors](./w3/css-notes-01-2-Selectors.md)                         |
+| [1-3 Cascading and Specifity](./w3/css-notes-01-3-Cascading-Specifity.md) |
+| [2-1 Color](./w3/css-notes-02-1-Color.md)                                 |
+| [2-2 Text ,Font, Icons](./w3/css-notes-02-2-Text.md)                      |
+| [2-3 Backgrounds](./w3/css-notes-02-3-Backgrounds.md)                     |
+| [3- Links, Lists ](./w3/css-notes-03-Links-Lists.md)                      |
+| [4-1 Size](./w3/css-notes-04-01-size.md)                                  |
+| [4-2 Margin,Border,Padding,Outline](./w3/css-notes-04-02-borders.md)      |
+| [5-1 Layout (Display,Position,Z-index)](./w3/css-notes-05-01-Layout.md)   |
+| [5-2 Overflow,Align,Float](./w3/css-notes-05-02-overflow.md)              |
+| [6- Flexbox](./w3/css-notes-06-Flexbox.md)                                |
+| [7- Grid](./w3/css-notes-07-Grid.md)                                      | ✔    |
+| [8- Variables](./w3/css-notes-08-Variables.md)                            | ✔    |
+| [9- Media](./w3/css-notes-09-media.md)                                    | ✔    |
+| [10- Examples](./w3/css-notes-10-Examples.md)                             |      |
+| [11- Animation](./w3/css-notes-11-Animation.md)                           |
+| [12- Advanced](./w3/css-notes-12-Advanced.md)                             |
 
-[Tunc Css Contents](./css-w3-content.md)
+[Tunc Css Contents](./w3/css-w3-content.md)
 
 # CSS References
 
@@ -73,18 +73,18 @@ Source : [W3Schools]()
 
 | Topic                                    | Note |
 | ---------------------------------------- | ---- |
-| [Tailwind Cheat - All](./tw-cheat.md)    |      |
-| [Tailwind Intro](./tw-intro.md)          |      |
-| [Layout](./tw-layout.md)                 |      |
-| [Sizing and Spacing](./tw-sizing.md)     |      |
-| [Backgrounds](./tw-background.md)        |      |
-| [Flexbox and Grid](./tw-flexbox-grid.md) |      |
-| [Typography](./tw-typoghraphy.md)        |      |
-| [Borders](./tw-borders.md)               |      |
+| [Tailwind Cheat - All](./tw/tw-cheat.md)    |      |
+| [Tailwind Intro](./tw/tw-intro.md)          |      |
+| [Layout](./tw/tw-layout.md)                 |      |
+| [Sizing and Spacing](./tw/tw-sizing.md)     |      |
+| [Backgrounds](./tw/tw-background.md)        |      |
+| [Flexbox and Grid](./tw/tw-flexbox-grid.md) |      |
+| [Typography](./tw/tw-typoghraphy.md)        |      |
+| [Borders](./tw/tw-borders.md)               |      |
 
 | Topic                                | Note |
 |--------------------------------------|------|
-| [Kurs Notları](./ude-tailwind-ck.md) |      |
+| [Kurs Notları](./notes/ude-tailwind-ck.md) |      |
 
 Topics Will be Added
 
