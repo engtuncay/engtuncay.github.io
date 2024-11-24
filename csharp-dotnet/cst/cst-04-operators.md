@@ -7,13 +7,13 @@ Source : https://www.javatpoint.com/csharp-operators
 
 ---
 
-- [C# operators](#c-operators)
+- [Operators](#operators)
   - [Precedence of Operators in C#](#precedence-of-operators-in-c)
 
 
-# C# operators
+# Operators
 
-An operator is simply a symbol that is used to perform operations. There can be many types of operations like arithmetic, logical, bitwise etc.
+An operator is simply `a symbol` that is used to perform operations. There can be many types of operations like arithmetic, logical, bitwise etc.
 
 There are following types of operators to perform different types of operations in C# language.
 
@@ -30,7 +30,7 @@ There are following types of operators to perform different types of operations 
 
 ## Precedence of Operators in C#
 
-The precedence of operator specifies that which operator will be evaluated first and next. The associativity specifies the operators direction to be evaluated, it may be left to right or right to left.
+The precedence of operator specifies that which operator will be evaluated first and next. The `associativity` specifies the operators direction to be evaluated, it may be left to right or right to left.
 
 Let's understand the precedence by the example given below:
 
