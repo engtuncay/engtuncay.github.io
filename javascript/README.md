@@ -56,7 +56,7 @@ CONTENT |Note|
 [Map,Set,Destructuring,Spread,Rest](./notes/js-notes-2-5-map-set.md) | ✔ 
 [Regular Expression](./notes/js-notes-2-6-reg-ex.md) |
 [JSON](./notes/js-notes-2-7-json.md) | ✔
-[Window Methods](./notes/js-notes-3-window-methods.md)|
+[Window Methods](./notes/js-notes-3-window-methods.md)| ✔
 [OOP Principles](./notes/js-notes-4-OOP-class.md) | ✔ 
 [Storage](./notes/js-notes-5-storage.md) | ✔ 
 [Promise,Async-Await and Closure](./notes/js-notes-6-promise.md) | ✔ 

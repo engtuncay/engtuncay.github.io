@@ -1,4 +1,10 @@
 
+Window and Console Sections
+
+[Back](../readme.md)
+
+---
+
 - [Section - Window](#section---window)
   - [Window Methods](#window-methods)
     - [Window alert() method](#window-alert-method)
@@ -23,7 +29,7 @@
 
 ### Window alert() method
 
-As you have seen at very beginning alert() method displays an alert box with a specified message and an OK button. It is a builtin method and it takes on argument.
+As you have seen at very beginning `alert()` method displays an alert box with a specified message and an OK button. It is a builtin method and it takes on argument.
 
 ```js
 alert(message)
@@ -51,7 +57,9 @@ console.log(number)
 ### Window confirm() method
 
 The confirm() method displays a dialog box with a specified message, along with an OK and a Cancel button.
+
 A confirm box is often used to ask permission from a user to execute something. Window confirm() takes a string as an argument.
+
 Clicking the OK yields true value, whereas clicking the Cancel button yields false value.
 
 ```js
@@ -66,34 +74,31 @@ These are not all the window methods we will have a separate section to go deep 
 
 ## Console Object Methods
 
-In this section, we will cover about console and console object methods. Absolute beginners usually do not know which to use: console.log(), document.write() or document.getElementById.
+In this section, we will cover about console and console object methods. Absolute beginners usually do not know which to use: `console.log(), document.write() or document.getElementById`.
 
-We use console object methods to show output on the browser console and we use document.write to show output on the browser document(view port). Both methods used only for testing and debugging purposes. The console method is the most popular testing and debugging tool on the browser. We use document.getElementById() when we like to interact with DOM try using JavaScript. We will cover DOM in another section.
+We use console object methods to show output on the browser console and we use document.write to show output on the browser document (view port). Both methods used only for testing and debugging purposes. The console method is the most popular testing and debugging tool on the browser. We use `document.getElementById()` when we like to interact with DOM try using JavaScript. We will cover DOM in another section.
 
 In addition to the famous, console.log() method, the console provides other more methods.
 
 ### console.log()
 
-We use console.log() to show output on the browser console. We can substitute values and also we can style the logging out put using %c.
+We use `console.log()` to show output on `the browser console`. We can substitute values and also we can style the logging out put using `%c`.
 
 - Showing output on browser console
 
 ```js
 console.log('30 Days of JavaScript')
-```
 
-```sh
-30 Days of JavaScript
+// ---Output---
+// 30 Days of JavaScript
 ```
 
 - Substitution
 
 ```js
 console.log('%d %s of JavaScript', 30, 'Days')
-```
-
-```sh
-30 Days of JavaScript
+// ---Output---
+// 30 Days of JavaScript
 ```
 
 - CSS
@@ -110,6 +115,7 @@ console.log(
   '',
   'color:yellow'
 ) // log output green red and yellow text
+
 ```
 
 ### console.warn()
@@ -135,7 +141,7 @@ console.error('We all make mistakes')
 
 ### console.table()
 
-The console.table() method display data as a table on the console. Displays tabular data as a table. The console.table() takes one required argument data, which must be an array or an object, and one additional optional parameter columns.
+The console.table() method display data as a table on the console. Displays tabular data as a table. The console.table() takes one required argument data, which must be `an array or an object, and one additional optional parameter columns`.
 
 Let us first start with a simple array. The code below displays a table with two columns. An index column to display the index and value column to display the names
 
@@ -144,7 +150,7 @@ const names = ['Asabeneh', 'Brook', 'David', 'John']
 console.table(names)
 ```
 
-Let us also check the result of an object. This creates table with two columns:an index column containing the keys and a value column contain the values of the object.
+Let us also check the result of an object. This creates table with two columns : an index column containing the keys and a value column contain the values of the fields.
 
 ```js
 const user = {
@@ -166,9 +172,11 @@ const countries = [
   ['Norway', 'Oslo']
 ]
 console.table(countries)
+
 ```
 
 ```js
+
 const users = [
   {
     name: 'Asabeneh',
@@ -261,7 +269,7 @@ console.info('30 Days Of HTML and CSS challenge might be released')
 
 ### console.assert()
 
-The console.assert() methods writes an error message to the console if the assertion is false. If the assertion is true, nothing happens. The first parameter is an assertion expression. If this expression is false, an Assertion failed error message will be displayed.
+The console.assert() methods writes an error message to the console `if the assertion is false`. `If the assertion is true, nothing happens`. The first parameter is an assertion expression. If this expression is false, an Assertion failed error message will be displayed.
 
 ```js
 console.assert(4 > 3, '4 is greater than 3') // no result
@@ -358,4 +366,4 @@ Function has been called: 3
 
 ### console.clear()
 
-The console.clear() cleans the browser console.
+The `console.clear()` cleans the browser console.

@@ -5,9 +5,13 @@ Source : https://dev.to/chrisachard/intro-to-regex-for-web-developers-2fj4
 
 By Chris Achard, Posted on 8 Eki 2019
 
+[Back](../readme.md)
+
+---
+
 1. Regular expressions find parts of a string that match a pattern
 
-In JavaScript they're created in between forward slashes //, or with new RegExp() and then used in methods like match, test, or replace
+In JavaScript they're created in between forward slashes `//`, or with `new RegExp()` and then used in methods like `match, test, or replace`
 
 You can define the regex beforehand, or directly when calling the method new regex
 
@@ -31,8 +35,8 @@ str.replace(/r/,'R') // "Regex101"
 const contains_r = /r/.test(str); // true
 ```
 
-2. Match individual characters one at a time, or put multiple characters in square brackets [] to capture any that match
-
+2. Match individual characters one at a time, or put multiple characters in square brackets `[]` to capture any that match
+***
 Capture a range of characters with a hyphen -
 
 ```js
