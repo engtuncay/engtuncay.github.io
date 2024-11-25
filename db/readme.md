@@ -1,8 +1,30 @@
 
-Source : https://www.w3schools.com/sql/default.asp
+Db Notes
 
-SQL Tutorial|Note|
-|--|--|
+[Back](../readme.md)
+
+---
+
+- [References](#references)
+- [Notes](#notes)
+- [Notes (W3)](#notes-w3)
+
+# References
+
+- https://www.w3schools.com/sql/default.asp
+
+# Notes
+
+Topic                                                      | Note
+-----------------------------------------------------------|-----
+[SqlServer Intro](./sqlserver-notes/ms-sqlserver-intro.md) |
+[Sql Data Types](./sqlserver-notes/sql-data-types.md)      |
+
+
+# Notes (W3)
+
+Topic|Note|
+--|--
 *SQL HOME*
 SQL Intro
 SQL Syntax

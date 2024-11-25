@@ -28,13 +28,13 @@
 
 Topic                                                         | Note
 --------------------------------------------------------------|-----
-[1 Core](./svelte-01-core.md)                                 | ✔
-[2 Events - Bindings](./svelte-02-events-bindings.md)         | ✔
-[3 Life Cycle](svelte-03-life-cycle.md)                       |
-[4 Stores](svelte-04-stores.md)                               |
-[5 Actions](svelte-05-actions.md)                             |
-[6 Advanced Styling](svelte-06-advanced-styling.md)           |
-[7 Component Composition](svelte-07-component-composition.md) |
+[1 Core](./notes/svelte-01-core.md)                                 | ✔
+[2 Events - Bindings](./notes/svelte-02-events-bindings.md)         | ✔
+[3 Life Cycle](./notes/svelte-03-life-cycle.md)                       |
+[4 Stores](./notes/svelte-04-stores.md)                               |
+[5 Actions](./notes/svelte-05-actions.md)                             |
+[6 Advanced Styling](./notes/svelte-06-advanced-styling.md)           |
+[7 Component Composition](./notes/svelte-07-component-composition.md) |
 
 
 # Articles and Others

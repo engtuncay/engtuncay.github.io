@@ -61,9 +61,9 @@ Content                                                      | Note
 
 Content                                                             | Note
 --------------------------------------------------------------------|-----
-[Laravel Api Kurs Notları 1 - CG](./ude-laravel-api-not1.md)        |
+[Laravel Api Kurs Notları 1 - CG](./notes/ude-laravel-api-not1.md)        |
 [The Ultimate Guide to .htaccess Files](./article/art-htaccess1.md) |
-[Php Kurs Notları](./ude-php-te-not1.md)                            |
+[Php Kurs Notları](./notes/ude-php-te-not1.md)                            |
 
 
 ## W3 Php OOP
