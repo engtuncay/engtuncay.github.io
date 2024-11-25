@@ -1,7 +1,7 @@
 
 - [CSS Cheats](#css-cheats)
 - [Tailwind Cheats](#tailwind-cheats)
-- [Css Notes](#css-notes)
+- [CSS Notes](#css-notes)
 - [CSS References](#css-references)
 - [Tailwind Notes](#tailwind-notes)
 - [Tailwind References](#tailwind-references)
@@ -31,7 +31,7 @@
 
 - Tailwind Doc, https://tailwindcss.com/docs/installation
 
-# Css Notes
+# CSS Notes
 
 This tutorial is prepared from web resources and some additions from me.
 
