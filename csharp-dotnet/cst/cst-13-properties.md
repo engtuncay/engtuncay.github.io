@@ -28,19 +28,17 @@ using System;
 
 public class Employee  
 {  
-    private string name;  
-
-    public string Name  
-    {  
-        get  
-        {  
-            return name;  
-        }  
-        set  
-        {  
-            name = value;  
-        }  
+  private string name;  
+  
+  public string Name  {  
+    get {  
+        return name;  
     }  
+    set {  
+      name = value;  
+    }
+  }
+  
 }
 
 class TestEmployee{  
@@ -66,21 +64,21 @@ using System;
 
 public class Employee  
 {  
-    private string name;  
+  private string name;  
 
-    public string Name  
+  public string Name  
+  {  
+    get  
     {  
-        get  
-        {  
-            return name;  
-        }  
-        set  
-        {  
-            name = value+" JavaTpoint";  
-              
-        }  
+      return name;  
     }  
+    set  
+    {  
+      name = value+" JavaTpoint";  
+    }  
+  }  
 }  
+
 class TestEmployee {  
 
     public static void Main(string[] args)  
@@ -117,15 +115,17 @@ public class Employee
         }  
       }  
 }  
-class TestEmployee{  
+
+class TestEmployee{
+
     public static void Main(string[] args)  
     {  
-        Employee e1 = new Employee();  
-        Employee e2 = new Employee();  
-        Employee e3 = new Employee();  
-        //e1.Counter = 10;//Compile Time Error: Can't set value  
+      Employee e1 = new Employee();  
+      Employee e2 = new Employee();  
+      Employee e3 = new Employee();  
+      //e1.Counter = 10;//Compile Time Error: Can't set value  
 
-        Console.WriteLine("No. of Employees: " + Employee.Counter);  
+      Console.WriteLine("No. of Employees: " + Employee.Counter);  
     }  
 }  
 
