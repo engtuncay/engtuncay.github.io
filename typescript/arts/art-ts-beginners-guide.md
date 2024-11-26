@@ -5,7 +5,7 @@ Source : https://www.freecodecamp.org/news/typescript-for-beginners-guide/ (some
 
 August 8, 2024
 
-[Back](./readme.md)
+[Back](../readme.md)
 
 ---
 
@@ -301,6 +301,7 @@ undefined | a variable has not yet been assigned a value
 symbol    | unique identifiers for objects
 bigint    | whole numbers larger than 2^53 - 1
 any       | the type of a variable could be anything
+[]        | array type (can be used with a type : string[])
 
 Let's explore each of these types in detail.
 
@@ -999,5 +1000,5 @@ We discussed TypeScript's built-in enumerations, such as number enums, string en
 
 🔚
 
-
+[Back](../readme.md)
 

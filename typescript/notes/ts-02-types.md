@@ -47,7 +47,7 @@ TypeScript inherits the built-in types from JavaScript. TypeScript types is cate
 - Primitive types
 - Object types
 
-*Primitive types*
+🔔 *Primitive types*
 
 The following illustrates the primitive types in TypeScript:
 
@@ -60,7 +60,7 @@ null      | has one value: null
 undefined | has one value: undefined. It is a default value of an uninitialized variable
 symbol    | represents a unique constant value
 
-*Object types*
+🔔 *Object types*
 
 Objec types are `functions, arrays, classes, etc.` Later, you’ll learn how to create custom object types.
 

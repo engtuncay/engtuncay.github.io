@@ -44,11 +44,12 @@
 
 # Js Notes
 
-These notes are mainly from Asabeneh's 30-Days-Of-JavaScript tutorials.  Thanks.
+These notes are mainly from Asabeneh's 30-Days-Of-JavaScript tutorials. Thanks.
 
 CONTENT |Note|
 --- | -- |
 [Intro](./notes/js-notes-1-1-intro.md) |
+[Variables-Scope-Comment](./notes/js-notes-1-2-intro-data-type.md) |
 [Data Types](./notes/js-notes-2-1-data-types.md) |
 [Operators,Conditions,Loops](./notes/js-notes-2-2-oper-cond-loop.md) | Comparison Operators tbc
 [Functions](./notes/js-notes-2-3-functions.md) | ✔ 

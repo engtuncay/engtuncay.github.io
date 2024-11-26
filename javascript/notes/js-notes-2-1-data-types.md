@@ -11,7 +11,7 @@
   - [Strings](#strings)
     - [String Concatenation](#string-concatenation)
       - [Concatenating Using Addition Operator](#concatenating-using-addition-operator)
-      - [Long Literal Strings (\\)](#long-literal-strings-)
+      - [Long Literal Strings (`\`)](#long-literal-strings-)
       - [Escape Sequences in Strings](#escape-sequences-in-strings)
       - [Template Literals (Template Strings)](#template-literals-template-strings)
     - [String Methods](#string-methods)
@@ -289,6 +289,7 @@ console.log(randomNumRoundToFloor)    // this gives between 0 and 10
 ## Strings
 
 Strings are texts, which are under **_single_**  , **_double_**, **_back-tick_** quote. To declare a string, we need a variable name, assignment operator, a value under a single quote, double quote, or backtick quote.
+
 Let's see some examples of strings:
 
 ```js
@@ -345,9 +346,9 @@ console.log(personInfoOne)
 Asabeneh Yetayeh. I am 250. I live in Finland
 ```
 
-#### Long Literal Strings (\\)
+#### Long Literal Strings (`\`)
 
-A string could be a single character or paragraph or a page. If the string length is too big it does not fit in one line. We can use the backslash character (\\) at the end of each line to indicate that the string will continue on the next line.
+A string could be a single character or paragraph or a page. If the string length is too big it does not fit in one line. We can use the backslash character (`\`) at the end of each line to indicate that the string will continue on the next line.
 
 **Example:**
 
@@ -363,11 +364,11 @@ console.log(paragraph)
 
 In JavaScript and other programming languages `\` followed by some characters is an escape sequence. Let's see the most common escape characters:
 
-- \n: new line
-- \t: Tab, means 8 spaces
-- \\\\: Back slash
-- \\': Single quote (')
-- \\": Double quote (")
+- `\n`: new line
+- `\t`: Tab, means 8 spaces
+- `\\`: Back slash
+- `'`: Single quote (')
+- `"`: Double quote (")
   
 ```js
 console.log('I hope everyone is enjoying the 30 Days Of JavaScript challenge.\nDo you ?') // line break
@@ -384,7 +385,7 @@ console.log('The saying \'Seeing is Believing\' isn\'t correct in 2020')
 
 Output in console:
 
-```sh
+```
 I hope everyone is enjoying the 30 Days Of JavaScript challenge.
 Do you ?
 Days  Topics  Exercises
@@ -400,12 +401,12 @@ The saying 'Seeing is Believing' isn't correct in 2020
 
 #### Template Literals (Template Strings)
 
-To create a template strings, we use two back-ticks. We can inject data as expressions inside a template string. To inject data, we enclose the expression with a curly bracket({}) preceded by a $ sign. See the syntax below.
+To create a `template strings`, we use two back-ticks. We can inject data as expressions inside a template string. To inject data, we enclose the expression with a curly bracket(`{}`) preceded by a `$` sign. See the syntax below.
 
 ```js
 //Syntax
-`String literal text`
-`String literal text ${expression}`
+`String template literal text`
+`String template literal text ${expression}`
 ```
 
 **Example: 1**
@@ -440,24 +441,21 @@ I am Asabeneh Yetayeh. I am 250. I live in Finland.
 I am Asabeneh Yetayeh. I live in Helsinki, Finland. I am a teacher. I teach JavaScript.
 ```
 
-Using a string template or string interpolation method, we can add expressions, which could be a value, or some operations (comparison, arithmetic operations, ternary operation).
+Using a `string template` or `string interpolation method`, we can add expressions, which could be a value, or some operations (comparison, arithmetic operations, ternary operation).
 
 ```js
 let a = 2
 let b = 3
 console.log(`${a} is greater than ${b}: ${a > b}`)
+// ---Output---
+// 2 is greater than 3: false
 ```
-
-```sh
-2 is greater than 3: false
-```
-
 
 ### String Methods
 
 Everything in JavaScript is an object. A string is a primitive data type that means we can not modify it once it is created. The string object has many string methods. There are different string methods that can help us to work with strings.
 
-1. *length*: The string *length* method returns the number of characters in a string included empty space.
+➖ *length*: The string *length* method returns the number of characters in a string included empty space.
 
 **Example:**
 
@@ -468,7 +466,7 @@ let firstName = 'Asabeneh'
 console.log(firstName.length)  // 8
 ```
 
-2. *Accessing characters in a string*: We can access each character in a string using its index. In programming, counting starts from 0. The first index of the string is zero, and the last index is the length of the string minus one.
+➖ *Accessing characters in a string*: We can access each character in a string using its index. In programming, counting starts from 0. The first index of the string is zero, and the last index is the length of the string minus one.
 
 Let us access different characters in 'JavaScript' string.
 
@@ -1185,7 +1183,8 @@ console.log(arrayOfArray[0]) // [1, 2, 3]
 ## Date Object
 
 Time is an important thing. We like to know the time a certain activity or event. In JavaScript current time and date is created using JavaScript Date Object. The object we create using Date object provides many methods to work with date and time.The methods we use to get date and time information from a date object values are started with a word _get_ because it provide the information.
-_getFullYear(), getMonth(), getDate(), getDay(), getHours(), getMinutes, getSeconds(), getMilliseconds(), getTime(), getDay()_
+
+`getFullYear(), getMonth(), getDate(), getDay(), getHours(), getMinutes, getSeconds(), getMilliseconds(), getTime(), getDay()`
 
 ![Date time Object](../img/date_time_object.png)
 
@@ -1299,3 +1298,5 @@ const minutes = now.getMinutes() // return number (0 -59)
 
 console.log(`${date}/${month}/${year} ${hours}:${minutes}`) // 4/1/2020 0:56
 ```
+
+[Back](../readme.md)

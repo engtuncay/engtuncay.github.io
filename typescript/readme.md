@@ -21,7 +21,7 @@ These are mainly from online resource (some parts may be modified).
 
 Topic                                            | Note
 -------------------------------------------------|-----
-[Beginners Guide By I.C.Opoku](./art-ts-beginners-guide.md) |
+[Beginners Guide By I.C.Opoku](./arts/art-ts-beginners-guide.md) |
 [Ts1](./notes/ts-01.md)                                |
 [2- Types](./notes/ts-02-types.md)                       |
 [3- Type Annotations](./notes/ts-03-type-annotations.md) |
