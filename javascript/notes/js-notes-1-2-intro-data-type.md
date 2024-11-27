@@ -1,5 +1,9 @@
 
+Variables-Scope-Comment
+
 [Back](../readme.md)
+
+---
 
 - [Introduction to Data types](#introduction-to-data-types)
     - [Numbers](#numbers)

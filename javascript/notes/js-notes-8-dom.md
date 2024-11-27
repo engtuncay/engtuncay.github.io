@@ -1,4 +1,11 @@
 
+DOM - Document Object Model
+
+[Back](../readme.md)
+
+---
+
+
 - [Section DOM (1-2-3)](#section-dom-1-2-3)
   - [Document Object Model (DOM) (1)](#document-object-model-dom-1)
     - [Getting Element](#getting-element)
@@ -320,7 +327,7 @@ As you have notice, the properties of css when we use it in JavaScript is going 
 
 ### Creating an Element ( document.createElement(txTagName) )
 
-To create an HTML element we use tag name. Creating an HTML element using JavaScript is very simple and straight forward. We use the method <span style="color:red">_document.createElement()_</span>. The method takes an HTML element tag name as a string parameter.
+To create an HTML element we use tag name. Creating an HTML element using JavaScript is very simple and straight forward. We use the method `document.createElement()`. The method takes an HTML element tag name as a string parameter.
 
 ```js
 // syntax
@@ -458,7 +465,7 @@ The above snippet of code cleared all the child elements.
 ### Event Listeners
 
 Common HTML events:onclick, onchange, onmouseover, onmouseout, onkeydown, onkeyup, onload.
-We can add event listener method to any DOM object. We use **_addEventListener()_** method to listen different event types on HTML elements. The _addEventListener()_ method takes two arguments, <span style="color:red">an event listener and a callback function</span>.
+We can add event listener method to any DOM object. We use **_addEventListener()_** method to listen different event types on HTML elements. The _addEventListener()_ method takes two arguments, `an event listener and a callback function`.
 
 ```js
 selectedElement.addEventListener('eventlistener', function(e) {
@@ -681,5 +688,6 @@ We can access all the key numbers of the keyboard using different event listener
 </body>
 ```
 
---end--
+🔚
 
+[Back](../readme.md)

@@ -5,7 +5,7 @@
 - [Js Cheats](#js-cheats)
 - [References](#references)
 - [Js Notes](#js-notes)
-- [Js Info Notes - Advanced Javascript](#js-info-notes---advanced-javascript)
+- [JsInfo Notes - Advanced Javascript](#jsinfo-notes---advanced-javascript)
 - [Notes (JavaTPoint)](#notes-javatpoint)
 - [Node Notes](#node-notes)
 - [Other Cheatsheets](#other-cheatsheets)
@@ -66,7 +66,7 @@ CONTENT |Note|
 [Modules (JsInfo)](./notes/js-info/js-intro-13-1-Modules.md)| ✔
 
 
-# Js Info Notes - Advanced Javascript
+# JsInfo Notes - Advanced Javascript
 
 CONTENT |Note|
 --- | -- |
