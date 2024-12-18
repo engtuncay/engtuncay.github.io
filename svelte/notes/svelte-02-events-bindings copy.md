@@ -9,9 +9,8 @@
   - [5.1 DOM events](#51-dom-events)
   - [5.2 Inline handlers](#52-inline-handlers)
   - [5.3 Capturing](#53-capturing)
-  - [d. Component events (Event Dispatcher)](#d-component-events-event-dispatcher)
-  - [e. Event forwarding](#e-event-forwarding)
-  - [f. DOM event forwarding](#f-dom-event-forwarding)
+  - [5.4 Component events (Event Dispatcher)](#54-component-events-event-dispatcher)
+  - [5.5 Spreading Events](#55-spreading-events)
 - [6 Bindings](#6-bindings)
   - [a. Text inputs](#a-text-inputs)
   - [b. Numeric inputs](#b-numeric-inputs)
@@ -123,171 +122,83 @@ App
 Now, the relative order is reversed. If both capturing and non-capturing handlers exist for a given event, the capturing handlers will run first.
 
 
-## d. Component events (Event Dispatcher)
+## 5.4 Component events (Event Dispatcher)
 
-Components can also dispatch events. To do so, they must create `an event dispatcher`. 
+You can pass event handlers to components like any other prop. In `Stepper.svelte`, add increment and decrement props...
 
-➖ *app.svelte*
-
-```html
-<script>
-  import Inner from './Inner.svelte';
-
-  function handleMessage(event) {
-    // gönderilen argümanlar event.detail objesinin içerisinde
-    alert(event.detail.text);
-  }
-</script>
-
-<Inner on:message={handleMessage}/>
-```
-
-➖ *inner.svelte*
+Stepper
 
 ```html
 <script>
-  import { createEventDispatcher } from 'svelte';
-
-  // createEventDispatcher() must be called to get dispatch object
-  const dispatch = createEventDispatcher();
-
-  function sayHello() {
-    dispatch('message', {
-      text: 'Hello!'
-    });
-  }
+	let { increment, decrement } = $props();
 </script>
 
 ```
 
-📝 *Note:* createEventDispatcher must be called when the component is first instantiated — you can't do it later inside e.g. a setTimeout callback. This links dispatch to the component instance.
+...and wire them up:
 
-Notice that the App component is listening to the messages dispatched by *Inner component* thanks to the on:message directive. This directive is an attribute *prefixed* with "on:" followed by the event name that we are dispatching (in this case, message).
-
-Without this attribute, messages would still be dispatched, but the App would not react to it. You can try removing the "on:message" attribute and pressing the button again.
-
-## e. Event forwarding
-
-Unlike DOM events, component events don't bubble ❗. If you want to listen to an event on some deeply nested component, the intermediate components must forward the event.
-
-In this case, we have the same App.svelte and Inner.svelte as in the previous chapter, but there's now an Outer.svelte component that contains `<Inner/>`.
-
-One way we could solve the problem is adding createEventDispatcher to Outer.svelte, listening for the message event, and creating a handler for it:
-
-*outer.svelte*
+Stepper
 
 ```html
-<script>
-  import Inner from './Inner.svelte';
-  import { createEventDispatcher } from 'svelte';
-
-  const dispatch = createEventDispatcher();
-
-  function forward(event) {
-    dispatch('message', event.detail);
-  }
-</script>
-
-<Inner on:message={forward}/>
+<button onclick={decrement}>-1</button>
+<button onclick={increment}>+1</button>
 
 ```
 
-But that's a lot of code to write, so Svelte gives us an equivalent shorthand — an on:message event directive without a value means 'forward all message events'.
-
-*app.svelte* (parent component)
+In App.svelte, define the handlers:
 
 ```html
+<Stepper
+	increment={() => value += 1}
+	decrement={() => value -= 1}
+/>
+
+<p>The current value is {value}</p>
+
 <script>
-  import Child from './Outer.svelte';
+	import Stepper from './Stepper.svelte';
 
-  function handleMessage(event) {
-    alert(event.detail.text);
-  }
+	let value = $state(0);
 </script>
-
-<Child on:message={handleMessage}/>
-```
-
-*child.svelte*
-
-```html
-<script>
-  import GrandChild from './GrandChild.svelte';
-</script>
-
-<!-- inform parent for granchild messages -->
-<GrandChild on:message/>
 
 ```
 
-*grandchild.svelte*
+## 5.5 Spreading Events
+
+We can also spread event handlers directly onto elements. Here, we’ve defined an `onclick` handler in App.svelte — all we need to do is pass the props to the `<button>` in BigRedButton.svelte:
+
+BigRedButton
 
 ```html
-<script>
-  import { createEventDispatcher } from 'svelte';
-
-  const dispatch = createEventDispatcher();
-
-  function sayHello() {
-    dispatch('message', {
-      text: 'Hello!'
-    });
-  }
-</script>
-
-<button on:click={sayHello}>
-  Click to say hello
-</button>
-```
-
-## f. DOM event forwarding
-
-Event forwarding works for DOM events too.
-
-We want to get notified of clicks on our `<CustomButton> `— to do that, we just need to forward click events on the `<button>` element in CustomButton component:
-
-*App.svelte*
-
-```html
-<script>
-  import CustomButton from './CustomButton.svelte';
-
-  function handleClick() {
-    alert('Button Clicked');
-  }
-</script>
-
-<CustomButton on:click={handleClick}/>
-```
-
-*CustomButton.svelte*
-
-```html
-<button on:click>
-  Click me
+<button {...props}>
+	Push
 </button>
 
-<style>
-  button {
-    background: #E2E8F0;
-    color: #64748B;
-    border: unset;
-    border-radius: 6px;
-    padding: .75rem 1.5rem;
-    cursor: pointer;
-  }
+<script>
+	let props = $props();
+</script>
 
-  button:hover {
-    background: #CBD5E1;
-    color: #475569;
-  }
-
-  button:focus {
-    background: #94A3B8;
-    color: #F1F5F9;
-  }
-</style>
 ```
+
+App
+
+```html
+<script>
+	import BigRedButton from './BigRedButton.svelte';
+	import horn from './horn.mp3';
+
+	const audio = new Audio();
+	audio.src = horn;
+
+	function honk() {
+		audio.load();
+		audio.play();
+	}
+</script>
+
+<BigRedButton onclick={honk} />
+```
+
 
 # 6 Bindings 
 
