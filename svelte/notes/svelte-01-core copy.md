@@ -1,25 +1,22 @@
 
-- Source : https://svelte.dev/tutorial/svelte/welcome-to-svelte
+- Source : https://svelte.dev/tutorial/basics
 
 [Back](../readme.md)
-
----
 
 **Contents**
 
 - [Introduction](#introduction)
-  - [1.1 Welcome to the Svelte](#11-welcome-to-the-svelte)
-  - [1.2 Your first Component](#12-your-first-component)
-  - [1.3 Dynamic Attributes (String Interpolation)](#13-dynamic-attributes-string-interpolation)
-  - [1.4 Styling](#14-styling)
-  - [1.5 Nested Components (Parent - Child)](#15-nested-components-parent---child)
-  - [1.6 Html Tags](#16-html-tags)
-  - [1.7 Extra: Creating Svelte Project](#17-extra-creating-svelte-project)
+  - [a. Basics](#a-basics)
+  - [b. Adding Data - Declaring Variable](#b-adding-data---declaring-variable)
+  - [c. Dynamic Attributes - String Interpolation](#c-dynamic-attributes---string-interpolation)
+  - [d. Component Styling](#d-component-styling)
+  - [e Using Components - Nested Components (Parent - Child)](#e-using-components---nested-components-parent---child)
+  - [f. Creating Svelte Project](#f-creating-svelte-project)
 - [2 Reactivity](#2-reactivity)
-  - [2.1 State](#21-state)
-  - [2.2 Deep State](#22-deep-state)
-  - [2.3 Derived State](#23-derived-state)
-  - [2.4 Inspecting State](#24-inspecting-state)
+  - [a. Assignments](#a-assignments)
+  - [b. Declarations](#b-declarations)
+  - [c. Reactive Statements](#c-reactive-statements)
+  - [d. Updating arrays and objects](#d-updating-arrays-and-objects)
 - [3 Props](#3-props)
   - [a. Declaring props](#a-declaring-props)
   - [b. Default values](#b-default-values)
@@ -36,34 +33,45 @@
 
 # Introduction
 
-## 1.1 Welcome to the Svelte
+Welcome to the Svelte tutorial. 
 
 This will teach you everything you need to know to build fast, small web applications easily.
 
-You can also consult the API docs (https://svelte.dev/docs) and visit the playground (https://svelte.dev/playground), or — if you’re impatient to start hacking on your machine locally — create a project with `npx sv create`.
+You can also consult the API docs (https://svelte.dev/docs) and the examples (https://svelte.dev/examples), or — if you're impatient to start hacking on your machine locally — the 60-second quickstart (https://svelte.dev/docs/introduction).
 
-🔔 What is Svelte
+## a. Basics
 
-Svelte is a tool for building web applications. Like other user interface frameworks, it allows you to build your app declaratively out of components that combine markup, styles and behaviours.
+Svelte is a tool for building fast web applications.
 
-These components are compiled into small, efficient JavaScript modules that eliminate overhead traditionally associated with UI frameworks.
+It is similar to JavaScript frameworks such as React and Vue, which share a goal of making it easy to build slick interactive user interfaces.
 
-You can build your entire app with Svelte (for example, using an application framework like SvelteKit, which this tutorial will cover), or you can add it incrementally to an existing codebase. You can also ship components as standalone packages that work anywhere.
+But there's a crucial difference: Svelte converts your app into ideal JavaScript *at build time*, rather than interpreting your application code *at run time*. This means you don't pay the performance cost of the framework's abstractions, and you don't incur a penalty when your app first loads.
 
-## 1.2 Your first Component
+You can build your entire app with Svelte, or you can add it incrementally to an existing codebase. You can also ship components as standalone packages that work anywhere, without the overhead of a dependency on a conventional framework.
 
-In Svelte, an application is composed from one or more components. A component is a reusable self-contained block of code that encapsulates HTML, CSS and JavaScript that belong together, written into a .svelte file. The App.svelte file, open in the code editor to the right, is a simple component.
+🔔 How to use this tutorial
 
-Adding data
-A component that just renders some static markup isn’t very interesting. Let’s add some data.
+You'll need to have basic familiarity with HTML, CSS and JavaScript to understand Svelte.
+
+🔔 Understanding components
+
+In Svelte, an application is composed from one or more components. A component is *a reusable self-contained block of code* that encapsulates HTML, CSS and JavaScript that belong together, written into a `.svelte` file. The 'hello world' example below is a simple component.
+
+*App.svelte*
+
+```html
+<h1>Hello world!</h1>
+```
+
+## b. Adding Data - Declaring Variable
+
+A component that just renders some static markup isn't very interesting. Let's add some data.
 
 First, add a script tag to your component and declare a name variable:
 
-App.svelte
-
 ```js
-<script lang="ts">
-	let name = 'Svelte';
+<script>
+	let name = 'world';
 </script>
 
 <h1>Hello world!</h1>
@@ -72,47 +80,33 @@ App.svelte
 
 Then, we can refer to name in the markup:
 
-App
-
-```html
+```js
 <h1>Hello {name}!</h1>
 
 ```
 
 Inside the curly braces, we can put any JavaScript we want. Try changing name to name.toUpperCase() for a shoutier greeting.
 
-App
+## c. Dynamic Attributes - String Interpolation
+
+You can use curly braces to control `element attributes`, just like you use them to control text.
+
+Our image is missing a src attribute — let's add one:
 
 ```html
-<h1>Hello {name.toUpperCase()}!</h1>
+<img src={src}>
 
 ```
+That's better. But Svelte is giving us a warning:
 
-## 1.3 Dynamic Attributes (String Interpolation)
+A11y: <img> element should have an alt attribute
 
-Just like you can use curly braces to control text, you can use them to control element attributes.
+When building web apps, it's important to make sure that they're accessible to the broadest possible userbase, including people with (for example) impaired vision or motion, or people without powerful hardware or good internet connections. Accessibility (shortened to a11y) isn't always easy to get right, but Svelte will help by warning you if you write inaccessible markup.
 
-Our image is missing a src — let’s add one:
-
-App
-
-```html
-<img src={src} />
-
-```
-
-That’s better. But if you hover over the `<img>` in the editor, Svelte is giving us a warning:
-
-`<img>` element should have an alt attribute
-
-When building web apps, it’s important to make sure that they’re accessible to the broadest possible userbase, including people with (for example) impaired vision or motion, or people without powerful hardware or good internet connections. Accessibility (shortened to a11y) isn’t always easy to get right, but Svelte will help by warning you if you write inaccessible markup.
-
-In this case, we’re missing the alt attribute that describes the image for people using screenreaders, or people with slow or flaky internet connections that can’t download the image. Let’s add one:
-
-App
+In this case, we're missing the alt attribute that describes the image for people using screenreaders, or people with slow or flaky internet connections that can't download the image. Let's add one:
 
 ```html
-<img src={src} alt="A man dances." />
+<img src={src} alt="A man dances.">
 
 ```
 
@@ -120,16 +114,14 @@ We can use curly braces inside attributes. Try changing it to "{name} dances." �
 
 🔔 Shorthand attributes
 
-It’s not uncommon to have an attribute where the name and value are the same, like `src={src}`. Svelte gives us a convenient shorthand for these cases:
-
-App
+It's not uncommon to have an attribute where the name and value are the same, like src={src}. Svelte gives us a convenient shorthand for these cases:
 
 ```html
-<img {src} alt="{name} dances." />
+<img {src} alt="A man dances.">
 
 ```
 
-## 1.4 Styling
+## d. Component Styling
 
 Just like in HTML, you can add a `<style>` tag to your component. Let's add some styles to the `<p>` element:
 
@@ -145,15 +137,17 @@ Just like in HTML, you can add a `<style>` tag to your component. Let's add some
 </style>
 
 ```
-Importantly, these rules are `scoped to the component`. You won't accidentally change the style of `<p>` elements elsewhere in your app, as we'll see in the next step.
+Importantly, these rules are <span style="color:red">scoped to the component</span>. You won't accidentally change the style of `<p>` elements elsewhere in your app, as we'll see in the next step.
 
-## 1.5 Nested Components (Parent - Child)
+## e Using Components - Nested Components (Parent - Child)
 
 It would be impractical to put your entire app in a single component. Instead, we can import components from other files and then use them as though we were including elements.
 
 We now present you 2 files: `App.svelte and Nested.svelte`.
 
-Add a `<script>` tag to the top of `App.svelte` that imports Nested.svelte (child component)...
+Each `.svelte` file holds a component that is a <span style="color:red">reusable self-contained block of code</span> that encapsulates HTML, CSS, and JavaScript that belong together.
+
+Let's add a `<script>` tag to `App.svelte` that imports the file (our component) Nested.svelte into our app...
 
 ```html
 <script>
@@ -163,9 +157,8 @@ Add a `<script>` tag to the top of `App.svelte` that imports Nested.svelte (chil
 
 ```
 
-...and include a <Nested /> component:
+...then use component Nested in the app markup:
 
-App.svelte
 ```html
 <p>This is a paragraph.</p>
 <!-- using component in the template -->
@@ -182,158 +175,241 @@ App.svelte
 
 Notice that even though Nested.svelte has a `<p>` element, the styles from App.svelte don't leak in. 
 
-📝 Extra: Tag Name Convention
+➖ Tag Name Convention
 
 Also notice that the component name Nested is capitalised. This convention has been adopted to allow us to differentiate between user-defined components and regular HTML tags.
 
 Try : https://learn.svelte.dev/tutorial/nested-components
 
-## 1.6 Html Tags
+--*REVIEW - improve aşağıdaki f maddesi
 
-Ordinarily, strings are inserted as plain text, meaning that characters like `<` and `>` have no special meaning.
+## f. Creating Svelte Project
 
-But sometimes you need to render HTML directly into a component. For example, the words you’re reading right now exist in a markdown file that gets included on this page as a blob of HTML.
+This tutorial is designed to get you familiar with the process of writing components. But at some point, you'll want to start writing components in the comfort of your own text editor.
 
-In Svelte, you do this with the special `{@html ...}` tag:
+First, you'll need to integrate Svelte with a `build tool`. We recommend using *SvelteKit*, which sets up Vite with vite-plugin-svelte for you...
 
-App
+```bash
+npm create svelte@latest myapp
+```
 
-```html
-<p>{@html string}</p>
+There are also a number of community-maintained integrations.
+
+Don't worry if you're relatively new to web development and haven't used these tools before. We've prepared a simple step-by-step guide, Svelte for new developers, which walks you through the process.
+
+You'll also want to configure your text editor. There are plugins for many popular editors as well as an official VS Code extension.
+
+Then, once you've got your project set up, using Svelte components is easy. The compiler turns each component into a regular JavaScript class — just import it and instantiate with new:
+
+```js
+import App from './App.svelte';
+
+const app = new App({
+	target: document.body,
+	props: {
+		// we'll learn about props later
+		answer: 42
+	}
+});
 
 ```
 
-Important: Svelte doesn’t perform any sanitization of the expression inside `{@html ...}` before it gets inserted into the DOM. This isn’t an issue if the content is something you trust like an article you wrote yourself. However if it’s some untrusted user content, e.g. a comment on an article, then it’s critical that you manually escape it, otherwise you risk exposing your users to Cross-Site Scripting (XSS) attacks.
+You can then interact with the app using `the component API` if you need to.
 
-
---*REVIEW - improve aşağıdaki f maddesi (from old docs)
-
-## 1.7 Extra: Creating Svelte Project
-
-
+--*REVIEW - component api derken neyi kastetti
 
 # 2 Reactivity
 
-## 2.1 State
+## a. Assignments
 
 At the heart of Svelte is a powerful system of reactivity for `keeping the DOM in sync with your application state` — for example, in response to an event.
 
-Make the `count` declaration reactive by wrapping the value with `$state(...)`:
+➖ Adding click event to button
 
-App
-
-```js
-let count = $state(0);
-
-```
-
-This is called a `rune`, and it’s how you tell Svelte that count isn’t an ordinary variable. Runes look like functions, but they’re not — when you use Svelte, they’re part of the language itself.
-
-All that’s left is to implement `increment`:
-
-App
-
-```js
-function increment() {
-	count += 1;
-}
-
-```
-
-## 2.2 Deep State
-
-As we saw in the previous exercise, state reacts to reassignments. But it also reacts to `mutations` — we call this deep reactivity.
-
-Make `numbers` a reactive array:
-
-App
-
-```js
-let numbers = $state([1, 2, 3, 4]);
-
-```
-
-Now, when we change the array...
-
-App
-
-```js
-function addNumber() {
-	numbers[numbers.length] = numbers.length + 1;
-}
-
-```
-
-...the component updates. Or better still, we can `push` to the array instead:
-
-App
-
-```js
-function addNumber() {
-	numbers.push(numbers.length + 1);
-}
-
-```
-
-❗ Deep reactivity is implemented using proxies, and mutations to the proxy do not affect the original object.
-
-proxies ((https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy))
-
-
-## 2.3 Derived State
-
-Often, you will need to derive state from other state. For this, we have the `$derived` rune:
-
-App
-
-```js
-let numbers = $state([1, 2, 3, 4]);
-let total = $derived(numbers.reduce((t, n) => t + n, 0));
-
-```
-
-We can now use this in our markup:
-
-App
+To demonstrate it, we first need to wire up an event handler :
 
 ```html
-<p>{numbers.join(' + ')} = {total}</p>
+<button on:click={incrementCount}>
+
+```
+Inside the incrementCount function, all we need to do is change the value of count:
+
+```js
+function incrementCount() {
+  count += 1;
+}
 
 ```
 
-The expression inside the `$derived` declaration will be re-evaluated whenever its dependencies (in this case, just numbers) are updated. Unlike normal state, derived state is read-only.
+Svelte 'instruments' this assignment with some code that tells it the DOM will need to be updated.
 
-## 2.4 Inspecting State
+🍋 Full Solution
 
-It’s often useful to be able to track the value of a piece of state as it changes over time.
+```html
+<script>
+  let count = 0;
 
-Inside the addNumber function, we’ve added a console.log statement. But if you click the button and open the console drawer (using the button to the right of the URL bar), you’ll see a warning, and a message saying the message could not be cloned.
+  function incrementCount() {
+    count += 1;
+  }
+</script>
 
-That’s because numbers is a reactive proxy. There are a couple of things we can do. Firstly, we can create a non-reactive snapshot of the state with $state.snapshot(...):
+<button on:click={incrementCount}>
+  Clicked {count}
+  {count === 1 ? 'time' : 'times'}
+</button>
 
-App
+<style>
+  button {
+    width:200px;
+  }
+</style>
+
+```
+
+## b. Declarations
+
+Svelte's reactivity not only keeps the DOM in sync with your application's variables as shown in the previous section, it can also keep variables in sync with each other `using reactive declarations`. They look like this:
+
+```js
+let count = 0;
+$: doubled = count * 2;
+
+```
+
+Don't worry if this looks a little alien. It's valid (if unconventional) JavaScript, which Svelte interprets to mean 're-run this code whenever any of the referenced values change'. Once you get used to it, there's no going back.
+
+Let's use doubled in our markup:
+
+```html
+<p>{count} doubled is {doubled}</p>
+```
+
+Of course, you could just write {count * 2} in the markup instead — you don't have to use reactive values. Reactive values become particularly valuable when you need to reference them multiple times, or you have values that depend on other reactive values.
+
+```html
+<script>
+	let count = 0;
+	$: doubled = count * 2;
+
+	function handleClick() {
+		count += 1;
+	}
+</script>
+
+<button on:click={handleClick}>
+	Clicked {count}
+	{count === 1 ? 'time' : 'times'}
+</button>
+
+<p>{count} doubled is {doubled}</p>
+```
+
+## c. Reactive Statements
+
+We're not limited to `declaring reactive values` — we can also run arbitrary statements reactively. For example, we can log the value of count whenever it changes:
+
+```js
+$: console.log('the count is ' + count);
+
+```
+
+You can easily `group statements together with a block`:
+
+```js
+$: {
+	console.log('the count is ' + count);
+	alert('I SAID THE COUNT IS ' + count);
+}
+
+```
+
+You can even put the $: in front of things like if blocks:
+
+```js
+$: if (count >= 10) {
+  alert('count is dangerously high!');
+  count = 9;
+}
+
+```
+
+🍋 Full Solution
+
+```html
+<script>
+	let count = 0;
+
+	$: if (count >= 10) {
+		alert('count is dangerously high!');
+		count = 0;
+	}
+
+	function handleClick() {
+		count += 1;
+	}
+</script>
+
+<button on:click={handleClick}>
+  Clicked {count}
+  {count === 1 ? 'time' : 'times'}
+</button>
+```
+
+Try : https://learn.svelte.dev/tutorial/reactive-statements
+
+## d. Updating arrays and objects
+
+Because Svelte's reactivity is triggered by assignments, using array methods like push and splice won't automatically cause updates. For example, clicking the 'Add a number' button doesn't currently do anything, even though we're calling `numbers.push(...)` inside addNumber.
+
+One way to fix that is to add an assignment that would otherwise be redundant:
+
+App.svelte
+
+```js
 function addNumber() {
 	numbers.push(numbers.length + 1);
-	console.log($state.snapshot(numbers));
+	numbers = numbers;
 }
-Alternatively, we can use the $inspect rune to automatically log a snapshot of the state whenever it changes. This code will automatically be stripped out of your production build:
 
-App
+```
+
+But there's a more idiomatic solution:
+
+App.svelte
+
+```js
 function addNumber() {
-	numbers.push(numbers.length + 1);
-	console.log($state.snapshot(numbers));
+	numbers = [...numbers, numbers.length + 1];
 }
 
-$inspect(numbers);
-You can customise how the information is displayed by using $inspect(...).with(fn) — for example, you can use console.trace to see where the state change originated from:
+```
 
-App
-$inspect(numbers).with(console.trace);
+You can use similar patterns to replace pop, shift, unshift and splice.
 
+Assignments to properties of arrays and objects — `e.g. obj.foo += 1 or array[i] = x` — work the same way as assignments to the values themselves.
 
+App.svelte
 
+```js
+function addNumber() {
+  numbers[numbers.length] = numbers.length + 1;
+}
 
+```
 
+❗ A simple rule of thumb: the name of the updated variable must appear on the left hand side of the assignment. For example this...
+
+```js
+const obj = { foo: { bar: 1 } };
+const foo = obj.foo;
+foo.bar = 2;
+
+```
+
+❗ ...won't trigger reactivity on obj.foo.bar, unless you follow it up with `obj = obj`.
+
+Try : https://learn.svelte.dev/tutorial/updating-arrays-and-objects
 
 # 3 Props
 
