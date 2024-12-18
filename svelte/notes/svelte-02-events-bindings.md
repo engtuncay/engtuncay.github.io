@@ -12,9 +12,9 @@
   - [5.4 Component events (Event Dispatcher)](#54-component-events-event-dispatcher)
   - [5.5 Spreading Events](#55-spreading-events)
 - [6 Bindings](#6-bindings)
-  - [a. Text inputs](#a-text-inputs)
-  - [b. Numeric inputs](#b-numeric-inputs)
-  - [c. Checkbox inputs](#c-checkbox-inputs)
+  - [6.1 Text inputs](#61-text-inputs)
+  - [6.2 Numeric inputs](#62-numeric-inputs)
+  - [6.3 Checkbox inputs](#63-checkbox-inputs)
   - [d. Group inputs](#d-group-inputs)
   - [e. Textarea inputs](#e-textarea-inputs)
   - [f. Select bindings](#f-select-bindings)
@@ -204,7 +204,7 @@ App
 
 It is a way of `child to parent communications`. For example, input box value in the child component is binded to a variable in the parent component. 
 
-## a. Text inputs
+## 6.1 Text inputs
 
 `As a general rule, data flow in Svelte is top down (parent to child)` — a parent component can set props on a child component, and a component can set attributes on an element, but not the other way around.
 
@@ -214,12 +214,11 @@ Instead, we can use the bind:value directive :
 
 ```html
 <input bind:value={name}>
-<!-- $: parent.name = input.value (two-way binding) -->
+<!-- parent.name = input.value (two-way binding) -->
 ```
 
-Value attribute of input element binded to the name variable in the parent component (reactively). any changes of the value attribute will reflect name variable.
+This means that not only will changes to the value of `name` update the input value, but changes to the input value will update `name`.
 
-Try : https://learn.svelte.dev/tutorial/text-inputs
 
 🔔 Binding to object field
 
@@ -236,26 +235,59 @@ Try : https://learn.svelte.dev/tutorial/text-inputs
 
 Try : https://svelte.dev/repl/edc48ddcd0b947c88a80f55ab35f224d?version=4.2.19
 
-## b. Numeric inputs
-
---*TBC - SVELTE
+## 6.2 Numeric inputs
 
 In the DOM, everything is a string. That's unhelpful when you're dealing with numeric inputs — `type="number" and type="range"` — as it means you have to remember to coerce `input.value` before using it.
 
 With `bind:value`, Svelte takes care of it for you:
 
 ```html
-<input type=number bind:value={a} min=0 max=10>
-<input type=range bind:value={a} min=0 max=10>
+<label>
+	<input type="number" bind:value={a} min="0" max="10" />
+	<input type="range" bind:value={a} min="0" max="10" />
+</label>
 
+<label>
+	<input type="number" bind:value={b} min="0" max="10" />
+	<input type="range" bind:value={b} min="0" max="10" />
+</label>
+
+<p>{a} + {b} = {a + b}</p>
+
+<script>
+	let a = $state(1);
+	let b = $state(2);
+</script>
 ```
 
-## c. Checkbox inputs
 
-Checkboxes are used for toggling between states. Instead of binding to input.value, we bind to input.checked:
+
+## 6.3 Checkbox inputs
+
+Checkboxes are used for toggling between states. Instead of binding to `input.value`, we bind to `input.checked`:
 
 ```html
-<input type=checkbox bind:checked={yes}>
+<label>
+	<input type="checkbox" bind:checked={yes} />
+	Yes! Send me regular email spam
+</label>
+
+
+{#if yes}
+	<p>
+		Thank you. We will bombard your inbox and sell your personal details.
+	</p>
+{:else}
+	<p>
+		You must opt in to continue. If you're not paying, you're the product.
+	</p>
+{/if}
+
+<script>
+	let yes = $state(false);
+</script>
+
+
 
 ```
 
