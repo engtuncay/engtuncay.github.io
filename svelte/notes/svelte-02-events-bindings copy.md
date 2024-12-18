@@ -1,14 +1,14 @@
 
-- Source : https://svelte.dev/tutorial/basics (some parts may be modified or added)
+- Source : https://svelte.dev/tutorial/svelte/welcome-to-svelte
 
 [Back](../readme.md)
 
 **Contents**
 
 - [5 Events](#5-events)
-  - [a. DOM events](#a-dom-events)
-  - [b. Inline handlers](#b-inline-handlers)
-  - [c. Event modifiers](#c-event-modifiers)
+  - [5.1 DOM events](#51-dom-events)
+  - [5.2 Inline handlers](#52-inline-handlers)
+  - [5.3 Capturing](#53-capturing)
   - [d. Component events (Event Dispatcher)](#d-component-events-event-dispatcher)
   - [e. Event forwarding](#e-event-forwarding)
   - [f. DOM event forwarding](#f-dom-event-forwarding)
@@ -40,94 +40,87 @@
 
 # 5 Events
 
-## a. DOM events
+## 5.1 DOM events
 
-As we've briefly seen already, you can listen to `any event` on an element with the `"on:" directive`:
+As we’ve briefly seen already, you can listen to any DOM event on an element (such as click or pointermove) with an `on<name>` function:
 
-➖ *app.svelte*
-
-```html
-<script>
-  let m = { x: 0, y: 0 };
-
-  function handleMousemove(event) {
-    m.x = event.clientX;
-    m.y = event.clientY;
-  }
-</script>
-
-<div on:mousemove={handleMousemove}>
-  The mouse position is {m.x} x {m.y}
-</div>
-
-<style>
-  div { width: 100%; height: 100%; }
-</style>
-
-```
-
-## b. Inline handlers
-
-You can also declare event handlers inline (inside curly brackets):
+App
 
 ```html
-<div on:mousemove="{e => m = { x: e.clientX, y: e.clientY }}">
-  The mouse position is {m.x} x {m.y}
+<div onpointermove={onpointermove}>
+	The pointer is at {Math.round(m.x)} x {Math.round(m.y)}
 </div>
 
 ```
+App (script part)
 
-➖ *app.svelte*
+```js
+<script>
+	let m = $state({ x: 0, y: 0 });
+
+	function onpointermove(event) {
+		m.x = event.clientX;
+		m.y = event.clientY;
+	}
+</script>
+```
+
+Like with any other property where the name matches the value, we can use the short form:
+
+App
 
 ```html
-<script>
-  let m = { x: 0, y: 0 };
-</script>
-
-<div on:mousemove="{e => m = { x: e.clientX, y: e.clientY }}">
-  The mouse position is {m.x} x {m.y}
+<div {onpointermove}>
+	The pointer is at {Math.round(m.x)} x {Math.round(m.y)}
 </div>
 
-<style>
-  div { width: 100%; height: 100%; }
-</style>
 ```
 
-The quote marks (after on:mouse directive) are optional, but they're helpful for syntax highlighting in some environments.
+## 5.2 Inline handlers
 
-`In some frameworks` you may see recommendations to `avoid inline event handlers for performance reasons`, particularly inside loops. That advice doesn't apply to Svelte — the compiler will always do the right thing, whichever form you choose.
+You can also declare event handlers inline:
 
-## c. Event modifiers 
-
-modifiers alter the behaviour of event handlers.
-
-DOM event handlers can have modifiers that alter their behaviour. For example, a handler with a once modifier will only run a single time:
+App
 
 ```html
 <script>
-  function handleClick() {
-    alert('no more alerts')
-  }
+	let m = $state({ x: 0, y: 0 });
+
+	function onpointermove(event) {
+		m.x = event.clientX;
+		m.y = event.clientY;
+	}
 </script>
 
-<button on:click|once={handleClick}>
-  Click me
-</button>
+<div
+	onpointermove={(event) => {
+		m.x = event.clientX;
+		m.y = event.clientY;
+	}}
+>
+	The pointer is at {m.x} x {m.y}
+</div>
 
 ```
 
-The full list of modifiers:
+❗ `In some frameworks` you may see recommendations to `avoid inline event handlers for performance reasons`, particularly inside loops. That advice doesn't apply to Svelte — the compiler will always do the right thing, whichever form you choose.
 
-- **preventDefault** — calls event.preventDefault() before running the handler. Useful for client-side form handling, for example.
-- **stopPropagation** — calls event.stopPropagation(), preventing the event reaching the next element
-- **passive** — improves scrolling performance on touch/wheel events (Svelte will add it automatically where it's safe to do so)
-- **nonpassive** — explicitly set passive: false
-- **capture** — fires the handler during the capture phase instead of the bubbling phase (MDN docs)
-- **once** — remove the handler after the first time it runs
-- **self** — only trigger handler if event.target is the element itself
-- **trusted** — only trigger handler if event.isTrusted is true. I.e. if the event is triggered by a user action.
+## 5.3 Capturing 
 
-You can chain modifiers together, e.g. `on:click|once|capture={...}.`
+Normally, event handlers run during the bubbling phase. Notice what happens if you type something into the `<input>` in this example — the inner handler runs first, as the event ‘bubbles’ from the target up to the document, followed by the outer handler.
+
+Sometimes, you want handlers to run during the `capture` phase instead. Add `capture` to the end of the event name:
+
+App
+
+```html
+<div onkeydowncapture={(e) => alert(`<div> ${e.key}`)} role="presentation">
+	<input onkeydowncapture={(e) => alert(`<input> ${e.key}`)} />
+</div>
+
+```
+
+Now, the relative order is reversed. If both capturing and non-capturing handlers exist for a given event, the capturing handlers will run first.
 
 
 ## d. Component events (Event Dispatcher)
