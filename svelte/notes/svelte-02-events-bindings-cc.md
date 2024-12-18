@@ -1,16 +1,17 @@
 
-- Source : https://svelte.dev/tutorial/svelte/welcome-to-svelte
+- Source : https://svelte.dev/tutorial/basics (some parts may be modified or added)
 
 [Back](../readme.md)
 
 **Contents**
 
 - [5 Events](#5-events)
-  - [5.1 DOM events](#51-dom-events)
-  - [5.2 Inline handlers](#52-inline-handlers)
-  - [5.3 Capturing](#53-capturing)
-  - [5.4 Component events (Event Dispatcher)](#54-component-events-event-dispatcher)
-  - [5.5 Spreading Events](#55-spreading-events)
+  - [a. DOM events](#a-dom-events)
+  - [b. Inline handlers](#b-inline-handlers)
+  - [c. Event modifiers](#c-event-modifiers)
+  - [d. Component events (Event Dispatcher)](#d-component-events-event-dispatcher)
+  - [e. Event forwarding](#e-event-forwarding)
+  - [f. DOM event forwarding](#f-dom-event-forwarding)
 - [6 Bindings](#6-bindings)
   - [a. Text inputs](#a-text-inputs)
   - [b. Numeric inputs](#b-numeric-inputs)
@@ -39,166 +40,261 @@
 
 # 5 Events
 
-## 5.1 DOM events
+## a. DOM events
 
-As we’ve briefly seen already, you can listen to any DOM event on an element (such as click or pointermove) with an `on<name>` function:
+As we've briefly seen already, you can listen to `any event` on an element with the `"on:" directive`:
 
-App
-
-```html
-<div onpointermove={onpointermove}>
-	The pointer is at {Math.round(m.x)} x {Math.round(m.y)}
-</div>
-
-```
-App (script part)
-
-```js
-<script>
-	let m = $state({ x: 0, y: 0 });
-
-	function onpointermove(event) {
-		m.x = event.clientX;
-		m.y = event.clientY;
-	}
-</script>
-```
-
-Like with any other property where the name matches the value, we can use the short form:
-
-App
-
-```html
-<div {onpointermove}>
-	The pointer is at {Math.round(m.x)} x {Math.round(m.y)}
-</div>
-
-```
-
-## 5.2 Inline handlers
-
-You can also declare event handlers inline:
-
-App
+➖ *app.svelte*
 
 ```html
 <script>
-	let m = $state({ x: 0, y: 0 });
+  let m = { x: 0, y: 0 };
 
-	function onpointermove(event) {
-		m.x = event.clientX;
-		m.y = event.clientY;
-	}
+  function handleMousemove(event) {
+    m.x = event.clientX;
+    m.y = event.clientY;
+  }
 </script>
 
-<div
-	onpointermove={(event) => {
-		m.x = event.clientX;
-		m.y = event.clientY;
-	}}
->
-	The pointer is at {m.x} x {m.y}
+<div on:mousemove={handleMousemove}>
+  The mouse position is {m.x} x {m.y}
+</div>
+
+<style>
+  div { width: 100%; height: 100%; }
+</style>
+
+```
+
+## b. Inline handlers
+
+You can also declare event handlers inline (inside curly brackets):
+
+```html
+<div on:mousemove="{e => m = { x: e.clientX, y: e.clientY }}">
+  The mouse position is {m.x} x {m.y}
 </div>
 
 ```
 
-❗ `In some frameworks` you may see recommendations to `avoid inline event handlers for performance reasons`, particularly inside loops. That advice doesn't apply to Svelte — the compiler will always do the right thing, whichever form you choose.
-
-## 5.3 Capturing 
-
-Normally, event handlers run during the bubbling phase. Notice what happens if you type something into the `<input>` in this example — the inner handler runs first, as the event ‘bubbles’ from the target up to the document, followed by the outer handler.
-
-Sometimes, you want handlers to run during the `capture` phase instead. Add `capture` to the end of the event name:
-
-App
+➖ *app.svelte*
 
 ```html
-<div onkeydowncapture={(e) => alert(`<div> ${e.key}`)} role="presentation">
-	<input onkeydowncapture={(e) => alert(`<input> ${e.key}`)} />
+<script>
+  let m = { x: 0, y: 0 };
+</script>
+
+<div on:mousemove="{e => m = { x: e.clientX, y: e.clientY }}">
+  The mouse position is {m.x} x {m.y}
 </div>
 
+<style>
+  div { width: 100%; height: 100%; }
+</style>
 ```
 
-Now, the relative order is reversed. If both capturing and non-capturing handlers exist for a given event, the capturing handlers will run first.
+The quote marks (after on:mouse directive) are optional, but they're helpful for syntax highlighting in some environments.
 
+`In some frameworks` you may see recommendations to `avoid inline event handlers for performance reasons`, particularly inside loops. That advice doesn't apply to Svelte — the compiler will always do the right thing, whichever form you choose.
 
-## 5.4 Component events (Event Dispatcher)
+## c. Event modifiers 
 
-You can pass event handlers to components like any other prop. In `Stepper.svelte`, add increment and decrement props...
+modifiers alter the behaviour of event handlers.
 
-Stepper
+DOM event handlers can have modifiers that alter their behaviour. For example, a handler with a once modifier will only run a single time:
 
 ```html
 <script>
-	let { increment, decrement } = $props();
+  function handleClick() {
+    alert('no more alerts')
+  }
 </script>
 
-```
-
-...and wire them up:
-
-Stepper
-
-```html
-<button onclick={decrement}>-1</button>
-<button onclick={increment}>+1</button>
-
-```
-
-In App.svelte, define the handlers:
-
-```html
-<Stepper
-	increment={() => value += 1}
-	decrement={() => value -= 1}
-/>
-
-<p>The current value is {value}</p>
-
-<script>
-	import Stepper from './Stepper.svelte';
-
-	let value = $state(0);
-</script>
-
-```
-
-## 5.5 Spreading Events
-
-We can also spread event handlers directly onto elements. Here, we’ve defined an `onclick` handler in App.svelte — all we need to do is pass the props to the `<button>` in BigRedButton.svelte:
-
-BigRedButton
-
-```html
-<button {...props}>
-	Push
+<button on:click|once={handleClick}>
+  Click me
 </button>
 
-<script>
-	let props = $props();
-</script>
-
 ```
 
-App
+The full list of modifiers:
+
+- **preventDefault** — calls event.preventDefault() before running the handler. Useful for client-side form handling, for example.
+- **stopPropagation** — calls event.stopPropagation(), preventing the event reaching the next element
+- **passive** — improves scrolling performance on touch/wheel events (Svelte will add it automatically where it's safe to do so)
+- **nonpassive** — explicitly set passive: false
+- **capture** — fires the handler during the capture phase instead of the bubbling phase (MDN docs)
+- **once** — remove the handler after the first time it runs
+- **self** — only trigger handler if event.target is the element itself
+- **trusted** — only trigger handler if event.isTrusted is true. I.e. if the event is triggered by a user action.
+
+You can chain modifiers together, e.g. `on:click|once|capture={...}.`
+
+
+## d. Component events (Event Dispatcher)
+
+Components can also dispatch events. To do so, they must create `an event dispatcher`. 
+
+➖ *app.svelte*
 
 ```html
 <script>
-	import BigRedButton from './BigRedButton.svelte';
-	import horn from './horn.mp3';
+  import Inner from './Inner.svelte';
 
-	const audio = new Audio();
-	audio.src = horn;
-
-	function honk() {
-		audio.load();
-		audio.play();
-	}
+  function handleMessage(event) {
+    // gönderilen argümanlar event.detail objesinin içerisinde
+    alert(event.detail.text);
+  }
 </script>
 
-<BigRedButton onclick={honk} />
+<Inner on:message={handleMessage}/>
 ```
 
+➖ *inner.svelte*
+
+```html
+<script>
+  import { createEventDispatcher } from 'svelte';
+
+  // createEventDispatcher() must be called to get dispatch object
+  const dispatch = createEventDispatcher();
+
+  function sayHello() {
+    dispatch('message', {
+      text: 'Hello!'
+    });
+  }
+</script>
+
+```
+
+📝 *Note:* createEventDispatcher must be called when the component is first instantiated — you can't do it later inside e.g. a setTimeout callback. This links dispatch to the component instance.
+
+Notice that the App component is listening to the messages dispatched by *Inner component* thanks to the on:message directive. This directive is an attribute *prefixed* with "on:" followed by the event name that we are dispatching (in this case, message).
+
+Without this attribute, messages would still be dispatched, but the App would not react to it. You can try removing the "on:message" attribute and pressing the button again.
+
+## e. Event forwarding
+
+Unlike DOM events, component events don't bubble ❗. If you want to listen to an event on some deeply nested component, the intermediate components must forward the event.
+
+In this case, we have the same App.svelte and Inner.svelte as in the previous chapter, but there's now an Outer.svelte component that contains `<Inner/>`.
+
+One way we could solve the problem is adding createEventDispatcher to Outer.svelte, listening for the message event, and creating a handler for it:
+
+*outer.svelte*
+
+```html
+<script>
+  import Inner from './Inner.svelte';
+  import { createEventDispatcher } from 'svelte';
+
+  const dispatch = createEventDispatcher();
+
+  function forward(event) {
+    dispatch('message', event.detail);
+  }
+</script>
+
+<Inner on:message={forward}/>
+
+```
+
+But that's a lot of code to write, so Svelte gives us an equivalent shorthand — an on:message event directive without a value means 'forward all message events'.
+
+*app.svelte* (parent component)
+
+```html
+<script>
+  import Child from './Outer.svelte';
+
+  function handleMessage(event) {
+    alert(event.detail.text);
+  }
+</script>
+
+<Child on:message={handleMessage}/>
+```
+
+*child.svelte*
+
+```html
+<script>
+  import GrandChild from './GrandChild.svelte';
+</script>
+
+<!-- inform parent for granchild messages -->
+<GrandChild on:message/>
+
+```
+
+*grandchild.svelte*
+
+```html
+<script>
+  import { createEventDispatcher } from 'svelte';
+
+  const dispatch = createEventDispatcher();
+
+  function sayHello() {
+    dispatch('message', {
+      text: 'Hello!'
+    });
+  }
+</script>
+
+<button on:click={sayHello}>
+  Click to say hello
+</button>
+```
+
+## f. DOM event forwarding
+
+Event forwarding works for DOM events too.
+
+We want to get notified of clicks on our `<CustomButton> `— to do that, we just need to forward click events on the `<button>` element in CustomButton component:
+
+*App.svelte*
+
+```html
+<script>
+  import CustomButton from './CustomButton.svelte';
+
+  function handleClick() {
+    alert('Button Clicked');
+  }
+</script>
+
+<CustomButton on:click={handleClick}/>
+```
+
+*CustomButton.svelte*
+
+```html
+<button on:click>
+  Click me
+</button>
+
+<style>
+  button {
+    background: #E2E8F0;
+    color: #64748B;
+    border: unset;
+    border-radius: 6px;
+    padding: .75rem 1.5rem;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background: #CBD5E1;
+    color: #475569;
+  }
+
+  button:focus {
+    background: #94A3B8;
+    color: #F1F5F9;
+  }
+</style>
+```
 
 # 6 Bindings 
 
