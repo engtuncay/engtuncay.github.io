@@ -23,9 +23,9 @@
   - [2.5 Effects](#25-effects)
   - [2.6 Universal Reactivity](#26-universal-reactivity)
 - [3 Props](#3-props)
-  - [2.1 Declaring props](#21-declaring-props)
-  - [2.2 Default values](#22-default-values)
-  - [2.3 Spread Props](#23-spread-props)
+  - [3.1 Declaring props](#31-declaring-props)
+  - [3.2 Default values](#32-default-values)
+  - [3.3 Spread Props](#33-spread-props)
 - [4 Logic](#4-logic)
   - [4.1 If blocks](#41-if-blocks)
   - [4.2 Else blocks](#42-else-blocks)
@@ -430,7 +430,7 @@ Now, when you click any button, all three update simultaneously.
 
 # 3 Props
 
-## 2.1 Declaring props
+## 3.1 Declaring props
 
 So far, we've dealt exclusively with internal state — that is to say, the values are only accessible within a given component.
 
@@ -467,7 +467,7 @@ In any real application, you'll need to `pass data from one component down to it
 
 ```
 
-## 2.2 Default values
+## 3.2 Default values
 
 We can easily specify default values for props. 
 
@@ -496,7 +496,7 @@ The answer is 42
 The answer is a mystery
 ```
 
-## 2.3 Spread Props
+## 3.3 Spread Props
 
 In this exercise, in `App.svelte` we’ve forgotten to pass the `name` prop expected by `PackageInfo.svelte`, meaning the `<code>` element is empty and the npm link is broken.
 
@@ -594,11 +594,13 @@ App
 
 ## 4.3 Each blocks
 
-When building user interfaces you’ll often find yourself working with lists of data. In this exercise, we’ve repeated the <button> markup multiple times — changing the colour each time — but there’s still more to add.
+When building user interfaces you’ll often find yourself working with lists of data. In this exercise, we’ve repeated the `<button>` markup multiple times — changing the colour each time — but there’s still more to add.
 
-Instead of laboriously copying, pasting and editing, we can get rid of all but the first button, then use an each block:
+Instead of laboriously copying, pasting and editing, we can get rid of all but the first button, then use an `each` block:
 
 App
+
+```html
 <div>
 	{#each colors as color}
 		<button
@@ -609,11 +611,16 @@ App
 		></button>
 	{/each}
 </div>
-The expression (colors, in this case) can be any iterable or array-like object — in other words, anything that works with Array.from.
+
+```
+
+The expression (colors, in this case) can be any iterable or array-like object — in other words, anything that works with `Array.from`.
 
 Now we need to use the color variable in place of "red":
 
 App
+
+```html
 <div>
 	{#each colors as color}
 		<button
@@ -624,9 +631,14 @@ App
 		></button>
 	{/each}
 </div>
+
+```
+
 You can get the current index as a second argument, like so:
 
 App
+
+```html
 <div>
 	{#each colors as color, i}
 		<button
@@ -638,18 +650,28 @@ App
 	{/each}
 </div>
 
+```
+
 
 ## e. Keyed each blocks
 
+By default, when you modify the value of an `each` block, it will add and remove DOM nodes at the end of the block, and update any values that have changed. That might not be what you want.
 
+It’s easier to show why than to explain. Inside `Thing.svelte`, `name` is a dynamic prop but `emoji` is a constant.
 
-By default, when you modify the value of an `each` block, it will add and remove items at the end of the block, and update any values that have changed. That might not be what you want.
+Click the ‘Remove first thing’ button a few times, and notice what happens:
 
-It's easier to show why than to explain. (https://svelte.dev/tutorial/keyed-each-blocks ) Click to expand the Console, then click the `'Remove first thing'` button a few times, and notice what happens: it does not remove the first `<Thing>` component, but rather `the last DOM node`. Then it updates the name value in the remaining DOM nodes, but not the emoji.
+1. It removes the last component.
 
-Instead, we'd like to remove only the first `<Thing>` component and `its DOM node`, and leave the others unaffected.
+2. It then updates the name value in the remaining DOM nodes, but not the emoji.
 
-To do that, we specify `a unique identifier (or "key")` for the each block:
+❗ If you’re coming from React, this might seem strange, because you’re used to the entire component re-rendering when state changes. Svelte works differently: the component ‘runs’ once, and subsequent updates are ‘fine-grained’. This makes things faster and gives you more control.
+
+One way to fix it would be to make `emoji` a `$derived` value. But it makes more sense to remove the first `<Thing>` component altogether than to remove the last one and update all the others.
+
+To do that, we specify a unique key for each iteration of the each block:
+
+App
 
 ```html
 {#each things as thing (thing.id)}
@@ -658,80 +680,7 @@ To do that, we specify `a unique identifier (or "key")` for the each block:
 
 ```
 
-Here, `(thing.id)` is the key, which tells Svelte how to figure out `which DOM node to change when the component updates`.
-
-📝 You can use any object as the key, as Svelte uses a Map internally — in other words you could do <span style="color:red">(thing) instead of (thing.id)</span>. Using a string or number is generally safer, however, since it means <span style="color:red">identity persists without referential equality</span>, for example when updating with fresh data from an API server.
-
-*app.svelte*
-
-```html
-<script>
-	import Thing from './Thing.svelte';
-
-	let things = [
-		{ id: 1, name: 'apple' },
-		{ id: 2, name: 'banana' },
-		{ id: 3, name: 'carrot' },
-		{ id: 4, name: 'doughnut' },
-		{ id: 5, name: 'egg' }
-	];
-
-	function handleClick() {
-		things = things.slice(1);
-	}
-</script>
-
-<button on:click={handleClick}> Remove first thing </button>
-
-{#each things as thing (thing.id)}
-	<Thing name={thing.name} />
-{/each}
-```
-
-*thing.svelte*
-
-```html
-<script>
-	import { onDestroy } from 'svelte';
-
-	const emojis = {
-		apple: '🍎',
-		banana: '🍌',
-		carrot: '🥕',
-		doughnut: '🍩',
-		egg: '🥚'
-	};
-
-	// the name is updated whenever the prop value changes...
-	export let name;
-
-	// ...but the "emoji" variable is fixed upon initialisation of the component
-	const emoji = emojis[name];
-
-	// observe in the console which entry is removed
-	onDestroy(() => {
-		console.log('thing destroyed: ' + name);
-	});
-</script>
-
-<p>
-	<span>The emoji for {name} is {emoji}</span>
-</p>
-
-<style>
-	p {
-		margin: 0.8em 0;
-	}
-	span {
-		display: inline-block;
-		padding: 0.2em 1em 0.3em;
-		text-align: center;
-		border-radius: 0.2em;
-		color:#333333;
-		background-color: #ffdfd3;
-	}
-</style>
-```
+❗ You can use any object as the key, as Svelte uses a `Map` internally — in other words you could do (`thing`) instead of (`thing.id`). Using a string or number is generally safer, however, since it means identity persists without referential equality, for example when updating with fresh data from an API server.
 
 ## f. Await blocks
 
@@ -739,18 +688,18 @@ Most web applications have to deal with asynchronous data at some point. Svelte 
 
 ```html
 {#await promise}
-	<p>...waiting</p>
+<p>...rolling</p>
 {:then number}
-	<p>The number is {number}</p>
+	<p>you rolled a {number}!</p>
 {:catch error}
 	<p style="color: red">{error.message}</p>
 {/await}
 
 ```
 
-✏ Only the most recent promise is considered, meaning you don't need to worry about race conditions.
+✏ Only the most recent `promise` is considered, meaning you don't need to worry about race conditions.
 
-If you know that your promise can't reject, you can <span style="color:red">omit the catch block</span>. You can also omit <span style="color:red">the first block</span> if you don't want to show anything until the promise resolves:
+If you know that your promise can't reject, you can omit the catch block. You can also omit the first block if you don't want to show anything until the promise resolves:
 
 ```html
 {#await promise then number}
@@ -759,49 +708,52 @@ If you know that your promise can't reject, you can <span style="color:red">omit
 
 ```
 
-*app.svelte*
+App.svelte
 
 ```html
 <script>
-	async function getRandomNumber() {
-		const res = await fetch(`/tutorial/random-number`);
-		const text = await res.text();
+	import { roll } from './utils.js';
 
-		if (res.ok) {
-			return text;
-		} else {
-			throw new Error(text);
-		}
-	}
-
-	let promise = getRandomNumber();
-
-	function handleClick() {
-		promise = getRandomNumber();
-	}
+	let promise = $state(roll());
 </script>
 
-<button on:click={handleClick}> generate random number </button>
+<button onclick={() => promise = roll()}>
+	roll the dice
+</button>
 
 {#await promise}
-	<p>...waiting</p>
+	<p>...rolling</p>
 {:then number}
-	<p>The number is {number}</p>
+	<p>you rolled a {number}!</p>
 {:catch error}
 	<p style="color: red">{error.message}</p>
 {/await}
-```
-
-*Result*
-
-```bash
-The number is 87
-```
-
-or
 
 ```
-Failed to generate random number. Please try again
+
+utils.js
+
+```javascript
+export async function roll() {
+	// Fetch a random number from 1 to 6
+	// (with a delay, so that we can see it)
+	return new Promise((fulfil, reject) => {
+		setTimeout(() => {
+			// simulate a flaky network
+			if (Math.random() < 0.3) {
+				reject(new Error('Request failed'));
+				return;
+			}
+
+			fulfil(Math.ceil(Math.random() * 6));
+		}, 1000);
+	});
+}
 ```
 
 
+*Result after delay*
+
+```
+you rolled a 6!
+```
