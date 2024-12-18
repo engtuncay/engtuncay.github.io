@@ -20,15 +20,16 @@
   - [2.2 Deep State](#22-deep-state)
   - [2.3 Derived State](#23-derived-state)
   - [2.4 Inspecting State](#24-inspecting-state)
+  - [2.5 Effects](#25-effects)
+  - [2.6 Universal Reactivity](#26-universal-reactivity)
 - [3 Props](#3-props)
-  - [a. Declaring props](#a-declaring-props)
-  - [b. Default values](#b-default-values)
-  - [c. Spread Props](#c-spread-props)
+  - [2.1 Declaring props](#21-declaring-props)
+  - [2.2 Default values](#22-default-values)
+  - [2.3 Spread Props](#23-spread-props)
 - [4 Logic](#4-logic)
-  - [a. If blocks](#a-if-blocks)
-  - [b. Else blocks](#b-else-blocks)
-  - [c. Else-if blocks](#c-else-if-blocks)
-  - [d. Each blocks](#d-each-blocks)
+  - [4.1 If blocks](#41-if-blocks)
+  - [4.2 Else blocks](#42-else-blocks)
+  - [4.3 Each blocks](#43-each-blocks)
   - [e. Keyed each blocks](#e-keyed-each-blocks)
   - [f. Await blocks](#f-await-blocks)
 
@@ -309,59 +310,149 @@ It’s often useful to be able to track the value of a piece of state as it chan
 
 Inside the addNumber function, we’ve added a console.log statement. But if you click the button and open the console drawer (using the button to the right of the URL bar), you’ll see a warning, and a message saying the message could not be cloned.
 
-That’s because numbers is a reactive proxy. There are a couple of things we can do. Firstly, we can create a non-reactive snapshot of the state with $state.snapshot(...):
+That’s because numbers is a reactive proxy. There are a couple of things we can do. Firstly, we can create a non-reactive snapshot of the state with `$state.snapshot(...)`:
 
 App
+
+```js
 function addNumber() {
 	numbers.push(numbers.length + 1);
 	console.log($state.snapshot(numbers));
 }
-Alternatively, we can use the $inspect rune to automatically log a snapshot of the state whenever it changes. This code will automatically be stripped out of your production build:
+
+```
+
+Alternatively, we can use the `$inspect` rune to automatically log a snapshot of the state whenever it changes. This code will automatically be stripped out of your production build:
 
 App
+
+```js
 function addNumber() {
 	numbers.push(numbers.length + 1);
 	console.log($state.snapshot(numbers));
 }
 
 $inspect(numbers);
-You can customise how the information is displayed by using $inspect(...).with(fn) — for example, you can use console.trace to see where the state change originated from:
+
+```
+
+You can customise how the information is displayed by using `$inspect(...).with(fn)` — for example, you can use console.trace to see where the state change originated from:
 
 App
-$inspect(numbers).with(console.trace);
-
-
-
-
-
-
-# 3 Props
-
-## a. Declaring props
-
-So far, we've dealt exclusively with internal state — that is to say, the values are only accessible within a given component.
-
-In any real application, you'll need to `pass data from one component down to its children`. To do that, we need to declare properties, generally shortened to 'props'. In Svelte, we do that with the `export keyword`. Edit the `Nested.svelte` component:
- 
-➖ *Nested.svelte*
 
 ```js
-<script>
-export let answer;
+$inspect(numbers).with(console.trace);
+
+```
+
+## 2.5 Effects
+
+So far we’ve talked about reactivity in terms of state. But that’s only half of the equation — state is only reactive if something is reacting to it, otherwise it’s just a sparkling variable.
+
+The thing that reacts is called an `effect`. You’ve already encountered effects — the ones that Svelte creates on your behalf to update the DOM in response to state changes — but you can also create your own with the `$effect` rune.
+
+❗ Most of the time, you shouldn’t. `$effect` is best thought of as an escape hatch, rather than something to use frequently. If you can put your side effects in an event handler (https://svelte.dev/tutorial/svelte/dom-events), for example, that’s almost always preferable.
+
+Let’s say we want to use `setInterval` to keep track of how long the component has been mounted. Create the effect:
+
+App
+
+```html
+<script lang="ts">
+	let elapsed = $state(0);
+	let interval = $state(1000);
+
+	$effect(() => {
+		setInterval(() => {
+			elapsed += 1;
+		}, interval);
+	});
 </script>
 
 ```
 
-Just like `$:`, this may feel a little weird at first. That's not how export normally works in JavaScript modules! Just roll with it for now — it'll soon become second nature.
+Click the ‘speed up’ button a few times and notice that `elapsed` ticks up faster, because we’re calling `setInterval` each time `interval` gets smaller.
+
+If we then click the ‘slow down’ button... well, it doesn’t work. That’s because we’re not clearing out the old intervals when the effect updates. We can fix that by returning a cleanup function:
+
+App
+
+```js
+$effect(() => {
+	const id = setInterval(() => {
+		elapsed += 1;
+	}, interval);
+
+	return () => {
+		clearInterval(id);
+	};
+});
+
+```
+The cleanup function is called immediately before the effect function re-runs when `interval` changes, and also when the component is destroyed.
+
+If the effect function doesn’t read any state when it runs, it will only run once, when the component mounts.
+
+❗ Effects do not run during server-side rendering.
+
+## 2.6 Universal Reactivity
+
+In the preceding exercises, we used runes to add reactivity inside components. But we can also use runes outside components, for example to share some global state.
+
+The `<Counter>` components in this exercise are all importing the `counter` object from `shared.js`. But it’s a normal object, and as such nothing happens when you click the buttons. Wrap the object in `$state(...)`:
+
+shared.js
+
+```js
+export const counter = $state({
+	count: 0
+});
+
+```
+
+This causes an error, because you can’t use runes in normal `.js` files, only `.svelte.js` files. Let’s fix that — rename the file to `shared.svelte.js`.
+
+Then, update the import declaration in `Counter.svelte`:
+
+Counter
+
+```html
+<script lang="ts">
+	import { counter } from './shared.svelte.js';
+</script>
+
+```
+
+Now, when you click any button, all three update simultaneously.
+
+❗ You cannot export a `$state` declaration from a module if the declaration is reassigned (rather than just mutated), because the importers would have no way to know about it.
+
+
+# 3 Props
+
+## 2.1 Declaring props
+
+So far, we've dealt exclusively with internal state — that is to say, the values are only accessible within a given component.
+
+In any real application, you'll need to `pass data from one component down to its children`. To do that, we need to declare `properties`, generally shortened to 'props'.  In Svelte, we do that with the `$props` rune. Edit the Nested.svelte component:
+ 
+➖ *Nested.svelte*
+
+```js
+<script lang="ts">
+	let { answer } = $props();
+</script>
+
+```
 
 ➖ *App.svelte*
 
 ```html
 <script>
-  import Nested from './Nested.svelte';
+	import Nested from './Nested.svelte';
 </script>
 
-<Nested answer={42} /> <!-- sending a prop -->
+<Nested answer={42} />
 
 ```
 
@@ -369,42 +460,35 @@ Just like `$:`, this may feel a little weird at first. That's not how export nor
 
 ```html
 <script>
-  export let answer; /* accepting/receiving a prop */
+	let { answer } = $props();
 </script>
 
 <p>The answer is {answer}</p>
 
 ```
 
-Try : https://learn.svelte.dev/tutorial/declaring-props
+## 2.2 Default values
 
-
-## b. Default values
-
-We can easily specify default values for props 
+We can easily specify default values for props. 
 
 ➖ In Nested.svelte :
 
 ```html
-<script>
-  export let answer = 'a mystery';
+<script lang="ts">
+	let { answer = 'a mystery' } = $props();
 </script>
+
 ```
 
-If we now add a second component without an answer prop, it will fall back to the default:
+If we now add a second component without an `answer` prop, it will fall back to the default:
 
-➖ *App.svelte*
+App.svelte
 
 ```html
-<script>
-  import Nested from './Nested.svelte';
-</script>
-
 <Nested answer={42}/>
 <Nested/>
 
 ```
-
 *Result*
 
 ```
@@ -412,113 +496,94 @@ The answer is 42
 The answer is a mystery
 ```
 
---*REVIEW - variable ın prop olarak gönderildiği örnek eklenir
+## 2.3 Spread Props
 
-## c. Spread Props
+In this exercise, in `App.svelte` we’ve forgotten to pass the `name` prop expected by `PackageInfo.svelte`, meaning the `<code>` element is empty and the npm link is broken.
 
-We can pass an object to a component by 'spreading' them onto a component instead of specifying each one:
+We could fix it by adding the prop...
 
-*Parent-Component*
+App
 
 ```html
-<script>
-  import PackageInfo from './PackageInfo.svelte';
+<PackageInfo
+	name={pkg.name}
+	version={pkg.version}
+	description={pkg.description}
+	website={pkg.website}
+/>
 
-  const pkg = {
-    name: 'svelte',
-    speed: 'blazing',
-    version: 4,
-    website: 'https://svelte.dev'
-  };
-</script>
+```
+...but since the properties of `pkg` correspond to the component’s expected props, we can ‘spread’ them onto the component instead:
 
+App
+
+```html
 <PackageInfo {...pkg} />
 
 ```
 
-➖ *PackageInfo.svelte*
+❗ Conversely, in `PackageInfo.svelte` you can get an object containing all the props that were passed into a component using a rest property...
 
-```html
-<script>
-	export let name;
-	export let version;
-	export let speed;
-	export let website;
-</script>
-
-<p>
-	The <code>{name}</code> package is {speed} fast. Download version {version} from
-	<a href="https://www.npmjs.com/package/{name}">npm</a>
-	and <a href={website}>learn more here</a>
-</p>
+```js
+let { name, ...stuff } = $props();
 
 ```
 
-📝 Conversely, if you need to reference all the props that were passed into a component, including ones that weren't declared with export, you can do so by accessing `$$props` directly. It's not generally recommended, as it's difficult for Svelte to optimise, but it's useful in rare cases.
+...or by skipping destructuring altogether: 
 
---*REVIEW - $$props detaylandırılmalı
+```js
+let stuff = $props();
 
-Try : https://learn.svelte.dev/tutorial/spread-props
+```
 
---*TBC - SVELTE CORE
+...in which case you can access the properties by their object paths:
+
+```js
+console.log(stuff.name, stuff.version, stuff.description, stuff.website);
+
+```
 
 # 4 Logic
 
-## a. If blocks
+## 4.1 If blocks
 
 HTML doesn't have a way of expressing logic, like conditionals and loops. Svelte does.
 
 To conditionally render some markup, we wrap it in an if block:
 
 ```html
-{#if user.loggedIn}
-  <button on:click={toggle}>
-    Log out
-  </button>
+<button onclick={increment}>
+	Clicked {count}
+	{count === 1 ? 'time' : 'times'}
+</button>
+
+{#if count > 10}
+	<p>{count} is greater than 10</p>
 {/if}
 
-{#if !user.loggedIn}
-  <button on:click={toggle}>
-    Log in
-  </button>
-{/if}
 
-```
-
-*app.svelte*
-
-```html
 <script>
-  let user = { loggedIn: false };
+	let count = $state(0);
 
-  function toggle() {
-    user.loggedIn = !user.loggedIn;
-  }
+	function increment() {
+		count += 1;
+	}
 </script>
-
-{#if user.loggedIn}
-  <button on:click={toggle}> Log out </button>
-{/if}
-
-{#if !user.loggedIn}
-  <button on:click={toggle}> Log in </button>
-{/if}
-
 ```
 
-## b. Else blocks
+## 4.2 Else blocks
 
-Since the two conditions — if `user.loggedIn` and if `!user.loggedI`n — are mutually exclusive, we can simplify this component slightly by using an else block:
+Multiple conditions can be ‘chained’ together with `else if`:
+
+App
 
 ```html
-{#if user.loggedIn}
-	<button on:click={toggle}>
-		Log out
-	</button>
+{#if count > 10}
+	<p>{count} is greater than 10</p>
+{:else if count < 5}
+	<p>{count} is less than 5</p>
 {:else}
-	<button on:click={toggle}>
-		Log in
-	</button>
+	<p>{count} is between 5 and 10</p>
 {/if}
 
 ```
@@ -527,60 +592,52 @@ Since the two conditions — if `user.loggedIn` and if `!user.loggedI`n — are 
 
 ❗ A `:` character, as in `{:else}`, indicates `a block continuation tag`. 
 
-Don't worry — you've already learned almost all the syntax Svelte adds to HTML.
+## 4.3 Each blocks
 
-## c. Else-if blocks
+When building user interfaces you’ll often find yourself working with lists of data. In this exercise, we’ve repeated the <button> markup multiple times — changing the colour each time — but there’s still more to add.
 
-Multiple conditions can be 'chained' together with else if:
+Instead of laboriously copying, pasting and editing, we can get rid of all but the first button, then use an each block:
 
-```html
-{#if x > 10}
-	<p>{x} is greater than 10</p>
-{:else if 5 > x}
-	<p>{x} is less than 5</p>
-{:else}
-	<p>{x} is between 5 and 10</p>
-{/if}
-
-```
-
-## d. Each blocks
-
-If you need to loop over lists of data, use an each block:
-
-```html
-<script>
-	let cats = [
-		{ id: 'J---aiyznGQ', name: 'Keyboard Cat' },
-		{ id: 'z_AbfPXTKms', name: 'Maru' },
-		{ id: 'OUtn3pvWmpg', name: 'Henri The Existential Cat' }
-	];
-</script>
-
-<ul>
-	{#each cats as cat}
-		<li><a target="_blank" href="https://www.youtube.com/watch?v={cat.id}" rel="noreferrer">
-			{cat.name}
-		</a></li>
+App
+<div>
+	{#each colors as color}
+		<button
+			style="background: red"
+			aria-label="red"
+			aria-current={selected === 'red'}
+			onclick={() => selected = 'red'}
+		></button>
 	{/each}
-</ul>
+</div>
+The expression (colors, in this case) can be any iterable or array-like object — in other words, anything that works with Array.from.
 
-```
+Now we need to use the color variable in place of "red":
 
-The expression (cats, in this case) can be `any array or array-like object (i.e. it has a length property)`. You can loop over generic iterables with each [...iterable].
-
+App
+<div>
+	{#each colors as color}
+		<button
+			style="background: {color}"
+			aria-label={color}
+			aria-current={selected === color}
+			onclick={() => selected = color}
+		></button>
+	{/each}
+</div>
 You can get the current index as a second argument, like so:
 
-```html
-{#each cats as cat, i}
-	<li><a target="_blank" href="https://www.youtube.com/watch?v={cat.id}" rel="noreferrer">
-		{i + 1}: {cat.name}
-	</a></li>
-{/each}
+App
+<div>
+	{#each colors as color, i}
+		<button
+			style="background: {color}"
+			aria-label={color}
+			aria-current={selected === color}
+			onclick={() => selected = color}
+		>{i + 1}</button>
+	{/each}
+</div>
 
-```
-
-If you prefer, you can use destructuring — `each cats as { id, name }` — and replace `cat.id and cat.name with id and name`.
 
 ## e. Keyed each blocks
 
