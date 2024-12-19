@@ -30,8 +30,8 @@
   - [4.1 If blocks](#41-if-blocks)
   - [4.2 Else blocks](#42-else-blocks)
   - [4.3 Each blocks](#43-each-blocks)
-  - [e. Keyed each blocks](#e-keyed-each-blocks)
-  - [f. Await blocks](#f-await-blocks)
+  - [4.4 Keyed each blocks](#44-keyed-each-blocks)
+  - [4.5 Await blocks](#45-await-blocks)
 
 [Back](../readme.md)
 
@@ -653,7 +653,7 @@ App
 ```
 
 
-## e. Keyed each blocks
+## 4.4 Keyed each blocks
 
 By default, when you modify the value of an `each` block, it will add and remove DOM nodes at the end of the block, and update any values that have changed. That might not be what you want.
 
@@ -682,7 +682,7 @@ App
 
 ❗ You can use any object as the key, as Svelte uses a `Map` internally — in other words you could do (`thing`) instead of (`thing.id`). Using a string or number is generally safer, however, since it means identity persists without referential equality, for example when updating with fresh data from an API server.
 
-## f. Await blocks
+## 4.5 Await blocks
 
 Most web applications have to deal with asynchronous data at some point. Svelte makes it easy to await the value of promises directly in your markup:
 

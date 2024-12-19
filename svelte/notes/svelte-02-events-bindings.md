@@ -15,18 +15,11 @@
   - [6.1 Text inputs](#61-text-inputs)
   - [6.2 Numeric inputs](#62-numeric-inputs)
   - [6.3 Checkbox inputs](#63-checkbox-inputs)
-  - [d. Group inputs](#d-group-inputs)
-  - [e. Textarea inputs](#e-textarea-inputs)
-  - [f. Select bindings](#f-select-bindings)
-  - [g. Select multiple](#g-select-multiple)
-  - [h. Contenteditable bindings](#h-contenteditable-bindings)
-  - [i. Each block bindings](#i-each-block-bindings)
-  - [j. Media elements](#j-media-elements)
-  - [k. Dimensions](#k-dimensions)
-  - [l. This](#l-this)
-  - [m. Component bindings](#m-component-bindings)
-  - [n. Binding to component instances](#n-binding-to-component-instances)
-- [Art - Data Binding In Svelte By Aagam Vadecha](#art---data-binding-in-svelte-by-aagam-vadecha)
+  - [6.4 Select Bindings](#64-select-bindings)
+  - [6.5 Group inputs](#65-group-inputs)
+  - [6.6 Select Multiple](#66-select-multiple)
+  - [6.7 Textarea inputs](#67-textarea-inputs)
+- [Art - Data Binding In Svelte By Aagam Vadecha (Svelte 3)](#art---data-binding-in-svelte-by-aagam-vadecha-svelte-3)
   - [One-way vs two-way data binding](#one-way-vs-two-way-data-binding)
   - [Passing props down to a child](#passing-props-down-to-a-child)
   - [Passing props back to a parent](#passing-props-back-to-a-parent)
@@ -290,768 +283,294 @@ Checkboxes are used for toggling between states. Instead of binding to `input.va
 
 
 ```
+## 6.4 Select Bindings
 
-## d. Group inputs
+We can also use `bind:value` with `<select>` elements:
 
-If you have multiple inputs relating to the same value, you can use `bind:group` along with the value attribute. Radio inputs in the same group are mutually exclusive; checkbox inputs in the same group form an array of selected values.
-
-Add `bind:group` to each input:
+App
 
 ```html
-<input type=radio bind:group={scoops} name="scoops" value={1}>
+<select
+	bind:value={selected}
+	onchange={() => answer = ''}
+>
 
 ```
 
-In this case, we could make the code simpler by moving the checkbox inputs into an each block. First, add a menu variable to the `<script>` block...
+Note that the `<option>` values are objects rather than strings. Svelte doesn’t mind.
 
-```js
-let menu = [
-  'Cookies and cream',
-  'Mint choc chip',
-  'Raspberry ripple'
-];
+❗ Because we haven’t set an initial value of selected, the binding will set it to the default value (the first in the list) automatically. Be careful though — until the binding is initialised, selected remains undefined, so we can’t blindly reference e.g. `selected.id` in the template.
+
+App (full)
+
+```html
+<script>
+	let questions = $state([
+		{
+			id: 1,
+			text: `Where did you go to school?`
+		},
+		{
+			id: 2,
+			text: `What is your mother's name?`
+		},
+		{
+			id: 3,
+			text: `What is another personal fact that an attacker could easily find with Google?`
+		}
+	]);
+
+	let selected = $state();
+
+	let answer = $state('');
+
+	function handleSubmit(e) {
+		e.preventDefault();
+
+		alert(
+			`answered question ${selected.id} (${selected.text}) with "${answer}"`
+		);
+	}
+</script>
+
+<h2>Insecurity questions</h2>
+
+<form onsubmit={handleSubmit}>
+	<select
+		bind:value={selected}
+		onchange={() => (answer = '')}
+	>
+		{#each questions as question}
+			<option value={question}>
+				{question.text}
+			</option>
+		{/each}
+	</select>
+
+	<input bind:value={answer} />
+
+	<button disabled={!answer} type="submit">
+		Submit
+	</button>
+</form>
+
+<p>
+	selected question {selected? selected.id : '[waiting...]'}
+</p>
 
 ```
 
-...then replace the second section:
+## 6.5 Group inputs
+
+If you have multiple type="radio" or type="checkbox" inputs relating to the same value, you can use `bind:group` along with the value attribute. Radio inputs in the same group are mutually exclusive; checkbox inputs in the same group form an array of selected values.
+
+Add `bind:group={scoops}` to the radio inputs...
+
+App
+
+```html
+<input
+	type="radio"
+	name="scoops"
+	value={number}
+	bind:group={scoops}
+/>
+
+```
+
+...and `bind:group={flavours}` to the checkbox inputs:
+
+App
+
+```html
+<input
+	type="checkbox"
+	name="flavours"
+	value={flavour}
+	bind:group={flavours}
+/>
+
+```
+
+App (full)
+
+```html
+<script>
+	let scoops = $state(1);
+	let flavours = $state([]);
+
+	const formatter = new Intl.ListFormat('en', { style: 'long', type: 'conjunction' });
+</script>
+
+<h2>Size</h2>
+
+{#each [1, 2, 3] as number}
+	<label>
+		<input
+			type="radio"
+			name="scoops"
+			value={number}
+			bind:group={scoops}
+		/>
+
+		{number} {number === 1 ? 'scoop' : 'scoops'}
+	</label>
+{/each}
+
+<h2>Flavours</h2>
+
+{#each ['cookies and cream', 'mint choc chip', 'raspberry ripple'] as flavour}
+	<label>
+		<input
+			type="checkbox"
+			name="flavours"
+			value={flavour}
+			bind:group={flavours}
+		/>
+
+		{flavour}
+	</label>
+{/each}
+
+{#if flavours.length === 0}
+	<p>Please select at least one flavour</p>
+{:else if flavours.length > scoops}
+	<p>Can't order more flavours than scoops!</p>
+{:else}
+	<p>
+		You ordered {scoops} {scoops === 1 ? 'scoop' : 'scoops'}
+		of {formatter.format(flavours)}
+	</p>
+{/if}
+
+```
+
+## 6.6 Select Multiple
+
+A `<select>` element can have a multiple attribute, in which case it will populate an array rather than selecting a single value.
+
+Replace the checkboxes with a `<select multiple>`:
+
+App
 
 ```html
 <h2>Flavours</h2>
 
-{#each menu as flavour}
-  <label>
-    <input type=checkbox bind:group={flavours} name="flavours" value={flavour}>
-    {flavour}
-  </label>
-{/each}
+<select multiple bind:value={flavours}>
+	{#each ['cookies and cream', 'mint choc chip', 'raspberry ripple'] as flavour}
+		<option>{flavour}</option>
+	{/each}
+</select>
 
 ```
 
-It's now easy to expand our ice cream menu in new and exciting directions.
+Note that we’re able to omit the value attribute on the `<option>`, since the value is identical to the element’s contents.
 
-## e. Textarea inputs
+📝 Press and hold the control key (or the command key on MacOS) to select multiple options.
 
-The `<textarea>` element behaves similarly to a text input in Svelte — use `bind:value` to create a two-way binding between the `<textarea>` content and the value variable:
+App (full)
+
+```html
+<script>
+	let scoops = $state(1);
+	let flavours = $state([]);
+
+	const formatter = new Intl.ListFormat('en', { style: 'long', type: 'conjunction' });
+</script>
+
+<h2>Size</h2>
+
+{#each [1, 2, 3] as number}
+	<label>
+		<input
+			type="radio"
+			name="scoops"
+			value={number}
+			bind:group={scoops}
+		/>
+
+		{number} {number === 1 ? 'scoop' : 'scoops'}
+	</label>
+{/each}
+
+<h2>Flavours</h2>
+
+<select multiple bind:value={flavours}>
+	{#each ['cookies and cream', 'mint choc chip', 'raspberry ripple'] as flavour}
+		<option>{flavour}</option>
+	{/each}
+</select>
+
+{#if flavours.length === 0}
+	<p>Please select at least one flavour</p>
+{:else if flavours.length > scoops}
+	<p>Can't order more flavours than scoops!</p>
+{:else}
+	<p>
+		You ordered {scoops} {scoops === 1 ? 'scoop' : 'scoops'}
+		of {formatter.format(flavours)}
+	</p>
+{/if}
+
+
+```
+
+## 6.7 Textarea inputs
+
+The `<textarea>` element behaves similarly to a text input in Svelte — use bind:value:
+
+App
 
 ```html
 <textarea bind:value={value}></textarea>
 
 ```
-
 In cases like these, where the names match, we can also use a shorthand form:
+
+App
 
 ```html
 <textarea bind:value></textarea>
 
 ```
 
-This applies to all bindings, not just textareas.
+This applies to all bindings, not just `<textarea>` bindings.
 
-## f. Select bindings
-
-We can also use `bind:value` with `<select>` elements.
-
-```html
-<select bind:value={selected} on:change="{() => answer = ''}">
-
-```
-
-Note that the `<option>` values are objects rather than strings. Svelte doesn't mind.
-
-Because we haven't set an initial value of selected, the binding will set it to the default value (the first in the list) automatically. Be careful though — until the binding is initialized, selected remains undefined, so we can't blindly reference e.g. selected.id in the template. If your use case allows it, you could also set an initial value to bypass this problem.
-
-*Full Example*
+App (full)
 
 ```html
 <script>
-  let questions = [
-    { id: 1, text: `Where did you go to school?` },
-    { id: 2, text: `What is your mother's name?` },
-    { id: 3, text: `What is another personal fact that an attacker could easily find with Google?` }
-  ];
+	import { marked } from 'marked';
 
-  let selected;
-
-  let answer = '';
-
-  function handleSubmit() {
-    alert(`answered question ${selected.id} (${selected.text}) with "${answer}"`);
-  }
+	let value = $state(`Some words are *italic*, some are **bold**\n\n- lists\n- are\n- cool`);
 </script>
 
-<h2>Insecurity questions</h2>
-
-<form on:submit|preventDefault={handleSubmit}>
-  <select value={selected} on:change="{() => answer = ''}">
-    {#each questions as question}
-      <option value={question}>
-        {question.text}
-      </option>
-    {/each}
-  </select>
-
-  <input bind:value={answer}>
-
-  <button disabled={!answer} type=submit>
-    Submit
-  </button>
-</form>
-
-<p>selected question {selected ? selected.id : '[waiting...]'}</p>
-
-<style>
-  input {
-    display: block;
-    width: 500px;
-    max-width: 100%;
-  }
-</style>
-
-```
-
-Try : https://learn.svelte.dev/tutorial/select-bindings
-
-- https://svelte.dev/repl/cce6c205ac5743d9b5c11caa75bad477?version=4.2.19
-
-## g. Select multiple
-
-A select can have a multiple attribute, in which case it will populate an array rather than selecting a single value.
-
-Returning to our earlier ice cream example, we can replace the checkboxes with a `<select multiple>`:
-
-```html
-<h2>Flavours</h2>
-
-<select multiple bind:value={flavours}>
-  {#each menu as flavour}
-    <option value={flavour}>
-      {flavour}
-    </option>
-  {/each}
-</select>
-
-```
-
-Press and hold the control key (or the command key on MacOS) for selecting multiple options.
-
-*App.svelte*
-
-```js
-<script>
-  let scoops = 1;
-  let flavours = ['Mint choc chip'];
-
-  let menu = [
-    'Cookies and cream',
-    'Mint choc chip',
-    'Raspberry ripple'
-  ];
-
-  function join(flavours) {
-    if (flavours.length === 1) return flavours[0];
-    return `${flavours.slice(0, -1).join(', ')} and ${flavours[flavours.length - 1]}`;
-  }
-</script>
-
-<h2>Size</h2>
-
-<label>
-  <input type=radio bind:group={scoops} value={1}>
-  One scoop
-</label>
-
-<label>
-  <input type=radio bind:group={scoops} value={2}>
-  Two scoops
-</label>
-
-<label>
-  <input type=radio bind:group={scoops} value={3}>
-  Three scoops
-</label>
-
-<h2>Flavours</h2>
-
-<select multiple bind:value={flavours}>
-  {#each menu as flavour}
-    <option value={flavour}>
-      {flavour}
-    </option>
-  {/each}
-</select>
-
-{#if flavours.length === 0}
-  <p>Please select at least one flavour</p>
-{:else if flavours.length > scoops}
-  <p>Can't order more flavours than scoops!</p>
-{:else}
-  <p>
-    You ordered {scoops} {scoops === 1 ? 'scoop' : 'scoops'}
-    of {join(flavours)}
-  </p>
-{/if}
-
-```
-
-➖ Try : https://svelte.dev/repl/92ad82988bcb42feb17a7abd704a9231?version=4.2.19
-
-## h. Contenteditable bindings
-
-Elements with the contenteditable attribute support the following bindings:
-
-- [innerHTML](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML)
-- [innerText](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/innerText)
-- [textContent](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent)
-
-There are slight differences between each of these, read more about them here.
-
-```html
-<div
-  contenteditable="true"
-  bind:innerHTML={html}
-></div>
-
-```
-
---*REVIEW - add an example
-
-##  i. Each block bindings
-
-You can even bind to properties inside an each block.
-
-```html
-{#each todos as todo}
-  <div class:done={todo.done}>
-    <input
-      type=checkbox
-      bind:checked={todo.done}
-    >
-
-    <input
-      placeholder="What needs to be done?"
-      bind:value={todo.text}
-    >
-  </div>
-{/each}
-
-```
-
----
-
-Note that interacting with these `<input>` elements will mutate the array. If you prefer to work with immutable data, you should avoid these bindings and use event handlers instead.
-
----
-
-*app.svelte*
-
-```html
-<script>
-  let todos = [
-    { done: false, text: 'finish Svelte tutorial' },
-    { done: false, text: 'build an app' },
-    { done: false, text: 'world domination' }
-  ];
-
-  function add() {
-    todos = todos.concat({ done: false, text: '' });
-  }
-
-  function clear() {
-    todos = todos.filter(t => !t.done);
-  }
-
-  $: remaining = todos.filter(t => !t.done).length;
-</script>
-
-<h1>Todos</h1>
-
-{#each todos as todo}
-  <div class:done={todo.done}>
-    <input
-      type=checkbox
-      bind:checked={todo.done}
-    >
-
-    <input
-      placeholder="What needs to be done?"
-      bind:value={todo.text}
-    >
-  </div>
-{/each}
-
-<p>{remaining} remaining</p>
-
-<button on:click={add}>
-  Add new
-</button>
-
-<button on:click={clear}>
-  Clear completed
-</button>
-
-<style>
-  .done {
-    opacity: 0.4;
-  }
-</style>
-
-```
-
-➖ Try : https://svelte.dev/repl/b970d91e8b0241079d4fa62d4f9fe403?version=4.2.19
-
-##  j. Media elements
-
-The `<audio>` and `<video>` elements have several properties that you can bind to. This example demonstrates a few of them.
-
-On line 62, add currentTime={time}, duration and paused bindings:
-
-```html
-<video
-  poster="https://sveltejs.github.io/assets/caminandes-llamigos.jpg"
-  src="https://sveltejs.github.io/assets/caminandes-llamigos.mp4"
-  on:mousemove={handleMove}
-  on:touchmove|preventDefault={handleMove}
-  on:mousedown={handleMousedown}
-  on:mouseup={handleMouseup}
-  bind:currentTime={time}
-  bind:duration
-  bind:paused>
-  <track kind="captions">
-</video>
-
-```
-
----
-
-❗ `bind:duration` is equivalent to `bind:duration={duration} (parent and child reference are same)`   
-
-Now, when you click on the video, it will update time, duration and paused as appropriate. This means we can use them to build custom controls.
-
-➖ Ordinarily on the web, you would track currentTime by listening for timeupdate events. But these events fire too infrequently, resulting in choppy UI. Svelte does better — it checks currentTime using requestAnimationFrame.
-
-➖ The complete set of bindings for `<audio>` and `<video>` is as follows — six readonly bindings...
-
-- duration (readonly) — the total duration of the video, in seconds
-- buffered (readonly) — an array of {start, end} objects
-- seekable (readonly) — ditto
-- played (readonly) — ditto
-- seeking (readonly) — boolean
-- ended (readonly) — boolean
-
-...and five two-way bindings:
-
-- currentTime — the current point in the video, in seconds
-- playbackRate — how fast to play the video, where 1 is 'normal'
-- paused — this one should be self-explanatory
-- volume — a value between 0 and 1
-- muted — a boolean value where true is muted
-
-Videos additionally have readonly videoWidth and videoHeight bindings.
-
-➖ Example
-
-*app.svelte*
-
-```html
-<script>
-  // These values are bound to properties of the video
-  let time = 0;
-  let duration;
-  let paused = true;
-
-  let showControls = true;
-  let showControlsTimeout;
-
-  // Used to track time of last mouse down event
-  let lastMouseDown;
-
-  function handleMove(e) {
-    // Make the controls visible, but fade out after
-    // 2.5 seconds of inactivity
-    clearTimeout(showControlsTimeout);
-    showControlsTimeout = setTimeout(() => showControls = false, 2500);
-    showControls = true;
-
-    if (!duration) return; // video not loaded yet
-    if (e.type !== 'touchmove' && !(e.buttons & 1)) return; // mouse not down
-
-    const clientX = e.type === 'touchmove' ? e.touches[0].clientX : e.clientX;
-    const { left, right } = this.getBoundingClientRect();
-    time = duration * (clientX - left) / (right - left);
-  }
-
-  // we can't rely on the built-in click event, because it fires
-  // after a drag — we have to listen for clicks ourselves
-  function handleMousedown(e) {
-    lastMouseDown = new Date();
-  }
-
-  function handleMouseup(e) {
-    if (new Date() - lastMouseDown < 300) {
-      if (paused) e.target.play();
-      else e.target.pause();
-    }
-  }
-
-  function format(seconds) {
-    if (isNaN(seconds)) return '...';
-
-    const minutes = Math.floor(seconds / 60);
-    seconds = Math.floor(seconds % 60);
-    if (seconds < 10) seconds = '0' + seconds;
-
-    return `${minutes}:${seconds}`;
-  }
-</script>
-
-<h1>Caminandes: Llamigos</h1>
-<p>From <a href="https://studio.blender.org/films">Blender Studio</a>. CC-BY</p>
-
-<div>
-  <video
-    poster="https://sveltejs.github.io/assets/caminandes-llamigos.jpg"
-    src="https://sveltejs.github.io/assets/caminandes-llamigos.mp4"
-    on:mousemove={handleMove}
-    on:touchmove|preventDefault={handleMove}
-    on:mousedown={handleMousedown}
-    on:mouseup={handleMouseup}
-    bind:currentTime={time}
-    bind:duration
-    bind:paused>
-    <track kind="captions">
-  </video>
-
-  <div class="controls" style="opacity: {duration && showControls ? 1 : 0}">
-    <progress value="{(time / duration) || 0}"/>
-
-    <div class="info">
-      <span class="time">{format(time)}</span>
-      <span>click anywhere to {paused ? 'play' : 'pause'} / drag to seek</span>
-      <span class="time">{format(duration)}</span>
-    </div>
-  </div>
+<div class="grid">
+	input
+	<textarea bind:value></textarea>
+
+	output
+	<div>{@html marked(value)}</div>
 </div>
 
 <style>
-  div {
-    position: relative;
-  }
+	.grid {
+		display: grid;
+		grid-template-columns: 5em 1fr;
+		grid-template-rows: 1fr 1fr;
+		grid-gap: 1em;
+		height: 100%;
+	}
 
-  .controls {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    transition: opacity 1s;
-  }
-
-  .info {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-  }
-
-  span {
-    padding: 0.2em 0.5em;
-    color: white;
-    text-shadow: 0 0 8px black;
-    font-size: 1.4em;
-    opacity: 0.7;
-  }
-
-  .time {
-    width: 3em;
-  }
-
-  .time:last-child { text-align: right }
-
-  progress {
-    display: block;
-    width: 100%;
-    height: 10px;
-    -webkit-appearance: none;
-    appearance: none;
-  }
-
-  progress::-webkit-progress-bar {
-    background-color: rgba(0,0,0,0.2);
-  }
-
-  progress::-webkit-progress-value {
-    background-color: rgba(255,255,255,0.6);
-  }
-
-  video {
-    width: 100%;
-  }
+	textarea {
+		flex: 1;
+		resize: none;
+	}
 </style>
 ```
 
-➖ Try : https://svelte.dev/repl/7770da3edcf4454a94afb2e289c6f32f?version=4.2.19
 
-## k. Dimensions
-
-Every block-level element has clientWidth, clientHeight, offsetWidth and offsetHeight bindings:
-
-```html
-<div bind:clientWidth={w} bind:clientHeight={h}>
-  <span style="font-size: {size}px">{text}</span>
-</div>
-
-```
-
-These bindings are readonly — changing the values of w and h won't have any effect.
-
-➖ Elements are measured using a technique similar to this one. There is some overhead involved, so it's not recommended to use this for large numbers of elements.
-
-display: inline elements cannot be measured with this approach; nor can elements that can't contain other elements (such as `<canvas>`). In these cases you will need to measure a wrapper element instead.
-
-➖ Example
-
-*app.svelte*
-
-```html
-<script>
-  let w;
-  let h;
-  let size = 42;
-  let text = 'edit me';
-</script>
-
-<input type=range bind:value={size}>
-<input bind:value={text}>
-
-<p>size: {w}px x {h}px</p>
-
-<div bind:clientWidth={w} bind:clientHeight={h}>
-  <span style="font-size: {size}px">{text}</span>
-</div>
-
-<style>
-  input { display: block; }
-  div { display: inline-block; }
-  span { word-break: break-all; }
-</style>
-
-```
-
-➖ Try : https://svelte.dev/repl/d6fa682067ea428c8f1f6ab29ba0a476?version=4.2.19
-
-## l. This
-
-The readonly this binding applies to every element (and component) and allows you to obtain a reference to rendered elements. For example, we can get a reference to a `<canvas>` element:
-
-```html
-<canvas
-  bind:this={canvas}
-  width={32}
-  height={32}
-></canvas>
-```
-
-📝 Note that the value of canvas will be undefined until the component has mounted, so we put the logic inside the onMount lifecycle function.
-
-➖ Example
-
-*app.svelte*
-
-```html
-<script>
-  import { onMount } from 'svelte';
-
-  let canvas;
-
-  onMount(() => {
-    const ctx = canvas.getContext('2d');
-    let frame = requestAnimationFrame(loop);
-
-    function loop(t) {
-      frame = requestAnimationFrame(loop);
-
-      const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-
-      for (let p = 0; p < imageData.data.length; p += 4) {
-        const i = p / 4;
-        const x = i % canvas.width;
-        const y = i / canvas.width >>> 0;
-
-        const r = 64 + (128 * x / canvas.width) + (64 * Math.sin(t / 1000));
-        const g = 64 + (128 * y / canvas.height) + (64 * Math.cos(t / 1000));
-        const b = 128;
-
-        imageData.data[p + 0] = r;
-        imageData.data[p + 1] = g;
-        imageData.data[p + 2] = b;
-        imageData.data[p + 3] = 255;
-      }
-
-      ctx.putImageData(imageData, 0, 0);
-    }
-
-    return () => {
-      cancelAnimationFrame(frame);
-    };
-  });
-</script>
-
-<canvas
-  bind:this={canvas}
-  width={32}
-  height={32}
-></canvas>
-
-<style>
-  canvas {
-    width: 100%;
-    height: 100%;
-    background-color: #666;
-    -webkit-mask: url(/svelte-logo-mask.svg) 50% 50% no-repeat;
-    mask: url(/svelte-logo-mask.svg) 50% 50% no-repeat;
-  }
-</style>
-```
-
-##  m. Component bindings
-
-Just as you can bind to properties of DOM elements, you can bind to component props. For example, we can bind to the value prop of this `<Keypad>` component as though it were a form element:
-
-```html
-<Keypad bind:value={pin} on:submit={handleSubmit}/>
-
-```
-
-Now, when the user interacts with the keypad, the value of pin in the parent component is immediately updated.
-
-➖ Use component bindings sparingly. It can be difficult to track the flow of data around your application if you have too many of them, especially if there is no 'single source of truth'. (tor:sparingly idareli)
-
-➖ Example
-
-*app.svelte*
-
-```html
-<script>
-  import Keypad from './Keypad.svelte';
-
-  let pin;
-  $: view = pin ? pin.replace(/\d(?!$)/g, '•') : 'enter your pin';
-
-  function handleSubmit() {
-    alert(`submitted ${pin}`);
-  }
-</script>
-
-<h1 style="color: {pin ? '#333' : '#ccc'}">{view}</h1>
-
-<Keypad bind:value={pin} on:submit={handleSubmit}/>
-```
-
-*keypad.svelte*
-
-```html
-<script>
-  import { createEventDispatcher } from 'svelte';
-
-  export let value = '';
-
-  const dispatch = createEventDispatcher();
-
-  const select = num => () => value += num;
-  const clear  = () => value = '';
-  const submit = () => dispatch('submit');
-</script>
-
-<div class="keypad">
-  <button on:click={select(1)}>1</button>
-  <button on:click={select(2)}>2</button>
-  <button on:click={select(3)}>3</button>
-  <button on:click={select(4)}>4</button>
-  <button on:click={select(5)}>5</button>
-  <button on:click={select(6)}>6</button>
-  <button on:click={select(7)}>7</button>
-  <button on:click={select(8)}>8</button>
-  <button on:click={select(9)}>9</button>
-
-  <button disabled={!value} on:click={clear}>clear</button>
-  <button on:click={select(0)}>0</button>
-  <button disabled={!value} on:click={submit}>submit</button>
-</div>
-
-<style>
-  .keypad {
-    display: grid;
-    grid-template-columns: repeat(3, 5em);
-    grid-template-rows: repeat(4, 3em);
-    grid-gap: 0.5em
-  }
-
-  button {
-    margin: 0
-  }
-</style>
-```
-
-➖ Try : https://svelte.dev/repl/ac4c84c4c51148b6b9f45a6032cc38fe?version=4.2.19
-
-##  n. Binding to component instances
-
-Just as you can bind to DOM elements, you can bind to component instances themselves. For example, we can bind the instance of `<InputField>` to a variable named field in the same way we did when binding DOM Elements
-
-```html
-<script>
-  let field;
-</script>
-
-```
-
-```html
-<InputField bind:this={field} />
-
-```
-
-Now we can programmatically interact with this component using field.
-
-```html
-<button on:click="{() => field.focus()}">
-  Focus field
-</button>
-
-```
-
-❗ Note that we can't do `{field.focus}` since field is undefined when the button is first rendered and throws an error.
-
-➖ Example
-
-*app.svelte*
-
-```html
-<script>
-  import InputField from './InputField.svelte';
-
-  let field;
-</script>
-
-<InputField bind:this={field}/>
-
-<button on:click={() => field.focus()}>Focus field</button>
-
-```
-
-*InputField.svelte*
-
-```html
-<script>
-  let input;
-
-  export function focus() {
-    input.focus();
-  }
-</script>
-
-<input bind:this={input} />
-```
-
-- Try : https://svelte.dev/tutorial/component-this  
-
-# Art - Data Binding In Svelte By Aagam Vadecha
+# Art - Data Binding In Svelte By Aagam Vadecha (Svelte 3)
 
 ➖ Source : https://hygraph.com/blog/data-binding-in-svelte , (some parts may be modified or added) , Oct 11, 2024
 
