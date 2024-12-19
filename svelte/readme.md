@@ -30,7 +30,7 @@ Topic                                                         | Note
 --------------------------------------------------------------|-----
 [1-4 Intro-Reactivity-Props-Logic](./notes/svelte-01-basic.md) | ✔
 [5-6 Events - Bindings](./notes/svelte-02-events-bindings.md) | ✔
-[7 Classes and Styles](./notes/svelte-03-life-cycle.md)       |
+[7 Classes and Styles](./notes/svelte-03-classes-styles.md)   |
 [8 Actions](./notes/svelte-04-stores.md)                      |
 [9 Transitions](./notes/svelte-05-actions.md)                 |
 
