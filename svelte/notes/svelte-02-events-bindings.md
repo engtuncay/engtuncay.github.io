@@ -19,7 +19,7 @@
   - [6.5 Group inputs](#65-group-inputs)
   - [6.6 Select Multiple](#66-select-multiple)
   - [6.7 Textarea inputs](#67-textarea-inputs)
-- [Art - Data Binding In Svelte By Aagam Vadecha (Svelte 3)](#art---data-binding-in-svelte-by-aagam-vadecha-svelte-3)
+- [Art - Data Binding In Svelte By Aagam Vadecha (Svelte 4)](#art---data-binding-in-svelte-by-aagam-vadecha-svelte-4)
   - [One-way vs two-way data binding](#one-way-vs-two-way-data-binding)
   - [Passing props down to a child](#passing-props-down-to-a-child)
   - [Passing props back to a parent](#passing-props-back-to-a-parent)
@@ -27,6 +27,7 @@
     - [Using a callback](#using-a-callback)
     - [Dispatching Events](#dispatching-events)
   - [Conclusion](#conclusion)
+- [Dynamic Component](#dynamic-component)
 
 [Back](../readme.md)
 
@@ -570,7 +571,7 @@ App (full)
 ```
 
 
-# Art - Data Binding In Svelte By Aagam Vadecha (Svelte 3)
+# Art - Data Binding In Svelte By Aagam Vadecha (Svelte 4)
 
 ➖ Source : https://hygraph.com/blog/data-binding-in-svelte , (some parts may be modified or added) , Oct 11, 2024
 
@@ -811,6 +812,38 @@ You can use any of these three patterns for passing data from child to parent, h
 ## Conclusion
 
 In this article, we understood data binding and how it works in Svelte. We then went through how to implement one-way and two-way data binding. We saw how to pass data as props from parent to child, and finally, we implemented multiple patterns to synchronize data from child to parent.
+
+
+# Dynamic Component
+
+```html
+<script lang="ts">
+	import A from './Title1.svelte';
+	import B from './Title2.svelte';
+
+	let MyComponent = $state();
+
+	let cmbSelected = $state();
+
+	// manual dynamic component change
+	function cmbChange(event) {
+		MyComponent = cmbSelected;
+	}
+</script>
+
+<!-- bind:value={MyComponent} is also valid -->
+<select bind:value={cmbSelected} onchange={cmbChange}>
+	<option value={A}>A</option>
+	<option value={B}>B</option>
+</select>
+
+<!-- these are equivalent -->
+<MyComponent />
+<!-- legacy  -->
+<svelte:component this={MyComponent} />
+```
+
+- Playgroud, https://svelte.dev/playground/ede463b2dc694cdf9778d361e34ea991?version=5.15.0
 
 
 [Back](../readme.md)
