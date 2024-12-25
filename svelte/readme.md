@@ -41,9 +41,9 @@ Topic | Note
 - Svelte Kit, https://kit.svelte.dev/
 
 
-
-
 # Articles and Others
+
+- [Named Slots in Svelte 5](./arts/art-named-slot-in-svelte-5.md)
 
 - [Svelte For New Developers (Creating New App)](./arts/art-svelte-for-new-developers.md)
 
@@ -52,8 +52,6 @@ Topic | Note
 - [Svelte vs Svelte Kit](./arts/art-svelte-vs-sveltekit.md)
 
 - [How to Install Tailwind Css With Svelte Vite](./arts/art-alti-how-to-install-tailwind-css-with-svelte-vite.md)
-
-- [Named Slots in Svelte 5](./arts/art-named-slot-in-svelte-5.md)
 
 - https://betterprogramming.pub/15-useful-sveltekit-code-snippets-a-cheat-sheet-ad7e56772ced
 
