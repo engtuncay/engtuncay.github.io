@@ -1,6 +1,12 @@
 
 Source : https://wpf-tutorial.com/getting-started/hello-wpf/
 
+[Back](../readme.md)
+
+---
+
+**Contents**
+
 - [14 Misc. controls](#14-misc-controls)
   - [The Border control](#the-border-control)
   - [The Slider control](#the-slider-control)

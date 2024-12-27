@@ -90,9 +90,10 @@ C# Server
 
 Topic                             | Note
 ----------------------------------|-----
-[Wpf Tutor-1](./wpf/wpf-tutor-1.md) |
-[Wpf Tutor-2](./wpf/wpf-tutor-2.md) |
-[Wpf Tutor-3](./wpf/wpf-tutor-3.md) |
-[Wpf Tutor-4](./wpf/wpf-tutor-4.md) |
+[1- Intro](./wpf/wpf-notes-1-4-intro.md) |
+[2- Basic Controls](./wpf/wpf-notes-5-basic-controls.md) |
+[7 - Panels](./wpf/wpf-notes-7-panels.md) |
+[8 - User Controls](./wpf/wpf-notes-8-user-controls.md) |
+[9 - Data Binding](./wpf/wpf-notes-9-data-binding.md)|
 
 

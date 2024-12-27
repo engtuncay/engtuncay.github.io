@@ -55,7 +55,7 @@ We'll do it by adding a TextBlock control to the Grid panel, with our aforementi
 
 ## What is XAML?
 
-XAML, which stands for eXtensible Application Markup Language, is Microsoft's variant of XML for describing a GUI. In previous GUI frameworks, like WinForms, a GUI was created in the same language that you would use for interacting with the GUI, e.g. C# or VB.NET and usually maintained by the designer (e.g.  Visual Studio), but with XAML, Microsoft is going another way. Much like with HTML, you are able to easily write and edit your GUI.
+XAML, which stands for `eXtensible Application Markup Language`, is Microsoft's variant of XML for describing a GUI. In previous GUI frameworks, like WinForms, a GUI was created in the same language that you would use for interacting with the GUI, e.g. C# or VB.NET and usually maintained by the designer (e.g.  Visual Studio), but with XAML, Microsoft is going another way. Much like with HTML, you are able to easily write and edit your GUI.
 
 This is not really a XAML tutorial, but I will briefly tell you about how you use it, because it's such an essential part of WPF. Whether you're creating a Window or a Page, it will consist of a XAML document and a CodeBehind file, which together creates the Window/Page. The XAML file describes the interface with all its elements, while the CodeBehind handles all the events and has access to manipulate with the XAML controls.
 
@@ -130,7 +130,7 @@ The Content property only allows for a single child element, so we use a WrapPan
 
 Hopefully the above examples show you that XAML is pretty easy to write, but with a lot of different ways of doing it, and if you think that the above example is a lot of markup to get a button with text in different colors, then try comparing it to doing the exact same thing in `C#`:
 
-```xml
+```csharp
 Button btn = new Button();
 btn.FontWeight = FontWeights.Bold;
 
