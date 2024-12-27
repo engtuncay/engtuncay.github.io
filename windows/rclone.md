@@ -1,5 +1,29 @@
 
 
+# Installation
+
+➖ https://rclone.org/install/#script-installation
+
+➖ Winget
+
+```sh
+winget install Rclone.Rclone
+```
+
+➖ Choco
+
+```sh
+choco install rclone
+```
+
+➖ Uninstall
+
+```sh
+winget uninstall Rclone.Rclone --force
+
+```
+
+
 # Rclone Ls
 
 ➖ 
@@ -7,12 +31,6 @@
 ```sh
 rclone ls gdrive
 ```
-
-
-
-
-
-
 
 # Rclone config file
 
@@ -40,6 +58,20 @@ Source :
 
 ```sh
 rclone ls mydrive: --drive-trashed-only
+
+```
+
+# Running in background 
+
+https://rclone.org/install/#autostart
+
+
+Rclone is a console application, so if not starting from an existing Command Prompt, e.g. when starting `rclone.exe` from a shortcut, it will open a Command Prompt window. When configuring rclone to run from task scheduler and windows service you are able to set it to run hidden in background. From rclone version 1.54 you can also make it run hidden from anywhere by adding option --no-console (it may still flash briefly when the program starts). Since rclone normally writes information and any error messages to the console, you must redirect this to a file to be able to see it. Rclone has a built-in option --log-file for that.
+
+Example command to run a sync in background:
+
+```sh
+c:\rclone\rclone.exe sync c:\files remote:/files --no-console --log-file c:\rclone\logs\sync_files.txt
 
 ```
 
