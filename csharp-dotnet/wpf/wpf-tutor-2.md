@@ -16,12 +16,6 @@ Source : https://wpf-tutorial.com/getting-started/hello-wpf/
   - [Introduction to WPF Commands](#introduction-to-wpf-commands)
   - [Using WPF commands](#using-wpf-commands)
   - [Implementing a custom WPF Command](#implementing-a-custom-wpf-command)
-- [12 Common interface controls](#12-common-interface-controls)
-  - [The WPF Menu control](#the-wpf-menu-control)
-  - [The WPF ContextMenu](#the-wpf-contextmenu)
-  - [The WPF ToolBar control](#the-wpf-toolbar-control)
-  - [The WPF StatusBar control](#the-wpf-statusbar-control)
-  - [The Ribbon control](#the-ribbon-control)
 - [13 Rich Text controls](#13-rich-text-controls)
   - [Introduction to WPF Rich Text controls](#introduction-to-wpf-rich-text-controls)
   - [The FlowDocumentScrollViewer control](#the-flowdocumentscrollviewer-control)
@@ -51,13 +45,7 @@ Source : https://wpf-tutorial.com/commands/introduction/
 ## Implementing a custom WPF Command
 
 
-# 12 Common interface controls
 
-## The WPF Menu control
-## The WPF ContextMenu
-## The WPF ToolBar control
-## The WPF StatusBar control
-## The Ribbon control
 
 # 13 Rich Text controls
 

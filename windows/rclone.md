@@ -46,6 +46,13 @@ C:\Users\%username%\AppData\Roaming\rclone\rclone.conf
 rclone cleanup mydrive:
 ```
 
+silent
+
+```sh
+rclone.exe cleanup mydrive: --no-console --log-file c:\rclone\logs\sync_files.txt
+```
+
+
 ➖ 2.Way 
 
 ```sh
@@ -79,4 +86,8 @@ c:\rclone\rclone.exe sync c:\files remote:/files --no-console --log-file c:\rclo
 
 - Rclone command list : https://github.com/rclone/rclone/blob/master/docs/content/commands/rclone.md
 
+
+# Rclone Google Drive Docs
+
+https://rclone.org/drive/
 
