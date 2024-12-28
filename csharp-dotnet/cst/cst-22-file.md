@@ -481,7 +481,7 @@ FileInfo(String) | It is used to initialize a new instance of the FileInfo class
 
 ➖  C# FileInfo Properties
 
-The following table contains properties of the FileInfo class.
+The following table contains properties of the `FileInfo` class.
 
 Properties     | Description
 ---------------|------------------------------------------------------------------------------------
