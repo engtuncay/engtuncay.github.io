@@ -42,6 +42,8 @@ C:\Users\%username%\AppData\Roaming\rclone\rclone.conf
 
 ## Rclone delete trash directory
 
+➖ 1.Way
+
 ```sh
 rclone cleanup mydrive:
 ```
@@ -52,6 +54,7 @@ silent
 rclone.exe cleanup mydrive: --no-console --log-file c:\rclone\logs\sync_files.txt
 ```
 
+Source : https://rclone.org/commands/rclone_cleanup/
 
 ➖ 2.Way 
 
