@@ -1,7 +1,7 @@
 
 - [Cheatsheets](#cheatsheets)
 - [References](#references)
-- [Notes (1) JavaTPoint](#notes-1-javatpoint)
+- [Notes (1) From JavaTPoint](#notes-1-from-javatpoint)
 - [Notes(2) W3Schools](#notes2-w3schools)
   - [C# OOP AND ADVANCE TOPICS](#c-oop-and-advance-topics)
 - [C# Other Topics](#c-other-topics)
@@ -20,7 +20,7 @@
 
 - https://www.w3schools.com/cs/index.php
 
-# Notes (1) JavaTPoint
+# Notes (1) From JavaTPoint
 
 Topic                                  | Note
 ---------------------------------------|-----
