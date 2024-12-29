@@ -41,6 +41,7 @@ Topic                                  | Note
 [20 Strings](./cst/cst-20-strings.md)|
 [22 File](./cst/cst-22-file.md) |
 [23 Collections](./cst/cst-23-collections.md)|
+[24 Application Installation]()|
 
 [Cst Index](./cst/cst-index.md)
 
