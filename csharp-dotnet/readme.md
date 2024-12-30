@@ -4,7 +4,7 @@
 - [Notes (1) From JavaTPoint](#notes-1-from-javatpoint)
 - [Notes(2) W3Schools](#notes2-w3schools)
   - [C# OOP AND ADVANCE TOPICS](#c-oop-and-advance-topics)
-- [C# Other Topics](#c-other-topics)
+- [C# Wpf Notes](#c-wpf-notes)
 
 [Back](../readme.md)
 
@@ -87,7 +87,9 @@ C# Quiz
 C# Server
 
 
-# C# Other Topics
+# C# Wpf Notes 
+
+Source : https://wpf-tutorial.com
 
 Topic                             | Note
 ----------------------------------|-----
@@ -96,5 +98,8 @@ Topic                             | Note
 [7 - Panels](./wpf/wpf-notes-7-panels.md) |
 [8 - User Controls](./wpf/wpf-notes-8-user-controls.md) |
 [9 - Data Binding](./wpf/wpf-notes-9-data-binding.md)|
+[11 - Dialogs](./wpf/wpf-notes-11-dialogs.md)|
+[12 - Controls - Menu](./wpf/wpf-notes-12-controls-menu.md)|
+[16 - List Controls-Item Template](./wpf/wpf-notes-16-list-controls.md)|
 
 
