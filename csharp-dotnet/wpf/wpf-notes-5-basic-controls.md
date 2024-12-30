@@ -20,7 +20,9 @@ Source : https://wpf-tutorial.com/basic-controls/the-textblock-control/
 
 ## The TextBlock control
 
-Source : https://wpf-tutorial.com/basic-controls/the-textblock-control/
+
+
+
 
 ## The TextBlock control - Inline formatting
 

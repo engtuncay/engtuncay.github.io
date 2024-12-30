@@ -54,10 +54,7 @@ Using the WPF TabControl
 WPF TabControl: Tab positions
 WPF TabControl: Styling the TabItems
 
-# 16 List controls
-The ItemsControl
-The ListBox control
-The ComboBox control
+
 
 # 17 The ListView control
 
@@ -80,6 +77,8 @@ TreeView - Selection/Expansion state
 Lazy loading TreeView items
 
 # 19 The DataGrid control
+
+Source : https://wpf-tutorial.com/datagrid-control/introduction/
 
 The DataGrid control
 DataGrid columns
