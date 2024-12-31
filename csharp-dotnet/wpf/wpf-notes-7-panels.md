@@ -413,7 +413,84 @@ Notice how button 5 only uses the width - it doesn't care about the height, alth
 
 ## The StackPanel control
 
+The StackPanel is very similar to the WrapPanel, but with at least one important difference: The StackPanel doesn't wrap the content. Instead it stretches it content in one direction, allowing you to stack item after item on top of each other. Let's first try a very simple example, much like we did with the WrapPanel:
 
+```xml
+<Window x:Class="WpfTutorialSamples.Panels.StackPanel"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="StackPanel" Height="160" Width="300">
+	<StackPanel>
+		<Button>Button 1</Button>
+		<Button>Button 2</Button>
+		<Button>Button 3</Button>
+		<Button>Button 4</Button>
+		<Button>Button 5</Button>
+		<Button>Button 6</Button>
+	</StackPanel>
+</Window>
+
+```
+
+![A simple StackPanel in Vertical mode](https://wpf-tutorial.com/Images/ArticleImages/1/chapters/panels/stackpanel_vertical_simple.png)
+
+The first thing you should notice is how the StackPanel doesn't really care whether or not there's enough room for the content. It doesn't wrap the content in any way and it doesn't automatically provide you with the ability to scroll (you can use a ScrollViewer control for that though - more on that in a later chapter).
+
+You might also notice that the default orientation of the StackPanel is Vertical, unlike the WrapPanel where the default orientation is Horizontal. But just like for the WrapPanel, this can easily be changed, using the Orientation property:
+
+```xml
+<StackPanel Orientation="Horizontal">
+
+```
+
+![A simple StackPanel in Horizontal mode](https://wpf-tutorial.com/Images/ArticleImages/1/chapters/panels/stackpanel_horizontal_simple.png)
+
+Another thing you will likely notice is that the StackPanel stretches its child control by default. On a vertically aligned StackPanel, like the one in the first example, all child controls get stretched horizontally. On a horizontally aligned StackPanel, all child controls get stretched vertically, as seen above. The StackPanel does this by setting the HorizontalAlignment or VerticalAlignment property on its child controls to Stretch, but you can easily override this if you want to. Have a look at the next example, where we use the same markup as we did in the previous example, but this time we assign values to the VerticalAlignment property for all the child controls:
+
+
+```xml
+<Window x:Class="WpfTutorialSamples.Panels.StackPanel"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="StackPanel" Height="160" Width="300">
+	<StackPanel Orientation="Horizontal">
+    <!-- Yatayda sütun sütun koyacak, dikeyde hizalanması farklı olacak  -->
+		<Button VerticalAlignment="Top">Button 1</Button>
+		<Button VerticalAlignment="Center">Button 2</Button>
+		<Button VerticalAlignment="Bottom">Button 3</Button>
+		<Button VerticalAlignment="Bottom">Button 4</Button>
+		<Button VerticalAlignment="Center">Button 5</Button>
+		<Button VerticalAlignment="Top">Button 6</Button>
+	</StackPanel>
+</Window>
+
+```
+
+![A StackPanel in Vertical mode with differently aligned controls](https://wpf-tutorial.com/Images/ArticleImages/1/chapters/panels/stackpanel_children_vertical_alignment.png)
+
+We use the Top, Center and Bottom values to place the buttons in a nice pattern, just for kicks. The same can of course be done for a vertically aligned StackPanel, where you would use the HorizontalAlignment on the child controls:
+
+```xml
+<Window x:Class="WpfTutorialSamples.Panels.StackPanel"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="StackPanel" Height="160" Width="300">
+	<StackPanel Orientation="Vertical">
+    <!-- Satır Satır konulacak, yatay hizalanmaları farklı olacak  -->
+		<Button HorizontalAlignment="Left">Button 1</Button>
+		<Button HorizontalAlignment="Center">Button 2</Button>
+		<Button HorizontalAlignment="Right">Button 3</Button>
+		<Button HorizontalAlignment="Right">Button 4</Button>
+		<Button HorizontalAlignment="Center">Button 5</Button>
+		<Button HorizontalAlignment="Left">Button 6</Button>
+	</StackPanel>
+</Window>
+
+```
+
+![A StackPanel in Horizontal mode with differently aligned controls](https://wpf-tutorial.com/Images/ArticleImages/1/chapters/panels/stackpanel_children_horizontal_alignment.png)
+
+As you can see, the controls still go from top to bottom, but instead of having the same width, each control is aligned to the left, the right or center.
 
 ## The DockPanel control
 
@@ -442,7 +519,6 @@ A simple DockPanel
 
 As already mentioned, we don't assign a dock position for the last child, because it automatically centers the control, allowing it to fill the remaining space. You will also notice that the controls around the center only takes up the amount of space that they need - everything else is left for the center position. That is also why you will see the Right button take up a bit more space than the Left button - the extra character in the text simply requires more pixels.
 
-
 The last thing that you will likely notice, is how the space is divided. For instance, the Top button doesn't get all of the top space, because the Left button takes a part of it. The DockPanel decides which control to favor by looking at their position in the markup. In this case, the Left button gets precedence because it's placed first in the markup. Fortunately, this also means that it's very easy to change, as we'll see in the next example, where we have also evened out the space a bit by assigning widths/heights to the child controls:
 
 ```xml
@@ -462,6 +538,7 @@ The last thing that you will likely notice, is how the space is divided. For ins
 ```
 
 A DockPanel where width or heights has been specified for the child controls
+
 The top and bottom controls now take precedence over the left and right controls, and they're all taking up 50 pixels in either height or width. If you make the window bigger or smaller, you will also see that this static width/height remains the same no matter what - only the center area increases or decreases in size as you resize the window.
 
 ➖ LastChildFill
@@ -490,4 +567,97 @@ A DockPanel where the LastChildFill property has been disabled
 In this example, we dock two controls to the left and two controls to the right, and at the same time, we turn off the LastChildFill property. This leaves us with empty space in the center, which may be preferable in some cases.
 
 ## The Canvas control
+
+The Canvas is probably the simplest Panel of them all. It doesn't really do anything by default, it just allows you to put controls in it and then position them yourself using explicit coordinates.
+
+If you have ever used another UI library like WinForms, this will probably make you feel right at home, but while it can be tempting to have absolute control of all the child controls, this also means that the Panel won't do anything for you once the user starts resizing your window, if you localize absolutely positioned text or if the content is scaled.
+
+More about that later, let's get into a simple example. This one is mostly about showing you just how little the Canvas does by default:
+
+```xml
+<Window x:Class="WpfTutorialSamples.Panels.Canvas"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Canvas" Height="200" Width="200">
+	<Canvas>
+		<Button>Button 1</Button>
+		<Button>Button 2</Button>
+	</Canvas>
+</Window>
+
+```
+A simple Canvas
+
+As you can see, even though we have two buttons, they are both placed in the exact same place, so only the last one is visible. The Canvas does absolutely nothing until you start giving coordinates to the child controls. This is done using the Left, Right, Top and Bottom attached properties from the Canvas control.
+
+These properties allow you to specify the position relative to the four edges of the Canvas. By default, they are all set to NaN (Not a Number), which will make the Canvas place them in the upper left corner, but as mentioned, you can easily change this:
+
+
+
+```xml
+<Window x:Class="WpfTutorialSamples.Panels.Canvas"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Canvas" Height="200" Width="200">
+	<Canvas>
+		<Button Canvas.Left="10">Top left</Button>
+		<Button Canvas.Right="10">Top right</Button>
+		<Button Canvas.Left="10" Canvas.Bottom="10">Bottom left</Button>
+		<Button Canvas.Right="10" Canvas.Bottom="10">Bottom right</Button>
+	</Canvas>
+</Window>
+
+```
+
+A simple Canvas, where we position the child elements
+
+Notice how I only set the property or properties that I need. For the first two buttons, I only wish to specify a value for the X axis, so I use the Left and Right properties to push the buttons towards the center, from each direction.
+
+For the bottom buttons, I use both Left/Right and Bottom to push them towards the center in both directions. You will usually specify either a Top or a Bottom value and/or a Left or a Right value.
+
+As mentioned, since the Canvas gives you complete control of positions, it won't really care whether or not there's enough room for all your controls or if one is on top of another. This makes it a bad choice for pretty much any kind of dialog design, but the Canvas is, as the name implies, great for at least one thing: Painting. WPF has a bunch of controls that you can place inside a Canvas, to make nice illustrations.
+
+Z-Index
+
+In the next example, we'll use a couple of the shape related controls of WPF to illustrate another very important concept when using the Canvas: Z-Index. Normally, if two controls within a Canvas overlaps, the one defined last in the markup will take precedence and overlap the other(s). However, by using the attached ZIndex property on the Panel class, this can easily be changed.
+
+First, an example where we don't use z-index at all:
+
+```xml
+<Window x:Class="WpfTutorialSamples.Panels.CanvasZIndex"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="CanvasZIndex" Height="275" Width="260">
+    <Canvas>
+        <Ellipse Fill="Gainsboro" Canvas.Left="25" Canvas.Top="25" Width="200" Height="200" />
+        <Rectangle Fill="LightBlue" Canvas.Left="25" Canvas.Top="25" Width="50" Height="50" />
+        <Rectangle Fill="LightCoral" Canvas.Left="50" Canvas.Top="50" Width="50" Height="50" />
+        <Rectangle Fill="LightCyan" Canvas.Left="75" Canvas.Top="75" Width="50" Height="50" />
+    </Canvas>
+</Window>
+
+```
+
+A Canvas with overlapping elements, not using the ZIndex property
+
+Notice that because each of the rectangles are defined after the circle, they all overlap the circle, and each of them will overlap the previously defined one. Let's try changing that:
+
+```xml
+<Window x:Class="WpfTutorialSamples.Panels.CanvasZIndex"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="CanvasZIndex" Height="275" Width="260">
+    <Canvas>
+        <Ellipse Panel.ZIndex="2" Fill="Gainsboro" Canvas.Left="25" Canvas.Top="25" Width="200" Height="200" />
+        <Rectangle Panel.ZIndex="3" Fill="LightBlue" Canvas.Left="25" Canvas.Top="25" Width="50" Height="50" />
+        <Rectangle Panel.ZIndex="2" Fill="LightCoral" Canvas.Left="50" Canvas.Top="50" Width="50" Height="50" />
+        <Rectangle Panel.ZIndex="4" Fill="LightCyan" Canvas.Left="75" Canvas.Top="75" Width="50" Height="50" />
+    </Canvas>
+</Window>
+
+```
+
+A Canvas with overlapping elements, using the ZIndex property
+
+The default ZIndex value is 0, but we assign a new one to each of the shapes. The rule is that the element with the higher z-index overlaps the ones with the lower values. If two values are identical, the last defined element "wins". As you can see from the screenshot, changing the ZIndex property gives quite another look.
 

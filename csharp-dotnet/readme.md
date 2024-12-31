@@ -100,6 +100,6 @@ Topic                             | Note
 [9 - Data Binding](./wpf/wpf-notes-9-data-binding.md)|
 [11 - Dialogs](./wpf/wpf-notes-11-dialogs.md)|
 [12 - Controls - Menu](./wpf/wpf-notes-12-controls-menu.md)|
-[16 - List Controls-Item Template](./wpf/wpf-notes-16-list-controls.md)|
+[16 - Items Controls](./wpf/wpf-notes-16-Items-controls.md)|
 
 

@@ -1,5 +1,5 @@
 
-List controls - Items Control (With ScrollView) - ListBox with Items - ComboBox
+List Items Controls
 
 Source : https://wpf-tutorial.com/list-controls/itemscontrol/
 
@@ -12,6 +12,7 @@ Source : https://wpf-tutorial.com/list-controls/itemscontrol/
     - [The ItemsPanelTemplate property](#the-itemspaneltemplate-property)
     - [ItemsControl with scrollbars](#itemscontrol-with-scrollbars)
   - [The ListBox control](#the-listbox-control)
+    - [Working with ListBox selection](#working-with-listbox-selection)
   - [The ComboBox control](#the-combobox-control)
 
 
@@ -308,19 +309,18 @@ This is as simple as it gets: We declare a ListBox control, and inside of it, we
 
 ```
 
---*REVIEW - image source nasıl ayarlanmış - 20241231 - 1213 
+--*REVIEW - image source VE renk nasıl ayarlanmış - 20241231 - 1213 
 
 ![A ListBox control with custom content](https://wpf-tutorial.com/Images/ArticleImages/1/chapters/list-controls/listbox_custom_content.png)
 
---*TBC - 20241231 - 1209 
 
 For each of the ListBoxItem's we now add a StackPanel, in which we add an Image and a TextBlock. This gives us full control of the content as well as the text rendering, as you can see from the screenshot, where different colors have been used for each of the numbers.
 
 From the screenshot you might also notice another difference when comparing the ItemsControl to the ListBox: By default, a border is shown around the control, making it look like an actual control instead of just output.
 
-Data binding the ListBox
+🔔 Data binding the ListBox
 
-Manually defining items for the ListBox makes for a fine first example, but most of the times, your ListBox controls will be filled with items from a data source using data binding. By default, if you bind a list of items to the ListBox, their ToString() method will be used to represent each item. This is rarely what you want, but fortunately, we can easily declare a template that will be used to render each item.
+Manually defining items for the ListBox makes for a fine first example, but most of the times, your ListBox controls will be filled with items from `a data source` using data binding. By default, if you bind a list of items to the ListBox, their `ToString()` method will be used to represent each item. This is rarely what you want, but fortunately, we can easily declare a template that will be used to render each item.
 
 I have re-used the TODO based example from the ItemsControl article, where we build a cool TODO list using a simple Code-behind class and, in this case, a ListBox control for the visual representation. Here's the example:
 
@@ -331,8 +331,10 @@ I have re-used the TODO based example from the ItemsControl article, where we bu
         Title="ListBoxDataBindingSample" Height="150" Width="300">
     <Grid Margin="10">
 		<ListBox Name="lbTodoList" HorizontalContentAlignment="Stretch">
-			<ListBox.ItemTemplate>
-				<DataTemplate>
+			<!-- ItemTemplate Şablonu -->
+      <ListBox.ItemTemplate>
+        <!-- Her item (Grid), ListBox container'ına ekleniyor -->  
+        <DataTemplate>
 					<Grid Margin="0,2">
 						<Grid.ColumnDefinitions>
 							<ColumnDefinition Width="*" />
@@ -342,8 +344,9 @@ I have re-used the TODO based example from the ItemsControl article, where we bu
 						<ProgressBar Grid.Column="1" Minimum="0" Maximum="100" Value="{Binding Completion}" />
 					</Grid>
 				</DataTemplate>
-			</ListBox.ItemTemplate>
-		</ListBox>
+			
+      </ListBox.ItemTemplate>
+    </ListBox>
 	</Grid>
 </Window>
 
@@ -379,18 +382,21 @@ namespace WpfTutorialSamples.ListBox_control
 
 ```
 
-➖ A ListBox control using data binding
+![A ListBox control using data binding](https://wpf-tutorial.com/Images/ArticleImages/1/chapters/list-controls/listbox_databinding.png)
 
-All the magic happens in the ItemTemplate that we have defined for the ListBox. In there, we specify that each ListBox item should consist of a Grid, divided into two columns, with a TextBlock showing the title in the first and a ProgressBar showing the completion status in the second column. To get the values out, we use some very simple data binding, which is all explained in the data binding part of this tutorial.
+--*TBC - 20241231 - 1312 
+
+All the magic happens in the ItemTemplate that we have defined for the ListBox. In there, we specify that each ListBox item should consist of a Grid, divided into two columns, with a TextBlock showing the title in the first and a ProgressBar showing the completion status in the second column. To get the values out, we use some very simple data binding.
 
 In the Code-behind file, we have declared a very simple TodoItem class to hold each of our TODO items. In the constructor of the window, we initialize a list, add three TODO items to it and then assign it to the ItemsSource of the ListBox. The combination of the ItemsSource and the ItemTemplate we specified in the XAML part, this is all  WPF need to render all of the items as a TODO list.
 
-Please notice the HorizontalContentAlignment property that I set to Stretch on the ListBox. The default content alignment for a ListBox item is Left, which means that each item only takes up as much horizontal space as it needs. The result? Well, not quite what we want:
+Please notice the `HorizontalContentAlignment` property that I set to `Stretch` on the ListBox. The default content alignment for a ListBox item is Left, which means that each item only takes up as much horizontal space as it needs. The result ? Well, not quite what we want:
 
-A ListBox control where the HorizontalContentAlignment property has not been changed
+![A ListBox control where the HorizontalContentAlignment property has not been changed](https://wpf-tutorial.com/Images/ArticleImages/1/chapters/list-controls/listbox_content_alignment_bad.png)
+
 By using the Stretch alignment, each item is stretched to take up the full amount of available space, as you can see from the previous screenshot.
 
-➖ Working with ListBox selection
+### Working with ListBox selection
 
 As mentioned, a key difference between the ItemsControl and the ListBox is that the ListBox handles and displays user selection for you. Therefore, a lot of ListBox question revolves around somehow working with the selection. To help with some of these questions, I have created a bigger example, showing you some selection related tricks:
 
@@ -400,21 +406,27 @@ As mentioned, a key difference between the ItemsControl and the ListBox is that 
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="ListBoxSelectionSample" Height="250" Width="450">
 	<DockPanel Margin="10">
+
 		<StackPanel DockPanel.Dock="Right" Margin="10,0">
-			<StackPanel.Resources>
+			
+      <StackPanel.Resources>
 				<Style TargetType="Button">
 					<Setter Property="Margin" Value="0,0,0,5" />
 				</Style>
 			</StackPanel.Resources>
-			<TextBlock FontWeight="Bold" Margin="0,0,0,10">ListBox selection</TextBlock>
+			
+      <TextBlock FontWeight="Bold" Margin="0,0,0,10">ListBox selection</TextBlock>
 			<Button Name="btnShowSelectedItem" Click="btnShowSelectedItem_Click">Show selected</Button>
 			<Button Name="btnSelectLast" Click="btnSelectLast_Click">Select last</Button>
 			<Button Name="btnSelectNext" Click="btnSelectNext_Click">Select next</Button>
 			<Button Name="btnSelectCSharp" Click="btnSelectCSharp_Click">Select C#</Button>
 			<Button Name="btnSelectAll" Click="btnSelectAll_Click">Select all</Button>
-		</StackPanel>
-		<ListBox Name="lbTodoList" HorizontalContentAlignment="Stretch" SelectionMode="Extended" SelectionChanged="lbTodoList_SelectionChanged">
-			<ListBox.ItemTemplate>
+		
+    </StackPanel>
+		
+    <ListBox Name="lbTodoList" HorizontalContentAlignment="Stretch" SelectionMode="Extended" SelectionChanged="lbTodoList_SelectionChanged">
+			
+      <ListBox.ItemTemplate>
 				<DataTemplate>
 					<Grid Margin="0,2">
 						<Grid.ColumnDefinitions>
@@ -426,6 +438,7 @@ As mentioned, a key difference between the ItemsControl and the ListBox is that 
 					</Grid>
 				</DataTemplate>
 			</ListBox.ItemTemplate>
+
 		</ListBox>
 	</DockPanel>
 </Window>
@@ -507,15 +520,215 @@ namespace WpfTutorialSamples.ListBox_control
 
 ```
 
-Working with selections in the ListBox control
+![Working with selections in the ListBox control](https://wpf-tutorial.com/Images/ArticleImages/1/chapters/list-controls/listbox_selection.png)
 
-As you can see, I have defined a range of buttons to the right of the ListBox, to either get or manipulate the selection. I've also changed the SelectionMode to Extended, to allow for the selection of multiple items. This can be done either programmatically, as I do in the example, or by the end-user, by holding down [Ctrl] or [Shift] while clicking on the items.
+As you can see, I have defined a range of buttons to the right of the ListBox, to either get or manipulate the selection. I've also changed the SelectionMode to Extended, to allow for the selection of multiple items. This can be done either programmatically, as I do in the example, or by the end-user, by holding down `[Ctrl] or [Shift] `while clicking on the items.
 
 For each of the buttons, I have defined a click handler in the Code-behind. Each action should be pretty self-explanatory and the C# code used is fairly simple, but if you're still in doubt, try running the example on your own machine and test out the various possibilities in the example.
 
-Summary
+🔔 Summary
 
-The ListBox control is much like the ItemsControl and several of the same techniques can be used. The ListBox does offer a bit more functionality when compared to the ItemsControl, especially the selection handling. For even more functionality, like column headers, you should have a look at the ListView control, which is given a very thorough description later on in this tutorial with several articles explaining all the functionality.
+The ListBox control is much like the ItemsControl and several of the same techniques can be used. The ListBox does offer a bit more functionality when compared to the ItemsControl, especially the selection handling. For even more functionality, like column headers, you should have a look at the `ListView control`.
 
+--*TBC - 20241231 - 1349 combobox control
 
 ## The ComboBox control
+
+The ComboBox control is in many ways like the ListBox control, but takes up a lot less space, because the list of items is hidden when not needed. The ComboBox control is used many places in Windows, but to make sure that everyone knows how it looks and works, we'll jump straight into a simple example:
+
+Download & run this example
+<Window x:Class="WpfTutorialSamples.ComboBox_control.ComboBoxSample"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ComboBoxSample" Height="150" Width="200">
+    <StackPanel Margin="10">
+        <ComboBox>
+            <ComboBoxItem>ComboBox Item #1</ComboBoxItem>
+            <ComboBoxItem IsSelected="True">ComboBox Item #2</ComboBoxItem>
+            <ComboBoxItem>ComboBox Item #3</ComboBoxItem>
+        </ComboBox>
+    </StackPanel>
+</Window>
+A simple ComboBox control
+In the screenshot, I have activated the control by clicking it, causing the list of items to be displayed. As you can see from the code, the ComboBox, in its simple form, is very easy to use. All I've done here is manually add some items, making one of them the default selected item by setting the IsSelected property on it.
+
+Custom content
+In the first example we only showed text in the items, which is pretty common for the ComboBox control, but since the ComboBoxItem is a ContentControl, we can actually use pretty much anything as content. Let's try making a slightly more sophisticated list of items:
+
+Download & run this example
+<Window x:Class="WpfTutorialSamples.ComboBox_control.ComboBoxCustomContentSample"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ComboBoxCustomContentSample" Height="150" Width="200">
+    <StackPanel Margin="10">
+        <ComboBox>
+            <ComboBoxItem>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/WpfTutorialSamples;component/Images/bullet_red.png" />
+                    <TextBlock Foreground="Red">Red</TextBlock>
+                </StackPanel>
+            </ComboBoxItem>
+            <ComboBoxItem>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/WpfTutorialSamples;component/Images/bullet_green.png" />
+                    <TextBlock Foreground="Green">Green</TextBlock>
+                </StackPanel>
+            </ComboBoxItem>
+            <ComboBoxItem>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/WpfTutorialSamples;component/Images/bullet_blue.png" />
+                    <TextBlock Foreground="Blue">Blue</TextBlock>
+                </StackPanel>
+            </ComboBoxItem>
+        </ComboBox>
+    </StackPanel>
+</Window>
+
+A ComboBox control with custom content
+
+For each of the ComboBoxItem's we now add a StackPanel, in which we add an Image and a TextBlock. This gives us full control of the content as well as the text rendering, as you can see from the screenshot, where both text color and image indicates a color value.
+
+Data binding the ComboBox
+As you can see from the first examples, manually defining the items of a ComboBox control is easy using XAML, but you will likely soon run into a situation where you need the items to come from some kind of data source, like a database or just an in-memory list. Using WPF data binding and a custom template, we can easily render a list of colors, including a preview of the color:
+
+
+<Window x:Class="WpfTutorialSamples.ComboBox_control.ComboBoxDataBindingSample"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ComboBoxDataBindingSample" Height="200" Width="200">
+    <StackPanel Margin="10">
+        <ComboBox Name="cmbColors">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Rectangle Fill="{Binding Name}" Width="16" Height="16" Margin="0,2,5,2" />
+                        <TextBlock Text="{Binding Name}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+    </StackPanel>
+</Window>
+Download & run this example
+using System;
+using System.Collections.Generic;
+using System.Windows;
+using System.Windows.Media;
+
+namespace WpfTutorialSamples.ComboBox_control
+{
+	public partial class ComboBoxDataBindingSample : Window
+	{
+		public ComboBoxDataBindingSample()
+		{
+			InitializeComponent();
+			cmbColors.ItemsSource = typeof(Colors).GetProperties();
+		}
+	}
+}
+A ComboBox control using data binding
+It's actually quite simple: In the Code-behind, I obtain a list of all the colors using a Reflection based approach with the Colors class. I assign it to the ItemsSource property of the ComboBox, which then renders each color using the template I have defined in the XAML part.
+
+Each item, as defined by the ItemTemplate, consists of a StackPanel with a Rectangle and a TextBlock, each bound to the color value. This gives us a complete list of colors, with minimal effort - and it looks pretty good too, right?
+
+IsEditable
+In the first examples, the user was only able to select from our list of items, but one of the cool things about the ComboBox is that it supports the possibility of letting the user both select from a list of items or enter their own value. This is extremely useful in situations where you want to help the user by giving them a pre-defined set of options, while still giving them the option to manually enter the desired value. This is all controlled by the IsEditable property, which changes the behavior and look of the ComboBox quite a bit:
+
+Download & run this example
+<Window x:Class="WpfTutorialSamples.ComboBox_control.ComboBoxEditableSample"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ComboBoxEditableSample" Height="150" Width="200">
+    <StackPanel Margin="10">
+        <ComboBox IsEditable="True">
+            <ComboBoxItem>ComboBox Item #1</ComboBoxItem>
+            <ComboBoxItem>ComboBox Item #2</ComboBoxItem>
+            <ComboBoxItem>ComboBox Item #3</ComboBoxItem>
+        </ComboBox>
+    </StackPanel>
+</Window>
+An editable ComboBox control
+As you can see, I can enter a completely different value or pick one from the list. If picked from the list, it simply overwrites the text of the ComboBox.
+
+As a lovely little bonus, the ComboBox will automatically try to help the user select an existing value when the user starts typing, as you can see from the next screenshot, where I just started typing "Co":
+
+A ComboBox control with auto completion
+
+By default, the matching is not case-sensitive but you can make it so by setting the IsTextSearchCaseSensitive to True. If you don't want this auto complete behavior at all, you can disable it by setting the IsTextSearchEnabled to False.
+
+Working with ComboBox selection
+A key part of using the ComboBox control is to be able to read the user selection, and even control it with code. In the next example, I've re-used the data bound ComboBox example, but added some buttons for controlling the selection. I've also used the SelectionChanged event to capture when the selected item is changed, either by code or by the user, and act on it.
+
+Here's the sample:
+
+<Window x:Class="WpfTutorialSamples.ComboBox_control.ComboBoxSelectionSample"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ComboBoxSelectionSample" Height="125" Width="250">
+    <StackPanel Margin="10">
+        <ComboBox Name="cmbColors" SelectionChanged="cmbColors_SelectionChanged">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Rectangle Fill="{Binding Name}" Width="16" Height="16" Margin="0,2,5,2" />
+                        <TextBlock Text="{Binding Name}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <WrapPanel Margin="15" HorizontalAlignment="Center">
+            <Button Name="btnPrevious" Click="btnPrevious_Click" Width="55">Previous</Button>
+            <Button Name="btnNext" Click="btnNext_Click" Margin="5,0" Width="55">Next</Button>
+            <Button Name="btnBlue" Click="btnBlue_Click" Width="55">Blue</Button>
+        </WrapPanel>
+    </StackPanel>
+</Window>
+Download & run this example
+using System;
+using System.Collections.Generic;
+using System.Reflection;
+using System.Windows;
+using System.Windows.Media;
+
+namespace WpfTutorialSamples.ComboBox_control
+{
+	public partial class ComboBoxSelectionSample : Window
+	{
+		public ComboBoxSelectionSample()
+		{
+			InitializeComponent();
+			cmbColors.ItemsSource = typeof(Colors).GetProperties();
+		}
+
+		private void btnPrevious_Click(object sender, RoutedEventArgs e)
+		{
+			if(cmbColors.SelectedIndex > 0)
+				cmbColors.SelectedIndex = cmbColors.SelectedIndex - 1;
+		}
+
+		private void btnNext_Click(object sender, RoutedEventArgs e)
+		{
+			if(cmbColors.SelectedIndex < cmbColors.Items.Count-1)
+				cmbColors.SelectedIndex = cmbColors.SelectedIndex + 1;
+		}
+
+		private void btnBlue_Click(object sender, RoutedEventArgs e)
+		{
+			cmbColors.SelectedItem = typeof(Colors).GetProperty("Blue");
+		}
+
+		private void cmbColors_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+		{
+			Color selectedColor = (Color)(cmbColors.SelectedItem as PropertyInfo).GetValue(null, null);
+			this.Background = new SolidColorBrush(selectedColor);
+		}
+	}
+}
+A ComboBox control where we work with the selection
+The interesting part of this example is the three event handlers for our three buttons, as well as the SelectionChanged event handler. In the first two, we select the previous or the next item by reading the SelectedIndex property and then subtracting or adding one to it. Pretty simple and easy to work with.
+
+In the third event handler, we use the SelectedItem to select a specific item based on the value. I do a bit of extra work here (using .NET reflection), because the ComboBox is bound to a list of properties, each being a color, instead of a simple list of colors, but basically it's all about giving the value contained by one of the items to the SelectedItem property.
+
+In the fourth and last event handler, I respond to the selected item being changed. When that happens, I read the selected color (once again using Reflection, as described above) and then use the selected color to create a new background brush for the Window. The effect can be seen on the screenshot.
+
+If you're working with an editable ComboBox (IsEditable property set to true), you can read the Text property to know the value the user has entered or selected.
