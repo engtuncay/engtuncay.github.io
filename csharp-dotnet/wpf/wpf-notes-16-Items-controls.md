@@ -14,6 +14,8 @@ Source : https://wpf-tutorial.com/list-controls/itemscontrol/
   - [The ListBox control](#the-listbox-control)
     - [Working with ListBox selection](#working-with-listbox-selection)
   - [The ComboBox control](#the-combobox-control)
+    - [IsEditable](#iseditable)
+    - [Working with ComboBox selection](#working-with-combobox-selection)
 
 
 # 16 List controls
@@ -534,9 +536,9 @@ The ListBox control is much like the ItemsControl and several of the same techni
 
 ## The ComboBox control
 
-The ComboBox control is in many ways like the ListBox control, but takes up a lot less space, because the list of items is hidden when not needed. The ComboBox control is used many places in Windows, but to make sure that everyone knows how it looks and works, we'll jump straight into a simple example:
+The ComboBox control is in many ways like the ListBox control, but takes up a lot less space, because the list of items is hidden when not needed. The ComboBox control is used many places in Windows :
 
-Download & run this example
+```xml
 <Window x:Class="WpfTutorialSamples.ComboBox_control.ComboBoxSample"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -549,31 +551,40 @@ Download & run this example
         </ComboBox>
     </StackPanel>
 </Window>
-A simple ComboBox control
-In the screenshot, I have activated the control by clicking it, causing the list of items to be displayed. As you can see from the code, the ComboBox, in its simple form, is very easy to use. All I've done here is manually add some items, making one of them the default selected item by setting the IsSelected property on it.
 
-Custom content
+```
+
+![A simple ComboBox control](https://wpf-tutorial.com/Images/ArticleImages/1/chapters/list-controls/combobox_simple.png)
+
+
+In the screenshot, I have activated the control by clicking it, causing the list of items to be displayed. As you can see from the code, the ComboBox, in its simple form, is very easy to use. All I've done here is manually add some items, making one of them the default selected item by setting the `IsSelected` property on it.
+
+🔔 Custom content
+
 In the first example we only showed text in the items, which is pretty common for the ComboBox control, but since the ComboBoxItem is a ContentControl, we can actually use pretty much anything as content. Let's try making a slightly more sophisticated list of items:
 
-Download & run this example
+```xml
 <Window x:Class="WpfTutorialSamples.ComboBox_control.ComboBoxCustomContentSample"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="ComboBoxCustomContentSample" Height="150" Width="200">
     <StackPanel Margin="10">
         <ComboBox>
+
             <ComboBoxItem>
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/WpfTutorialSamples;component/Images/bullet_red.png" />
                     <TextBlock Foreground="Red">Red</TextBlock>
                 </StackPanel>
             </ComboBoxItem>
+
             <ComboBoxItem>
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/WpfTutorialSamples;component/Images/bullet_green.png" />
                     <TextBlock Foreground="Green">Green</TextBlock>
                 </StackPanel>
             </ComboBoxItem>
+
             <ComboBoxItem>
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/WpfTutorialSamples;component/Images/bullet_blue.png" />
@@ -581,23 +592,28 @@ Download & run this example
                 </StackPanel>
             </ComboBoxItem>
         </ComboBox>
+
     </StackPanel>
 </Window>
 
-A ComboBox control with custom content
+```
+
+![A ComboBox control with custom content](https://wpf-tutorial.com/Images/ArticleImages/1/chapters/list-controls/combobox_custom_content.png)
 
 For each of the ComboBoxItem's we now add a StackPanel, in which we add an Image and a TextBlock. This gives us full control of the content as well as the text rendering, as you can see from the screenshot, where both text color and image indicates a color value.
 
-Data binding the ComboBox
+🔔 Data binding the ComboBox
+
 As you can see from the first examples, manually defining the items of a ComboBox control is easy using XAML, but you will likely soon run into a situation where you need the items to come from some kind of data source, like a database or just an in-memory list. Using WPF data binding and a custom template, we can easily render a list of colors, including a preview of the color:
 
-
+```xml
 <Window x:Class="WpfTutorialSamples.ComboBox_control.ComboBoxDataBindingSample"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="ComboBoxDataBindingSample" Height="200" Width="200">
     <StackPanel Margin="10">
         <ComboBox Name="cmbColors">
+
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -606,10 +622,14 @@ As you can see from the first examples, manually defining the items of a ComboBo
                     </StackPanel>
                 </DataTemplate>
             </ComboBox.ItemTemplate>
+
         </ComboBox>
     </StackPanel>
 </Window>
-Download & run this example
+
+```
+
+```cs
 using System;
 using System.Collections.Generic;
 using System.Windows;
@@ -626,15 +646,20 @@ namespace WpfTutorialSamples.ComboBox_control
 		}
 	}
 }
-A ComboBox control using data binding
+
+```
+
+![A ComboBox control using data binding](https://wpf-tutorial.com/Images/ArticleImages/1/chapters/list-controls/combobox_data_binding.png)
+
 It's actually quite simple: In the Code-behind, I obtain a list of all the colors using a Reflection based approach with the Colors class. I assign it to the ItemsSource property of the ComboBox, which then renders each color using the template I have defined in the XAML part.
 
 Each item, as defined by the ItemTemplate, consists of a StackPanel with a Rectangle and a TextBlock, each bound to the color value. This gives us a complete list of colors, with minimal effort - and it looks pretty good too, right?
 
-IsEditable
+### IsEditable
+
 In the first examples, the user was only able to select from our list of items, but one of the cool things about the ComboBox is that it supports the possibility of letting the user both select from a list of items or enter their own value. This is extremely useful in situations where you want to help the user by giving them a pre-defined set of options, while still giving them the option to manually enter the desired value. This is all controlled by the IsEditable property, which changes the behavior and look of the ComboBox quite a bit:
 
-Download & run this example
+```xml
 <Window x:Class="WpfTutorialSamples.ComboBox_control.ComboBoxEditableSample"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -647,20 +672,28 @@ Download & run this example
         </ComboBox>
     </StackPanel>
 </Window>
-An editable ComboBox control
+
+```
+
+![An editable ComboBox control](https://wpf-tutorial.com/Images/ArticleImages/1/chapters/list-controls/combobox_editable.png)
+
 As you can see, I can enter a completely different value or pick one from the list. If picked from the list, it simply overwrites the text of the ComboBox.
 
 As a lovely little bonus, the ComboBox will automatically try to help the user select an existing value when the user starts typing, as you can see from the next screenshot, where I just started typing "Co":
 
-A ComboBox control with auto completion
+![A ComboBox control with auto completion](https://wpf-tutorial.com/Images/ArticleImages/1/chapters/list-controls/combobox_auto_complete.png)
 
-By default, the matching is not case-sensitive but you can make it so by setting the IsTextSearchCaseSensitive to True. If you don't want this auto complete behavior at all, you can disable it by setting the IsTextSearchEnabled to False.
+By default, the matching is not `case-sensitive` but you can make it so by setting the `IsTextSearchCaseSensitive` to True. If you don't want this auto complete behavior at all, you can disable it by setting the `IsTextSearchEnabled` to False.
 
-Working with ComboBox selection
+--*TBC - 20250101 - 0018 
+
+### Working with ComboBox selection
+
 A key part of using the ComboBox control is to be able to read the user selection, and even control it with code. In the next example, I've re-used the data bound ComboBox example, but added some buttons for controlling the selection. I've also used the SelectionChanged event to capture when the selected item is changed, either by code or by the user, and act on it.
 
 Here's the sample:
 
+```xml
 <Window x:Class="WpfTutorialSamples.ComboBox_control.ComboBoxSelectionSample"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -683,7 +716,10 @@ Here's the sample:
         </WrapPanel>
     </StackPanel>
 </Window>
-Download & run this example
+
+```
+
+```cs
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -724,7 +760,11 @@ namespace WpfTutorialSamples.ComboBox_control
 		}
 	}
 }
+
+```
+
 A ComboBox control where we work with the selection
+
 The interesting part of this example is the three event handlers for our three buttons, as well as the SelectionChanged event handler. In the first two, we select the previous or the next item by reading the SelectedIndex property and then subtracting or adding one to it. Pretty simple and easy to work with.
 
 In the third event handler, we use the SelectedItem to select a specific item based on the value. I do a bit of extra work here (using .NET reflection), because the ComboBox is bound to a list of properties, each being a color, instead of a simple list of colors, but basically it's all about giving the value contained by one of the items to the SelectedItem property.
