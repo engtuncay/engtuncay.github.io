@@ -9,6 +9,8 @@ Source : https://wpf-tutorial.com/list-controls/itemscontrol/
 
 - [16 List controls](#16-list-controls)
   - [The ItemsControl](#the-itemscontrol)
+    - [The ItemsPanelTemplate property](#the-itemspaneltemplate-property)
+    - [ItemsControl with scrollbars](#itemscontrol-with-scrollbars)
   - [The ListBox control](#the-listbox-control)
   - [The ComboBox control](#the-combobox-control)
 
@@ -49,7 +51,7 @@ As you can see, there is nothing that shows that we're using a control for repea
 
 ➖ ItemsControl with data binding
 
-Of course the ItemsControl is not meant to be used with items defined in the markup, like we did in the first example. Like pretty much any other control in WPF, the ItemsControl is made for  data binding, where we use a template to define how our code-behind classes should be presented to the user.
+Of course the ItemsControl is not meant to be used with items defined in the markup, like we did in the first example. Like pretty much any other control in WPF, the ItemsControl is made for data binding, where we use a template to define how our code-behind classes should be presented to the user.
 
 To demonstrate that, I've whipped up an example where we display a TODO list to the user, and to show you just how flexible everything gets once you define your own templates, I've used a ProgressBar control to show you the current completion percentage. First some code, then a screenshot and then an explanation of it all:
 
@@ -58,10 +60,13 @@ To demonstrate that, I've whipped up an example where we display a TODO list to 
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="ItemsControlDataBindingSample" Height="150" Width="300">
-    <Grid Margin="10">
-    <!-- attention to ItemsControl -->
-		<ItemsControl Name="icTodoList">
+  <Grid Margin="10">
+    <!-- attention to ItemsControl Block-->
+    <ItemsControl Name="icTodoList">
+      <!-- ItemTemplate Block -->
 			<ItemsControl.ItemTemplate>
+        <!-- DateTemplate Block -->
+        <!-- Buradakiler her loopdaki template, stackpanel içerisine konulur (default) -->
 				<DataTemplate>
 					<Grid Margin="0,0,0,5">
 						<Grid.ColumnDefinitions>
@@ -112,13 +117,13 @@ namespace WpfTutorialSamples.ItemsControl
 
 ![An ItemsControl using data binding](https://wpf-tutorial.com/Images/ArticleImages/1/chapters/list-controls/itemscontrol_data_binding.png)
 
-The most important part of this example is the template that we specify inside of the `ItemsControl`, using a DataTemplate tag inside of the `ItemsControl.ItemTemplate`. We add a Grid panel, to get two columns: In the first we have a TextBlock, which will show the title of the TODO item, and in the second column we have a ProgressBar control, which value we bind to the Completion property.
+The most important part of this example is the template that we specify inside of the `ItemsControl`, using a `DataTemplate` tag inside of the `ItemsControl.ItemTemplate`. We add a Grid panel, to get two columns: In the first we have a TextBlock, which will show the title of the TODO item, and in the second column we have a ProgressBar control, which value we bind to the Completion property.
 
 The template now represents a TodoItem, which we declare in the Code-behind file, where we also instantiate a number of them and add them to a list. In the end, this list is assigned to the `ItemsSource property of our ItemsControl`, which then does the rest of the job for us. Each item in the list is displayed by using our template, as you can see from the resulting screenshot.
 
-➖ The ItemsPanelTemplate property
+###  The ItemsPanelTemplate property
 
-In the above examples, all items are rendered from top to bottom, with each item taking up the full row. This happens because the ItemsControl throw all of our items into a vertically aligned StackPanel by default. It's very easy to change though, since the ItemsControl allows you to change which panel type is used to hold all the items. Here's an example:
+In the above examples, all items are rendered from top to bottom, with each item taking up the full row. This happens because the ItemsControl throw all of our items into a vertically aligned StackPanel by default ((tr:Her bir item stackpanel içine giriyor !!!)). It's very easy to change though, since the ItemsControl allows you to change which panel type is used to hold all the items. Here's an example:
 
 
 ```xml
@@ -128,10 +133,12 @@ In the above examples, all items are rendered from top to bottom, with each item
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 		xmlns:system="clr-namespace:System;assembly=mscorlib"
         Title="ItemsControlPanelSample" Height="150" Width="250">
-	<Grid Margin="10">
+	
+  <Grid Margin="10">
 		
     <ItemsControl>
 			
+      <!-- Her bir Item Template - WrapPanel içerisine eklenir -->
       <ItemsControl.ItemsPanel>
 				<ItemsPanelTemplate>
 					<WrapPanel />
@@ -144,6 +151,7 @@ In the above examples, all items are rendered from top to bottom, with each item
 				</DataTemplate>
 			</ItemsControl.ItemTemplate>
 
+      <!-- ItemTemplate loop'una girecek item listesi -->
 			<system:String>Item #1</system:String>
 			<system:String>Item #2</system:String>
 			<system:String>Item #3</system:String>
@@ -159,7 +167,7 @@ In the above examples, all items are rendered from top to bottom, with each item
 
 We specify that the ItemsControl should use a WrapPanel as its template by declaring one in the ItemsPanelTemplate property and just for fun, we throw in an ItemTemplate that causes the strings to be rendered as buttons. You can use any of the  WPF panels, but some are more useful than others.
 
-Another good example is the UniformGrid panel, where we can define a number of columns and then have our items neatly shown in equally-wide columns:
+Another good example is the `UniformGrid panel`, where we can define a number of columns and then have our items neatly shown in equally-wide columns:
 
 ```xml
 <Window x:Class="WpfTutorialSamples.ItemsControl.ItemsControlPanelSample"
@@ -170,20 +178,24 @@ Another good example is the UniformGrid panel, where we can define a number of c
 	<Grid Margin="10">
 		<ItemsControl>
 			<ItemsControl.ItemsPanel>
+
 				<ItemsPanelTemplate>
 					<UniformGrid Columns="2" />
 				</ItemsPanelTemplate>
 			</ItemsControl.ItemsPanel>
+
 			<ItemsControl.ItemTemplate>
 				<DataTemplate>
 					<Button Content="{Binding}" Margin="0,0,5,5" />
 				</DataTemplate>
 			</ItemsControl.ItemTemplate>
+
 			<system:String>Item #1</system:String>
 			<system:String>Item #2</system:String>
 			<system:String>Item #3</system:String>
 			<system:String>Item #4</system:String>
 			<system:String>Item #5</system:String>
+
 		</ItemsControl>
 	</Grid>
 </Window>
@@ -193,13 +205,13 @@ Another good example is the UniformGrid panel, where we can define a number of c
 ![An ItemsControl using a UniformGrid panel for holding the items](https://wpf-tutorial.com/Images/ArticleImages/1/list-controls/itemscontrol_uniformgrid.png)
 
 
-➖ ItemsControl with scrollbars
+###  ItemsControl with scrollbars
 
 Once you start using the ItemsControl, you might run into a very common problem: By default, the ItemsControl doesn't have any scrollbars, which means that if the content doesn't fit, it's just clipped (kırpılır). This can be seen by taking our first example from this article and resizing the window:
 
 ![An ItemsControl without scrollbars](https://wpf-tutorial.com/Images/ArticleImages/1/chapters/list-controls/itemscontrol_clipped.png)
 
-WPF makes this very easy to solve though. There are a number of possible solutions, for instance you can alter the template used by the ItemsControl to include a ScrollViewer control, but the easiest solution is to simply throw a ScrollViewer around the ItemsControl. Here's an example:
+WPF makes this very easy to solve though. There are a number of possible solutions, for instance you can alter the template used by the ItemsControl to include a `ScrollViewer control`, but the easiest solution is to simply throw a ScrollViewer around the `ItemsControl`. Here's an example:
 
 ```xml
 <Window x:Class="WpfTutorialSamples.ItemsControl.ItemsControlSample"
@@ -208,30 +220,34 @@ WPF makes this very easy to solve though. There are a number of possible solutio
 		xmlns:system="clr-namespace:System;assembly=mscorlib"
         Title="ItemsControlSample" Height="150" Width="200">
 	<Grid Margin="10">
-		<ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
-			<ItemsControl>
+		
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+			<!-- ItemsControl, ScrollViewer içerisine koyulur -->
+      <ItemsControl>
 				<system:String>ItemsControl Item #1</system:String>
 				<system:String>ItemsControl Item #2</system:String>
 				<system:String>ItemsControl Item #3</system:String>
 				<system:String>ItemsControl Item #4</system:String>
 				<system:String>ItemsControl Item #5</system:String>
 			</ItemsControl>
-		</ScrollViewer>
+		
+    </ScrollViewer>
+
 	</Grid>
 </Window>
 
 ```
 ![An ItemsControl with scrollbars](https://wpf-tutorial.com/Images/ArticleImages/1/chapters/list-controls/itemscontrol_scrollviewer.png)
 
-I set the two visibility options to Auto, to make them only visible when needed. As you can see from the screenshot, you can now scroll through the list of items.
+I set the two visibility options to Auto, to make them `only visible when needed`. As you can see from the screenshot, you can now scroll through the list of items.
 
-Summary
+🔔 Summary
 
-The ItemsControl is great when you want full control of how your data is displayed, and when you don't need any of your content to be selectable. If you want the user to be able to select items from the list, then you're better off with one of the other controls, e.g. the ListBox or the ListView. They will be described in upcoming chapters.
- 
+The ItemsControl is great when you want full control of how your data is displayed, and when you don't need any of your content to be selectable. If you want the user to be able to select items from the list, then you're better off with one of the other controls, e.g. the ListBox or the ListView.
+
 ## The ListBox control
 
-In the last article, we had a look at the ItemsControl, which is probably the simplest list in WPF. The ListBox control is the next control in line, which adds a bit more functionality. One of the main differences is the fact that the ListBox control actually deals with selections, allowing the end-user to select one or several items from the list and automatically giving visual feedback for it.
+ItemsControl is probably the simplest list in WPF. The ListBox control is the next control in line, which adds a bit more functionality. One of the main differences is the fact that the ListBox control actually deals with selections, allowing the end-user to select one or several items from the list and automatically giving visual feedback for it.
 
 Here's an example of a very simple ListBox control:
 
@@ -240,22 +256,22 @@ Here's an example of a very simple ListBox control:
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="ListBoxSample" Height="120" Width="200">
-    <Grid Margin="10">
+  <Grid Margin="10">
+
 		<ListBox>
 			<ListBoxItem>ListBox Item #1</ListBoxItem>
 			<ListBoxItem>ListBox Item #2</ListBoxItem>
 			<ListBoxItem>ListBox Item #3</ListBoxItem>
 		</ListBox>
-	</Grid>
+    <!--  -->    
+  </Grid>
 </Window>
 
 ```
 
-➖ A simple ListBox control with items defined in the markup
+![A simple ListBox control with items defined in the markup](https://wpf-tutorial.com/Images/ArticleImages/1/chapters/list-controls/listbox_simple.png)
 
-This is as simple as it gets: We declare a ListBox control, and inside of it, we declare three ListBoxItem's, each with its own text. However, since the ListBoxItem is actually a ContentControl, we can define custom content for it:
-
-
+This is as simple as it gets: We declare a ListBox control, and inside of it, we declare three ListBoxItem's, each with its own text. However, since the ListBoxItem is actually a `ContentControl`, we can define custom content for it:
 
 ```xml
 <Window x:Class="WpfTutorialSamples.ListBox_control.ListBoxSample"
@@ -264,37 +280,46 @@ This is as simple as it gets: We declare a ListBox control, and inside of it, we
         Title="ListBoxSample" Height="120" Width="200">
 	<Grid Margin="10">
 		<ListBox>
+
 			<ListBoxItem>
 				<StackPanel Orientation="Horizontal">
 					<Image Source="/WpfTutorialSamples;component/Images/bullet_blue.png" />
 					<TextBlock>ListBox Item #1</TextBlock>
 				</StackPanel>
 			</ListBoxItem>
+
 			<ListBoxItem>
 				<StackPanel Orientation="Horizontal">
 					<Image Source="/WpfTutorialSamples;component/Images/bullet_green.png" />
 					<TextBlock>ListBox Item #2</TextBlock>
 				</StackPanel>
 			</ListBoxItem>
+
 			<ListBoxItem>
 				<StackPanel Orientation="Horizontal">
 					<Image Source="/WpfTutorialSamples;component/Images/bullet_red.png" />
 					<TextBlock>ListBox Item #3</TextBlock>
 				</StackPanel>
 			</ListBoxItem>
+
 		</ListBox>
 	</Grid>
 </Window>
 
 ```
 
-➖ A ListBox control with custom content
+--*REVIEW - image source nasıl ayarlanmış - 20241231 - 1213 
+
+![A ListBox control with custom content](https://wpf-tutorial.com/Images/ArticleImages/1/chapters/list-controls/listbox_custom_content.png)
+
+--*TBC - 20241231 - 1209 
 
 For each of the ListBoxItem's we now add a StackPanel, in which we add an Image and a TextBlock. This gives us full control of the content as well as the text rendering, as you can see from the screenshot, where different colors have been used for each of the numbers.
 
 From the screenshot you might also notice another difference when comparing the ItemsControl to the ListBox: By default, a border is shown around the control, making it look like an actual control instead of just output.
 
 Data binding the ListBox
+
 Manually defining items for the ListBox makes for a fine first example, but most of the times, your ListBox controls will be filled with items from a data source using data binding. By default, if you bind a list of items to the ListBox, their ToString() method will be used to represent each item. This is rarely what you want, but fortunately, we can easily declare a template that will be used to render each item.
 
 I have re-used the TODO based example from the ItemsControl article, where we build a cool TODO list using a simple Code-behind class and, in this case, a ListBox control for the visual representation. Here's the example:
