@@ -2,9 +2,9 @@
 - [Cheatsheets](#cheatsheets)
 - [References](#references)
 - [Notes (1) From JavaTPoint](#notes-1-from-javatpoint)
-- [Notes(2) W3Schools](#notes2-w3schools)
-  - [C# OOP AND ADVANCE TOPICS](#c-oop-and-advance-topics)
 - [C# Wpf Notes](#c-wpf-notes)
+- [Notes(2) W3Schools](#notes2-w3schools)
+- [C# OOP AND ADVANCE TOPICS](#c-oop-and-advance-topics)
 
 [Back](../readme.md)
 
@@ -19,6 +19,10 @@
 # References
 
 - https://www.w3schools.com/cs/index.php
+
+- https://www.javatpoint.com/c-sharp-tutorial
+
+- https://wpf-tutorial.com
 
 # Notes (1) From JavaTPoint
 
@@ -45,6 +49,21 @@ Topic                                  | Note
 
 [Cst Index](./cst/cst-index.md)
 
+# C# Wpf Notes 
+
+Source : https://wpf-tutorial.com
+
+Topic                                                       | Note
+------------------------------------------------------------|-----
+[1- Intro](./wpf/wpf-notes-1-4-intro.md)                    |
+[2- Basic Controls](./wpf/wpf-notes-5-basic-controls.md)    |
+[7 - Panels](./wpf/wpf-notes-7-panels.md)                   |
+[8 - User Controls](./wpf/wpf-notes-8-user-controls.md)     |
+[9 - Data Binding](./wpf/wpf-notes-9-data-binding.md)       |
+[11 - Dialogs](./wpf/wpf-notes-11-dialogs.md)               |
+[12 - Controls - Menu](./wpf/wpf-notes-12-controls-menu.md) |
+[16 - Items Controls](./wpf/wpf-notes-16-Items-controls.md) |
+
 
 # Notes(2) W3Schools
 
@@ -66,7 +85,7 @@ Source : https://www.w3schools.com/cs/index.php
 [12 C# Methods - Overloading](./w3/cs-12-methods.md)
 [13 C# Regex](./w3/cs-13-regex.md)
 
-## C# OOP AND ADVANCE TOPICS
+# C# OOP AND ADVANCE TOPICS
 
 | C# Classes | Note
 | -- | -- 
@@ -87,19 +106,6 @@ C# Quiz
 C# Server
 
 
-# C# Wpf Notes 
 
-Source : https://wpf-tutorial.com
-
-Topic                             | Note
-----------------------------------|-----
-[1- Intro](./wpf/wpf-notes-1-4-intro.md) |
-[2- Basic Controls](./wpf/wpf-notes-5-basic-controls.md) |
-[7 - Panels](./wpf/wpf-notes-7-panels.md) |
-[8 - User Controls](./wpf/wpf-notes-8-user-controls.md) |
-[9 - Data Binding](./wpf/wpf-notes-9-data-binding.md)|
-[11 - Dialogs](./wpf/wpf-notes-11-dialogs.md)|
-[12 - Controls - Menu](./wpf/wpf-notes-12-controls-menu.md)|
-[16 - Items Controls](./wpf/wpf-notes-16-Items-controls.md)|
 
 
