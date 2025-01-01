@@ -55,15 +55,19 @@ Source : https://wpf-tutorial.com
 
 Topic                                                       | Note
 ------------------------------------------------------------|-----
-[1- Intro](./wpf/wpf-notes-1-4-intro.md)                    |
-[2- Basic Controls](./wpf/wpf-notes-5-basic-controls.md)    |
+[1-4 Intro](./wpf/wpf-notes-1-4-intro.md)                    |
+[5- Basic Controls](./wpf/wpf-notes-5-basic-controls.md)    |
+[6 - Control Concepts ](./wpf/wpf-notes-6-control-concepts.md) |
 [7 - Panels](./wpf/wpf-notes-7-panels.md)                   |
 [8 - User Controls](./wpf/wpf-notes-8-user-controls.md)     |
 [9 - Data Binding](./wpf/wpf-notes-9-data-binding.md)       |
+[10 - Commands](./wpf/wpf-notes-10-commands.md)|
 [11 - Dialogs](./wpf/wpf-notes-11-dialogs.md)               |
 [12 - Controls - Menu](./wpf/wpf-notes-12-controls-menu.md) |
+[13 - Rich Text](./wpf/wpf-notes-13-rich-text.md)|
+[14]()|
 [16 - Items Controls](./wpf/wpf-notes-16-Items-controls.md) |
-
+[20 - Styles](./wpf/wpf-notes-20-styles.md)|
 
 # Notes(2) W3Schools
 

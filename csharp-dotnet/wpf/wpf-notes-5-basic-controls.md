@@ -173,10 +173,9 @@ All of these properties are both readable and writable, which means that you can
 
 ## The CheckBox control
 
-The CheckBox control
 The CheckBox control allows the end-user to toggle an option on or off, usually reflecting a Boolean value in the Code-behind. Let's jump straight into an example, in case you're not sure how a CheckBox looks:
 
-Download & run this example
+```xml
 <Window x:Class="WpfTutorialSamples.Basic_controls.CheckBoxSample"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -188,10 +187,15 @@ Download & run this example
 		<CheckBox>Enable feature WWW</CheckBox>
 	</StackPanel>
 </Window>
-A simple CheckBox control
+
+```
+
+![A simple CheckBox control](https://wpf-tutorial.com/Images/ArticleImages/1/chapters/basic-controls/checkbox_simple.png)
+
 As you can see, the CheckBox is very easy to use. On the second CheckBox, I use the IsChecked property to have it checked by default, but other than that, no properties are needed to use it. The IsChecked property should also be used from Code-behind if you want to check whether a certain CheckBox is checked or not.
 
 Custom content
+
 The CheckBox control inherits from the ContentControl class, which means that it can take custom content and display next to it. If you just specify a piece of text, like I did in the example above, WPF will put it inside a TextBlock control and display it, but this is just a shortcut to make things easier for you. You can use any type of control inside of it, as we'll see in the next example:
 
 Download & run this example

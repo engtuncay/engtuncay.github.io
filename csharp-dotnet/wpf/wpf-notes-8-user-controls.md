@@ -163,4 +163,3 @@ With that, we can reuse this entire piece of functionality in a single line of c
 
 Placing commonly used interfaces and functionality in User Controls is highly recommended, and as you can see from the above example, they are very easy to create and use.
 
-

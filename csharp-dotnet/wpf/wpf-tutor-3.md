@@ -18,7 +18,6 @@ Source : https://wpf-tutorial.com/getting-started/hello-wpf/
   - [The DatePicker control](#the-datepicker-control)
   - [The Expander control](#the-expander-control)
 - [15 The TabControl](#15-the-tabcontrol)
-- [16 List controls](#16-list-controls)
 - [17 The ListView control](#17-the-listview-control)
 - [18 The TreeView control](#18-the-treeview-control)
 - [19 The DataGrid control](#19-the-datagrid-control)
@@ -54,8 +53,6 @@ Using the WPF TabControl
 WPF TabControl: Tab positions
 WPF TabControl: Styling the TabItems
 
-
-
 # 17 The ListView control
 
 Introduction to the ListView control
@@ -84,13 +81,6 @@ The DataGrid control
 DataGrid columns
 DataGrid with row details
 
-# 20 Styles
-
-Introduction to WPF styles
-Using WPF styles
-Trigger, DataTrigger & EventTrigger
-WPF MultiTrigger and MultiDataTrigger
-Trigger animations
 
 
 
