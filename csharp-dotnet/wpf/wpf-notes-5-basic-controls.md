@@ -15,6 +15,7 @@ Source : https://wpf-tutorial.com/basic-controls/the-textblock-control/
     - [Working with TextBox selections](#working-with-textbox-selections)
   - [The Button control](#the-button-control)
   - [The CheckBox control](#the-checkbox-control)
+    - [The IsThreeState property](#the-isthreestate-property)
   - [The RadioButton control](#the-radiobutton-control)
   - [The PasswordBox control](#the-passwordbox-control)
   - [The Image control](#the-image-control)
@@ -157,11 +158,11 @@ namespace WpfTutorialSamples.Basic_controls
 
 We use three interesting properties to accomplish this:
 
-SelectionStart , which gives us the current cursor position or if there's a selection: Where it starts.
+- SelectionStart , which gives us the current cursor position or if there's a selection: Where it starts.
 
-SelectionLength , which gives us the length of the current selection, if any. Otherwise it will just return 0.
+- SelectionLength , which gives us the length of the current selection, if any. Otherwise it will just return 0.
 
-SelectedText , which gives us the currently selected string if there's a selection. Otherwise an empty string is returned.
+- SelectedText , which gives us the currently selected string if there's a selection. Otherwise an empty string is returned.
 
 🔔 Modifying the selection
 
@@ -192,13 +193,13 @@ The CheckBox control allows the end-user to toggle an option on or off, usually 
 
 ![A simple CheckBox control](https://wpf-tutorial.com/Images/ArticleImages/1/chapters/basic-controls/checkbox_simple.png)
 
-As you can see, the CheckBox is very easy to use. On the second CheckBox, I use the IsChecked property to have it checked by default, but other than that, no properties are needed to use it. The IsChecked property should also be used from Code-behind if you want to check whether a certain CheckBox is checked or not.
+As you can see, the CheckBox is very easy to use. On the second CheckBox, I use the `IsChecked` property to have it checked by default, but other than that, no properties are needed to use it. The IsChecked property should also be used from Code-behind if you want to check whether a certain CheckBox is checked or not.
 
-Custom content
+🔔 Custom content
 
 The CheckBox control inherits from the ContentControl class, which means that it can take custom content and display next to it. If you just specify a piece of text, like I did in the example above, WPF will put it inside a TextBlock control and display it, but this is just a shortcut to make things easier for you. You can use any type of control inside of it, as we'll see in the next example:
 
-Download & run this example
+```xml
 <Window x:Class="WpfTutorialSamples.Basic_controls.CheckBoxSample"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -225,15 +226,21 @@ Download & run this example
 		</CheckBox>
 	</StackPanel>
 </Window>
-A CheckBox control with custom content
+
+```
+
+![A CheckBox control with custom content](https://wpf-tutorial.com/Images/ArticleImages/1/chapters/basic-controls/checkbox_custom_content.png)
+
+
 As you can see from the sample markup, you can do pretty much whatever you want with the content. On all three check boxes, I do something differently with the text, and on the middle one I even throw in an Image control. By specifying a control as the content, instead of just text, we get much more control of the appearance, and the cool thing is that no matter which part of the content you click on, it will activate the CheckBox and toggle it on or off.
 
-The IsThreeState property
-As mentioned, the CheckBox usually corresponds to a boolean value, which means that it only has two states: true or false (on or off). However, since a boolean data type might be nullable, effectively allowing for a third option (true, false or null), the CheckBox control can also support this case. By setting the IsThreeState property to true, the CheckBox will get a third state called "the indeterminate state".
+### The IsThreeState property
+
+As mentioned, the CheckBox usually corresponds to a boolean value, which means that it only has two states: true or false (on or off). However, since a boolean data type might be nullable, effectively allowing for a third option (true, false or null), the CheckBox control can also support this case. By setting the `IsThreeState property` to true, the CheckBox will get a third state called `"the indeterminate state"`.
 
 A common usage for this is to have a "Enable all" CheckBox, which can control a set of child checkboxes, as well as show their collective state. Our example shows how you may create a list of features that can be toggled on and off, with a common "Enable all" CheckBox in the top:
 
-Download & run this example
+```xml
 <Window x:Class="WpfTutorialSamples.Basic_controls.CheckBoxThreeStateSample"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -250,7 +257,10 @@ Download & run this example
 		</StackPanel>
 	</StackPanel>
 </Window>
-Download & run this example
+
+```
+
+```cs
 using System;
 using System.Windows;
 
@@ -283,11 +293,16 @@ namespace WpfTutorialSamples.Basic_controls
 
 	}
 }
-A three state CheckBox control in the inderminate stateA three state CheckBox control in the checked stateA three state CheckBox control in the unchecked state
+
+```
+
+![A three state CheckBox control in the inderminate state and checked state and unchecked state](./img/checkbox-threestate.jpg)
+
 This example works from two different angles: If you check or uncheck the "Enable all" CheckBox, then all of the child check boxes, each representing an application feature in our example, is either checked or unchecked. It also works the other way around though, where checking or unchecking a child CheckBox affects the "Enable all" CheckBox state: If they are all checked or unchecked, then the "Enable all" CheckBox gets the same state - otherwise the value will be left with a null, which forces the CheckBox into the indeterminate state.
 
+All of this behavior can be seen on the screenshots above, and is achieved by subscribing to the Checked and Unchecked events of the CheckBox controls. In a real world example, you would likely bind the values instead, but this example shows the basics of using the `IsThreeState property` to create a "Toggle all" effect.
 
-All of this behavior can be seen on the screenshots above, and is achieved by subscribing to the Checked and Unchecked events of the CheckBox controls. In a real world example, you would likely bind the values instead, but this example shows the basics of using the IsThreeState property to create a "Toggle all" effect.
+--*TBC - 20250102 - 2233 
 
 ## The RadioButton control
 
