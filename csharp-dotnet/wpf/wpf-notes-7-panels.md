@@ -515,7 +515,7 @@ As we've seen with many of the other panels in WPF, you start taking advantage o
 
 ```
 
-A simple DockPanel
+![A simple DockPanel](https://wpf-tutorial.com/Images/ArticleImages/1/chapters/panels/dockpanel_simple.png)
 
 As already mentioned, we don't assign a dock position for the last child, because it automatically centers the control, allowing it to fill the remaining space. You will also notice that the controls around the center only takes up the amount of space that they need - everything else is left for the center position. That is also why you will see the Right button take up a bit more space than the Left button - the extra character in the text simply requires more pixels.
 
@@ -537,7 +537,7 @@ The last thing that you will likely notice, is how the space is divided. For ins
 
 ```
 
-A DockPanel where width or heights has been specified for the child controls
+![A DockPanel where width or heights has been specified for the child controls](https://wpf-tutorial.com/Images/ArticleImages/1/chapters/panels/dockpanel_widths_heights.png)
 
 The top and bottom controls now take precedence over the left and right controls, and they're all taking up 50 pixels in either height or width. If you make the window bigger or smaller, you will also see that this static width/height remains the same no matter what - only the center area increases or decreases in size as you resize the window.
 
