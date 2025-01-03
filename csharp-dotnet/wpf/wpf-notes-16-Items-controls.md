@@ -12,6 +12,7 @@ Source : https://wpf-tutorial.com/list-controls/itemscontrol/
     - [The ItemsPanelTemplate property](#the-itemspaneltemplate-property)
     - [ItemsControl with scrollbars](#itemscontrol-with-scrollbars)
   - [The ListBox control](#the-listbox-control)
+    - [Data binding the ListBox](#data-binding-the-listbox)
     - [Working with ListBox selection](#working-with-listbox-selection)
   - [The ComboBox control](#the-combobox-control)
     - [IsEditable](#iseditable)
@@ -147,7 +148,7 @@ In the above examples, all items are rendered from top to bottom, with each item
 					<WrapPanel />
 				</ItemsPanelTemplate>
 			</ItemsControl.ItemsPanel>
-
+      <!-- Item Template -->
 			<ItemsControl.ItemTemplate>
 				<DataTemplate>
 					<Button Content="{Binding}" Margin="0,0,5,5" />
@@ -320,7 +321,7 @@ For each of the ListBoxItem's we now add a StackPanel, in which we add an Image 
 
 From the screenshot you might also notice another difference when comparing the ItemsControl to the ListBox: By default, a border is shown around the control, making it look like an actual control instead of just output.
 
-🔔 Data binding the ListBox
+### Data binding the ListBox
 
 Manually defining items for the ListBox makes for a fine first example, but most of the times, your ListBox controls will be filled with items from `a data source` using data binding. By default, if you bind a list of items to the ListBox, their `ToString()` method will be used to represent each item. This is rarely what you want, but fortunately, we can easily declare a template that will be used to render each item.
 
@@ -346,7 +347,6 @@ I have re-used the TODO based example from the ItemsControl article, where we bu
 						<ProgressBar Grid.Column="1" Minimum="0" Maximum="100" Value="{Binding Completion}" />
 					</Grid>
 				</DataTemplate>
-			
       </ListBox.ItemTemplate>
     </ListBox>
 	</Grid>
