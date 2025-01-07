@@ -5,6 +5,11 @@ Source : https://www.javatpoint.com/c-sharp-collections
 
 ---
 
+- [C# Collections](#c-collections)
+  - [Types of Collections in C#](#types-of-collections-in-c)
+- [C# `List<T>`](#c-listt)
+
+
 # C# Collections
 
 In C#, collection represents group of objects. By the help of collections, we can perform various operations on objects such as
@@ -61,3 +66,65 @@ ConcurrentDictionary
 Partitioner
 Partitioner
 OrderablePartitioner
+
+# C# `List<T>`
+
+C# `List<T>` class is used to store and fetch elements. It can have duplicate elements. It is found in System.Collections.Generic namespace.
+
+C# List<T> example
+
+Let's see an example of generic List<T> class that stores elements using Add() method and iterates the list using for-each loop.
+
+using System;  
+using System.Collections.Generic;  
+  
+public class ListExample  
+{  
+    public static void Main(string[] args)  
+    {  
+        // Create a list of strings  
+        var names = new List<string>();  
+        names.Add("Sonoo Jaiswal");  
+        names.Add("Ankit");  
+        names.Add("Peter");  
+        names.Add("Irfan");  
+  
+        // Iterate list element using foreach loop  
+        foreach (var name in names)  
+        {  
+            Console.WriteLine(name);  
+        }  
+    }  
+}  
+Output:
+
+Sonoo Jaiswal
+Ankit
+Peter
+Irfan
+
+C# List<T> example using collection initializer
+using System;  
+using System.Collections.Generic;  
+  
+public class ListExample  
+{  
+    public static void Main(string[] args)  
+    {  
+        // Create a list of strings using collection initializer  
+        var names = new List<string>() {"Sonoo", "Vimal", "Ratan", "Love" };  
+         
+        // Iterate through the list.  
+        foreach (var name in names)  
+        {  
+            Console.WriteLine(name);  
+        }  
+    }  
+}  
+Output:
+
+
+Sonoo
+Vimal
+Ratan
+Love
