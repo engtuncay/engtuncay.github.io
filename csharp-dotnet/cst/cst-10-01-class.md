@@ -502,7 +502,8 @@ public class Account
     {  
         Console.WriteLine(accno + " " + name);  
     }  
-}  
+}
+
 class TestAccount{  
     public static void Main(string[] args)  
     {  
@@ -565,7 +566,7 @@ class TestMyMath{
 
 ## C# static constructor
 
-C# static constructor is used to initialize static fields. It can also be used to perform any action that is to be performed only once. It is invoked automatically before first instance is created or any static member is referenced.
+C# static constructor is used to `initialize static fields`. It can also be used to perform any action that is to be performed only once. It is `invoked automatically before first instance is created or any static member is referenced`.
 
 ➖ Points to remember for C# Static Constructor
 
@@ -576,39 +577,44 @@ C# static constructor is used to initialize static fields. It can also be used t
 
 Let's see the example of static constructor which initializes the static field rateOfInterest in Account class.
 
-using System;  
-   public class Account  
+```cs
+using System;
+public class Account  
+{  
+    public int id;   
+    public String name;  
+    public static float rateOfInterest;  
+    public Account(int id, String name)  
     {  
-        public int id;   
-        public String name;  
-        public static float rateOfInterest;  
-        public Account(int id, String name)  
-        {  
-            this.id = id;  
-            this.name = name;  
-        }  
-        static Account()  
-        {  
-            rateOfInterest = 9.5f;  
-        }  
-        public void display()  
-        {  
-            Console.WriteLine(id + " " + name+" "+rateOfInterest);  
-        }  
-   }  
-   class TestEmployee{  
-       public static void Main(string[] args)  
-        {  
-            Account a1 = new Account(101, "Sonoo");  
-            Account a2 = new Account(102, "Mahesh");  
-            a1.display();  
-            a2.display();  
-  
-        }  
+        this.id = id;  
+        this.name = name;  
     }  
-Output:
+    static Account()  
+    {  
+        rateOfInterest = 9.5f;  
+    }  
+    public void display()  
+    {  
+        Console.WriteLine(id + " " + name+" "+rateOfInterest);  
+    }  
+} 
 
-101 Sonoo 9.5
-102 Mahesh 9.5
+class TestEmployee{
 
+    public static void Main(string[] args)  
+    {  
+        Account a1 = new Account(101, "Sonoo");  
+        Account a2 = new Account(102, "Mahesh");  
+        a1.display();  
+        a2.display();  
+
+    }  
+}  
+
+// Output:
+// 
+// 101 Sonoo 9.5
+// 102 Mahesh 9.5
+
+```
 
