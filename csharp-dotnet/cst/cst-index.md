@@ -66,17 +66,6 @@ C# Custom Exception
 C# checked unchecked
 C# SystemException
 
-23 C# Collections
-
-C# List<T>
-C# HashSet<T>
-C# SortedSet<T>
-C# Stack<T>
-C# Queue<T>
-C# LinkedList<T>
-C# Dictionary<K,V>
-C# SortedDictionary<K,V>
-C# SortedList<K,V>
 
 24 C# Generics
 
