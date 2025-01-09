@@ -8,8 +8,6 @@ Source : https://www.javatpoint.com/c-sharp-interface
 
 **Contents**
 
-
-
 ## C# Interface
 
 Interface in C# is a blueprint of a class. It is like abstract class because all the methods which are declared inside the interface are abstract methods. It cannot have method body and cannot be instantiated.
@@ -18,14 +16,17 @@ It is used to achieve multiple inheritance which can't be achieved by class. It 
 
 Its implementation must be provided by class or struct. The class or struct which implements the interface, must provide the implementation of all the methods declared inside the interface.
 
-C# interface example
+🧲 Example
+
 Let's see the example of interface in C# which has draw() method. Its implementation is provided by two classes: Rectangle and Circle.
 
+```cs
 using System;  
 public interface Drawable  
 {  
     void draw();  
 }  
+
 public class Rectangle : Drawable  
 {  
     public void draw()  
@@ -33,6 +34,7 @@ public class Rectangle : Drawable
         Console.WriteLine("drawing rectangle...");  
     }  
 }  
+
 public class Circle : Drawable  
 {  
     public void draw()  
@@ -40,6 +42,7 @@ public class Circle : Drawable
         Console.WriteLine("drawing circle...");  
     }  
 }  
+
 public class TestInterface  
 {  
     public static void Main()  
@@ -51,13 +54,21 @@ public class TestInterface
         d.draw();  
     }  
 }  
-Output:
 
-drawing ractangle...
-drawing circle...
+// Output:
+// 
+// drawing ractangle...
+// drawing circle...
+
+```
+
 Note: Interface methods are public and abstract by default. You cannot explicitly use public and abstract keywords for an interface method.
+
+```cs
 using System;  
 public interface Drawable  
 {  
     public abstract void draw();//Compile Time Error  
 }  
+
+```
