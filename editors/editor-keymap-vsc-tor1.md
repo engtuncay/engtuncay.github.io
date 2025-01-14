@@ -3,7 +3,7 @@ OrakSoft Keyboard shortcuts for Windows Based On Visual Studio Code
 
 - [General  (Frequent)](#general--frequent)
 - [Code Navigation](#code-navigation)
-- [Display And Editor Navigation](#display-and-editor-navigation)
+- [Display Navigation](#display-navigation)
 - [Editor management](#editor-management)
 - [Basic editing](#basic-editing)
 - [Search and replace](#search-and-replace)
@@ -17,9 +17,9 @@ OrakSoft Keyboard shortcuts for Windows Based On Visual Studio Code
   - [multi keys](#multi-keys)
     - [(c+k) multi keys](#ck-multi-keys)
     - [(c+h) multi keys](#ch-multi-keys)
-  - [Shift + Control](#shift--control)
 - [Notes](#notes)
 - [Other Unfrequent Items](#other-unfrequent-items)
+- [Templates](#templates)
  
 ---
 
@@ -27,6 +27,7 @@ OrakSoft Keyboard shortcuts for Windows Based On Visual Studio Code
 
 - cs+s means Ctrl + Shift + S key
 - c+k,s means c+k, then c+s
+- shortcuts with alt key may coincide with alt plus menu keys (alt ile olanlar menu kısayolu ile çakışabilir)
 
 # General  (Frequent)
 
@@ -60,14 +61,14 @@ c+[0-9]      | Go to Bookmark (idea)
 A + d        | Open file from path (extension)
 
 
-# Display And Editor Navigation
+# Display Navigation
 
 Editor panelleri arasında gezinmek, panellerin görüntülemesini açmak ve kapatmak için kısayollar
 
 Shortcut  | Desc                                                  | Note
 ----------|-------------------------------------------------------|--------
 cs+d      | Show Debug                                            |
-cs+s      | Toggle Sidebar Panel                                  | c+B old
+cs+s      | Toggle Sidebar Panel                                  | c+b old
 cs+e      | Show Explorer                                         |
 cs+f      | Show Search                                           |
 cs+g      | Show Source Control                                   |
@@ -83,7 +84,7 @@ a+o       | Open In Default Browser                               | User
 c+"       | Focus-Open Terminal (workbench.action.terminal.focus) |
 c+1       | Focus Editor(1)                                       |
 c+= / c+- | Zoom in/out                                           |
-
+a+t       | TODO (idea)                                           |
 
 unfavs
 ```
@@ -282,36 +283,18 @@ c+h,r | Run File
 c+h,c | Clear Output (run panel)
 
 
-## Shift + Control 
+# Notes
 
-Key | Desc
-----|-----
-a   |
-b   |
-c   |
-d   |
-e   |
-f   |
-g   |
-h   |
-ı   |
-i   |
-j   |
-k   |
-l   |
-m   |
-n   |
-o   |
-p   |
-r   |
-s   |
-ş   |
-t   |
-u   |
-ü   |
-v   |
-y   |
-z   |
+- Other operating systems’ keyboard shortcuts and additional unassigned shortcuts available at aka.ms/vscodekeybindings  (Key Bindings for Visual Studio Code)
+
+
+# Other Unfrequent Items
+
+c+k,m         | Change file language
+
+
+# Templates
+
 
 Boş
 
@@ -343,14 +326,3 @@ u   |
 v   |
 y   |
 z   |
-
-
-# Notes
-
-- Other operating systems’ keyboard shortcuts and additional unassigned shortcuts available at aka.ms/vscodekeybindings  (Key Bindings for Visual Studio Code)
-
-
-
-# Other Unfrequent Items
-
-c+k,m         | Change file language
