@@ -10,7 +10,7 @@
 
 # Cheatsheets
 
-- https://github.com/LabinatorSolutions/csharp-cheat-sheet
+- https://github.com/LabinatorSolutions/csharp-cheat-sheet (5*)
 
 - https://cheatography.com/pao361/cheat-sheets/c-cheatsheet/
 
@@ -45,7 +45,7 @@ Topic                                  | Note
 [20 Strings](./cst/cst-20-strings.md)|
 [22 File](./cst/cst-22-file.md) |
 [23 Collections](./cst/cst-23-collections.md)|
-[51 Application Installation](./cst/cst-24-App-Inst.md)|
+[51 Application Installation](./cst/cst-51-App-Inst.md)|
 
 [Cst Index](./cst/cst-index.md)
 
