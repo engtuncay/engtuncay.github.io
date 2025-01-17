@@ -58,7 +58,7 @@ c+k,c+b      | Toogle Bookmark (idea)
 c+F11        | Toggle Bookmark Mnemonic (idea)
 cs+[0-9]     | Toggle Bookmark [0-9] (idea)
 c+[0-9]      | Go to Bookmark (idea)
-A + d        | Open file from path (extension)
+c+h,b        | Open file from path (vsc-ext)
 
 
 # Display Navigation
