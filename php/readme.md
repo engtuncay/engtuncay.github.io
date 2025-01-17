@@ -14,7 +14,7 @@ Php Tutorial
 
 # Cheatsheets
 
-- Quick Reference - Php CheatSheet, https://quickref.me/php.html
+- Quick Reference - Php CheatSheet, https://quickref.me/php.html , [markdowned](./cheats/phpcs1.md)
 
 - A to-the-point summary of all awesome PHP features, https://front-line-php.com/cheat-sheet
 
