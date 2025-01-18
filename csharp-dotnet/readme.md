@@ -16,6 +16,22 @@
 
 - For C# 9.0 (new features), https://developer.okta.com/blog/2021/01/13/developers-cheatsheet-csharp-9
 
+- https://zerotomastery.io/cheatsheets/csharp-cheat-sheet/
+
+- https://learnxinyminutes.com/csharp/
+
+- https://learn.microsoft.com/en-us/previous-versions/visualstudio/visual-studio-2017/ide/visual-csharp-code-snippets?view=vs-2017
+
+- https://goalkicker.com/#google_vignette
+
+- https://sites.harding.edu/fmccown/vbnet_csharp_comparison.html
+
+- https://cht.sh/csharp/:learn
+
+- https://github.com/ssukhpinder/csharp-cheatsheet
+
+
+
 # References
 
 - https://www.w3schools.com/cs/index.php
