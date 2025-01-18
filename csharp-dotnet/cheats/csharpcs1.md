@@ -26,15 +26,14 @@ License : GNU
     - [Terminology](#terminology)
     - [Summary Table](#summary-table)
   - [C# Data Types](#c-data-types)
-    - [1 Value Types](#1-value-types)
+    - [1. Value Types](#1-value-types)
       - [1.1 Simple Data Types](#11-simple-data-types)
-        - [1.1 Bytes](#11-bytes)
-        - [1.2 Unsigned Integers](#12-unsigned-integers)
-        - [1.3 Signed Integers](#13-signed-integers)
-        - [Floating-Point Types](#floating-point-types)
-        - [Unicode Characters](#unicode-characters)
-        - [Booleans](#booleans)
-      - [Enum Types](#enum-types)
+        - [1.1.1 Bytes](#111-bytes)
+        - [1.1.2 Integers](#112-integers)
+        - [1.1.3 Floating-Point Types](#113-floating-point-types)
+        - [1.1.4 Unicode Characters (char)](#114-unicode-characters-char)
+        - [1.1.5 Booleans](#115-booleans)
+      - [1.2 Enum Types](#12-enum-types)
       - [Structure Types](#structure-types)
       - [Tuple Types](#tuple-types)
       - [Nullable Value Types](#nullable-value-types)
@@ -396,7 +395,7 @@ There are following three terminologies are used to declare C# and .NET naming s
 
 ## C# Data Types
 
-### 1 Value Types
+### 1. Value Types
 
 **For Reference:**
 https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-types
@@ -406,7 +405,7 @@ https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/
 **For Reference:**
 https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/integral-numeric-types
 
-##### 1.1 Bytes
+##### 1.1.1 Bytes
 
 ```csharp
 
@@ -414,7 +413,9 @@ byte myUnsignedByte = 8; // Size: 8 bits  | Range: 0 to 255
 sbyte mySignedByte = -8; // Size: 8 bits  | Range: -128 to +127
 ```
 
-##### 1.2 Unsigned Integers
+##### 1.1.2 Integers
+
+🔔 Unsigned Integers
 
 ```csharp
 
@@ -423,7 +424,7 @@ uint myUnsignedInt = 32; // Size: 32 bits  | Range: 0 to 2^32-1
 ulong myUnsignedLong = 64; // Size: 64 bits  | Range: 0 to 2^64-1
 ```
 
-##### 1.3 Signed Integers
+🔔 Signed Integers
 
 ```csharp
 short mySignedShort = 16; // Size: 16 bits  | Range: -32768 to +32767
@@ -431,7 +432,7 @@ int mySignedInt = 32; // Size: 32 bits  | Range: -2^31  to +2^31-1
 long mySignedLong = -64; // Size: 64 bits  | Range: -2^63  to +2^63-1
 ```
 
-##### Floating-Point Types
+##### 1.1.3 Floating-Point Types
 
 ```csharp
 float myFloat = 3.14F; // Size: 32 bits  | Range: 7 digits of precision
@@ -442,19 +443,19 @@ decimal myDecimal = 3.14M; // Size: 128 bits | Range: 28-29 digits of precision
 **Learn More:**
 https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/floating-point-numeric-types
 
-##### Unicode Characters
+##### 1.1.4 Unicode Characters (char)
 
 ```csharp
 char myChar = 'a'; // Size: 16 bits  | Range: Unicode character
 ```
 
-##### Booleans
+##### 1.1.5 Booleans
 
 ```csharp
 bool myBool = true; // Size: 4 bits   | Range: true or false
 ```
 
-#### Enum Types
+#### 1.2 Enum Types
 
 An enum type is a distinct value type with a set of named constants.
 
@@ -548,7 +549,6 @@ if (b.HasValue)
 {
     Console.WriteLine($"b is {b.Value}");
 }
-
 else
 {
     Console.WriteLine("b does not have a value");
@@ -557,6 +557,8 @@ else
 
 **Learn More:**
 https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/nullable-value-types
+
+--*TBC - 20250119 - 0011 
 
 ### Reference Types
 
