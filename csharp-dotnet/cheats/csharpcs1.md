@@ -571,6 +571,7 @@ The object type is an alias for System.Object in .NET. In the unified type syste
 ##### String Types
 
 It is common to think of strings as arrays of characters. In reality, strings in C# are objects.
+
 When you declare a string variable, you basically instantiate an object of type String.
 
 ```csharp
@@ -626,15 +627,17 @@ Console.WriteLine(myText); // Outputs => "Here is some text"
 if(myText.Contains("some"))
 Console.WriteLine("found"); // Outputs "found"
 
-myText = myText.Remove(4);
+myText = myText.Remove(4); // delete all after 4 (:to)
 Console.WriteLine(myText); // Outputs "Here"
 
-myText = myText.Substring(2, 3);
+myText = myText.Substring(2, 3); // start from index 2 to index 3
 Console.WriteLine(myText); // Outputs "re"
 ```
 
 **Learn More:**
 https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/strings/
+
+--*TBC - 20250119 - 0027 
 
 ##### Delegate Types
 
