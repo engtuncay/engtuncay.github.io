@@ -26,11 +26,11 @@ License : GNU
     - [Terminology](#terminology)
     - [Summary Table](#summary-table)
   - [C# Data Types](#c-data-types)
-    - [Value Types](#value-types)
-      - [Simple Data Types](#simple-data-types)
-        - [Bytes](#bytes)
-        - [Unsigned Integers](#unsigned-integers)
-        - [Signed Integers](#signed-integers)
+    - [1 Value Types](#1-value-types)
+      - [1.1 Simple Data Types](#11-simple-data-types)
+        - [1.1 Bytes](#11-bytes)
+        - [1.2 Unsigned Integers](#12-unsigned-integers)
+        - [1.3 Signed Integers](#13-signed-integers)
         - [Floating-Point Types](#floating-point-types)
         - [Unicode Characters](#unicode-characters)
         - [Booleans](#booleans)
@@ -316,13 +316,9 @@ https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/preprocessor-d
 
 ## Comments
 
-- Single line comments are typed within two forward slashes:
-
 ```csharp
 // Single Line Comment
 ```
-
-- Multi-line comments are typed with a forward slash followed by an asterisk. It must be closed by an asterisk followed by a forward slash.
 
 ```csharp
 /*
@@ -344,8 +340,6 @@ class Hello
     }
 }
 ```
-
-**Note:** C# source files typically have the file extension **.cs**
 
 ---
 
@@ -392,25 +386,27 @@ There are following three terminologies are used to declare C# and .NET naming s
 | Parameter       | lowerCamelCase  |
 
 **Learn More:**
-https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/inside-a-program/coding-conventions
-https://google.github.io/styleguide/csharp-style.html
-https://www.dofactory.com/reference/csharp-coding-standards
+- https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/inside-a-program/coding-conventions
+- https://google.github.io/styleguide/csharp-style.html
+- https://www.dofactory.com/reference/csharp-coding-standards
 
 ---
 
+--*TBC - 20250118 - 2107 
+
 ## C# Data Types
 
-### Value Types
+### 1 Value Types
 
 **For Reference:**
 https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-types
 
-#### Simple Data Types
+#### 1.1 Simple Data Types
 
 **For Reference:**
 https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/integral-numeric-types
 
-##### Bytes
+##### 1.1 Bytes
 
 ```csharp
 
@@ -418,7 +414,7 @@ byte myUnsignedByte = 8; // Size: 8 bits  | Range: 0 to 255
 sbyte mySignedByte = -8; // Size: 8 bits  | Range: -128 to +127
 ```
 
-##### Unsigned Integers
+##### 1.2 Unsigned Integers
 
 ```csharp
 
@@ -427,7 +423,7 @@ uint myUnsignedInt = 32; // Size: 32 bits  | Range: 0 to 2^32-1
 ulong myUnsignedLong = 64; // Size: 64 bits  | Range: 0 to 2^64-1
 ```
 
-##### Signed Integers
+##### 1.3 Signed Integers
 
 ```csharp
 short mySignedShort = 16; // Size: 16 bits  | Range: -32768 to +32767
