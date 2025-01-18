@@ -34,17 +34,17 @@ License : GNU
         - [1.1.4 Unicode Characters (char)](#114-unicode-characters-char)
         - [1.1.5 Booleans](#115-booleans)
       - [1.2 Enum Types](#12-enum-types)
-      - [Structure Types](#structure-types)
-      - [Tuple Types](#tuple-types)
-      - [Nullable Value Types](#nullable-value-types)
-    - [Reference Types](#reference-types)
-      - [Built-In Reference Types](#built-in-reference-types)
-        - [Object Types](#object-types)
-        - [String Types](#string-types)
-        - [Delegate Types](#delegate-types)
-      - [Interface Types](#interface-types)
-      - [Nullable Reference Types](#nullable-reference-types)
-      - [Array Types](#array-types)
+      - [1.3 Structure Types](#13-structure-types)
+      - [1.4 Tuple Types](#14-tuple-types)
+      - [1.5 Nullable Value Types](#15-nullable-value-types)
+    - [2. Reference Types](#2-reference-types)
+      - [2.1 Built-In Reference Types](#21-built-in-reference-types)
+        - [2.1.1 Object Types](#211-object-types)
+        - [2.1.2 String Types](#212-string-types)
+        - [2.1.3 Delegate Types](#213-delegate-types)
+      - [2.2 Interface Types](#22-interface-types)
+      - [2.3 Nullable Reference Types](#23-nullable-reference-types)
+      - [2.4 Array Types](#24-array-types)
         - [Array Of Simple Types](#array-of-simple-types)
         - [Jagged Arrays](#jagged-arrays)
         - [Array Properties \& Methods](#array-properties--methods)
@@ -62,24 +62,24 @@ License : GNU
     - [Operator Precedents](#operator-precedents)
   - [Statements](#statements)
     - [Conditions](#conditions)
-      - [**```if```**...**```else if```**...**```else```**](#ifelse-ifelse)
-      - [**```switch```** Case](#switch-case)
+      - [If Conditions](#if-conditions)
+      - [Switch Case](#switch-case)
     - [Loops](#loops)
-      - [**```while```** Loop](#while-loop)
-      - [**```do```**...**```while```** Loop](#dowhile-loop)
-      - [**```for```** Loop](#for-loop)
-      - [**```foreach```** Loop](#foreach-loop)
-    - [**```goto```** Statement](#goto-statement)
-    - [**```return```** Statement](#return-statement)
-    - [**```yield```** Statement](#yield-statement)
-    - [**```checked```** and **```unchecked```** Statements](#checked-and-unchecked-statements)
-    - [**```lock```** Statement](#lock-statement)
-    - [**```using```** Statement](#using-statement)
+      - [while Loop](#while-loop)
+      - [do...while Loop](#dowhile-loop)
+      - [for Loop](#for-loop)
+      - [foreach Loop](#foreach-loop)
+    - [goto Statement](#goto-statement)
+    - [return Statement](#return-statement)
+    - [yield Statement](#yield-statement)
+    - [checked and unchecked Statements](#checked-and-unchecked-statements)
+    - [lock Statement](#lock-statement)
+    - [using Statement](#using-statement)
     - [Exception Handling](#exception-handling)
   - [Classes \& Objects](#classes--objects)
     - [Members](#members)
     - [Constructors](#constructors)
-    - [The ```this``` Keyword](#the-this-keyword)
+    - [The 'this' Keyword](#the-this-keyword)
     - [Garbage Collector](#garbage-collector)
     - [Destructors / Finalizers](#destructors--finalizers)
   - [Object-Oriented Programming (OOP)](#object-oriented-programming-oop)
@@ -108,8 +108,8 @@ License : GNU
     - [Dictionary](#dictionary)
     - [HashSet](#hashset)
   - [Constants](#constants)
-    - [The ```const``` Keyword](#the-const-keyword)
-    - [The ```readonly``` Keyword](#the-readonly-keyword)
+    - [The const Keyword](#the-const-keyword)
+    - [The readonly Keyword](#the-readonly-keyword)
   - [Asynchronous Methods](#asynchronous-methods)
   - [Working With Files](#working-with-files)
   - [Language-Integrated Query (LINQ)](#language-integrated-query-linq)
@@ -502,7 +502,7 @@ class Test
 **Learn More:**
 https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/enum
 
-#### Structure Types
+#### 1.3 Structure Types
 
 Like classes, structs are data structures that can contain data members and function members, but unlike classes, structs are value types and do not require heap allocation. A variable of a struct type directly stores the data of the struct, whereas a variable of a class type stores a reference to a dynamically allocated object. Struct types do not support user-specified inheritance, and all struct types implicitly inherit from type object.
 
@@ -523,7 +523,7 @@ struct Point
 **Learn More:**
 https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/struct
 
-#### Tuple Types
+#### 1.4 Tuple Types
 
 Available in C# 7.0 and later, the tuples feature provides concise syntax to group multiple data elements in a lightweight data structure.
 
@@ -538,7 +538,7 @@ Console.WriteLine($"Sum of {t2.Count} elements is {t2.Sum}."); // Output => Sum 
 **Learn More:**
 https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-tuples
 
-#### Nullable Value Types
+#### 1.5 Nullable Value Types
 
 A nullable value type **```T?```** represents all values of its underlying value type **T** and an additional null value. For example, you can assign any of the following three values to a **```bool?```** variable: true, false, or null. An underlying value type **T** cannot be a nullable value type itself.
 
@@ -560,15 +560,15 @@ https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/
 
 --*TBC - 20250119 - 0011 
 
-### Reference Types
+### 2. Reference Types
 
-#### Built-In Reference Types
+#### 2.1 Built-In Reference Types
 
-##### Object Types
+##### 2.1.1 Object Types
 
 The object type is an alias for System.Object in .NET. In the unified type system of C#, all types, predefined and user-defined, reference types and value types, inherit directly or indirectly from System.Object. You can assign values of any type to variables of type object. Any object variable can be assigned to its default value using the literal null.
 
-##### String Types
+##### 2.1.2 String Types
 
 It is common to think of strings as arrays of characters. In reality, strings in C# are objects.
 
@@ -639,7 +639,7 @@ https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/strings/
 
 --*TBC - 20250119 - 0027 
 
-##### Delegate Types
+##### 2.1.3 Delegate Types
 
 A delegate type represents references to methods with a particular parameter list and return type. Delegates make it possible to treat methods as entities that can be assigned to variables and passed as parameters. Delegates are similar to the concept of function pointers found in some other languages, but unlike function pointers, delegates are object-oriented and type-safe.
 
@@ -695,7 +695,7 @@ class Test
 **Learn More:**
 https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/delegates/
 
-#### Interface Types
+#### 2.2 Interface Types
 
 An interface defines a contract that can be implemented by classes and structs. An interface can contain methods, properties, events, and indexers. An interface does not provide implementations of the members it defines—it merely specifies the members that must be supplied by classes or structs that implement the interface. Interfaces may employ multiple inheritance.
 
@@ -722,7 +722,7 @@ static void Main(string[] args)
 https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/interfaces/
 https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/interface
 
-#### Nullable Reference Types
+#### 2.3 Nullable Reference Types
 
 Nullable reference types are available beginning with C# 8.0, in code that has opted in to a nullable aware context. Nullable reference types, the null static analysis warnings, and the null-forgiving operator are optional language features. All are turned off by default. A nullable context is controlled at the project level using build settings, or in code using pragmas.
 
@@ -734,7 +734,7 @@ string? nullable = default;
 **Learn More:**
 https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/nullable-reference-types
 
-#### Array Types
+#### 2.4 Array Types
 
 An array is a data structure that contains a number of variables that are accessed through computed indices. The variables contained in an array, also called the elements of the array, are all of the same type, and this type is called the element type of the array.
 
@@ -1069,7 +1069,9 @@ https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/
 
 ### Conditions
 
-#### **```if```**...**```else if```**...**```else```**
+#### If Conditions
+
+🔔 **```if```**...**```else if```**...**```else```**
 ```csharp
 int time = 22;
 
@@ -1093,7 +1095,7 @@ int toCompare = 17;
 string isTrue = toCompare == 17 ? "True" : "False";
 ```
 
-#### **```switch```** Case
+#### Switch Case
 
 ```csharp
 // A switch works with the byte, short, char, and int data types.
@@ -1129,7 +1131,7 @@ switch (month)
 
 ### Loops
 
-#### **```while```** Loop
+#### while Loop
 
 ```csharp
 
@@ -1142,7 +1144,7 @@ while (fooWhile < 100)
 }
 ```
 
-#### **```do```**...**```while```** Loop
+#### do...while Loop
 
 ```csharp
 // Do While Loop
@@ -1166,7 +1168,7 @@ do
 } while (fooDoWhile < 100);
 ```
 
-#### **```for```** Loop
+#### for Loop
 
 ```csharp
 for (int fooFor = 0; fooFor < 10; fooFor++)
@@ -1175,7 +1177,7 @@ for (int fooFor = 0; fooFor < 10; fooFor++)
 }
 ```
 
-#### **```foreach```** Loop
+#### foreach Loop
 
 ```csharp
 foreach (char character in "Hello World".ToCharArray())
@@ -1184,7 +1186,7 @@ foreach (char character in "Hello World".ToCharArray())
 }
 ```
 
-### **```goto```** Statement
+### goto Statement
 
 ```csharp
 static void Main(string[] args) {
@@ -1202,7 +1204,7 @@ static void Main(string[] args) {
 }
 ```
 
-### **```return```** Statement
+### return Statement
 
 ```csharp
 static int Add(int a, int b)
@@ -1217,7 +1219,7 @@ static void Main(string[] args)
 }
 ```
 
-### **```yield```** Statement
+### yield Statement
 
 ```csharp
 static IEnumerable<int> Range(int from, int to)
@@ -1238,7 +1240,7 @@ static void Main(string[] args)
 }
 ```
 
-### **```checked```** and **```unchecked```** Statements
+### checked and unchecked Statements
 
 ```csharp
 static void Main(string[] args)
@@ -1255,7 +1257,7 @@ static void Main(string[] args)
 }
 ```
 
-### **```lock```** Statement
+### lock Statement
 
 ```csharp
 class Account
@@ -1275,7 +1277,7 @@ class Account
 }
 ```
 
-### **```using```** Statement
+### using Statement
 
 ```csharp
 static void Main(string[] args)
@@ -1444,7 +1446,7 @@ class MyRectangle
 **Learn More:**
 https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/constructors
 
-### The ```this``` Keyword
+### The 'this' Keyword
 
 Inside the constructor, as well as in other methods belonging to the object, a special keyword called this can be used. This keyword is a reference to the current instance of the class. Suppose, for example, that the constructor’s parameters have the same names as the corresponding fields. The fields could then still be accessed by using the this keyword, even though they are overshadowed by the parameters.
 
@@ -2747,7 +2749,7 @@ https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.hashset-1
 
 ## Constants
 
-### The ```const``` Keyword
+### The const Keyword
 
 A variable in C# can be made into a compile-time constant by adding the ```const``` keyword before the data type. This modifier means that the variable cannot be changed and it must therefore be assigned a value at the same time as it is declared. Any attempts to assign a new value to the constant will result in a compile-time error.
 
@@ -2760,7 +2762,7 @@ static void Main(string[] args)
 
 **Note:** Constant fields cannot have the static modifier. They are implicitly static and are accessed in the same way as static fields.
 
-### The ```readonly``` Keyword
+### The readonly Keyword
 
 Another variable modifier similar to ```const``` is ```readonly```. It creates a runtime constant. This modifier can be applied to fields, and like ```const```, it makes the field unchangeable.
 
@@ -3058,3 +3060,8 @@ https://docs.unity3d.com/Manual/index.html
 **Based On:**
 
 - This guide has used several examples and definitions from the [Microsoft's .NET documentation](https://docs.microsoft.com/en-us/dotnet/).
+
+
+Database Operations
+
+
