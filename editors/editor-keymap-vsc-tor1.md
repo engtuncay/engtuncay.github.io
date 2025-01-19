@@ -4,8 +4,8 @@ OrakSoft Keyboard shortcuts for Windows Based On Visual Studio Code
 - [General  (Frequent)](#general--frequent)
 - [Code Navigation](#code-navigation)
 - [Display Navigation](#display-navigation)
-- [Editor management](#editor-management)
 - [Basic editing](#basic-editing)
+- [Editor management](#editor-management)
 - [Search and replace](#search-and-replace)
 - [Multi-cursor and selection](#multi-cursor-and-selection)
 - [Rich languages editing](#rich-languages-editing)
@@ -46,7 +46,7 @@ c+pup / pdown | Prev / Next Tab
 Kod içerisinde gezinme için kısayollar
 
 Shortcut     | Desc
--------------|--------------------------------
+-------------|-----------------------------------
 c+t          | Show all Symbols
 c+p          | Go to File
 cs+o (c+*)   | Go to Symbol...
@@ -59,32 +59,44 @@ c+F11        | Toggle Bookmark Mnemonic (idea)
 cs+[0-9]     | Toggle Bookmark [0-9] (idea)
 c+[0-9]      | Go to Bookmark (idea)
 c+h,b        | Open file from path (vsc-ext)
+a+z          | Toggle word wrap
+Home / End   | Go to beginning/end of line
+c+Home       | Go to beginning of file
+c+End        | Go to end of file
+c+s+[        | Fold (collapse) region
+c+s+]        | Unfold (uncollapse) region
+c+k,[        | Fold (collapse) all subregions
+c+k,]        | Unfold (uncollapse) all subregions
+c+k,0        | Fold (collapse) all regions
+c+k,j        | Unfold (uncollapse) all regions
 
 
 # Display Navigation
 
 Editor panelleri arasında gezinmek, panellerin görüntülemesini açmak ve kapatmak için kısayollar
 
-Shortcut  | Desc                                                  | Note
-----------|-------------------------------------------------------|--------
-cs+d      | Show Debug                                            |
-cs+s      | Toggle Sidebar Panel                                  | c+b old
-cs+e      | Show Explorer                                         |
-cs+f      | Show Search                                           |
-cs+g      | Show Source Control                                   |
-cs+x      | Show Extensions                                       |
-cs+h      | Replace in files                                      |
-cs+j      | Toggle Search details                                 |
-cs+u      | Show Output panel                                     |
-cs+m      | Show Problems panel                                   |
-cs+v      | Open Markdown preview                                 |
-c+k c+v   | Open Markdown preview to the side                     |
-c+k c+z   | Zen Mode (Esc Esc to exit)                            |
-a+o       | Open In Default Browser                               | User
-c+"       | Focus-Open Terminal (workbench.action.terminal.focus) |
-c+1       | Focus Editor(1)                                       |
-c+= / c+- | Zoom in/out                                           |
-a+t       | TODO (idea)                                           |
+| Shortcut  | Desc                              | Note                              |
+|-----------|-----------------------------------|-----------------------------------|
+| cs+d      | Show Debug                        |
+| cs+s      | Toggle Sidebar Panel              | c+b old                           |
+| cs+e      | Show Explorer                     |
+| cs+f      | Show Search                       |
+| cs+g      | Show Source Control               |
+| cs+x      | Show Extensions                   |
+| cs+h      | Replace in files                  |
+| cs+j      | Toggle Search details             |
+| cs+u      | Show Output panel                 |
+| cs+m      | Show Problems panel               |
+| cs+v      | Open Markdown preview             |
+| c+k c+v   | Open Markdown preview to the side |
+| c+k c+z   | Zen Mode (Esc Esc to exit)        |
+| a+o       | Open In Default Browser           | User                              |
+| c+"       | Focus-Open Terminal               | (workbench.action.terminal.focus) |
+| c+1       | Focus Editor(1)                   |
+| c+= / c+- | Zoom in/out                       |
+| a+t       | TODO (idea)                       |
+
+
 
 unfavs
 ```
@@ -93,6 +105,27 @@ s+a+0    | Toggle editor layout (horizontal/vertical)       |
 cs+tab   | Navigate editor group history                    |
 c+j      | (workbench.action.focusActiveEditorGroup)        |
 ```
+
+# Basic editing 
+
+Shortcut      | Desc
+--------------|----------------------------
+c+X           | Cut line (empty selection)
+c+C           | Copy line (empty selection)
+a+ ↑ / ↓      | Move line up/down
+s+A + ↓ / ↑   | Copy line up/down
+c+L,(c+s)+K   | Delete line
+c+Enter       | Insert line below
+c+s+Enter     | Insert line above
+c+s+\         | Jump to matching bracket
+c+] / [       | Indent/outdent line
+c+↑ / ↓       | Scroll line up/down
+a+PgUp / PgDn | Scroll page up/down
+c+k c+C       | Add line comment
+c+k c+u       | Remove line comment
+c+/ , c+7     | Toggle line comment
+Sa+a, cs+7    | Toggle block comment
+
 
 # Editor management 
 
@@ -106,35 +139,7 @@ c+K c+ ←/→      | Focus into previous/next editor group
 c+s+PgUp / PgDn | Move editor left/right
 c+K ← / →       | Move active editor group
 
-# Basic editing 
 
-Shortcut      | Desc
---------------|-----------------------------------
-c+X           | Cut line (empty selection)
-c+C           | Copy line (empty selection)
-a+ ↑ / ↓      | Move line up/down
-s+A + ↓ / ↑   | Copy line up/down
-c+L,(c+s)+K   | Delete line
-c+Enter       | Insert line below
-c+s+Enter     | Insert line above
-c+s+\         | Jump to matching bracket
-c+] / [       | Indent/outdent line
-Home / End    | Go to beginning/end of line
-c+Home        | Go to beginning of file
-c+End         | Go to end of file
-c+↑ / ↓       | Scroll line up/down
-a+PgUp / PgDn | Scroll page up/down
-c+s+[         | Fold (collapse) region
-c+s+]         | Unfold (uncollapse) region
-c+K c+[       | Fold (collapse) all subregions
-c+K c+]       | Unfold (uncollapse) all subregions
-c+K c+0       | Fold (collapse) all regions
-c+K c+J       | Unfold (uncollapse) all regions
-c+k c+C       | Add line comment
-c+k c+u       | Remove line comment
-c+/ , c+7     | Toggle line comment
-Sa+a, cs+7    | Toggle block comment
-a+z           | Toggle word wrap
 
 # Search and replace 
 

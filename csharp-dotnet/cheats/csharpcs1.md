@@ -641,12 +641,12 @@ https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/strings/
 
 ##### 2.1.3 Delegate Types
 
-A delegate type represents references to methods with a particular parameter list and return type. Delegates make it possible to treat methods as entities that can be assigned to variables and passed as parameters. Delegates are similar to the concept of function pointers found in some other languages, but unlike function pointers, delegates are object-oriented and type-safe.
+A delegate type represents references to methods with a particular parameter list and return type. Delegates make it possible to treat methods as entities that can be assigned to variables and passed as parameters. Delegates are similar to the concept of `function pointers` found in some other languages, but unlike function pointers, delegates are object-oriented and type-safe.
 
 ```csharp
 using System;
 
-delegate double Function(double x);
+delegate double FnCalculate(double x);
 
 class Multiplier
 {
@@ -670,14 +670,14 @@ class Test
         return x * x;
     }
 
-    static double[] Apply(double[] a, Function f)
+    static double[] Apply(double[] a, FnCalculate f)
     {
-        double[] result = new double[a.Length];
-        for (int i = 0; i < a.Length; i++)
-        {
+      double[] result = new double[a.Length];
+      for (int i = 0; i < a.Length; i++)
+      {
           result[i] = f(a[i]);
-        }
-        return result;
+      }
+      return result;
     }
 
     static void Main(string[] args)
