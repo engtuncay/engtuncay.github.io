@@ -7,14 +7,23 @@ Source : https://www.geeksforgeeks.org/basic-database-operations-using-c-sharp/
 
 ---
 
-Basic Database Operations Using C#
+- [Basic Database Operations Using C#](#basic-database-operations-using-c)
+  - [Code 1: Connecting with database](#code-1-connecting-with-database)
+  - [Code 2: Using Select Statement and SqlDataReader for accessing the data](#code-2-using-select-statement-and-sqldatareader-for-accessing-the-data)
+  - [Code 3: Inserting the data](#code-3-inserting-the-data)
+  - [Code 4: Updating the data](#code-4-updating-the-data)
+  - [Code 5: Deleting the data](#code-5-deleting-the-data)
+
+
+# Basic Database Operations Using C#
+
 Last Updated : 31 Jan, 2023
 
 In this article, you are going to learn about how to perform basic database operations using system.data.SqlClient namespace in C#. The basic operations are INSERT, UPDATE, SELECT and DELETE. Although the target database system is SQL Server Database, the same techniques can be applied to other database systems because the query syntax used is standard SQL that is generally supported by all relational database systems.
 Prerequisites: Microsoft SQL Server Management Studio
 Open Microsoft SQL Server Management Studio and write the below script to create a database and table in it.
  
-
+```sql
 create database Demodb;
 
 use Demodb;
@@ -26,26 +35,27 @@ CREATE TABLE demo(
 
 insert into demo values(1, 'C#');
 insert into demo values(2, 'C++');
+
+```
+
 After executing the above script following table named demo is created and it contains the following data as shown in the screenshot.
+
+
+
+➖ Connecting C# with Database: To work with a database, the first of all you required a connection. The connection to a database normally consists of the below-mentioned parameters.
  
 
-
-
-Connecting C# with Database: To work with a database, the first of all you required a connection. The connection to a database normally consists of the below-mentioned parameters.
- 
-
-Database name or Data Source: The database name to which the connection needs to be set up and connection can be made or you can say only work with one database at a time.
-Credentials: The username and password which needs to be used to establish a connection to the database.
+- Database name or Data Source: The database name to which the connection needs to be set up and connection can be made or you can say only work with one database at a time.
+- Credentials: The username and password which needs to be used to establish a connection to the database.
 Optional Parameters: For each database type, you can specify optional parameters to provide more information on how .NET should connect to the database to handle the data.
+
 Note: Here, we are using command prompt to execute these codes. To see the result, you can use the Microsoft SQL Server Management Studio.
-Code 1#: Connecting with database in C#
+
+## Code 1: Connecting with database
  
 
-csharp
-
-
-
-// C# code to connect the database
+```cs
+// C# code to connect the database/
 using System;
 using System.Data.SqlClient;
  
@@ -88,17 +98,16 @@ class DBConn {
     }
 }
 }
-Output:
+// Output:
+//  
+// 
+// Connection Open !
+
+```
+
+## Code 2: Using Select Statement and SqlDataReader for accessing the data
  
-
-Connection Open !
-Code #2: Using Select Statement and SqlDataReader for accessing the data in C#
- 
-
-csharp
-
-
-
+```cs
 // C# code to demonstrate how 
 // to use select statement
 using System;
@@ -174,17 +183,18 @@ class SelectStatement{
     }
 }
 }
-Output:
- 
+// Output:
+//  
+// 
+// 1 - C#
+// 2 - C++
 
-1 - C#
-2 - C++
-Code #3: Inserting the data into the database using Insert Statement in C#
- 
-
-csharp
+```
 
 
+## Code 3: Inserting the data 
+
+```cs
 
 // C# code for how to use Insert Statement
 using System;
@@ -254,18 +264,14 @@ class InsertStatement {
     }
 }
 }
-Output:
+// Output:
+//  
+
+```
+
+## Code 4: Updating the data
  
-
-
-
-Code #4: Updating the data into the database using Update Statement in C#
- 
-
-csharp
-
-
-
+```cs
 // C# code for how to use Update Statement
 using System;
 using System.Data.SqlClient;
@@ -317,7 +323,7 @@ class UpdateStatement {
         sql = "update demo set articleName='django' where articleID=3"; 
          
         // use to execute the sql command so we 
-        // are passing query and connection object
+// are passing query and connection object
         cmd = new SqlCommand(sql, conn); 
          
         // associate the insert SQL
@@ -334,18 +340,15 @@ class UpdateStatement {
     }
 }
 }
-Output:
+// Output:
+//  
  
+```
 
 
-
-Code #5: Deleting the data into the database using Delete Statement in C#
+## Code 5: Deleting the data
  
-
-csharp
-
-
-
+```cs
 // C# code for how to use Delete Statement
 using System;
 using System.Data.SqlClient;
@@ -414,4 +417,6 @@ class DeleteStatement {
     }
 }
 }
+
+```
 

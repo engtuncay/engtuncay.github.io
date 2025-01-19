@@ -136,7 +136,9 @@ License : GNU
 
 ### What is C#?
 
-See Source 
+- See the source, https://github.com/LabinatorSolutions/csharp-cheat-sheet
+
+- See https://www.dotnetustad.com/c-sharp
 
 ### What Is C# Used For?
 
