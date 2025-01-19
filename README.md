@@ -28,7 +28,9 @@ These notes are taken from web resources. Some sections can be modified.
 
 [Tor VsCode Keymap](./editors/editor-keymap-vsc-tor1.md)
 
-[Db Notes](./db/readme.md)
+[Mssql Notes](./mssql/readme.md)
+
+[Mysql Notes](./mysql/readme.md)
 
 ---
 
