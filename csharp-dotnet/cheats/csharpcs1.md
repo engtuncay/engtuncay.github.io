@@ -697,7 +697,7 @@ https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/delegates/
 
 #### 2.2 Interface Types
 
-An interface defines a contract that can be implemented by classes and structs. An interface can contain methods, properties, events, and indexers. An interface does not provide implementations of the members it defines—it merely specifies the members that must be supplied by classes or structs that implement the interface. Interfaces may employ multiple inheritance.
+An interface defines a contract that can be implemented by classes and structs. An interface can contain methods, properties, events, and indexers. An interface does not provide implementations of the members it defines—it merely specifies the members that must be supplied by classes or structs that implement the interface. Interfaces may employ `multiple inheritance`.
 
 ```csharp
 public interface IShape
@@ -724,7 +724,7 @@ https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/inter
 
 #### 2.3 Nullable Reference Types
 
-Nullable reference types are available beginning with C# 8.0, in code that has opted in to a nullable aware context. Nullable reference types, the null static analysis warnings, and the null-forgiving operator are optional language features. All are turned off by default. A nullable context is controlled at the project level using build settings, or in code using pragmas.
+Nullable reference types are available beginning with C# 8.0, in code that has opted in to a nullable aware context. Nullable reference types, the null static analysis warnings, and the `null-forgiving operator` are optional language features. All are turned off by default. A nullable context is controlled at the project level using build settings, or in code using pragmas.
 
 ```csharp
 string notNull = "Hello";
@@ -823,14 +823,14 @@ public class Program
         }
 
         Console.WriteLine("Sorted Array:");
-        Array.Sort(integersArray);
+        Array.Sort(integersArray); //***
         foreach(int element in integersArray)
         {
             Console.WriteLine(element);
         }
 
         Console.WriteLine("Reversed Array:");
-        Array.Reverse(integersArray);
+        Array.Reverse(integersArray); //***
         Array.ForEach<int>(integersArray, n => Console.WriteLine(n));
 
         Console.WriteLine(Array.BinarySearch(integersArray, 9));
@@ -844,6 +844,8 @@ https://docs.microsoft.com/en-us/dotnet/api/system.array
 https://docs.microsoft.com/en-us/dotnet/api/system.linq.enumerable
 
 ---
+
+--*TBC - 20250119 - 1041 
 
 ## Type Casting
 
