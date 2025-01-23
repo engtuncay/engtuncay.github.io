@@ -137,9 +137,9 @@ bunlara aynı zamanda action da deniliyor.
 - Mvc Controller'ı Controller sınıfını miras alır
 - Api Controller'ı ise ApiController sınıfını miras alır.
 
-➖ Proje ayağa kalkarken `global.asax` bulunan `Application_Start` metodu çalışacaktır. Burada ayarlar yapılmıştır. `App_Start` dizininde ayarlar sınıfları vardır. `WebApiConfig` sınıfında api ayarları yapılır.
+➖ Proje ayağa kalkarken `global.asax` bulunan `Application_Start` metodu çalışacaktır. Burada ayarlar yapılmıştır. `App_Start` klasöründe ayar sınıfları var. `WebApiConfig` sınıfında api ayarları yapılır.
 
-➖ controller içerisindeki metodlara action diyoruz.
+➖ controller içerisindeki metodlara action diyoruz. (???)
 
 ➖ routeTemplate görüldüğü üzere controller istekte bulunmak için `api/{controller}` ismini vermek yeterlidir. controller dan sonra optional değer verilmiştir.
 
@@ -148,7 +148,7 @@ routeTemplate : "api/{controller}/{id}",
 defaults : new { id = RouteParameter.Optional}
 ```
 
-- sınıf ismi ValuesController 'u api/values şeklinde istekte bulunuruz.
+- sınıf ismi ValuesController 'u `api/values` şeklinde istekte bulunuruz.
 
 - bir sınfa `[Authorize]` attribute verilirse, yetki alınıp kullanabileceği gösterilir.
 
@@ -171,6 +171,7 @@ defaults : new { id = RouteParameter.Optional}
 
 ## 8. Convention Based Routing Kavramı
 
+attribute tanımlamadan metod ismi ve argümanlarına bakarak uygulama route bulmaya çalışır.
 
 ```cs
     public class ValuesController : ApiController
@@ -216,11 +217,11 @@ defaults : new { id = RouteParameter.Optional}
 ✏ Fiddler post yaparkent `Content-Type:application/json` değerini header'a eklememiz gerekir.
 
 ## 9. Action Based Routing Kavramı
-6 dak
 
-➖ öncelikle Webapiconfig dosyasında routeTemplate alanımızda değişiklik yaparız.
+➖ öncelikle `WebApiConfig` sınıfından route ayarı yapmamız gerekir.
 
 ```cs
+// WebApiConfig.cs
 public static void Register(HttpConfiguration config)
   {
       // Web API configuration and services
@@ -236,7 +237,7 @@ public static void Register(HttpConfiguration config)
   }
 ```
 
-➖ ValuesController metod isimlerinde değişiklik yaparız. İlgili request tipini annotation olarak belirtmemiz gerekir. HttpGet,HttpPost gibi...
+➖ ValuesController metod isimlerinde değişiklik yaparız. İlgili request tipini, attribute olarak belirtmemiz gerekir. HttpGet,HttpPost gibi... Uygulama attribute'le action tipine ve metod argümanlarına göre karar veriyor.
 
 ```cs
     public class ValuesController : ApiController
@@ -295,6 +296,7 @@ public static void Register(HttpConfiguration config)
     [RoutePrefix("api/employee")]
     public class EmployeeController : ApiController
     {
+     
         static List<Employee> Employees = new List<Employee>()
         {
             new Employee() { Id = 1, Name = "PersonA" },
@@ -377,6 +379,46 @@ public static void Register(HttpConfiguration config)
 
 ## 12. Route Contstraint(Kısıtlama) Kullanımı
 7 dak
+
+📝 Her bir api ucu, bir action'ı temsil ediyor (:to)(???)
+
+➖ burada alpha kısıtlaması kullanılmış, buraya gelecek değerin alfabetik değer olduğunu ifade ediyor.
+
+```cs
+[Route("{name:alpha}")]
+public Employee Get(string name)
+{
+  return Employees.FirstOrDefault(e => e.Name.ToLower() == name.ToLower());
+}
+```
+
+➖ burada sayısal değer kısıtmalaması verildi.
+
+```cs
+[Route("detail/{id:int}")]
+public Employee Get(int id)
+{
+    return Employees.FirstOrDefault(e => e.Id == id);
+}
+```
+
+➖ Attribute routing is Asp.Net Web Api 2 diye aratırsanız, kısıtlamaların dökümantasyonuna ulaşabilirsiniz.
+
+
+- burada api/employee/1 ile api/employee/3 arasında url isteklerini alır sadece.
+
+```cs
+[Route("detail/{id:int:min(1):max(3)}")]
+```
+
+- veya range ile aynı kısıtlamayı sağlayabiliriz.
+
+```cs
+[Route("detail/{id:int:range(1,3)}")]
+```
+
+
+
 
 ## 13. Route Custom Constraint(Özel Kısıtlama) Kullanımı
 10 dak
