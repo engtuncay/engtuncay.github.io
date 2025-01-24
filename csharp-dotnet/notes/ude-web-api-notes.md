@@ -426,10 +426,10 @@ public Employee Get(int id)
 
 ## 14. Route İçinde Default ve Optional Kullanımı
 
-➖ asp.net aynı argümanlı actiona izin vermediği için int argümanını double'a çeviririz.
+➖ asp.net aynı argümanlı actiona izin vermediği için int argümanını decimal'a çeviririz.
 
 ```cs
-[Route("detail/{id:decimal=2}")]
+[Route("detail/{id:decimal}")]
 public Employee Get(decimal id)
 {
     return employees.FirstOrDefault(e => e.Id == id);
@@ -441,6 +441,20 @@ public Employee Get(decimal id)
 
 ```cs
 [Route("detail/{id:decimal?)]
+public Employee Get(decimal id=2) // id'ye varsayılan 2 değerini verdik
+{
+    return employees.FirstOrDefault(e => e.Id == id);
+}
+```
+
+➖ varsayılan değeri contstraint değeri ile de verebiliriz.
+
+```cs
+[Route("detail/{id:decimal=2}")] // varsayılan 2 değeri verdik
+public Employee Get(decimal id)
+{
+    return employees.FirstOrDefault(e => e.Id == id);
+}
 
 ```
 
