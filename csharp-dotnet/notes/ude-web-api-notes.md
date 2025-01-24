@@ -420,11 +420,31 @@ public Employee Get(int id)
 
 
 
+
 ## 13. Route Custom Constraint(Özel Kısıtlama) Kullanımı
 10 dak
 
 ## 14. Route İçinde Default ve Optional Kullanımı
-4 dak
+
+➖ asp.net aynı argümanlı actiona izin vermediği için int argümanını double'a çeviririz.
+
+```cs
+[Route("detail/{id:decimal=2}")]
+public Employee Get(decimal id)
+{
+    return employees.FirstOrDefault(e => e.Id == id);
+}
+
+```
+
+➖ aşağıdaki gibi decimal sonuna ? koyarak id parametresi vermesek bize bu action'ı geçebiliriz.
+
+```cs
+[Route("detail/{id:decimal?)]
+
+```
+
+
 
 ## 15. Route Name ile Route Link Oluşturma
 11 dak
