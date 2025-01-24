@@ -463,6 +463,28 @@ public Employee Get(decimal id)
 ## 15. Route Name ile Route Link Oluşturma
 11 dak
 
+➖ Route attribute'ında Name alanı ile route isimlendirebiliriz.
+
+```cs
+[Route("{id:int:range(1,5)}", Name = "GetById")]
+public Employee Get(int id)
+{
+    return employees.FirstOrDefault(e => e.Id == id);
+}
+
+```
+
+➖ route'ı Name alanı kullanımı
+
+```cs
+HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created);
+response.Headers.Location = new Uri(Url.Link("GetById", new
+{
+  id = emp.Id
+}));
+```
+
+
 # B3 Http Response Message & Entity Framework CRUD
 
 ## 16. Entity Framework DatabaseFirst ile Proje Oluşturma
