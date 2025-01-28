@@ -3,10 +3,19 @@ Source : https://www.c-sharpcorner.com/article/asp-net-web-api-2-creating-and-va
 
 [Back](../readme.md)
 
+(some parts may be modified or added)
+
 ---
 
+- [ASP.NET Web API 2 - Creating And Validating JWT (JSON Web Token)](#aspnet-web-api-2---creating-and-validating-jwt-json-web-token)
+  - [Json Web Tokens (check https://jwt.io/ for example)](#json-web-tokens-check-httpsjwtio-for-example)
+  - [Creating \& Validating JWT in ASP.NET Web API](#creating--validating-jwt-in-aspnet-web-api)
+    - [Creating JWT Token](#creating-jwt-token)
+  - [How to Validate JWT Token?](#how-to-validate-jwt-token)
 
-ASP.NET Web API 2 - Creating And Validating JWT (JSON Web Token)
+
+#  ASP.NET Web API 2 - Creating And Validating JWT (JSON Web Token)
+
 Bilal Shahzad, Jul 02, 2020
 
 Why do we need a Token in Restful services?
@@ -85,8 +94,7 @@ using System.Text;
 
 Add following Action in Values Controller. Here we've made it very simple.
  
-
-📝 Note : Normally we'll expose this method with POST verb + we'll receive some credentials for authentication. Once user will be authenticated, token will be generated accordingly. 
+❗ Warn : Normally we'll expose this method with POST verb + we'll receive some credentials for authentication. Once user will be authenticated, token will be generated accordingly. 
 
 ```cs
 [HttpGet]    
@@ -117,7 +125,7 @@ public Object GetToken()
 
 ```
 
-This is not required but to use action name in route; we are making the following highlighted change in `App_Start\WebApiConfig.cs` file
+This is not required but to use action name in route; we add `{action}` variable to routeTemplate in `App_Start\WebApiConfig.cs` file
 
 ```cs
 config.Routes.MapHttpRoute(  
@@ -128,39 +136,63 @@ config.Routes.MapHttpRoute(
 
 ```
 
-Now let's run the application and test the following in browser/postman (considering `http://localhost:1234` is base URL of our application). 
- 
-http://localhost:1234/api/values/gettoken
+Now let's run the application and test the following in browser/postman (considering `http://localhost:44327` is base URL of our application). 
+
+```
+http://localhost:44327/api/values/gettoken
+
+``` 
  
 Response in browser should be something like this. "data" contains the token.
+
+```
 {"data":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI3ODZlZmY0OS00OWQ2LTQ4YjQtODM4NC0yYTA5NDYxODJmN2YiLCJ2YWxpZCI6IjEiLCJ1c2VyaWQiOiIxIiwibmFtZSI6ImJpbGFsIiwiZXhwIjoxNTcwNjMwMzMwLCJpc3MiOiJodHRwOi8vbXlzaXRlLmNvbSIsImF1ZCI6Imh0dHA6Ly9teXNpdGUuY29tIn0.06vzYfiSpj1X9s0-CL2nE7NH4LloASMikZCNfHIJ8tY"}  
+
+```
+
 You may copy token from here and decode it on http://jwt.io to see what it contains.
  
-Note
-If you get serialize or XML error, You may remove XML formatter and make JSON formatter as default formatter. You should not be doing this in actual application if your API needs to provide XML formatting support.
+📝 Note: If you get `serialize or XML error`, You may remove XML formatter and make JSON formatter as default formatter. You should not be doing this in actual application if your API needs to provide XML formatting support.
  
-Go to Global.asax.cs file and add following line at end of Application_start() method
+Go to `Global.asax.cs` file and add following line at end of `Application_start()` method
+
+```cs
 GlobalConfiguration.Configuration.Formatters.Remove(GlobalConfiguration.Configuration.Formatters.XmlFormatter);  
-How to Validate JWT Token?
+
+```
+
+## How to Validate JWT Token?
  
-Note
-JWT Creator App & JWT Validator App can be two different applications.
+📝 Note: JWT Creator App & JWT Validator App can be two different applications.
  
 Add the following nuget packages,
+
+```
 Microsoft.Owin.Security.Jwt 4.0.1
-Microsoft.AspNet.WebApi.Owin 5.2.3
 Microsoft.Owin.Host.SystemWeb 4.0.1 
+
+// boş web api projesi ise yükleyebiliriz
+Microsoft.AspNet.WebApi.Owin 5.2.3 (Help Page Oluşturuyor)
+
+```
+
 Create Owin Statup class -> Right click on Web Project -> Add -> Owin Startup Class. 
  
 a) Add following namespaces 
+
+```
 using Microsoft.Owin.Security.Jwt;  
 using Microsoft.Owin.Security;  
 using Microsoft.IdentityModel.Tokens;  
 using System.Text;  
+
+```
+
 b) Replace class with the following.
  
-Note
-We are using same parameters that we used while creating token. This will be used to validate request. If it finds a token is valid, it will set User.Identity accordingly. We'll see later how to check if a user is authenticated (i.e. valid token is recieved) and how to extract claims from identity. 
+📝 Note : We are using same parameters that we used while creating token. This will be used to validate request. If it finds a token is valid, it will set User.Identity accordingly. We'll see later how to check if a user is authenticated (i.e. valid token is recieved) and how to extract claims from identity. 
+
+```cs
 public class Startup  
     {  
         public void Configuration(IAppBuilder app)  
@@ -181,15 +213,25 @@ public class Startup
                 });  
         }  
     }  
-Open App_Start\WebApiConfig.cs file,
+
+```
+
+Open `App_Start\WebApiConfig.cs` file,
  
 a) Add following namespace
+
+```cs
 using Microsoft.Owin.Security.OAuth;  
-b) Update WebApiConfig.Register method with highlighted code. This is to enable oAuth authentication. Also add {action} in route config.
+
+```
+
+b) Update WebApiConfig.Register method with adding the code shown in 1. This is to enable oAuth authentication. Also add `{action}` in route config.
+
+```cs
 public static void Register(HttpConfiguration config) {  
  // Web API configuration and services    
- config.SuppressDefaultHostAuthentication();  
- config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));  
+ config.SuppressDefaultHostAuthentication();   //(1)
+ config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));  //(1)
   
  // Web API routes    
  config.MapHttpAttributeRoutes();  
@@ -202,6 +244,8 @@ public static void Register(HttpConfiguration config) {
   }  
  );  
 }  
+
+```
 Open any API Controller (e.g. Values Controller)
  
 a) Add following namespace
