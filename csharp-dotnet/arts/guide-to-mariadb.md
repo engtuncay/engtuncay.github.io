@@ -15,7 +15,7 @@ In this guide, we will explore the basics of using MariaDB in a C# application, 
 
 MariaDB is a popular open-source relational database management system (RDBMS) known for its performance, reliability, and ease of use. C# is a versatile programming language developed by Microsoft, commonly used for building Windows applications, web services, and more. In this guide, we will explore the basics of using MariaDB in a C# application, including installation, setup, and common database operations.
 
-Prerequisites
+## Prerequisites
 
 Before we dive into using MariaDB with C#, make sure you have the following prerequisites in place:
 
@@ -44,7 +44,7 @@ This will create a new console application named MyMariaDBApp.
 
 To connect your C# application to MariaDB, follow these steps:
 
-- Add MariaDB Connector/NET: In your C# project, add a reference to the MariaDB Connector/NET library (MySql.Data.dll).
+- Add MariaDB Connector/NET: In your C# project, add a reference to the MariaDB Connector/NET library (`MySql.Data.dll`).
 
 - Connection String: Define a connection string that specifies the details of your MariaDB server, such as server address, username, password, and database name:
 
