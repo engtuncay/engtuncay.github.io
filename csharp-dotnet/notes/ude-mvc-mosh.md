@@ -22,4 +22,14 @@ They are plain old clr objects (POCOs)
 
 for example, when we request `localhost.com/api/customers`, it send the request to the controller. and the controller does some works and then sends the request to the model and takes the answer and sends it to the view.
 
+and router task is to select the right controller to handle a request.
+
+
+## Recommended Extension for Visual Studio
+
+- Productivity Power Tools 2013
+- Web Essentials
+- Resharper
+
+
 
