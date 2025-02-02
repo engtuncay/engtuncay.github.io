@@ -31,11 +31,11 @@ JWT, bir header, bir payload ve bir signature olmak üzere üç parçadan oluşu
 
 Bu bölümlerin kısaca ne anlama geldiklerine bakalım.
 
-Başlık (Header) :
+🔔 Başlık (Header) :
 
 Başlık bilgisi iki bölümden oluşur. Belirte türü ve imzalama algoritması. İmzalama algoritması HMAC, SHA256 veya RSA olabilmektedir.
 
-Yük (Payload) :
+🔔 Yük (Payload) :
 
 JWT içinde saklanacak veya gönderilecek olan bilgiyi temsil etmektedir. Burada kullanıcı bilgisi, kullanıcı yetki bilgileri veya ek bilgiler yer alabilmektedir.
 
@@ -44,10 +44,10 @@ Payload içerisinde üç tip bilgi bulunabilmektedir. Bunlar;
 Kayıtlı Talepler (Registered Claims) :
 Gerekli olmayan fakat token ile ilgili bilgileri içeren başlıklardır. Örnek vermek gerekirse sub (subject), iss (issuer) gibi.
 
-Açık Talepler (Public Claims) :
+➖ Açık Talepler (Public Claims) :
 Token’ı kullananlar tarafından eklenebilen bilgiler.
 
-Özel Talepler (Private Claims) :
+➖ Özel Talepler (Private Claims) :
 Token ile aktarılacak veya paylaşılacak bilgileri içermektedir.
 
 Talepler içinde kullanılacak olan bilgilerin rezerve edilmiş bilgilere denk gelmemesi gerekmektedir. Bunun için belirli talep isimlendirme standartları belirlenmiştir.
