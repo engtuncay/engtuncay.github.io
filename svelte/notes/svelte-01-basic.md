@@ -24,13 +24,13 @@
   - [2.6 Universal Reactivity](#26-universal-reactivity)
 - [3 Props](#3-props)
   - [3.1 Declaring props](#31-declaring-props)
-  - [3.2 Default values](#32-default-values)
-  - [3.3 Spread Props](#33-spread-props)
+  - [3.2 Default values for props](#32-default-values-for-props)
+  - [3.3 Spread Props (object fields)](#33-spread-props-object-fields)
 - [4 Logic](#4-logic)
   - [4.1 If blocks](#41-if-blocks)
   - [4.2 Else blocks](#42-else-blocks)
   - [4.3 Each blocks](#43-each-blocks)
-  - [4.4 Keyed each blocks](#44-keyed-each-blocks)
+  - [4.4 Keyed each blocks (giving unique id to every iteration)](#44-keyed-each-blocks-giving-unique-id-to-every-iteration)
   - [4.5 Await blocks](#45-await-blocks)
 
 [Back](../readme.md)
@@ -53,9 +53,10 @@ You can build your entire app with Svelte (for example, using an application fra
 
 ## 1.2 Your first Component
 
-In Svelte, an application is composed from one or more components. A component is a reusable self-contained block of code that encapsulates HTML, CSS and JavaScript that belong together, written into a .svelte file. The App.svelte file, open in the code editor to the right, is a simple component.
+In Svelte, an application is composed from one or more components. A component is a reusable self-contained block of code that encapsulates HTML, CSS and JavaScript that belong together, written into a `.svelte file`. The `App.svelte` file, open in the code editor to the right, is a simple component.
 
-Adding data
+🔔 Adding data
+
 A component that just renders some static markup isn’t very interesting. Let’s add some data.
 
 First, add a script tag to your component and declare a name variable:
@@ -64,7 +65,7 @@ App.svelte
 
 ```js
 <script lang="ts">
-	let name = 'Svelte';
+  let name = 'Svelte';
 </script>
 
 <h1>Hello world!</h1>
@@ -80,7 +81,7 @@ App
 
 ```
 
-Inside the curly braces, we can put any JavaScript we want. Try changing name to name.toUpperCase() for a shoutier greeting.
+Inside the curly braces, we can put any JavaScript we want. Try changing name to `name.toUpperCase()` for a shoutier greeting.
 
 App
 
@@ -104,7 +105,7 @@ App
 
 That’s better. But if you hover over the `<img>` in the editor, Svelte is giving us a warning:
 
-`<img>` element should have an alt attribute
+`<img>` element should have an `alt` attribute
 
 When building web apps, it’s important to make sure that they’re accessible to the broadest possible userbase, including people with (for example) impaired vision or motion, or people without powerful hardware or good internet connections. Accessibility (shortened to a11y) isn’t always easy to get right, but Svelte will help by warning you if you write inaccessible markup.
 
@@ -117,7 +118,7 @@ App
 
 ```
 
-We can use curly braces inside attributes. Try changing it to "{name} dances." — remember to declare a name variable in the `<script>` block.
+We can use curly braces inside attributes. Try changing it to `"{name} dances."` — remember to declare a name variable in the `<script>` block.
 
 🔔 Shorthand attributes
 
@@ -138,14 +139,15 @@ Just like in HTML, you can add a `<style>` tag to your component. Let's add some
 <p>This is a paragraph.</p>
 
 <style>
-	p {
-		color: purple;
-		font-family: 'Comic Sans MS', cursive;
-		font-size: 2em;
-	}
+p {
+  color: purple;
+  font-family: 'Comic Sans MS', cursive;
+  font-size: 2em;
+}
 </style>
 
 ```
+
 Importantly, these rules are `scoped to the component`. You won't accidentally change the style of `<p>` elements elsewhere in your app, as we'll see in the next step.
 
 ## 1.5 Nested Components (Parent - Child)
@@ -228,7 +230,7 @@ let count = $state(0);
 
 ```
 
-This is called a `rune`, and it’s how you tell Svelte that count isn’t an ordinary variable. Runes look like functions, but they’re not — when you use Svelte, they’re part of the language itself.
+This is called a `rune`, and it’s how you tell Svelte that count isn’t an ordinary variable. `Runes` look like functions, but they’re not — when you use Svelte, they’re `part of the language itself`.
 
 All that’s left is to implement `increment`:
 
@@ -236,14 +238,14 @@ App
 
 ```js
 function increment() {
-	count += 1;
+  count += 1;
 }
 
 ```
 
 ## 2.2 Deep State
 
-As we saw in the previous exercise, state reacts to reassignments. But it also reacts to `mutations` — we call this deep reactivity.
+As we saw in the previous exercise, state reacts to reassignments. But it also reacts to `mutations` — we call this `deep reactivity`.
 
 Make `numbers` a reactive array:
 
@@ -260,7 +262,7 @@ App
 
 ```js
 function addNumber() {
-	numbers[numbers.length] = numbers.length + 1;
+  numbers[numbers.length] = numbers.length + 1;
 }
 
 ```
@@ -271,7 +273,7 @@ App
 
 ```js
 function addNumber() {
-	numbers.push(numbers.length + 1);
+  numbers.push(numbers.length + 1);
 }
 
 ```
@@ -308,7 +310,7 @@ The expression inside the `$derived` declaration will be re-evaluated whenever i
 
 It’s often useful to be able to track the value of a piece of state as it changes over time.
 
-Inside the addNumber function, we’ve added a console.log statement. But if you click the button and open the console drawer (using the button to the right of the URL bar), you’ll see a warning, and a message saying the message could not be cloned.
+Inside the addNumber function, we’ve added a `console.log` statement. But if you click the button and open the console drawer (using the button to the right of the URL bar), you’ll see a warning, and a message saying the message could not be cloned.
 
 That’s because numbers is a reactive proxy. There are a couple of things we can do. Firstly, we can create a non-reactive snapshot of the state with `$state.snapshot(...)`:
 
@@ -316,8 +318,8 @@ App
 
 ```js
 function addNumber() {
-	numbers.push(numbers.length + 1);
-	console.log($state.snapshot(numbers));
+  numbers.push(numbers.length + 1);
+  console.log($state.snapshot(numbers));
 }
 
 ```
@@ -328,8 +330,8 @@ App
 
 ```js
 function addNumber() {
-	numbers.push(numbers.length + 1);
-	console.log($state.snapshot(numbers));
+  numbers.push(numbers.length + 1);
+  console.log($state.snapshot(numbers));
 }
 
 $inspect(numbers);
@@ -359,14 +361,14 @@ App
 
 ```html
 <script lang="ts">
-	let elapsed = $state(0);
-	let interval = $state(1000);
+  let elapsed = $state(0);
+  let interval = $state(1000);
 
-	$effect(() => {
-		setInterval(() => {
-			elapsed += 1;
-		}, interval);
-	});
+  $effect(() => {
+    setInterval(() => {
+      elapsed += 1;
+    }, interval);
+  });
 </script>
 
 ```
@@ -405,7 +407,7 @@ shared.js
 
 ```js
 export const counter = $state({
-	count: 0
+  count: 0
 });
 
 ```
@@ -418,7 +420,7 @@ Counter
 
 ```html
 <script lang="ts">
-	import { counter } from './shared.svelte.js';
+  import { counter } from './shared.svelte.js';
 </script>
 
 ```
@@ -427,6 +429,8 @@ Now, when you click any button, all three update simultaneously.
 
 ❗ You cannot export a `$state` declaration from a module if the declaration is reassigned (rather than just mutated), because the importers would have no way to know about it.
 
+--*REVIEW - above
+
 
 # 3 Props
 
@@ -434,13 +438,13 @@ Now, when you click any button, all three update simultaneously.
 
 So far, we've dealt exclusively with internal state — that is to say, the values are only accessible within a given component.
 
-In any real application, you'll need to `pass data from one component down to its children`. To do that, we need to declare `properties`, generally shortened to 'props'.  In Svelte, we do that with the `$props` rune. Edit the Nested.svelte component:
+In any real application, you'll need to `pass data from one component down to its children`. To do that, we need to declare `properties`, generally shortened to `'props'`.  In Svelte, we do that with the `$props` rune. Edit the Nested.svelte component:
  
 ➖ *Nested.svelte*
 
 ```js
 <script lang="ts">
-	let { answer } = $props();
+  let { answer } = $props();
 </script>
 
 ```
@@ -449,25 +453,25 @@ In any real application, you'll need to `pass data from one component down to it
 
 ```html
 <script>
-	import Nested from './Nested.svelte';
+  import Nested from './Nested.svelte';
 </script>
 
 <Nested answer={42} />
 
 ```
 
-➖ *Nested.Svelte*
+➖ Nested.Svelte
 
 ```html
 <script>
-	let { answer } = $props();
+  let { answer } = $props();
 </script>
 
 <p>The answer is {answer}</p>
 
 ```
 
-## 3.2 Default values
+## 3.2 Default values for props
 
 We can easily specify default values for props. 
 
@@ -496,7 +500,7 @@ The answer is 42
 The answer is a mystery
 ```
 
-## 3.3 Spread Props
+## 3.3 Spread Props (object fields)
 
 In this exercise, in `App.svelte` we’ve forgotten to pass the `name` prop expected by `PackageInfo.svelte`, meaning the `<code>` element is empty and the npm link is broken.
 
@@ -558,16 +562,16 @@ To conditionally render some markup, we wrap it in an if block:
 </button>
 
 {#if count > 10}
-	<p>{count} is greater than 10</p>
+  <p>{count} is greater than 10</p>
 {/if}
 
 
 <script>
-	let count = $state(0);
+  let count = $state(0);
 
-	function increment() {
-		count += 1;
-	}
+  function increment() {
+    count += 1;
+  }
 </script>
 ```
 
@@ -622,14 +626,14 @@ App
 
 ```html
 <div>
-	{#each colors as color}
-		<button
-			style="background: {color}"
-			aria-label={color}
-			aria-current={selected === color}
-			onclick={() => selected = color}
-		></button>
-	{/each}
+{#each colors as color}
+  <button
+    style="background: {color}"
+    aria-label={color}
+    aria-current={selected === color}
+    onclick={() => selected = color}
+  ></button>
+{/each}
 </div>
 
 ```
@@ -640,20 +644,20 @@ App
 
 ```html
 <div>
-	{#each colors as color, i}
-		<button
-			style="background: {color}"
-			aria-label={color}
-			aria-current={selected === color}
-			onclick={() => selected = color}
-		>{i + 1}</button>
-	{/each}
+{#each colors as color, i}
+  <button
+    style="background: {color}"
+    aria-label={color}
+    aria-current={selected === color}
+    onclick={() => selected = color}
+  >{i + 1}</button>
+{/each}
 </div>
 
 ```
 
 
-## 4.4 Keyed each blocks
+## 4.4 Keyed each blocks (giving unique id to every iteration)
 
 By default, when you modify the value of an `each` block, it will add and remove DOM nodes at the end of the block, and update any values that have changed. That might not be what you want.
 
@@ -680,7 +684,9 @@ App
 
 ```
 
-❗ You can use any object as the key, as Svelte uses a `Map` internally — in other words you could do (`thing`) instead of (`thing.id`). Using a string or number is generally safer, however, since it means identity persists without referential equality, for example when updating with fresh data from an API server.
+❗ You can use any object as `the key`, as Svelte uses a `Map` internally — in other words you could do (`thing`) instead of (`thing.id`). Using a string or number is generally safer, however, since it means identity persists without referential equality, for example when updating with fresh data from an API server.
+
+--*REVIEW - unique key for every iteration
 
 ## 4.5 Await blocks
 
@@ -688,11 +694,11 @@ Most web applications have to deal with asynchronous data at some point. Svelte 
 
 ```html
 {#await promise}
-<p>...rolling</p>
+  <p>...rolling</p>
 {:then number}
-	<p>you rolled a {number}!</p>
+  <p>you rolled a {number}!</p>
 {:catch error}
-	<p style="color: red">{error.message}</p>
+  <p style="color: red">{error.message}</p>
 {/await}
 
 ```
@@ -712,9 +718,9 @@ App.svelte
 
 ```html
 <script>
-	import { roll } from './utils.js';
+import { roll } from './utils.js';
 
-	let promise = $state(roll());
+let promise = $state(roll());
 </script>
 
 <button onclick={() => promise = roll()}>
@@ -722,11 +728,11 @@ App.svelte
 </button>
 
 {#await promise}
-	<p>...rolling</p>
+  <p>...rolling</p>
 {:then number}
-	<p>you rolled a {number}!</p>
+  <p>you rolled a {number}!</p>
 {:catch error}
-	<p style="color: red">{error.message}</p>
+  <p style="color: red">{error.message}</p>
 {/await}
 
 ```
@@ -735,24 +741,24 @@ utils.js
 
 ```javascript
 export async function roll() {
-	// Fetch a random number from 1 to 6
-	// (with a delay, so that we can see it)
-	return new Promise((fulfil, reject) => {
-		setTimeout(() => {
-			// simulate a flaky network
-			if (Math.random() < 0.3) {
-				reject(new Error('Request failed'));
-				return;
-			}
+  // Fetch a random number from 1 to 6
+  // (with a delay, so that we can see it)
+  return new Promise((fulfil, reject) => {
+    setTimeout(() => {
+      // simulate a flaky network
+      if (Math.random() < 0.3) {
+        reject(new Error('Request failed'));
+        return;
+      }
 
-			fulfil(Math.ceil(Math.random() * 6));
-		}, 1000);
-	});
+      fulfil(Math.ceil(Math.random() * 6));
+    }, 1000);
+  });
 }
 ```
 
 
-*Result after delay*
+- Result after delay
 
 ```
 you rolled a 6!
