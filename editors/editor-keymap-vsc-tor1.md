@@ -200,15 +200,15 @@ c+k,x         | Trim trailing whitespace
 
 # Integrated terminal 
 
-| Shortcut          | Desc                       |
-|-------------------|----------------------------|
-| c+`            | Show integrated terminal   |
-| c+s+`      | Create new terminal        |
-| (c+S)+C           | Copy selection             |
-| (c+S)+V           | Paste into active terminal |
-| c+↑ / ↓        | Scroll up/down             |
+| Shortcut      | Desc                       |
+|---------------|----------------------------|
+| c+` (c+ht)    | Show integrated terminal   |
+| c+s+`         | Create new terminal        |
+| (c+S)+C       | Copy selection             |
+| (c+S)+V       | Paste into active terminal |
+| c+↑ / ↓       | Scroll up/down             |
 | s+PgUp / PgDn | Scroll page up/down        |
-| c+Home / End   | Scroll to top/bottom       |
+| c+Home / End  | Scroll to top/bottom       |
 
 # File management 
 
