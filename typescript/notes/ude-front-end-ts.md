@@ -1,10 +1,15 @@
 
+Source : 
+
+Can Boz
+
 - [B44 Typescript](#b44-typescript)
   - [281. Typescript Nedir](#281-typescript-nedir)
   - [282. Typescript Ortamının Hazırlanması](#282-typescript-ortamının-hazırlanması)
 - [B45 Data Types](#b45-data-types)
   - [283. Data Annotation](#283-data-annotation)
   - [284. Data Type - Number-String-Boolean](#284-data-type---number-string-boolean)
+    - [String](#string)
   - [285. Data Type - Array](#285-data-type---array)
   - [286. Data-Type - Tuple](#286-data-type---tuple)
   - [287. Data Type - Object](#287-data-type---object)
@@ -101,6 +106,14 @@ pnpm install --save-dev lite-server
 
 ## 284. Data Type - Number-String-Boolean
 6 dak
+
+### String
+
+➖ string interpolation
+
+```js
+console.log(`Name : ${this.firstName}`); 
+```
 
 ## 285. Data Type - Array
 6 dak
