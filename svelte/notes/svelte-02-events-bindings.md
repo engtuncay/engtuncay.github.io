@@ -573,7 +573,9 @@ App (full)
 
 # Art - Data Binding In Svelte By Aagam Vadecha (Svelte 4)
 
-➖ Source : https://hygraph.com/blog/data-binding-in-svelte , (some parts may be modified or added) , Oct 11, 2024
+➖ Source : https://hygraph.com/blog/data-binding-in-svelte , Oct 11 2024
+
+(some parts may be modified or added)
 
 ## One-way vs two-way data binding
 
@@ -818,23 +820,23 @@ In this article, we understood data binding and how it works in Svelte. We then 
 
 ```html
 <script lang="ts">
-	import A from './Title1.svelte';
-	import B from './Title2.svelte';
+import A from './Title1.svelte';
+import B from './Title2.svelte';
 
-	let MyComponent = $state();
+let MyComponent = $state();
 
-	let cmbSelected = $state();
+let cmbSelected = $state();
 
-	// manual dynamic component change
-	function cmbChange(event) {
-		MyComponent = cmbSelected;
-	}
+// manual dynamic component change
+function cmbChange(event) {
+  MyComponent = cmbSelected;
+}
 </script>
 
 <!-- bind:value={MyComponent} is also valid -->
 <select bind:value={cmbSelected} onchange={cmbChange}>
-	<option value={A}>A</option>
-	<option value={B}>B</option>
+  <option value={A}>A</option>
+  <option value={B}>B</option>
 </select>
 
 <!-- these are equivalent -->
