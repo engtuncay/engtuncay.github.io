@@ -634,7 +634,7 @@ jane.greet();
 
 In this example, Employee is a class that extends Person. It adds a new property department and overrides the greet method. The `super keyword` is used to call corresponding methods of the parent class.
 
---*TBC - ts beginner
+--*TBC - 20250206 - 1601 
 
 # Abstract Classes
 
@@ -665,11 +665,13 @@ console.log(circle.area()); // Outputs: 78.54
 
 ```
 
-In this example, Shape is an abstract class with an abstract method area. The Circle class extends Shape and implements the area method. Abstract classes are useful for defining a common interface for a set of classes.
+In this example, Shape is an abstract class with an abstract method area. The Circle class extends Shape and implements the area method. Abstract classes are useful for defining `a common interface` for a set of classes.
 
 # Encapsulation (access modifiers)
 
-Encapsulation is the bundling of data (properties) and methods that operate on the data (methods) into a single unit called a class. In TypeScript, encapsulation is achieved by using `access modifiers` such as `public, private, and protected`.
+Encapsulation is the bundling of properties and methods that operate on the data (methods) into a single unit called a class. In TypeScript, encapsulation is achieved by using `access modifiers` such as `public, private, and protected`.
+
+--*REVIEW - bundling burada manası
 
 Example:
 
@@ -698,7 +700,7 @@ In this example, name is a private property of the Person class, so it cannot be
 
 # Polymorphism
 
-Polymorphism is the ability of an object to take on many forms. In TypeScript, polymorphism is achieved through method `overriding`, where a method in a subclass has the same name and signature as a method in its superclass.
+Polymorphism is `the ability of an object to take on many forms`. In TypeScript, polymorphism is achieved through method `overriding`, where a method in a subclass has the same name and signature as a method in its superclass.
 
 Example:
 
