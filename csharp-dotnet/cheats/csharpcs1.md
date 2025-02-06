@@ -859,7 +859,7 @@ In C#, there are two types of casting:
 
 > char -> int -> long -> float -> double
 
-**Explicit Casting (manually)** - converting a larger type to a smaller size type:
+**Explicit Casting (manually)** - converting a larger type to a smaller size type (data loss):
 
 > double -> float -> long -> int -> char
 
@@ -889,7 +889,7 @@ Console.WriteLine(myInt);      // Outputs 9
 
 ### Type Conversion Methods
 
-It is also possible to convert data types explicitly by using built-in methods.
+It is also possible to convert data types explicitly by using built-in methods (static methods of Convert class).
 
 - ToBoolean
 - ToByte

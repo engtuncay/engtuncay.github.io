@@ -698,6 +698,8 @@ console.log(john.age);  // Error: Property "age" is protected
 
 In this example, name is a private property of the Person class, so it cannot be accessed from outside the class. age is a protected property, so it can be accessed from subclasses but not from outside the class.
 
+--*TBC - 20250206 - 1640 
+
 # Polymorphism
 
 Polymorphism is `the ability of an object to take on many forms`. In TypeScript, polymorphism is achieved through method `overriding`, where a method in a subclass has the same name and signature as a method in its superclass.
