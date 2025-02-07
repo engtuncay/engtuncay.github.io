@@ -25,7 +25,7 @@ Source : https://wpf-tutorial.com/data-binding/introduction/
 
 Wikipedia describes the concept of data binding very well: (http://en.wikipedia.org/wiki/Data_binding)
 
-Data binding is general technique that binds two data/information sources together and maintains `synchronization` of data. (it is like a <=> b (two way sides equation, a=b and b=a))
+Data binding is general technique that binds two data/information sources together and maintains `synchronization` of data. (it is like `a <=> b` (two way sides equation, a=b and b=a))
 
 With WPF, Microsoft has put data binding in the front seat and once you start learning WPF, you will realize that it's an important aspect of pretty much everything you do. If you come from the world of WinForms, then the huge focus on data binding might scare you a bit, but once you get used to it, you will likely come to love it, as it makes a lot of things cleaner and easier to maintain.
 
