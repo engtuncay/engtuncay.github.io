@@ -32,6 +32,8 @@ These notes are taken from web resources. Some sections can be modified.
 
 [Mysql Notes](./mysql/readme.md)
 
+[Knockout Js Notes](./knockout/readme.md)
+
 ---
 
 [Coding Resources](./mix/coding-resources.md)
