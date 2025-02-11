@@ -212,22 +212,22 @@ c+k,x         | Trim trailing whitespace
 
 # File management 
 
-| Shortcut | Desc                                    |
-|----------|-----------------------------------------|
-| c+N      | New File                                |
-| c+O      | Open File...                            |
-| c+S      | Save                                    |
-| c+s+S    | Save As...                              |
-| c+K S    | Save All                                |
-| c+F4     | Close                                   |
-| c+K c+W  | Close All                               |
-| c+s+T    | Reopen closed editor                    |
-| c+K      | Enter Keep preview mode editor open     |
-| c+Tab    | Open next                               |
-| c+s+Tab  | Open previous                           |
-| c+K P    | Copy path of active file                |
-| c+K R    | Reveal active file in Explorer          |
-| c+K O    | Show active file in new window/instance |
+| Shortcut  | Desc                                    |
+|-----------|-----------------------------------------|
+| c+N       | New File                                |
+| c+O       | Open File...                            |
+| c+S       | Save                                    |
+| c+s+S     | Save As...                              |
+| c+K S     | Save All                                |
+| c+F4      | Close                                   |
+| c+K c+W   | Close All                               |
+| c+s+T     | Reopen closed editor                    |
+| c+K       | Enter Keep preview mode editor open     |
+| c+Tab     | Open next                               |
+| c+s+Tab   | Open previous                           |
+| c+kp      | Copy path of active file                |
+| c+kr,c+oe | Reveal active file in Explorer          |
+| c+ko      | Show active file in new window/instance |
 
 
 # Alphatic Order
