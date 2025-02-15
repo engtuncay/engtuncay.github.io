@@ -1,22 +1,22 @@
 <h1>Software Development Notes - Yazılım Notları</h1>
 
-These notes are taken from web resources. Some sections can be modified.
+These notes are taken from web resources. Some sections can be modified or removed.
+
+[Csharp Notes](./csharp-dotnet/readme.md)
 
 [CSS Notes](./css/README.md)
 
-[Javascript And Node Notes](./javascript/README.md)
+[Javascript Notes](./javascript/README.md)
 
 [Node](./node/readme.md)
 
 [Typescript](./typescript/readme.md)
 
+[Solid Js](./solidjs/readme.md)
+
 [Svelte Notes](./svelte/readme.md)
 
 [Php Notes](./php/readme.md)
-
-[Csharp Notes](./csharp-dotnet/readme.md)
-
-[Solidity](./blockchain/readme.md)
 
 [XML](./xml/readme.md)
 
@@ -31,6 +31,8 @@ These notes are taken from web resources. Some sections can be modified.
 [Mssql Notes](./mssql/readme.md)
 
 [Mysql Notes](./mysql/readme.md)
+
+[Solidity](./blockchain/readme.md)
 
 [Knockout Js Notes](./knockout/readme.md)
 

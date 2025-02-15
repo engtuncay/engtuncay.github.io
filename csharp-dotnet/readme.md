@@ -61,6 +61,7 @@ Topic                                  | Note
 [20 Strings](./cst/cst-20-strings.md)|
 [22 File](./cst/cst-22-file.md) |
 [23 Collections](./cst/cst-23-collections.md)|
+[23-2 Data Table](./cst/cst-23-2-datatable.md)|
 [51 Application Installation](./cst/cst-51-App-Inst.md)|
 
 [Cst Index](./cst/cst-index.md)
