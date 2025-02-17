@@ -2,3 +2,5 @@
 
 [Back](../readme.md)
 
+
+# Cheats
