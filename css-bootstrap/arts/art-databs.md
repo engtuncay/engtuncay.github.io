@@ -5,11 +5,19 @@ Source : https://chatgpt.com/c/67b2eebf-d158-800e-b31a-d46c26672414
 
 ---
 
+- [Bootstrapde data-bs-toggle, data-bs-target alanları ne işe yarıyor](#bootstrapde-data-bs-toggle-data-bs-target-alanları-ne-işe-yarıyor)
+- [data-bs-toggle göre div alanına show class'ı ekleyip, kaldırıyor mu ?](#data-bs-toggle-göre-div-alanına-show-classı-ekleyip-kaldırıyor-mu-)
+  - [collapse için:](#collapse-için)
+  - [dropdown için:](#dropdown-için)
+  - [offcanvas için:](#offcanvas-için)
+- [data-bs-toggle'un collapse,dropdown ya da offcanvas olması teknik olarak ne değiştiriyor](#data-bs-toggleun-collapsedropdown-ya-da-offcanvas-olması-teknik-olarak-ne-değiştiriyor)
+
+
 # Bootstrapde data-bs-toggle, data-bs-target alanları ne işe yarıyor
 
 data-bs-toggle ve data-bs-target, Bootstrap'in JavaScript bileşenlerini etkinleştirmek için kullanılan HTML veri (data) öznitelikleridir. Navbar gibi bileşenlerde dropdown menüler, offcanvas menüler veya modallar gibi öğeleri açmak/kapatmak için kullanılırlar.
 
-## data-bs-toggle
+➖ data-bs-toggle
 
 Bu öznitelik, belirli bir Bootstrap bileşenini tetiklemek için kullanılır. Örneğin:
 
@@ -19,9 +27,9 @@ Bu öznitelik, belirli bir Bootstrap bileşenini tetiklemek için kullanılır. 
 
 data-bs-target : Bu öznitelik, hangi öğenin hedefleneceğini belirtir. CSS seçici (id veya class) ile belirlenir.
 
-## Örnek 1: Navbar'da Responsive Menü
+🧲 Örnek 1: Navbar'da Responsive Menü
 
-Aşağıdaki örnekte, data-bs-toggle="collapse" ile mobil menü açılır/kapanır.
+Aşağıdaki örnekte, `data-bs-toggle="collapse"` ile mobil menü açılır/kapanır.
 
 ```html
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -51,7 +59,7 @@ button öğesi, data-bs-toggle="collapse" ve data-bs-target="#navbarNav" ile id=
 
 Küçük ekranlarda (lg boyutundan küçük) menü kapanabilir hale geliyor.
 
-## Örnek 2: Dropdown Menü
+🧲 Örnek 2: Dropdown Menü
 
 Bu örnekte, data-bs-toggle="dropdown" kullanarak açılır menü yapıyoruz.
 
@@ -72,7 +80,7 @@ Bu örnekte, data-bs-toggle="dropdown" kullanarak açılır menü yapıyoruz.
 
 button içinde data-bs-toggle="dropdown" olduğu için tıklandığında altındaki .dropdown-menu açılıyor.
 
-## Örnek 3: Offcanvas Menü
+🧲 Örnek 3: Offcanvas Menü
 
 Bu örnekte, ekranın yanından açılan bir menü yapıyoruz.
 
@@ -105,7 +113,7 @@ data-bs-target, bu etkileşimin hangi öğe üzerinde gerçekleşeceğini belirt
 Bunları kullanarak Navbar'da dropdown, responsive menü veya offcanvas gibi etkileşimli bileşenler oluşturabilirsin. 🚀
 
 
-# data-bs-toggle göre div alanına show class'ı verip , geri mi alıyor ?
+# data-bs-toggle göre div alanına show class'ı ekleyip, kaldırıyor mu ?
 
 Evet, data-bs-toggle belirli bir bileşeni açıp kapatırken ilgili öğeye show sınıfını ekleyip kaldırarak çalışır. Bootstrap'in JavaScript bileşenleri, iç mantığında bu sınıfı dinamik olarak yönetir.
 
@@ -113,7 +121,7 @@ Nasıl Çalışıyor?
 
 Bir örnek üzerinden inceleyelim:
 
-1. collapse için:
+## collapse için:
 
 ```html
 <button class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#myContent">
@@ -146,7 +154,7 @@ Tıklandıktan sonra:
 
 ```
 
-## 1. dropdown için:
+## dropdown için:
 
 ```html
 <div class="dropdown">
@@ -220,14 +228,14 @@ Tıklandıktan sonra:
 
 Sonuç
 
-Evet, Bootstrap'in JavaScript kodları data-bs-toggle ile ilgili öğeye show sınıfını ekleyip kaldırıyor`.
+Evet, Bootstrap'in JavaScript kodları data-bs-toggle ile ilgili öğeye show sınıfını ekleyip kaldırıyor.
 
 - Açılınca show sınıfı eklenir.
 - Kapanınca show sınıfı kaldırılır.
 
 Eğer elle show sınıfını ekleyip kaldırmak istersen JavaScript ile manuel olarak da kontrol edebilirsin:
 
-# data-bs-toggle collapse ya da dropdown ya da offcanvas olması teknik olarak ne değiştiriyor
+# data-bs-toggle'un collapse,dropdown ya da offcanvas olması teknik olarak ne değiştiriyor
 
 data-bs-toggle özniteliğinin collapse, dropdown, veya offcanvas gibi farklı değerler alması, Bootstrap’in ilgili bileşen için farklı JavaScript davranışlarını tetiklemesine neden olur. Teknik olarak, her bir bileşen farklı şekilde çalışır çünkü her biri için ayrı Bootstrap JavaScript kodları vardır.
 
@@ -235,7 +243,7 @@ Teknik Farklar
 
 Aşağıda collapse, dropdown ve offcanvas için arka planda neler değiştiğini açıklıyorum.
 
-1️⃣ data-bs-toggle="collapse" → (Görünürlüğü aç/kapat)
+➖ data-bs-toggle="collapse" → (Görünürlüğü aç/kapat)
 
 collapse bileşeni, data-bs-target ile belirtilen div öğesine show sınıfını ekleyip çıkarır.
 
@@ -245,15 +253,14 @@ Nasıl Çalışıyor?
 
 Bootstrap JS arka planda şu işlemi yapıyor:
 
-js
-Kopyala
-Düzenle
+```js
 document.querySelector("#myContent").classList.toggle("show");
+
+```
+
 CSS olarak:
 
-css
-Kopyala
-Düzenle
+```css
 .collapse {
   display: none;
 }
@@ -262,15 +269,18 @@ Düzenle
   height: auto;
 }
 
+```
+
 📌 Örnek:
 
-html
-Kopyala
-Düzenle
+```html
 <button data-bs-toggle="collapse" data-bs-target="#myContent">Aç/Kapat</button>
 <div id="myContent" class="collapse">İçerik</div>
 
-2️⃣ data-bs-toggle="dropdown" → (Menü aç/kapat)
+```
+
+➖ data-bs-toggle="dropdown" → (Menü aç/kapat)
+
 dropdown bileşeni, dropdown-menu içinde show sınıfını ekleyerek açar/kapatır.
 
 Ekstra olarak dışarıya tıklandığında otomatik kapanma özelliğine sahiptir.
@@ -279,23 +289,25 @@ Nasıl Çalışıyor?
 
 Bootstrap JS şu işlemi yapıyor:
 
-js
-Kopyala
-Düzenle
+```js
 document.querySelector(".dropdown-menu").classList.toggle("show");
+
+```
+
 Ek olarak, dışarıya tıklanınca show kaldırılıyor:
 
-js
-Kopyala
-Düzenle
+```js
 document.addEventListener("click", function (event) {
   if (!event.target.closest(".dropdown")) {
     document.querySelector(".dropdown-menu").classList.remove("show");
   }
 });
+
+```
+
 📌 Örnek:
 
-
+```html
 <div class="dropdown">
   <button data-bs-toggle="dropdown">Menü</button>
   <ul class="dropdown-menu">
@@ -303,7 +315,9 @@ document.addEventListener("click", function (event) {
   </ul>
 </div>
 
-3️⃣ data-bs-toggle="offcanvas" → (Yan menü aç/kapat)
+```
+
+➖ data-bs-toggle="offcanvas" → (Yan menü aç/kapat)
 
 offcanvas bileşeni, offcanvas içeriğini ekrana kaydırarak açar/kapatır.
 
@@ -315,7 +329,10 @@ Nasıl Çalışıyor?
 
 Bootstrap JS şu işlemi yapıyor:
 
+```js
 document.querySelector("#sidebar").classList.toggle("show");
+
+```
 
 Ek olarak:
 
@@ -325,14 +342,19 @@ Ek olarak:
 
 📌 Örnek:
 
+```html
 <button data-bs-toggle="offcanvas" data-bs-target="#sidebar">Menüyü Aç</button>
 <div id="sidebar" class="offcanvas offcanvas-start">İçerik</div>
 
+```
+
 📌 Teknik Farkların Özeti
 
-data-bs-toggle	Açılma/Kapanma	Dışarı tıklayınca kapanır mı?	Animasyon tipi
-collapse	show sınıfı eklenir/kaldırılır, height değişir.	❌	Yükseklik değişimi (height: auto;)
-dropdown	show sınıfı eklenir/kaldırılır.	✅	Aniden açılır/kapanır
-offcanvas	show eklenir, backdrop eklenir.	✅	Yan taraftan kayarak açılır
+header1 | header2 | header3
+| data-bs-toggle | Açılma/Kapanma                                  | Dışarı tıklayınca <br/>kapanır mı? | Animasyon tipi                     |
+|----------------|-------------------------------------------------|------------------------------------|------------------------------------|
+| collapse       | show sınıfı eklenir/kaldırılır, height değişir. | ❌                                  | Yükseklik değişimi (height: auto;) |
+| dropdown       | show sınıfı eklenir/kaldırılır.                 | ✅                                  | Aniden açılır/kapanır              |
+| offcanvas      | show eklenir, backdrop eklenir.                 | ✅                                  | Yan taraftan kayarak açılır        |
 
 Her biri farklı bir Bootstrap bileşeni olduğu için arka plandaki JavaScript davranışları değişiyor, ama temel mantık hep show sınıfını ekleyip kaldırmak üzerine kurulu. 🚀
