@@ -226,3 +226,113 @@ Evet, Bootstrap'in JavaScript kodları data-bs-toggle ile ilgili öğeye show s�
 - Kapanınca show sınıfı kaldırılır.
 
 Eğer elle show sınıfını ekleyip kaldırmak istersen JavaScript ile manuel olarak da kontrol edebilirsin:
+
+# data-bs-toggle collapse ya da dropdown ya da offcanvas olması teknik olarak ne değiştiriyor
+
+data-bs-toggle özniteliğinin collapse, dropdown, veya offcanvas gibi farklı değerler alması, Bootstrap’in ilgili bileşen için farklı JavaScript davranışlarını tetiklemesine neden olur. Teknik olarak, her bir bileşen farklı şekilde çalışır çünkü her biri için ayrı Bootstrap JavaScript kodları vardır.
+
+Teknik Farklar
+
+Aşağıda collapse, dropdown ve offcanvas için arka planda neler değiştiğini açıklıyorum.
+
+1️⃣ data-bs-toggle="collapse" → (Görünürlüğü aç/kapat)
+
+collapse bileşeni, data-bs-target ile belirtilen div öğesine show sınıfını ekleyip çıkarır.
+
+height: auto; veya height: 0; kullanarak içerik yumuşak bir şekilde açılır/kapanır.
+
+Nasıl Çalışıyor?
+
+Bootstrap JS arka planda şu işlemi yapıyor:
+
+js
+Kopyala
+Düzenle
+document.querySelector("#myContent").classList.toggle("show");
+CSS olarak:
+
+css
+Kopyala
+Düzenle
+.collapse {
+  display: none;
+}
+.collapse.show {
+  display: block;
+  height: auto;
+}
+
+📌 Örnek:
+
+html
+Kopyala
+Düzenle
+<button data-bs-toggle="collapse" data-bs-target="#myContent">Aç/Kapat</button>
+<div id="myContent" class="collapse">İçerik</div>
+
+2️⃣ data-bs-toggle="dropdown" → (Menü aç/kapat)
+dropdown bileşeni, dropdown-menu içinde show sınıfını ekleyerek açar/kapatır.
+
+Ekstra olarak dışarıya tıklandığında otomatik kapanma özelliğine sahiptir.
+
+Nasıl Çalışıyor?
+
+Bootstrap JS şu işlemi yapıyor:
+
+js
+Kopyala
+Düzenle
+document.querySelector(".dropdown-menu").classList.toggle("show");
+Ek olarak, dışarıya tıklanınca show kaldırılıyor:
+
+js
+Kopyala
+Düzenle
+document.addEventListener("click", function (event) {
+  if (!event.target.closest(".dropdown")) {
+    document.querySelector(".dropdown-menu").classList.remove("show");
+  }
+});
+📌 Örnek:
+
+
+<div class="dropdown">
+  <button data-bs-toggle="dropdown">Menü</button>
+  <ul class="dropdown-menu">
+    <li><a href="#">Seçenek 1</a></li>
+  </ul>
+</div>
+
+3️⃣ data-bs-toggle="offcanvas" → (Yan menü aç/kapat)
+
+offcanvas bileşeni, offcanvas içeriğini ekrana kaydırarak açar/kapatır.
+
+Arka planı karartır (backdrop) ve ESC tuşuyla kapanabilir.
+
+Animasyonlar CSS ile yönetilir.
+
+Nasıl Çalışıyor?
+
+Bootstrap JS şu işlemi yapıyor:
+
+document.querySelector("#sidebar").classList.toggle("show");
+
+Ek olarak:
+
+- Backdrop (karartma efekti) eklenir.
+- ESC tuşuna basılınca kapanır.
+- Sayfanın kaydırılmasını engeller.
+
+📌 Örnek:
+
+<button data-bs-toggle="offcanvas" data-bs-target="#sidebar">Menüyü Aç</button>
+<div id="sidebar" class="offcanvas offcanvas-start">İçerik</div>
+
+📌 Teknik Farkların Özeti
+
+data-bs-toggle	Açılma/Kapanma	Dışarı tıklayınca kapanır mı?	Animasyon tipi
+collapse	show sınıfı eklenir/kaldırılır, height değişir.	❌	Yükseklik değişimi (height: auto;)
+dropdown	show sınıfı eklenir/kaldırılır.	✅	Aniden açılır/kapanır
+offcanvas	show eklenir, backdrop eklenir.	✅	Yan taraftan kayarak açılır
+
+Her biri farklı bir Bootstrap bileşeni olduğu için arka plandaki JavaScript davranışları değişiyor, ama temel mantık hep show sınıfını ekleyip kaldırmak üzerine kurulu. 🚀
