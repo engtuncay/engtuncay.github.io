@@ -55,7 +55,7 @@ Aşağıdaki örnekte, `data-bs-toggle="collapse"` ile mobil menü açılır/kap
 
 📌 Ne oluyor?
 
-button öğesi, data-bs-toggle="collapse" ve data-bs-target="#navbarNav" ile id="navbarNav" olan öğeyi açıp kapatıyor.
+button öğesi, `data-bs-toggle="collapse"` ve `data-bs-target="#navbarNav"` ile `id="navbarNav"` olan öğeyi açıp kapatıyor.
 
 Küçük ekranlarda (lg boyutundan küçük) menü kapanabilir hale geliyor.
 
