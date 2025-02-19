@@ -22,7 +22,7 @@ Source : https://chatgpt.com/c/67b61423-5080-800e-867b-5186bf4e0634
 - [15. JSX Özellikleri](#15-jsx-özellikleri)
 - [16. Event Binding (Etkinlik Bağlama)](#16-event-binding-etkinlik-bağlama)
 - [17.  Two-Way Binding (Çift Yönlü Veri Bağlama)](#17--two-way-binding-çift-yönlü-veri-bağlama)
-- [18. Event Modifiers (Etkinlik Modifikatörleri)](#18-event-modifiers-etkinlik-modifikatörleri)
+- [18. Event Modifiers (Etkinlik Modifikatörleri) (Event Bubbling)](#18-event-modifiers-etkinlik-modifikatörleri-event-bubbling)
 - [19. bind (Bağlama) - SolidJS'ye özel değil, ancak alternatifler ile yapılabilir](#19-bind-bağlama---solidjsye-özel-değil-ancak-alternatifler-ile-yapılabilir)
 
 
@@ -240,9 +240,6 @@ class yerine className kullanılır.
 
 for yerine htmlFor kullanılır.
 
-Bu cheatsheet, SolidJS kullanmaya başlamak için temel bilgilere sahip olmanıza yardımcı olacaktır. Her bir özellik hakkında daha fazla detay ve örnekler için SolidJS resmi dokümantasyonunu inceleyebilirsiniz.
-
-
 ## 16. Event Binding (Etkinlik Bağlama)
 
 SolidJS'de etkinlikler, JSX üzerinde doğrudan bağlanabilir. Etkinlikler için kullanılan sözdizimi, HTML ile benzerdir, ancak işlevler on ile başlar.
@@ -269,7 +266,7 @@ function App() {
 
 ```
 
-➖ Input Change Event:
+➖ Input Change Event: (two way binding)
 
 ```js
 function App() {
@@ -346,14 +343,13 @@ function App() {
 
 Burada, `<input />` bileşeni, inputValue state'ini okur ve onInput ile değeri günceller.
 
-## 18. Event Modifiers (Etkinlik Modifikatörleri)
+## 18. Event Modifiers (Etkinlik Modifikatörleri) (Event Bubbling)
 
 SolidJS, etkinliklere modifikatörler eklemek için basit bir yöntem sunmaz. Ancak, fonksiyonları ve olayları yönetmek için standart JavaScript yöntemleri kullanılabilir.
 
 Örneğin:
 
-Stop Propagation:
-
+➖ Stop Propagation:
 
 ```js
 function App() {
@@ -373,9 +369,7 @@ function App() {
 
 ➖ Prevent Default:
 
-js
-Kopyala
-Düzenle
+```js
 function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -390,14 +384,15 @@ function App() {
   );
 }
 
+```
+
 ## 19. bind (Bağlama) - SolidJS'ye özel değil, ancak alternatifler ile yapılabilir
 
 SolidJS'de bind kullanımı olmadığı için iki yönlü veri bağlama işlemi için value ve onInput olayları manuel olarak yönetilmelidir. Ancak, birkaç çözüm önerilebilir.
 
 Çift Yönlü Bağlama için Manual Binding (State ile):
-js
-Kopyala
-Düzenle
+
+```js
 import { createSignal } from "solid-js";
 
 function App() {
@@ -415,9 +410,12 @@ function App() {
   );
 }
 
-Bu örneklerle event binding ve two-way binding konusunda temel bilgileri öğrenmiş oldunuz. SolidJS'deki veri bağlama ve etkinlik yönetimi, sade ve güçlüdür. Özellikle manuel bağlama, bileşenlerinizin kontrolünü size tamamen bırakır.
+```
 
-16. Event Binding (Etkinlik Bağlama)
+SolidJS'deki veri bağlama ve etkinlik yönetimi, sade ve güçlüdür. Özellikle manuel bağlama, bileşenlerinizin kontrolünü size tamamen bırakır.
+
+1.  Event Binding (Etkinlik Bağlama)
+
 SolidJS'de etkinlikler, JSX üzerinde doğrudan bağlanabilir. Etkinlikler için kullanılan sözdizimi, HTML ile benzerdir, ancak işlevler on ile başlar.
 
 Örnekler:
@@ -508,7 +506,7 @@ function App() {
     </div>
   );
 }
-Burada, <input /> bileşeni, inputValue state'ini okur ve onInput ile değeri günceller.
+Burada, `<input />` bileşeni, inputValue state'ini okur ve onInput ile değeri günceller.
 
 18. Event Modifiers (Etkinlik Modifikatörleri)
 SolidJS, etkinliklere modifikatörler eklemek için basit bir yöntem sunmaz. Ancak, fonksiyonları ve olayları yönetmek için standart JavaScript yöntemleri kullanılabilir.
@@ -551,12 +549,12 @@ function App() {
   );
 }
 19. bind (Bağlama) - SolidJS'ye özel değil, ancak alternatifler ile yapılabilir
+
 SolidJS'de bind kullanımı olmadığı için iki yönlü veri bağlama işlemi için value ve onInput olayları manuel olarak yönetilmelidir. Ancak, birkaç çözüm önerilebilir.
 
-Çift Yönlü Bağlama için Manual Binding (State ile):
-js
-Kopyala
-Düzenle
+➖ Çift Yönlü Bağlama için Manual Binding (State ile):
+
+```js
 import { createSignal } from "solid-js";
 
 function App() {
@@ -573,4 +571,12 @@ function App() {
     </div>
   );
 }
-Bu örneklerle event binding ve two-way binding konusunda temel bilgileri öğrenmiş oldunuz. SolidJS'deki veri bağlama ve etkinlik yönetimi, sade ve güçlüdür. Özellikle manuel bağlama, bileşenlerinizin kontrolünü size tamamen bırakır.
+
+```
+
+Bu örneklerle event binding ve two-way binding konusunda temel bilgileri öğrenmiş oldunuz. 
+
+SolidJS'deki veri bağlama ve etkinlik yönetimi, sade ve güçlüdür. Özellikle manuel bağlama, bileşenlerinizin kontrolünü size tamamen bırakır.
+
+
+Bu cheatsheet, SolidJS kullanmaya başlamak için temel bilgilere sahip olmanıza yardımcı olacaktır. Her bir özellik hakkında daha fazla detay ve örnekler için SolidJS resmi dokümantasyonunu inceleyebilirsiniz.
