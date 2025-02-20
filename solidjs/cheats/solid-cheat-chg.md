@@ -24,6 +24,10 @@ Source : https://chatgpt.com/c/67b61423-5080-800e-867b-5186bf4e0634
 - [17.  Two-Way Binding (Çift Yönlü Veri Bağlama)](#17--two-way-binding-çift-yönlü-veri-bağlama)
 - [18. Event Modifiers (Etkinlik Modifikatörleri) (Event Bubbling)](#18-event-modifiers-etkinlik-modifikatörleri-event-bubbling)
 - [19. bind (Bağlama) - SolidJS'ye özel değil, ancak alternatifler ile yapılabilir](#19-bind-bağlama---solidjsye-özel-değil-ancak-alternatifler-ile-yapılabilir)
+- [20. Event Binding (Etkinlik Bağlama)](#20-event-binding-etkinlik-bağlama)
+- [17. Two-Way Binding (Çift Yönlü Veri Bağlama)](#17-two-way-binding-çift-yönlü-veri-bağlama)
+- [18 Event Modifiers (Etkinlik Modifikatörleri)](#18-event-modifiers-etkinlik-modifikatörleri)
+- [19 bind (Bağlama) - SolidJS'ye özel değil, ancak alternatifler ile yapılabilir](#19-bind-bağlama---solidjsye-özel-değil-ancak-alternatifler-ile-yapılabilir-1)
 
 
 ## 1. Kurulum
@@ -414,16 +418,15 @@ function App() {
 
 SolidJS'deki veri bağlama ve etkinlik yönetimi, sade ve güçlüdür. Özellikle manuel bağlama, bileşenlerinizin kontrolünü size tamamen bırakır.
 
-1.  Event Binding (Etkinlik Bağlama)
+## 20. Event Binding (Etkinlik Bağlama)
 
 SolidJS'de etkinlikler, JSX üzerinde doğrudan bağlanabilir. Etkinlikler için kullanılan sözdizimi, HTML ile benzerdir, ancak işlevler on ile başlar.
 
 Örnekler:
-Click Event:
 
-js
-Kopyala
-Düzenle
+➖ Click Event:
+
+```js
 import { createSignal } from "solid-js";
 
 function App() {
@@ -438,11 +441,12 @@ function App() {
     </div>
   );
 }
-Input Change Event:
 
-js
-Kopyala
-Düzenle
+```
+
+➖ Input Change Event:
+
+```js
 function App() {
   const [value, setValue] = createSignal("");
 
@@ -457,11 +461,12 @@ function App() {
     </div>
   );
 }
-Submit Event:
 
-js
-Kopyala
-Düzenle
+```
+
+➖ Submit Event:
+
+```js
 function App() {
   const [input, setInput] = createSignal("");
 
@@ -482,14 +487,13 @@ function App() {
   );
 }
 
-17. Two-Way Binding (Çift Yönlü Veri Bağlama)
+```
+
+## 17. Two-Way Binding (Çift Yönlü Veri Bağlama)
 
 SolidJS'de iki yönlü veri bağlama, React'deki gibi doğrudan value ve onInput olaylarını bağlayarak yapılır. Ancak, two-way binding için manuel olarak bağlama yapılması gerekir. bind gibi bir özellik yoktur.
 
-Örnek:
-js
-Kopyala
-Düzenle
+```js
 import { createSignal } from "solid-js";
 
 function App() {
@@ -506,18 +510,21 @@ function App() {
     </div>
   );
 }
+
+```
+
 Burada, `<input />` bileşeni, inputValue state'ini okur ve onInput ile değeri günceller.
 
-18. Event Modifiers (Etkinlik Modifikatörleri)
+## 18 Event Modifiers (Etkinlik Modifikatörleri)
+
 SolidJS, etkinliklere modifikatörler eklemek için basit bir yöntem sunmaz. Ancak, fonksiyonları ve olayları yönetmek için standart JavaScript yöntemleri kullanılabilir.
 
 Örneğin:
 
 Stop Propagation:
 
-js
-Kopyala
-Düzenle
+
+```js
 function App() {
   const handleClick = (e) => {
     e.stopPropagation();
@@ -530,11 +537,12 @@ function App() {
     </div>
   );
 }
-Prevent Default:
 
-js
-Kopyala
-Düzenle
+```
+
+➖ Prevent Default:
+
+```js
 function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -548,7 +556,10 @@ function App() {
     </form>
   );
 }
-19. bind (Bağlama) - SolidJS'ye özel değil, ancak alternatifler ile yapılabilir
+
+```
+
+## 19 bind (Bağlama) - SolidJS'ye özel değil, ancak alternatifler ile yapılabilir
 
 SolidJS'de bind kullanımı olmadığı için iki yönlü veri bağlama işlemi için value ve onInput olayları manuel olarak yönetilmelidir. Ancak, birkaç çözüm önerilebilir.
 
@@ -578,5 +589,126 @@ Bu örneklerle event binding ve two-way binding konusunda temel bilgileri öğre
 
 SolidJS'deki veri bağlama ve etkinlik yönetimi, sade ve güçlüdür. Özellikle manuel bağlama, bileşenlerinizin kontrolünü size tamamen bırakır.
 
-
 Bu cheatsheet, SolidJS kullanmaya başlamak için temel bilgilere sahip olmanıza yardımcı olacaktır. Her bir özellik hakkında daha fazla detay ve örnekler için SolidJS resmi dokümantasyonunu inceleyebilirsiniz.
+
+# solid js child to parent communication nasıl yapılır
+
+ChatGPT: SolidJS'de child-to-parent iletişimi için birkaç yaygın yöntem vardır. İşte en etkili yollar:
+
+1️⃣ Props ile Callback Fonksiyonu Gönderme (En Yaygın Yöntem)
+
+Parent bileşeni, bir callback fonksiyonunu child bileşenine prop olarak gönderir. Child bileşeni bu fonksiyonu çağırarak parent'a veri iletir.
+
+Örnek
+
+```js
+import { createSignal } from "solid-js";
+
+function Child(props: { sendData: (data: string) => void }) {
+  return (
+    <button onClick={() => props.sendData("Merhaba Parent!")}>
+      Parent'a Gönder
+    </button>
+  );
+}
+
+function Parent() {
+  const [message, setMessage] = createSignal("");
+
+  return (
+    <div>
+      <h2>Child'dan Gelen Mesaj: {message()}</h2>
+      <Child sendData={setMessage} />
+    </div>
+  );
+}
+
+export default Parent;
+```
+
+
+
+⏩ Nasıl Çalışıyor?
+
+Parent, sendData adında bir callback fonksiyonunu Child bileşenine gönderir.
+Child, butona tıklandığında sendData("Merhaba Parent!") çağırarak parent bileşeninin state'ini günceller.
+
+2️⃣ Context API Kullanımı (Daha Büyük Projeler İçin)
+
+Context API, state'i global olarak paylaşmak için idealdir. Bu yöntem özellikle birden fazla child bileşen arasında veri paylaşmak için kullanışlıdır.
+
+Context Tanımlama
+tsx
+Kopyala
+Düzenle
+import { createSignal, createContext, useContext } from "solid-js";
+
+// Context oluştur
+const MessageContext = createContext();
+
+export function Parent() {
+  const [message, setMessage] = createSignal("");
+
+  return (
+    <MessageContext.Provider value={{ message, setMessage }}>
+      <h2>Child'dan Gelen Mesaj: {message()}</h2>
+      <Child />
+    </MessageContext.Provider>
+  );
+}
+
+function Child() {
+  const ctx = useContext(MessageContext);
+
+  return (
+    <button onClick={() => ctx.setMessage("Context ile veri gönderildi!")}>
+      Context ile Gönder
+    </button>
+  );
+}
+
+⏩ Nasıl Çalışıyor?
+
+Parent, MessageContext.Provider kullanarak message ve setMessage değerlerini tüm child bileşenlere sağlar.
+
+Child, useContext(MessageContext) ile bu değerlere erişebilir ve state'i güncelleyebilir.
+
+3️⃣ Store Kullanımı (Daha Karmaşık Durumlar İçin)
+
+SolidJS'in createStore fonksiyonuyla bir global store oluşturup child bileşenler üzerinden güncellemek mümkündür.
+
+Store Kullanımı
+tsx
+Kopyala
+Düzenle
+import { createStore } from "solid-js/store";
+
+function Parent() {
+  const [state, setState] = createStore({ message: "" });
+
+  return (
+    <div>
+      <h2>Child'dan Gelen Mesaj: {state.message}</h2>
+      <Child updateMessage={(msg) => setState("message", msg)} />
+    </div>
+  );
+}
+
+function Child(props: { updateMessage: (msg: string) => void }) {
+  return (
+    <button onClick={() => props.updateMessage("Store ile güncellendi!")}>
+      Store ile Gönder
+    </button>
+  );
+}
+
+export default Parent;
+⏩ Nasıl Çalışıyor?
+
+createStore ile reactive bir store oluşturulur.
+Child bileşeni, parent'tan aldığı updateMessage fonksiyonunu çağırarak store'u günceller.
+Sonuç
+Callback ile Props (1. yöntem) → En basit ve performanslı yöntem. Küçük projeler için ideal.
+Context API (2. yöntem) → Birden fazla child bileşeni arasında veri paylaşımı gerektiğinde iyi bir çözüm.
+Store (3. yöntem) → Daha büyük ve yönetilmesi gereken karmaşık state'ler için önerilir.
+Hangi yöntemi kullanacağını projene göre seçebilirsin. 🚀
