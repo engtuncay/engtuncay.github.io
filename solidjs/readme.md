@@ -25,3 +25,4 @@ Solid Js Notes
 Topic | Note
 --- | ---
 [Sınıf Değişkenleri](./arts/art-sinif-degiskenleri.md) | x
+[Child-Parent Communication](./arts/art-child-parent-comm.md) | x
