@@ -31,6 +31,7 @@ Source : https://chatgpt.com/c/67b61423-5080-800e-867b-5186bf4e0634
 
 
 ## 1. Kurulum
+
 SolidJS, npm veya yarn üzerinden kurulabilir:
 
 ```sh
