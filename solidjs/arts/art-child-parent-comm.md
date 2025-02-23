@@ -12,7 +12,7 @@ Source : https://chatgpt.com/c/67b671e2-a038-800e-9101-0da05cc7a6c7
 
 SolidJS'de child-to-parent iletişimi için birkaç yaygın yöntem vardır. İşte en etkili yollar:
 
-## 1️⃣ Props ile Callback Fonksiyonu Gönderme (En Yaygın Yöntem)
+## 1 Props ile Callback Fonksiyonu Gönderme (En Yaygın Yöntem)
 
 Parent bileşeni, bir callback fonksiyonunu child bileşenine prop olarak gönderir. Child bileşeni bu fonksiyonu çağırarak parent'a veri iletir.
 
@@ -130,10 +130,12 @@ Hangi yöntemi kullanacağını projene göre seçebilirsin. 🚀
 # Intro 2
 
 bileşen function olarak tanımlandığında nasıl olur
+
 ChatGPT:
+
 SolidJS bileşenini function olarak tanımladığında da props'u opsiyonel yapabilir veya varsayılan değer atayabilirsin. İşte iki yöntem:
 
-1️⃣ Props'u Opsiyonel Yapma (? Kullanımı)
+## 1 Props'u Opsiyonel Yapma (? Kullanımı)
 Fonksiyon bileşeninde props'un opsiyonel olması için sendData? kullanılır.
 
 tsx
