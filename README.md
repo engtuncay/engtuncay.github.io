@@ -2,6 +2,8 @@
 
 These notes are taken from web resources. Some sections can be modified or removed.
 
+[My Fav Keymap](./editors/editor-mykeymap-vsc-tor1.md)
+
 [Csharp Notes](./csharp-dotnet/readme.md)
 
 [CSS Notes](./css/README.md)

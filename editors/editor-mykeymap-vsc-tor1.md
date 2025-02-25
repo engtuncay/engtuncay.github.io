@@ -1,6 +1,10 @@
 
 OrakSoft Keyboard shortcuts for Windows Based On Visual Studio Code
 
+[Back](../readme.md)
+
+---
+
 - [General  (Frequent)](#general--frequent)
 - [Code Navigation](#code-navigation)
 - [Display Navigation](#display-navigation)
