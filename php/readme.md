@@ -5,8 +5,9 @@ Php Tutorial
 - [References](#references)
 - [Other cheatsheets](#other-cheatsheets)
 - [Notes](#notes)
-  - [W3 Notes](#w3-notes)
+  - [Chat Gpt Notes](#chat-gpt-notes)
   - [Kurs Notları ve Makaleler](#kurs-notları-ve-makaleler)
+  - [W3 Notes](#w3-notes)
   - [W3 Php OOP](#w3-php-oop)
   - [W3 Php Advanced Topics](#w3-php-advanced-topics)
   - [Php Notes (JavaTPoint)](#php-notes-javatpoint)
@@ -40,15 +41,29 @@ Php Tutorial
 
 # Notes
 
+## Chat Gpt Notes
+
+Topic                                              | Note
+---------------------------------------------------|-----
+[Sınıf Elemanları](./cgnotes/php-class-members.md) | x
+
+## Kurs Notları ve Makaleler
+
+Content                                                             | Note
+--------------------------------------------------------------------|-----
+[Laravel Api Kurs Notları 1 - CG](./notes/ude-laravel-api-not1.md)  |
+[The Ultimate Guide to .htaccess Files](./article/art-htaccess1.md) |
+[Php Kurs Notları](./notes/ude-php-te-not1.md)                      |
+
 ## W3 Notes
 
-Source : 
+Source : W3
 
-Content                                                      | Note
--------------------------------------------------------------|-----
-[1 Intro- Install - Syntax - Comments](./phw/php-w3-01-intro.md) | ✔
-[2 Variables - Scope - Echo / Print ](./phw/php-w3-02-variables.md) | ✔
-[3 Data Types Intro](./phw/php-w3-03-data-types.md)                 | ✔
+Content                                                                              | Note
+-------------------------------------------------------------------------------------|-----
+[1 Intro- Install - Syntax - Comments](./phw/php-w3-01-intro.md)                     | ✔
+[2 Variables - Scope - Echo / Print ](./phw/php-w3-02-variables.md)                  | ✔
+[3 Data Types Intro](./phw/php-w3-03-data-types.md)                                  | ✔
 [4 String - Numbers - Math - Constants - Date](./phw/php-w3-04-data-types-detail.md) |
 [5 Operators](./phw/php-w3-05-operators.md)                                          |
 [6 If/Else/Elseif - Switch - Loops](./phw/php-w3-06-if-loops.md)                     |
@@ -58,21 +73,12 @@ Content                                                      | Note
 [10 RegEx](./phw/php-w3-10-regex.md)                                                 | ✔
 
 
-## Kurs Notları ve Makaleler
-
-Content                                                             | Note
---------------------------------------------------------------------|-----
-[Laravel Api Kurs Notları 1 - CG](./notes/ude-laravel-api-not1.md)        |
-[The Ultimate Guide to .htaccess Files](./article/art-htaccess1.md) |
-[Php Kurs Notları](./notes/ude-php-te-not1.md)                            |
-
-
 ## W3 Php OOP
 
 | Content                                                                       | Note |
 |-------------------------------------------------------------------------------|------|
 | [1 What is OOP](./php-oop-01-intro.md)                                        | 🆗   |
-| [2 Classes/Objects](./php-oop-S02-classes.md)                                  | 🆗   |
+| [2 Classes/Objects](./php-oop-S02-classes.md)                                 | 🆗   |
 | [3 Constructor - Access Modifiers - Constants ](./php-oop-03-constructor.md)  | 🆗   |
 | [4 Inheritance - Abstract Classes - Interfaces ](./php-oop-04-inheritance.md) | 🆗   |
 | [5 Traits](./php-oop-05-traits.md)                                            | 🆗   |
@@ -82,24 +88,24 @@ Content                                                             | Note
 
 ## W3 Php Advanced Topics
 
- Content                                      | Note |
-----------------------------------------------|------|
- PHP Date and Time                            |
- [PHP Include](./php-adv-02-include.md)       | 🆗   
- File Handling                                |
- File Open/Read                               |
- File Create/Write                            |
- File Upload                                  |
- Cookies                                      |
- PHP Sessions                                 |
- PHP Filters                                  |
- PHP Filters Advanced                         |
- PHP Callback Functions (arrow functions)|
- PHP JSON                                     |
- PHP Exceptions                               |
-[Php Mysql-Pdo](./php-mysql-tutor-pdo.md)    | ✔    
- [Php Mysql-Mysqli-Pdo](./php-mysql-tutor.md) |
- [Autoloader](./php-w3-11-autoloader.md)|
+Content                                      | Note
+---------------------------------------------|-----
+PHP Date and Time                            |
+[PHP Include](./php-adv-02-include.md)       | 🆗
+File Handling                                |
+File Open/Read                               |
+File Create/Write                            |
+File Upload                                  |
+Cookies                                      |
+PHP Sessions                                 |
+PHP Filters                                  |
+PHP Filters Advanced                         |
+PHP Callback Functions (arrow functions)     |
+PHP JSON                                     |
+PHP Exceptions                               |
+[Php Mysql-Pdo](./php-mysql-tutor-pdo.md)    | ✔
+[Php Mysql-Mysqli-Pdo](./php-mysql-tutor.md) |
+[Autoloader](./php-w3-11-autoloader.md)      |
 
 
 ## Php Notes (JavaTPoint)
@@ -121,8 +127,8 @@ Content                                            | Note
 
 Old content
 
-Content                                              | Note
------------------------------------------------------|-----
+Content                                                   | Note
+----------------------------------------------------------|-----
 [1 Php Basics](./php1/php-01-basics.md)                   |
 [2 Data Types](./php1/php-02-data-types-1.md)             |
 [3 Functions](./php1/php-03-functions.md)                 |
