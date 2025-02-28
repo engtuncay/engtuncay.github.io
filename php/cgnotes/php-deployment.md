@@ -1,5 +1,9 @@
 
 
+[Back](../readme.md)
+
+---
+
 - [Composer Kullanan PHP Uygulamasını Deploy Etme ve FTP ile Yükleme](#composer-kullanan-php-uygulamasını-deploy-etme-ve-ftp-ile-yükleme)
   - [1. Composer Kullanan PHP Uygulamasını Deploy Etme](#1-composer-kullanan-php-uygulamasını-deploy-etme)
     - [**1. Gerekli dosyaları hazırlayın**](#1-gerekli-dosyaları-hazırlayın)
