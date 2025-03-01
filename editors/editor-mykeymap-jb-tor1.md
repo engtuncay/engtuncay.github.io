@@ -1,5 +1,5 @@
 
-OrakSoft Keyboard shortcuts for Windows Based On Jetbtrains
+OrakSoft Keyboard shortcuts for Windows Based On `Jetbtrains`
 
 [Back](../readme.md)
 
@@ -71,6 +71,7 @@ ca+F5        | Attach to Process...
 Alt+\`    |VCS Operations Popup...
 cas+t     |Refactor This...
 ca+L      |Reformat Code
+cs+L      |Reformat File
 
 [Contents](#contents)
 
@@ -233,10 +234,10 @@ AltF1              | Select In...
 Ctrl+E             | Recent Files
 AltShift+C         | Recent Changes
 CtrlShiftBackspace | Last Edit Location
-CtrlAlt+left       | Back
-CtrlAlt+right      | Forward
-Alt+right          | Select Next Tab
-Alt+left           | Select Previous Tab
+A+left (*)      | Back (ca+left)
+A+right (*)     | Forward (ca+right)
+CA+right (*)        | Select Next Tab (a+right)
+CA+left (*)         | Select Previous Tab (a+left)
 F11                | Toggle Anonymous Bookmark
 CtrlShift          | Toggle Bookmark with Digit
 CtrlF11            | Toggle Bookmark with Mnemonic
@@ -258,7 +259,7 @@ Key            | Desc
 Double Shift   | Search Everywhere
 Ctrl+F         | Find...
 F3             | Find Next / Move to Next Occurrence
-ShiftF3        | Find Previous / Move to Previous Occurrence
+Shift+F3        | Find Previous / Move to Previous Occurrence
 Ctrl+R         | Replace...
 CtrlShift+F    | Find in Files...
 CtrlShift+R    | Replace in Files...
@@ -289,8 +290,8 @@ Key            | Desc
 ---------------|---------------------------
 AltEnter       | Show Intention Actions
 CtrlF1         | Error Description
-F2             | Next Highlighted Error
-ShiftF2        | Previous Highlighted Error
+F9 (*)         | Next Highlighted Error (F2)
+s+f9 (*)       | Previous Highlighted Error (ShiftF2)
 CtrlAltShift+I | Run Inspection by Name...
 Alt+6          | Show Problems window
   	
@@ -301,7 +302,7 @@ Key            | Desc
 Double Ctrl    | Run Anything
 ShiftF1+       | Run context configuration
 AltShiftF1+    | Run...
-ShiftF9        | Debug context configuration
+               | Debug context configuration (ShiftF9)
 AltShiftF9     | Debug...
 CtrlAltF5      | Attach to Process...
 CtrlF2         | Stop
@@ -333,8 +334,8 @@ Alt+8          | Show Services window
 Key            | Desc
 ---------------|-----------------------
 CtrlAltShift+T | Refactor This...
-ShiftF6        | Rename...
-CtrlF6         | Change Signature...
+F2 (*)         | Rename... (ShiftF6)
+Ctrl+F6         | Change Signature...
 CtrlAlt+N      | Inline...
 F6             | Move...
 CtrlAlt+M      | Extract Method...
