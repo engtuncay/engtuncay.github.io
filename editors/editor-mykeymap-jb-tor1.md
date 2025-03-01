@@ -5,10 +5,24 @@ OrakSoft Keyboard shortcuts for Windows Based On Jetbtrains
 
 Source : https://www.jetbrains.com/help/idea/reference-keymap-win-default.html
 
+(some parts may be modified or added)
+
 ---
 
-- [Predefined Windows keymap](#predefined-windows-keymap)
-  - [IntelliJ IDEA's top keyboard shortcuts](#intellijideas-top-keyboard-shortcuts)
+<h2>Info About This Article</h2> 
+
+- cs+s means Ctrl + Shift + S key
+- c+k,s means c+k, then c+s
+- shortcuts with alt key may coincide with alt plus menu keys (alt ile olanlar menu kısayolu ile çakışabilir)
+
+# Windows Keymap
+
+## Contents
+
+- [Windows Keymap](#windows-keymap)
+  - [Contents](#contents)
+  - [Intro](#intro)
+  - [Top keyboard shortcuts](#top-keyboard-shortcuts)
   - [Build projects](#build-projects)
   - [Basic editing](#basic-editing)
   - [Caret navigation](#caret-navigation)
@@ -28,13 +42,7 @@ Source : https://www.jetbrains.com/help/idea/reference-keymap-win-default.html
  
 ---
 
-<h2>Info About This Article</h2> 
-
-- cs+s means Ctrl + Shift + S key
-- c+k,s means c+k, then c+s
-- shortcuts with alt key may coincide with alt plus menu keys (alt ile olanlar menu kısayolu ile çakışabilir)
-
-# Predefined Windows keymap
+## Intro
 
 Last modified: 12 December 2+24
     
@@ -42,15 +50,15 @@ You can find all shortcuts and modify them in `Settings | Keymap`.
 
 You can also print the default keymap reference card.
 
-##  IntelliJ IDEA's top keyboard shortcuts
+##  Top keyboard shortcuts
     
 Key          | Desc
 -------------|-----------------------
 Double Shift | Search Everywhere
-CtrlShift+A  | Find Action...
-Alt+1        | Show Project window
-CtrlShiftF9  | Rebuild
-AltEnter     | Show Intention Actions
+cs+A         | Find Action...
+a+1          | Show Project window
+cs+F9        | Rebuild
+Alt+Enter    | Show Intention Actions
 Ctrl+E       | Recent Files
 AltF7        | Find Usages
 AltF1        | Select In...
@@ -64,6 +72,8 @@ Alt+\`    |VCS Operations Popup...
 cas+t     |Refactor This...
 ca+L      |Reformat Code
 
+[Contents](#contents)
+
 ## Build projects
     
 Key           | Desc
@@ -71,6 +81,8 @@ Key           | Desc
 CtrlAltInsert | New in This Directory
 CtrlF9        | Build Project
 CtrlShiftF9   | Rebuild
+
+[Contents](#contents)
     
 ## Basic editing
 
@@ -99,13 +111,15 @@ CtrlAltShiftInsert | Scratch File
 ShiftF4            | Open Source in New Window
 AltShift+.         | Increase Font Size in All Editors
 AltShift+,         | Decrease Font Size in All Editors
+
+[Contents](#contents)
   	
 ## Caret navigation
 
 Key         | Desc
 ------------|-------------------------------
-Ctrl+←      | Move Caret to Previous Word
-Ctrl+→      | Move Caret to Next Word
+Ctrl+left   | Move Caret to Previous Word
+Ctrl+right  | Move Caret to Next Word
 Home        | Move Caret to Line Start
 End         | Move Caret to Line End
 CtrlShift+M | Move Caret to Matching Brace
@@ -119,30 +133,34 @@ Pg Up       | Page Up
 Pg Dn       | Page Down
 CtrlHome    | Move Caret to Text Start
 CtrlEnd     | Move Caret to Text End
+
+[Contents](#contents)
     
 ## Select text
 
-Key            | Desc
----------------|----------------------------------------------
-Ctrl+A         | Select All
-Shift+←        | Left with Selection
-Shift+→        | Right with Selection
-CtrlShift+←    | Move Caret to Previous Word with Selection
-CtrlShift+→    | Move Caret to Next Word with Selection
-ShiftHome      | Move Caret to Line Start with Selection
-ShiftEnd       | Move Caret to Line End with Selection
-Shift+↑        | Up with Selection
-Shift+↓        | Down with Selection
-CtrlShift+[    | Move Caret to Code Block Start with Selection
-CtrlShift+]    | Move Caret to Code Block End with Selection
-CtrlShiftPg Up | Move Caret to Page Top with Selection
-CtrlShiftPg Dn | Move Caret to Page Bottom with Selection
-ShiftPg Up     | Page Up with Selection
-ShiftPg Dn     | Page Down with Selection
-CtrlShiftHome  | Move Caret to Text Start with Selection
-CtrlShiftEnd   | Move Caret to Text End with Selection
-Ctrl+W         | Extend Selection
-CtrlShift+W    | Shrink Selection
+Key             | Desc
+----------------|----------------------------------------------
+Ctrl+A          | Select All
+Shift+left      | Left with Selection
+Shift+right     | Right with Selection
+CtrlShift+left  | Move Caret to Previous Word with Selection
+CtrlShift+right | Move Caret to Next Word with Selection
+ShiftHome       | Move Caret to Line Start with Selection
+ShiftEnd        | Move Caret to Line End with Selection
+Shift+↑         | Up with Selection
+Shift+↓         | Down with Selection
+CtrlShift+[     | Move Caret to Code Block Start with Selection
+CtrlShift+]     | Move Caret to Code Block End with Selection
+CtrlShiftPg Up  | Move Caret to Page Top with Selection
+CtrlShiftPg Dn  | Move Caret to Page Bottom with Selection
+ShiftPg Up      | Page Up with Selection
+ShiftPg Dn      | Page Down with Selection
+CtrlShiftHome   | Move Caret to Text Start with Selection
+CtrlShiftEnd    | Move Caret to Text End with Selection
+Ctrl+W          | Extend Selection
+CtrlShift+W     | Shrink Selection
+
+[Contents](#contents)
   	
 ## Code folding
 
@@ -155,6 +173,8 @@ CtrlAltNumPad -   | Collapse Recursively
 CtrlShiftNumPad + | Expand All
 CtrlShiftNumPad - | Collapse All
 Ctrl+.            | Fold Selection
+
+[Contents](#contents)
   	
 ## Multiple carets and selection ranges
 
@@ -171,32 +191,36 @@ AltShift+J           | Deselect Last Occurrence
 AltShiftMiddle click | Create Rectangular Selection
 AltClick             | Drag to Create Rectangular Selection
 CtrlAltShiftClick    | Drag to Create Multiple Rectangular Selections
-    
+
+[Contents](#contents)
+
 ##  Coding assistance
 
-Key            | Desc
----------------|--------------------------------
-AltEnter       | Show Intention Actions
-CtrlSpace      | Basic Completion
-CtrlShiftSpace | Type-Matching Completion
-CtrlAltSpace   | Second Basic Completion
-Alt+\          | Complete Code with AI Assistant
-Ctrl+\         | Generate Code with AI Assistant
-CtrlShiftEnter | Complete Current Statement
-CtrlAlt+L      | Reformat Code
-Ctrl+P         | Parameter Info
-Ctrl+Q         | Quick Documentation
-CtrlShift+↑    | Move Statement Up
-CtrlShift+↓    | Move Statement Down
-CtrlAltShift+← | Move Element Left
-CtrlAltShift+→ | Move Statement Right
-AltShift+↑     | Move Line Up
-AltShift+↓     | Move Line Down
-Ctrl+/         | Comment with Line Comment
-CtrlShift+/    | Comment with Block Comment
-CtrlAlt+T      | Surround With...
-AltInsert      | Generate...
+Key                | Desc
+-------------------|--------------------------------
+AltEnter           | Show Intention Actions
+CtrlSpace          | Basic Completion
+CtrlShiftSpace     | Type-Matching Completion
+CtrlAltSpace       | Second Basic Completion
+Alt+\              | Complete Code with AI Assistant
+Ctrl+\             | Generate Code with AI Assistant
+CtrlShiftEnter     | Complete Current Statement
+CtrlAlt+L          | Reformat Code
+Ctrl+P             | Parameter Info
+Ctrl+Q             | Quick Documentation
+CtrlShift+↑        | Move Statement Up
+CtrlShift+↓        | Move Statement Down
+CtrlAltShift+left  | Move Element Left
+CtrlAltShift+right | Move Statement Right
+AltShift+↑         | Move Line Up
+AltShift+↓         | Move Line Down
+Ctrl+/             | Comment with Line Comment
+CtrlShift+/        | Comment with Block Comment
+CtrlAlt+T          | Surround With...
+AltInsert          | Generate...
     
+[Contents](#contents)
+
 ## Context navigation
 
 Key                | Desc
@@ -209,10 +233,10 @@ AltF1              | Select In...
 Ctrl+E             | Recent Files
 AltShift+C         | Recent Changes
 CtrlShiftBackspace | Last Edit Location
-CtrlAlt+←          | Back
-CtrlAlt+→          | Forward
-Alt+→              | Select Next Tab
-Alt+←              | Select Previous Tab
+CtrlAlt+left       | Back
+CtrlAlt+right      | Forward
+Alt+right          | Select Next Tab
+Alt+left           | Select Previous Tab
 F11                | Toggle Anonymous Bookmark
 CtrlShift          | Toggle Bookmark with Digit
 CtrlF11            | Toggle Bookmark with Mnemonic
@@ -225,6 +249,8 @@ Alt+3              | Show Find window
 CtrlAlt+↓          | Next Occurrence
 CtrlAlt+↑          | Previous Occurrence
     
+[Contents](#contents)
+
 ## Find everything
 
 Key            | Desc
@@ -241,6 +267,8 @@ CtrlShift+N    | Go to File...
 CtrlF12        | File Structure
 CtrlAltShift+N | Go to Symbol...
 CtrlShift+A    | Find Action...
+
+[Contents](#contents)
   	
 ## Navigate from symbols
 
@@ -297,7 +325,8 @@ CtrlShiftF8    | Edit Breakpoint
 Alt+4          | Show Run window
 Alt+5          | Show Debug window
 Alt+8          | Show Services window
-	
+
+[Contents](#contents)
 
 ## Refactorings
 
@@ -313,6 +342,8 @@ CtrlAlt+F      | Introduce Field...
 CtrlAlt+P      | Introduce Parameter...
 CtrlAlt+V      | Introduce Variable...
 AltDelete      | Safe Delete...
+
+[Contents](#contents)
     
 ## Global VCS actions
 
@@ -327,7 +358,9 @@ CtrlAltShift+↓	|	Next Change
 CtrlAltShift+↑	|	Previous Change
 Alt+9	|	Show Version Control window
 Alt+0	|	Show Commit window
-  
+
+[Contents](#contents)
+
 ## Diff Viewer
 
 Key          | Desc
@@ -340,27 +373,30 @@ CtrlAlt+R    | Accept Left Side
 CtrlAlt+A    | Accept Right Side
 CtrlShiftTab | Select Opposite Diff Pane
 CtrlShift+D  | Show Diff Settings Popup...
+
+[Contents](#contents)
      
 ## Tool windows
 
-Key            | Desc
----------------|----------------------------
-ShiftEsc       | Hide Active Tool Window
-CtrlShiftF12   | Hide All Tool Windows
-F12            | Jump to Last Tool Window
-CtrlAltShift+← | Stretch to Left
-CtrlAltShift+→ | Stretch to Right
-CtrlAltShift+↑ | Stretch to Top
-CtrlAltShift+↓ | Stretch to Bottom
-Alt+1          | Show Project window
-Alt+2          | Show Bookmarks window
-Alt+3          | Show Find window
-Alt+4          | Show Run window
-Alt+5          | Show Debug window
-Alt+6          | Show Problems window
-Alt+7          | Show Structure window
-Alt+8          | Show Services window
-Alt+9          | Show Version Control window
-Alt+0          | Show Commit window
-Alt+F12        | Show Terminal window
+Key                | Desc
+-------------------|----------------------------
+ShiftEsc           | Hide Active Tool Window
+CtrlShiftF12       | Hide All Tool Windows
+F12                | Jump to Last Tool Window
+CtrlAltShift+left  | Stretch to Left
+CtrlAltShift+right | Stretch to Right
+CtrlAltShift+↑     | Stretch to Top
+CtrlAltShift+↓     | Stretch to Bottom
+Alt+1              | Show Project window
+Alt+2              | Show Bookmarks window
+Alt+3              | Show Find window
+Alt+4              | Show Run window
+Alt+5              | Show Debug window
+Alt+6              | Show Problems window
+Alt+7              | Show Structure window
+Alt+8              | Show Services window
+Alt+9              | Show Version Control window
+Alt+0              | Show Commit window
+Alt+F12            | Show Terminal window
 
+[Contents](#contents)
