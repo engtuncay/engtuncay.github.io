@@ -14,6 +14,7 @@ Source : https://www.jetbrains.com/help/idea/reference-keymap-win-default.html
 - cs+s means Ctrl + Shift + S key
 - c+k,s means c+k, then c+s
 - shortcuts with alt key may coincide with alt plus menu keys (alt ile olanlar menu kısayolu ile çakışabilir)
+- (*) symbol means that user changed key
 
 # Windows Keymap
 
@@ -23,6 +24,7 @@ Source : https://www.jetbrains.com/help/idea/reference-keymap-win-default.html
   - [Contents](#contents)
   - [Intro](#intro)
   - [Top keyboard shortcuts](#top-keyboard-shortcuts)
+  - [Nonlogic Keymap](#nonlogic-keymap)
   - [Build projects](#build-projects)
   - [Basic editing](#basic-editing)
   - [Caret navigation](#caret-navigation)
@@ -52,26 +54,29 @@ You can also print the default keymap reference card.
 
 ##  Top keyboard shortcuts
     
-Key          | Desc
--------------|-----------------------
-Double Shift | Search Everywhere
-cs+A         | Find Action...
-a+1          | Show Project window
-cs+F9        | Rebuild
-Alt+Enter    | Show Intention Actions
-Ctrl+E       | Recent Files
-AltF7        | Find Usages
-AltF1        | Select In...
-CtrlAlt+S    | Settings...
-Alt+Insert   | Generate...
-Double Ctrl  | Run Anything
-AltShiftF9   | Debug...
-CtrlShiftF8  | View Breakpoints...
-ca+F5        | Attach to Process...
-Alt+\`    |VCS Operations Popup...
-cas+t     |Refactor This...
-ca+L      |Reformat Code
-cs+L      |Reformat File
+Key             | Desc
+----------------|-----------------------
+Double Shift    | Search Everywhere
+cs+A            | Find Action...
+a+1             | Show Project window
+cs+F9           | Rebuild
+Alt+Enter       | Show Intention Actions
+Ctrl+E          | Recent Files
+AltF7           | Find Usages
+AltF1           | Select In...
+CtrlAlt+S       | Settings...
+(Alt+.) Alt+Ins | Generate...
+Double Ctrl     | Run Anything
+AltShiftF9      | Debug...
+CtrlShiftF8     | View Breakpoints...
+ca+F5           | Attach to Process...
+cas+t           | Refactor This...
+ca+L            | Reformat Code
+cs+L            | Reformat File
+
+Nonlogic Keymap
+----
+Alt+backtick    |VCS Operations Popup...
 
 [Contents](#contents)
 
@@ -126,14 +131,15 @@ End         | Move Caret to Line End
 CtrlShift+M | Move Caret to Matching Brace
 Ctrl+[      | Move Caret to Code Block Start
 Ctrl+]      | Move Caret to Code Block End
-Alt+↓       | Next Method
-Alt+↑       | Previous Method
-CtrlPg Up   | Move Caret to Page Top
-CtrlPg Dn   | Move Caret to Page Bottom
-Pg Up       | Page Up
-Pg Dn       | Page Down
-CtrlHome    | Move Caret to Text Start
-CtrlEnd     | Move Caret to Text End
+Alt+down    | Next Method
+Alt+up      | Previous Method
+C+Home      | Move Caret to Text Start
+C+End       | Move Caret to Text End
+
+UnFrequently
+.           | Move Caret to Page Top (CtrlPg Up)
+.           | Move Caret to Page Bottom (CtrlPg Dn)
+
 
 [Contents](#contents)
     
@@ -148,8 +154,8 @@ CtrlShift+left  | Move Caret to Previous Word with Selection
 CtrlShift+right | Move Caret to Next Word with Selection
 ShiftHome       | Move Caret to Line Start with Selection
 ShiftEnd        | Move Caret to Line End with Selection
-Shift+↑         | Up with Selection
-Shift+↓         | Down with Selection
+Shift+up        | Up with Selection
+Shift+down      | Down with Selection
 CtrlShift+[     | Move Caret to Code Block Start with Selection
 CtrlShift+]     | Move Caret to Code Block End with Selection
 CtrlShiftPg Up  | Move Caret to Page Top with Selection
@@ -200,19 +206,19 @@ CtrlAltShiftClick    | Drag to Create Multiple Rectangular Selections
 Key                 | Desc
 --------------------|--------------------------------
 C+. (*) (Alt+Enter) | Show Context Actions
-C+Space          | Basic Completion
+C+Space             | Basic Completion
 CS+Space            | Type-Matching Completion
 CA+Space            | Second Basic Completion
 CtrlShiftEnter      | Complete Current Statement
 CtrlAlt+L           | Reformat Code
 C+q,p (*)           | Parameter Info (c+p)
 C+q,q (*)           | Quick Documentation (c+q)
-CtrlShift+↑         | Move Statement Up
-CtrlShift+↓         | Move Statement Down
+CtrlShift+up        | Move Statement Up
+CtrlShift+down      | Move Statement Down
 CtrlAltShift+left   | Move Element Left
 CtrlAltShift+right  | Move Statement Right
-AltShift+↑          | Move Line Up
-AltShift+↓          | Move Line Down
+AltShift+up         | Move Line Up
+AltShift+down       | Move Line Down
 Ctrl+/              | Comment with Line Comment
 CtrlShift+/         | Comment with Block Comment
 CtrlAlt+T           | Surround With...
@@ -228,29 +234,29 @@ Ctrl+\              | Generate Code with AI Assistant
 
 Key                | Desc
 -------------------|------------------------------
-Alt+↓              | Next Method
-Alt+↑              | Previous Method
+Alt+down           | Next Method
+Alt+up             | Previous Method
 Ctrl+G             | Go to Line/Column...
-CtrlTab            | Switcher
-AltF1              | Select In...
-Ctrl+E             | Recent Files
-AltShift+C         | Recent Changes
-CtrlShiftBackspace | Last Edit Location
+Ctrl+Tab           | Switcher
+Alt+F1             | Select In...
+C+E                | Recent Files
+AS+c               | Recent Changes
+CS+Backspace       | Last Edit Location
 A+left (*)         | Back (ca+left)
 A+right (*)        | Forward (ca+right)
-CA+right (*)       | Select Next Tab (a+right)
-CA+left (*)        | Select Previous Tab (a+left)
+c+pgup (*) ca+left | Select Previous Tab (a+left)
+c+pgdown (*)       | Select Next Tab (a+right)
 F11                | Toggle Anonymous Bookmark
 CtrlShift          | Toggle Bookmark with Digit
-CtrlF11            | Toggle Bookmark with Mnemonic
-ShiftF11           | Show All Bookmarks
+Ctrl+F11           | Toggle Bookmark with Mnemonic
+Shift+F11          | Show All Bookmarks
 Ctrl               | Go to Bookmark with Digit
-CtrlShiftF11       | Show Mnemonic Bookmarks
+CS+F11             | Show Mnemonic Bookmarks
 Alt+2              | Show Bookmarks window
 Alt+7              | Show Structure window
 Alt+3              | Show Find window
-CtrlAlt+↓          | Next Occurrence
-CtrlAlt+↑          | Previous Occurrence
+CtrlAlt+down       | Next Occurrence
+CtrlAlt+up         | Previous Occurrence
     
 [Contents](#contents)
 
@@ -304,7 +310,7 @@ Key            | Desc
 Double Ctrl    | Run Anything
 ShiftF1+       | Run context configuration
 AltShiftF1+    | Run...
-               | Debug context configuration (ShiftF9)
+.              | Debug context configuration (ShiftF9)
 AltShiftF9     | Debug...
 CtrlAltF5      | Attach to Process...
 CtrlF2         | Stop
@@ -357,8 +363,8 @@ Ctrl+K	|	Commit...
 Ctrl+T	|	Update Project
 CtrlAlt+Z	|	Rollback
 CtrlShift+K	|	Push...
-CtrlAltShift+↓	|	Next Change
-CtrlAltShift+↑	|	Previous Change
+CtrlAltShift+down	|	Next Change
+CtrlAltShift+up	|	Previous Change
 Alt+9	|	Show Version Control window
 Alt+0	|	Show Commit window
 
@@ -388,8 +394,8 @@ CtrlShiftF12       | Hide All Tool Windows
 F12                | Jump to Last Tool Window
 CtrlAltShift+left  | Stretch to Left
 CtrlAltShift+right | Stretch to Right
-CtrlAltShift+↑     | Stretch to Top
-CtrlAltShift+↓     | Stretch to Bottom
+CtrlAltShift+up    | Stretch to Top
+CtrlAltShift+down  | Stretch to Bottom
 Alt+1              | Show Project window
 Alt+2              | Show Bookmarks window
 Alt+3              | Show Find window
