@@ -197,28 +197,30 @@ CtrlAltShiftClick    | Drag to Create Multiple Rectangular Selections
 
 ##  Coding assistance
 
-Key                | Desc
--------------------|--------------------------------
-AltEnter           | Show Intention Actions
-CtrlSpace          | Basic Completion
-CtrlShiftSpace     | Type-Matching Completion
-CtrlAltSpace       | Second Basic Completion
-Alt+\              | Complete Code with AI Assistant
-Ctrl+\             | Generate Code with AI Assistant
-CtrlShiftEnter     | Complete Current Statement
-CtrlAlt+L          | Reformat Code
-Ctrl+P             | Parameter Info
-Ctrl+Q             | Quick Documentation
-CtrlShift+↑        | Move Statement Up
-CtrlShift+↓        | Move Statement Down
-CtrlAltShift+left  | Move Element Left
-CtrlAltShift+right | Move Statement Right
-AltShift+↑         | Move Line Up
-AltShift+↓         | Move Line Down
-Ctrl+/             | Comment with Line Comment
-CtrlShift+/        | Comment with Block Comment
-CtrlAlt+T          | Surround With...
-AltInsert          | Generate...
+Key                 | Desc
+--------------------|--------------------------------
+C+. (*) (Alt+Enter) | Show Context Actions
+C+Space          | Basic Completion
+CS+Space            | Type-Matching Completion
+CA+Space            | Second Basic Completion
+CtrlShiftEnter      | Complete Current Statement
+CtrlAlt+L           | Reformat Code
+C+q,p (*)           | Parameter Info (c+p)
+C+q,q (*)           | Quick Documentation (c+q)
+CtrlShift+↑         | Move Statement Up
+CtrlShift+↓         | Move Statement Down
+CtrlAltShift+left   | Move Element Left
+CtrlAltShift+right  | Move Statement Right
+AltShift+↑          | Move Line Up
+AltShift+↓          | Move Line Down
+Ctrl+/              | Comment with Line Comment
+CtrlShift+/         | Comment with Block Comment
+CtrlAlt+T           | Surround With...
+A+. (*) (A+Insert)  | Generate...
+---Not-Feasible---  | ------------------
+Alt+\               | Complete Code with AI Assistant
+Ctrl+\              | Generate Code with AI Assistant
+
     
 [Contents](#contents)
 
@@ -234,10 +236,10 @@ AltF1              | Select In...
 Ctrl+E             | Recent Files
 AltShift+C         | Recent Changes
 CtrlShiftBackspace | Last Edit Location
-A+left (*)      | Back (ca+left)
-A+right (*)     | Forward (ca+right)
-CA+right (*)        | Select Next Tab (a+right)
-CA+left (*)         | Select Previous Tab (a+left)
+A+left (*)         | Back (ca+left)
+A+right (*)        | Forward (ca+right)
+CA+right (*)       | Select Next Tab (a+right)
+CA+left (*)        | Select Previous Tab (a+left)
 F11                | Toggle Anonymous Bookmark
 CtrlShift          | Toggle Bookmark with Digit
 CtrlF11            | Toggle Bookmark with Mnemonic
@@ -259,7 +261,7 @@ Key            | Desc
 Double Shift   | Search Everywhere
 Ctrl+F         | Find...
 F3             | Find Next / Move to Next Occurrence
-Shift+F3        | Find Previous / Move to Previous Occurrence
+Shift+F3       | Find Previous / Move to Previous Occurrence
 Ctrl+R         | Replace...
 CtrlShift+F    | Find in Files...
 CtrlShift+R    | Replace in Files...
@@ -287,7 +289,7 @@ CtrlShiftF7 | Highlight Usages in File
 ## Code analysis
 
 Key            | Desc
----------------|---------------------------
+---------------|-------------------------------------
 AltEnter       | Show Intention Actions
 CtrlF1         | Error Description
 F9 (*)         | Next Highlighted Error (F2)
@@ -298,7 +300,7 @@ Alt+6          | Show Problems window
 ## Run and debug
 
 Key            | Desc
----------------|---------------------------------
+---------------|--------------------------------------
 Double Ctrl    | Run Anything
 ShiftF1+       | Run context configuration
 AltShiftF1+    | Run...
@@ -335,7 +337,7 @@ Key            | Desc
 ---------------|-----------------------
 CtrlAltShift+T | Refactor This...
 F2 (*)         | Rename... (ShiftF6)
-Ctrl+F6         | Change Signature...
+Ctrl+F6        | Change Signature...
 CtrlAlt+N      | Inline...
 F6             | Move...
 CtrlAlt+M      | Extract Method...
