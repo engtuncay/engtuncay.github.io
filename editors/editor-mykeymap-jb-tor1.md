@@ -92,31 +92,28 @@ CtrlShiftF9   | Rebuild
     
 ## Basic editing
 
-Key                | Desc
--------------------|----------------------------------
-Ctrl+X             | Cut
-Ctrl+C             | Copy
-Ctrl+V             | Paste
-CtrlAltShift+V     | Paste as Plain Text
-CtrlShift+V        | Paste from History...
-CtrlShift+C        | Copy Paths
-CtrlAltShift+C     | Copy Reference
-Ctrl+S             | Save All
-Ctrl+Z             | Undo
-CtrlShift+Z        | Redo
-Tab                | Indent Selection
-ShiftTab           | Unindent Line or Selection
-CtrlAlt+I          | Auto-Indent Lines
-ShiftEnter         | Start New Line
-CtrlAltEnter       | Start New Line Before Current
-Ctrl+Y             | Delete Line
-CtrlShift+J        | Join Lines
-Ctrl+D             | Duplicate Line or Selection
-CtrlShift+U        | Toggle Case
-CtrlAltShiftInsert | Scratch File
-ShiftF4            | Open Source in New Window
-AltShift+.         | Increase Font Size in All Editors
-AltShift+,         | Decrease Font Size in All Editors
+Key            | Desc
+---------------|----------------------------------
+Ctrl+Y         | Delete Line
+Ctrl+D         | Duplicate Line or Selection
+Ctrl+Z         | Undo
+CtrlShift+Z    | Redo
+CtrlAltShift+V | Paste as Plain Text
+CtrlShift+V    | Paste from History...
+CtrlShift+C    | Copy Paths
+CtrlAltShift+C | Copy Reference
+Ctrl+S         | Save All
+Tab            | Indent Selection
+ShiftTab       | Unindent Line or Selection
+CtrlAlt+I      | Auto-Indent Lines
+ShiftEnter     | Start New Line
+CtrlAltEnter   | Start New Line Before Current
+CtrlShift+J    | Join Lines
+CtrlShift+U    | Toggle Case
+cas+ins        | Scratch File
+ShiftF4        | Open Source in New Window
+AltShift+.     | Increase Font Size in All Editors
+AltShift+,     | Decrease Font Size in All Editors
 
 [Contents](#contents)
   	
@@ -137,8 +134,8 @@ C+Home      | Move Caret to Text Start
 C+End       | Move Caret to Text End
 
 UnFrequently
-.           | Move Caret to Page Top (CtrlPg Up)
-.           | Move Caret to Page Bottom (CtrlPg Dn)
+..           | Move Caret to Page Top (CtrlPg U..p)
+..           | Move Caret to Page Bottom (CtrlPg Dn)
 
 
 [Contents](#contents)
@@ -173,9 +170,9 @@ CtrlShift+W     | Shrink Selection
 
 Key               | Desc
 ------------------|---------------------
-CtrlNumPad +      | Expand
-CtrlNumPad -      | Collapse
-CtrlAltNumPad +   | Expand Recursively
+C + NumPad +      | Expand
+C + NumPad -      | Collapse
+ca + NumPad +     | Expand Recursively
 CtrlAltNumPad -   | Collapse Recursively
 CtrlShiftNumPad + | Expand All
 CtrlShiftNumPad - | Collapse All
