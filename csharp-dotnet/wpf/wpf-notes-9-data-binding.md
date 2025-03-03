@@ -160,6 +160,57 @@ However, this doesn't mean that you have to use the same DataContext for all con
 
 ## Data binding via Code-behind
 
+Data binding via Code-behind
+As we saw in the previous data binding examples, defining a binding by using XAML is very easy, but for certain cases, you may want to do it from Code-behind instead. This is pretty easy as well and offers the exact same possibilities as when you're using XAML. Let's try the "Hello, bound world" example, but this time create the required binding from Code-behind:
+
+```xml
+<Window x:Class="WpfTutorialSamples.DataBinding.CodeBehindBindingsSample"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="CodeBehindBindingsSample" Height="110" Width="280">
+    <StackPanel Margin="10">
+    <TextBox Name="txtValue" />
+    <WrapPanel Margin="0,10">
+        <TextBlock Text="Value: " FontWeight="Bold" />
+        <TextBlock Name="lblValue" />
+    </WrapPanel>
+    </StackPanel>
+</Window>
+
+```
+
+```cs
+using System;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+
+namespace WpfTutorialSamples.DataBinding
+{
+    public partial class CodeBehindBindingsSample : Window
+    {
+    public CodeBehindBindingsSample()
+    {
+        InitializeComponent();
+
+        Binding binding = new Binding("Text");
+        binding.Source = txtValue;
+        lblValue.SetBinding(TextBlock.TextProperty, binding);
+    }
+    }
+}
+
+```
+![Data binding from Code-behind](https://wpf-tutorial.com/Images/ArticleImages/1/data-binding/hello_bound_world_codebehind.png)
+
+It works by creating a Binding instance. We specify the path we want directly in the constructor, in this case "Text", since we want to bind to the Text property. We then specify a Source, which for this example should be the TextBox control. Now WPF knows that it should use the TextBox as the source control, and that we're specifically looking for the value contained in its Text property.
+
+
+In the last line, we use the SetBinding method to combine our newly created Binding object with the destination/target control, in this case the TextBlock (lblValue). The SetBinding() method takes two parameters, one that tells which dependency property that we want to bind to, and one that holds the binding object that we wish to use.
+
+Summary
+
+As you can see, creating  bindings in C# code is easy, and perhaps a bit easier to grasp for people new to data bindings, when compared to the syntax used for creating them inline in XAML. Which method you use is up to you though - they both work just fine.
 
 ## The UpdateSourceTrigger property
 
