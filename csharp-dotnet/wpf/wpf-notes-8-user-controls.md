@@ -12,8 +12,6 @@ Source : https://wpf-tutorial.com/usercontrols-and-customcontrols/introduction
 
 # 8 UserControls & CustomControls
 
-Source : https://wpf-tutorial.com/usercontrols-and-customcontrols/introduction
-
 ## Introduction
 
 So far in this tutorial, we have only used the built-in controls found in the WPF framework. They will get you a VERY long way, because they are so extremely flexible and can be styled and templated to do almost anything. However, at some point, you will likely benefit from creating your own controls. In other UI frameworks, this can be quite cumbersome, but WPF makes it pretty easy, offering you two ways of accomplishing this task: UserControls and Custom controls.
@@ -162,4 +160,6 @@ With that, we can reuse this entire piece of functionality in a single line of c
 ➖ Summary
 
 Placing commonly used interfaces and functionality in User Controls is highly recommended, and as you can see from the above example, they are very easy to create and use.
+
+[Back](../readme.md)
 

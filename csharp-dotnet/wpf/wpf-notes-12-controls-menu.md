@@ -170,8 +170,13 @@ Working with the WPF Menu control is both easy and fast, making it simple to cre
 
 ## The WPF ContextMenu
 
+
+
 ## The WPF ToolBar control
 
+
 ## The WPF StatusBar control
+
+
 
 ## The Ribbon control
