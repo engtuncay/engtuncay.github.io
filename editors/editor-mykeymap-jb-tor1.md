@@ -295,8 +295,8 @@ Key            | Desc
 ---------------|-------------------------------------
 AltEnter       | Show Intention Actions
 CtrlF1         | Error Description
-F9 (*)         | Next Highlighted Error (F2)
-s+f9 (*)       | Previous Highlighted Error (ShiftF2)
+F4 (*)         | Next Highlighted Error (F2)
+s+f4 (*)       | Previous Highlighted Error (ShiftF2)
 CtrlAltShift+I | Run Inspection by Name...
 Alt+6          | Show Problems window
   	
@@ -311,7 +311,7 @@ AltShiftF1+    | Run...
 AltShiftF9     | Debug...
 CtrlAltF5      | Attach to Process...
 CtrlF2         | Stop
-F9             | Resume Program
+               | Resume Program (F9)
 CtrlShiftF2    | Stop Background Processes...
 F8             | Step Over
 AltShiftF8     | Force Step Over
