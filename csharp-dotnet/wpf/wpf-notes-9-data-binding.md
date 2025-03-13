@@ -294,7 +294,7 @@ There are two different scenarios that you may or may not want to handle when de
 
 The following example will show you why we need these two things:
 
-Download & run this example
+```xml
 <Window x:Class="WpfTutorialSamples.DataBinding.ChangeNotificationSample"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -308,7 +308,9 @@ Download & run this example
 		<ListBox Name="lbUsers" DisplayMemberPath="Name"></ListBox>
 	</DockPanel>
 </Window>
-Download & run this example
+
+```
+```cs
 using System;
 using System.Collections.Generic;
 using System.Windows;
@@ -352,7 +354,11 @@ namespace WpfTutorialSamples.DataBinding
 		public string Name { get; set; }
 	}
 }
+
+```
+
 Not receiving change notifications
+
 Try running it for yourself and watch how even though you add something to the list or change the name of one of the users, nothing in the UI is updated. The example is pretty simple, with a User class that will keep the name of the user, a ListBox to show them in and some buttons to manipulate both the list and its contents. The ItemsSource of the list is assigned to a quick list of a couple of users that we create in the window constructor. The problem is that none of the buttons seems to work. Let's fix that, in two easy steps.
 
 Reflecting changes in the list data source
@@ -361,12 +367,14 @@ The first step is to get the UI to respond to changes in the list source (ItemsS
 In the final example, which you will find below, we have simply replaced the List<User> with an ObservableCollection<User> - that's all it takes! This will make the Add and Delete button work, but it won't do anything for the "Change name" button, because the change will happen on the bound data object itself and not the source list - the second step will handle that scenario though.
 
 Reflecting changes in the data objects
+
 The second step is to let our custom User class implement the INotifyPropertyChanged interface. By doing that, our User objects are capable of alerting the UI layer of changes to its properties. This is a bit more cumbersome than just changing the list type, like we did above, but it's still one of the simplest way to accomplish these automatic updates.
 
 The final and working example
+
 With the two changes described above, we now have an example that WILL reflect changes in the data source. It looks like this:
 
-Download & run this example
+```xml
 <Window x:Class="WpfTutorialSamples.DataBinding.ChangeNotificationSample"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -380,7 +388,10 @@ Download & run this example
 		<ListBox Name="lbUsers" DisplayMemberPath="Name"></ListBox>
 	</DockPanel>
 </Window>
-Download & run this example
+
+```
+
+```cs
 using System;
 using System.Collections.Generic;
 using System.Windows;
@@ -445,8 +456,13 @@ namespace WpfTutorialSamples.DataBinding
 		}
 	}
 }
+
+```
+
 Receiving change notifications
+
 Summary
+
 As you can see, implementing INotifyPropertyChanged is pretty easy, but it does create a bit of extra code on your classes, and adds a bit of extra logic to your properties. This is the price you will have to pay if you want to bind to your own classes and have the changes reflected in the UI immediately. Obviously you only have to call NotifyPropertyChanged in the setter's of the properties that you bind to - the rest can remain the way they are.
 
 
@@ -455,21 +471,28 @@ As you can see, implementing INotifyPropertyChanged is pretty easy, but it does 
 So far we have used some simple data bindings, where the sending and receiving property was always compatible. However, you will soon run into situations where you want to use a bound value of one type and then present it slightly differently.
 
 When to use a value converter
+
 Value converters are very frequently used with data bindings. Here are some basic examples:
 
 You have a numeric value but you want to show zero values in one way and positive numbers in another way
+
 You want to check a CheckBox based on a value, but the value is a string like "yes" or "no" instead of a Boolean value
+
 You have a file size in bytes but you wish to show it as bytes, kilobytes, megabytes or gigabytes based on how big it is
+
 These are some of the simple cases, but there are many more. For instance, you may want to check a checkbox based on a Boolean value, but you want it reversed, so that the CheckBox is checked if the value is false and not checked if the value is true. You can even use a converter to generate an image for an ImageSource, based on the value, like a green sign for true or a red sign for false - the possibilities are pretty much endless!
 
 For cases like this, you can use a value converter. These small classes, which implement the IValueConverter interface, will act like middlemen and translate a value between the source and the destination. So, in any situation where you need to transform a value before it reaches its destination or back to its source again, you likely need a converter.
 
 Implementing a simple value converter
+
 As mentioned, a WPF value converter needs to implement the IValueConverter interface, or alternatively, the IMultiValueConverter interface (more about that one later). Both interfaces just requires you to implement two methods: Convert() and ConvertBack(). As the name implies, these methods will be used to convert the value to the destination format and then back again.
 
 Let's implement a simple converter which takes a string as input and then returns a Boolean value, as well as the other way around. If you're new to WPF, and you likely are since you're reading this tutorial, then you might not know all of the concepts used in the example, but don't worry, they will all be explained after the code listings:
 
 Download & run this example
+
+```xml
 <Window x:Class="WpfTutorialSamples.DataBinding.ConverterSample"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -487,7 +510,10 @@ Download & run this example
 		<CheckBox IsChecked="{Binding ElementName=txtValue, Path=Text, Converter={StaticResource YesNoToBooleanConverter}}" Content="Yes" />
 	</StackPanel>
 </Window>
-Download & run this example
+
+```
+
+```cs
 using System;
 using System.Windows;
 using System.Windows.Data;
@@ -531,33 +557,38 @@ namespace WpfTutorialSamples.DataBinding
 		}
 	}
 }
+
+```
+
 Using an IValueConverter, here with an empty valueUsing an IValueConverter, here with a value that converts to falseUsing an IValueConverter, here with a value that converts to true
+
 Code-behind
+
 So, let's start from the back and then work our way through the example. We have implemented a converter in the Code-behind file called YesNoToBooleanConverter. As advertised, it just implements the two required methods, called Convert() and ConvertBack(). The Convert() methods assumes that it receives a string as the input (the value parameter) and then converts it to a Boolean true or false value, with a fallback value of false. For fun, I added the possibility to do this conversion from French words as well.
 
 The ConvertBack() method obviously does the opposite: It assumes an input value with a Boolean type and then returns the English word "yes" or "no" in return, with a fallback value of "no".
 
-
 You may wonder about the additional parameters that these two methods take, but they're not needed in this example. We'll use them in one of the next chapters, where they will be explained.
 
 XAML
+
 In the XAML part of the program, we start off by declaring an instance of our converter as a resource for the window. We then have a TextBox, a couple of TextBlocks and a CheckBox control and this is where the interesting things are happening: We bind the value of the TextBox to the TextBlock and the CheckBox control and using the Converter property and our own converter reference, we juggle the values back and forth between a string and a Boolean value, depending on what's needed.
 
 If you try to run this example, you will be able to change the value in two places: By writing "yes" in the TextBox (or any other value, if you want false) or by checking the CheckBox. No matter what you do, the change will be reflected in the other control as well as in the TextBlock.
 
 Summary
+
 This was an example of a simple value converter, made a bit longer than needed for illustrational purposes. In the next chapter we'll look into a more advanced example, but before you go out and write your own converter, you might want to check if WPF already includes one for the purpose. As of writing, there are more than 20 built-in converters that you may take advantage of, but you need to know their name. I found the following list which might come in handy for you: http://stackoverflow.com/questions/505397/built-in-wpf-ivalueconverters
 
 ## The StringFormat property
 
-The StringFormat property
 As we saw in the previous chapters, the way to manipulate the output of a binding before it is shown is typically through the use of a converter. The cool thing about the converters is that they allow you to convert any data type into a completely different data type. However, for more simple usage scenarios, where you just want to change the way a certain value is shown and not necessarily convert it into a different type, the StringFormat property might very well be enough.
 
 Using the StringFormat property of a binding, you lose some of the flexibility you get when using a converter, but in return, it's much simpler to use and doesn't involve the creation of a new class in a new file.
 
 The StringFormat property does exactly what the name implies: It formats the output string, simply by calling the String.Format method. Sometimes an example says more than a thousand words, so before I hit that word count, let's jump straight into an example:
 
-Download & run this example
+```xml
 <Window x:Class="WpfTutorialSamples.DataBinding.StringFormatSample"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -571,7 +602,11 @@ Download & run this example
 		<TextBlock Text="{Binding Source={x:Static system:DateTime.Now}, StringFormat=Time: {0:HH:mm}}" />
 	</StackPanel>
 </Window>
+
+```
+
 Several data bindings using the StringFormat property to control the output
+
 The first couple of TextBlock's gets their value by binding to the parent Window and getting its width and height. Through the StringFormat property, the values are formatted. For the width, we specify a custom formatting string and for the height, we ask it to use the currency format, just for fun. The value is saved as a double type, so we can use all the same format specifiers as if we had called double.ToString(). You can find a list of them here: http://msdn.microsoft.com/en-us/library/dwhawy9k.aspx
 
 Also notice how I can include custom text in the StringFormat - this allows you to pre/post-fix the bound value with text as you please. When referencing the actual value inside the format string, we surround it by a set of curly braces, which includes two values: A reference to the value we want to format (value number 0, which is the first possible value) and the format string, separated by a colon.
@@ -579,9 +614,10 @@ Also notice how I can include custom text in the StringFormat - this allows you 
 For the last two values, we simply bind to the current date (DateTime.Now) and the output it first as a date, in a specific format, and then as the time (hours and minutes), again using our own, pre-defined format. You can read more about DateTime formatting here: http://msdn.microsoft.com/en-us/library/az4se3k1.aspx
 
 Formatting without extra text
+
 Please be aware that if you specify a format string that doesn't include any custom text, which all of the examples above does, then you need to add an extra set of curly braces, when defining it in XAML. The reason is that WPF may otherwise confuse the syntax with the one used for Markup Extensions. Here's an example:
 
-Download & run this example
+```xml
 <Window x:Class="WpfTutorialSamples.DataBinding.StringFormatSample"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -593,10 +629,14 @@ Download & run this example
 		<TextBlock Text="{Binding ElementName=wnd, Path=ActualWidth, StringFormat={}{0:#,#.0}}" />
 	</WrapPanel>
 </Window>
+
+```
+
 Using a specific Culture
+
 If you need to output a bound value in accordance with a specific culture, that's no problem. The Binding will use the language specified for the parent element, or you can specify it directly for the binding, using the ConverterCulture property. Here's an example:
 
-Download & run this example
+```xml
 <Window x:Class="WpfTutorialSamples.DataBinding.StringFormatCultureSample"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -608,6 +648,9 @@ Download & run this example
 		<TextBlock Text="{Binding Source={x:Static system:DateTime.Now}, ConverterCulture='ja-JP', StringFormat=Japanese date: {0:D}}" />
 	</StackPanel>
 </Window>
+
+```
+
 Several data bindings using the StringFormat property, with a specific ConverterCulture, to control the output
 It's pretty simple: By combining the StringFormat property, which uses the D specifier (Long date pattern) and the ConverterCulture property, we can output the bound values in accordance with a specific culture. Pretty nifty!
 
@@ -615,7 +658,7 @@ It's pretty simple: By combining the StringFormat property, which uses the D spe
 
 Since data bindings are evaluated at runtime, and no exceptions are thrown when they fail, a bad binding can sometimes be very hard to track down. These problems can occur in several different situations, but a common issue is when you try to bind to a property that doesn't exist, either because you remembered its name wrong or because you simply misspelled it. Here's an example:
 
-Download & run this example
+```xml
 <Window x:Class="WpfTutorialSamples.DataBinding.DataBindingDebuggingSample"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -624,7 +667,11 @@ Download & run this example
 		<TextBlock Text="{Binding NonExistingProperty, ElementName=pnlMain}" />
 	</Grid>
 </Window>
+
+```
+
 The Output window
+
 The first place you will want to look is the Visual Studio Output window. It should be at the bottom of your Visual Studio window, or you can activate it by using the [Ctrl+Alt+O] shortcut. There will be loads of output from the debugger, but somewhere you should find a line like this, when running the above example:
 
 System.Windows.Data Error: 40 : BindingExpression path error: 'NonExistingProperty' property not found on 'object' ''Grid' (Name='pnlMain')'. BindingExpression:Path=NonExistingProperty; DataItem='Grid' (Name='pnlMain'); target element is 'TextBlock' (Name=''); target property is 'Text' (type 'String')
@@ -636,9 +683,10 @@ This might seem a bit overwhelming, mainly because no linebreaks are used in thi
 It tells you that you have tried to use a property called "NonExistingProperty" on an object of the type Grid, with the name pnlMain. That's actually pretty concise and should help you correct the name of the property or bind to the real object, if that's the problem.
 
 Adjusting the trace level
+
 The above example was easy to fix, because it was clear to WPF what we were trying to do and why it didn't work. Consider this next example though:
 
-Download & run this example
+```xml
 <Window x:Class="WpfTutorialSamples.DataBinding.DataBindingDebuggingSample"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -647,11 +695,14 @@ Download & run this example
 		<TextBlock Text="{Binding Title}" />
 	</Grid>
 </Window>
+
+```
+
 I'm trying to bind to the property "Title", but on which object? As stated in the article on data contexts, WPF will use the DataContext property on the TextBlock here, which may be inherited down the control hierarchy, but in this example, I forgot to assign a data context. This basically means that I'm trying to get a property on a NULL object. WPF will gather that this might be a perfectly valid binding, but that the object just hasn't been initialized yet, and therefore it won't complain about it. If you run this example and look in the Output window, you won't see any binding errors.
 
 However, for the cases where this is not the behavior that you're expecting, there is a way to force WPF into telling you about all the binding problems it runs into. It can be done by setting the TraceLevel on the PresentationTraceSources object, which can be found in the System.Diagnostics namespace:
 
-Download & run this example
+```xml
 <Window x:Class="WpfTutorialSamples.DataBinding.DataBindingDebuggingSample"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -661,9 +712,12 @@ Download & run this example
 		<TextBlock Text="{Binding Title, diag:PresentationTraceSources.TraceLevel=High}" />
 	</Grid>
 </Window>
+
+```
+
 Notice that I have added a reference to the System.Diagnostics namespace in the top, and then used the property on the binding. WPF will now give you loads of information about this specific binding in the Output window:
 
-Download & run this example
+```cs
 System.Windows.Data Warning: 55 : Created BindingExpression (hash=2902278) for Binding (hash=52760599)
 System.Windows.Data Warning: 57 :   Path: 'Title'
 System.Windows.Data Warning: 59 : BindingExpression (hash=2902278): Default mode resolved to OneWay
@@ -691,10 +745,13 @@ System.Windows.Data Warning: 87 : BindingExpression (hash=2902278): TransferValu
 System.Windows.Data Warning: 88 : BindingExpression (hash=2902278): TransferValue - using final value ''
 By reading through the list, you can actually see the entire process that WPF goes through to try to find a proper value for your TextBlock control. Several times you will see it being unable to find a proper DataContext, and in the end, it uses the default {DependencyProperty.UnsetValue} which translates into an empty string.
 
+```
+
 Using the real debugger
+
 The above trick can be great for diagnosing a bad binding, but for some cases, it's easier and more pleasant to work with the real debugger. Bindings doesn't natively support this, since they are being handled deep inside of WPF, but using a Converter, like shown in a previous article, you can actually jump into this process and step through it. You don't really need a Converter that does anything useful, you just need a way into the binding process, and a dummy converter will get you there:
 
-Download & run this example
+```xml
 <Window x:Class="WpfTutorialSamples.DataBinding.DataBindingDebuggingSample"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -707,7 +764,10 @@ Download & run this example
 		<TextBlock Text="{Binding Title, ElementName=wnd, Converter={StaticResource DebugDummyConverter}}" />
 	</Grid>
 </Window>
-Download & run this example
+
+```
+
+```cs
 using System;
 using System.Windows;
 using System.Windows.Data;
@@ -738,6 +798,9 @@ namespace WpfTutorialSamples.DataBinding
 		}
 	}
 }
+
+```
+
 In the Code-behind file, we define a DebugDummyConverter. In the Convert() and ConvertBack() methods, we call Debugger.Break(), which has the same effect as setting a breakpoint in Visual Studio, and then return the value that was given to us untouched.
 
 In the markup, we add a reference to our converter in the window resources and then we use it in our binding. In a real world application, you should define the converter in a file of its own and then add the reference to it in App.xaml, so that you may use it all over the application without having to create a new reference to it in each window, but for this example, the above should do just fine.
@@ -746,5 +809,4 @@ In the markup, we add a reference to our converter in the window resources and t
 If you run the example, you will see that the debugger breaks as soon as WPF tries to fetch the value for the title of the window. You can now inspect the values given to the Convert() method, or even change them before proceeding, using the standard debugging capabilities of Visual Studio.
 
 If the debugger never breaks, it means that the converter is not used. This usually indicates that you have an invalid binding expression, which can be diagnosed and fixed using the methods described in the start of this article. The dummy-converter trick is only for testing valid binding expressions.
-
 

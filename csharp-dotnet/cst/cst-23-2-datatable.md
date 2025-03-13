@@ -1,5 +1,7 @@
 
+[Back](../readme.md)
 
+---
 
 # csharp da datatable değerleri arasında nasıl döngü kurabilirim
 
@@ -64,15 +66,17 @@ foreach (var row in rows)
 💡 Avantajı: LINQ ile veri filtreleme ve işlem yapma imkânı sunar.
 
 4. While Döngüsü ile
-csharp
-Kopyala
-Düzenle
+
+```cs
 int index = 0;
 while (index < dt.Rows.Count)
 {
     Console.WriteLine($"ID: {dt.Rows[index]["ID"]}, Ad: {dt.Rows[index]["Ad"]}");
     index++;
 }
+
+```
+
 💡 Avantajı: Belirli bir koşula bağlı olarak döngüyü kontrol etmek için kullanılabilir.
 
 Hangi yöntemin daha iyi olduğu kullanım senaryona bağlı. Eğer sıralı gezmek istiyorsan foreach, belirli bir satıra atlamak istiyorsan for, LINQ kullanarak veri manipülasyonu yapmak istiyorsan LINQ yöntemini tercih edebilirsin. 🚀

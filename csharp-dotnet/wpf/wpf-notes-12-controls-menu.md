@@ -5,6 +5,16 @@ Source : https://wpf-tutorial.com/common-interface-controls/menu-control/
 
 ---
 
+- [12 Common interface controls](#12-common-interface-controls)
+  - [The WPF Menu control](#the-wpf-menu-control)
+    - [Handling clicks](#handling-clicks)
+    - [Keyboard shortcuts and Commands](#keyboard-shortcuts-and-commands)
+  - [The WPF ContextMenu](#the-wpf-contextmenu)
+  - [The WPF ToolBar control](#the-wpf-toolbar-control)
+  - [The WPF StatusBar control](#the-wpf-statusbar-control)
+  - [The Ribbon control](#the-ribbon-control)
+
+
 # 12 Common interface controls
 
 ## The WPF Menu control
@@ -172,6 +182,7 @@ Working with the WPF Menu control is both easy and fast, making it simple to cre
 
 
 
+
 ## The WPF ToolBar control
 
 The toolbar is a row of commands, usually sitting right below the main  menu of a standard Windows application. This could in fact be a simple panel with buttons on it, but by using the WPF ToolBar control, you get some extra goodies like automatic overflow handling and the possibility for the end-user to re-position your toolbars.
@@ -229,7 +240,9 @@ namespace WpfTutorialSamples.Common_interface_controls
 }
 
 ```
+
 A simple WPF ToolBar control
+
 Notice how I use commands for all the buttons. We discussed this in the previous chapter and using commands definitely gives us some advantages. Take a look at the Menu chapter, or the articles on commands, for more information.
 
 In this example, I add a ToolBarTray to the top of the screen, and inside of it, two ToolBar controls. Each contains some buttons and we use commands to give them their behavior. In Code-behind, I make sure to handle the CanExecute event of the first three buttons, since that's not done automatically by WPF, contrary to the Cut, Copy and Paste commands, which WPF is capable of fully handling for us.
@@ -270,6 +283,7 @@ By specifying an Image control as the Content of the first two buttons, they wil
 Notice how I've used the ToolTip property on each of the buttons, to add an explanatory text. This is especially important for those buttons with only an icon, because the purpose of the button might not be clear from only looking at the icon. With the ToolTip property, the user can hover the mouse over the button to get a description of what it does, as demonstrated on the screenshot.
 
 Overflow
+
 As already mentioned, a very good reason for using the ToolBar control instead of just a panel of buttons, is the automatic overflow handling. It means that if there's no longer enough room to show all of the buttons on the toolbar, WPF will put them in a menu accessible by clicking on the arrow to the right of the toolbar. You can see how it works on this screenshot, which shows the first example, but with a smaller window, thereby leaving less space for the toolbars:
 
 A WPF ToolBar showing off the overflow functionality
@@ -278,16 +292,22 @@ WPF even allows you to decide which items are suitable for overflow hiding and w
 
 This is where the attached property ToolBar.OverflowMode comes into play. The default value is AsNeeded, which simply means that a toolbar item is put in the overflow menu if there's not enough room for it. You may use Always or Never instead, which does exactly what the names imply: Puts the item in the overflow menu all the time or prevents the item from ever being moved to the overflow menu. Here's an example on how to assign this property:
 
-Download & run this example
+```cs
 <ToolBar>
     <Button Command="Cut" Content="Cut" ToolBar.OverflowMode="Always" />
     <Button Command="Copy" Content="Copy" ToolBar.OverflowMode="AsNeeded" />
     <Button Command="Paste" Content="Paste" ToolBar.OverflowMode="Never" />
 </ToolBar>
+
+```
+
 Position
+
 While the most common position for the toolbar is indeed in the top of the screen, toolbars can also be found in the bottom of the application window or even on the sides. The WPF ToolBar of course supports all of this, and while the bottom placed toolbar is merely a matter of docking to the bottom of the panel instead of the top, a vertical toolbar requires the use of the Orientation property of the ToolBar tray. Allow me to demonstrate with an example:
 
 Download & run this example
+
+```xml
 <Window x:Class="WpfTutorialSamples.Common_interface_controls.ToolbarPositionSample"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -325,15 +345,20 @@ Download & run this example
 		<TextBox AcceptsReturn="True" />
 	</DockPanel>
 </Window>
+
+```
+
 WPF ToolBars in various positions
+
 The trick here lies in the combination of the DockPanel.Dock property, that puts the ToolBarTray to the right of the application, and the Orientation property, that changes the orientation from horizontal to vertical. This makes it possible to place toolbars in pretty much any location that you might think of.
 
 Custom controls on the ToolBar
+
 As you have seen on all of the previous examples, we use regular WPF Button controls on the toolbars. This also means that you can place pretty much any other WPF control on the toolbars, with no extra effort. Of course, some controls works better on a toolbar than others, but controls like the ComboBox and TextBox are commonly used on the toolbars in e.g. older versions of Microsoft Office, and you can do the same on your own WPF toolbars.
 
 Another thing introduced in this example is the Separator element, which simply creates a separator between two sets of toolbar items. As you can see from the example, it's very easy to use!
 
-Download & run this example
+```xml
 <Window x:Class="WpfTutorialSamples.Common_interface_controls.ToolbarCustomControlsSample"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -367,13 +392,154 @@ Download & run this example
 	</DockPanel>
 </Window>
 
+```
+
 A WPF ToolBar with custom controls
+
 Summary
+
 Creating interfaces with toolbars is very easy in WPF, with the flexible ToolBar control. You can do things that previously required 3rd party toolbar controls and you can even do it without much extra effort.
 
 
 ## The WPF StatusBar control
 
+With the top of the application window usually occupied by the main menu and/or toolbars, described in previous chapters, the bottom part of the window is usually the home of the status bar. The status bar is used to show various information about the current state of the application, like cursor position, word count, progress of tasks and so on. Fortunately for us, WPF comes with a nice StatusBar control, making it very easy to add status bar functionality to your applications.
 
+Let's start off with a very basic example:
+
+```xml
+<Window x:Class="WpfTutorialSamples.Common_interface_controls.StatusBarSample"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="StatusBarSample" Height="150" Width="300">
+	<DockPanel>
+		<StatusBar DockPanel.Dock="Bottom">
+			<StatusBarItem>
+				<TextBlock Name="lblCursorPosition" />
+			</StatusBarItem>
+		</StatusBar>
+		<TextBox AcceptsReturn="True" Name="txtEditor" SelectionChanged="txtEditor_SelectionChanged" />
+	</DockPanel>
+</Window>
+
+```
+
+```cs
+using System;
+using System.Windows;
+
+namespace WpfTutorialSamples.Common_interface_controls
+{
+	public partial class StatusBarSample : Window
+	{
+		public StatusBarSample()
+		{
+			InitializeComponent();
+		}
+
+		private void txtEditor_SelectionChanged(object sender, RoutedEventArgs e)
+		{
+
+			int row = txtEditor.GetLineIndexFromCharacterIndex(txtEditor.CaretIndex);
+			int col = txtEditor.CaretIndex - txtEditor.GetCharacterIndexFromLineIndex(row);
+			lblCursorPosition.Text = "Line " + (row + 1) + ", Char " + (col + 1);
+		}
+	}
+}
+
+```
+
+![A simple WPF StatusBar control](https://wpf-tutorial.com/Images/ArticleImages/1/chapters/common-interface-controls/statusbar_simple.png)
+
+It's all very simple - a TextBlock control that shows the current cursor position, just like in pretty much any other application that allows you to edit text. In this very basic form, the StatusBar could just as easily have been a panel with a set of controls on it, but the real advantage of the StatusBar comes when we need to divide it into several areas of information.
+
+🔔 Advanced StatusBar example
+
+Let's try a more advanced example of using the StatusBar. The first thing we want to do is to make the StatusBar use another panel for the layout. By default, it uses the DockPanel, but when we want a more complex layout, with columns that adjusts its width in a certain way and aligned content, the Grid is a much better choice.
+
+We'll divide the Grid into three areas, with the left and right one having a fixed width and the middle column automatically taking up the remaining space. We'll also add columns in between for Separator controls. Here's how it looks now:
+
+```xml
+<Window x:Class="WpfTutorialSamples.Common_interface_controls.StatusBarAdvancedSample"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="StatusBarAdvancedSample" Height="150" Width="400">
+    <DockPanel>
+        <StatusBar DockPanel.Dock="Bottom">
+            <StatusBar.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="100" />
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                </ItemsPanelTemplate>
+            </StatusBar.ItemsPanel>
+            <StatusBarItem>
+                <TextBlock Name="lblCursorPosition" />
+            </StatusBarItem>
+            <Separator Grid.Column="1" />
+            <StatusBarItem Grid.Column="2">
+                <TextBlock Text="c:\path\of\current\file.txt" />
+            </StatusBarItem>
+            <Separator Grid.Column="3" />
+            <StatusBarItem Grid.Column="4">
+                <ProgressBar Value="50" Width="90" Height="16" />
+            </StatusBarItem>
+        </StatusBar>
+        <TextBox AcceptsReturn="True" Name="txtEditor" SelectionChanged="txtEditor_SelectionChanged" />
+    </DockPanel>
+</Window>
+
+```
+
+
+```cs
+using System;
+using System.Windows;
+
+namespace WpfTutorialSamples.Common_interface_controls
+{
+	public partial class StatusBarAdvancedSample : Window
+	{
+		public StatusBarAdvancedSample()
+		{
+			InitializeComponent();
+		}
+
+		private void txtEditor_SelectionChanged(object sender, RoutedEventArgs e)
+		{
+			int row = txtEditor.GetLineIndexFromCharacterIndex(txtEditor.CaretIndex);
+			int col = txtEditor.CaretIndex - txtEditor.GetCharacterIndexFromLineIndex(row);
+			lblCursorPosition.Text = "Line " + (row + 1) + ", Char " + (col + 1);
+		}
+	}
+}
+
+```
+
+![A more advanced WPF StatusBar control sample](https://wpf-tutorial.com/Images/ArticleImages/1/chapters/common-interface-controls/statusbar_advanced_sample.png)
+
+As you can see, I've added a bit of sample information, like the fake filename in the middle column and the progress bar to the right, showing a static value for now. You could easily make this work for real though, and it gives a pretty good idea on what you can do with the StatusBar control.
+
+🔔 Summary
+
+Once again, WPF makes it easy to get standard Windows functionality, in this case the StatusBar, integrated into your applications.
+
+You can even place other controls than the ones used in these examples, like buttons, combo boxes and so on, but please be aware that since the StatusBar doesn't apply any special rendering to these controls when hosting them, it might not look as you would expect it to for controls in a status bar. This can be handled with custom styling if you need it though, a subject discussed elsewhere in this tutorial.
 
 ## The Ribbon control
+
+The Ribbon interface was invented by Microsoft and first used in Office 2007. It combines the original  menu and toolbar(s) into one control, with various functions grouped into tabs and groups. The most important purpose was to make it easier for the user to discover all the functionality, instead of hiding it in long menus. The Ribbon also allows for prioritization of functionality, with the ability to use different sizes of buttons.
+
+![The Ribbon, here in MS Word](https://wpf-tutorial.com/Images/ArticleImages/1/chapters/common-interface-controls/ribbon.png)
+
+WPF doesn't come with a built-in Ribbon control, but Microsoft has released one that you can download and use for free, as long as you promise to follow their implementation guide when using it. You can read much more about it at MSDN, where you'll also find a download link for the Ribbon control.
+
+Summary
+
+You can download and use a Microsoft created Ribbon control, but it's not yet a part of the .NET  framework by default. Once it becomes an integrated part of the framework, we'll dig into it here at this tutorial. In the meantime, if you're looking for a more complete Ribbon implementation, you might want to look at some 3rd party alternatives - there are plenty of them, from some of the big WPF control vendors.
