@@ -28,8 +28,6 @@ Source : https://wpf-tutorial.com/basic-controls/the-textblock-control/
 
 
 
-
-
 ## The TextBlock control - Inline formatting
 
 ## The Label control
@@ -56,12 +54,14 @@ The TextBox control is such a commonly used thing that you actually don't have t
 
 ![A simple TextBox control](https://wpf-tutorial.com/Images/ArticleImages/1/chapters/basic-controls/textbox_simple.png)
 
-That's all you need to get a text field. I added the text after running the sample and before taking the screenshot, but you can do it through markup as well, to pre-fill the textbox, using the Text property:
+To pre-fill the textbox, use the Text property:
 
 ```xml
 <TextBox Text="Hello, world!" />
 
 ```
+
+--*TBC - 20250401 - 0323 
 
 Try right-clicking in the TextBox. You will get a menu of options, allowing you to use the TextBox with the Windows Clipboard. The default keyboard shortcuts for undoing and redoing (Ctrl+Z and Ctrl+Y) should also work, and all of this functionality you get for free!
 
@@ -84,6 +84,8 @@ If you run the above example, you will notice that the TextBox control by defaul
 ![A TextBox control with multiple lines of text](https://wpf-tutorial.com/Images/ArticleImages/1/chapters/basic-controls/textbox_multiline.png)
 
 I have added two properties: The `AcceptsReturn` makes the TextBox into a `multi-line control` by allowing the use of the Enter/Return key to go to the next line, and the TextWrapping property, which will make the text wrap automatically when the end of a line is reached.
+
+--*TBC - 20250401 - 0325 
 
 🔔 Spellcheck with TextBox
 

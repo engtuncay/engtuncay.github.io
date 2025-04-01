@@ -20,24 +20,30 @@ Bu kod:
 - Özetle, `Id` adlı veri kaynağı özelliğini bağlar.
 
 ### **Kullandığınız Kodda:**
-```xaml
+
+```xml
 <DataGridTextColumn Header="ID" Binding="{Binding Id}" />
 ```
+
 - `DataGridTextColumn`'un bir hücresinde gösterilecek değeri belirler.
 - Hücrede gösterilecek değer, `DataContext`'e ayarlanmış olan koleksiyondaki her bir öğenin **Id** özelliğinden gelecektir.
   - Örneğin: `DataGrid`'e bir koleksiyon (örneğin `ObservableCollection`) bağlandığında, koleksiyon elemanlarının her biri bir satırı temsil eder ve `Id` özelliği bu kolon içindeki hücrede gösterilir.
 
 ### **Nasıl Çalışır?**
+
 1. **`DataContext`**:
    - `DataGrid` kontrolünün ya da onun `ItemsSource` property'sinin veri bağlanması (ör. bir liste ya da koleksiyon) sağlanır.
    - Örneğin, şunu bağlarsanız:
-```csharp
+  
+```cs
 dataGridExample.ItemsSource = myCollection;
 ```
-     - `myCollection` koleksiyonunun her bir elemanı bir satırı temsil eder.
-   - Koleksiyon elemanlarının **`Id`** adlı bir özelliği varsa, bu bağlama işlemi yapılır.
 
-2. **Koleksiyon Şu Görüntüde Olabilir**:
+- `myCollection` koleksiyonunun her bir elemanı bir satırı temsil eder.
+- Koleksiyon elemanlarının **`Id`** adlı bir özelliği varsa, bu bağlama işlemi yapılır.
+
+1. **Koleksiyon Şu Görüntüde Olabilir**:
+
 ```csharp
 public class MyViewModel
    {
@@ -53,7 +59,7 @@ public class MyViewModel
    };
 ```
 
-3. **Sonuç:**
+1. **Sonuç:**
    - Yukarıdaki `DataGrid`, her satırda `Id` özelliğiyle doldurulmuş bir hücre gösterir:
      | **ID** |
      |--------|
@@ -62,6 +68,7 @@ public class MyViewModel
      | 3      |
 
 ### **Önemli Noktalar:**
+
 - **Property İsmi (Id):** Binding'de kullanılan `Id`, bağlanan nesne üzerindeki bir property ismi olmalıdır.
 - **Binding Yöntemi:** Bağlamanın çalışması için `DataContext` doğru bir şekilde ayarlanmış olmalı veya `ItemsSource` düzenlenmiş olmalıdır.
 - **Binding Hatası:** Eğer `Id` özelliği belirtilen bağlama kaynağında bulunamıyorsa, hücre boş gösterilir veya hata çıkabilir.
@@ -96,10 +103,13 @@ Bu kullanımda:
 ---
 
 ### **2. Ek Özelliklerle (Binding Ayarları)**
+
 Bağlama davranışını özelleştirmek için ek parametreler kullanılabilir. Örneğin:
+
 ```xaml
 Binding="{Binding Path=Id, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 ```
+
 Bu kullanımda:
 - **Path=Id**: Bağlanacak özelliğin yolu belirtilir.
 - **Mode=TwoWay**: UI ve veri kaynağı arasındaki bağlamanın çift yönlü olması gerektiğini ifade eder.
@@ -108,7 +118,9 @@ Bu kullanımda:
 ---
 
 ### **3. Komplex Bağlama Yolları (`Path`)**
+
 Bir nesne içinde daha derin bir yapıya erişmek istiyorsanız, detaylı bir yol belirtebilirsiniz:
+
 ```xaml
 Binding="{Binding Path=User.Address.City}"
 ```
@@ -121,6 +133,7 @@ Burada:
 
 ### **4. Sabit Değerler Bağlama (`x:Static`)**
 Eğer bir sabite bağlama yapılıyorsa (örneğin, bir enum değeri veya statik özellik), `x:Static` kullanılır:
+
 ```xaml
 Binding="{x:Static local:SomeStaticClass.SomeProperty}"
 ```
@@ -129,16 +142,22 @@ Bu, adı belirtilen sabit bir değeri ya da statik özelliği bağlar.
 ---
 
 ### **5. Formatlama ve Dönüştürme (`StringFormat`, Converter)**
+
 Bağlanan veriyi UI'de farklı formatta göstermek için kullanılabilir:
+
 #### StringFormat
+
 ```xaml
 Binding="{Binding Id, StringFormat='ID: {0}'}"
 ```
+
 Bu örnekte:
 - `Id` verisi bağlanır ve "ID: {0}" formatıyla gösterilir.
 
 #### Converter (Dönüştürücü)
+
 Bir bağlama dönüşümü gerekiyorsa bir converter yazılabilir:
+
 ```xaml
 Binding="{Binding Path=Id, Converter={StaticResource MyConverter}}"
 ```
@@ -147,7 +166,9 @@ Binding="{Binding Path=Id, Converter={StaticResource MyConverter}}"
 ---
 
 ### **6. Varsayılan Değerler ve Hata Durumları (`FallbackValue`, `TargetNullValue`)**
+
 UI'de bir özellik için varsayılan değer veya boş durumdaki davranış belirlemek için kullanılır:
+
 ```xaml
 Binding="{Binding Path=Id, FallbackValue='Default Value', TargetNullValue='No Data'}"
 ```
@@ -158,6 +179,7 @@ Binding="{Binding Path=Id, FallbackValue='Default Value', TargetNullValue='No Da
 
 ### **7. Göreceli Bağlama (`RelativeSource`)**
 Bağlamayı başka bir kontrol veya öğeye göre tanımlamak için kullanılır:
+
 ```xaml
 Binding="{Binding Path=Width, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"
 ```
@@ -166,7 +188,9 @@ Binding="{Binding Path=Width, RelativeSource={RelativeSource Mode=FindAncestor, 
 ---
 
 ### **8. ElementName ile Bağlama**
+
 Başka bir kontrolün özelliğine bağlanmak için `ElementName` kullanılır:
+
 ```xaml
 Binding="{Binding Path=Value, ElementName=sliderControl}"
 ```
@@ -201,6 +225,7 @@ Binding'de **süslü parantez** içinde şu özellikler kullanılabilir:
 ---
 
 ### Örnekler:
+
 #### Basit Kullanım:
 ```xaml
 <TextBox Text="{Binding FirstName}" />
