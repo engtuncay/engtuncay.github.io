@@ -23,37 +23,63 @@ Source : https://www.jetbrains.com/help/idea/reference-keymap-win-default.html
 - [Windows Keymap](#windows-keymap)
   - [Contents](#contents)
   - [Intro](#intro)
-  - [Top keyboard shortcuts](#top-keyboard-shortcuts)
+  - [General (Top)](#general-top)
   - [Nonlogic Keymap](#nonlogic-keymap)
-  - [Build projects](#build-projects)
+  - [Display Navigation (Tool windows)](#display-navigation-tool-windows)
+  - [Find everything](#find-everything)
   - [Basic editing](#basic-editing)
+  - [View (Editor)](#view-editor)
   - [Caret navigation](#caret-navigation)
   - [Select text](#select-text)
   - [Code folding](#code-folding)
   - [Multiple carets and selection ranges](#multiple-carets-and-selection-ranges)
   - [Coding assistance](#coding-assistance)
   - [Context navigation](#context-navigation)
-  - [Find everything](#find-everything)
   - [Navigate from symbols](#navigate-from-symbols)
+  - [Build projects](#build-projects)
   - [Code analysis](#code-analysis)
   - [Run and debug](#run-and-debug)
   - [Refactorings](#refactorings)
   - [Global VCS actions](#global-vcs-actions)
   - [Diff Viewer](#diff-viewer)
-  - [Tool windows](#tool-windows)
+  - [Multi Keys (Alphetic)](#multi-keys-alphetic)
+    - [Ctrl - H](#ctrl---h)
+    - [Ctrl - K](#ctrl---k)
+    - [Ctrl - K](#ctrl---k-1)
+    - [Ctrl (Alphetic)](#ctrl-alphetic)
+  - [Ctrl Shortcuts](#ctrl-shortcuts)
+- [Default Silinen Shortcuts](#default-silinen-shortcuts)
  
 ---
 
+vsc categories used
+- [General  (Frequent)]
+- [Display Navigation]
+
+vsc categories unused
+- [Code Navigation]
+- [Basic editing]
+- [Editor management]
+- [Search and replace]
+- [Multi-cursor and selection]
+- [Rich languages editing]
+- [Debug]
+- [Integrated terminal]
+- [File management]
+- [Notes]
+- [Other Unfrequent Items]
+- [Templates]
+
 ## Intro
 
-Last modified: 12 December 2+24
-    
+Last modified: 2025-03-13
+
 You can find all shortcuts and modify them in `Settings | Keymap`.
 
 You can also print the default keymap reference card.
 
-##  Top keyboard shortcuts
-    
+##  General (Top)
+
 Key             | Desc
 ----------------|-----------------------
 Double Shift    | Search Everywhere
@@ -80,43 +106,87 @@ Alt+backtick    |VCS Operations Popup...
 
 [Contents](#contents)
 
-## Build projects
-    
-Key           | Desc
---------------|----------------------
-CtrlAltInsert | New in This Directory
-CtrlF9        | Build Project
-CtrlShiftF9   | Rebuild
+## Display Navigation (Tool windows)
+
+| Key       | Desc                        |
+|-----------|-----------------------------|
+| ShiftEsc  | Hide Active Tool Window     |
+| cs+F12    | Hide All Tool Windows       |
+| F12       | Jump to Last Tool Window    |
+| Alt+1     | Show Project window         |
+| Alt+2     | Show Bookmarks window       |
+| Alt+3     | Show Find window            |
+| Alt+4     | Show Run window             |
+| Alt+5     | Show Debug window           |
+| Alt+6     | Show Problems window        |
+| Alt+7     | Show Structure window       |
+| Alt+8     | Show Services window        |
+| Alt+9     | Show Version Control window |
+| Alt+0     | Show Commit window          |
+| Alt+F12   | Show Terminal window        |
+| cas+left  | Stretch to Left             |
+| cas+right | Stretch to Right            |
+| cas+up    | Stretch to Top              |
+| cas+down  | Stretch to Bottom           |
 
 [Contents](#contents)
-    
+
+## Find everything
+
+| Key          | Desc                                        |
+|--------------|---------------------------------------------|
+| Double Shift | Search Everywhere                           |
+| c+F          | Find...                                     |
+| F3           | Find Next / Move to Next Occurrence         |
+| s+F3         | Find Previous / Move to Previous Occurrence |
+| c+R          | Replace...                                  |
+| cs+F         | Find in Files...                            |
+| cs+R         | Replace in Files...                         |
+| c+F3         | Next Occurrence of the Word at Caret        |
+| cs+N         | Go to File...                               |
+| c+F12        | File Structure                              |
+| cas+N        | Go to Symbol...                             |
+| F1 (*)       | Find Actions (Editor)  (cs+A)               |
+
+[Contents](#contents)
+
 ## Basic editing
 
-Key            | Desc
----------------|----------------------------------
-Ctrl+Y         | Delete Line
-Ctrl+D         | Duplicate Line or Selection
-Ctrl+Z         | Undo
-CtrlShift+Z    | Redo
-CtrlAltShift+V | Paste as Plain Text
-CtrlShift+V    | Paste from History...
-CtrlShift+C    | Copy Paths
-CtrlAltShift+C | Copy Reference
-Ctrl+S         | Save All
-Tab            | Indent Selection
-ShiftTab       | Unindent Line or Selection
-CtrlAlt+I      | Auto-Indent Lines
-ShiftEnter     | Start New Line
-CtrlAltEnter   | Start New Line Before Current
-CtrlShift+J    | Join Lines
-CtrlShift+U    | Toggle Case
-cas+ins        | Scratch File
-ShiftF4        | Open Source in New Window
-AltShift+.     | Increase Font Size in All Editors
-AltShift+,     | Decrease Font Size in All Editors
+| Key       | Desc                              |
+|-----------|-----------------------------------|
+| c+Y       | Delete Line                       |
+| c+D       | Duplicate Line or Selection       |
+| c+Z       | Undo                              |
+| cs+Z      | Redo                              |
+| cas+V     | Paste as Plain Text               |
+| cs+V      | Paste from History...             |
+| cs+C      | Copy Paths                        |
+| cas+C     | Copy Reference                    |
+| C+S       | Save All (!)                      |
+| Tab       | Indent Selection                  |
+| s +Tab    | Unindent Line or Selection        |
+| ca+I      | Auto-Indent Lines                 |
+| s+Enter   | Start New Line                    |
+| ca+Enter  | Start New Line Before Current     |
+| cs+J      | Join Lines                        |
+| cs+U      | Toggle Case                       |
+| cas+Ins   | Scratch File                      |
+| s+F4      | Open Source in New Window         |
+| as+.(dot) | Increase Font Size in All Editors |
+| as+,      | Decrease Font Size in All Editors |
 
 [Contents](#contents)
-  	
+
+## View (Editor)
+
+| Key       | Desc                              |
+|-----------|-----------------------------------|
+| as+.(dot) | Increase Font Size in All Editors |
+| as+,      | Decrease Font Size in All Editors |
+
+[Contents](#contents)
+
+
 ## Caret navigation
 
 Key         | Desc
@@ -257,25 +327,6 @@ CtrlAlt+up         | Previous Occurrence
     
 [Contents](#contents)
 
-## Find everything
-
-Key            | Desc
----------------|--------------------------------------------
-Double Shift   | Search Everywhere
-Ctrl+F         | Find...
-F3             | Find Next / Move to Next Occurrence
-Shift+F3       | Find Previous / Move to Previous Occurrence
-Ctrl+R         | Replace...
-CtrlShift+F    | Find in Files...
-CtrlShift+R    | Replace in Files...
-CtrlF3         | Next Occurrence of the Word at Caret
-CtrlShift+N    | Go to File...
-CtrlF12        | File Structure
-CtrlAltShift+N | Go to Symbol...
-CtrlShift+A    | Find Action...
-
-[Contents](#contents)
-  	
 ## Navigate from symbols
 
 Key         | Desc
@@ -288,6 +339,16 @@ Ctrl+U      | Go to Super Method
 CtrlAlt+B   | Go to Implementation(s)
 CtrlShift+T | Go to Test
 CtrlShiftF7 | Highlight Usages in File
+
+## Build projects
+    
+Key           | Desc
+--------------|----------------------
+CtrlAltInsert | New in This Directory
+CtrlF9        | Build Project
+CtrlShiftF9   | Rebuild
+
+[Contents](#contents)
     
 ## Code analysis
 
@@ -382,27 +443,67 @@ CtrlShift+D  | Show Diff Settings Popup...
 
 [Contents](#contents)
      
-## Tool windows
 
-Key                | Desc
--------------------|----------------------------
-ShiftEsc           | Hide Active Tool Window
-CtrlShiftF12       | Hide All Tool Windows
-F12                | Jump to Last Tool Window
-CtrlAltShift+left  | Stretch to Left
-CtrlAltShift+right | Stretch to Right
-CtrlAltShift+up    | Stretch to Top
-CtrlAltShift+down  | Stretch to Bottom
-Alt+1              | Show Project window
-Alt+2              | Show Bookmarks window
-Alt+3              | Show Find window
-Alt+4              | Show Run window
-Alt+5              | Show Debug window
-Alt+6              | Show Problems window
-Alt+7              | Show Structure window
-Alt+8              | Show Services window
-Alt+9              | Show Version Control window
-Alt+0              | Show Commit window
-Alt+F12            | Show Terminal window
 
-[Contents](#contents)
+## Multi Keys (Alphetic)
+
+### Ctrl - H
+
+Key   | Exp
+------|-------------------------
+c+h,j | Attach Data Source (sql)
+c+h,l | Save As (L)ive Template
+c+h,a | Select All Occurrences
+
+### Ctrl - K
+
+Key   | Exp
+------|----
+c+k,p |
+
+
+### Ctrl - K
+
+Key   | Exp
+------|----
+c+k,p |
+
+### Ctrl (Alphetic)
+
+## Ctrl Shortcuts
+
+Key | Desc       | User Change
+----|------------|------------
+c+a | select all |
+ctb |
+c+c | cut
+c+d |
+c+e |
+c+f | find
+c+g | go to
+c+h | multi | c+h+ h replace
+c+ı |
+c+i |
+c+j | multi key
+c+k | multi key
+c+l | delete line
+c+m | screen to center
+c+n | Create New File
+c+o | Open File
+c+p | Navigate Project File
+c+r | Open Recent | ctr c+r
+c+s | Save
+c+ş |
+c+t | go to symbol
+c+u |
+c+ü |
+c+v | paste
+c+y |
+c+z |
+
+
+# Default Silinen Shortcuts
+
+Command Name |
+-------------|---
+Context Help | F1
