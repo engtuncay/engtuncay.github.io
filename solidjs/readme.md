@@ -18,6 +18,11 @@ Solid Js Notes
 
 # Cheats
 
+Topic | Note
+--- | ---
+[Gpt Cheat](./cheats/solid-cheat-gpt.md)  | 
+
+
 # Notes
 
 # Articles
