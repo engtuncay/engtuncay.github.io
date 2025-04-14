@@ -3,20 +3,21 @@
 
 - [Other Important Articles](#other-important-articles)
   - [Navigating to the borders of a code block](#navigating-to-the-borders-of-a-code-block)
+- [Extension Tutors](#extension-tutors)
+  - [Emmet (Zen Coding)](#emmet-zen-coding)
+  - [Region Folding Extension](#region-folding-extension)
+- [Settings](#settings)
+  - [Arama](#arama)
 - [Extensions List](#extensions-list)
   - [Html](#html)
   - [Css](#css)
   - [Js](#js)
   - [Java](#java)
   - [Dot Net C#](#dot-net-c)
-- [Extension Tutors](#extension-tutors)
-  - [Emmet (Zen Coding)](#emmet-zen-coding)
-  - [](#)
-  - [Region Folding Extension](#region-folding-extension)
 
-## Other Important Articles 
+# Other Important Articles 
 
-### Navigating to the borders of a code block
+## Navigating to the borders of a code block
 
 To navigate to the borders of a code block, do one of the following:
 
@@ -46,36 +47,11 @@ To navigate to the borders of the closest higher code block, do one of the follo
 Last modified: 4 April 
 
 
+# Extension Tutors
 
-## Extensions List
+## Emmet (Zen Coding) 
 
-### Html
-
-- Auto Close Tag By Jun Han
-- Auto Rename Tag By Jun Han
-- Open in Browser By CoderFree
-
-
-Keyboard Shortcut 'a Ekle
-
-- Wrap With Abbreviation : elementin başı ve sonu ile beraber al veya seç
-
-Key. Shortcut ı için File -> Pref -> Keyb. Shortcuts buradan bulunur ve kısayol eklenir. alt shift w eklemiş.
-
-### Css
-
-### Js
-
-### Java
-
-### Dot Net C#
-
-
-## Extension Tutors
-
-### Emmet (Zen Coding) 
-
-```markdown
+```text
 # bir id nitelikli element oluşturur
 
 . bir class nitelikli element oluşturur
@@ -102,8 +78,7 @@ docs.emmet.io
 
 docs.emmet.io/cheat-sheet/
 
-```
-
+```text
 html:5 : html 5 şablonu oluşturur
 
 p*3>lorem 
@@ -158,18 +133,12 @@ input:email yazarak alanları tab ile geçiş yapabiliriz.
 
 web essentials extension kurarak emmet özelliği eklenebilir.
 
-
-### 
-
-![Vscode File Menüsü - Ayarlar](https://image.ibb.co/k2zAk8/vscode_file_menu.png)
-
-
-### Region Folding Extension
-
+## Region Folding Extension
 
 - The extension also installs a command to wrap a region comment around the current selection.
 
 Commands :
+
 regionfolder.wrapWithRegion (Ctrl+M Ctrl+R)
 
 Örnek
@@ -185,4 +154,44 @@ For HTML style languages, you could define a fodable region with the following t
 ```
 
 The extension is still alpha quality, so please do log any bugs on Github here.
+
+
+# Settings
+
+## Arama
+
+- id üzerinden arama
+
+```
+@id:github.copilot.enable @id:chat.implicitContext.enabled 
+```
+
+
+
+
+
+
+# Extensions List
+
+## Html
+
+- Auto Close Tag By Jun Han
+- Auto Rename Tag By Jun Han
+- Open in Browser By CoderFree
+
+
+Keyboard Shortcut 'a Ekle
+
+- Wrap With Abbreviation : elementin başı ve sonu ile beraber al veya seç
+
+Key. Shortcut ı için File -> Pref -> Keyb. Shortcuts buradan bulunur ve kısayol eklenir. alt shift w eklemiş.
+
+## Css
+
+## Js
+
+## Java
+
+## Dot Net C#
+
 
