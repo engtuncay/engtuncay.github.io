@@ -63,6 +63,12 @@ export default App;
 
 ```
 
+- index.tsx aşağıdaki render function çalıştırılmalı.
+
+```ts
+render(() => <App />, root!);
+```
+
 ## 3. createSignal
 
 Bir durum (state) oluşturmak için kullanılır:
@@ -239,15 +245,15 @@ onError((error) => {
 ```
 ## 15. JSX Özellikleri
 
-JSX ifadeleri JavaScript ifadeleri gibi yazılır: {} içinde.
+JSX ifadeleri JavaScript ifadeleri gibi yazılır: `{}` içinde.
 
 class yerine className kullanılır.
 
 for yerine htmlFor kullanılır.
 
-## 16. Event Binding (Etkinlik Bağlama)
+## 16. Event Binding (Olay Bağlama)
 
-SolidJS'de etkinlikler, JSX üzerinde doğrudan bağlanabilir. Etkinlikler için kullanılan sözdizimi, HTML ile benzerdir, ancak işlevler on ile başlar.
+SolidJS'de olaylar, JSX üzerinde doğrudan bağlanabilir. Olaylar için kullanılan sözdizimi, HTML ile benzerdir, ancak işlevler on ile başlar.
 
 Örnekler:
 
