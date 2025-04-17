@@ -17,6 +17,7 @@ Hayır, bu bir "static" obje değildir. Solid.js'den `createSignal` kullanılara
 ```typescript
 const [user, setUser] = createSignal<string | null>(storedUser);
 ```
+
   Bu satır, `user` ve `setUser` adında bir çift oluşturur:
   - `user`: Signal'in mevcut durumunu (değerini) okumanıza izin verir.
   - `setUser`: Signal'in durumunu (değerini) güncellemek için kullanılan bir fonksiyondur.
