@@ -1,5 +1,5 @@
 
-- [Me](#me)
+- [Soru](#soru)
 - [AI Assistant](#ai-assistant)
   - [1. **Inline Styles**](#1-inline-styles)
   - [2. **Class Kullanımı**](#2-class-kullanımı)
@@ -13,10 +13,12 @@
 - [Solid Playground](#solid-playground)
 
 
-## Me
+## Soru 
+
 Style ile ilgili bilgi ver.
 
 ## AI Assistant
+
 Haklısınız, SolidJS'nin **stil uygulamaları** hakkında bilgi vermeyi atlamışım. Şimdi SolidJS'de **stil** ve **CSS kullanımı** konularını örnekler ile birlikte açıklayayım.
 
 ---
@@ -278,6 +280,7 @@ function App() {
 ---
 
 ### SolidJS'de CSS'nin Avantajları:
+
 1. Hızlı reaksiyonlu yapıda CSS değişimi kolaydır (reactive style).
 2. Modül yapısı global çakışmaları önler.
 3. Stil yönetimi React ve diğer framework’lere göre sezgiseldir.
@@ -289,10 +292,9 @@ Bu örneklerle SolidJS'de stil uygulamalarını kapsamlı şekilde anlattım. Ba
 
 - Share basarak kodumuzu kaydetmiş oluruz.
 
-- https://playground.solidjs.com/anonymous/625ba1ca-abcb-41a3-b945-e10f4fd20c45
+📝 https://playground.solidjs.com/
 
-
-➖ Props 1
+➖ Örnek : Props 1
 
 https://playground.solidjs.com/anonymous/0140c628-af43-4526-9115-58033bfbbfa5
 
