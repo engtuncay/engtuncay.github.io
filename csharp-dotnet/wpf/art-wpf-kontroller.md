@@ -1,6 +1,29 @@
 
+[Back](../readme.md)
 
-## Me
+- [Soru](#soru)
+- [AI Assistant](#ai-assistant)
+  - [WPF Kontrolleri Hakkında Genel Bilgi:](#wpf-kontrolleri-hakkında-genel-bilgi)
+- [Soru](#soru-1)
+- [AI Assistant](#ai-assistant-1)
+  - [**1. WPF Kontrollerinin Genel Yapısı**](#1-wpf-kontrollerinin-genel-yapısı)
+  - [**2. Önemli WPF Kontrol Türleri**](#2-önemli-wpf-kontrol-türleri)
+    - [**a. Giriş Kontrolleri**](#a-giriş-kontrolleri)
+    - [**b. Veri Kontrolleri**](#b-veri-kontrolleri)
+    - [**c. Medya ve Grafik Kontrolleri**](#c-medya-ve-grafik-kontrolleri)
+    - [**d. Layout (Düzen) Kontrolleri**](#d-layout-düzen-kontrolleri)
+  - [**3. WPF Veri Bağlama (Data Binding)**](#3-wpf-veri-bağlama-data-binding)
+  - [**4. Stil ve Şablonlama (Styling ve Templating)**](#4-stil-ve-şablonlama-styling-ve-templating)
+  - [**5. Komutlar ve Olaylar**](#5-komutlar-ve-olaylar)
+  - [**6. Özellikler (Dependency Properties)**](#6-özellikler-dependency-properties)
+  - [**7. Modern Görsel Özellikler**](#7-modern-görsel-özellikler)
+  - [**8. Avantajları**](#8-avantajları)
+
+
+Yorum : Bazı hususlar çok özetce geçmiş. Onlar detaylandırılabilir. Örneğin Komutlar,Stiller
+
+
+## Soru
 Wpf kontrolleri hakkında özet bir bilgi verir misin
 
 ## AI Assistant
@@ -30,7 +53,7 @@ Wpf kontrolleri hakkında özet bir bilgi verir misin
 6. **Gelişmiş Görsellik:**
    - Kontroller, grafik öğeler ve animasyon desteğiyle zengin görsel deneyim sunar.
 
-## Me
+## Soru
 
 Daha detaylı bilgi verebilir misin ?
 
@@ -58,6 +81,7 @@ Elbette! İşte **WPF (Windows Presentation Foundation)** kontrolleri ve onları
 ```csharp
 private void MyButton_Click(object sender, RoutedEventArgs e)
 {
+    // sender objesi burada button objesidir
     MessageBox.Show("Düğmeye tıklandı!");
 }
 ```
@@ -112,8 +136,7 @@ Grafik ve medya içeriği göstermek için kullanılır:
 - **Shape:** Geometrik şekiller için (örneğin, `Ellipse`, `Rectangle`, `Line`).
 
 #### **d. Layout (Düzen) Kontrolleri**
-Kontrollerin pencere üzerindeki yerleşimini düzenlemek için 
-kullanılır:
+Kontrollerin pencere üzerindeki yerleşimini düzenlemek için  kullanılır:
 
 - **Grid:** Satır ve sütun tabanlı düzen.
 - **StackPanel:** Yatay veya dikey sıralama.
@@ -202,7 +225,7 @@ private void Button_Click(object sender, RoutedEventArgs e)
 
 ### **6. Özellikler (Dependency Properties)**
 
-WPF kontrollerindeki birçok özellik, bağımlılık özelliği (dependency property) olarak uygulanır. Bu özellikler, bağlama, animasyonlama ve varsayılan değer sistemini destekler.
+WPF kontrollerindeki birçok özellik, bağımlılık özelliği (dependency property) olarak uygulanır. Bu özellikler, bağlama (binding), animasyonlama ve varsayılan değer sistemini destekler.
 
 Örnek:
 ```xml
@@ -229,6 +252,4 @@ WPF ile modern ve etkileyici kullanıcı arabirimi oluşturabilirsiniz:
 - **Platformlar Arası:** Farklı ekran çözünürlüklerine ve cihazlara duyarlıdır.
 
 ---
-
-Eğer WPF ile ilgili daha spesifik bir kısmı öğrenmek istiyorsanız (örneğin, **DataGrid**, **MVVM Kullanımı** ya da **ileri seviye şablonlama** gibi), lütfen belirtin. 😊
 

@@ -1,8 +1,10 @@
 
-## Me
-mevcut layoutu extend ederek yeni bir custom layout oluşturabilir miyiz
+## Soru
+
+Mevcut layoutu extend ederek yeni bir custom layout oluşturabilir miyiz
 
 ## AI Assistant
+
 Evet, mevcut bir layout'u (örneğin, Grid veya DockPanel gibi) genişleterek (`extend`) yeni bir custom layout oluşturabilirsiniz. WPF, layout'u tekrar kullanılabilir ve özelleştirilebilir hale getirmek için custom kontrol veya bir UserControl oluşturmanıza izin verir. Bu, mevcut bir layout'u temel alarak özel işlevsellik veya düzenler eklemenize olanak tanır.
 
 Aşağıda, seçtiğiniz Grid'in işlevselliğini genişletmek için bir örnek yol sunulmaktadır.
@@ -124,7 +126,9 @@ using System.Windows;
 ---
 
 ### Hangi Yöntemi Seçmelisiniz?
+
 - **UserControl:** Eğer mevcut `Grid` alanını genişletmek ve ek özellikler/metodlar eklemek istiyorsanız uygundur. Basit kullanım durumları için daha kolaydır.
 - **CustomControl:** Eğer Grid alanını şablonlanabilir yapmak, birden fazla yerde farklı varyasyonlarla yeniden kullanmak istiyorsanız uygundur.
 
 Her iki yöntemle de layout'u genişletip özel bir düzen oluşturabilirsiniz. Projenizin gereksinimleri hangisine daha yakınsa ona karar verebilirsiniz.
+

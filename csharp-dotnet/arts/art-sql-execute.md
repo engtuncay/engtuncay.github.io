@@ -1,4 +1,13 @@
 
+[Back](../readme.md)
+
+- [FkbList olarak dönüş almak için](#fkblist-olarak-dönüş-almak-için)
+    - [Geliştirilmiş Metod:](#geliştirilmiş-metod)
+    - [Açıklama](#açıklama)
+    - [Nasıl Kullanılır?](#nasıl-kullanılır)
+    - [Önemli Notlar:](#önemli-notlar)
+
+---
 
 Kodda göze çarpan bazı potansiyel problemleri, kod kalitesini artıracak önerileri ve güvenlik iyileştirmelerini detaylı bir şekilde inceleyelim:
 

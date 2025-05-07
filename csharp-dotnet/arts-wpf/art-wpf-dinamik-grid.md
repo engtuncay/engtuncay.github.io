@@ -1,4 +1,10 @@
 
+- [WPF'de Grid'e Dinamik Olarak Row Eklemek](#wpfde-gride-dinamik-olarak-row-eklemek)
+  - [Adımlar](#adımlar)
+  - [Örnek Kod](#örnek-kod)
+  - [Açıklamalar](#açıklamalar)
+  - [Örnek Senaryo](#örnek-senaryo)
+  - [Buton ile Event Bağlamak için Örnek XAML](#buton-ile-event-bağlamak-için-örnek-xaml)
 
 
 # WPF'de Grid'e Dinamik Olarak Row Eklemek
@@ -58,7 +64,7 @@ private void ActBtnTest(object sender, RoutedEventArgs e)
 
 XAML'de adı `myGrid` olan bir grid'iniz varsa, yukarıdaki kodu kullanarak grid'e her buton tıklamasında bir satır ve metin ekleyebilirsiniz.
 
-## Buton ile Event Bağlamak için Örnek XAML
+## Button ile Event Bağlamak için Örnek XAML
 
 ```xaml
 <Button Content="Satır Ekle" Click="ActBtnTest" />
