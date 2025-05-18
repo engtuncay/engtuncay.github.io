@@ -31,7 +31,7 @@ vuejs.org 'dan installation bölümüne bakılır. (https://vuejs.org/guide/quic
 
 - Not : aşağıda bir obje function tanımlama görünüyor. ikiside aynı. a property named data which has a function as a value.
 
-```css
+```js
 ab = { 
   data : function () { }
 }
@@ -87,6 +87,7 @@ Vue.createApp({
     }
   }
 }).mount('#app');
+
 ```
 
 - vue config objemizde (createApp gönderdiğimiz obje) data alanındaki değişkenleri vue takip eder. (vue are aware of these variables)
@@ -128,8 +129,6 @@ To quickly get a taste of Vue, you can try it directly in our Playground. (https
 If you prefer a plain HTML setup without any build steps, you can use this JSFiddle as your starting point. (https://jsfiddle.net/yyx990803/2ke1ab0z/)
 
 If you are already familiar with Node.js and the concept of build tools, you can also try a complete build setup right within your browser on StackBlitz. (https://vite.new/vue)
-
-
 
 
 

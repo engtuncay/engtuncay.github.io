@@ -25,12 +25,6 @@ Vue 2 - Tutorial
 - Udemy Course , Vue 3 by Maximillian
 - Udemy Course , Vue 2 by Cem Gündüzoğlu 
 
-
-
-
-
-
-
 # B1 Vue Intro (Vue 2)
 
 Öğreticideki örneklerde kullanılan temel şablon aşağıda gösterilmektedir.
@@ -64,7 +58,6 @@ Vue 2 - Tutorial
 app.css içeriği
 
 ```css
-
 @import url('https://fonts.googleapis.com/css?family=Raleway:400,700,700i&subset=latin-ext');
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 
