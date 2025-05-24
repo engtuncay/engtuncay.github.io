@@ -37,7 +37,7 @@ Prop'lar component elementinde attribute olarak tanımladığımız değerlerdir
 </template>
 ```
 
-You basically should make Vue aware of the attributes (props). In the simplest form, we define props property and pass an array,and in here, we should now specify all the props. We should use camel case notation in here. Vue automatically translates props defined like this
+You basically should make Vue aware of the attributes (props). In the simplest form, we define props property and pass an array,and in here, we should now specify all the props. We should use `camel case` notation in here. Vue automatically translates props defined like this
 
 ```javascript
 // FriendContact.vue
@@ -66,7 +66,7 @@ export default {
 </script>
 ```
 
-And indeed, in your HTML template, you should use this kebab case notation. (phone dash number)
+And indeed, in your HTML template, you should use this `kebab case notation`. (phone dash number)
 
 - Props lar string interpolation olarak kullanılır mı ? 
 
@@ -82,7 +82,7 @@ Evet, kullanılır.
 
 ```
 
-- side note : data properties ve computed properties 'de props ile aynı isimde property tanımlamamalıyız.
+- side note : data properties ve computed properties'de props ile aynı isimde property tanımlamamalıyız.
 
 And therefore, as a side note, you should of course make sure that you don't have any name clashes there. If you define something as a prop, you shouldn't use the exact same name in your data properties or computed properties. That's just a side note.
 
