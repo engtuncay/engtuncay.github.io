@@ -73,7 +73,8 @@ Source : https://quickref.me/php.html
   - [Constructor](#constructor)
   - [Inheritance](#inheritance)
   - [Classes variables](#classes-variables)
-  - [Access statically](#access-statically)
+  - [Access static variables](#access-static-variables)
+  - [Static Metod Tanımı ve Kullanımı](#static-metod-tanımı-ve-kullanımı)
   - [Magic Methods](#magic-methods)
   - [Interface](#interface)
 - [Miscellaneous](#miscellaneous)
@@ -302,7 +303,7 @@ $alex = new Student("Alex");
 
 ```
 
-See: Classes
+See: Classes [PHP Classes](#php-classes)
 
 # PHP Types
 
@@ -1047,13 +1048,53 @@ class MyClass
 
 ```
 
-## Access statically
+## Access static variables
 
 ```php
 echo MyClass::MY_CONST;   # => value
 echo MyClass::$staticVar; # => static
 
 ```
+
+## Static Metod Tanımı ve Kullanımı
+
+```php
+class Matematik {
+
+    public static function kare($sayi) {
+        return $sayi * $sayi;
+    }
+}
+
+// Static metoda sınıf adı ile erişim:
+echo Matematik::kare(5); // Çıktı: 25
+
+```
+
+🔔 Ek Bilgi: Sınıf İçinden Static Metoda Erişim
+
+```php
+
+class Ornek {
+    public static function selamla() {
+        return "Merhaba!";
+    }
+
+    public static function calistir() {
+        // Aynı sınıf içinden self anahtar kelimesi ile erişilir
+        return self::selamla();
+    }
+}
+
+echo Ornek::calistir(); // Çıktı: Merhaba!
+
+```
+
+🧠 Açıklama
+💡 Ek Bilgi
+✅ 
+ 
+
 
 ## Magic Methods
 
