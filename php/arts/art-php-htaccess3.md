@@ -26,12 +26,13 @@
     - [Rewrite koşulları:](#rewrite-koşulları)
     - [Rewrite kuralı:](#rewrite-kuralı)
     - [Tarayıcıda yapılan işlem:](#tarayıcıda-yapılan-işlem)
+- [htaccess değişkenini değere atama](#htaccess-değişkenini-değere-atama)
 
 
 ## Me
 Ne manaya geliyor 
 
-```apacheconfig
+```sh
 # Disable directory browsing
 Options -Indexes
 # ----------------------------------------------------------------------
@@ -46,12 +47,13 @@ Options -Indexes
 	# change the following line to match the subfolder you need.
 	# http://httpd.apache.org/docs/current/mod/mod_rewrite.html#rewritebase
 	# RewriteBase /
-	# Redirect Trailing Slashes...
+	# Redirect Trailing Slashes... (sondaki eğik slash'ı kaldırır)
 	RewriteCond %{REQUEST_FILENAME} !-d
 	RewriteCond %{REQUEST_URI} (.+)/$
 	RewriteRule ^ %1 [L,R=301]
-	# Rewrite "www.example.com -> example.com"
-	# RewriteCond %{HTTPS} !=on
+	
+  # Rewrite "www.example.com -> example.com"
+	RewriteCond %{HTTPS} !=on
 	RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
 	RewriteRule ^ http://%1%{REQUEST_URI} [R=301,L]
 	# Checks to see if the user is attempting to access a valid file,
@@ -331,3 +333,129 @@ Bu kuralın tamamı şu anlama gelir:
 ---
 
 Bu yapı özellikle URL yapılarını temizlemek (SEO dostu hale getirmek) ve son kullanıcıya basit, okunabilir URL'ler sunmak için kullanılır.
+
+
+---
+
+## htaccess değişkenini değere atama
+
+RewriteRule .* - [E=MY_VARIABLE:%{REQUEST_FILENAME}] bu satırı açıklayabilir misin
+
+
+Tabii!  
+Bu satırın açıklaması şöyle:
+
+```
+RewriteRule .* - [E=MY_VARIABLE:%{REQUEST_FILENAME}]
+```
+
+- **RewriteRule**: Apache'nin `mod_rewrite` modülünde, gelen isteklere göre kurallar tanımlamak için kullanılır.
+- `.*` Herhangi bir isteği (her URL'yi) eşleştirir.
+- **-**: Hiçbir yeniden yazma (rewrite) işlemi yapılmayacak anlamına gelir; yani URL değişmez.
+- **[E=MY_VARIABLE:%{REQUEST_FILENAME}]**:  
+  - `E=` ile bir ortam (environment) değişkeni tanımlanır.
+  - `MY_VARIABLE` adlı bir ortam değişkeni oluşturulur.
+  - Değeri olarak `%{REQUEST_FILENAME}` (istekte bulunulan dosyanın tam yolu) atanır.
+
+**Kısacası:**  
+Herhangi bir istekte, o isteğin dosya yolunu `MY_VARIABLE` adlı bir ortam değişkenine atar.  
+Bu değişkene PHP'de `$_SERVER['MY_VARIABLE']` ile erişebilirsiniz.  
+URL değişmez, sadece ortam değişkeni eklenir.
+
+## Me
+Burayı açıklar mısın ?
+
+
+```apacheconfig
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteCond %{THE_REQUEST} /public/([^\s?]*) [NC]
+RewriteRule ^ %1 [L,NE,R=302]
+RewriteRule ^((?!public/).*)$ public/$1 [L,NC]
+```
+
+
+
+## AI Assistant
+Bu `.htaccess` (Apache yapılandırma) dosyasında tanımlanan ifadeleri ve kuralları açıklayalım. Kod parçası şu şekilde çalışır:
+
+```
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteCond %{THE_REQUEST} /public/([^\s?]*) [NC]
+RewriteRule ^ %1 [L,NE,R=302]
+RewriteRule ^((?!public/).*)$ public/$1 [L,NC]
+```
+
+### Açıklama:
+
+---
+
+1. **`RewriteEngine On`**  
+   Bu ifade, **mod_rewrite** modülünü etkinleştirir. Apache'nin URL yönlendirme (rewriting) yeteneklerini kullanmak için bu satır gerekir.
+
+---
+
+2. **`RewriteCond %{HTTPS} !=on`**  
+   - Bu koşul **HTTPS'nin kapalı olduğunu** kontrol eder. Eğer site HTTP üzerinden çalışıyorsa (`HTTPS != on`), bu koşul uygular.
+   - Aksi halde, kural işlemez.
+
+---
+
+3. **`RewriteCond %{THE_REQUEST} /public/([^\s?]*) [NC]`**  
+   - `THE_REQUEST` ifadesi, istemci tarafından yapılan asıl HTTP isteğini içerir.  
+   - Bu koşul, URL'nin `/public/` ile başladığını kontrol eder.
+   - Eğer `/public/` dizininde bir istekte ayıklanabilir bir dosya veya kaynak varsa, bu koşul uygular.  
+   - Kullanılan ifade:
+     - `/public/([^\s?]*)`: `/public/` dizininin ardından gelen kaynak adını yakalar. Örneğin, `/public/about` için `about` kısmını alır. 
+   - **[NC]** bayrağı:
+     - Büyük/küçük harf duyarsız bir eşleşme sağlar.
+
+---
+
+4. **`RewriteRule ^ %1 [L,NE,R=302]`**  
+   - Eğer yukarıdaki `RewriteCond` koşulu sağlanıyorsa, bu kural devreye girer.
+   - `%1`:
+     - Bir önceki `RewriteCond` ifadesindeki yakalanan grubu (burada `([^\s?]*)`) temsil eder.
+     - Örneğin, `/public/about` isteklerinde `about` yakalanır ve yeni URL'ye taşınır.
+   - `R=302` bayrağı:
+     - 302 Geçici Yönlendirme anlamına gelir. Tarayıcıyı, HTTPS olmadan `/public/` istemi olduğunda, belirtilen URL'ye yönlendirir.
+   - `L` bayrağı:
+     - Yönlendirme kurallarını burada sonlandırır.
+   - `NE` bayrağı:
+     - Özel karakterlerin (örneğin, `%`, `#`) URL kodlarının korunmasını sağlar.
+
+---
+
+5. **`RewriteRule ^((?!public/).*)$ public/$1 [L,NC]`**  
+   - Bu kural, `/public/` içermeyen tüm URL'leri `/public/` dizinine yönlendirir.
+   - `(?!public/)`:
+     - Regex içerisinde **negative lookahead** ifadesidir. Bu, "Eğer URL içinde `public/` geçmiyorsa" anlamına gelir.
+   - `.*`:
+     - URL'nin geri kalan kısmını eşleştirir.
+   - `$1`:
+     - `.*` ile yakalanan ifadeyi burada tekrarlar.
+   - Yani:
+     - `/about` gibi bir istekte URL `/public/about`'a yönlendirilir.
+   - `NC` bayrağı:
+     - Büyük/küçük harf duyarsız eşleşmeyi sağlar.
+   - `L`:
+     - Yönlendirme kurallarını burada sonlandırır.
+
+---
+
+### Sağlanan İşlev:
+Bu `.htaccess` dosyası aşağıdaki işleri yapar:
+1. Eğer `HTTPS` aktif değilse ve istem yapılan bir URL `/public/` ile başlıyorsa, `/public/...` kısmını yeni, sade bir URL'ye (örneğin, `/dosyaadi`) dönüştürür. 
+   - Örnek:  
+     `/public/index.html` → `/index.html`
+2. Eğer `/public/` dışında bir URL istemi yapılmışsa, otomatik olarak `/public/` dizinine yönlendirilir.  
+   - Örnek:  
+     `/about` → `/public/about`
+
+---
+
+### Kullanım Durumları:
+- Bu yapılandırma genelde bir uygulamanın veya sitenin **tüm içeriklerini `/public/` dizini altına yerleştirmek** için yapılır.  
+- `/public/` URL'sinin bulunduğu durumlarda tarayıcıda kullanılabilir URL'leri kısaltmak için düzenleme yapılır.
+- **SEO dostu URL'ler** oluşturmak için kullanışlıdır çünkü daha temiz ve kısa URL'lerle sonuçlanır.
