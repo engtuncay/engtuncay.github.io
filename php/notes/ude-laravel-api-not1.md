@@ -1243,18 +1243,32 @@ $product->save();
 
 - örnegin assets dosyasına symbolic link verme. (önce source dizin, sonra da symbolic link konumu verilir.)
 
+```sh
+ln -s /gercek/klasor /hedef/link
 ```
+
+- Örnek 1
+
+```sh
 ln -s /home/bitutamy/assets /home/bitutamy/public_html/trex/assets
 ```
 
-- windows'da önce symbolic link konumu, sonra source dizin belirtilir.
+- Örnek 2: Windows'da önce symbolic link konumu, sonra gerçek dizin belirtilir.
 
-```
+```sh
 mklink /D "Y:\xampp\htdocs\bitutamyasemin\trex\assets" "Y:\xampp\htdocs\bitutam-assets"
 ```
 
-- source dizini, dosyaların bulunduğu dizindir.
+Gerçek dizin, dosyaların bulunduğu dizindir.
 
+- Örnek 3
+
+```sh
+ln -s /home/ozpascom/subdomain/tempsite1.ozpas.com /home/ozpascom/public_html/subdomain/tempsite1.ozpas.com
+
+```
+
+📝 
 
 ## 10.4. Yayınlama Sonrası Hatalar ve Düzenlemeler
 5 dak
