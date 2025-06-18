@@ -25,8 +25,7 @@
 --- Question 1
 
 ## Me
-buradaki store kullanımı açıklarmısın ? vue store kullanımını bilmiyorum
-
+buradaki store kullanımı açıklarmısın ?
 
 ## AI Assistant
 Bu kodda **Pinia** kullanılarak bir Vue uygulaması için bir "Cart" (Sepet) mağazası tanımlanmış. Vue Store, bir Vue.js projesinde global state yönetimi için kullanılır ve Pinia, Vuex'in modern bir alternatifi olarak geliştirilmiştir. Aşağıda kodu adım adım açıklıyorum:
@@ -34,6 +33,7 @@ Bu kodda **Pinia** kullanılarak bir Vue uygulaması için bir "Cart" (Sepet) ma
 ---
 
 ### 1. **Store Tanımı ve `defineStore`**
+
 Pinia'da store'ları tanımlamak için `defineStore` fonksiyonu kullanılır. Bu fonksiyon, bir store'un adını, state'ini, actions'larını ve gerekirse getters'larını tanımlamaya olanak sağlar:
 
 ```typescript
@@ -56,6 +56,7 @@ export const useCartStore = defineStore("cart", {
 ---
 
 ### 2. **State**
+
 State kısmında sepetle ilgili temel bilgi tutuluyor.
 
 ```typescript
@@ -70,6 +71,7 @@ state: () => ({
 ---
 
 ### 3. **Actions**
+
 #### `actions` Nedir?
 Actions, state üzerinde değişiklikler yapmak için kullanılır ve genellikle dış kaynaklarla (örneğin bir API) iletişim kurar. **Asenkron işlemler** action'lar içinde yapılır. Bu kodda dört farklı action tanımlanmış:
 
@@ -128,6 +130,7 @@ async addToCart(urnLNGKOD: string, quantity: number, urnTXTBIRIM: "AD" | "PK" | 
 - `urnLNGKOD`: Ürün ID'sini temsil ediyor (string).
 - `quantity`: Sepete eklenmek istenen ürün miktarı.
 - `urnTXTBIRIM`: Ürünün birim türünü ifade eder: (örneğin **adet** (*AD*), **paket** (*PK*), **kilo** (*KL*)).
+- 
 - **Ne yapar?**
   1. **POST** isteği ile `/cart/add` endpoint'ine ürün detaylarını gönderir.
   2. Eğer durum `200` ise, `getCart()` action'ını çağırarak sepeti günceller.
@@ -136,6 +139,7 @@ async addToCart(urnLNGKOD: string, quantity: number, urnTXTBIRIM: "AD" | "PK" | 
 ---
 
 #### c) **`updateCartItem()`**
+
 Bu action, sepette bulunan bir ürünün miktarını günceller:
 
 ```typescript
