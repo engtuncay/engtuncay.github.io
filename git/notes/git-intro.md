@@ -5,11 +5,13 @@
 
 # Clone a repository
 
+Syntax
+
 ```sh
 git clone repo_address
 ```
 
-Example : git creates a directory named with repo name, and clone files into that directory.
+- Example : Git creates a directory named with repo name, and clone files into that directory.
 
 ```sh
 git clone https://github.com/engtuncay/orak-svelte-tailwind-typescript-starter.git
