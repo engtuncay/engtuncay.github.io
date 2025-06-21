@@ -1,4 +1,3 @@
-
 Db Notes
 
 [Back](../readme.md)
@@ -7,6 +6,7 @@ Db Notes
 
 - [References](#references)
 - [Notes](#notes)
+- [Mix Notes](#mix-notes)
 - [Notes (W3)](#notes-w3)
 
 # References
@@ -15,17 +15,24 @@ Db Notes
 
 # Notes
 
-Topic                                                      | Note
------------------------------------------------------------|-----
-[SqlServer Intro](./sqlserver-notes/ms-sqlserver-intro.md) |
-[Sql Data Types](./sqlserver-notes/sql-data-types.md)      |
+| Topic                                                      | Note |
+| ---------------------------------------------------------- | ---- |
+| [SqlServer Intro](./sqlserver-notes/ms-sqlserver-intro.md) |
+| [Sql Data Types](./sqlserver-notes/sql-data-types.md)      |
+
+# Mix Notes
+
+| Topic                         | Note |
+| ----------------------------- | ---- |
+| [View](./notes/mssql-view.md) |
 
 
 # Notes (W3)
 
-Topic|Note|
---|--
-*SQL HOME*
+| Topic | Note |
+| ----- | ---- |
+
+_SQL HOME_
 SQL Intro
 SQL Syntax
 SQL Select
@@ -67,7 +74,7 @@ SQL Null Functions
 SQL Stored Procedures
 SQL Comments
 SQL Operators
-*SQL Database*
+_SQL Database_
 SQL Create DB
 SQL Drop DB
 SQL Backup DB
@@ -88,13 +95,13 @@ SQL Views
 SQL Injection
 SQL Hosting
 SQL Data Types
-*SQL References*
+_SQL References_
 SQL Keywords
 MySQL Functions
 SQL Server Functions
 MS Access Functions
 SQL Quick Ref
-*SQL Examples*
+_SQL Examples_
 SQL Examples
 SQL Editor
 SQL Quiz
