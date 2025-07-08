@@ -7,11 +7,13 @@ February 9, 2022  8 min read
 
 https://blog.logrocket.com/definitive-guide-vue-3-components
 
+
+
 Components in Vue web applications are very important because they can be used in very simple ways to make very complex applications. In this article, we’ll cover the basics of Vue 3 components and how to use them.
 
 - [What are components in Vue 3?](#what-are-components-in-vue-3)
 - [Creating a component in Vue 3](#creating-a-component-in-vue-3)
-- [CDN <project](#cdn-project)
+- [CDN \<project](#cdn-project)
 - [Command line interface project](#command-line-interface-project)
 - [Vue 3 createApp](#vue-3-createapp)
 - [Creating a root component](#creating-a-root-component)
