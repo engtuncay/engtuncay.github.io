@@ -54,6 +54,7 @@ GitHub Copilot: Tabii! CodeIgniter 4’ün kullanımıyla ilgili temel adımlar 
 ### 1. Kurulum
 
 **Composer ile kurulum (önerilen):**
+
 ```
 composer create-project codeigniter4/appstarter myproject
 ```
