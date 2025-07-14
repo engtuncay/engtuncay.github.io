@@ -25,7 +25,7 @@
 
 ## codeigniter 4 hakkında 
 
-codeigniter 4 hakkında  genel bilgi verir misin
+Codeigniter 4 hakkında  genel bilgi verir misin
 
 GitHub Copilot: CodeIgniter 4, PHP ile yazılmış, açık kaynaklı ve hafif bir web uygulama framework’üdür. MVC (Model-View-Controller) mimarisini kullanır ve geliştiricilere hızlı, güvenli ve esnek bir şekilde web uygulamaları geliştirme imkânı sunar.
 
@@ -47,7 +47,7 @@ CodeIgniter 4, hızlı kurulum ve düşük sunucu gereksinimleriyle öne çıkar
 
 ## Codeigniter Detail
 
-kullanımı hakkında detaylı bilgi verir misin
+Detaylı bilgi verir misin
 
 GitHub Copilot: Tabii! CodeIgniter 4’ün kullanımıyla ilgili temel adımlar ve önemli noktalar aşağıda özetlenmiştir:
 
