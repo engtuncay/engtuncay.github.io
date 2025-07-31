@@ -1,4 +1,3 @@
-
 - [codeigniter 4 hakkında](#codeigniter-4-hakkında)
 - [Codeigniter Detail](#codeigniter-detail)
   - [1. Kurulum](#1-kurulum)
@@ -22,14 +21,14 @@
   - [Ekstra Bilgi](#ekstra-bilgi)
   - [Otomatik XSS Koruması](#otomatik-xss-koruması)
 
+## codeigniter 4 hakkında
 
-## codeigniter 4 hakkında 
-
-Codeigniter 4 hakkında  genel bilgi verir misin
+Codeigniter 4 hakkında genel bilgi verir misin
 
 GitHub Copilot: CodeIgniter 4, PHP ile yazılmış, açık kaynaklı ve hafif bir web uygulama framework’üdür. MVC (Model-View-Controller) mimarisini kullanır ve geliştiricilere hızlı, güvenli ve esnek bir şekilde web uygulamaları geliştirme imkânı sunar.
 
 **Öne çıkan özellikleri:**
+
 - Modern PHP (PHP 7.2 ve üzeri) desteği
 - Modüler yapı ve kolay genişletilebilirlik
 - RESTful API desteği
@@ -39,6 +38,7 @@ GitHub Copilot: CodeIgniter 4, PHP ile yazılmış, açık kaynaklı ve hafif bi
 - Güvenlik için CSRF, XSS korumaları
 
 **Kullanım alanları:**
+
 - Kurumsal web siteleri
 - RESTful API servisleri
 - Küçük ve orta ölçekli projeler
@@ -58,6 +58,7 @@ GitHub Copilot: Tabii! CodeIgniter 4’ün kullanımıyla ilgili temel adımlar 
 ```
 composer create-project codeigniter4/appstarter myproject
 ```
+
 veya
 **ZIP dosyası ile kurulum:**  
 [codeigniter.com](https://codeigniter.com/) adresinden indirip sunucunuza çıkarabilirsiniz.
@@ -77,7 +78,7 @@ veya
 
 #### Controller Oluşturma
 
-````php
+```php
 <?php
 
 namespace App\Controllers;
@@ -89,17 +90,17 @@ class Home extends BaseController
         return view('welcome_message');
     }
 }
-````
+```
 
 #### Route Tanımlama
 
-````php
+```php
 $routes->get('/', 'Home::index');
-````
+```
 
 #### View Kullanımı
 
-````php
+```php
 <!DOCTYPE html>
 <html>
 <head>
@@ -109,11 +110,11 @@ $routes->get('/', 'Home::index');
     <h1>CodeIgniter 4'e Hoşgeldiniz!</h1>
 </body>
 </html>
-````
+```
 
 #### Model Kullanımı
 
-````php
+```php
 // filepath: UserModel.php
 <?php
 
@@ -125,7 +126,7 @@ class UserModel extends Model
     protected $table = 'users';
     protected $allowedFields = ['name', 'email'];
 }
-````
+```
 
 ---
 
@@ -142,11 +143,11 @@ php spark migrate
 
 ### 5. Yardımcı Komutlar
 
-- Sunucu başlatmak için:  
+- Sunucu başlatmak için:
   ```
   php spark serve
   ```
-- Yeni controller oluşturmak için:  
+- Yeni controller oluşturmak için:
   ```
   php spark make:controller Blog
   ```
@@ -181,14 +182,16 @@ php spark migrate
 
 ### 5. Yardımcı Komutlar
 
-- Sunucu başlatmak için:  
-  ```
-  php spark serve
-  ```
-- Yeni controller oluşturmak için:  
-  ```
-  php spark make:controller Blog
-  ```
+- Sunucu başlatmak için:
+```
+php spark serve
+```
+
+- Yeni controller oluşturmak için:
+
+```
+php spark make:controller Blog
+```
 
 ---
 
@@ -215,9 +218,9 @@ GitHub Copilot: CodeIgniter 4’te XSS (Cross-Site Scripting) koruması için te
 
 Bir değişkeni view dosyasında güvenli şekilde göstermek için:
 
-````php
+```php
 <?= esc($degisken) ?>
-````
+```
 
 Bu fonksiyon, özel karakterleri HTML entity’lerine çevirir ve XSS saldırılarını engeller.
 
@@ -225,9 +228,9 @@ Bu fonksiyon, özel karakterleri HTML entity’lerine çevirir ve XSS saldırıl
 
 ### Örnek
 
-````php
+```php
 <p>Kullanıcı adı: <?= esc($username) ?></p>
-````
+```
 
 ---
 
