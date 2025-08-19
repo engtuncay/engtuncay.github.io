@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      {
+        const str = "I love JavaScript";
+        const pattern = /love/g;
+        const result = str.match(pattern);
+        console.log(result);
+      }
+      //------------------------
+      {
+        const str = "I love Js, I luve Ts, I live Ps";
+        const pattern = /l.{1}ve/;
+        const result = str.match(pattern);
+        console.log(result);
+      }
+      // ---Output---
+      // ["love","luve","live"]
+    </script>
+  </body>
+</html>
