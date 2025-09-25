@@ -1,4 +1,0 @@
-
-
-[Photoshop Intro](./photoshop.md)
-
