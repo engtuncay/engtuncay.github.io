@@ -16,16 +16,6 @@ Source : https://www.w3schools.com/php/default.asp
 
 PHP code is executed on the server.
 
-*What You Should Already Know*
-
-Before you continue you should have a basic understanding of the following:
-
-- HTML
-- CSS
-- JavaScript
-
-If you want to study these subjects first, find the tutorials on W3Schools website.
-
 *What is PHP?*
 
 - PHP is an acronym for "PHP: Hypertext Preprocessor"
@@ -39,13 +29,10 @@ It is powerful enough to be at the core of the biggest blogging system on the we
 
 It is deep enough to run large social networks!
 
-It is also easy enough to be a beginner's first server side language!
-
 *What is a PHP File?*
 
 - PHP files can contain text, HTML, CSS, JavaScript, and PHP code
 - PHP code is executed on the server, and the result is returned to the browser as plain HTML
-- PHP files have extension ".php"
 
 *What Can PHP Do?*
 
@@ -57,7 +44,7 @@ It is also easy enough to be a beginner's first server side language!
 - PHP can be used to control user-access
 - PHP can encrypt data
 
-With PHP you are not limited to output HTML. You can output images or PDF files. You can also output any text, such as XHTML and XML.
+With PHP you are not limited to output HTML. You can output images or PDF files. You can also output any text, such as XHTML and XML. (???)
 
 *Why PHP?*
 
@@ -66,13 +53,6 @@ With PHP you are not limited to output HTML. You can output images or PDF files.
 - PHP supports a wide range of databases
 - PHP is free. Download it from the official PHP resource: www.php.net
 - PHP is easy to learn and runs efficiently on the server side
-
-*What's new in PHP 7*
-
-- PHP 7 is much faster than the previous popular stable release (PHP 5.6)
-- PHP 7 has improved Error Handling
-- PHP 7 supports stricter Type Declarations for function arguments
-- PHP 7 supports new operators (like the spaceship operator: <=>)
 
 # PHP Installation
 
@@ -168,7 +148,7 @@ echo "Hello World!";
 
 *PHP Case Sensitivity*
 
-In PHP, keywords (e.g. if, else, while, echo, etc.), classes, functions, and user-defined functions are *not case-sensitive*.
+In PHP, keywords (e.g. if, else, while, echo, etc.), classes, functions, and user-defined functions are *case-insensitive*.
 
 In the example below, all three echo statements below are equal and legal:
 
@@ -191,7 +171,7 @@ EcHo "Hello World!<br>";
 
 ```
 
-Note: However; all variable names are *case-sensitive*!
+Note: However; all variable names are *case-sensitive* !
 
 Look at the example below; only the first statement will display the value of the $color variable! This is because $color, $COLOR, and $coLOR are treated as three different variables:
 
