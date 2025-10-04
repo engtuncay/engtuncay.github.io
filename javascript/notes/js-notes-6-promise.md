@@ -19,7 +19,7 @@ Section - Promise,Async-Await and Closure
 
 ## Promise
 
-A Promise is a way to handle `asynchronous operations` in JavaScript. It allows handlers with an asynchronous action's eventual success value or failure reason. This lets asynchronous methods return values like synchronous methods: instead of immediately returning the final value, the asynchronous method returns a promise to supply the value at some point in the future. (it is like reactive functions)
+A Promise is a way to handle `asynchronous operations` in JavaScript. The asynchronous method returns a promise to supply the value at some point in the future. (it is like reactive functions)
 
 A Promise is in one of these states:
 
@@ -27,7 +27,11 @@ A Promise is in one of these states:
 - fulfilled: meaning that the operation completed *successfully*.
 - rejected: meaning that the operation *failed*.
 
+🔔 While attaching handlers, if the promise fulfills operations
+
 A pending promise can either be fulfilled with a value, or rejected with a reason (error). When either of these options happens, the associated handlers queued up by a promise's then method are called. (If the promise has already been fulfilled or rejected when a corresponding handler is attached, the handler will be called, so there is *no race condition* between an asynchronous operation completing and its handlers being attached.)
+
+
 
 As the `Promise.prototype.then()` and `Promise.prototype.catch()` methods return promises, they can be chained.
 

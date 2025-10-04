@@ -37,10 +37,10 @@ OrakSoft Keyboard shortcuts for Windows Based On Visual Studio Code
 
 Shortcut      | Desc
 --------------|-----------------------
-cs+p (F1)     | Show Command Palette
+F1 (cs+p)     | Show Command Palette
 c+p           | Go to File, Quick Open
-cs+n          | New window/instance
-cs+w          | Close window/instance
+cs+n  ???     | New window/instance
+cs+w ???      | Close window/instance
 ca+s          | User Settings
 ca+d          | Keyboard Shortcuts
 c+pup / pdown | Prev / Next Tab
@@ -287,7 +287,7 @@ c+k,f | Format File
 
 Key   | Exp
 ------|-------------------------
-c+h,p | Previewe Markdown
+c+h,p | Preview Markdown
 c+h,r | Run File
 c+h,c | Clear Output (run panel)
 

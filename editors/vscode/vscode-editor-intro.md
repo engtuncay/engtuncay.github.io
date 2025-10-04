@@ -3,6 +3,7 @@
 
 - [Other Important Articles](#other-important-articles)
   - [Navigating to the borders of a code block](#navigating-to-the-borders-of-a-code-block)
+- [Snippets](#snippets)
 - [Extension Tutors](#extension-tutors)
   - [Emmet (Zen Coding)](#emmet-zen-coding)
   - [Region Folding Extension](#region-folding-extension)
@@ -45,6 +46,26 @@ To navigate to the borders of the closest higher code block, do one of the follo
 - To jump to the higher code block end, press Ctrl+], with the caret at the current code block closing brace.
 
 Last modified: 4 April 
+
+# Snippets
+
+```
+// Place your snippets for markdown here. Each snippet is defined under a snippet name and has a prefix, body and 
+// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+// same ids are connected.
+// Example:
+// "Print to console": {
+// 	"prefix": "log",
+// 	"body": [
+// 		"console.log('$1');",
+// 		"$2"
+// 	],
+// 	"description": "Log output to console"
+// }
+
+```
+
 
 
 # Extension Tutors
