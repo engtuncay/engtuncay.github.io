@@ -1,9 +1,11 @@
 IntelliJ IDEA Key Bindings for Visual Studio Code
+
 License: MIT Marketplace Version Install
 
 Port of IntelliJ IDEA key bindings for VS Code. Includes keymaps for popular JetBrains products like IntelliJ Ultimate, WebStorm, PyCharm, PHP Storm, etc.
 
 Editing
+
 Linux, Windows	macOS	Feature	Supported
 ctrl+space	ctrl+space	Basic code completion (the name of any class, method or variable)	✅
 ctrl+shift+space	ctrl+shift+space	Smart code completion (filters the list of methods and variables by expected type)	N/A

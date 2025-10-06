@@ -32,8 +32,6 @@ To navigate to the borders of a code block, do one of the following:
 
 - To toggle between code block start or end, press Ctrl+Shift+M
 
-  ​
-
   You can also invoke this action (Move Caret to Matching Brace) with a [Search Everywhere](https://www.jetbrains.com/help/idea/searching-everywhere.html) or [Go to Action](https://www.jetbrains.com/help/idea/navigate-to-action.html)functionality:
 
   ![matching braces](https://www.jetbrains.com/help/img/idea/2018.1/matching_braces.png)
