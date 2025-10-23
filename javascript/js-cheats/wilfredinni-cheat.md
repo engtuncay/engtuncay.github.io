@@ -98,9 +98,6 @@ indexof kaldım
   - [Async](#async)
   - [Await](#await)
   - [Things to remember when using Async Await](#things-to-remember-when-using-async-await)
-    - [We can’t use the `await` keyword inside of regular functions.](#we-cant-use-the-await-keyword-inside-of-regular-functions)
-    - [Async Await makes execution sequential](#async-await-makes-execution-sequential)
-    - [Promise.all()](#promiseall)
 - [Math Objects](#math-objects)
     - [round() Method](#round-method)
     - [sqrt(a) Method](#sqrta-method)
@@ -1614,7 +1611,7 @@ firstAsync();
 
 ### Things to remember when using Async Await
 
-#### We can’t use the `await` keyword inside of regular functions.
+➖  We can’t use the `await` keyword inside of regular functions.
 
 ```javascript
 function firstAsync() {
@@ -1625,7 +1622,7 @@ function firstAsync() {
 
 To make the above function work properly, we need to add `async` before the function `firstAsync();`
 
-#### Async Await makes execution sequential
+➖ Async Await makes execution sequential
 
 Not necessarily a bad thing, but having paralleled execution is much much faster.
 
@@ -1649,7 +1646,7 @@ According to MDN:
 
 > The `Promise.all()` method returns a single `Promise` that resolves when all of the promises passed as an iterable have resolved or when the iterable contains > no promises. It rejects with the reason of the first promise that rejects.
 
-#### Promise.all()
+➖ Promise.all()
 
 ```javascript
 async function sequence() {
