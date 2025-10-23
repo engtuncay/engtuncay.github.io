@@ -18,13 +18,15 @@
 
 # Js Cheats
 
+- https://github.com/engtuncay/javascript-cheatsheet-wilfredinni/blob/master/README.md (forked)
+
 - QuickRef Javascript, https://quickref.me/javascript
 
 - Wilfredinni Js Cheat, https://www.javascriptcheatsheet.org/cheatsheet/basics
 
 - Interactive Js Cheat, https://htmlcheatsheet.com/js/
 
-- Fork , https://github.com/engtuncay/javascript-cheatsheet-wilfredinni/blob/master/README.md
+
 
 - Modern Javascript Cheat, https://github.com/mbeaudru/modern-js-cheatsheet
 
