@@ -1,6 +1,8 @@
 
 - Source : https://www.javascriptcheatsheet.org/cheatsheet/basics (some parts may be modified or added with Turkish explanation)
 
+indexof kaldım
+
 <h3>Content</h3> 
 
 - [Comments](#comments)
@@ -19,7 +21,7 @@
   - [ES6 Template Literals](#es6-template-literals)
 - [Arrays](#arrays)
   - [Example](#example)
-  - [Index of an array](#index-of-an-array)
+  - [Accessing elements of an array with index](#accessing-elements-of-an-array-with-index)
   - [Manipulate arrays with reverse, push, pop, shift and unshift](#manipulate-arrays-with-reverse-push-pop-shift-and-unshift)
   - [Splice : Remove any element with splice](#splice--remove-any-element-with-splice)
   - [Slice : Copy an array with slice](#slice--copy-an-array-with-slice)
@@ -282,7 +284,7 @@ var sandwich = ["peanut butter", "jelly", "bread"][
 ];
 ```
 
-### Index of an array
+### Accessing elements of an array with index
 
 ```javascript
 var ourArray = [50, 60, 70];
@@ -360,7 +362,7 @@ colorScheme = colorChange(colorScheme, 2, "#332327");
 
 ### Slice : Copy an array with slice
 
-(dilim almak) (1,3) (1 itibariyle 3'e kadar (3 dahil değil) )
+(dilim almak) (1,3) (1 itibariyle 3'e kadar (3 dahil değil))
 
 ```javascript
 // Copies a given number of elements to a new array and leaves the original array untouched
