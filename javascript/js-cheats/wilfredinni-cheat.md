@@ -23,9 +23,9 @@ indexof kaldım
   - [Example](#example)
   - [Accessing elements of an array with index](#accessing-elements-of-an-array-with-index)
   - [Manipulate arrays with reverse, push, pop, shift and unshift](#manipulate-arrays-with-reverse-push-pop-shift-and-unshift)
-  - [Splice : Remove any element with splice](#splice--remove-any-element-with-splice)
-  - [Slice : Copy an array with slice](#slice--copy-an-array-with-slice)
-  - [indexOf](#indexof)
+  - [Splice : Remove any element with splice (parça atma)](#splice--remove-any-element-with-splice-parça-atma)
+  - [Slice : Copy an array with slice (dilim alma)](#slice--copy-an-array-with-slice-dilim-alma)
+  - [indexOf (checking existing element)](#indexof-checking-existing-element)
   - [Accessing Nested Arrays](#accessing-nested-arrays)
   - [ES6 Includes to Determine if an Array Contains an Element](#es6-includes-to-determine-if-an-array-contains-an-element)
   - [ES6 The Spread Operator](#es6-the-spread-operator)
@@ -35,27 +35,24 @@ indexof kaldım
 - [JavaScript Objects](#javascript-objects)
   - [Example](#example-1)
   - [Accessing Objects Properties](#accessing-objects-properties)
-  - [Modifying Objects Properties](#modifying-objects-properties)
+    - [Accessing with dot (`.`) notation](#accessing-with-dot--notation)
+    - [Accessing with bracket (`[]`) notation](#accessing-with-bracket--notation)
+    - [Accessing with variables](#accessing-with-variables)
+  - [Modifying Objects Properties (Fields)](#modifying-objects-properties-fields)
   - [Objects for Lookups](#objects-for-lookups)
-  - [Test Object Properties](#test-object-properties)
+  - [Check Existance of Object Properties](#check-existance-of-object-properties)
   - [Accessing Nested Objects](#accessing-nested-objects)
   - [ES6 Destructuring Variables from Objects](#es6-destructuring-variables-from-objects)
   - [ES6 Destructuring to Pass an Object as a Function's Parameters](#es6-destructuring-to-pass-an-object-as-a-functions-parameters)
   - [ES6 Object Literal Declarations Using Simple Fields](#es6-object-literal-declarations-using-simple-fields)
 - [Booleans](#booleans)
-  - [Basics](#basics-1)
-- [If Else Statements](#if-else-statements)
-  - [If Statement](#if-statement)
-  - [Else Statement](#else-statement)
-  - [Else if statement](#else-if-statement)
+- [Conditional Statements](#conditional-statements)
+  - [If Statements](#if-statements)
   - [Conditional (Ternary) Operator](#conditional-ternary-operator)
   - [Multiple Conditional (Ternary) Operators](#multiple-conditional-ternary-operators)
 - [Switch Statement](#switch-statement)
-  - [Example](#example-2)
-  - [Default Switch Statement](#default-switch-statement)
-  - [Multiple Options with Switch Statement](#multiple-options-with-switch-statement)
 - [Comparison Operators](#comparison-operators)
-  - [Basics](#basics-2)
+  - [Basics](#basics-1)
 - [While Loops](#while-loops)
   - [While Loop](#while-loop)
   - [Do...While Loops](#dowhile-loops)
@@ -63,7 +60,6 @@ indexof kaldım
   - [For Loop](#for-loop)
   - [ES6 for-of](#es6-for-of)
 - [Functions](#functions)
-  - [Example](#example-3)
   - [Function Arguments](#function-arguments)
   - [Return Statement](#return-statement)
   - [Immediately Invoked Function Expression or IIFE](#immediately-invoked-function-expression-or-iife)
@@ -76,20 +72,20 @@ indexof kaldım
   - [Regex Methods](#regex-methods)
   - [Examples](#examples-3)
 - [Object Oriented](#object-oriented)
-  - [Example](#example-4)
+  - [Example](#example-2)
   - [Constructors and New Objects](#constructors-and-new-objects)
   - [Inheritance](#inheritance)
   - [Mixins](#mixins)
   - [Closures to Protect Properties](#closures-to-protect-properties)
   - [Modules](#modules)
 - [ES6 Object Oriented](#es6-object-oriented)
-  - [Basics](#basics-3)
+  - [Basics](#basics-2)
   - [ES6 Classes](#es6-classes)
   - [ES6 getters and setters](#es6-getters-and-setters)
   - [ES6 Statics Methods](#es6-statics-methods)
   - [ES6 Inheritance](#es6-inheritance)
 - [ES6 import and export](#es6-import-and-export)
-  - [Basics](#basics-4)
+  - [Basics](#basics-3)
   - [import](#import)
   - [export](#export)
 - [Async/Await](#asyncawait)
@@ -330,14 +326,14 @@ ourArray.shift(); // ourArray now equals ["J", "cat"]
 ourArray.unshift("Happy"); // ourArray now equals ["Happy", "J", "cat"]
 ```
 
-### Splice : Remove any element with splice 
+### Splice : Remove any element with splice (parça atma)
 
-(array kesmece, array içerisinden bir parça kesme)
+(parça atma, array içerisinden bir parçayı kesip atma)
 
 ```javascript
 // first parameter is the index, the second indicates the number of elements to delete.
 let array = ["today", "was", "not", "so", "great"];
-array.splice(2, 2); // (2.index itibari ile 2 elemanı kes)
+array.splice(2, 2); // (2.index itibari ile 2 elemanı at)
 // remove 2 elements beginning with the 3rd element (array starts from 0 index)
 // array now equals ['today', 'was', 'great']
 
@@ -357,7 +353,7 @@ colorScheme = colorChange(colorScheme, 2, "#332327");
 // colorScheme now equals ['#878787', '#a08794', '#332327', '#c9b6be', '#d1becf']
 ```
 
-### Slice : Copy an array with slice
+### Slice : Copy an array with slice (dilim alma)
 
 (dilim almak) (1,3) (1 itibariyle 3'e kadar (3 dahil değil))
 
@@ -369,7 +365,7 @@ let todaysWeather = weatherConditions.slice(1, 3);
 // weatherConditions still equals ['rain', 'snow', 'sleet', 'hail', 'clear']
 ```
 
-### indexOf
+### indexOf (checking existing element)
 
 ```javascript
 let fruits = ["apples", "pears", "oranges", "peaches", "pears"];
@@ -431,6 +427,8 @@ let thatArray = ["basil", "cilantro", ...thisArray, "coriander"];
 
 ### ES6 Destructuring Arrays to Assign Variables
 
+(yapıyı açma-çözme)
+
 ```javascript
 const [a, b] = [1, 2, 3, 4, 5, 6];
 console.log(a, b); // 1, 2
@@ -448,6 +446,8 @@ console.log(arr); // [3, 4, 5, 7]
 ## Array Methods
 
 ### Map
+
+(eşleştirme)
 
 ```javascript
 var watchList = [
@@ -507,7 +507,7 @@ var cat = {
 
 ### Accessing Objects Properties
 
-Accessing with dot (`.`) notation
+#### Accessing with dot (`.`) notation
 
 ```javascript
 var myObj = {
@@ -519,7 +519,7 @@ var prop1val = myObj.prop1; // val1
 var prop2val = myObj.prop2; // val2
 ```
 
-Accessing with bracket (`[]`) notation
+#### Accessing with bracket (`[]`) notation
 
 ```javascript
 var myObj = {
@@ -533,7 +533,7 @@ myObj["More Space"]; // Spock
 myObj["NoSpace"]; // USS Enterprise
 ```
 
-Accessing with variables
+#### Accessing with variables
 
 ```javascript
 var dogs = {
@@ -593,9 +593,13 @@ function getArrayOfUsers(obj) {
   }
   return arr;
 }
+  
+console.log(getArrayOfUsers(users));
+// [ 'Alan', 'Jeff', 'Sarah', 'Ryan' ]
+
 ```
 
-### Modifying Objects Properties
+### Modifying Objects Properties (Fields)
 
 ```javascript
 // Updating object properties
@@ -637,7 +641,7 @@ var value = 2;
 alpha[value]; // "Y"
 ```
 
-### Test Object Properties
+### Check Existance of Object Properties 
 
 ```javascript
 var myObj = {
@@ -726,8 +730,6 @@ const getMousePosition = (x, y) => ({ x, y });
 
 ## Booleans
 
-### Basics
-
 Booleans may only be one of two values: true or false. They are basically little on-off switches,
 where true is "on" and false is "off". These two states are mutually exclusive.
 
@@ -736,9 +738,9 @@ true;
 false;
 ```
 
-## If Else Statements
+## Conditional Statements
 
-### If Statement
+### If Statements
 
 ```javascript
 if (condition is true) {
@@ -746,7 +748,7 @@ if (condition is true) {
 }
 ```
 
-### Else Statement
+➖ Else Statement
 
 ```javascript
 if (num > 10) {
@@ -756,7 +758,7 @@ if (num > 10) {
 }
 ```
 
-### Else if statement
+➖ Else if statement
 
 ```javascript
 if (num > 15) {
@@ -812,8 +814,6 @@ function findGreaterOrEqual(a, b) {
 
 ## Switch Statement
 
-### Example
-
 ```javascript
 switch(num) {
   case value1:
@@ -829,7 +829,7 @@ switch(num) {
 }
 ```
 
-### Default Switch Statement
+➖ Default Switch Statement
 
 ```javascript
 switch (num) {
@@ -846,7 +846,7 @@ switch (num) {
 }
 ```
 
-### Multiple Options with Switch Statement
+➖ Multiple Options with Switch Statement
 
 ```javascript
 switch (val) {
@@ -947,8 +947,6 @@ for (let value of myArray) {
 ```
 
 ## Functions
-
-### Example
 
 ```javascript
 function functionName() {
@@ -1057,7 +1055,7 @@ const person = {
 | Character  | Description                                                                                        |
 | ---------- | -------------------------------------------------------------------------------------------------- |
 | `\`        | Escapes a special character.                                                                       |
-| `          | `                                                                                                  | Search for multiple patterns. To match "yes" or "no", the regex is `/yes | no/`. |
+|`\|`| Search for multiple patterns. To match "yes" or "no", the regex is `/yes | no/`. |
 | `i`        | This flag is used to ignore upper and lowercase. `/ignorecase/i`.                                  |
 | `g`        | Search or extract a pattern more than once.                                                        |
 | `.`        | The wildcard character `.` will match any character except new lines.                              |
