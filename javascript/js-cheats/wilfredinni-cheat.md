@@ -52,13 +52,13 @@ indexof kaldım
   - [Multiple Conditional (Ternary) Operators](#multiple-conditional-ternary-operators)
 - [Switch Statement](#switch-statement)
 - [Comparison Operators](#comparison-operators)
-  - [Basics](#basics-1)
 - [While Loops](#while-loops)
   - [While Loop](#while-loop)
   - [Do...While Loops](#dowhile-loops)
 - [For Loops](#for-loops)
   - [For Loop](#for-loop)
   - [ES6 for-of](#es6-for-of)
+  - [for-in (tbc)](#for-in-tbc)
 - [Functions](#functions)
   - [Function Arguments](#function-arguments)
   - [Return Statement](#return-statement)
@@ -79,13 +79,13 @@ indexof kaldım
   - [Closures to Protect Properties](#closures-to-protect-properties)
   - [Modules](#modules)
 - [ES6 Object Oriented](#es6-object-oriented)
-  - [Basics](#basics-2)
+  - [Basics](#basics-1)
   - [ES6 Classes](#es6-classes)
   - [ES6 getters and setters](#es6-getters-and-setters)
   - [ES6 Statics Methods](#es6-statics-methods)
   - [ES6 Inheritance](#es6-inheritance)
 - [ES6 import and export](#es6-import-and-export)
-  - [Basics](#basics-3)
+  - [Basics](#basics-2)
   - [import](#import)
   - [export](#export)
 - [Async/Await](#asyncawait)
@@ -862,8 +862,6 @@ switch (val) {
 
 ## Comparison Operators
 
-### Basics
-
 | Operator | Meaning               |
 | -------- | --------------------- |
 | `==`     | Equality              |
@@ -945,6 +943,10 @@ for (let value of myArray) {
   console.log(value);
 }
 ```
+
+### for-in (tbc)
+
+...
 
 ## Functions
 
