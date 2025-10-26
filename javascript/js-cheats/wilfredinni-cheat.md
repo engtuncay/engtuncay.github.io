@@ -1,6 +1,8 @@
 
 - Source : https://www.javascriptcheatsheet.org/cheatsheet/basics (some parts may be modified or added with Turkish explanation)
 
+Not : Regular expression düzenlenmeli
+
 <h3>Content</h3> 
 
 - [Comments](#comments)
@@ -55,8 +57,8 @@
   - [Do...While Loops](#dowhile-loops)
 - [For Loops](#for-loops)
   - [For Loop](#for-loop)
-  - [ES6 for-of](#es6-for-of)
-  - [for-in (tbc)](#for-in-tbc)
+  - [ES6 for-of (for arrays)](#es6-for-of-for-arrays)
+  - [for-in (objects,arrays)](#for-in-objectsarrays)
 - [Functions](#functions)
   - [Function Arguments](#function-arguments)
   - [Return Statement](#return-statement)
@@ -69,7 +71,7 @@
   - [Resume Table](#resume-table)
   - [Regex Methods](#regex-methods)
   - [Examples](#examples-3)
-- [Object Oriented](#object-oriented)
+- [Object Oriented (old style)](#object-oriented-old-style)
   - [Example](#example-2)
   - [Constructors and New Objects](#constructors-and-new-objects)
   - [Inheritance](#inheritance)
@@ -98,6 +100,7 @@
     - [pow(a,b) Method](#powab-method)
     - [ceil(x) Method](#ceilx-method)
     - [log(x) Method](#logx-method)
+- [Extra Sources](#extra-sources)
 
 
 ## Comments
@@ -934,7 +937,9 @@ for (var i = 0; i < arr.length; i++) {
 }
 ```
 
-### ES6 for-of
+### ES6 for-of (for arrays)
+
+(elemanları arasında iterate ettirir)
 
 ```javascript
 for (let value of myArray) {
@@ -942,9 +947,82 @@ for (let value of myArray) {
 }
 ```
 
-### for-in (tbc)
+```js
+const langs = ["Python", "Java", "C++", "Php"];
 
-...
+for (let value of langs) {
+  console.log(value);
+}
+
+/* --Output--
+Python
+Java
+C++
+Php
+*/
+
+```
+
+➖ for-of with String
+
+```js
+const name = "Ahmet";
+
+for (let character of name) {
+  console.log(character);
+}
+
+/* --Output--
+A
+h
+m
+e
+t
+*/
+```
+
+### for-in (objects,arrays)
+
+(elemanları arasında iterate ettirir)
+
+➖ for-in with object
+
+```js
+const person = {
+  name: "Mustafa",
+  age: 25,
+  salary: 3000
+};
+
+// For In Object
+for (let prop in person) {
+  console.log(prop, person[prop]);
+}
+
+/* ---Output--- 
+name Mustafa
+age 25
+salary 3000
+*/
+```
+
+➖ for-in with array
+
+```js
+const langs = ["Python", "Java", "C++", "Php"];
+
+// For in Array
+for (let index in langs) {
+  console.log(index, langs[index]);
+}
+
+/* ---Output---
+0 Python
+1 Java
+2 C++
+3 Php
+*/
+```
 
 ## Functions
 
@@ -1297,7 +1375,7 @@ console.log(result19);
 
 ```
 
-## Object Oriented
+## Object Oriented (old style)
 
 ### Example
 
@@ -1839,3 +1917,10 @@ Math.log(x);
 
 //output - 3.2308043957334744
 ```
+
+
+## Extra Sources
+
+- https://www.javascriptcheatsheet.org/cheatsheet/basics
+
+- https://github.com/mbeaudru/modern-js-cheatsheet

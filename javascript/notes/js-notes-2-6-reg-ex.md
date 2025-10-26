@@ -29,7 +29,7 @@ We can create a pattern in two ways :
 To declare a string we use a single quote, double quote and backtick, to declare a regular expression we use `two forward slashes` and an optional flag. The flag could be g, i, m, s, u or y.
 
 ```js
-let patternEx = /patternText/flags;
+let patternExample = /patternText/flags;
 
 ```
 
@@ -46,7 +46,7 @@ A pattern is composed of characters with `meta characters`. For instance a phone
 Flags are optional parameters in a regular expression which determine the type of searching. Let us see some of the flags:
 
 - g: greedy `a global flag` which means looking for the pattern in the whole text. dont stop after the first match. (ilk bulduktan sonra durmaz sonrasında da eşleşen desenleri(pattern) arar )
-- i: case insensitive flag(it searches for both lowercase and uppercase)
+- i: case insensitive flag (it searches for both lowercase and uppercase)
 - m: multiline
 
 ### Creating a pattern with RegExp Constructor
@@ -86,6 +86,8 @@ Let us see some of RegExp methods
 
 `test()` method tests for a match in a string. It returns true or false.
 
+(içinde match eden parça varsa true - include da denilebilir)
+
 ```js
 const str = "I love JavaScript";
 const pattern = /love/;
@@ -104,7 +106,7 @@ It says the string includes 'love' text.
 
 `match()` method returns an array containing all of the matches, including capturing groups, or null if no match is found if we use a global flag in the pattern.
 
-❗ If we do not use a global flag, match() returns an object containing the pattern, index, input and group.
+❗ If we do not use a global (greedy) flag, match() returns an object containing the pattern, index, input and group.
 
 🧲 Example : without global flag
 
@@ -180,6 +182,9 @@ console.log(matchReplaced);
 // JavaScript is the most beautiful language that a human begin has ever created.I recommend python for a first programming language
 ```
 
+❗ without greedy flag, it ignores the second match phyton.
+
+
 🧲 Example
 
 ```js
@@ -222,7 +227,7 @@ console.log(matches);
 // I am teacher.There is nothing as more rewarding as educating and empowering
 ```
 
---\*TBC - regex js
+--*TBC - regex js
 
 ### Meta Characters
 
@@ -344,7 +349,7 @@ const pattern = /\d+/g; // d is a special character which means digits
 const txt = "This regular expression example was made in January 12,  2020.";
 const matches = txt.match(pattern);
 
-console.log(matches); // ["12", "2020"], this is not what we want
+console.log(matches); // ["12", "2020"]
 ```
 
 ➖ One or more times(+)
@@ -353,7 +358,7 @@ console.log(matches); // ["12", "2020"], this is not what we want
 const pattern = /\d+/g; // d is a special character which means digits
 const txt = "This regular expression example was made in January 12,  2020.";
 const matches = txt.match(pattern);
-console.log(matches); // ["12", "2020"], this is not what we want
+console.log(matches); // ["12", "2020"]
 ```
 
 ➖ Period(.)

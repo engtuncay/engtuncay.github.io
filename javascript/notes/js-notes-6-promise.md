@@ -17,9 +17,14 @@ Section - Promise,Async-Await and Closure
 
 # Section - Promise,Async-Await and Closure
 
+(senkron : sıra sıra yapılan işlemler)
+(asenkron : paralel yapılan işlemler)
+
 ## Promise
 
-A Promise is a way to handle `asynchronous operations` in JavaScript. The asynchronous method returns a promise to supply the value at some point in the future. (it is like reactive functions)
+A Promise is a way to handle `asynchronous operations` in JavaScript. The asynchronous method returns a promise to supply the value at some point in the future. 
+
+A promise can be used like reactive functions (to)
 
 A Promise is in one of these states:
 
@@ -41,13 +46,15 @@ To understand promise very well let us understand callback first. Let's see the 
 
 ➖ Callback
 
+Callback is a function declaration (reference).(to)
+
 Let us see a callback function which can take two parameters. The first parameter is err and the second is result. If the err parameter is false, there will not be error otherwise it will return an error.
 
 In this case the err has a value and it will return the err block.
 
 ```js
 //Callback
-const doSomething = fnCallback => {
+const doSomething = (fnCallback) => {
   setTimeout(() => {
     const skills = ['HTML', 'CSS', 'JS']
     fnCallback('It did not go well', skills)
@@ -109,6 +116,8 @@ const promise = new Promise((resolve, reject) => {
 })
 
 ```
+
+📝 Promise yapısı resolve ve reject fonksiyonları ile dönüş objelerini ayarlıyor.
 
 ```js
 // Promise
