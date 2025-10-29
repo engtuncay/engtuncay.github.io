@@ -34,6 +34,8 @@ Before we jump into understanding the differences between CommonJS and ES module
 
 JavaScript modules have evolved greatly over the years, starting with the `IIFE`, which prevents global pollution of the global scope and allows code encapsulation, to the Module pattern, which provides a clearer separation between private and public components of a module, solving the growing complexity in JavaScript applications. However, both the IIFEs and Module patterns did not have a standard way of managing dependencies, which necessitated better development solutions.
 
+TBC - 20251028 - 1604 
+
 CommonJS was primarily intended for server-side development with Node.js. It implemented `synchronous loading using require and module.exports`. `Asynchronous Module Definition (AMD)`, on the other hand, concentrates on browser environments with asynchronous loading using define and require, which improved page load time and responsiveness. Still, there was always a need for better solutions. The need for a solution that could function in both the server-side and browser environments prompted the development of Universal Module Definition (UMD).
 
 Then came the `ES modules`, which provide a native module system for both client and server-side JavaScript. `ES6 modules` provide a clear syntax, import and export statements, and support for `asynchronous loading`. This progress has made code more maintainable, reusable, and performant, allowing developers to build more scalable applications.

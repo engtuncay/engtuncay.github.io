@@ -27,6 +27,11 @@
     - [Rewrite kuralı:](#rewrite-kuralı)
     - [Tarayıcıda yapılan işlem:](#tarayıcıda-yapılan-işlem)
 - [htaccess değişkenini değere atama](#htaccess-değişkenini-değere-atama)
+- [Me](#me-3)
+- [AI Assistant](#ai-assistant-3)
+  - [Açıklama:](#açıklama)
+  - [Sağlanan İşlev:](#sağlanan-i̇şlev)
+  - [Kullanım Durumları:](#kullanım-durumları)
 
 
 ## Me
@@ -77,6 +82,7 @@ ServerSignature Off
 ```
 
 ## AI Assistant
+
 Bu, bir Apache Web Sunucusu için yapılandırma dosyasından (`.htaccess`) bir alıntıdır. Bu dosya genellikle web uygulamaları tarafından URL yönlendirme (rewrite), erişim yönetimi veya güvenlik önlemlerini tanımlamak amacıyla kullanılır. Yukarıdaki yapılandırma dosyasının her başlığını açıklamaya çalışalım:
 
 ### 1. **Dizin Gözatma Kapatma (Disable Directory Browsing)**
@@ -188,7 +194,8 @@ Bu `.htaccess` dosyası:
 Özellikle **CodeIgniter** tabanlı uygulamalar için kullanılan bir yapılandırma gibi görünüyor.
 
 ## Me
-RewriteCond %{REQUEST_FILENAME} !-d (burada -d ne manaya geliyor ), RewriteCond %{REQUEST_URI} (.+)/$ burada $ ne manaya geliyor
+RewriteCond %{REQUEST_FILENAME} !-d (burada -d ne manaya geliyor ), 
+RewriteCond %{REQUEST_URI} (.+)/$ burada $ ne manaya geliyor
 
 
 ## AI Assistant

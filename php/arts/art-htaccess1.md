@@ -9,13 +9,11 @@
   - [is\_htaccess\_enabled\_2](#is_htaccess_enabled_2)
   - [Consequences of .htaccess files:](#consequences-of-htaccess-files)
 
-
+Source : 
 
 # The Ultimate Guide to .htaccess Files
 
-Joseph Pecoraro
-
-May 11, 2009
+Joseph Pecoraro, May 11, 2009
 
 Apache's .htaccess configuration files have baffled countless developers. This tutorial aims to break through this confusion by focusing on examples and thorough descriptions. Among the benefits of learning .htaccess configuration is automatic gzipping of your content, providing friendlier URLs, preventing hotlinking, improving caching, and more. 
 
@@ -27,15 +25,11 @@ This article will teach you about configuring your .htaccess files manually, but
 
 htaccess Builder on Envato Market
 
-.htaccess Builder on Envato Market
-
 ## Introduction:
 
-I’ve read a number of .htaccess articles online. I’ll shamelessly admit I didn’t get beyond the front page of Google results. I was shocked when I actually read the articles and found that none of them explained what Apache was actually doing. They were merely a collection of popular or useful tricks or snippets of reusable code. That is all well and good, but the classic argument is:
+That is all well and good, but the classic argument is:
 
 “Give a man a fish and he will eat for a day. Teach a man to fish and he will eat for a lifetime.” - Confucius
-
-In this article I’m going to try to not just show you examples of useful .htaccess directives, but explain exactly what is going on. This way, you will understand the core principles and can then extend the examples or create new commands for your own use in whatever creative or useful ways you can come up with.
 
 My focus will be on Apache 2, however much of this will apply to Apache 1.3 and I'll try to point out any differences that I know of.
 
@@ -47,25 +41,30 @@ To quote Apache:
 
 .htaccess files (or “distributed configuration files”) provide a way to make configuration changes on a per-directory basis. A file, containing one or more configuration directives, is placed in a particular document directory, and the directives apply to that directory, and all subdirectories thereof.
 
-Directives
-“Directives” is the terminology that Apache uses for the commands in Apache’s configuration files. They are normally relatively short commands, typically key value pairs, that modify Apache’s behavior. An .htaccess file allows developers to execute a bunch of these directives without requiring access to Apache’s core server configuration file, often named httpd.conf. This file, httpd.conf, is typically referred to as the "global configuration file" and I will refer to it with that name or its short filename equivalent.
+➖ Directives
+
+“Directives” is the terminology that Apache uses for `the commands in Apache’s configuration files`. They are normally relatively short commands, typically key value pairs, that modify Apache’s behavior. An .htaccess file allows developers to execute a bunch of these directives without requiring access to Apache’s core server configuration file, often named httpd.conf. This file, httpd.conf, is typically referred to as the "global configuration file" and I will refer to it with that name or its short filename equivalent.
 
 This feature is ideal for many hosting companies deploying a shared hosting environment. The hosting company will not allow its customers to access the global configuration file, which ultimately affects all of the customers hosted on that server. Instead, by enabling .htaccess, they give each of their customers the power to specify and execute their own Apache directives in their own directories and subdirectories. Of course it's also useful to the single developer, as you will see.
 
 It's worth mentioning that anything that can be done with a .htaccess file can be done in the httpd.conf file. However, NOT everything that can be done in httpd.conf can be done in a .htaccess file. In fact .htaccess files must be enabled in the httpd.conf file in order to be executed at all. Once enabled, their power can be limited to certain “contexts” so that they may be allowed to override some settings but not others. This gives the system administrators more control over what they let other developers get away with in their .htaccess files.
 
-Enabling .htaccess:
-.htaccess files are normally enabled by default. This is actually controlled by the AllowOverride Directive in the httpd.conf file. This directive can only be placed inside of a <Directory> section. Don’t let this confuse you. The typical httpd.conf file defines a DocumentRoot and the majority of the file will contain Directives inside a <Directory> section dealing with that directory. This includes the AllowOverride directive.
+TBC - 20251028 - 1619 
+
+➖ Enabling .htaccess:
+
+.htaccess files are normally enabled by default. This is actually controlled by the AllowOverride Directive in the httpd.conf file. This directive can only be placed inside of a `<Directory>` section. Don’t let this confuse you. The typical httpd.conf file defines a DocumentRoot and the majority of the file will contain Directives inside a `<Directory>` section dealing with that directory. This includes the AllowOverride directive.
 
 The default value is actually “All” and thus .htaccess files are enabled by default. An alternative value would be “None” which would mean that they are completely disabled. There are numerous other values that limit configuration of only certain contexts. Some are:
 
-AuthConfig - Authorization directives such as those dealing with Basic Authentication.
-FileInfo - Directives that deal with setting Headers, Error Documents, Cookies, URL Rewriting, and more.
-Indexes - Default directory listing customizations.
-Limit - Control access to pages in a number of different ways.
-Options - Similar access to Indexes but includes even more values such as ExecCGI, FollowSymLinks, Includes and more.
-Full .htaccess Overriding
-I’ll show some examples, without their corresponding <Directory> sections. Here is an example that allows full .htaccess overriding:
+- AuthConfig - Authorization directives such as those dealing with Basic Authentication.
+- FileInfo - Directives that deal with setting Headers, Error Documents, Cookies, URL Rewriting, and more.
+- Indexes - Default directory listing customizations.
+- Limit - Control access to pages in a number of different ways.
+- Options - Similar access to Indexes but includes even more values such as ExecCGI, FollowSymLinks, Includes and more.
+- Full .htaccess Overriding
+
+I’ll show some examples, without their corresponding `<Directory>` sections. Here is an example that allows full .htaccess overriding:
 
 ```php
 # Allow .htaccess files their full power
@@ -145,7 +144,7 @@ Finally, it is still possible that .htaccess support is still enabled, just with
 
 ## Consequences of .htaccess files:
 
-Before I get into some of the cool things you can do with .htaccess files, I have to tell you what you’re getting into. As I mentioned previously you’re allowing overriding server settings for a directory and all of its subdirectories. Always keep in mind that you’re affecting all of the subdirectories as well as the current directory.
+Before I get into some of the cool things you can do with .htaccess files, I have to tell you what you’re getting into. As I mentioned previously you’re allowing `overriding server settings for a directory and all of its subdirectories`. Always keep in mind that you’re affecting all of the subdirectories as well as the current directory.
 
 Also, when enabled the server will take a potential performance hit. The reason is because, every server request, if .htaccess support is enabled, when Apache goes to fetch the requested file for the client, it has to look for a .htaccess file in every single directory leading up to wherever the file is stored.
 
