@@ -11,9 +11,9 @@
 
 # Cheats
 
-- [Bootstrap Keys Cheat](./cheats/bs-keys-cheat.md)
-
 - [Bootstrap Example Cheat](./cheats/bs-example-cheat.md)
+  
+- [Bootstrap Keys Cheat](./cheats/bs-keys-cheat.md)
 
 # Notes
 
@@ -21,6 +21,9 @@
 
 
 # References
+
+- Bootstrap Official Doc, https://getbootstrap.com/docs/5.0/getting-started/introduction
+
 
 # Articles
 
