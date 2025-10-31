@@ -11,9 +11,9 @@
 
 # Cheats
 
-- [Github Copilot Cheat](./cheats/bs-cheat-cop.md)
+- [Bootstrap Keys Cheat](./cheats/bs-cheat-cop.md)
 
-- [Chatgpt Cheat](./cheats/bs-cheat-chg.md)
+- [Bootstrap Example Cheat](./cheats/bs-cheat-chg.md)
 
 # Notes
 
