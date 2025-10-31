@@ -31,12 +31,6 @@ For NPM users, install the type script with the command below.
 
 ```
 
-- The Visual Studio Plug-in for TypeScript
-
-Visual Studio 2017 and Visual Studio 2015 Update 3 include Typescript by default.
-
----
-
 # Steps
 
 ## 1. Create the folder where you want to create the type script

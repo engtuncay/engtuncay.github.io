@@ -5,8 +5,8 @@
 - [Js Cheats](#js-cheats)
 - [References](#references)
 - [Js Notes](#js-notes)
+- [Jst Notes](#jst-notes)
 - [JsInfo Notes - Advanced Javascript](#jsinfo-notes---advanced-javascript)
-- [Notes (JavaTPoint)](#notes-javatpoint)
 - [Node Notes](#node-notes)
 - [Other Cheatsheets](#other-cheatsheets)
 - [Other Js Notes](#other-js-notes)
@@ -30,11 +30,13 @@
 
 # References
 
+- Javascript Tutorial, https://www.javascripttutorial.net
+
 - Javascript Info, http://www.javascript.info
 
-- 30 Days of Javascript , https://github.com/Asabeneh/30-Days-Of-JavaScript
+- ES6 Tutorial, https://www.javascripttutorial.net/es6
 
-- W3Schools, https://www.w3schools.com/js/default.asp 
+- 30 Days of Javascript , https://github.com/Asabeneh/30-Days-Of-JavaScript
 
 - Es6 Features, http://es6-features.org
 
@@ -42,10 +44,11 @@
 
 - Developer Mozilla Docs, https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/JavaScript_basics
 
+- W3Schools, https://www.w3schools.com/js/default.asp 
+
 # Js Notes
 
-These notes are mainly from Asabeneh's 30-Days-Of-JavaScript tutorials. Thanks.
-
+These notes are from Asabeneh's 30-Days-Of-JavaScript tutorials. somep parts may be changed.
 
 - [Intro](./notes/js-notes-1-1-intro.md) |
 - [Variables-Scope-Comment](./notes/js-notes-1-2-intro-data-type.md) |
@@ -64,47 +67,31 @@ These notes are mainly from Asabeneh's 30-Days-Of-JavaScript tutorials. Thanks.
 - [Dom](./notes/js-notes-8-dom.md) | ✔ 
 - [Modules (JsInfo)](./notes/js-info/js-intro-13-1-Modules.md)| ✔
 
+# Jst Notes
+
+- [Content](./notes2/jst-01.md)
+
 
 # JsInfo Notes - Advanced Javascript
 
-CONTENT |Note|
---- | -- |
-[1-1 Intro and Syntax](./js-info/js-intro-01-01-intro-and-syntax.md) |
-[2-1 Variables and Data Types](./js-info/js-intro-02-01-data-types.md) |
-[2-2 Operators](./js-info/js-intro-02-02-operators.md) |   
-[2-3 Conditions Loop Vs](./js-info/js-intro-02-03-if-and-loops.md) |
-[2-4 Functions](./js-info/js-intro-02-04-functions.md) |🆗
-[3 Code Quality](./js-info/js-intro-3-code-quality.md) |
-[4-1 Objects-1](./js-info/js-intro-04-01-objects.md) |🆗
-[4-2 Objects-2](./js-info/js-intro-04-02-objects.md) |
-[5-1 Advanced Data Types-1](./js-info/js-intro-05-01-advanced-data-types.md)|
-[5-2 Advanced Data Types-2](./js-info/js-intro-05-02-advanced-data-types-2.md)|
-[9 Classes](./js-info/js-intro-09-1-Classes.md)|
-[13 Modules](./js-info/js-intro-13-1-Modules.md)| ✔
 
-[Javascript W3 Tutorial](./w3/readme.md)
-
-# Notes (JavaTPoint)
-
-Source : https://www.javatpoint.com/javascript-tutorial
-
-
-
-
-
-[index](js-jtp-index.md)
-
-
-
-Topic | Note
-------|-----
-x     | x
+- [1-1 Intro and Syntax](./js-info/js-intro-01-01-intro-and-syntax.md) |
+- [2-1 Variables and Data Types](./js-info/js-intro-02-01-data-types.md) |
+- [2-2 Operators](./js-info/js-intro-02-02-operators.md) |   
+- [2-3 Conditions Loop Vs](./js-info/js-intro-02-03-if-and-loops.md) |
+- [2-4 Functions](./js-info/js-intro-02-04-functions.md) |🆗
+- [3 Code Quality](./js-info/js-intro-3-code-quality.md) |
+- [4-1 Objects-1](./js-info/js-intro-04-01-objects.md) |🆗
+- [4-2 Objects-2](./js-info/js-intro-04-02-objects.md) |
+- [5-1 Advanced Data Types-1](./js-info/js-intro-05-01-advanced-data-types.md)|
+- [5-2 Advanced Data Types-2](./js-info/js-intro-05-02-advanced-data-types-2.md)|
+- [9 Classes](./js-info/js-intro-09-1-Classes.md)|
+- [13 Modules](./js-info/js-intro-13-1-Modules.md)| ✔
 
 # Node Notes
 
-CONTENT |
---- |
-[Node Js Intro](./node-js-intro.md) |
+
+- [Node Js Intro](./node-js-intro.md) 
 
 
 # Other Cheatsheets
@@ -127,9 +114,8 @@ Drafts
 
 # Other Js Notes
 
-Topic                                               | Notes
-----------------------------------------------------|------
-[6 Es6 Classes](./js-mix/js-mosh-b6-es6-classes.md) |
+
+- [6 Es6 Classes](./js-mix/js-mosh-b6-es6-classes.md) |
 
 
 # Other Links

@@ -18,7 +18,9 @@ Create a new folder for your project and navigate to it using the terminal.
 
 mkdir nodejs-typescript-guide
 cd nodejs-typescript-guide
+
 Step 2: Initialize a new Node.js project
+
 Run the following command to initialize a new Node.js project and create a package.json file.
 
 npm init -y
@@ -131,20 +133,25 @@ Run the project:
 
 npm run build
 npm start
+
 Now, you have types for the port variable. Continue adding types to other parts of your code as needed. This approach allows you to gradually introduce TypeScript into your project.
 
 Step 9: Testing Your Application with Postman
+
 After setting up your application, you can use Postman to send requests to your server and test its responses. This is crucial for ensuring your API behaves as expected.
 
 Open Postman: Launch the Postman application.
+
 Create a New Request: Set up a new request in Postman by specifying the request type GET and the endpoint URL http://localhost:3000
 Send the Request: Hit send and view the response from your server.
 Analyze the Response: Check the status code, response body, and headers to ensure your API behaves correctly.
 
 Step 10: Understanding the ‘dist’ Folder
+
 The dist folder is the directory where TypeScript transpiles the .ts files into .js files. The dist folder and server.js are generated after running the npm run build command, which compiles the TypeScript code to JavaScript as per the configuration in tsconfig.json. This folder is not directly created or modified by the developer; it's managed through the build process controlled by the TypeScript compiler.
 
 That’s the complete guide to setting up a Node.js project with TypeScript. This setup gives you a strong foundation for building robust and maintainable server-side applications.
 
 Explore the Complete Code
+
 If you’d like to explore the complete codebase , you can find it on GitHub: https://github.com/pabath99/FullStackFables

@@ -3,7 +3,7 @@ How to develop a Typescript Library
 
 Source : https://medium.com/@rifantechguy55/how-to-develop-a-typescript-library-ade8d329636
 
-4 min read, Jun 24, 2023
+Jun 24, 2023
 
 - [Step 1: Setup tsconfig.json](#step-1-setup-tsconfigjson)
 - [Step 2: Implement your library](#step-2-implement-your-library)

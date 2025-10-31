@@ -49,7 +49,7 @@ Can Boz
 # B44 Typescript
 
 ## 281. Typescript Nedir
-2 dak
+
 
 ✏ Note : Installing pnpm
 

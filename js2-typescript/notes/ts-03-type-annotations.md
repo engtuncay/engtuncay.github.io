@@ -1,8 +1,6 @@
 
 # Understanding Type Annotations in TypeScript
 
-Summary: in this tutorial, you will learn about type annotations in TypeScript.
-
 *What is Type Annotation in TypeScript*
 
 TypeScript uses type annotations to explicitly specify types for identifiers such variables, functions, objects, etc.
@@ -14,44 +12,63 @@ Once an identifier is annotated with a type, it can be used as that type only. I
 Type annotations in variables and constants
 The following syntax shows how to specify type annotations for variables and constants:
 
+```ts
 let variableName: type;
 let variableName: type = value;
 const constantName: type = value;
-Code language: JavaScript (javascript)
+
+```
+
 In this syntax, the type annotation comes after the variable or constant name and is preceded by a colon (:).
 
 The following example uses number annotation for a variable:
 
+```js
 let counter: number;
-Code language: JavaScript (javascript)
+
+```
+
 After this, you can only assign a number to the counter variable:
 
+```js
 counter = 1;
+
+```
+
 If you assign a string to the counter variable, you’ll get an error:
 
+```js
 let counter: number;
 counter = 'Hello'; // compile error 
-Code language: JavaScript (javascript)
-Error:
 
-Type '"Hello"' is not assignable to type 'number'.
-Code language: JavaScript (javascript)
+//Error:
+// Type '"Hello"' is not assignable to type 'number'.
+```
+
 You can both use a type annotation for a variable and initialize it in a single statement like this:
 
+```js
 let counter: number = 1;
-Code language: JavaScript (javascript)
+
+```
+
 In this example, we use the number annotation for the counter variable and initialize it to one.
 
 The following shows other examples of primitive type annotations:
 
+```js
 let name: string = 'John';
 let age: number = 25;
 let active: boolean = true;
-Code language: JavaScript (javascript)
+
+```
+
 In this example, the name variable gets the string type, the age variable gets the number type, and the active variable gets the boolean type.
 
 Type annotation examples
+
 Arrays
+
 To annotate an array type you use use a specific type followed by a square bracket : type[] :
 
 let arrayName: type[];

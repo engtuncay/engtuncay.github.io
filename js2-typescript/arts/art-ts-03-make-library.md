@@ -28,12 +28,14 @@
     - [4. **`server`**](#4-server)
   - [`tsconfig.json` ile `vite.config.ts` Arasındaki Fark](#tsconfigjson-ile-viteconfigts-arasındaki-fark)
 
+2025-10-30
+
 
 ## Me
 Bir library nasıl oluştururuz
 
 ## AI Assistant
-Bir **library** oluşturmak, özel bir yazılım veya bileşeni paylaşabilir ve birçok projede kullanıma açabilir hale getirmek anlamına gelir. Aşağıda, bir JavaScript/TypeScript tabanlı bir library oluşturma adımları bulunmaktadır.
+Aşağıda, bir JavaScript/TypeScript tabanlı bir library oluşturma adımları bulunmaktadır.
 
 ### 1. **Proje Yapısını Belirleme**
 
