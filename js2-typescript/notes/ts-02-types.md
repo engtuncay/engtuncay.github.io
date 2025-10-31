@@ -18,6 +18,10 @@ Source : https://www.typescripttutorial.net/typescript-tutorial/typescript-types
 - [TypeScript Boolean](#typescript-boolean)
 - [TypeScript object Type](#typescript-object-type)
 - [TypeScript Array Type](#typescript-array-type)
+- [TypeScript Tuple](#typescript-tuple)
+- [TypeScript Enum](#typescript-enum)
+- [TypeScript any Type](#typescript-any-type)
+- [TypeScript Unknown Type](#typescript-unknown-type)
 
 ---
 
@@ -474,11 +478,11 @@ pending = false;
 
 To manipulate boolean values, you use the boolean operators. TypeScript supports common boolean operators:
 Meaning
-| Operator | Meaning              |
+| Operator | Meaning |
 |----------|----------------------|
-| &&       | Logical AND operator |
-| `\|\|`   | Logical OR operator  |
-| !        | Logical NOT operator |
+| && | Logical AND operator |
+| `\|\|` | Logical OR operator |
+| ! | Logical NOT operator |
 
 For example:
 
@@ -498,7 +502,6 @@ console.log(result); // false
 // OR operator
 result = completed || hasError;
 console.log(result); // true
-
 ```
 
 ➖ Type annotations for boolean
@@ -507,23 +510,20 @@ As seen in previous examples, you can use the boolean keyword to annotate the ty
 
 ```js
 let completed: boolean = true;
-
 ```
 
 However, TypeScript often infers types automatically, so type annotations may not be necessary:
 
 ```js
 let completed = true;
-
 ```
 
 Like a variable, you can annotate boolean parameters or return the type of a function using the boolean keyword:
 
 ```js
 function changeStatus(status: boolean): boolean {
-//...
+  //...
 }
-
 ```
 
 ➖ Boolean Type
@@ -537,7 +537,6 @@ It’s a good practice to avoid using the Boolean type.
 - TypeScript boolean type has two values true and false.
 - Use the boolean keyword to declare boolean variables.
 - Do not use Boolean type unless you have a good reason to do so.
-
 
 # TypeScript object Type
 
@@ -562,21 +561,20 @@ The following shows how to declare a variable that holds an object:
 let employee: object;
 
 employee = {
-    firstName: 'John',
-    lastName: 'Doe',
-    age: 25,
-    jobTitle: 'Web Developer'
+  firstName: "John",
+  lastName: "Doe",
+  age: 25,
+  jobTitle: "Web Developer",
 };
 
 console.log(employee);
-
 ```
 
 ```js
 Output:
 
 {
-  firstName: 'John',       
+  firstName: 'John',
   lastName: 'Doe',
   age: 25,
   jobTitle: 'Web Developer'
@@ -589,11 +587,9 @@ If you reassign a primitive value to the employee object, you’ll get an error 
 ```js
 employee = "Jane";
 
-
 // Error:
-// 
+//
 // error TS2322: Type '"Jane"' is not assignable to type 'object'.
-
 ```
 
 The employee object is an object type with a fixed list of properties. If you attempt to access a property that doesn’t exist on the employee object, you’ll get an error:
@@ -602,7 +598,7 @@ The employee object is an object type with a fixed list of properties. If you at
 console.log(employee.hireDate);
 
 // Error:
-// 
+//
 // error TS2339: Property 'hireDate' does not exist on type 'object'.
 ```
 
@@ -612,41 +608,38 @@ To explicitly specify properties of the employee object, you first use the follo
 
 ```js
 let employee: {
-    firstName: string;
-    lastName: string;
-    age: number;
-    jobTitle: string;
+  firstName: string,
+  lastName: string,
+  age: number,
+  jobTitle: string,
 };
-
 ```
 
 And then assign the employee object to a literal object with the described properties:
 
 ```js
 employee = {
-    firstName: 'John',
-    lastName: 'Doe',
-    age: 25,
-    jobTitle: 'Web Developer'
+  firstName: "John",
+  lastName: "Doe",
+  age: 25,
+  jobTitle: "Web Developer",
 };
-
 ```
 
 Or you can combine both syntaxes in the same statement like this:
 
 ```js
 let employee: {
-    firstName: string;
-    lastName: string;
-    age: number;
-    jobTitle: string;
+  firstName: string,
+  lastName: string,
+  age: number,
+  jobTitle: string,
 } = {
-    firstName: 'John',
-    lastName: 'Doe',
-    age: 25,
-    jobTitle: 'Web Developer'
+  firstName: "John",
+  lastName: "Doe",
+  age: 25,
+  jobTitle: "Web Developer",
 };
-
 ```
 
 ➖ object vs. Object
@@ -665,12 +658,11 @@ The empty type {} describes an object that has no property on its own. If you tr
 
 ```js
 let vacant: {};
-vacant.firstName = 'John';
+vacant.firstName = "John";
 
 // Error:
-// 
+//
 // error TS2339: Property 'firstName' does not exist on type '{}'.
-
 ```
 
 But you can access all properties and methods declared on the Object type, which is available on the object via the prototype chain:
@@ -680,7 +672,7 @@ let vacant: {} = {};
 console.log(vacant.toString());
 
 // Output:
-// 
+//
 // [object Object]
 ```
 
@@ -692,86 +684,672 @@ console.log(vacant.toString());
 
 # TypeScript Array Type
 
-TBC - 20251031 - 1836 
+TBC - 20251031 - 1836
 
 A TypeScript array is an ordered list of data. To declare an array that holds values of a specific type, you use the following syntax:
 
+```js
 let arrayName: type[];
-Code language: JavaScript (javascript)
+```
+
 For example, the following declares an array of strings:
 
+```js
 let skills: string[] = [];
-Code language: TypeScript (typescript)
+```
+
 And you can add one or more strings to the array:
 
+```js
 skills[0] = "Problem Solving";
 skills[1] = "Programming";
-Code language: TypeScript (typescript)
+```
+
 or use the push() method:
 
-skills.push('Software Design');
-Code language: JavaScript (javascript)
+```js
+skills.push("Software Design");
+```
+
 The following declares a variable and assigns an array of strings to it:
 
-let skills = ['Problem Sovling','Software Design','Programming'];
-Code language: TypeScript (typescript)
+```js
+let skills = ["Problem Sovling", "Software Design", "Programming"];
+```
+
 In this example, TypeScript infers the skills array as an array of strings. It is equivalent to the following:
 
+```js
 let skills: string[];
-skills = ['Problem Sovling','Software Design','Programming'];
-Code language: TypeScript (typescript)
+skills = ["Problem Sovling", "Software Design", "Programming"];
+```
+
 After you define an array of a specific type, TypeScript will prevent you from adding incompatible values. For example, the following will cause an error:
 
+```js
 skills.push(100);
-Code language: CSS (css)
+
+// Error:
+//
+// Argument of type 'number' is not assignable to parameter of type 'string'.
+```
+
 … because we’re trying to add a number to the string array.
 
-Error:
-
-Argument of type 'number' is not assignable to parameter of type 'string'.
-Code language: Shell Session (shell)
 When you extract an element from the array, TypeScript infers the type of the array element. For example:
 
+```js
 let skill = skills[0];
-console.log(typeof(skill));
-Code language: TypeScript (typescript)
-Output:
+console.log(typeof skill);
 
-string 
+// Output:
+//
+// string
+```
+
 In this example, we extract the first element of the skills array and assign it to the skill variable.
 
 Since an element in a string array is a string, TypeScript infers the type of the skill variable to string as shown in the output.
 
-TypeScript array properties and methods
+➖ TypeScript array properties and methods
+
 TypeScript arrays have the same properties and methods as JavaScript arrays. For example, the following uses the length property to get the number of elements in an array:
 
+```js
 let series = [1, 2, 3];
 console.log(series.length); // 3
-Code language: TypeScript (typescript)
+```
+
 You can use all the useful array methods such as forEach(), map(), reduce(), and filter(). For example:
 
+```js
 let series = [1, 2, 3];
-let doubleIt = series.map(e => e* 2);
+let doubleIt = series.map((e) => e * 2);
 console.log(doubleIt);
-Code language: TypeScript (typescript)
-Output:
 
-[ 2, 4, 6 ] 
-Code language: JSON / JSON with Comments (json)
-Storing values of mixed types
+// Output:
+//
+// [ 2, 4, 6 ]
+```
+
+➖ Storing values of mixed types
+
 The following illustrates how to define an array that holds both strings and numbers:
 
-let scores = ['Programming', 5, 'Software Design', 4]; 
-Code language: TypeScript (typescript)
+```js
+let scores = ["Programming", 5, "Software Design", 4];
+```
+
 In this case, TypeScript infers the scores array as an array of string | number. It’s equivalent to the following:
 
-let scores : (string | number)[];
-scores = ['Programming', 5, 'Software Design', 4]; 
-Code language: TypeScript (typescript)
-Summary
-In TypeScript, an array is an ordered list of values.
-Use the let arr: type[] syntax to declare an array of a specific type. Adding a value of a different type to the array will result in an error.
-An array can store values of mixed types. Use the arr: (type1 | type2) [] syntax to declare an array of values with mixed types (type1, and type2)
+```js
+let scores: (string | number)[];
+scores = ["Programming", 5, "Software Design", 4];
+```
+
+**Summary**
+
+- In TypeScript, an array is an ordered list of values.
+- Use the let arr: type[] syntax to declare an array of a specific type. Adding a value of a different type to the array will result in an error.
+- An array can store values of mixed types. Use the arr: (type1 | type2) [] syntax to declare an array of values with mixed types (type1, and type2)
+
+# TypeScript Tuple
+
+A tuple works like an array with some additional considerations:
+
+- The number of elements in the tuple is fixed.
+- The types of elements are known, and need not be the same.
+
+For example, you can use a tuple to represent a value as a pair of a string and a number:
+
+```js
+let skill: [string, number];
+skill = ["Programming", 5];
+```
+
+The order of values in a tuple is important. If you change the order of values of the skill tuple to [5, "Programming"], you’ll get an error:
+
+```js
+let skill: [string, number];
+skill = [5, "Programming"];
+
+// Error:
+//
+// error TS2322: Type 'string' is not assignable to type 'number'.
+```
+
+For this reason, it’s a good practice to use tuples with data that are related to each other in a specific order.
+
+For example, you can use a tuple to define an RGB color that always comes in a three-number pattern:
+
+(r,g,b)
+For example:
+
+```js
+let color: [number, number, number] = [255, 0, 0];
+```
+
+The color[0], color[1], and color[2] would be logically mapped to Red, Green and Blue color values.
+
+➖ Optional Tuple Elements
+
+Since TypeScript 3.0, a tuple can have optional elements specified using the question mark (?) postfix.
+
+For example, you can define an RGBA tuple with the optional alpha channel value:
+
+```js
+let bgColor, headerColor: [number, number, number, number?];
+bgColor = [0, 255, 255, 0.5];
+headerColor = [0, 255, 255];
+
+```
+
+Note that the RGBA defines colors using the red, green, blue, and alpha models. The alpha specifies the opacity of the color.
+
+**Summary**
+
+- A tuple is an array with a fixed number of elements whose types are known.
+
+# TypeScript Enum
+
+An enum is a group of named constant values. Enum stands for enumerated type.
+
+To define an enum, you follow these steps:
+
+- First, use the enum keyword followed by the name of the enum.
+- Then, define constant values for the enum.
+
+The following shows the syntax for defining an enum:
+
+```js
+enum name {constant1, constant2, ...};
+
+```
+
+In this syntax, the constant1, constant2, etc., are also known as the members of the enum.
+
+➖ TypeScript enum type example
+
+The following example creates an enum that represents the months of the year:
+
+```js
+enum Month {
+    Jan,
+    Feb,
+    Mar,
+    Apr,
+    May,
+    Jun,
+    Jul,
+    Aug,
+    Sep,
+    Oct,
+    Nov,
+    Dec
+};
+
+```
+
+In this example, the enum name is Month and constant values are Jan, Feb, Mar, and so on.
+
+The following declares a function that uses the Month enum as the type of the month parameter:
+
+```js
+function isItSummer(month: Month) {
+  let isSummer: boolean;
+  switch (month) {
+    case Month.Jun:
+    case Month.Jul:
+    case Month.Aug:
+      isSummer = true;
+      break;
+    default:
+      isSummer = false;
+      break;
+  }
+  return isSummer;
+}
+```
+
+And you can call it like so:
+
+```js
+console.log(isItSummer(Month.Jun)); // true
+```
+
+This example uses constant values including Jan, Feb, Mar, … in the enum rather than magic values like 1, 2, 3,… This makes the code more obvious.
+
+➖ How TypeScript enum works
+
+It’s a good practice to use the constant values defined by enums in the code.
+
+However, the following example passes a number instead of an enum to the isItSummer() function. And it works.
+
+```js
+console.log(isItSummer(6)); // true
+```
+
+This example uses a number (6) instead of a constant defined by the Month enum. And it works.
+
+Let’s check the generated Javascript code of the Month enum:
+
+```js
+var Month;
+(function (Month) {
+  Month[(Month["Jan"] = 0)] = "Jan";
+  Month[(Month["Feb"] = 1)] = "Feb";
+  Month[(Month["Mar"] = 2)] = "Mar";
+  Month[(Month["Apr"] = 3)] = "Apr";
+  Month[(Month["May"] = 4)] = "May";
+  Month[(Month["Jun"] = 5)] = "Jun";
+  Month[(Month["Jul"] = 6)] = "Jul";
+  Month[(Month["Aug"] = 7)] = "Aug";
+  Month[(Month["Sep"] = 8)] = "Sep";
+  Month[(Month["Oct"] = 9)] = "Oct";
+  Month[(Month["Nov"] = 10)] = "Nov";
+  Month[(Month["Dec"] = 11)] = "Dec";
+})(Month || (Month = {}));
+```
+
+And you can output the Month variable to the console:
+
+```js
+{
+  '0': 'Jan',
+  '1': 'Feb',
+  '2': 'Mar',
+  '3': 'Apr',
+  '4': 'May',
+  '5': 'Jun',
+  '6': 'Jul',
+  '7': 'Aug',
+  '8': 'Sep',
+  '9': 'Oct',
+  '10': 'Nov',
+  '11': 'Dec',
+  Jan: 0,
+  Feb: 1,
+  Mar: 2,
+  Apr: 3,
+  May: 4,
+  Jun: 5,
+  Jul: 6,
+  Aug: 7,
+  Sep: 8,
+  Oct: 9,
+  Nov: 10,
+  Dec: 11
+}
+
+```
+
+The output indicates that a TypeScript enum is an object in JavaScript. This object has named properties declared in the enum. For example, Jan is 0 and Feb is 1.
+
+The generated object also has number keys with string values representing the named constants.
+
+That’s why you can pass a number into the function that accepts an enum. In other words, an enum member is both a number and a defined constant.
+
+➖ Specifying enum members’ numbers
+
+TypeScript defines the numeric value of an enum’s member based on the order of that member that appears in the enum definition. For example, Jan takes 0, Feb gets 1, etc.
+
+It’s possible to explicitly specify numbers for the members of an enum like this:
+
+```js
+enum Month {
+    Jan = 1,
+    Feb,
+    Mar,
+    Apr,
+    May,
+    Jun,
+    Jul,
+    Aug,
+    Sep,
+    Oct,
+    Nov,
+    Dec
+};
+
+```
+
+In this example, the Jan constant value takes 1 instead of 0. The Feb takes 2, and the Mar takes 3, etc.
+
+➖ When to use an enum
+
+You should use an enum when you:
+
+- Have a small set of closely related fixed values.
+- And these values are known at compile time.
+
+For example, you can use an enum for the approval status:
+
+```js
+enum ApprovalStatus {
+    draft,
+    submitted,
+    approved,
+    rejected
+};
+
+```
+
+Then, you can use the ApprovalStatus enum like this:
+
+```js
+const request = {
+  id: 1,
+  status: ApprovalStatus.approved,
+  description: "Please approve this request",
+};
+
+if (request.status === ApprovalStatus.approved) {
+  // send an email
+  console.log("Send email to the Applicant...");
+}
+```
+
+**Summary**
+
+- A TypeScript enum is a group of constant values.
+- Under the hood, an enum is a JavaScript object with named properties declared in the enum definition.
+- Do use an enum when you have a small set of fixed values that are closely related and known at compile time.
+
+# TypeScript any Type
+
+Sometimes, you may need to store a value in a variable. But you don’t know its type when writing the program. And the unknown value may come from a third-party API or user input.
+
+In this case, you want to opt out of the type checking and allow the value to pass through the compile-time check.
+
+For example:
+
+```js
+let result: any;
+
+result = 1;
+console.log(result);
+
+result = "Hello";
+console.log(result);
+
+result = [1, 2, 3];
+const total = result.reduce((a: number, b: number) => a + b, 0);
+console.log(total);
+
+// Output:
+//
+```
+
+In this example:
+
+- First, declare the variable result with the type any.
+- Second, assign number 1 to the result and display its value to the console.
+- Third, assign the string literal 'Hello' to the result and show its value to the console.
+- Finally, assign an array of numbers to the result variable, calculate the total using the reduce() method, and log the total to the console.
+
+Let’s take another typical example:
+
+```js
+// json may come from a third-party API
+const json = `{"latitude": 10.11, "longitude":12.12}`;
+
+// parse JSON to find location
+const currentLocation = JSON.parse(json);
+console.log(currentLocation);
+
+// Output:
+//
+// { latitude: 10.11, longitude: 12.12 }
+```
+
+In this example, TypeScript infers the value of the currentLocation variable as any. We assign an object returned by the JSON.parse() function the currentLocation variable.
+
+However, when we access the non-existing property (x) of the currentLocation variable, TypeScript does not carry any checks.
+
+This is working fine and shows an undefined value in the console:
+
+```js
+console.log(currentLocation.x); // undefined
+
+// Output:
+//
+// undefined
+```
+
+The TypeScript compiler doesn’t complain or issue any errors.
+
+The any type provides you with a way to work with the existing JavaScript codebase. It allows you to gradually opt in and opt out of type-checking during compilation. Therefore, you can use the any type for migrating a JavaScript project over to TypeScript.
+
+➖ TypeScript any: implicit typing
+
+If you declare a variable without specifying a type, TypeScript assumes that you use the any type. This feature is called type inference. TypeScript guesses the type of the variable. For example:
+
+```js
+let result;
+```
+
+In this example, TypeScript infers the type for you. This practice is called `implicit typing`.
+
+Note that to disable implicit typing to the any type, you change the `noImplicitAny` option in the tsconfig.json file to true. You’ll learn more about the tsconfig.json in the later tutorial.
+
+➖ TypeScript any vs. object
+
+If you declare a variable with the object type, you can also assign any value to it. However, you cannot call a method on it even if the method exists. For example:
+
+```js
+let result: any;
+result = 10.123;
+console.log(result.toFixed());
+result.willExist(); //
+```
+
+In this example, the TypeScript compiler doesn’t issue any warning even the willExist() method doesn’t exist at compile time because the willExist() method might be available at runtime.
+
+If you run the code, you’ll see the following error message on the console window:
+
+```sh
+TypeError: result.willExist is not a function
+
+```
+
+However, if you change the type of the result variable to object, the TypeScript compiler will issue two errors:
+
+```js
+let result: object;
+result = 10.123;
+result.toFixed();
+
+// Errors:
+//
+// app.ts:2:1 - error TS2322: Type 'number' is not assignable to type 'object'.
+//
+// 2 result = 10.123;
+//  ~~~~~~
+// app.ts:3:8 - error TS2339: Property 'toFixed' does not exist on type 'object'.
+//
+// 3 result.toFixed();
+// ~~~~~~~
+//
+// Found 2 errors in the same file, starting at: app.ts:2
+```
+
+**Summary**
+
+- The TypeScript any type allows you to store a value of any type. It instructs the compiler to skip type-checking.
+- Use the any type to store a value that you don’t know its type at the compile-time or when you migrate a JavaScript project over to a TypeScript project.
+
+# TypeScript Unknown Type
+
+In TypeScript, the unknown type can hold a value that is not known upfront but requires type checking.
+
+To declare a variable of the unknown type, you use the following syntax:
+
+```js
+let result: unknown;
+```
+
+Like the any type, you can assign any value to a variable of the unknown type. For example:
+
+```js
+let result: unknown;
+
+result = 1;
+result = "hello";
+result = false;
+result = Symbol();
+result = { name: "John" };
+result = [1, 2, 3];
+```
+
+Unlike the any type, TypeScript checks the type before performing operations on it.
+
+For example, you cannot call a method or apply an operator on a unknown value. If you attempt to do so, the TypeScript compiler will issue an error:
+
+```js
+let result: unknown;
+result = [1, 2, 3];
+
+const total = result.reduce((a: number, b: number) => a + b, 0);
+console.log(total);
+```
+
+In this example, the result variable has the type of unknown. We assign an array the result value, but its type is still unknown. Therefore, we cannot call the reduce() method of an array on it.
+
+To call the reduce() method on the result variable, you need to use `the type assertion` to explicitly tell the TypeScript compiler that the type of the result is array. For example:
+
+```js
+let result: unknown;
+result = [1, 2, 3];
+
+const total = (result as number[]).reduce((a: number, b: number) => a + b, 0);
+console.log(total); // 6
+
+```
+
+In this example, we explicitly tell the TypeScript compiler that the type of the result is an array of numbers (result as number[]).
+
+Therefore, we can call the reduce() method on the result array without any issues.
+
+➖ Unknown vs Any type
+
+The following table highlights the key differences between the unknown and any types:
+
+| Feature          | any                                                                      | unknown                                                                                                      |
+| ---------------- | ------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| Type Safety      | No type-safety                                                           | Enforces type safety                                                                                         |
+| Operations       | Operations can be performed without checks                               | Operations cannot be performed without type assertion (narrowing type)                                       |
+| Use cases        | Useful for dynamic values but unsafe.                                    | Useful for dynamic values and safe because it requires validation before use.                                |
+| Type Checking    | TypeScript compiler does not perform a type checking on an any variable. | TypeScript compiler enforces a type checking on an unknown variable.                                         |
+| Common Scenarios | Used for migrating JavaScript codebase to TypeScript.                    | Used when handling data from external sources (API calls, databases, ..) where type validation is necessary. |
+
+➖ TypeScript unknown examples
+
+Let’s take some practical examples of using the Typescript unknown type.
+
+1. Handling external data
+   When receiving data from an external API, you can use the unknown type to enforce validation before processing it.
+
+The following example shows how to use the fetch method to call an API from the https://jsonplaceholder.typicode.com/posts endpoint:
+
+```js
+const fetchData = async (url: string): Promise<unknown> => {
+const response = await fetch(url);
+return await response.json();
+};
+
+const showPosts = async () => {
+const url = 'https://jsonplaceholder.typicode.com/posts';
+try {
+const posts = await fetchData(url); // unknown type
+
+(
+  posts as { userId: number; id: number; title: string; body: string }[]
+).map((post) => console.log(post.title));
+  } catch (err) {
+    console.log(err);
+  }
+
+};
+
+showPosts();
+
+```
+
+How it works.
+
+First, define a function fetchData that calls API from a URL and returns JSON data. Since the shape of the returned data is not known, the function returns a `Promise<unknown>` value:
+
+```js
+const fetchData = async (url: string): Promise<unknown> => {
+const response = await fetch(url);
+return await response.json();
+};
+
+```
+
+Second, define the showPosts() function that uses the fetchData() function to call an API from the endpoint https://jsonplaceholder.typicode.com/posts:
+
+```js
+const showPosts = async () => {
+const url = 'https://jsonplaceholder.typicode.com/posts';
+try {
+const posts = await fetchData(url); // unknown type
+(
+posts as { userId: number; id: number; title: string; body: string }[]
+).map((post) => console.log(post.title));
+} catch (err) {
+console.log(err);
+}
+};
+
+```
+
+In this example, the posts variable has a type of unknown.
+
+Before accessing its title property, we use type assertion to instruct the TypeScript compiler to treat it as an array of post objects:
+
+```js
+posts as { userId: number; id: number; title: string; body: string }[]
+
+```
+
+Third, call the showPosts() function:
+
+```js
+showPosts();
+
+```
+Code language: TypeScript (typescript) 2) Creating type-safe interfaces
+
+The following example defines a function format that format a value before logging it to the console:
+
+```js
+function format(value: unknown): void {
+switch (typeof value) {
+case 'string':
+console.log('String:', value.toUpperCase());
+break;
+case 'number':
+console.log('Number:', value.toFixed(2));
+break;
+default:
+console.log('Other types:', value);
+}
+}
+
+```
+
+In this example, before accessing a method of the value, we validate its type to ensure that the operation is valid.
+
+**Summary**
+
+- The unknown type is like any type but more restrictive.
+
+- Use the unknown type to handle data coming from external sources and requires validation before use.
+
+
+
+
 
 
 
@@ -782,5 +1360,5 @@ An array can store values of mixed types. Use the arr: (type1 | type2) [] syntax
 > ⚠️ Note: This content is for educational and personal reference purposes only.  
 > Original source
 > https://www.typescripttutorial.net/typescript-tutorial/typescript-types
-> 
+>
 > All rights and copyrights belong to their respective owners.
