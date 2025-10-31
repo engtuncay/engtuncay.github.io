@@ -11,9 +11,9 @@
 
 # Cheats
 
-- [Bootstrap Keys Cheat](./cheats/bs-cheat-cop.md)
+- [Bootstrap Keys Cheat](./cheats/bs-keys-cheat.md)
 
-- [Bootstrap Example Cheat](./cheats/bs-cheat-chg.md)
+- [Bootstrap Example Cheat](./cheats/bs-example-cheat.md)
 
 # Notes
 
