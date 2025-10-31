@@ -24,6 +24,6 @@
 
 # Articles
 
-- [data-bs-toggle ve data-bs-target](./arts/art-databs.md)
+- [data-bs-toggle ve data-bs-target](./arts/art-bs-data-bs-toggle.md)
 
 # Notes
