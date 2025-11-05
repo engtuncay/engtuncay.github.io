@@ -48,8 +48,6 @@ August 8, 2024
 
 TypeScript has become an industry standard for building large-scale applications, with many organizations choosing it as their primary language for application development.
 
-This tutorial will serve as your introductory guide to TypeScript. It's designed to cater to learners at all stages – from beginners to advanced users. It teaches both fundamental and advanced TypeScript concepts, making it a helpful resource for anyone looking to delve into TypeScript.
-
 The aim of this guide is not to be an exhaustive resource, but rather a concise and handy reference. It distills the essence of TypeScript into a digestible format.
 
 Whether you're a novice just starting out, an intermediate learner aiming to consolidate your knowledge, or an advanced user in need of a quick refresher, this guide is crafted to meet your TypeScript learning requirements.
@@ -74,7 +72,7 @@ TypeScript is a statically-typed superset of JavaScript, designed to enhance the
 
 It introduces optional static typing, classes, and interfaces to JavaScript, drawing parallels with languages like C# and Java. TypeScript code is transpiled to plain JavaScript, ensuring compatibility across various JavaScript environments.
 
-While TypeScript and JavaScript can operate in the same environment, they exhibit key differences. The main one is that TypeScript is statically typed, providing type safety, while JavaScript is dynamically typed.
+While TypeScript and JavaScript can operate in the same environment, they exhibit key differences. The main one is that TypeScript is `statically typed`, providing type safety, while JavaScript is `dynamically typed`.
 
 Let's delve into some of these differences:
 
@@ -108,6 +106,8 @@ function add(a: number, b: number): number {
 add(1, 2); // Returns: 3
 
 ```
+
+TBC - 20251101 - 1821 
 
 In the TypeScript version, we've annotated the parameters a and b with the number type. We've also specified that the function returns a number.
 

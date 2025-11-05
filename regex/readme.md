@@ -6,7 +6,7 @@
 
 # Regex Cheats
 
-- [Tunc Regex Cheat](./regex-cheat.md)
+- [Orak Regex Cheat](./regex-cheat.md)
 
 
 # Regex Articles

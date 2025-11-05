@@ -1,15 +1,16 @@
 Source : https://www.typescripttutorial.net/typescript-tutorial/typescript-types/
 
-(some parts may be modified or removed)
+(some parts may be modified or removed) ✔
 
 [Back](../readme.md)
 
+---
+
 - [TypeScript Types](#typescript-types)
 - [Understanding Type Annotations in TypeScript](#understanding-type-annotations-in-typescript)
-  - [Type annotation examples](#type-annotation-examples)
-    - [Arrays](#arrays)
-    - [Objects](#objects)
-    - [Function arguments \& return types](#function-arguments--return-types)
+  - [Arrays](#arrays)
+  - [Objects](#objects)
+  - [Function arguments \& return types](#function-arguments--return-types)
 - [TypeScript Type Inference](#typescript-type-inference)
   - [Contextual typing](#contextual-typing)
   - [Type inference vs. Type annotations](#type-inference-vs-type-annotations)
@@ -22,6 +23,10 @@ Source : https://www.typescripttutorial.net/typescript-tutorial/typescript-types
 - [TypeScript Enum](#typescript-enum)
 - [TypeScript any Type](#typescript-any-type)
 - [TypeScript Unknown Type](#typescript-unknown-type)
+- [TypeScript union Type](#typescript-union-type)
+- [TypeScript String Literal Types](#typescript-string-literal-types)
+- [TypeScript Type Aliases](#typescript-type-aliases)
+- [TypeScript never Type](#typescript-never-type)
 
 ---
 
@@ -48,10 +53,6 @@ It also has many methods like match(), indexOf(), and toLocaleUpperCase(). For e
 ```js
 console.log("Hello".toLocaleUpperCase()); // HELLO
 ```
-
-If you look at the value 'Hello' and describe it by listing the properties and methods, it would be inconvenient.
-
-A shorter way to refer to a value is to assign it a type. In this example, you say the 'Hello' is a string. Then, you know that you can use the properties and methods of a string for the value 'Hello'.
 
 In conclusion, in TypeScript:
 
@@ -151,9 +152,9 @@ let age: number = 25;
 let active: boolean = true;
 ```
 
-## Type annotation examples
+➖ Type annotation examples
 
-### Arrays
+## Arrays
 
 To annotate an array type you use a specific type followed by a square bracket : `type[] :`
 
@@ -169,7 +170,7 @@ For example, the following declares an array of strings:
 let names: string[] = ["John", "Jane", "Peter", "David", "Mary"];
 ```
 
-### Objects
+## Objects
 
 To specify a type for an object, you use the object type annotation. For example:
 
@@ -187,7 +188,7 @@ person = {
 
 In this example, the person object only accepts an object that has two properties: name with the string type and age with the number type.
 
-### Function arguments & return types
+## Function arguments & return types
 
 The following shows a function annotation with parameter type annotation and return type annotation:
 
@@ -684,8 +685,6 @@ console.log(vacant.toString());
 
 # TypeScript Array Type
 
-TBC - 20251031 - 1836
-
 A TypeScript array is an ordered list of data. To declare an array that holds values of a specific type, you use the following syntax:
 
 ```js
@@ -747,8 +746,6 @@ console.log(typeof skill);
 // string
 ```
 
-In this example, we extract the first element of the skills array and assign it to the skill variable.
-
 Since an element in a string array is a string, TypeScript infers the type of the skill variable to string as shown in the output.
 
 ➖ TypeScript array properties and methods
@@ -780,7 +777,7 @@ The following illustrates how to define an array that holds both strings and num
 let scores = ["Programming", 5, "Software Design", 4];
 ```
 
-In this case, TypeScript infers the scores array as an array of string | number. It’s equivalent to the following:
+In this case, TypeScript infers the scores array as an array of `string | number`. It’s equivalent to the following:
 
 ```js
 let scores: (string | number)[];
@@ -790,8 +787,8 @@ scores = ["Programming", 5, "Software Design", 4];
 **Summary**
 
 - In TypeScript, an array is an ordered list of values.
-- Use the let arr: type[] syntax to declare an array of a specific type. Adding a value of a different type to the array will result in an error.
-- An array can store values of mixed types. Use the arr: (type1 | type2) [] syntax to declare an array of values with mixed types (type1, and type2)
+- Use the `let arr: type[]` syntax to declare an array of a specific type. Adding a value of a different type to the array will result in an error.
+- An array can store values of mixed types. Use the `arr: (type1 | type2) []` syntax to declare an array of values with mixed types (type1, and type2)
 
 # TypeScript Tuple
 
@@ -818,11 +815,8 @@ skill = [5, "Programming"];
 // error TS2322: Type 'string' is not assignable to type 'number'.
 ```
 
-For this reason, it’s a good practice to use tuples with data that are related to each other in a specific order.
+For example, you can use a tuple to define an RGB color that always comes in a three-number pattern: (r,g,b)
 
-For example, you can use a tuple to define an RGB color that always comes in a three-number pattern:
-
-(r,g,b)
 For example:
 
 ```js
@@ -833,7 +827,7 @@ The color[0], color[1], and color[2] would be logically mapped to Red, Green and
 
 ➖ Optional Tuple Elements
 
-Since TypeScript 3.0, a tuple can have optional elements specified using the question mark (?) postfix.
+Since TypeScript 3.0, a tuple can have optional elements specified using the question mark `(?)` postfix.
 
 For example, you can define an RGBA tuple with the optional alpha channel value:
 
@@ -849,6 +843,8 @@ Note that the RGBA defines colors using the red, green, blue, and alpha models. 
 **Summary**
 
 - A tuple is an array with a fixed number of elements whose types are known.
+
+
 
 # TypeScript Enum
 
@@ -868,24 +864,13 @@ enum name {constant1, constant2, ...};
 
 In this syntax, the constant1, constant2, etc., are also known as the members of the enum.
 
-➖ TypeScript enum type example
+🧲 TypeScript enum type example
 
 The following example creates an enum that represents the months of the year:
 
 ```js
 enum Month {
-    Jan,
-    Feb,
-    Mar,
-    Apr,
-    May,
-    Jun,
-    Jul,
-    Aug,
-    Sep,
-    Oct,
-    Nov,
-    Dec
+    Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec
 };
 
 ```
@@ -997,18 +982,7 @@ It’s possible to explicitly specify numbers for the members of an enum like th
 
 ```js
 enum Month {
-    Jan = 1,
-    Feb,
-    Mar,
-    Apr,
-    May,
-    Jun,
-    Jul,
-    Aug,
-    Sep,
-    Oct,
-    Nov,
-    Dec
+    Jan = 1,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec
 };
 
 ```
@@ -1348,12 +1322,436 @@ In this example, before accessing a method of the value, we validate its type to
 - Use the unknown type to handle data coming from external sources and requires validation before use.
 
 
+# TypeScript union Type
+
+Sometimes, you will run into a function that expects a parameter that is either a number or a string. For example:
+
+```js
+function add(a: any, b: any) {
+    if (typeof a === 'number' && typeof b === 'number') {
+        return a + b;
+    }
+    if (typeof a === 'string' && typeof b === 'string') {
+        return a.concat(b);
+    }
+    throw new Error('Parameters must be numbers or strings');
+}
+
+```
+
+In this example, the add() function will calculate the sum of its parameters if they are numbers.
+
+If the parameters are strings, the add() function will concatenate them into a single string.
+
+If the parameters are neither numbers nor strings, the add() function throws an error.
+
+The problem with the parameters of the add() function is that its parameters have the any type. It means that you can call the function with arguments that are neither numbers nor strings, the TypeScript will be fine with it.
+
+This code will be compiled successfully but cause an error at runtime:
+
+```js
+add(true, false);
+
+```
+
+To resolve this, you can use the TypeScript union type. The union type allows you to combine multiple types into one type.
+
+For example, the following variable is of type number or string:
+
+```js
+let result: number | string;
+result = 10; // OK
+result = 'Hi'; // also OK
+result = false; // a boolean value, not OK
+
+```
+
+A union type describes a value that can be one of several types, not just two. For example number | string | boolean is the type of a value that can be a number, a string, or a boolean.
+
+Back to the add() function example, you can change the types of parameters from the any to a union like this:
+
+```ts
+function add(a: number | string, b: number | string) {
+    if (typeof a === 'number' && typeof b === 'number') {
+        return a + b;
+    }
+    if (typeof a === 'string' && typeof b === 'string') {
+        return a.concat(b);
+    }
+    throw new Error('Parameters must be numbers or strings');
+}
+
+```
+
+We can specify the union type for the add function:
+
+```js
+function add(a: number | string, b: number | string) :  number | string {
+    if (typeof a === 'number' && typeof b === 'number') {
+        return a + b;
+    }
+    if (typeof a === 'string' && typeof b === 'string') {
+        return a.concat(b);
+    }
+    throw new Error('Parameters must be numbers or strings');
+}
+
+```
+
+Later, you will learn about the generic type to handle this more elegantly.
+
+Summary
+
+- A TypeScript union type allows you to store a value of one or several types in a variable.
+
+# TypeScript String Literal Types
+
+The string literal types allow you to define a type that accepts only one specified string literal.
+
+The following defines a string literal type that accepts a literal string 'click':
+
+```js
+let click: 'click';
+
+```
+
+The click is a string literal type that accepts only the string-literal 'click'. If you assign the literal string 'click' to the click, it will be valid:
+
+```js
+click = 'click'; // valid
+
+```
+
+However, when you assign another string literal to the click, the TypeScript compiler will issue an error. For example:
+
+```js
+click = 'dblclick'; // compiler error
+
+// Error:
+// 
+// Type '"dblclick"' is not assignable to type '"click"'.
+```
+
+The string literal type is useful to limit a possible string value that a variable can store.
+
+The string literal types can combine nicely with the union types to define a finite set of string literal values for a variable:
+
+```js
+let mouseEvent: 'click' | 'dblclick' | 'mouseup' | 'mousedown';
+mouseEvent = 'click'; // valid
+mouseEvent = 'dblclick'; // valid
+mouseEvent = 'mouseup'; // valid
+mouseEvent = 'mousedown'; // valid
+mouseEvent = 'mouseover'; // compiler error
+
+```
+
+If you use the string literal types in multiple places, they will be verbose.
+
+To avoid this, you can use the type aliases. For example:
+
+```js
+type MyMouseEvent = 'click' | 'dblclick' | 'mouseup' | 'mousedown';
+let mouseEvent: MyMouseEvent;
+mouseEvent = 'click'; // valid
+mouseEvent = 'dblclick'; // valid
+mouseEvent = 'mouseup'; // valid
+mouseEvent = 'mousedown'; // valid
+mouseEvent = 'mouseover'; // compiler error
+
+let anotherEvent: MyMouseEvent;
+
+```
+
+Summary
+
+- A TypeScript string literal type defines a type that accepts specified string literal.
+Use the string literal types with union types and type aliases to define types that accept a finite set of string literals.
+
+# TypeScript Type Aliases
+
+In TypeScript, a type alias allows you to create `a new name for an existing type`.
+
+Type aliases can be useful for:
+
+- Simplifying complex types.
+- Making code more readable.
+- Creating reusable types that can be used in many places in the codebase.
+
+To define a type alias, you use the `type` keyword followed by the alias name and the type it represents.
+
+Syntax
+
+```js
+type alias = existingType;
+
+```
+
+The existing type can be any valid TypeScript type including primitive type, object type, union type, intersection type, and function type.
+
+➖ Type alias examples
+
+1) Primitive types
+
+The following example uses the type alias chars for the string type:
+
+```js
+type Name: string;
+
+let firstName: Name;
+let lastName: Name;
+
+```
+
+In this example, we create the `Name` as `a type alias` for the string type and use it to declare two variables firstName and lastName.
+
+1) Object types
+2) 
+The following example defines `a type alias Person` for an object that has two properties name and age:
+
+```js
+type Person = {
+  name: string;
+  age: number;
+};
+
+let person: Person = {
+  name: 'John',
+  age: 25
+};
+
+```
+
+1) Union Types
+
+The following example shows how to define a type alias for the union type `string | number`:
+
+```js
+type alphanumeric = string | number;
+
+let input: alphanumeric;
+input = 100; // valid
+input = 'Hi'; // valid
+input = false; // Compiler error
+
+```
+
+2) Intersection Types
+
+The following example shows how to create a type alias for the intersection type Personal & Contact:
+
+```js
+type Personal = {
+  name: string;
+  age: number;
+};
+
+type Contact = {
+  email: string;
+  phone: string;
+};
+
+type Candidate = Personal & Contact;
+
+let candidate: Candidate = {
+  name: "Joe",
+  age: 25,
+  email: "joe@example.com",
+  phone: "(408)-123-4567"
+};
+
+```
+
+Summary
+
+- Use type aliases to define new names for existing types.
+
+# TypeScript never Type
+
+In TypeScript, a type is like a set of values. For example, the number type holds the numbers 1, 2, 3, etc. The string type holds the strings like 'Hi', 'Hello', etc. The null type holds a single value, which is null.
+
+The never type is a type that holds no value. It is like an empty set.
+
+Since a never type does not hold any value, you cannot assign a value to a variable with the never type.
+
+For example, the following will result in an error:
+
+```js
+let empty: never = 'hello';
+
+```
+
+The TypeScript compiler issues the following error:
+
+```sh
+Type 'string' is not assignable to type 'never'
+
+```
+
+So why do we need the never type in the first place?
+
+Since the never type has zero value, you can use it to denote an impossibility in the type system.
+
+For example, you may have an intersection type that can be both a string and a number at the same time, which is impossible:
+
+```js
+type Alphanumeric = string & number; // never
+
+```
+
+Therefore, the TypeScript compiler infers the type of Alphanumeric as never.
+
+This is because string and number are mutually exclusive. In other words, a value cannot be both a string and a number simultaneously.
+
+Typically, you use the never type to represent the return type of a function that never returns the control to the caller. For example, a function that always throws an error:
+
+```js
+function raiseError(message: string): never {
+    throw new Error(message);
+}
+
+```
+Please do not confuse with functions that return void but still return the control to the caller.
+
+If you have a function that contains an indefinite loop, its return type should be never. For example:
+
+```js
+function forever(): never {
+  while (true) {}
+}
 
 
+```
 
+In this example, the type of the return type of the forever() function is never.
 
+The TypeScript never example
 
+Let’s take an example of using the never type:
 
+```js
+type Role = 'admin' | 'user';
+
+const authorize = (role: Role): string => {
+  switch (role) {
+    case 'admin':
+      return 'You can do anything';
+    case 'user':
+      return 'You can do something';
+    default:
+      // never reach here util we add a new role
+      const _unreachable: never = role;
+      throw new Error(`Invalid role: ${_unreachable}`);
+  }
+};
+
+console.log(authorize('admin'));
+
+```
+
+How it works.
+
+Step 1. Define a type Role that can be either a string 'admin' or 'user':
+
+```js
+type Role = 'admin' | 'user';
+
+```
+
+Step 2. Create the authorize() function that accepts a value of the Role type and returns a string:
+
+```js
+const authorize = (role: Role): string => {
+  switch (role) {
+    case 'admin':
+      return 'You can do anything';
+    case 'user':
+      return 'You can do something';
+    default:
+      // never reach here util we add a new role
+      const _unreachable: never = role;
+      throw new Error(`Invalid role: ${_unreachable}`);
+  }
+};
+
+```
+
+How it works.
+
+First, use the switch statement to return a corresponding string if the role is admin or user.
+
+Second, define a variable called _unreachable with the type never and assign the role to it. Also, throw an error in the default branch because the execution will never reach the default branch.
+
+Why do we handle the default case?
+
+The reason is that if we add a new value to the Role type and forget to add a logic to handle the new role, TypeScript will issue an error:
+
+```js
+type Role = 'admin' | 'user' | 'guest';
+
+```
+
+In this case, we add the 'guest' to the Role type.
+
+And TypeScript issues the following error:
+
+```js
+Type 'string' is not assignable to type 'never'.ts(2322)
+
+```
+
+This is because the value of the role in the default branch now becomes the string 'guest' and you cannot assign a string value to a variable with the type never.
+
+To fix this, you need to create a new case branch to handle the new role:
+
+```js
+const authorize = (role: Role): string => {
+  switch (role) {
+    case 'admin':
+      return 'You can do anything';
+    case 'user':
+      return 'You can do something';
+    case 'guest':
+      return 'You can do nothing';
+    default:
+      // never reach here util we add a new role
+      const _unreachable: never = role;
+      throw new Error(`Invalid role: ${_unreachable}`);
+  }
+};
+
+```
+
+To make it more concise, we can define a function with the return type never and use it in the default branch:
+
+```js
+type Role = 'admin' | 'user' | 'guest';
+
+const unknownRole = (role: never): never => {
+  throw new Error(`Invalid role: ${role}`);
+};
+
+const authorize = (role: Role): string => {
+  switch (role) {
+    case 'admin':
+      return 'You can do anything';
+    case 'user':
+      return 'You can do something';
+    case 'guest':
+      return 'You can do nothing';
+    default:
+      // never reach here util we add a new role
+      return unknownRole(role);
+  }
+};
+
+console.log(authorize('admin'));
+
+```
+
+Summary
+
+- Use the never type that holds no value, denoting an impossibility in the type system.
 
 
 

@@ -1,6 +1,5 @@
 
-- [Me](#me)
-- [AI Assistant](#ai-assistant)
+- [`<script type="module">`](#script-typemodule)
   - [Özellikleri:](#özellikleri)
   - [Ne Zaman Kullanılır:](#ne-zaman-kullanılır)
   - [Örnek:](#örnek)
@@ -8,10 +7,7 @@
   - [Destek:](#destek)
 
 
-## Me
-<script type="module"> açıklar mısın bana
-
-## AI Assistant
+## `<script type="module">` 
 
 `<script type="module">` etiketi HTML'de, JavaScript kodunu *ES6 modülleri* (ES Modules) olarak çalıştırmak için kullanılır. Bu özellik, modern JavaScript kodunu daha düzenli bir şekilde organize etmek, kodun farklı dosyalara bölünmesine olanak tanımak ve başka dosyaları **import (ithal etmek)** gibi işlemleri güvenli bir şekilde gerçekleştirmek için geliştirilmiştir.
 

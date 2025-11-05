@@ -6,6 +6,7 @@
 - [References](#references)
 - [Js Notes](#js-notes)
 - [Jst Notes](#jst-notes)
+- [Regular Expression](#regular-expression)
 - [JsInfo Notes - Advanced Javascript](#jsinfo-notes---advanced-javascript)
 - [Node Notes](#node-notes)
 - [Other Cheatsheets](#other-cheatsheets)
@@ -70,6 +71,18 @@ These notes are from Asabeneh's 30-Days-Of-JavaScript tutorials. somep parts may
 # Jst Notes
 
 - [Content](./notes2/jst-01.md)
+
+
+# Regular Expression
+
+- [Content](./notes-jst-regex/jst-regex-00-content.md)
+- [Regex Intro](./notes-jst-regex/jst-regex-01-regex.md)
+- [Quantifiers](./notes-jst-regex/jst-regex-02-quantifiers.md)
+- [Sets and Ranges](./notes-jst-regex/jst-regex-03-sets.md)
+- [Grouping](./notes-jst-regex/jst-regex-04-grouping.md)
+- [Look Around](./notes-jst-regex/jst-regex-05-look-around.md)
+- [Regex Methods](./notes-jst-regex/jst-regex-06-methods.md)
+
 
 
 # JsInfo Notes - Advanced Javascript

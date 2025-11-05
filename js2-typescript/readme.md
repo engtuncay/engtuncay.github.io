@@ -24,11 +24,11 @@ Source : https://www.typescripttutorial.net
 
 - [Contents](./notes/ts-01-1-content.md)
 
-- [1 Intro](./notes/ts-01.md)                                
+- [1 Intro](./notes/ts-01-getting-started.md)                                
 
 - [2 Types](./notes/ts-02-types.md)                       
 
-- [3 Type Annotations](./notes/ts-03-type-annotations.md) 
+- [3 Function](./notes/ts-03-type-annotations.md) 
 
 # Arts
 

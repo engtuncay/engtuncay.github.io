@@ -148,7 +148,8 @@ console.log(result);
 // ["love","luve","live"]
 
 ```
-<!-- TBC - 20250809 - 1404   -->
+
+TBC - 20250809 - 1404
 
 #### Search Method
 

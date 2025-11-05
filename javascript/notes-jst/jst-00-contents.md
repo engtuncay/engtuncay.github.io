@@ -1,6 +1,8 @@
 
 Source : https://www.javascripttutorial.net
 
+(some parts may be modified or removed)
+
 [Back](../readme.md)
 
 ---

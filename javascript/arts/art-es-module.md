@@ -1,9 +1,15 @@
 
 <h1>Using ECMAScript modules (ESM) with Node.js By Diogo Souza</h1>
 
-Source : https://blog.logrocket.com/how-to-use-ecmascript-modules-with-node-js/ (some parts may be modified)
+Apr 5, 2021
 
-Apr 5, 2021 ⋅ 6 min read
+Source : https://blog.logrocket.com/how-to-use-ecmascript-modules-with-node-js 
+
+(some parts may be modified or removed)
+
+[Back](../readme.md)
+
+---
 
 **Content**
 

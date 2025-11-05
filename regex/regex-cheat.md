@@ -1,6 +1,18 @@
 
-# Regular Expressions
+- [Regular Expressions](#regular-expressions)
+  - [Basic Syntax](#basic-syntax)
+  - [Position Matching](#position-matching)
+  - [Character Classes](#character-classes)
+  - [Special Characters](#special-characters)
+  - [Groups and Ranges](#groups-and-ranges)
+  - [Quantifiers](#quantifiers)
+  - [Escape Sequences](#escape-sequences)
+  - [String Replacement](#string-replacement)
+  - [Assertions](#assertions)
+  - [POSIX](#posix)
+  - [Pattern Modifiers](#pattern-modifiers)
 
+# Regular Expressions
 
 ## Basic Syntax
 
@@ -64,7 +76,7 @@
 - `*`: 0 or more
 - `+`: 1 or more
 - `?`: 0 or 1
-- `{3`: Exactly 3
+- `{3}`: Exactly 3
 - `{3,}`: 3 or more
 - `{3,5}`: 3, 4 or 5
 
@@ -73,7 +85,7 @@
 
 ## Escape Sequences
 
-- `\`:Escape following character. Used to escape any of the following metacharacters: {}[]()^$.|*+?\.
+- `\`:Escape following character. Used to escape any of the following metacharacters: `{}[]()^$.|*+?\.`
 - `\Q`: Begin literal sequence
 - `\E`: End literal sequence
 
@@ -88,7 +100,7 @@
 - `$+`: Last matched string
 - `$&`: Entire matched string
 
-> Note: Some regex implem­ent­ations use \ instead of $.
+📝 Note: Some regex implem­ent­ations use `\` instead of `$`.
 
 
 ## Assertions
@@ -131,4 +143,3 @@
 - `U`: Ungreedy mode
  
 
- 
