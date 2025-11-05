@@ -3,7 +3,6 @@
 [Back](../readme.md)
 
 - [Js Cheats](#js-cheats)
-- [References](#references)
 - [Js Notes](#js-notes)
 - [Jst Notes](#jst-notes)
 - [Regular Expression](#regular-expression)
@@ -14,6 +13,7 @@
 - [Other Links](#other-links)
 - [Js Articles](#js-articles)
 - [Node Articles](#node-articles)
+- [References](#references)
 
 ---
 
@@ -28,24 +28,6 @@
 - Interactive Js Cheat, https://htmlcheatsheet.com/js/
 
 - Modern Javascript Cheat, https://github.com/mbeaudru/modern-js-cheatsheet
-
-# References
-
-- Javascript Tutorial, https://www.javascripttutorial.net
-
-- Javascript Info, http://www.javascript.info
-
-- ES6 Tutorial, https://www.javascripttutorial.net/es6
-
-- 30 Days of Javascript , https://github.com/Asabeneh/30-Days-Of-JavaScript
-
-- Es6 Features, http://es6-features.org
-
-- Exploring Js, https://exploringjs.com/
-
-- Developer Mozilla Docs, https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/JavaScript_basics
-
-- W3Schools, https://www.w3schools.com/js/default.asp 
 
 # Js Notes
 
@@ -138,3 +120,21 @@ Drafts
 # Js Articles
 
 # Node Articles
+
+# References
+
+- Javascript Tutorial, https://www.javascripttutorial.net
+
+- Javascript Info, http://www.javascript.info
+
+- ES6 Tutorial, https://www.javascripttutorial.net/es6
+
+- 30 Days of Javascript , https://github.com/Asabeneh/30-Days-Of-JavaScript
+
+- Es6 Features, http://es6-features.org
+
+- Exploring Js, https://exploringjs.com/
+
+- Developer Mozilla Docs, https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/JavaScript_basics
+
+- W3Schools, https://www.w3schools.com/js/default.asp 
