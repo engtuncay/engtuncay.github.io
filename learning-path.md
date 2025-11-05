@@ -11,6 +11,8 @@ Css,Tailwind,Bootstrap
 solidjs (react)
 vue
 
+blockchain
+
 Mysql
 Mssql
 Sqlite
