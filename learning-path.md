@@ -2,15 +2,15 @@
 
 **Learning** Targets
 ------*-------
-Csharp + wpf + web api
-Php (+rest)
-Javascript,Typescript, Node
-Java
+csharp + wpf + web api + dot net (core)
+php (+rest) + codeigniter
+javascript,typescript, Node (vite vs)
 
 Html
 Css,Tailwind,Bootstrap
 
-Svelte
+solidjs
+vue
 React (daha sonra)
 
 Mysql
@@ -19,16 +19,18 @@ Sqlite
 
 Xml,Xslt
 
-Inkscape (grafik için)
+inkscape (grafik için)
 
-Firebird (gelecek)
+firebird (gelecek)
 React + React Native (gelecek)
-Windows+IIS (gelecek)
+windows+IIS (gelecek)
+
+Java
 
 ---*---
-
-Flutter (gelecek-2)
 Docker (gelecek-2)
-Devops (gelecek-2)
+Devops (gelecek-2) (azure vs)
 
 ---*---
+Svelte
+Flutter (gelecek-2)
