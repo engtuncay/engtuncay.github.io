@@ -1,17 +1,15 @@
+➖ **Learning Targets**
 
-
-**Learning** Targets
-------*-------
-csharp + wpf + web api + dot net (core)
-php (+rest) + codeigniter
+------*Step 1*-------
 javascript,typescript, Node (vite vs)
+php (+rest) + codeigniter
+csharp + wpf + web api + dot net (core)
 
 Html
 Css,Tailwind,Bootstrap
 
-solidjs
+solidjs (react)
 vue
-React (daha sonra)
 
 Mysql
 Mssql
