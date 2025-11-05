@@ -4,6 +4,7 @@ OrakSoft Keyboard shortcuts for Windows Based On VS Code And Idea
 
 ---
 
+- [Memorize Table](#memorize-table)
 - [General (Frequent)](#general-frequent)
 - [Code Navigation](#code-navigation)
 - [Rich languages editing](#rich-languages-editing)
@@ -17,6 +18,7 @@ OrakSoft Keyboard shortcuts for Windows Based On VS Code And Idea
 - [File management](#file-management)
 - [Alphatic Order](#alphatic-order)
   - [Ctrl Shortcuts](#ctrl-shortcuts)
+  - [Alt Shortcuts](#alt-shortcuts)
   - [multi keys](#multi-keys)
     - [(c+k) multi keys](#ck-multi-keys)
     - [(c+h) multi keys](#ch-multi-keys)
@@ -32,17 +34,28 @@ OrakSoft Keyboard shortcuts for Windows Based On VS Code And Idea
 - c+k,s means c+k, then c+s
 - shortcuts with alt key may coincide with alt plus menu keys (alt ile olanlar menu kısayolu ile çakışabilir)
 
+
+# Memorize Table
+
+kullanışlı olan,ezberlenecek liste
+
+| Key | Desc |
+|-----|------|
+| aaa | aaa  |
+| bbb | bbb  |
+
 # General (Frequent)
 
 | Shortcut      | Desc                   |
 | ------------- | ---------------------- |
 | F1 (cs+p)     | Show Command Palette   |
-| c+p           | Go to File, Quick Open |
-| cs+n ???      | New window/instance    |
-| cs+w ???      | Close window/instance  |
 | ca+s          | User Settings          |
 | ca+d          | Keyboard Shortcuts     |
+| c+p           | Go to File, Quick Open |
 | c+pup / pdown | Prev / Next Tab        |
+| cs+n ???      | New window/instance    |
+| cs+w ???      | Close window/instance  |
+
 
 # Code Navigation
 
@@ -241,34 +254,65 @@ c+j      | (workbench.action.focusActiveEditorGroup)        |
 
 ## Ctrl Shortcuts
 
-| Key | Desc                  | User Change    |
-| --- | --------------------- | -------------- |
-| c+a | select all            |
-| ctb |
-| c+c | cut                   |
-| c+d |
-| c+e |
-| c+f | find                  |
-| c+g | go to                 |
-| c+h | multi                 | c+h+ h replace |
-| c+ı |
-| c+i |
-| c+j | multi key             |
-| c+k | multi key             |
-| c+l | delete line           |
-| c+m | screen to center      |
-| c+n | Create New File       |
-| c+o | Open File             |
-| c+p | Navigate Project File |
-| c+r | Open Recent           | ctr c+r        |
-| c+s | Save                  |
-| c+ş |
-| c+t | go to symbol          |
-| c+u |
-| c+ü |
-| c+v | paste                 |
-| c+y |
-| c+z |
+| Key   | Desc                   |
+|-------|------------------------|
+| c+a   | select all             |
+| ctb   |
+| c+c   | cut                    |
+| c+d   |
+| c+e   |
+| c+f   | find                   |
+| c+g   | go to                  |
+| c+h   | multi (c+h+ h replace) |
+| c+ı   |
+| c+i   |
+| c+j   | multi key              |
+| c+k   | multi key              |
+| c+l   | delete line            |
+| c+m   | screen to center       |
+| c+n   | Create New File        |
+| c+o   | Open File              |
+| c+p   | Navigate Project File  |
+| c+rr | Open Recent            |
+| c+s   | Save                   |
+| c+ş   |
+| c+t   | go to symbol           |
+| c+u   |
+| c+ü   |
+| c+v   | paste                  |
+| c+y   |
+| c+z   |
+
+## Alt Shortcuts
+
+| Key | Desc             |
+|-----|------------------|
+| a   | matched brackets |
+| b   | -                |
+| c   | -                |
+| d   | open file        |
+| e   | edit menu        |
+| f   | file menu        |
+| g   | go menu          |
+| h   | help menu        |
+| ı   | -                |
+| i   | -                |
+| j   | -                |
+| k   | -                |
+| l   | multi            |
+| m   | -                |
+| n   | -                |
+| o   | -                |
+| p   | -                |
+| r   | -                |
+| s   | tilda            |
+| ş   | -                |
+| t   | -                |
+| u   | -                |
+| ü   | -                |
+| v   | view menu        |
+| y   | -                |
+
 
 ## multi keys
 
@@ -278,7 +322,8 @@ c+j      | (workbench.action.focusActiveEditorGroup)        |
 | c+j | x                  |
 | c+r | x                  |
 | c+h | x                  |
-| c+1 | navigation related |
+| c+1 | navigation related??? |
+| c+m | markdown related |
 
 ### (c+k) multi keys
 
