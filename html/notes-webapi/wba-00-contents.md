@@ -7,6 +7,17 @@ Source : https://www.javascripttutorial.net/web-apis/
 
 ---
 
+- [Web API](#web-api)
+  - [Section 1. Client Storage](#section-1-client-storage)
+  - [Section 2. Drag-and-Drop API](#section-2-drag-and-drop-api)
+  - [Section 3. Geolocation API](#section-3-geolocation-api)
+  - [Section 4. Notification API](#section-4-notification-api)
+  - [Section 5. History API](#section-5-history-api)
+  - [Section 6. Network Requests](#section-6-network-requests)
+  - [Section 7. Dialog \& Popover API](#section-7-dialog--popover-api)
+  - [Section 8. Canvas API](#section-8-canvas-api)
+
+
 # Web API
 
 This section introduces you to the Web APIs specified in the HTML5 specification. These Web APIs allow you to use the modern functions provided by the web browsers in your web applications.
