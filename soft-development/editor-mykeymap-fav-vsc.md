@@ -1,4 +1,4 @@
-OrakSoft Keyboard shortcuts for Windows Based On VS Code And Idea
+OrakSoft Keyboard shortcuts for Windows Based On Idea And VS Code
 
 [Back](../readme.md)
 
@@ -7,7 +7,7 @@ OrakSoft Keyboard shortcuts for Windows Based On VS Code And Idea
 - [Memorize Table](#memorize-table)
 - [General (Frequent)](#general-frequent)
 - [Code Navigation](#code-navigation)
-- [Rich languages editing](#rich-languages-editing)
+- [Rich Languages Editing](#rich-languages-editing)
 - [Display Navigation](#display-navigation)
 - [Basic editing](#basic-editing)
 - [Editor management](#editor-management)
@@ -31,9 +31,10 @@ OrakSoft Keyboard shortcuts for Windows Based On VS Code And Idea
 <h2>Info About This Article</h2>
 
 - cs+s means Ctrl + Shift + S key
-- c+k,s means c+k, then c+s
-- shortcuts with alt key may coincide with alt plus menu keys (alt ile olanlar menu kısayolu ile çakışabilir)
 
+- ❗ c+k,s means c+k, then c+s
+
+- np:numpad , np- (numpad -)
 
 # Memorize Table
 
@@ -66,7 +67,7 @@ Kod içerisinde gezinme için kısayollar
 | c+t          | Show all Symbols                   |   |
 | c+p          | Go to File                         |   |
 | c+\* (cs+o)  | Go to Symbol...                    |   |
-| a+left/right | Go back / forward                  |   |
+| a+left/right | Go (navigate) back / forward |   |
 | c+g          | Go to Line                         |   |
 | F8           | Go to next error or warning        |   |
 | s+F8         | Go to previous error or warning    |   |
@@ -79,8 +80,8 @@ Kod içerisinde gezinme için kısayollar
 | a+z          | Toggle word wrap                   |   |
 | cs,np-       | Fold (collapse) region (close)     |   |
 | cs,np+       | Unfold (uncollapse) region (open)  |   |
-| c+k,[        | Fold (collapse) all subregions     |   |
-| c+k,]        | Unfold (uncollapse) all subregions |   |
+| c+k,[        | Fold (collapse) all subregions     | ??  |
+| c+k,]        | Unfold (uncollapse) all subregions | ??  |
 | c+k,0        | Fold (collapse) all regions        |   |
 | c+k,j        | Unfold (uncollapse) all regions    |   |
 | Home / End   | Go to beginning/end of line        |   |
@@ -88,7 +89,7 @@ Kod içerisinde gezinme için kısayollar
 | c+End        | Go to end of file                  |   |
 
 
-# Rich languages editing
+# Rich Languages Editing
 
 | Shortcut      | Desc                        |
 | ------------- | --------------------------- |
@@ -107,7 +108,8 @@ Kod içerisinde gezinme için kısayollar
 
 # Display Navigation
 
-Editor panelleri arasında gezinme, panellerin görüntülemesini açma ve kapama işlemleri
+- Editor panelleri arasında gezinme
+- panellerin görüntülemesini açma ve kapama işlemleri
 
 | Shortcut  | Desc                              | Note                              |
 | --------- | --------------------------------- | --------------------------------- |
@@ -143,11 +145,9 @@ c+j      | (workbench.action.focusActiveEditorGroup)        |
 
 | Shortcut      | Desc                        | Note |
 |---------------|-----------------------------|------|
-| c+X           | Cut line (empty selection)  |      |
-| c+C           | Copy line (empty selection) |      |
+| c+l           | Delete line                 |      |
 | a+ ↑ / ↓      | Move line up/down           |      |
 | sa + ↓ / ↑   | Copy line up/down           |      |
-| c+l           | Delete line                 |      |
 | c+Enter       | Insert line below           |      |
 | c+s+Enter     | Insert line above           |      |
 | c+] / [       | Indent/outdent line         |      |
@@ -159,11 +159,9 @@ c+j      | (workbench.action.focusActiveEditorGroup)        |
 | Sa+a, cs+7    | Toggle block comment        |      |
 
 
-{
-  aa,
-  bb,
-  cc
-}
+known things
+| c+X           | Cut line (empty selection)  |      |
+| c+C           | Copy line (empty selection) |      |
 
 # Editor management
 
@@ -349,33 +347,4 @@ c+k,m | Change file language
 
 # Templates
 
-Boş
-
-| Key | Desc |
-| --- | ---- |
-| a   |
-| b   |
-| c   |
-| d   |
-| e   |
-| f   |
-| g   |
-| h   |
-| ı   |
-| i   |
-| j   |
-| k   |
-| l   |
-| m   |
-| n   |
-| o   |
-| p   |
-| r   |
-| s   |
-| ş   |
-| t   |
-| u   |
-| ü   |
-| v   |
-| y   |
-| z   |
+See [Keymap Template](./keymap-template.md)

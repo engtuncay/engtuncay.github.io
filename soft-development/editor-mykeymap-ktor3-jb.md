@@ -16,7 +16,6 @@ Source : https://www.jetbrains.com/help/idea/reference-keymap-win-default.html
 - shortcuts with alt key may coincide with alt plus menu keys (alt ile olanlar menu kısayolu ile çakışabilir)
 - (*) symbol means that user changed key
 
-# Windows Keymap
 
 ## Contents
 
