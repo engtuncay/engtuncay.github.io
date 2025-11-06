@@ -71,3 +71,10 @@ pushState – Learn how to use the history.pushState() method.
 - Rotate – Add a rotation transformation to rotate a drawing object.
 - Scale – Add a scaling transformation to the canvas units horizontally and/or vertically.
 
+
+> ⚠️ Note: This content is for educational and personal reference purposes only.
+> Original source
+> https://www.javascripttutorial.net/web-apis/
+> ...
+> All rights and copyrights belong to their respective owners.
+
