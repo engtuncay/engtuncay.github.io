@@ -1,15 +1,14 @@
 
 
-
 - Basit bir Ema Göstergesi
 
 ```js
 //@version=5
-indicator("My EMA", overlay=true)
+indicator("My EMA", overlay=true)  // overlay=true grafiğin üstünde gösterir
 length = input.int(21, title="EMA Length")
 src = input.source(close, title="Source")
 ema_val = ta.ema(src, length)
-plot(ema_val, title="EMA", color=color.orange)
+plot(ema_val, title="EMA", color=color.orange, linewidth=2)
 
 ```
 

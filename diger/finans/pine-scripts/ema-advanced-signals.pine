@@ -1,0 +1,119 @@
+//@version=6
+indicator("Gelişmiş EMA Trend Analizi", overlay=true)
+
+// Temel EMA ayarları
+len1 = input.int(50, "EMA1", minval=1)
+len2 = input.int(200, "EMA2", minval=1)
+volLen = input.int(20, "Hacim MA Uzunluğu", minval=1)
+
+// Erken tespit ayarları
+useEarlySignals = input.bool(true, "Erken Sinyalleri Kullan")
+emaDistance = input.float(0.5, "EMA Yakınlık Eşiği (%)", minval=0.1, maxval=5.0) / 100
+momentumPeriod = input.int(5, "Momentum Periyodu", minval=3, maxval=20)
+useSlopeFilter = input.bool(true, "EMA Eğimi Filtresi")
+minSlopeThreshold = input.float(0.1, "Min Eğim Eşiği (%)", minval=0.01, maxval=1.0) / 100
+
+// Görsel ayarlar
+src = input.source(close, "Kaynak")
+show1 = input.bool(true, "EMA1 göster")
+show2 = input.bool(true, "EMA2 göster")
+showVolume = input.bool(true, "Hacim analizini göster")
+showEarlyWarnings = input.bool(true, "Erken Uyarıları Göster")
+
+// EMA hesaplamaları
+ema1 = ta.ema(src, len1)
+ema2 = ta.ema(src, len2)
+
+// EMA eğimleri (trend gücünü ölçmek için)
+ema1_slope = (ema1 - ema1[1]) / ema1[1]
+ema2_slope = (ema2 - ema2[1]) / ema2[1]
+
+// EMA'lar arası mesafe (normalize edilmiş)
+emaDistanceNorm = math.abs(ema1 - ema2) / close
+
+// Momentum hesaplaması
+momentum = ta.change(close, momentumPeriod)
+momentumMA = ta.sma(momentum, 5)
+
+// Klasik kesişimler
+bullishCross = ta.crossover(ema1, ema2)
+bearishCross = ta.crossunder(ema1, ema2)
+
+// ERKEN TESPİT SİNYALLERİ
+
+// 1. EMA'lar yakınlaşıyor ve momentum destekliyor
+emaApproaching = emaDistanceNorm < emaDistance and emaDistanceNorm[1] > emaDistanceNorm
+potentialBullish = emaApproaching and ema1 < ema2 and momentumMA > 0 and ema1_slope > ema2_slope
+potentialBearish = emaApproaching and ema1 > ema2 and momentumMA < 0 and ema1_slope < ema2_slope
+
+// 2. EMA eğimlerindeki değişim (erken trend değişimi işareti)
+ema1_slopeChange = ema1_slope > minSlopeThreshold and ema1_slope[1] < 0
+ema2_slopeChange = ema2_slope > minSlopeThreshold and ema2_slope[1] < 0
+
+// 3. Fiyat EMA'lardan önce hareket ediyorsa (leading indicator)
+priceLeading = close > ema1 and ema1 < ema2 and ta.rising(close, 3)
+priceLeadingBear = close < ema1 and ema1 > ema2 and ta.falling(close, 3)
+
+// 4. Hacim destekli erken sinyaller
+volumeMA = ta.sma(volume, volLen)
+highVolume = volume > volumeMA * 1.3
+
+// Kombine erken sinyaller
+earlyBullish = useEarlySignals and (potentialBullish or (ema1_slopeChange and ema1 < ema2) or priceLeading) and highVolume
+earlyBearish = useEarlySignals and (potentialBearish or (ema1_slope < -minSlopeThreshold and ema1_slope[1] > 0 and ema1 > ema2) or priceLeadingBear) and highVolume
+
+// EMA çizimleri
+plot(show1 ? ema1 : na, title="EMA1", color=color.orange, linewidth=2)
+plot(show2 ? ema2 : na, title="EMA2", color=color.blue, linewidth=2)
+
+// Klasik kesişim sinyalleri
+plotchar(bullishCross, "Bullish Cross", "▲", location.belowbar, color.green, size=size.normal)
+plotchar(bearishCross, "Bearish Cross", "▼", location.abovebar, color.red, size=size.normal)
+
+// ERKEN UYARI SİNYALLERİ
+plotchar(earlyBullish and showEarlyWarnings, "Erken Yükseliş", "◆", location.belowbar, color.lime, size=size.small)
+plotchar(earlyBearish and showEarlyWarnings, "Erken Düşüş", "◆", location.abovebar, color.fuchsia, size=size.small)
+
+// EMA yakınlık uyarısı
+plotchar(potentialBullish and showEarlyWarnings, "Yakınlaşma ↗", "○", location.belowbar, color.yellow, size=size.tiny)
+plotchar(potentialBearish and showEarlyWarnings, "Yakınlaşma ↘", "○", location.abovebar, color.orange, size=size.tiny)
+
+// Arka plan renkleri
+bgcolor(bullishCross ? color.new(color.green, 85) : na)
+bgcolor(bearishCross ? color.new(color.red, 85) : na)
+bgcolor(earlyBullish ? color.new(color.lime, 95) : na)
+bgcolor(earlyBearish ? color.new(color.fuchsia, 95) : na)
+
+// Bilgi tablosu
+if barstate.islast and showEarlyWarnings
+    var table infoTable = table.new(position.top_left, 2, 6, bgcolor=color.white, border_width=1)
+    table.cell(infoTable, 0, 0, "EMA Trend Analizi", text_color=color.black, text_size=size.small, bgcolor=color.gray)
+    table.cell(infoTable, 1, 0, "", text_color=color.black, text_size=size.small, bgcolor=color.gray)
+    
+    table.cell(infoTable, 0, 1, "EMA Mesafe", text_color=color.black, text_size=size.tiny)
+    table.cell(infoTable, 1, 1, str.tostring(emaDistanceNorm * 100, "#.##") + "%", 
+               text_color=emaDistanceNorm < emaDistance ? color.orange : color.black, text_size=size.tiny)
+    
+    table.cell(infoTable, 0, 2, "EMA1 Eğim", text_color=color.black, text_size=size.tiny)
+    table.cell(infoTable, 1, 2, str.tostring(ema1_slope * 100, "#.##") + "%", 
+               text_color=ema1_slope > 0 ? color.green : color.red, text_size=size.tiny)
+    
+    table.cell(infoTable, 0, 3, "EMA2 Eğim", text_color=color.black, text_size=size.tiny)
+    table.cell(infoTable, 1, 3, str.tostring(ema2_slope * 100, "#.##") + "%", 
+               text_color=ema2_slope > 0 ? color.green : color.red, text_size=size.tiny)
+    
+    table.cell(infoTable, 0, 4, "Momentum", text_color=color.black, text_size=size.tiny)
+    table.cell(infoTable, 1, 4, str.tostring(momentumMA, "#.##"), 
+               text_color=momentumMA > 0 ? color.green : color.red, text_size=size.tiny)
+    
+    table.cell(infoTable, 0, 5, "Durum", text_color=color.black, text_size=size.tiny)
+    currentStatus = earlyBullish ? "🔸 Erken Yükseliş" : earlyBearish ? "🔸 Erken Düşüş" : 
+                   potentialBullish ? "⚠ Yakınlaşma ↗" : potentialBearish ? "⚠ Yakınlaşma ↘" :
+                   bullishCross ? "✅ Yükseliş Kesiş" : bearishCross ? "❌ Düşüş Kesiş" : "➖ Beklemede"
+    table.cell(infoTable, 1, 5, currentStatus, text_color=color.blue, text_size=size.tiny)
+
+// Alert koşulları
+alertcondition(bullishCross, title="EMA Bullish Cross", message="EMA 50, EMA 200'ü yukarı kesti!")
+alertcondition(bearishCross, title="EMA Bearish Cross", message="EMA 50, EMA 200'ü aşağı kesti!")
+alertcondition(earlyBullish, title="Erken Yükseliş Sinyali", message="Erken yükseliş trendi tespit edildi!")
+alertcondition(earlyBearish, title="Erken Düşüş Sinyali", message="Erken düşüş trendi tespit edildi!")

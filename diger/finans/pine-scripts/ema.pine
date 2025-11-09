@@ -1,0 +1,45 @@
+//@version=6
+indicator("EMA1-EMA2 Analiz", overlay=true)
+
+len1 = input.int(50, "EMA1", minval=1)
+len2 = input.int(200, "EMA2", minval=1)
+len3 = input.int(50, "MA1", minval=1)
+
+src  = input.source(close, "Kaynak")
+show1 = input.bool(true, "EMA1 göster")
+show2 = input.bool(true, "EMA2 göster")
+show3 = input.bool(true, "MA1 göster")
+
+showNotes = input.bool(true, "Notları göster")
+customNote = input.string("Analiz Notu", "Özel not")
+
+showLabels = input.bool(true, "Geçiş etiketlerini göster")
+
+ema1 = ta.ema(src, len1)
+ema2 = ta.ema(src, len2)
+ma1 = ta.sma(src, len3)
+ma2 = ta.sma(src, 200)
+
+// Geçiş koşullarını global değişkenlere atayalım
+bullishCross = ta.crossover(ema1, ema2)
+bearishCross = ta.crossunder(ema1, ema2)
+
+plot(show1 ? ema1 : na, title="EMA1", color=color.orange, linewidth=2)
+plot(show2 ? ema2 : na, title="EMA2", color=color.blue,   linewidth=2)
+plot(show3 ? ma1 : na, title="MA1", color=color.rgb(243, 212, 33),   linewidth=2)
+plot(ma2, title="MA1", color=color.rgb(33, 243, 114),   linewidth=2)
+
+// İsterseniz geçişlerde arka plan rengi
+bgcolor(bullishCross ? color.new(color.green, 85) : na)
+bgcolor(bearishCross ? color.new(color.red, 85) : na)
+
+// Grafik üzerinde etiket gösterimi
+// if showLabels and bullishCross
+    // label.new(bar_index, high, "🚀 YUKARI", style=label.style_label_down, color=color.green, textcolor=color.white, size=size.small)
+
+// if showLabels and bearishCross
+    // label.new(bar_index, low, "📉 AŞAĞI", style=label.style_label_up, color=color.red, textcolor=color.white, size=size.small)
+
+// Alternatif: plotchar ile ok işaretleri
+plotchar(bullishCross, "Bullish", "▲", location.belowbar, color.green, size=size.small)
+plotchar(bearishCross, "Bearish", "▼", location.abovebar, color.red, size=size.small)

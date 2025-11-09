@@ -1,0 +1,39 @@
+//@version=5
+indicator("request.security Örnekleri", overlay=true)
+
+// 1. Günlük kapanış fiyatını çekme (hangi timeframe'de olursanız olun)
+daily_close = request.security(syminfo.tickerid, "1D", close)
+plot(daily_close, "Günlük Kapanış", color.blue, linewidth=2)
+
+// 2. Haftalık yüksek/düşük değerleri
+weekly_high = request.security(syminfo.tickerid, "1W", high)
+weekly_low = request.security(syminfo.tickerid, "1W", low)
+plot(weekly_high, "Haftalık Yüksek", color.green)
+plot(weekly_low, "Haftalık Düşük", color.red)
+
+// 3. 4 saatlik RSI değeri
+rsi_4h = request.security(syminfo.tickerid, "4H", ta.rsi(close, 14))
+
+// 4. Bitcoin'den veri çekme (hangi sembole bakıyorsanız bakın)
+btc_close = request.security("BINANCE:BTCUSDT", timeframe.period, close)
+
+// 5. S&P 500'den veri alma
+spy_close = request.security("AMEX:SPY", timeframe.period, close)
+
+// 6. Özel bir göstergeyi farklı timeframe'den çekme
+ema_daily = request.security(syminfo.tickerid, "1D", ta.ema(close, 20))
+plot(ema_daily, "Günlük EMA20", color.orange, linewidth=2)
+
+// 7. Hacim verisi çekme
+daily_volume = request.security(syminfo.tickerid, "1D", volume)
+
+// 8. Önceki günün kapanışı
+prev_day_close = request.security(syminfo.tickerid, "1D", close[1])
+plot(prev_day_close, "Önceki Gün Kapanış", color.gray, style=plot.style_line)
+
+// Kullanım örnekleri:
+// - Multi-timeframe analiz
+// - Cross-market analiz  
+// - Sector rotation strategies
+// - Correlation analysis
+// - Higher timeframe trend filtering

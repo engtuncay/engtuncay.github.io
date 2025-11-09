@@ -1,0 +1,84 @@
+pinescript'de al sat stratejisine kolay örnek verebilir misin
+
+GitHub Copilot: Pine Script'te basit bir alım-satım stratejisi örneği vereyim. İşte en temel hareketli ortalama kesişim stratejisi:
+
+```pinescript
+//@version=5
+strategy("Basit Hareketli Ortalama Stratejisi", overlay=true)
+
+// Giriş parametreleri
+hizli_ma_uzunluk = input.int(9, title="Hızlı MA Uzunluğu", minval=1)
+yavas_ma_uzunluk = input.int(21, title="Yavaş MA Uzunluğu", minval=1)
+
+// Hareketli ortalamaları hesapla
+hizli_ma = ta.sma(close, hizli_ma_uzunluk)
+yavas_ma = ta.sma(close, yavas_ma_uzunluk)
+
+// Grafik üzerinde çiz
+plot(hizli_ma, color=color.blue, title="Hızlı MA")
+plot(yavas_ma, color=color.red, title="Yavaş MA")
+
+// Al-Sat sinyalleri
+al_sinyali = ta.crossover(hizli_ma, yavas_ma)
+sat_sinyali = ta.crossunder(hizli_ma, yavas_ma)
+
+// Strateji emirleri
+if al_sinyali
+    strategy.entry("Long", strategy.long)
+
+if sat_sinyali
+    strategy.close("Long")
+
+// Sinyalleri grafik üzerinde göster
+plotshape(al_sinyali, title="Al Sinyali", style=shape.triangleup, 
+          location=location.belowbar, color=color.green, size=size.small)
+plotshape(sat_sinyali, title="Sat Sinyali", style=shape.triangledown, 
+          location=location.abovebar, color=color.red, size=size.small)
+```
+
+## Daha Gelişmiş Örnek (RSI ile):
+
+```pinescript
+//@version=5
+strategy("RSI + MA Stratejisi", overlay=true)
+
+// Parametreler
+ma_uzunluk = input.int(20, title="MA Uzunluğu")
+rsi_uzunluk = input.int(14, title="RSI Uzunluğu")
+rsi_asiri_satis = input.int(30, title="RSI Aşırı Satış")
+rsi_asiri_alis = input.int(70, title="RSI Aşırı Alış")
+
+// İndikatörler
+ma = ta.sma(close, ma_uzunluk)
+rsi = ta.rsi(close, rsi_uzunluk)
+
+// Al-Sat koşulları
+al_kosulu = close > ma and rsi < rsi_asiri_satis and ta.crossover(rsi, rsi_asiri_satis)
+sat_kosulu = close < ma or rsi > rsi_asiri_alis
+
+// Strateji
+if al_kosulu
+    strategy.entry("Long", strategy.long)
+
+if sat_kosulu
+    strategy.close("Long")
+
+// Grafik
+plot(ma, color=color.blue, title="Hareketli Ortalama")
+hline(rsi_asiri_alis, "RSI Aşırı Alış", color=color.red)
+hline(rsi_asiri_satis, "RSI Aşırı Satış", color=color.green)
+
+// RSI'yi alt panelde göster
+rsi_plot = plot(rsi, title="RSI", color=color.purple)
+```
+
+## Temel Strateji Bileşenleri:
+
+1. **strategy()** - Strateji tanımı
+2. **input** - Kullanıcı parametreleri
+3. **ta.sma()** - Basit hareketli ortalama
+4. **ta.crossover()** - Yukarı kesişim
+5. **strategy.entry()** - Pozisyon açma
+6. **strategy.close()** - Pozisyon kapatma
+
+Bu örnekler basit ama etkili stratejilerdir. Gerçek ticarette kullanmadan önce mutlaka backtesting yapın ve risk yönetimi ekleyin!

@@ -49,7 +49,7 @@ if bullish
 
 ### Döngü Kullanılmaz
 
-Zaman akışı her bar için otomatik çalıştığından, döngüler yoktur.
+Zaman akışı her bar için otomatik çalıştığından, döngüler yoktur ❗
 
 ---
 

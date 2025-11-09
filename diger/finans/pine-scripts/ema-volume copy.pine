@@ -1,0 +1,103 @@
+//@version=6
+indicator("EMA-Volume", overlay=true)
+
+len1 = input.int(50, "EMA1", minval=1)
+len2 = input.int(200, "EMA2", minval=1)
+volLen = input.int(20, "Hacim MA Uzunluğu", minval=1)
+
+src  = input.source(close, "Kaynak")
+show1 = input.bool(true, "EMA1 göster")
+show2 = input.bool(true, "EMA2 göster")
+showVolume = input.bool(true, "Hacim analizini göster")
+showVolumeMA = input.bool(true, "Hacim MA göster")
+
+showNotes = input.bool(true, "Notları göster")
+customNote = input.string("Analiz Notu", "Özel not")
+
+showLabels = input.bool(true, "Geçiş etiketlerini göster")
+
+ema1 = ta.ema(src, len1)
+ema2 = ta.ema(src, len2)
+
+// Hacim hesaplamaları
+volumeMA = ta.sma(volume, volLen)
+highVolume = volume > volumeMA * 1.5
+lowVolume = volume < volumeMA * 0.7
+
+// Geçiş koşullarını global değişkenlere atayalım
+bullishCross = ta.crossover(ema1, ema2)
+bearishCross = ta.crossunder(ema1, ema2)
+
+// Hacimli geçişler
+bullishCrossWithVolume = bullishCross and highVolume
+bearishCrossWithVolume = bearishCross and highVolume
+
+plot(show1 ? ema1 : na, title="EMA1", color=color.orange, linewidth=2)
+plot(show2 ? ema2 : na, title="EMA2", color=color.blue,   linewidth=2)
+
+// Hacim MA çizgisi (fiyat grafiğinin altında küçük bir çizgi olarak)
+plot(showVolumeMA ? volumeMA : na, title="Hacim MA", color=color.gray, linewidth=1, display=display.none)
+
+// Hacim renk kodlaması
+volumeColor = highVolume ? color.red : lowVolume ? color.yellow : color.gray
+plotcandle(na, na, na, na, title="Hacim", color=na, wickcolor=na, bordercolor=na, editable=false)
+
+// İsterseniz geçişlerde arka plan rengi
+bgcolor(bullishCross ? color.new(color.green, 85) : na)
+bgcolor(bearishCross ? color.new(color.red, 85) : na)
+
+// Yüksek hacimli geçişlerde daha belirgin arka plan
+bgcolor(bullishCrossWithVolume ? color.new(color.green, 70) : na)
+bgcolor(bearishCrossWithVolume ? color.new(color.red, 70) : na)
+
+// Alternatif: plotchar ile ok işaretleri
+plotchar(bullishCross, "Bullish", "▲", location.belowbar, color.green, size=size.small)
+plotchar(bearishCross, "Bearish", "▼", location.abovebar, color.red, size=size.small)
+
+// Yüksek hacimli geçişler için büyük işaretler
+plotchar(bullishCrossWithVolume, "Bullish Vol", "⬆", location.belowbar, color.lime, size=size.normal)
+plotchar(bearishCrossWithVolume, "Bearish Vol", "⬇", location.abovebar, color.maroon, size=size.normal)
+
+// Hacim tablosu (isteğe bağlı)
+if showVolume and barstate.islast
+    var table volumeTable = table.new(position.top_right, 2, 4, bgcolor=color.white, border_width=1)
+    table.cell(volumeTable, 0, 0, "Hacim Durumu", text_color=color.black, text_size=size.small)
+    table.cell(volumeTable, 1, 0, volume > volumeMA ? "Yüksek" : "Normal", text_color=volume > volumeMA ? color.red : color.green, text_size=size.small)
+    table.cell(volumeTable, 0, 1, "Hacim", text_color=color.black, text_size=size.small)
+    table.cell(volumeTable, 1, 1, str.tostring(volume, "#"), text_color=color.black, text_size=size.small)
+    table.cell(volumeTable, 0, 2, "Hacim MA", text_color=color.black, text_size=size.small)
+    table.cell(volumeTable, 1, 2, str.tostring(volumeMA, "#"), text_color=color.black, text_size=size.small)
+    table.cell(volumeTable, 0, 3, "Oran", text_color=color.black, text_size=size.small)
+    table.cell(volumeTable, 1, 3, str.tostring(volume/volumeMA, "#.##"), text_color=color.black, text_size=size.small)
+
+/*
+Evet, bu Pine Script analizine hacim (volume) indikatörlerini ekleyebiliriz. Dosyaya hacim analizi ekleyeceğim: 
+
+Harika! Pine Scriptinize hacim analizi ekledim. İşte eklenen özellikler:
+
+## Eklenen Hacim Özellikleri:
+
+1. **Hacim Moving Average (MA)**: 20 periyotluk hacim ortalaması
+2. **Hacim Seviyeleri**: 
+   - Yüksek hacim: Ortalamadan %50 fazla
+   - Düşük hacim: Ortalamadan %30 az
+
+3. **Hacimli Geçişler**:
+   - Normal EMA geçişleri: Küçük ok işaretleri (▲▼)
+   - Yüksek hacimli geçişler: Büyük ok işaretleri (⬆⬇) ve daha belirgin arka plan rengi
+
+4. **Hacim Tablosu**: Sağ üst köşede anlık hacim bilgileri
+   - Mevcut hacim durumu
+   - Hacim değeri
+   - Hacim MA değeri  
+   - Hacim/MA oranı
+
+5. **Yeni Ayarlar**:
+   - `Hacim MA Uzunluğu`: Hacim ortalaması periyodu
+   - `Hacim analizini göster`: Hacim özelliklerini açma/kapama
+   - `Hacim MA göster`: Hacim MA çizgisini gösterme
+
+Bu şekilde EMA geçişlerinin hacim ile desteklenip desteklenmediğini görebilir ve daha güvenilir sinyaller alabilirsiniz. Yüksek hacimli geçişler genellikle daha güçlü trendleri işaret eder.
+
+Made changes.
+*/

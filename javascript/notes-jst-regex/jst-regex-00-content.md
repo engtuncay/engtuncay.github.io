@@ -1,4 +1,4 @@
-
+5
 Source : https://www.javascripttutorial.net/javascript-regex/
 
 (some parts may be modified or removed)
@@ -9,6 +9,10 @@ Source : https://www.javascripttutorial.net/javascript-regex/
 
 - [Javascript Regex](#javascript-regex)
   - [Section 1. JavaScript Regex Basics](#section-1-javascript-regex-basics)
+    - [Regular expressions](#regular-expressions)
+    - [Character classes](#character-classes)
+    - [Anchors](#anchors)
+    - [Word Boundaries](#word-boundaries)
   - [Section 2. Quantifiers](#section-2-quantifiers)
   - [Section 3. Sets and Ranges](#section-3-sets-and-ranges)
   - [Section 4. Groupings](#section-4-groupings)
@@ -28,10 +32,22 @@ By the end of the series, you’ll gain the skills and confidence to write regul
 
 This section introduces the basic Javascript Regex including related regular expression methods, character classes, anchors, and word boundaries.
 
+### Regular expressions
+
 - Regular expressions – learn how to create regular expressions in JavaScript and use them to search and replace strings using patterns and flags.
+
+### Character classes
+
 - Character classes – show you how to form a regular expression with character classes that allow you to match any character in the character sets.
+
+### Anchors
+
 - Anchors – learn how to use anchors in regular expressions to match at the beginning or end of a string.
+
+### Word Boundaries
+
 - Word Boundaries – show you how to use the word boundaries in the regular expressions to carry the match whole word only.
+
 
 ## Section 2. Quantifiers
 
