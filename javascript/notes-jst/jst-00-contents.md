@@ -107,6 +107,7 @@ JavaScript Tutorial
 - Object Destructuring – learn how to assign properties of an object to variables.
 - Optional chaining operator (?.) – simplify the way to access a property located deep within a chain of connected objects without having to check if each reference in the chain is null or undefined.
 - Object literal syntax extensions – provide a new way to define object literal.
+
 ## Section 7. Classes
 
 - Class – introduce you to the ES6 class syntax and how to declare a class.
@@ -142,6 +143,7 @@ JavaScript Tutorial
 - Arrow functions: when you should not use – learn when not to use arrow functions.
 - Rest parameter – introduce you to the rest parameters and how to use them effectively.
 - Callback functions – introduce you to the callback functions and learn how to use the callbacks to handle asynchronous operations.
+
 ## Section 9. Promises & Async/Await
 
 - Promises – learn about Javascript Promises, what they are, and how to use them effectively.

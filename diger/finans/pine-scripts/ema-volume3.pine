@@ -36,19 +36,32 @@ scaleVolume = 100000
 
 volumeUsd = volume*close 
 
-volumeMA1 = ta.sma(volumeUsd/scaleVolume, 30) // purple
-volumeMA2 = ta.sma(volumeUsd/scaleVolume, 120) // gri
+volumeMA1 = ta.sma(volumeUsd/scaleVolume, 5) // purple
+volumeMA2 = ta.sma(volumeUsd/scaleVolume, 30) // gri
+
+// Bullish Sezon analizi için hacim ortalamaları
+volumeMA30 = ta.sma(volume, 30)  // 30 günlük hacim ortalaması
+volumeMA120 = ta.sma(volume, 120) // 120 günlük hacim ortalaması
+bullishVolumeSeason = volumeMA30 > volumeMA120 // Bullish sezon sinyali
+
 highVolume = volume > volumeMA1 * 1.5 // volumeMa 20
 lowVolume = volume < volumeMA1 * 0.7
 
-var table volumeTable2 = table.new(position.bottom_left, 1,4, bgcolor=color.white, border_width=1)
+var table volumeTable2 = table.new(position.bottom_left, 1,5, bgcolor=color.white, border_width=1)
 table.cell(volumeTable2, 0, 0, "VolMa1-P-10", text_color=color.black, text_size=size.small)
 table.cell(volumeTable2, 0, 1, "VolMa2-G-30", text_color=color.black, text_size=size.small)
+table.cell(volumeTable2, 0, 2, "VolMa30", text_color=color.black, text_size=size.small)
+table.cell(volumeTable2, 0, 3, "VolMa120", text_color=color.black, text_size=size.small)
+table.cell(volumeTable2, 0, 4, bullishVolumeSeason ? "BULLISH SEZON" : "Normal", text_color=bullishVolumeSeason ? color.green : color.gray, text_size=size.small)
 
 // Hacim MA çizgisi (fiyat grafiğinin altında küçük bir çizgi olarak)
 // plot(volumeUsd/scaleVolume, title="Vol-Usd", color=color.green, linewidth=1, style=plot.style_line) //, display=display.none
 plot(volumeMA1, title="Vol-MA1", color=color.purple, linewidth=1, style=plot.style_line) //, display=display.none
 plot(volumeMA2, title="Vol-Ma2", color=color.gray , linewidth=1, style=plot.style_line) //, display=display.none
+
+// Bullish sezon hacim çizgileri
+plot(showVolumeMA ? volumeMA30/1000 : na, title="Vol-MA30", color=color.blue, linewidth=1, style=plot.style_line)
+plot(showVolumeMA ? volumeMA120/1000 : na, title="Vol-MA120", color=color.orange, linewidth=1, style=plot.style_line)
 
 // Hacim renk kodlaması
 // volumeColor = highVolume ? color.red : lowVolume ? color.yellow : color.gray
@@ -57,6 +70,9 @@ plot(volumeMA2, title="Vol-Ma2", color=color.gray , linewidth=1, style=plot.styl
 // İsterseniz geçişlerde arka plan rengi
 bgcolor(bullishCross ? color.new(color.green, 85) : na)
 bgcolor(bearishCross ? color.new(color.red, 85) : na)
+
+// Bullish sezon arka plan rengi
+bgcolor(bullishVolumeSeason ? color.new(color.blue, 95) : na)
 
 // Yüksek hacimli geçişlerde daha belirgin arka plan
 //bgcolor(bullishCrossWithVolume ? color.new(color.green, 70) : na)
@@ -72,7 +88,7 @@ plotchar(bearishCross, "Bearish", "▼", location.abovebar, color.red, size=size
 
 // Hacim tablosu (isteğe bağlı)
 if showVolume and barstate.islast
-    var table volumeTable = table.new(position.top_right, 2, 4, bgcolor=color.white, border_width=1)
+    var table volumeTable = table.new(position.top_right, 2, 6, bgcolor=color.white, border_width=1)
     table.cell(volumeTable, 0, 0, "Hacim Durumu", text_color=color.black, text_size=size.small)
     table.cell(volumeTable, 1, 0, volume > volumeMA1 ? "Yüksek" : "Normal", text_color=volume > volumeMA1 ? color.red : color.green, text_size=size.small)
     table.cell(volumeTable, 0, 1, "Hacim", text_color=color.black, text_size=size.small)
@@ -81,4 +97,8 @@ if showVolume and barstate.islast
     table.cell(volumeTable, 1, 2, str.tostring(volumeMA1, "#"), text_color=color.black, text_size=size.small)
     table.cell(volumeTable, 0, 3, "Oran", text_color=color.black, text_size=size.small)
     table.cell(volumeTable, 1, 3, str.tostring(volume/volumeMA1, "#.##"), text_color=color.black, text_size=size.small)
+    table.cell(volumeTable, 0, 4, "Vol30/Vol120", text_color=color.black, text_size=size.small)
+    table.cell(volumeTable, 1, 4, str.tostring(volumeMA30/volumeMA120, "#.##"), text_color=bullishVolumeSeason ? color.green : color.red, text_size=size.small)
+    table.cell(volumeTable, 0, 5, "SEZON", text_color=color.black, text_size=size.small)
+    table.cell(volumeTable, 1, 5, bullishVolumeSeason ? "BULLISH" : "BEARISH", text_color=bullishVolumeSeason ? color.green : color.red, text_size=size.normal)
 

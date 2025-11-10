@@ -31,15 +31,15 @@ bullishCross = ta.crossover(ema1, ema2)
 bearishCross = ta.crossunder(ema1, ema2)
 
 // Hacim hesaplamaları önce tanımlanmalı
-volumeMA = ta.sma(volume*close/scaleVolume, 10) // purple
-volumeMA2 = ta.sma(volume*close/scaleVolume, 50) // gri
-volumeSMA = ta.sma(volume, volLen)
-highVolume = volume > volumeSMA * volumeThreshold
-lowVolume = volume < volumeSMA * 0.7
+volumeMA = ta.sma(volume*close/scaleVolume, 30) // purple
+volumeMA2 = ta.sma(volume*close/scaleVolume, 120) // gri
+//volumeSMA = ta.sma(volume, volLen)
+//highVolume = volume > volumeSMA * volumeThreshold
+//lowVolume = volume < volumeSMA * 0.7
 
 // Hacimli geçişler
-bullishCrossWithVolume = bullishCross and highVolume
-bearishCrossWithVolume = bearishCross and highVolume
+//bullishCrossWithVolume = bullishCross and highVolume
+//bearishCrossWithVolume = bearishCross and highVolume
 
 // Hacim momentum - fiyat yönü ile hacim artışını karşılaştır
 volumeMomentum = ta.rma(volume, volumeMomentumLength)
