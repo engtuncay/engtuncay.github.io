@@ -234,3 +234,9 @@ JavaScript Tutorial
 - Nullish coalescing operator `(??)` – accept two values and return the second value if the first one is null or undefined.
 
 - Exponentiation operator – introduce you to the exponentiation operator (**) that calculates a base to the exponent power, which is similar to Math.pow() method.
+
+
+> ⚠️ Note: This content is for educational and personal reference purposes only.
+> The original source is shown at the top of the document.
+>
+> All rights and copyrights belong to their respective owners.

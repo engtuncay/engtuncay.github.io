@@ -80,6 +80,8 @@ To follow this ES6 tutorial, you should have a good knowledge of JavaScript up t
 - Promise composition: Promise.all() & Promise.race() – learn how to compose a new promise out of several promises.
 - Promise error handling – guide you on how to handle errors in promises.
 
+[Promises](../notes-jst/jst-09.md)
+
 # Section 9. ES6 collections
 - Map – introduce you to the Map type that holds a collection of key-value pairs.
 - Set – learn how to use the Set type that holds a collection of unique values.
