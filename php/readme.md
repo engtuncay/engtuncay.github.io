@@ -103,7 +103,7 @@ PHP Filters Advanced                         |
 PHP Callback Functions (arrow functions)     |
 PHP JSON                                     |
 PHP Exceptions                               |
-[Php Mysql-Pdo](./php-mysql-tutor-pdo.md)    | ✔
+[Php Mysql-Pdo](./phw/php-mysql-tutor-pdo.md)    | ✔
 [Php Mysql-Mysqli-Pdo](./php-mysql-tutor.md) |
 [Autoloader](./php-w3-11-autoloader.md)      |
 
