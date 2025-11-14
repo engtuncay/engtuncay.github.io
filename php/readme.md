@@ -46,11 +46,10 @@ Php Tutorial
 
 Source : W3
 
-- [1 Intro- Install - Syntax - Comments](./phw/pw-01-intro.md)                     | ✔
-- [2 Variables - Scope - Echo / Print ](./phw/pw-02-variables.md)                  | ✔
+- [1 Intro- Install - Syntax - Comments- Variables](./phw/pw-01-intro.md)                     | ✔
 - [3 Data Types Intro](./phw/pw-03-data-types.md)                                  | ✔
 - [4 String - Numbers - Math - Constants - Date](./phw/pw-04-data-types-detail.md) 
-- [5 Operators](./phw/php-w3-05-operators.md)                                          
+- [5 Operators - Conditions - Loops ](./phw/php-w3-05-operators.md)                                          
 - [6 If/Else/Elseif - Switch - Loops](./phw/php-w3-06-if-loops.md)                     
 - [7 Functions](./phw/pw-07-functions.md)                                          |
 - [8 Arrays](./phw/pw-08-arrays.md)                                                | ✔
