@@ -1,7 +1,7 @@
 
 - [PHP Data Types Intro](#php-data-types-intro)
-  - [PHP String](#php-string)
-  - [PHP Integer](#php-integer)
+  - [String](#string)
+  - [Integer](#integer)
   - [PHP Float](#php-float)
   - [PHP Boolean](#php-boolean)
   - [Array](#array)
@@ -27,11 +27,9 @@ PHP supports the following data types:
 - NULL
 - Resource
 
-## PHP String
+## String
 
-A string is a sequence of characters, like "Hello world!".
-
-A string can be any text inside quotes. You can use single or double quotes:
+A string is a sequence of characters, like "Hello world!". You can use single or double quotes:
 
 Example
 
@@ -47,7 +45,7 @@ echo $y;
 
 ```
 
-## PHP Integer
+## Integer
 
 An integer data type is a non-decimal number between -2,147,483,648 and 2,147,483,647.
 
@@ -58,7 +56,7 @@ Rules for integers:
 - An integer can be either positive or negative
 - Integers can be specified in: decimal (base 10), hexadecimal (base 16), octal (base 8), or binary (base 2) notation
 
-In the following example $x is an integer. The PHP var_dump() function returns the data type and value:
+In the following example $x is an integer. The PHP `var_dump()` function returns the data type and value:
 
 Example
 
@@ -68,7 +66,12 @@ $x = 5985;
 var_dump($x);
 ?>
 
+// -- Output --
+// 
+
 ```
+
+
 
 ## PHP Float
 

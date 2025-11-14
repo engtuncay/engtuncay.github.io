@@ -9,7 +9,6 @@ Php Tutorial
   - [W3 Php Advanced Topics](#w3-php-advanced-topics)
   - [Chat Gpt Notes](#chat-gpt-notes)
   - [Kurs Notları ve Makaleler](#kurs-notları-ve-makaleler)
-  - [Php Notes (JavaTPoint)](#php-notes-javatpoint)
 - [Laravel](#laravel)
 - [Articles](#articles)
 
@@ -31,6 +30,10 @@ Php Tutorial
 - https://www.w3schools.com/php/default.asp
 
 - https://learnxinyminutes.com/docs/php/
+
+- https://www.geeksforgeeks.org/php/php-tutorial/
+
+- https://www.tutorialspoint.com/php/index.htm
 
 # Other cheatsheets
 
@@ -106,17 +109,6 @@ Content                                                             | Note
 [Laravel Api Kurs Notları 1 - CG](./notes/ude-laravel-api-not1.md)  |
 [The Ultimate Guide to .htaccess Files](./article/art-htaccess1.md) |
 [Php Kurs Notları](./notes/ude-php-te-not1.md)                      |
-
-
-
-## Php Notes (JavaTPoint)
-
-Source : https://www.javatpoint.com/php-tutorial
-
-Content                                            | Note
----------------------------------------------------|-----
-[Data Types](./pht/pht-03-data-types.md)           |
-[Magic Constants](./pht/pht-04-magic-constants.md) |
 
 
 # Laravel
