@@ -1,2 +1,4 @@
 en.javascript.info-master
 .DS_Store
+.vscode/
+node_modules/
