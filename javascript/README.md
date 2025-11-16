@@ -31,7 +31,7 @@
 
 # Js Notes
 
-These notes are from Asabeneh's 30-Days-Of-JavaScript tutorials. somep parts may be changed.
+These notes are from Asabeneh's 30-Days-Of-JavaScript tutorials. some parts may be changed.
 
 - [Intro](./notes/js-notes-1-1-intro.md) |
 - [Variables-Scope-Comment](./notes/js-notes-1-2-intro-data-type.md) |
@@ -61,7 +61,7 @@ These notes are from Asabeneh's 30-Days-Of-JavaScript tutorials. somep parts may
 - [Content](./notes-jst/jst-07.md)
 - [Content](./notes-jst/jst-08.md)
 - [Promise](./notes-jst/jst-09.md)
-- [Content](./notes-jst/jst-10.md)
+- [Proxy And Reflection](./notes-jst/jst-16.md)
 
 
 
