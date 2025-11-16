@@ -52,13 +52,17 @@ These notes are from Asabeneh's 30-Days-Of-JavaScript tutorials. somep parts may
 
 # Jst Notes
 
-- [Content](./notes2/jst-01.md)
-- [Content](./notes2/jst-01.md)
-- [Content](./notes2/jst-01.md)
-- [Content](./notes2/jst-01.md)
-- [Content](./notes2/jst-01.md)
-- [Content](./notes2/jst-01.md)
-- [Content](./notes2/jst-01.md)
+- [Contents](./notes-jst/jst-00-contents.md)
+- [Content](./notes-jst/jst-01-intro.md)
+- [Content](./notes-jst/jst-02.md)
+- [Content](./notes-jst/jst-03.md)
+- [Content](./notes-jst/jst-04.md)
+- [Content](./notes-jst/jst-05.md)
+- [Content](./notes-jst/jst-07.md)
+- [Content](./notes-jst/jst-08.md)
+- [Promise](./notes-jst/jst-09.md)
+- [Content](./notes-jst/jst-10.md)
+
 
 
 # Regular Expression
