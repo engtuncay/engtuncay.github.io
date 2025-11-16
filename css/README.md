@@ -35,31 +35,29 @@ This tutorial is prepared from web resources and some additions from me.
 
 Source : [W3Schools]()
 
-| CONTENT                                                                   | Note |
-| ------------------------------------------------------------------------- | ---- |
-| [1-1 Intro](./w3/css-notes-01-1-Intro.md)                                 |      |
-| [1-2 Selectors](./w3/css-notes-01-2-Selectors.md)                         |      |
-| [1-3 Cascading and Specifity](./w3/css-notes-01-3-Cascading-Specifity.md) |      |
-| [2-1 Color](./w3/css-notes-02-1-Color.md)                                 |      |
-| [2-2 Text - Font](./w3/css-notes-02-2-text.md)                            |      |
-| [2-3 Backgrounds](./w3/css-notes-02-3-backgrounds.md)                     |      |
-| [2-4 Images](./w3/css-notes-02-4-images.md)                               |      |
-| [2-5 Icons](./w3/css-notes-02-5-icons.md)                                 |      |
-| [3-1 Links ](./w3/css-notes-03-links.md)                                  |      |
-| [3-2 Lists ](./w3/css-notes-03-lists.md)                                  |      |
-| [4-1 Size](./w3/css-notes-04-01-size.md)                                  |      |
-| [4-2 Margin,Border,Padding,Outline](./w3/css-notes-04-02-borders.md)      |      |
-| [5-1 Layout (Display,Position,Z-index)](./w3/css-notes-05-01-Layout.md)   |      |
-| [5-2 Overflow,Align,Float](./w3/css-notes-05-02-overflow.md)              |      |
-| [6- Flexbox](./w3/css-notes-06-Flexbox.md)                                |      |
-| [7- Grid](./w3/css-notes-07-Grid.md)                                      | ✔    |
-| [8- Variables](./w3/css-notes-08-Variables.md)                            | ✔    |
-| [9- Media](./w3/css-notes-09-media.md)                                    | ✔    |
-| [10- Animation](./w3/css-notes-10-Animation.md)                           |      |
-| [11- Advanced](./w3/css-notes-11-Advanced.md)                             |      |
-| [12- Examples](./w3/css-notes-12-Examples.md)                             |      |
+- [1-1 Intro](./w3/cw-01-1-Intro.md)                                 |      
+- [1-2 Selectors](./w3/cw-01-2-Selectors.md)                         |      
+- [1-3 Cascading and Specifity](./w3/cw-01-3-Cascading-Specifity.md) |      
+- [2-1 Color](./w3/cw-02-1-Color.md)                                 |      
+- [2-2 Text - Font](./w3/cw-02-2-Text.md)                            |      
+- [2-3 Backgrounds](./w3/cw-02-3-Backgrounds.md)                     |      
+- [2-4 Images](./w3/cw-02-4-images.md)                               |      
+- [2-5 Icons](./w3/cw-02-5-icons.md)                                 |      
+- [3-1 Links ](./w3/cw-03-links.md)                                  |      
+- [3-2 Lists ](./w3/cw-03-lists.md)                                  |      
+- [4-1 Size](./w3/cw-04-01-size.md)                                  |      |
+- [4-2 Margin,Border,Padding,Outline](./w3/cw-04-02-borders.md)      |      |
+- [5-1 Layout (Display,Position,Z-index)](./w3/css-notes-05-01-Layout.md)   |      |
+- [5-2 Overflow,Align,Float](./w3/cw-05-02-overflow.md)              |      |
+- [6- Flexbox](./w3/cw-06-Flexbox.md)                                |      |
+- [7- Grid](./w3/cw-07-Grid.md)                                      | ✔    |
+- [8- Variables](./w3/cw-08-Variables.md)                            | ✔    |
+- [9- Media](./w3/cw-09-media.md)                                    | ✔    |
+- [10- Animation](./w3/cw-10-Animation.md)                           |      |
+- [11- Advanced](./w3/cw-11-Advanced.md)                             |      |
+- [12- Examples](./w3/cw-12-Examples.md)                             |      |
 
-[Tunc Css Contents](./w3/css-w3-content.md)
+[Tunc Css Contents](./w3/cw-content.md)
 
 # CSS References
 
