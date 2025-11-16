@@ -7,7 +7,6 @@ Css Intro 3 (Icons,Links...)
     - [Background Color](#background-color)
     - [Link Buttons](#link-buttons)
     - [More Examples](#more-examples)
-  - [Lists](#lists)
 
 # Section - Links - Lists
 
@@ -146,6 +145,7 @@ Example
 This example demonstrates how to add other styles to hyperlinks:
 
 ```css
+
 a.one:link {color: #ff0000;}
 a.one:visited {color: #0000ff;}
 a.one:hover {color: #ffcc00;}
@@ -172,6 +172,7 @@ Example
 
 Another example of how to create link boxes/buttons:
 
+```css
 a:link, a:visited {
   background-color: white;
   color: black;
@@ -187,9 +188,13 @@ a:hover, a:active {
   color: white;
 }
 
-Example
+```
+
+🧲 Example
+
 This example demonstrates the different types of cursors (can be useful for links):
 
+```html
 <span style="cursor: auto">auto</span><br>
 <span style="cursor: crosshair">crosshair</span><br>
 <span style="cursor: default">default</span><br>
@@ -207,4 +212,6 @@ This example demonstrates the different types of cursors (can be useful for link
 <span style="cursor: text">text</span><br>
 <span style="cursor: w-resize">w-resize</span><br>
 <span style="cursor: wait">wait</span>
+
+```
 

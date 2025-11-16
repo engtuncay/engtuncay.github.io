@@ -13,7 +13,7 @@ https://www.w3schools.com/css/css3_mediaqueries.asp
 
 # CSS2 Introduced Media Types
 
-The @media rule, introduced in CSS2, made it possible to define different style rules for different media types.
+The `@media` rule, introduced in CSS2, made it possible to define different style rules for different media types.
 
 Examples: You could have one set of style rules for computer screens, one for printers, one for handheld devices, one for television-type devices, and so on.
 
