@@ -53,6 +53,12 @@ These notes are from Asabeneh's 30-Days-Of-JavaScript tutorials. somep parts may
 # Jst Notes
 
 - [Content](./notes2/jst-01.md)
+- [Content](./notes2/jst-01.md)
+- [Content](./notes2/jst-01.md)
+- [Content](./notes2/jst-01.md)
+- [Content](./notes2/jst-01.md)
+- [Content](./notes2/jst-01.md)
+- [Content](./notes2/jst-01.md)
 
 
 # Regular Expression

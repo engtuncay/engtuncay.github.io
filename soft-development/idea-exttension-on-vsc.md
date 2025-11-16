@@ -1,4 +1,4 @@
-Idea Extension on Vsc
+Idea Extension Contributions on VsCode 
 
 [Back](../readme.md)
 

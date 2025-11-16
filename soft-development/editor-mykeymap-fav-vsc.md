@@ -30,9 +30,9 @@ OrakSoft Keyboard shortcuts for Windows Based On Idea And VS Code
 
 <h2>Info About This Article</h2>
 
-- cs+s means Ctrl + Shift + S key
+- cs+s means ctrl + shift + s key
 
-- ❗ c+k,s means c+k, then c+s
+- ❗ c+ks or c+k,s means c+k, then c+s
 
 - np:numpad , np- (numpad -)
 
@@ -41,7 +41,7 @@ OrakSoft Keyboard shortcuts for Windows Based On Idea And VS Code
 kullanışlı olan,ezberlenecek liste
 
 | Key | Desc |
-|-----|------|
+| --- | ---- |
 | aaa | aaa  |
 | bbb | bbb  |
 
@@ -57,37 +57,35 @@ kullanışlı olan,ezberlenecek liste
 | cs+n ???      | New window/instance    |
 | cs+w ???      | Close window/instance  |
 
-
 # Code Navigation
 
 Kod içerisinde gezinme için kısayollar
 
-| Shortcut     | Desc                               | F |
-|--------------|------------------------------------|---|
-| c+t          | Show all Symbols                   |   |
-| c+p          | Go to File                         |   |
-| c+\* (cs+o)  | Go to Symbol...                    |   |
-| a+left/right | Go (navigate) back / forward |   |
-| c+g          | Go to Line                         |   |
-| F8           | Go to next error or warning        |   |
-| s+F8         | Go to previous error or warning    |   |
-| cs+m         | Jump to matching bracket           | * |
-| c+k,b        | Toogle Bookmark (idea)             |   |
-| c+F11        | Toggle Bookmark Mnemonic (idea)    |   |
-| cs+[0-9]     | Toggle Bookmark [0-9] (idea)       |   |
-| c+[0-9]      | Go to Bookmark (idea)              |   |
-| c+h,b        | Open file from path (vsc-ext)      |   |
-| a+z          | Toggle word wrap                   |   |
-| cs,np-       | Fold (collapse) region (close)     |   |
-| cs,np+       | Unfold (uncollapse) region (open)  |   |
+| Shortcut     | Desc                               | F   |
+| ------------ | ---------------------------------- | --- |
+| c+t          | Show all Symbols                   |     |
+| c+p          | Go to File                         |     |
+| c+\* (cs+o)  | Go to Symbol...                    |     |
+| a+left/right | Go (navigate) back / forward       |     |
+| c+g          | Go to Line                         |     |
+| F8           | Go to next error or warning        |     |
+| s+F8         | Go to previous error or warning    |     |
+| cs+m         | Jump to matching bracket           | \*  |
+| c+k,b        | Toogle Bookmark (idea)             |     |
+| c+F11        | Toggle Bookmark Mnemonic (idea)    |     |
+| cs+[0-9]     | Toggle Bookmark [0-9] (idea)       |     |
+| c+[0-9]      | Go to Bookmark (idea)              |     |
+| c+h,b        | Open file from path (vsc-ext)      |     |
+| a+z          | Toggle word wrap                   |     |
+| cs,np-       | Fold (collapse) region (close)     |     |
+| cs,np+       | Unfold (uncollapse) region (open)  |     |
 | c+k,[        | Fold (collapse) all subregions     | ??  |
 | c+k,]        | Unfold (uncollapse) all subregions | ??  |
-| c+k,0        | Fold (collapse) all regions        |   |
-| c+k,j        | Unfold (uncollapse) all regions    |   |
-| Home / End   | Go to beginning/end of line        |   |
-| c+Home       | Go to beginning of file            |   |
-| c+End        | Go to end of file                  |   |
-
+| c+k,0        | Fold (collapse) all regions        |     |
+| c+k,j        | Unfold (uncollapse) all regions    |     |
+| Home / End   | Go to beginning/end of line        |     |
+| c+Home       | Go to beginning of file            |     |
+| c+End        | Go to end of file                  |     |
 
 # Rich Languages Editing
 
@@ -104,7 +102,6 @@ Kod içerisinde gezinme için kısayollar
 | s+F12         | Show References             |
 | F2            | Rename Symbol               |
 | c+k,x         | Trim trailing whitespace    |
-
 
 # Display Navigation
 
@@ -143,30 +140,30 @@ c+j      | (workbench.action.focusActiveEditorGroup)        |
 
 # Basic editing
 
-| Shortcut      | Desc                        | Note |
-|---------------|-----------------------------|------|
-| c+l           | Delete line                 |      |
-| a+ ↑ / ↓      | Move line up/down           |      |
-| sa + ↓ / ↑   | Copy line up/down           |      |
-| c+Enter       | Insert line below           |      |
-| c+s+Enter     | Insert line above           |      |
-| c+] / [       | Indent/outdent line         |      |
-| c+↑ / ↓       | Scroll line up/down         |      |
-| a+PgUp / PgDn | Scroll page up/down         |      |
-| c+k c+C       | Add line comment            |      |
-| c+k c+u       | Remove line comment         |      |
-| c+/ , c+7     | Toggle line comment         |      |
-| Sa+a, cs+7    | Toggle block comment        |      |
-
+| Shortcut      | Desc                 | Note |
+| ------------- | -------------------- | ---- |
+| c+l           | Delete line          |      |
+| a+ ↑ / ↓      | Move line up/down    |      |
+| sa + ↓ / ↑    | Copy line up/down    |      |
+| c+Enter       | Insert line below    |      |
+| c+s+Enter     | Insert line above    |      |
+| c+] / [       | Indent/outdent line  |      |
+| c+↑ / ↓       | Scroll line up/down  |      |
+| a+PgUp / PgDn | Scroll page up/down  |      |
+| c+k c+C       | Add line comment     |      |
+| c+k c+u       | Remove line comment  |      |
+| c+/ , c+7     | Toggle line comment  |      |
+| Sa+a, cs+7    | Toggle block comment |      |
+|               | Duplicate Line       |      |
 
 known things
-| c+X           | Cut line (empty selection)  |      |
-| c+C           | Copy line (empty selection) |      |
+| c+X | Cut line (empty selection) | |
+| c+C | Copy line (empty selection) | |
 
 # Editor management
 
 | Shortcut        | Desc                                    | Note |
-|-----------------|-----------------------------------------|------|
+| --------------- | --------------------------------------- | ---- |
 | c+F4, c+W       | Close editor                            |      |
 | c+K F           | Close folder                            |      |
 | c+\             | Split editor                            |      |
@@ -183,28 +180,26 @@ known things
 | c+H         | Replace                                    |
 | F3 / s+F3   | Find next/previous                         |
 | a+Enter     | Select all occurences of Find match        |
-| c+D         | Add selection to next Find match           |
+| c+d         | Add selection to next Find match           |
 | c+K c+D     | Move last selection to next Find match     |
 | a+C / R / W | Toggle case-sensitive / regex / whole word |
 
 # Multi-cursor and selection
 
-| Shortcut            | Desc                                        |
-| ------------------- | ------------------------------------------- |
-| a+Click             | Insert cursor                               |
-| c+a+ ↑ / ↓          | Insert cursor above / below                 |
-| c+U                 | Undo last cursor operation                  |
-| s+a+I               | Insert cursor at end of each line selected  |
-| c+L                 | Select current line                         |
-| c+s+L               | Select all occurrences of current selection |
-| c+F2                | Select all occurrences of current word      |
-| s+a+→               | Expand selection                            |
-| s+a+←               | Shrink selection                            |
-| s+A + (drag mouse)  | Column (box) selection                      |
-| c+s+A + (arrow key) | Column (box) selection                      |
-| c+s+A +PgUp/PgDn    | Column (box) selection page up/down         |
-
-
+| Shortcut         | Desc                                        |
+| ---------------- | ------------------------------------------- |
+| a+click          | Insert cursor                               |
+| ca+up/down       | Insert cursor above / below                 |
+| c+u              | Undo last cursor operation                  |
+| sa+ı             | Insert cursor at end of each line selected  |
+| c+l              | Select current line                         |
+| cs+l             | Select all occurrences of current selection |
+| c+f2             | Select all occurrences of current word      |
+| sa+right         | Expand selection                            |
+| sa+left          | Shrink selection                            |
+| sa+(drag mouse)  | Column (box) selection                      |
+| cs+a+(arrow key) | Column (box) selection                      |
+| cs+a+pgup/pgdn   | Column (box) selection page up/down         |
 
 # Debug
 
@@ -252,76 +247,76 @@ known things
 
 ## Ctrl Shortcuts
 
-| Key   | Desc                   |
-|-------|------------------------|
-| c+a   | select all             |
-| ctb   |
-| c+c   | cut                    |
-| c+d   |
-| c+e   |
-| c+f   | find                   |
-| c+g   | go to                  |
-| c+h   | multi (c+h+ h replace) |
-| c+ı   |
-| c+i   |
-| c+j   | multi key              |
-| c+k   | multi key              |
-| c+l   | delete line            |
-| c+m   | screen to center       |
-| c+n   | Create New File        |
-| c+o   | Open File              |
-| c+p   | Navigate Project File  |
-| c+rr | Open Recent            |
-| c+s   | Save                   |
-| c+ş   |
-| c+t   | go to symbol           |
-| c+u   |
-| c+ü   |
-| c+v   | paste                  |
-| c+y   |
-| c+z   |
+| Key  | Desc                           | When             |
+| ---- | ------------------------------ | ---------------- |
+| c+a  | select all                     |
+| ctb  |                                |
+| c+c  | cut                            |
+| c+d  | copy line down(duplicate line) |
+| c+d  | add selection to match         | selection active |
+| c+e  | recent files                   |
+| c+f  | find                           |
+| c+g  | go to                          |
+| c+hh | replace                        |
+| c+ı  |                                |
+| c+i  |                                |
+| c+jj |                                |
+| c+kk |                                |
+| c+l  | delete line                    |
+| c+m  | (screen to center??)           |
+| c+n  | Create New File                |
+| c+o  | Open File                      |
+| c+p  | Navigate Project File          |
+| c+rr | Open Recent                    |
+| c+s  | Save                           |
+| c+ş  |
+| c+t  | go to symbol                   |
+| c+u  |
+| c+ü  |
+| c+v  | paste                          |
+| c+y  |
+| c+z  |
 
 ## Alt Shortcuts
 
-| Key | Desc             |
-|-----|------------------|
-| a   | matched brackets |
-| b   | -                |
-| c   | -                |
-| d   | open file        |
-| e   | edit menu        |
-| f   | file menu        |
-| g   | go menu          |
-| h   | help menu        |
-| ı   | -                |
-| i   | -                |
-| j   | -                |
-| k   | -                |
-| l   | multi            |
-| m   | -                |
-| n   | -                |
-| o   | -                |
-| p   | -                |
-| r   | -                |
-| s   | tilda            |
-| ş   | -                |
-| t   | -                |
-| u   | -                |
-| ü   | -                |
-| v   | view menu        |
-| y   | -                |
-
+| Key  | Desc             |
+| ---- | ---------------- |
+| a+a  | matched brackets |
+| a+b  | -                |
+| a+c  | -                |
+| a+d  | open file        |
+| a+e  | edit menu        |
+| a+f  | file menu        |
+| a+g  | go menu          |
+| a+h  | help menu        |
+| a+ı  | -                |
+| a+i  | -                |
+| a+j  | -                |
+| a+k  | -                |
+| a+ll |                  |
+| a+m  | -                |
+| a+n  | -                |
+| a+o  | -                |
+| a+p  | -                |
+| a+r  | -                |
+| a+s  | tilda char       |
+| a+ş  | -                |
+| a+t  | -                |
+| a+u  | -                |
+| a+ü  | -                |
+| a+v  | view menu        |
+| a+y  | -                |
 
 ## multi keys
 
-| Key | Exp                |
-| --- | ------------------ |
-| c+k | x                  |
-| c+j | x                  |
-| c+r | x                  |
-| c+h | x                  |
+| Key | Exp                   |
+| --- | --------------------- |
+| c+k | x                     |
+| c+j | x                     |
+| c+r | x                     |
+| c+h | x                     |
 | c+1 | navigation related??? |
-| c+m | markdown related |
+| c+m | markdown related      |
 
 ### (c+k) multi keys
 
