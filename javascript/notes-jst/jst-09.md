@@ -444,6 +444,8 @@ btn.addEventListener('click', () => {
 
 Sometimes, you want to execute two or more related asynchronous operations, where the next operation starts with the result from the previous one. For example:
 
+(zincirleme operasyonlar)
+
 First, create a new promise that resolves to the number 10 after 3 seconds:
 
 ```js
@@ -717,25 +719,25 @@ Promise.all(iterable);
 
 ```
 
-The Promise.all() method returns a single promise that resolves when all the input promises have been resolved. The returned promise resolves to an array of the results of the input promises:
+The `Promise.all()` method returns a single promise that resolves when all (❗) the input promises have been resolved. The returned promise resolves to an array of the results of the input promises:
 
-In this diagram, the promise1 resolves to a value v1 at t1 and the promise2 resolves to a value v2 at t2. Hence, the Promise.all(promise1, promise2) returns a promise that resolves to an array containing the results of the promise1 and promise2 [v1, v2] at t2.
+In other words, the Promise.all() waits (❗) for all the input promises to resolve and returns a new promise that resolves to an array containing the results of the input promises.
 
-In other words, the Promise.all() waits for all the input promises to resolve and returns a new promise that resolves to an array containing the results of the input promises.
+If one of the input promises is rejected, the Promise.all() method immediately (❗) returns a promise that is rejected with an error of the first rejected promise. the Promise.all() doesn’t care about other input promises, whether they will be resolved or rejected (after a rejected promise is realized).
 
-If one of the input promises is rejected, the Promise.all() method immediately returns a promise that is rejected with an error of the first rejected promise:
+➖ JavaScript Promise.all Rejected
 
-JavaScript Promise.all Rejected
-In this diagram, the promise2 rejects at t1 with an error. Therefore, the Promise.all() returns a new promise that is immediately rejected with the same error. Also, the Promise.all() doesn’t care about other input promises, whether they will be resolved or rejected.
+In practice, the Promise.all() is useful to aggregate the results from `multiple asynchronous operations`.
 
-In practice, the Promise.all() is useful to aggregate the results from multiple asynchronous operations.
+🧲 JavaScript Promise.all() method examples
 
-JavaScript Promise.all() method examples
 Let’s take some examples to understand how the Promise.all() method works.
 
-1) Resolved promises example
+➖ 1) Resolved promises example
+
 The following promises resolve to 10, 20, and 30 after 1, 2, and 3 seconds. We use the setTimeout() to simulate the asynchronous operations:
 
+```js
 const p1 = new Promise((resolve, reject) => {
   setTimeout(() => {
     console.log('The first promise has resolved');
@@ -761,21 +763,26 @@ Promise.all([p1, p2, p3]).then((results) => {
   console.log(`Results: ${results}`);
   console.log(`Total: ${total}`);
 });
-Code language: JavaScript (javascript)
-Output
 
-The first promise has resolved
-The second promise has resolved
-The third promise has resolved
-Results: 10,20,30
-Total: 60
+//Output
+// 
+// The first promise has resolved
+// The second promise has resolved
+// The third promise has resolved
+// Results: 10,20,30
+// Total: 60
+
+```
+
 When all promises have been resolved, the values from these promises are passed into the callback of the then() method as an array.
 
 Inside the callback, we use the Array’s reduce() method to calculate the total value and use the console.log to display the array of values as well as the total.
 
-2) Rejected promises example
+🧲 1) Rejected promises example
+
 The Promise.all() returns a Promise that is rejected if any of the input promises are rejected.
 
+```js
 const p1 = new Promise((resolve, reject) => {
     setTimeout(() => {
         console.log('The first promise has resolved');
@@ -789,6 +796,7 @@ const p2 = new Promise((resolve, reject) => {
         reject('Failed');
     }, 2 * 1000);
 });
+
 const p3 = new Promise((resolve, reject) => {
     setTimeout(() => {
         console.log('The third promise has resolved');
@@ -800,56 +808,56 @@ const p3 = new Promise((resolve, reject) => {
 Promise.all([p1, p2, p3])
     .then(console.log) // never execute
     .catch(console.log);
-Code language: JavaScript (javascript)
-Output:
 
-The first promise has resolved
-The second promise has rejected
-Failed
-The third promise has resolved
+// Output:
+// 
+// The first promise has resolved
+// The second promise has rejected
+// Failed
+// The third promise has resolved
+
+```
+
 In this example, we have three promises: the first one is resolved after 1 second, the second is rejected after 2 seconds, and the third one is resolved after 3 seconds.
 
 As a result, the returned promise is rejected because the second promise is rejected. The catch() method is executed to display the reason for the rejected promise.
 
+(URREV ??? üçüncü promise çalışmaya devam etmiş kesmemiş ❗)
+
 Summary
 
-The Promise.all() method accepts a list of promises and returns a new promise that resolves to an array of results of the input promises if all the input promises are resolved, or rejected with an error of the first rejected promise.
-Use the Promise.all() method to aggregate results from multiple asynchronous operations.
+- The Promise.all() method accepts a list of promises and returns a new promise that resolves to an array of results of the input promises if all the input promises are resolved, or rejected with an error of the first rejected promise.
+
+- Use the Promise.all() method to aggregate results from `multiple asynchronous operations`.
 
 # Promise.race()
 
-The Promise.race() static method accepts a list of promises as an iterable object and returns a new promise that fulfills or rejects as soon as there is one promise that fulfills or rejects, with the value or reason from that promise.
+TBC - 20251117 - 1155 
+
+The `Promise.race()` static method accepts a list of promises as an iterable object and returns a new promise that fulfills or rejects as soon as there is one promise that fulfills or rejects, with the value or reason from that promise.
 
 Here’s the syntax of the Promise.race() method:
 
+```js
 Promise.race(iterable)
-Code language: JavaScript (javascript)
-In this syntax, the iterable is an iterable object that contains a list of promises.
 
-The name of Promise.race() implies that all the promises race against each other with a single winner, either resolved or rejected.
+```
 
-See the following diagram:
+In this syntax, the iterable is an iterable object that contains a `list` of promises . (Promise.race([promise1, promise2]))
 
+The name of Promise.race() implies that all the promises race against each other with a single winner (❗), either resolved or rejected.
 
-In this diagram:
+📝 See diagrams from source
 
-The promise1 is fulfilled with the value v1 at t1.
-The promise2 is rejected with the error at t2.
-Because the promise1 is resolved earlier than the promise2, the promise1 wins the race. Therefore, the Promise.race([promise1, promise2]) returns a new promise that is fulfilled with the value v1 at t1.
-See another diagram:
+🧲 JavaScript Promise.race() examples
 
-
-In this diagram:
-
-The promise1 is fulfilled with v1 at t2.
-The promise2 is rejected with error at t1.
-Because the promise2 is resolved earlier than the promise1, the promise2 wins the race. Therefore, the Promise.race([promise1, promise2]) returns a new promise that is rejected with the error at t1.
-JavaScript Promise.race() examples
 Let’s take some examples of using the Promise.race() static method.
 
-1) Simple JavaScript Promise.race() examples
+➖ 1) Simple JavaScript Promise.race() examples
+
 The following creates two promises: one resolves in 1 second and the other resolves in 2 seconds. Because the first promise resolves faster than the second one, the Promise.race() resolves with the value from the first promise:
 
+```js
 const p1 = new Promise((resolve, reject) => {
     setTimeout(() => {
         console.log('The first promise has resolved');
@@ -869,14 +877,18 @@ const p2 = new Promise((resolve, reject) => {
 Promise.race([p1, p2])
     .then(value => console.log(`Resolved: ${value}`))
     .catch(reason => console.log(`Rejected: ${reason}`));
-Code language: JavaScript (javascript)
-Output:
 
-The first promise has resolved
-Resolved: 10
-The second promise has resolved
+// Output:
+// 
+// The first promise has resolved
+// Resolved: 10
+// The second promise has resolved
+
+```
+
 The following example creates two promises. The first promise resolves in 1 second while the second one rejects in 2 seconds. Because the first promise is faster than the second one, the returned promise resolves to the value of the first promise:
 
+```js
 const p1 = new Promise((resolve, reject) => {
     setTimeout(() => {
         console.log('The first promise has resolved');
@@ -896,21 +908,27 @@ const p2 = new Promise((resolve, reject) => {
 Promise.race([p1, p2])
     .then(value => console.log(`Resolved: ${value}`))
     .catch(reason => console.log(`Rejected: ${reason}`));
-Code language: JavaScript (javascript)
-Output
 
-The first promise has resolved
-Resolved: 10
+// Output
+// 
+// The first promise has resolved
+// Resolved: 10
+
+```
+
 The second promise has rejected
+
 Note that if the second promise was faster than the first one, the return promise would reject for the reason of the second promise.
 
-2) Practical JavaScript Promise.race() example
+➖ 1) Practical JavaScript Promise.race() example
+
 Suppose you have to show a spinner if the data loading process from the server is taking longer than a number of seconds.
 
 To do this, you can use the Promise.race() static method. If a timeout occurs, you show the loading indicator, otherwise, you show the message.
 
 The following illustrates the HTML code:
 
+```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -928,12 +946,14 @@ The following illustrates the HTML code:
     <script src="js/promise-race.js"></script>
 </body>
 </html>
-Code language: HTML, XML (xml)
+
+```
 
 To create the loading indicator, we use the CSS animation feature. See the promise-race.css for more information. Technically speaking, if an element has the .loader class, it shows the loading indicator.
 
 First, define a new function that loads data. It uses the setTimeout() to emulate an asynchronous operation:
 
+```js
 const DATA_LOAD_TIME = 5000;
 
 function getData() {
@@ -944,17 +964,24 @@ function getData() {
         }, DATA_LOAD_TIME);
     });
 }
+
+```
 Code language: JavaScript (javascript)
+
 Second, develop a function that shows some contents:
 
+```js
 function showContent(message) {
     document.querySelector('#message').textContent = message;
 }
-Code language: JavaScript (javascript)
+
+```
+
 This function can also be used to set the message to blank.
 
 Third, define the timeout() function that returns a promise. The promise will be rejected when a specified TIMEOUT is passed.
 
+```js
 const TIMEOUT = 500;
 
 function timeout() {
@@ -962,9 +989,12 @@ function timeout() {
         setTimeout(() => reject(), TIMEOUT);
     });
 }
-Code language: JavaScript (javascript)
+
+```
+
 Fourth, develop a couple of functions that show and hide the loading indicator:
 
+```js
 function showLoadingIndicator() {
     document.querySelector('#loader').className = 'loader';
 }
@@ -972,9 +1002,12 @@ function showLoadingIndicator() {
 function hideLoadingIndicator() {
     document.querySelector('#loader').className = '';
 }
-Code language: JavaScript (javascript)
+
+```
+
 Fifth, attach a click event listener to the Get Message button. Inside the click handler, use the Promise.race() static method:
 
+```js
 // handle button click event
 const btn = document.querySelector('#btnGet');
 
@@ -989,29 +1022,38 @@ btn.addEventListener('click', () => {
         ])
         .catch(showLoadingIndicator);
 });
-Code language: JavaScript (javascript)
+
+```
+
 We pass two promises to the Promise.race() method:
 
+```js
 Promise.race([getData()
             .then(showContent)
             .then(hideLoadingIndicator), timeout()
         ])
         .catch(showLoadingIndicator);
-Code language: JavaScript (javascript)
+
+```
+
 The first promise gets data from the server, shows the content, and hides the loading indicator. The second promise sets a timeout.
 
 If the first promise takes more than 500 ms to settle, the catch() is called to show the loading indicator. Once the first promise resolves, it hides the loading indicator.
 
 Finally, develop a reset() function that hides the message and loading indicator if the button is clicked for the second time.
 
+```js
 // reset UI
 function reset() {
     hideLoadingIndicator();
     showContent('');
 }
-Code language: JavaScript (javascript)
+
+```
+
 Put it all together.
 
+```js
 // after 0.5 seconds, if the getData() has not resolved, then show 
 // the Loading indicator
 const TIMEOUT = 500;
@@ -1066,22 +1108,20 @@ function reset() {
     showContent('');
 }
 
-Code language: JavaScript (javascript)
+```
 
 Summary
 
-The Promise.race(iterable) method returns a new promise that fulfills or rejects as soon as one of the promises in an iterable fulfills or rejects, with the value or error from that promise.
+- The Promise.race(iterable) method returns a new promise that fulfills or rejects as soon as one of the promises in an iterable fulfills or rejects, with the value or error from that promise.
 
 # Promise.any()
 
-The Promise.any() method accepts a list of Promise objects as an iterable object:
+If one of the promises in the iterable object (list) is fulfilled, the Promise.any() returns a single promise that resolves to a value which is the result of the fulfilled promise:
 
+```js
 Promise.any(iterable);
 
-Code language: JavaScript (javascript)
-
-If one of the promises in the iterable object is fulfilled, the Promise.any() returns a single promise that resolves to a value which is the result of the fulfilled promise:
-
+```
 
 In this diagram:
 
@@ -1089,7 +1129,6 @@ The promise1 resolves to a value v1 at t1.
 The promise2 resolves to a value v2 at t2.
 The Promise.any() returns a promise that resolves to a value v1, which is the result of the promise1, at t1
 The Promise.any() returns a promise that is fulfilled with any first fulfilled promise even if some promises in the iterable object are rejected:
-
 
 In this diagram:
 
