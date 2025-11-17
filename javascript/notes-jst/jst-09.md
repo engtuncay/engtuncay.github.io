@@ -7,6 +7,9 @@ Source : https://www.javascripttutorial.net/es6/javascript-promises/
 
 ---
 
+# Contents
+
+- [Contents](#contents)
 - [JavaScript Promises](#javascript-promises)
   - [Creating a promise](#creating-a-promise)
   - [Consuming a Promise: then, catch, finally](#consuming-a-promise-then-catch-finally)
@@ -17,6 +20,7 @@ Source : https://www.javascripttutorial.net/es6/javascript-promises/
 - [Promise.race()](#promiserace)
 - [Promise.any()](#promiseany)
 
+[🔝](#contents)
 
 # JavaScript Promises
 
@@ -439,6 +443,7 @@ btn.addEventListener('click', () => {
 - Use then() method to schedule a callback to be executed when the promise is fulfilled, and catch() method to schedule a callback to be invoked when the promise is rejected.
 - Place the code that you want to execute in the finally() method whether the promise is fulfilled or rejected.
 
+[🔝](#contents)
 
 # Promise Chaining
 
@@ -710,6 +715,8 @@ Code language: JavaScript (javascript)
 
 📝 Note that ES2017 introduced the async/await that helps you write code that is cleaner than using the promise chaining technique.
 
+[🔝](#contents)
+
 # Promise.all()
 
 The `Promise.all()` static method takes an iterable of promises:
@@ -829,6 +836,8 @@ Summary
 - The Promise.all() method accepts a list of promises and returns a new promise that resolves to an array of results of the input promises if all the input promises are resolved, or rejected with an error of the first rejected promise.
 
 - Use the Promise.all() method to aggregate results from `multiple asynchronous operations`.
+
+[🔝](#contents)
 
 # Promise.race()
 
@@ -1113,6 +1122,8 @@ function reset() {
 Summary
 
 - The Promise.race(iterable) method returns a new promise that fulfills or rejects as soon as one of the promises in an iterable fulfills or rejects, with the value or error from that promise.
+
+[🔝](#contents)
 
 # Promise.any()
 
