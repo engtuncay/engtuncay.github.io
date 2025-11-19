@@ -1312,7 +1312,7 @@ Third, show the first available image by using the Promise.any() method.
 Summary
 Use the JavaScript Promise.any() method to take a list of promises and return a promise that is fulfilled first.
 
-
+[🔝](#contents)
 
 > ⚠️ Note: This content is for educational and personal reference purposes only.
 > The original source is shown at the top of the document.
