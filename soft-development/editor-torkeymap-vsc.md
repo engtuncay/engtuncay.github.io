@@ -4,12 +4,15 @@ OrakSoft Keyboard shortcuts for Windows Based On Idea And VS Code
 
 ---
 
+# Contents
+
+- [Contents](#contents)
 - [Memorize Table](#memorize-table)
 - [General (Frequent)](#general-frequent)
 - [Code Navigation](#code-navigation)
 - [Rich Languages Editing](#rich-languages-editing)
 - [Display Navigation](#display-navigation)
-- [Basic editing](#basic-editing)
+- [Editing](#editing)
 - [Editor management](#editor-management)
 - [Search and replace](#search-and-replace)
 - [Multi-cursor and selection](#multi-cursor-and-selection)
@@ -36,6 +39,8 @@ OrakSoft Keyboard shortcuts for Windows Based On Idea And VS Code
 
 - np:numpad , np- (numpad -)
 
+[🔝](#contents)
+
 # Memorize Table
 
 kullanışlı olan,ezberlenecek liste
@@ -44,6 +49,8 @@ kullanışlı olan,ezberlenecek liste
 | --- | ---- |
 | aaa | aaa  |
 | bbb | bbb  |
+
+[🔝](#contents)
 
 # General (Frequent)
 
@@ -56,6 +63,8 @@ kullanışlı olan,ezberlenecek liste
 | c+pup / pdown | Prev / Next Tab        |
 | cs+n ???      | New window/instance    |
 | cs+w ???      | Close window/instance  |
+
+[🔝](#contents)
 
 # Code Navigation
 
@@ -86,6 +95,8 @@ Kod içerisinde gezinme için kısayollar
 | Home / End   | Go to beginning/end of line        |     |
 | c+Home       | Go to beginning of file            |     |
 | c+End        | Go to end of file                  |     |
+
+[🔝](#contents)
 
 # Rich Languages Editing
 
@@ -138,27 +149,26 @@ cs+tab   | Navigate editor group history                    |
 c+j      | (workbench.action.focusActiveEditorGroup)        |
 ```
 
-# Basic editing
+# Editing
 
-| Shortcut      | Desc                 | Note |
-| ------------- | -------------------- | ---- |
-| c+l           | Delete line          |      |
-| a+ ↑ / ↓      | Move line up/down    |      |
-| sa + ↓ / ↑    | Copy line up/down    |      |
-| c+Enter       | Insert line below    |      |
-| c+s+Enter     | Insert line above    |      |
-| c+] / [       | Indent/outdent line  |      |
-| c+↑ / ↓       | Scroll line up/down  |      |
-| a+PgUp / PgDn | Scroll page up/down  |      |
-| c+k c+C       | Add line comment     |      |
-| c+k c+u       | Remove line comment  |      |
-| c+/ , c+7     | Toggle line comment  |      |
-| Sa+a, cs+7    | Toggle block comment |      |
-|               | Duplicate Line       |      |
+| Shortcut    | Desc                 | Note    |
+|-------------|----------------------|---------|
+| c+l s+del   | Delete line          |         |
+| a+up/down   | Move line up/down    |         |
+| as+up/down  | Copy line up/down    |         |
+| c+Enter     | Insert line below    |         |
+| c+s+Enter   | Insert line above    |         |
+| c+] / [     | Indent/outdent line  | invalid |
+| c+up/down   | Scroll line up/down  |         |
+| a+PgUp/PgDn | Scroll page up/down  |         |
+| c+k,c       | Add line comment     |         |
+| c+k,u       | Remove line comment  |         |
+| c+/ c+7     | Toggle line comment  |         |
+| as+a , cs+7 | Toggle block comment |         |
+|             | Duplicate Line       |         |
 
-known things
-| c+X | Cut line (empty selection) | |
-| c+C | Copy line (empty selection) | |
+
+[🔝](#contents)
 
 # Editor management
 
@@ -184,6 +194,8 @@ known things
 | c+K c+D     | Move last selection to next Find match     |
 | a+C / R / W | Toggle case-sensitive / regex / whole word |
 
+[🔝](#contents)
+
 # Multi-cursor and selection
 
 | Shortcut         | Desc                                        |
@@ -201,6 +213,8 @@ known things
 | cs+a+(arrow key) | Column (box) selection                      |
 | cs+a+pgup/pgdn   | Column (box) selection page up/down         |
 
+[🔝](#contents)
+
 # Debug
 
 | Shortcut    | Desc              |
@@ -211,6 +225,8 @@ known things
 | F11 / s+F11 | Step into/out     |
 | F10         | Step over         |
 | c+K c+I     | Show hover        |
+
+[🔝](#contents)
 
 # Integrated terminal
 
@@ -224,26 +240,30 @@ known things
 | s+PgUp / PgDn | Scroll page up/down        |
 | c+Home / End  | Scroll to top/bottom       |
 
+[🔝](#contents)
+
 # File management
 
-| Shortcut  | Desc                                    |
-| --------- | --------------------------------------- |
-| c+N       | New File                                |
-| c+O       | Open File...                            |
-| c+S       | Save                                    |
-| c+s+S     | Save As...                              |
-| c+K S     | Save All                                |
-| c+F4      | Close                                   |
-| c+K c+W   | Close All                               |
-| c+s+T     | Reopen closed editor                    |
-| c+K       | Enter Keep preview mode editor open     |
-| c+Tab     | Open next                               |
-| c+s+Tab   | Open previous                           |
-| c+kp      | Copy path of active file                |
-| c+kr,c+oe | Reveal active file in Explorer          |
-| c+ko      | Show active file in new window/instance |
+| Shortcut    | Desc                                    |
+|-------------|-----------------------------------------|
+| c+N         | New File                                |
+| c+O         | Open File...                            |
+| c+S         | Save                                    |
+| c+s+S       | Save As...                              |
+| c+K S       | Save All                                |
+| c+F4        | Close                                   |
+| c+K c+W     | Close All                               |
+| c+s+T       | Reopen closed editor                    |
+| c+K         | Enter Keep preview mode editor open     |
+| c+Tab       | Open next                               |
+| c+s+Tab     | Open previous                           |
+| c+kp        | Copy path of active file                |
+| c+k,r c+o,e | Reveal active file in Explorer          |
+| c+k,o       | Show active file in new window/instance |
 
 # Alphatic Order
+
+[🔝](#contents)
 
 ## Ctrl Shortcuts
 
@@ -276,6 +296,8 @@ known things
 | c+v  | paste                          |
 | c+y  |
 | c+z  |
+
+[🔝](#contents)
 
 ## Alt Shortcuts
 
@@ -318,11 +340,15 @@ known things
 | c+1 | navigation related??? |
 | c+m | markdown related      |
 
+[🔝](#contents)
+
 ### (c+k) multi keys
 
 | Key   | Exp         |
 | ----- | ----------- |
 | c+k,f | Format File |
+
+[🔝](#contents)
 
 ### (c+h) multi keys
 
@@ -343,3 +369,5 @@ c+k,m | Change file language
 # Templates
 
 See [Keymap Template](./keymap-template.md)
+
+[🔝](#contents)
