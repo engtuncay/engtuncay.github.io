@@ -7,6 +7,8 @@ Source : https://www.javascripttutorial.net/es6/
 
 ---
 
+Javascript konularının içinde, daha sonra link konulabilir.
+
 - [Section 1. New ES6 syntax](#section-1-new-es6-syntax)
 - [Section 2. Destructuring](#section-2-destructuring)
 - [Section 3. ES6 Modules](#section-3-es6-modules)

@@ -53,14 +53,14 @@ These notes are from Asabeneh's 30-Days-Of-JavaScript tutorials. some parts may 
 # Jst Notes
 
 - [Contents](./notes-jst/jst-00-contents.md)
-- [Content](./notes-jst/jst-01-intro.md)
+- [Intro](./notes-jst/jst-01-intro.md)
 - [Content](./notes-jst/jst-02.md)
 - [Content](./notes-jst/jst-03.md)
 - [Content](./notes-jst/jst-04.md)
 - [Content](./notes-jst/jst-05.md)
-- [Content](./notes-jst/jst-07.md)
+- [Class](./notes-jst/jst-07-class.md)
 - [Content](./notes-jst/jst-08.md)
-- [Promise](./notes-jst/jst-09.md)
+- [Promise](./notes-jst/jst-09-promise.md)
 - [Proxy And Reflection](./notes-jst/jst-16.md)
 
 
