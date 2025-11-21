@@ -14,31 +14,31 @@ on Jun 30, 2023
 - [Electron.js Tutorial](#electronjs-tutorial)
   - [1. Introduction to Electron.js](#1-introduction-to-electronjs)
   - [2. Setting Up the Development Environment](#2-setting-up-the-development-environment)
-  - [1. Creating a Basic Electron Application](#1-creating-a-basic-electron-application)
+  - [3. Creating a Basic Electron Application](#3-creating-a-basic-electron-application)
   - [4. Working with Main and Renderer Processes](#4-working-with-main-and-renderer-processes)
     - [4.1. Communicating between Main and Renderer Processes](#41-communicating-between-main-and-renderer-processes)
     - [4.2. Running Code in the Main Process](#42-running-code-in-the-main-process)
 
 
-# Electron.js Tutorial
+1 Introduction to Electron.js
+2 Setting Up the Development Environment
+3 Creating a Basic Electron Application
+4 Working with Main and Renderer Processes
 
-Welcome to the Electron.js tutorial! In this tutorial, we will learn how to build desktop applications using Electron.js. Electron.js is an open-source framework developed by GitHub that allows you to build cross-platform desktop applications using web technologies such as HTML, CSS, and JavaScript.
-
-Table of Contents
-Introduction to Electron.js
-Setting Up the Development Environment
-Creating a Basic Electron Application
-Working with Main and Renderer Processes
-Building Native UI Elements
-Inter-Process Communication (IPC)
-Packaging and Distributing Your Electron Application
-Advanced Topics
-Using Electron with React
-Using Electron with Angular
-Using Electron with Vue.js
-Adding Electron Plugins
+5 Building Native UI Elements
+6 Inter-Process Communication (IPC)
+7 Packaging and Distributing Your Electron Application
+8 Advanced Topics
+10 Using Electron with React
+11 Using Electron with Angular
+12 Using Electron with Vue.js
+13 Adding Electron Plugins
 Conclusion
 Additional Resources
+
+# Electron.js Tutorial
+
+In this tutorial, we will learn how to build desktop applications using Electron.js. Electron.js is an open-source framework developed by `GitHub` that allows you to build `cross-platform desktop applications using web technologies` such as HTML, CSS, and JavaScript.
 
 ## 1. Introduction to Electron.js
 
@@ -67,14 +67,15 @@ This command creates a package.json file that will track the dependencies and se
 ```sh
 mkdir electron-app
 cd electron-app
+# boş bir node projesi oluştur
 npm init -y
 
 ```
 
-- Install Electron.js: Run the following command to install Electron.js as a development dependency in your project:
+➖ Install Electron.js: Run the following command to install Electron.js as a development dependency in your project:
 
 ```sh
-npm install electron --save-dev
+pnpm install electron --save-dev
 
 ```
 
@@ -82,11 +83,13 @@ Electron.js will be installed locally in your project directory.
 
 Congratulations! You have set up your development environment for building Electron.js applications.
 
-## 1. Creating a Basic Electron Application
+TBC - 20251119 - 1242
+
+## 3. Creating a Basic Electron Application
 
 In this section, we will create a basic Electron application to display a simple window.
 
-Create a new file named main.js in the root of your project directory.
+Create a new file named `main.js` in the root of your project directory.
 
 Open main.js, in your code editor and add the following code:
 
@@ -110,7 +113,7 @@ app.whenReady().then(createMainWindow);
 
 This code imports the necessary modules from Electron and defines a function to create the main window. The `createMainWindow` function creates a new browser window and loads an HTML file called index.html into it. The `app.whenReady().then`(createMainWindow) line ensures that the createMainWindow function is called when Electron has finished initialization.
 
-Create a new file named index.html in the root of your project directory.
+Create a new file named `index.html` in the root of your project directory.
 
 Open index.html in your code editor and add the following code:
 
@@ -139,21 +142,19 @@ npx electron .
 
 ```
 
-This command runs Electron using the `main.js` file as the entry point (❗).
+This command runs Electron using the `main.js` file as the entry point.
 
 You should see a new Electron window displaying the "Hello, Electron!" message.
 
-Congratulations! You have created your first Electron application.
-
 ## 4. Working with Main and Renderer Processes
 
-Electron applications consist of two types of processes: `the main process` and `renderer processes`. The main process runs in a Node.js environment and is responsible for managing the lifecycle of the application and interacting with the operating system. Renderer processes run in separate browser-like windows and handle the user interface.
+Electron applications consist of two types of processes: `the main process` and `renderer processes`. The main process runs in a `Node.js environment` and is responsible for `managing the lifecycle of the application and interacting with the operating system`. Renderer processes run in separate browser-like windows and `handle the user interface`.
 
 Let's explore how to work with main and renderer processes in Electron.js.
 
 ### 4.1. Communicating between Main and Renderer Processes
 
-Electron provides a mechanism called `Inter-Process Communication (IPC)` to enable communication between the main process and renderer processes.
+Electron provides a mechanism called `Inter-Process Communication (IPC)` to enable communication between the main process and renderer (gui) processes.
 
 Here's an example of how to send a message from the main process to a renderer process:
 
@@ -170,7 +171,7 @@ function createMainWindow() {
 
 ```
 
-This code uses the `webContents.send()` method to send a message with the channel name 'message' and the payload 'Hello from main process!' to the renderer process.
+This code uses the `webContents.send()` method to send a message with the channel name '`message`' and the payload '`Hello from main process!`' to the renderer process.
 
 Update index.html as follows:
 
@@ -196,13 +197,15 @@ Update index.html as follows:
 ```
 This code uses the `ipcRenderer module` to receive messages on the 'message' channel from the main process. The received message is logged to the console.
 
-Restart your Electron application by stopping and re-running the npx electron . command.
+Restart your Electron application by stopping and re-running the `npx electron .` command.
 
 Open the developer console (press Ctrl+Shift+I or Cmd+Option+I).
 
 You should see the message 'Hello from main process!' logged to the console.
 
 This example demonstrates how to send a message from the main process to a renderer process using IPC. You can also send messages from renderer processes to the main process using a similar approach.
+
+TBC - 20251120 - 2120 
 
 ### 4.2. Running Code in the Main Process
 
