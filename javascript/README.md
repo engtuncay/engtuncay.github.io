@@ -79,7 +79,6 @@ These notes are from Asabeneh's 30-Days-Of-JavaScript tutorials. some parts may 
 
 # JsInfo Notes - Advanced Javascript
 
-
 - [1-1 Intro and Syntax](./js-info/js-intro-01-01-intro-and-syntax.md) |
 - [2-1 Variables and Data Types](./js-info/js-intro-02-01-data-types.md) |
 - [2-2 Operators](./js-info/js-intro-02-02-operators.md) |   
@@ -95,6 +94,12 @@ These notes are from Asabeneh's 30-Days-Of-JavaScript tutorials. some parts may 
 
 # Node Notes
 
+- [Contents](./notes-jst-node/ndt-00-contents.md)
+
+
+
+
+➖ Another Note
 
 - [Node Js Intro](./node-js-intro.md) 
 

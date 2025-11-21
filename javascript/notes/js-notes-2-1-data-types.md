@@ -1,5 +1,15 @@
 
-- [Sources](#sources)
+Source : https://github.com/Asabeneh/30-Days-Of-JavaScript 
+
+(some parts may be modified or removed)
+
+[Back](../readme.md)
+
+---
+
+# Contents
+
+- [Contents](#contents)
 - [Data Types (1)](#data-types-1)
   - [Data Types](#data-types)
     - [Primitive Data Types](#primitive-data-types)
@@ -63,9 +73,7 @@
 
 ---
 
-# Sources
-
-- Main source, https://github.com/Asabeneh/30-Days-Of-JavaScript 
+[🔝](#contents)
 
 # Data Types (1)
 
@@ -184,10 +192,14 @@ console.log(userOne == userTwo)  // true
 
 If you have a hard time understanding the difference between primitive data types and non-primitive data types, you are not the only one. Calm down and just go to the next section and try to come back after some time. Now let us start the data types by number type.
 
+[🔝](#contents)
+
 ## Numbers
 
 Numbers are integers and decimal values which can do all the arithmetic operations.
 Let's see some examples of Numbers.
+
+[🔝](#contents)
 
 ### Declaring Number Data Types
 
@@ -284,7 +296,10 @@ console.log(numBtnZeroAndTen)         // this gives: min 0 and max 10.99
 
 let randomNumRoundToFloor = Math.floor(numBtnZeroAndTen)
 console.log(randomNumRoundToFloor)    // this gives between 0 and 10
+
 ```
+
+[🔝](#contents)
 
 ## Strings
 
@@ -806,6 +821,8 @@ let string = 'love'
 console.log(string.repeat(10)) // lovelovelovelovelovelovelovelovelovelove
 ```
 
+[🔝](#contents)
+
 ## Checking Data Types and Casting
 
 ### Checking Data Types
@@ -917,6 +934,7 @@ console.log(numInt) // 9
 
 🌕  You are awesome. You have just completed day 2 challenges and you are two steps ahead on your way to greatness. Now do some exercises for your brain and for your muscle.  
 
+[🔝](#contents)
 
 ## Booleans
 
@@ -953,6 +971,8 @@ We agreed that boolean values are either true or false.
 
 It is good to remember those truthy values and falsy values. In later section, we will use them with conditions to make decisions.
 
+[🔝](#contents)
+
 ## Undefined
 
 If we declare a variable and if we do not assign a value, the value will be undefined. In addition to this, if a function is not returning the value, it will be undefined.
@@ -968,6 +988,8 @@ console.log(firstName) //not defined, because it is not assigned to a value yet
 let empty = null
 console.log(empty) // -> null , means no value
 ```
+
+[🔝](#contents)
 
 # Data Types (2)
 
@@ -1178,7 +1200,7 @@ const secondNums = [1, 4, 9]
 const arrayOfArray =  [[1, 2, 3], [1, 2, 3]]
 console.log(arrayOfArray[0]) // [1, 2, 3]
 ```
-
+[🔝](#contents)
 
 ## Date Object
 
