@@ -6,14 +6,17 @@ Source : https://www.javascripttutorial.net/regular-expression-quantifiers/
 
 ---
 
-- [Regular Expression: Quantifiers](#regular-expression-quantifiers)
-- [Regular Expression: Greedy](#regular-expression-greedy)
-- [Regular Expression: Non-Greedy Quantifiers](#regular-expression-non-greedy-quantifiers)
+# Contents
+
+- [Contents](#contents)
+- [Quantifiers](#quantifiers)
+- [Greedy](#greedy)
+- [Non-Greedy Quantifiers](#non-greedy-quantifiers)
 
 
-# Regular Expression: Quantifiers
+# Quantifiers
 
-Quantifiers specify how many instances of a character, group, or character class must appear in the input string for a match to be found.
+Quantifiers specify `how many instances` of a character, group, or character class must appear in the input string for a match to be found.
 
 ➖ Quantity
 
@@ -145,7 +148,7 @@ The following table lists the quantifiers:
 - `{ n ,}` : Match at least n times.
 - `{ n , m }` : Match from n to m times.
 
-# Regular Expression: Greedy
+# Greedy
 
 All quantifiers work in a greedy mode by default. This means that quantifiers will match their preceding elements as much as possible.
 
@@ -243,7 +246,7 @@ Summary
 - Quantifiers use the greedy mode by default.
 - Greedy quantifiers match their preceding elements as much as possible.
 
-# Regular Expression: Non-Greedy Quantifiers
+# Non-Greedy Quantifiers
 
 ➖ Introduction to JavaScript regex non-greedy (or lazy) quantifiers
 

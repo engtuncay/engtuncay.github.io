@@ -7,12 +7,15 @@ Source : https://www.javascripttutorial.net/javascript-regular-expression/
 
 ---
 
-- [JavaScript Regular Expression](#javascript-regular-expression)
-- [Regular Expression: Character Classes](#regular-expression-character-classes)
-- [Regular Expression: Anchors](#regular-expression-anchors)
-- [Regular Expression: Word Boundaries](#regular-expression-word-boundaries)
+# Contents
 
-# JavaScript Regular Expression
+- [Contents](#contents)
+- [Regular Expression](#regular-expression)
+- [Character Classes](#character-classes)
+- [Anchors](#anchors)
+- [Word Boundaries](#word-boundaries)
+
+# Regular Expression
 
 A regular expression is a string that describes a pattern such as email addresses and phone numbers.
 
@@ -20,7 +23,7 @@ In JavaScript, regular expressions are objects. JavaScript provides the built-in
 
 Regular expressions are useful for searching and replacing strings that match a pattern. They have many useful applications.
 
-you can use regular expressions to `extract useful information` or to `validate form fields`.
+You can use regular expressions to `extract useful information` or to `validate form fields`.
 
 ➖ Creating a regular expression
 
@@ -196,7 +199,9 @@ console.log(result);
 - Use the String.match() method to find all matches of a pattern in a string.
 - Use the String.replace() method to replace text that matches a regular expression in a string.
 
-# Regular Expression: Character Classes
+[🔝](#contents)
+
+# Character Classes
 
 `A character class` allows you to match any symbol from a character set. Note that a character class is also known as a `character set`.
 
@@ -386,7 +391,7 @@ console.log('ES\n6'.match(re));
 
 ```
 
-Summary
+➖ Summary
 
 - Character classes match any symbol from certain character sets e.g., `\d, \s, and \w`.
 
@@ -394,8 +399,9 @@ Summary
 
 - The dot(.) matches any character except the newline character. Use the s flag to make the dot (.) character class matches any character including the newline.
 
+[🔝](#contents)
 
-# Regular Expression: Anchors
+# Anchors
 
 You’ll learn how to use regular expression anchors to match a position before or after characters.
 
@@ -516,7 +522,7 @@ Summary
 - Use the m flag to enable the multiline mode that instructs the ^ and $ anchors to match the beginning and end of the text as well as the beginning and end of the line.
 
 
-# Regular Expression: Word Boundaries
+# Word Boundaries
 
 The `(\b)` is an anchor like the caret (^) and the dollar sign ($). It matches a position that is called a “word boundary”. The word boundary match is zero-length ❗.
 
@@ -606,7 +612,7 @@ As you have seen so far, the patterns `\d\d\d\d` and `\d\d` has been used to mat
 
 It’ll be easier and more flexible if you use quantifiers that will be covered in the quantifiers tutorial. You can use `\d{4}` instead of `\d\d\d\d`, which is much shorter.
 
-Summary
+➖ Summary
 
 - The \b anchor matches a word boundary position.
 
