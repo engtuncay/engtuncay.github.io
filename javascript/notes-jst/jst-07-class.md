@@ -14,6 +14,8 @@ Source : https://www.javascripttutorial.net/javascript-class/
   - [ES6 class declaration](#es6-class-declaration)
 - [JavaScript Getters and Setters](#javascript-getters-and-setters)
 - [JavaScript Class Expressions](#javascript-class-expressions)
+- [JavaScript Computed Properties](#javascript-computed-properties)
+- [JavaScript Inheritance Using extends \& super](#javascript-inheritance-using-extends--super)
 
 
 # JavaScript Class
@@ -393,14 +395,16 @@ Like a class declaration, the type of a class expression is also a function:
 console.log(typeof Person); // function
 
 ```
-Code language: JavaScript (javascript)
-Similar to function expressions, class expressions are not hoisted. It means that you cannot create an instance of the class before defining the class expression.
 
-First-class citizen
-JavaScript classes are first-class citizens. It means that you can pass a class into a function, return it from a function, and assign it to a variable.
+Similar to function expressions, class expressions are `not hoisted` ❗ It means that you cannot create an instance of the class before defining the class expression.
+
+➖ First-class citizen
+
+JavaScript classes are first-class citizens. It means that you can pass a class into a function, return it from a function, and assign it to a variable ❗
 
 See the following example:
 
+```js
 function factory(aClass) {
     return new aClass();
 }
@@ -410,34 +414,47 @@ let greeting = factory(class {
 });
 
 greeting.sayHi(); // 'Hi'
-Code language: JavaScript (javascript)
+
+```
+
 How it works.
 
 First, define a factory() function that takes a class expression as an argument and returns the instance of the class:
 
+```js
 function factory(aClass) {
     return new aClass();
 }
-Code language: JavaScript (javascript)
+
+```
+
 Second, pass an unnamed class expression to the factory() function and assign its result to the greeting variable:
 
+```js
 let greeting = factory(class {
     sayHi() { console.log('Hi'); }
 });
-Code language: JavaScript (javascript)
-The class expression has a method called sayHi(). And the greeting variable is an instance of the class expression.
+
+```
+
+The class expression has a method called `sayHi()`. And the greeting variable is an instance of the class expression.
 
 Third, call the sayHi() method on the greeting object:
 
+```js
 greeting.sayHi(); // 'Hi'
-Code language: JavaScript (javascript)
-Singleton
+
+```
+
+➖ Singleton
+
 Singleton is a design pattern that limits the instantiation of a class to a single instance. It ensures that only one instance of a class can be created throughout the system.
 
 Class expressions can be used to create a singleton by calling the class constructor immediately.
 
 To do that, you use the new operator with a class expression and include the parentheses at the end of the class declaration as shown in the following example:
 
+```js
 let app = new class {
     constructor(name) {
         this.name = name;
@@ -448,11 +465,13 @@ let app = new class {
 }('Awesome App');
 
 app.start(); // Starting the Awesome App...
-Code language: JavaScript (javascript)
+```
+
 How it works.
 
 The following is an unnamed class expression:
 
+```js
 new class {
     constructor(name) {
         this.name = name;
@@ -461,11 +480,14 @@ new class {
         console.log(`Starting the ${this.name}...`);
     }
 }
-Code language: JavaScript (javascript)
-The class has a constructor() that accepts an argument. It also has a method called start().
+
+```
+
+The class has a constructor() that accepts an argument. It also has a method called `start()`.
 
 The class expression evaluates to a class. Therefore, you can call its constructor immediately by placing parentheses after the expression:
 
+```js
 new class {
     constructor(name) {
         this.name = name;
@@ -474,16 +496,381 @@ new class {
         console.log(`Starting the ${this.name}...`);
     }
 }('Awesome App')
-Code language: JavaScript (javascript)
+
+```
+
 This expression returns an instance of the class expression which is assigned to the app variable.
 
 The following calls the start() method on the app object:
 
+```js
 app.start(); // Starting the Awesome App...
+
+```
+
+Summary
+
+- ES6 provides you with an alternative way to define a new class using a class expression.
+- Class expressions can be named or unnamed.
+- The class expression can be used to create a singleton object.
+
+[🔝](#contents)
+
+# JavaScript Computed Properties
+
+Computed properties allow you to create object properties dynamically using an expression in square brackets `[]`.
+
+Here’s the syntax of the computed property:
+
+```js
+let propertyName = 'dynamicPropertyName';
+const obj = {
+    [propertyName] : value
+}
+
+```
+
+In this syntax:
+
+`propertyName` is a variable that stores the property name.
+
+`[propertyName]` is a computed property name of the object literal obj . The property name is derived from the value of the propertyName variable.
+
+value is the value of the computed property, which can be any valid JavaScript expression.
+Once you define a computed property, you can access it as follows:
+
+```js
+obj.dynamicPropertyName
+
+```
+
+🧲 JavaScript Computed Property examples
+
+Let’s take some examples of using the JavaScript computed properties.
+
+➖ 1) Basic JavaScript computed property example
+
+The following example shows how to use a computed property name:
+
+```js
+let propName = 'c';
+
+const rank = {
+  a: 1,
+  b: 2,
+  [propName]: 3,
+};
+
+console.log(rank.c); // 3
+
+```
+
+In this example, the `[propName]` is a computed property of the rank object. The property name is derived from the value of the propName variable.
+
+When you access `c property` of the rank object, JavaScript evaluates propName and returns the property’s value.
+
+➖ 2) Using a computed property in a class
+
+Like an object literal, you can use computed properties for getters and setters of a class. For example:
+
+```js
+const name = 'fullName';
+
+class Person {
+  constructor(firstName, lastName) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+  get [name]() {
+    return `${this.firstName} ${this.lastName}`;
+  }
+}
+
+let person = new Person('John', 'Doe');
+console.log(person.fullName);
+
+// Output:
+// 
+// John Doe
+// How it works:
+
+```
+
+The `get[name]` is a computed property name of a getter of the Person class. At runtime, when you access the fullName property, the person object calls the getter and returns the full name.
+
+➖ 3) Creating an object from a key/value pair
+
+The following example shows how to use computed properties to create an object from a key/value pair:
+
+```js
+const createObject = (key, value) => {
+  return {
+    [key]: value,
+  };
+};
+
+const person = createObject('name', 'John');
+console.log(person);
+
+// Output:
+// 
+// { name: 'John' }
+
+```
+
+Note that without computed property, you have to create an object first, and use bracket notation to assign property to value like this:
+
+```js
+const createObject = (key, value) => {
+  let obj = {};
+  obj[key] = value;
+  return obj;
+};
+
+const person = createObject('name', 'John');
+console.log(person);
+
+// Output:
+// 
+// { name: 'John' }
+
+```
+
+Summary
+- Computed properties allow you to use the values of expressions as property names of an object.
+
+[🔝](#contents)
+
+# JavaScript Inheritance Using extends & super
+
+Prior to ES6, implementing a proper inheritance required multiple steps. One of the most commonly used strategies is prototypal inheritance. 
+
+The following illustrates how the Bird inherits properties from the Animal using the prototypal inheritance technique:
+
+```js
+function Animal(legs) {
+    this.legs = legs;
+}
+
+Animal.prototype.walk = function() {
+    console.log('walking on ' + this.legs + ' legs');
+}
+
+function Bird(legs) {
+    Animal.call(this, legs);
+}
+
+Bird.prototype = Object.create(Animal.prototype);
+Bird.prototype.constructor = Animal;
+
+
+Bird.prototype.fly = function() {
+    console.log('flying');
+}
+
+var pigeon = new Bird(2);
+pigeon.walk(); // walking on 2 legs
+pigeon.fly();  // flying
+
+```
+(???)
+
+TBC - 20251121 - 2322 
+
+ES6 simplified these steps by using the extends and super keywords.
+
+The following example defines the Animal and Bird classes and establishes the inheritance through the extends and super keywords.
+
+```js
+class Animal {
+    constructor(legs) {
+        this.legs = legs;
+    }
+    walk() {
+        console.log('walking on ' + this.legs + ' legs');
+    }
+}
+
+class Bird extends Animal {
+    constructor(legs) {
+        super(legs);
+    }
+    fly() {
+        console.log('flying');
+    }
+}
+
+
+let bird = new Bird(2);
+
+bird.walk();
+bird.fly();
+
+```
+
+How it works.
+
+First, use the extends keyword to make the Bird class inheriting from the Animal class:
+
+```js
+class Bird extends Animal {
+   // ...
+}
+
+```
+
+The Animal class is called a base class or parent class while the Bird class is known as a derived class or child class. By doing this, the Bird class inherits all methods and properties of the Animal class.
+
+Second, in the Bird‘s constructor, call super() to invoke the Animal‘s constructor with the legs argument.
+
+JavaScript requires the child class to call super() if it has a constructor. As you can see in the Bird class, the super(legs) is equivalent to the following statement in ES5:
+
+Animal.call(this, legs);
+Code language: JavaScript (javascript)
+If the Bird class doesn’t have a constructor, you don’t need to do anything else:
+
+class Bird extends Animal {
+    fly() {
+        console.log('flying');
+    }
+}
+Code language: JavaScript (javascript)
+It is equivalent to the following class:
+
+class Bird extends Animal {
+    constructor(...args) {
+        super(...args);
+    }
+    fly() {
+        console.log('flying');
+    }
+}
+Code language: JavaScript (javascript)
+However, the child class has a constructor, it needs to call super(). For example, the following code results in an error:
+
+class Bird extends Animal {
+    constructor(legs) {
+    }
+    fly() {
+        console.log('flying');
+    }
+}
+Code language: JavaScript (javascript)
+Error:
+
+ReferenceError: Must call super constructor in derived class before accessing 'this' or returning from derived constructor
+Code language: JavaScript (javascript)
+Because the super() initializes the this object, you need to call the super() before accessing the this object. Trying to access this before calling super() also results in an error.
+
+For example, if you want to initialize the color property of the Bird class, you can do it as follows:
+
+class Bird extends Animal {
+	constructor(legs, color) {
+		super(legs);
+		this.color = color;
+	}
+	fly() {
+		console.log("flying");
+	}
+	getColor() {
+		return this.color;
+	}
+}
+
+let pegion = new Bird(2, "white");
+console.log(pegion.getColor());
+Code language: JavaScript (javascript)
+Shadowing methods
+ES6 allows the child class and parent class to have methods with the same name. In this case, when you call the method of an object of the child class, the method in the child class will shadow the method in the parent class.
+
+The following Dog class extends the Animal class and redefines the walk() method:
+
+class Dog extends Animal {
+    constructor() {
+        super(4);
+    }
+    walk() {
+        console.log(`go walking`);
+    }
+}
+
+let bingo = new Dog();
+bingo.walk(); // go walking
+Code language: JavaScript (javascript)
+To call the method of the parent class in the child class, you use super.method(arguments) like this:
+
+class Dog extends Animal {
+    constructor() {
+        super(4);
+    }
+    walk() {
+        super.walk();
+        console.log(`go walking`);
+    }
+}
+
+let bingo = new Dog();
+bingo.walk();
+// walking on 4 legs
+// go walking
+Code language: JavaScript (javascript)
+Inheriting static members
+Besides the properties and methods, the child class also inherits all static properties and methods of the parent class. For example:
+
+class Animal {
+    constructor(legs) {
+        this.legs = legs;
+    }
+    walk() {
+        console.log('walking on ' + this.legs + ' legs');
+    }
+    static helloWorld() {
+        console.log('Hello World');
+    }
+}
+
+class Bird extends Animal {
+    fly() {
+        console.log('flying');
+    }
+}
+Code language: JavaScript (javascript)
+In this example, the Animal class has the helloWorld() static method and this method is available as Bird.helloWorld() and behaves the same as the Animal.helloWorld() method:
+
+Bird.helloWorld(); // Hello World
+Code language: JavaScript (javascript)
+Inheriting from built-in types
+JavaScript allows you to extend a built-in type such as Array, String, Map, and Set through inheritance.
+
+The following Queue class extends the Array reference type. The syntax is much cleaner than the Queue implemented using the constructor/prototype pattern.
+
+class Queue extends Array {
+    enqueue(e) {
+        super.push(e);
+    }
+    dequeue() {
+        return super.shift();
+    }
+    peek() {
+        return !this.empty() ? this[0] : undefined;
+    }
+    empty() {
+        return this.length === 0;
+    }
+}
+
+var customers = new Queue();
+customers.enqueue('A');
+customers.enqueue('B');
+customers.enqueue('C');
+
+while (!customers.empty()) {
+    console.log(customers.dequeue());
+}
 Code language: JavaScript (javascript)
 Summary
-ES6 provides you with an alternative way to define a new class using a class expression.
-Class expressions can be named or unnamed.
-The class expression can be used to create a singleton object.
+Use the extends keyword to implement the inheritance in ES6. The class to be extended is called a base class or parent class. The class that extends the base class or parent class is called the derived class or child class.
+Call the super(arguments) in the child class’s constructor to invoke the parent class’s constructor.
+Use super keyword to call methods of the parent class in the methods of the child class.
 
 [🔝](#contents)
