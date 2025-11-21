@@ -2,15 +2,15 @@
 
 These notes are taken from web resources. Some sections can be modified or removed.
 
-[My Fav Keymap](./editors/editor-mykeymap-vsc-tor1.md)
+[My Fav Keymap Vsc](./soft-development/editor-torkeymap-vsc.md)
 
 [Csharp Notes](./csharp-dotnet/readme.md)
 
 [CSS Notes](./css/README.md)
 
-[CSS-Bootstrap](./css-bootstrap/readme.md)
+[CSS-Bootstrap](./css-libs/css-bootstrap/readme.md)
 
-[CSS-Tailwind](./css-tailwind/readme.md)
+[CSS-Tailwind](./css-libs/css-tailwind/readme.md)
 
 [Javascript Notes](./javascript/README.md)
 
@@ -18,9 +18,9 @@ These notes are taken from web resources. Some sections can be modified or remov
 
 [Typescript](./typescript/readme.md)
 
-[Solid Js](./solidjs/readme.md)
+[Solid Js](./js-libs/solidjs/readme.md)
 
-[Svelte Notes](./svelte/readme.md)
+[Svelte Notes](./js-libs/svelte/readme.md)
 
 [Php Notes](./php/readme.md)
 
@@ -53,8 +53,5 @@ These notes are taken from web resources. Some sections can be modified or remov
 *Deprecated Tutors*
 
 [Vue Tutors](./vue/README.md)
-
-
-
 
 
