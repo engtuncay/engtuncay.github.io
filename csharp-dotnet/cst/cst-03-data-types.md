@@ -7,13 +7,14 @@ Source : https://www.javatpoint.com/csharp-data-types
 
 ---
 
-**Contents**
+# Contents
 
-- [Value Data Type](#value-data-type)
-- [Reference Data Type](#reference-data-type)
-- [Pointer Data Type](#pointer-data-type)
-- [Symbols used in pointer](#symbols-used-in-pointer)
-- [Declaring a pointer](#declaring-a-pointer)
+- [Contents](#contents)
+  - [Value Data Type](#value-data-type)
+  - [Reference Data Type](#reference-data-type)
+  - [Pointer Data Type](#pointer-data-type)
+  - [Symbols used in pointer](#symbols-used-in-pointer)
+  - [Declaring a pointer](#declaring-a-pointer)
 
 
 A data type specifies the type of data that a variable can store such as integer, floating, character etc.
@@ -27,6 +28,8 @@ Types               | Data Types
 Value Data Type     | short, int, char, float, double etc
 Reference Data Type | String, Class, Object and Interface
 Pointer Data Type   | Pointers
+
+[🔝](#contents)
 
 ## Value Data Type
 
@@ -89,7 +92,7 @@ Symbol              | Name                 | Description
 The pointer in C# language can be declared using * (asterisk symbol).
 
 ```cs
-int * a;  //pointer to int      
-char * c; //pointer to char  
+int *a;  //pointer to int      
+char *c; //pointer to char  
 
 ```

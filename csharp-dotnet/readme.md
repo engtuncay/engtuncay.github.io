@@ -1,7 +1,7 @@
 
 - [Cheatsheets](#cheatsheets)
 - [References](#references)
-- [Notes (1) From JavaTPoint](#notes-1-from-javatpoint)
+- [Notes (1)](#notes-1)
 - [C# Wpf Notes](#c-wpf-notes)
 
 [Back](../readme.md)
@@ -38,33 +38,34 @@
 
 - https://www.w3schools.com/cs/index.php
 
+- https://csharp.net-tutorials.com/
 
 
-# Notes (1) From JavaTPoint
+# Notes (1) 
 
-Topic                                  | Note
----------------------------------------|-----
-[1 What is Dot Net](./cst/cst-01.md)|
-[2 Introduction](./cst/cst-02-introduction.md) | 
-[3 Data Types](./cst/cst-03-data-types.md)   | ✔
-[4 Operators](./cst/cst-04-operators.md) | ✔
-[5 Keywords](./cst/cst-05-keywords.md)|
-[10-01 Class](./cst/cst-10-01-class.md)| ✔
-[10-02 Methods](./cst/cst-10-02-methods.md)| ✔
-[11 Structs](./cst/cst-11-structs.md)| ✔
-[12 Enum](./cst/cst-12-enum.md)|
-[13 Properties](./cst/cst-13-properties.md)| ✔
-[14 Inheritance](./cst/cst-14-inheritance.md)| ✔
-[16 Polymorphism](./cst/cst-16-polymorphism.md)| 
-[17 Abstraction](./cst/cst-17-abstraction.md)| 
-[18 Interface](./cst/cst-18-interface.md)| 
-[20 Strings](./cst/cst-20-strings.md)|
-[22 File](./cst/cst-22-file.md) |
-[23 Collections](./cst/cst-23-collections.md)|
-[23-2 Data Table](./cst/cst-23-2-datatable.md)|
-[51 Application Installation](./cst/cst-51-App-Inst.md)|
+Source : JavaTPoint
 
-[Cst Index](./cst/cst-index.md)
+- [1 What is Dot Net](./cst/cst-01.md)|
+- [2 Introduction](./cst/cst-02-introduction.md) | 
+- [3 Data Types](./cst/cst-03-data-types.md)   | ✔
+- [4 Operators](./cst/cst-04-operators.md) | ✔
+- [5 Keywords](./cst/cst-05-keywords.md)|
+- [10-01 Class](./cst/cst-10-01-class.md)| ✔
+- [10-02 Methods](./cst/cst-10-02-methods.md)| ✔
+- [11 Structs](./cst/cst-11-structs.md)| ✔
+- [12 Enum](./cst/cst-12-enum.md)|
+- [13 Properties](./cst/cst-13-properties.md)| ✔
+- [14 Inheritance](./cst/cst-14-inheritance.md)| ✔
+- [16 Polymorphism](./cst/cst-16-polymorphism.md)| 
+- [17 Abstraction](./cst/cst-17-abstraction.md)| 
+- [18 Interface](./cst/cst-18-interface.md)| 
+- [20 Strings](./cst/cst-20-strings.md)|
+- [22 File](./cst/cst-22-file.md) |
+- [23 Collections](./cst/cst-23-collections.md)|
+- [23-2 Data Table](./cst/cst-23-2-datatable.md)|
+- [51 Application Installation](./cst/cst-51-App-Inst.md)|
+
+- [Cst Index](./cst/cst-index.md)
 
 # C# Wpf Notes 
 
