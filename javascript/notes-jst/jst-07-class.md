@@ -10,15 +10,19 @@ Source : https://www.javascripttutorial.net/javascript-class/
 # Contents
 
 - [Contents](#contents)
-- [JavaScript Class](#javascript-class)
+- [Class](#class)
   - [ES6 class declaration](#es6-class-declaration)
-- [JavaScript Getters and Setters](#javascript-getters-and-setters)
-- [JavaScript Class Expressions](#javascript-class-expressions)
-- [JavaScript Computed Properties](#javascript-computed-properties)
+- [Getters and Setters](#getters-and-setters)
+- [Class Expressions](#class-expressions)
+- [Computed Properties (dynamic property)](#computed-properties-dynamic-property)
 - [JavaScript Inheritance Using extends \& super](#javascript-inheritance-using-extends--super)
+  - [Shadowing methods (overriding)](#shadowing-methods-overriding)
+  - [Inheriting static members](#inheriting-static-members)
+  - [Inheriting from built-in types](#inheriting-from-built-in-types)
+- [new.target Metaproperty](#newtarget-metaproperty)
 
 
-# JavaScript Class
+# Class
 
 A JavaScript class is a blueprint for creating objects. A class encapsulates data and functions (methods) that manipulate data.
 
@@ -159,7 +163,7 @@ Note that it’s possible to call the constructor function without the new opera
 
 [🔝](#contents)
 
-# JavaScript Getters and Setters
+# Getters and Setters
 
 The following example defines a class called Person:
 
@@ -353,7 +357,7 @@ console.log(`The latest attendee is ${meeting.latest}.`);
 
 [🔝](#contents)
 
-# JavaScript Class Expressions
+# Class Expressions
 
 Similar to functions, classes have `expression forms`. A class expression provides you with an alternative way to define a new class.
 
@@ -516,7 +520,7 @@ Summary
 
 [🔝](#contents)
 
-# JavaScript Computed Properties
+# Computed Properties (dynamic property)
 
 Computed properties allow you to create object properties dynamically using an expression in square brackets `[]`.
 
@@ -675,9 +679,7 @@ pigeon.fly();  // flying
 ```
 (???)
 
-TBC - 20251121 - 2322 
-
-ES6 simplified these steps by using the extends and super keywords.
+ES6 simplified these steps by using the `extends` and `super` keywords.
 
 The following example defines the Animal and Bird classes and establishes the inheritance through the extends and super keywords.
 
@@ -719,24 +721,33 @@ class Bird extends Animal {
 
 ```
 
-The Animal class is called a base class or parent class while the Bird class is known as a derived class or child class. By doing this, the Bird class inherits all methods and properties of the Animal class.
+➖ base,parent and derived class
 
-Second, in the Bird‘s constructor, call super() to invoke the Animal‘s constructor with the legs argument.
+The Animal class is called a `base` class or `parent` class while the Bird class is known as a `derived class` or child class. By doing this, the Bird class inherits all methods and properties of the Animal class.
 
-JavaScript requires the child class to call super() if it has a constructor. As you can see in the Bird class, the super(legs) is equivalent to the following statement in ES5:
+Second, in the Bird‘s constructor, call `super()` to invoke the Animal‘s constructor with the legs argument.
 
+JavaScript requires the child class to call super() if it has a constructor. As you can see in the Bird class, the super(legs) is equivalent to the following statement in ES5: (???)
+
+```js
 Animal.call(this, legs);
-Code language: JavaScript (javascript)
+
+```
+
 If the Bird class doesn’t have a constructor, you don’t need to do anything else:
 
+```js
 class Bird extends Animal {
     fly() {
         console.log('flying');
     }
 }
-Code language: JavaScript (javascript)
+
+```
+
 It is equivalent to the following class:
 
+```js
 class Bird extends Animal {
     constructor(...args) {
         super(...args);
@@ -745,9 +756,12 @@ class Bird extends Animal {
         console.log('flying');
     }
 }
-Code language: JavaScript (javascript)
+
+```
+
 However, the child class has a constructor, it needs to call super(). For example, the following code results in an error:
 
+```js
 class Bird extends Animal {
     constructor(legs) {
     }
@@ -755,15 +769,17 @@ class Bird extends Animal {
         console.log('flying');
     }
 }
-Code language: JavaScript (javascript)
-Error:
 
-ReferenceError: Must call super constructor in derived class before accessing 'this' or returning from derived constructor
-Code language: JavaScript (javascript)
-Because the super() initializes the this object, you need to call the super() before accessing the this object. Trying to access this before calling super() also results in an error.
+//Error:
+//
+// ReferenceError: Must call super constructor in derived class before accessing 'this' or returning from derived constructor
+```
+
+Because the super() initializes the this object, you need to call the super() before accessing the this object. Trying to access this before calling `super()` also results in an error.
 
 For example, if you want to initialize the color property of the Bird class, you can do it as follows:
 
+```js
 class Bird extends Animal {
 	constructor(legs, color) {
 		super(legs);
@@ -779,12 +795,16 @@ class Bird extends Animal {
 
 let pegion = new Bird(2, "white");
 console.log(pegion.getColor());
-Code language: JavaScript (javascript)
-Shadowing methods
+
+```
+
+## Shadowing methods (overriding)
+
 ES6 allows the child class and parent class to have methods with the same name. In this case, when you call the method of an object of the child class, the method in the child class will shadow the method in the parent class.
 
 The following Dog class extends the Animal class and redefines the walk() method:
 
+```js
 class Dog extends Animal {
     constructor() {
         super(4);
@@ -796,9 +816,12 @@ class Dog extends Animal {
 
 let bingo = new Dog();
 bingo.walk(); // go walking
-Code language: JavaScript (javascript)
+
+```
+
 To call the method of the parent class in the child class, you use super.method(arguments) like this:
 
+```js
 class Dog extends Animal {
     constructor() {
         super(4);
@@ -811,12 +834,17 @@ class Dog extends Animal {
 
 let bingo = new Dog();
 bingo.walk();
+
 // walking on 4 legs
 // go walking
-Code language: JavaScript (javascript)
-Inheriting static members
+
+```
+
+## Inheriting static members
+
 Besides the properties and methods, the child class also inherits all static properties and methods of the parent class. For example:
 
+```js
 class Animal {
     constructor(legs) {
         this.legs = legs;
@@ -834,16 +862,23 @@ class Bird extends Animal {
         console.log('flying');
     }
 }
-Code language: JavaScript (javascript)
-In this example, the Animal class has the helloWorld() static method and this method is available as Bird.helloWorld() and behaves the same as the Animal.helloWorld() method:
 
+```
+
+In this example, the Animal class has the `helloWorld()` static method and this method is available as Bird.`helloWorld()` and behaves the same as the `Animal.helloWorld()` method:
+
+```js
 Bird.helloWorld(); // Hello World
-Code language: JavaScript (javascript)
-Inheriting from built-in types
+
+```
+
+##  Inheriting from built-in types
+
 JavaScript allows you to extend a built-in type such as Array, String, Map, and Set through inheritance.
 
-The following Queue class extends the Array reference type. The syntax is much cleaner than the Queue implemented using the constructor/prototype pattern.
+The following Queue class `extends the Array reference type`. The syntax is much cleaner than the Queue implemented using the constructor/prototype pattern.
 
+```js
 class Queue extends Array {
     enqueue(e) {
         super.push(e);
@@ -867,10 +902,86 @@ customers.enqueue('C');
 while (!customers.empty()) {
     console.log(customers.dequeue());
 }
+
+```
+
+➖ Summary
+
+- Use the extends keyword to implement the inheritance in ES6. The class to be extended is called a base class or parent class. The class that extends the base class or parent class is called the derived class or child class.
+- Call the super(arguments) in the child class’s constructor to invoke the parent class’s constructor.
+- Use super keyword to call methods of the parent class in the methods of the child class.
+
+[🔝](#contents)
+
+TBC - 20251123 - 1402 
+
+# new.target Metaproperty
+
+ES6 provides a `metaproperty` named `new.target` that allows you to detect whether a function or constructor was called using the new operator.
+
+The new.target consists of the new keyword, a dot, and target property. The new.target is available in all functions.
+
+However, in arrow functions, the new.target is the one that belongs to the surrounding function.
+
+The new.target is very useful to inspect at runtime whether a function is being executed as a function or as a constructor. It is also handy to determine a specific derived class that was called by using the new operator from within a parent class.
+
+JavaScript new.target in functions
+Let’s see the following Person constructor function:
+
+function Person(name) {
+    this.name = name;
+}
 Code language: JavaScript (javascript)
-Summary
-Use the extends keyword to implement the inheritance in ES6. The class to be extended is called a base class or parent class. The class that extends the base class or parent class is called the derived class or child class.
-Call the super(arguments) in the child class’s constructor to invoke the parent class’s constructor.
-Use super keyword to call methods of the parent class in the methods of the child class.
+You can create a new object from the Person function by using the new operator as follows:
+
+let john = new Person('John');
+console.log(john.name); // john
+Code language: JavaScript (javascript)
+Or you can call the Person as a function:
+
+Person('Lily');
+Code language: JavaScript (javascript)
+Because the this is set to the global object i.e., the window object when you run JavaScript in the web browser, the name property is added to the window object as follows:
+
+console.log(window.name); //Lily
+Code language: JavaScript (javascript)
+To help you detect whether a function was called using the new operator, you use the new.target metaproperty.
+
+In a regular function call, the new.target returns undefined. If the function was called with the new operator, the new.target returns a reference to the function.
+
+Suppose you don’t want the Person to be called as a function, you can use the new.target as follows:
+
+function Person(name) {
+    if (!new.target) {
+        throw "must use new operator with Person";
+    }
+    this.name = name;
+}
+Code language: JavaScript (javascript)
+Now, the only way to use Person is to instantiate an object from it by using the new operator. If you try to invoke it like a regular function, you will encounter an error.
+
+JavaScript new.target in constructors
+In a class constructor, the new.target refers to the constructor that was invoked directly by the new operator. It is true if the constructor is in the parent class and was delegated from the constructor of the child class:
+
+class Person {
+    constructor(name) {
+        this.name = name;
+        console.log(new.target.name);
+    }
+}
+
+class Employee extends Person {
+    constructor(name, title) {
+        super(name);
+        this.title = title;
+    }
+}
+
+let john = new Person('John Doe'); // Person
+let lily = new Employee('Lily Bush', 'Programmer'); // Employee
+Code language: JavaScript (javascript)
+In this example, new.target.name is the human-friendly name of the constructor reference of new.target
+
+In this tutorial, you have learned how to use the JavaScript new.target metaproperty to detect whether a function or constructor was called using the new operator.
 
 [🔝](#contents)

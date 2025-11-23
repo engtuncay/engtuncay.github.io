@@ -21,7 +21,7 @@ A regular expression is a string that describes a pattern such as email addresse
 
 In JavaScript, regular expressions are objects. JavaScript provides the built-in `RegExp type` that allows you to work with regular expressions effectively.
 
-Regular expressions are useful for searching and replacing strings that match a pattern. They have many useful applications.
+Regular expressions are useful for `searching and replacing strings` that match a pattern. They have many useful applications.
 
 You can use regular expressions to `extract useful information` or to `validate form fields`.
 
