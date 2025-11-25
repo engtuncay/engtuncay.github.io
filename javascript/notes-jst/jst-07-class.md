@@ -22,9 +22,9 @@ Source : https://www.javascripttutorial.net/javascript-class/
 - [new.target Metaproperty](#newtarget-metaproperty)
 - [Static Methods](#static-methods)
 - [Static Properties](#static-properties)
-- [JavaScript Private Fields](#javascript-private-fields)
-- [JavaScript Private Methods](#javascript-private-methods)
-- [JavaScript instanceof](#javascript-instanceof)
+- [Private Fields](#private-fields)
+- [Private Methods](#private-methods)
+- [instanceof](#instanceof)
 
 
 # Class
@@ -1151,10 +1151,9 @@ this.constructor.staticPropertyName;
 
 ```
 
-TBC - 20251125 - 2251 
-
 The following example increases the count static property in the class constructor:
 
+```js
 class Item {
   constructor(name, quantity) {
     this.name = name;
@@ -1166,24 +1165,33 @@ class Item {
     return Item.count;
   }
 }
-Code language: JavaScript (javascript)
+
+```
+
 When you create a new instance of the Item class, the following statement increases the count static property by one:
 
+```js
 this.constructor.count++;
-Code language: CSS (css)
+
+```
+
 For example:
 
+```js
 // Item class ...
 
 let pen = new Item("Pen", 5);
 let notebook = new Item("notebook", 10);
 
 console.log(Item.getCount()); // 2
-Code language: JavaScript (javascript)
+
+```
+
 This example creates two instances of the Item class, which calls the class constructor. Since the class constructor increases the count property by one each time it’s called, the value of the count is two.
 
 Put it all together.
 
+```js
 class Item {
   constructor(name, quantity) {
     this.name = name;
@@ -1200,24 +1208,25 @@ let pen = new Item('Pen', 5);
 let notebook = new Item('notebook', 10);
 
 console.log(Item.getCount()); // 2
-Code language: JavaScript (javascript)
-Summary
-A static property of a class is shared by all instances of that class.
-Use the static keyword to define a static property.
-Use the className.staticPropertyName to access the static property in a static method.
-Use the this.constructor.staticPropertyName or className.staticPropertyName to access the static property in a constructor.
+
+```
+
+➖ Summary
+
+- A static property of a class is shared by all instances of that class.
+- Use the static keyword to define a static property.
+- Use the `className.staticPropertyName` to access the static property in a static method.
+- Use the this.constructor.staticPropertyName or className.staticPropertyName to access the static property in a constructor.
 
 [🔝](#contents)
 
-# JavaScript Private Fields
+# Private Fields
 
-Summary: in this tutorial, you’ll learn about JavaScript private fields and how to use them effectively.
-
-Introduction to the JavaScript private fields
-ES2022 allows you to define private fields for a class. To define a private field, you prefix the field name with the # sign.
+ES2022 allows you to define private fields for a class. To define a private field, you prefix the field name with the `#` sign.
 
 For example, the following defines the Circle class with a private field radius:
 
+```js
 class Circle {
   #radius;
   constructor(value) {
@@ -1227,30 +1236,41 @@ class Circle {
     return Math.PI * Math.pow(this.#radius, 2);
   }
 }
-Code language: JavaScript (javascript)
+
+```
+
 In this example:
 
-First, define the private field #radius in the class body.
-Second, initialize the #radius field in the constructor with an argument.
-Third, calculate the area of the circle by accessing the #radius private field in the getter method.
+- First, define the private field `#radius` in the class body.
+- Second, initialize the `#radius` field in the constructor with an argument.
+- Third, calculate the area of the circle by accessing the `#radius` private field in the getter method.
+
 The following creates a new instance of the Circle class and calculates its area:
 
+```js
 let circle = new Circle(10);
 console.log(circle.area); // 314.1592653589793
-Code language: JavaScript (javascript)
-Because the #radius is a private field, you can only access it inside the Circle class. In other words, the #radius field is invisible outside of the Circle class.
 
-Using getter and setter to access private fields
-The following redefines the Circle class by adding the radius getter and setter to provide access to the #radius private field:
+```
 
+Because the `#radius` is a private field, you can only access it inside the Circle class. In other words, the `#radius` field is invisible outside of the Circle class.
+
+➖ Using getter and setter to access private fields
+
+The following redefines the Circle class by adding the radius getter and setter to provide access to the `#radius` private field:
+
+```js
 class Circle {
   #radius = 0;
+  
   constructor(radius) {
     this.radius = radius; // calling setter
   }
+  
   get area() {
     return Math.PI * Math.pow(this.#radius, 2);
   }
+
   set radius(value) {
     if (typeof value === 'number' && value > 0) {
       this.#radius = value;
@@ -1258,19 +1278,27 @@ class Circle {
       throw 'The radius must be a positive number';
     }
   }
+
   get radius() {
     return this.#radius;
   }
 }
-Code language: JavaScript (javascript)
+
+```
+
 How it works.
 
-The radius setter validates the argument before assigning it to the #radius private field. If the argument is not a positive number, the radius setter throws an error.
-The radius getter returns the value of the #radius private field.
-The constructor calls the radius setter to assign the argument to the #radius private field.
-Private fields and subclasses
+The radius setter validates the argument before assigning it to the `#radius` private field. If the argument is not a positive number, the radius setter throws an error.
+
+The radius getter returns the value of the `#radius` private field.
+
+The constructor calls the radius setter to assign the argument to the `#radius` private field.
+
+➖ Private fields and subclasses
+
 Private fields are only accessible inside the class where they’re defined. Also, they’re not accessible from the subclasses. For example, the following defines the Cylinder class that extends the Circle class:
 
+```js
 class Cylinder extends Circle {
   #height;
   constructor(radius, height) {
@@ -1280,23 +1308,35 @@ class Cylinder extends Circle {
     // cannot access the #radius of the Circle class here
   }
 }
-Code language: JavaScript (javascript)
-If you attempt to access the #radius private field in the Cylinder class, you’ll get a SyntaxError.
 
-The in operator: check private fields exist
+```
+
+If you attempt to access the `#radius` private field in the Cylinder class, you’ll get a SyntaxError.
+
+➖ The in operator: check private fields exist
+
 To check if an object has a private field inside a class, you use the in operator:
 
+```js
 fieldName in objectName
-For example, the following adds the hasRadius() static method to the Circle class that uses the in operator to check if the circle object has the #radius private field:
 
+```
+
+For example, the following adds the `hasRadius()` static method to the Circle class that uses the in operator to check if the circle object has the `#radius` private field:
+
+```js
 class Circle {
+
   #radius = 0;
+  
   constructor(radius) {
     this.radius = radius;
   }
+  
   get area() {
     return Math.PI * Math.pow(this.radius, 2);
   }
+  
   set radius(value) {
     if (typeof value === 'number' && value > 0) {
       this.#radius = value;
@@ -1304,9 +1344,11 @@ class Circle {
       throw 'The radius must be a positive number';
     }
   }
+  
   get radius() {
     return this.#radius;
   }
+  
   static hasRadius(circle) {
     return #radius in circle;
   }
@@ -1315,24 +1357,31 @@ class Circle {
 let circle = new Circle(10);
 
 console.log(Circle.hasRadius(circle));
-Code language: JavaScript (javascript)
-Output:
 
-true
-Code language: JavaScript (javascript)
-Static private fields
+// Output:
+// 
+// true
+
+```
+
+➖ Static private fields
+
 The following example shows how to use a static private field:
 
+```js
 class Circle {
   #radius = 0;
   static #count = 0;
+
   constructor(radius) {
     this.radius = radius; // calling setter
     Circle.#count++;
   }
+
   get area() {
     return Math.PI * Math.pow(this.radius, 2);
   }
+
   set radius(value) {
     if (typeof value === 'number' && value > 0) {
       this.#radius = value;
@@ -1340,12 +1389,15 @@ class Circle {
       throw 'The radius must be a positive number';
     }
   }
+
   get radius() {
     return this.#radius;
   }
+
   static hasRadius(circle) {
     return #radius in circle;
   }
+
   static getCount() {
     return Circle.#count;
   }
@@ -1354,72 +1406,98 @@ class Circle {
 let circles = [new Circle(10), new Circle(20), new Circle(30)];
 
 console.log(Circle.getCount());
-Code language: JavaScript (javascript)
+
+```
+
 How it works.
 
 First, add a private static field #count to the Circle class and initialize its value to zero:
 
+```js
 static #count = 0;
-Code language: JavaScript (javascript)
+
+```
+
 Second, increase the #count by one in the constructor:
 
+```js
 Circle.#count++;
-Code language: JavaScript (javascript)
+
+```
+
 Third, define a static method that returns the value of the #count private static field:
 
+```js
 static getCount() {
     return Circle.#count;
 }
-Code language: JavaScript (javascript)
+
+```
+
 Finally, create three instances of the Circle class and output the count value to the console:
 
+```js
 let circles = [new Circle(10), new Circle(20), new Circle(30)];
 console.log(Circle.getCount());
-Code language: JavaScript (javascript)
+
+```
+
 Summary
-Prefix the field name with # sign to make it private.
-Private fields are accessible only inside the class, not from outside of the class or subclasses.
-Use the in operator to check if an object has a private field.
+- Prefix the field name with # sign to make it private.
+- Private fields are accessible only inside the class, not from outside of the class or subclasses.
+- Use the `in` operator to check if an object has a private field.
 
 [🔝](#contents)
 
-# JavaScript Private Methods
+# Private Methods
 
-Summary: in this tutorial, you’ll learn about JavaScript private methods including private instance methods, private static methods, and private getter/setter.
+you’ll learn about JavaScript private methods including private instance methods, private static methods, and private getter/setter.
 
-Introduction to JavaScript private methods
-By default, members of a class are public. ES2020 introduced the private members that include private fields and methods.
+By default, members of a class are public. `ES2020` introduced the private members that include private fields and methods.
 
-To make a public method private, you prefix its name with a hash #. JavaScript allows you to define private methods for instance methods, static methods, and getter/setters.
+To make a public method private, you prefix its name with a hash `#`. JavaScript allows you to define private methods for instance methods, static methods, and getter/setters.
 
 The following shows the syntax of defining a private instance method:
 
+```js
 class MyClass {
   #privateMethod() {
     //...
   }
 }
-Code language: JavaScript (javascript)
-In this syntax, the #privateMethod is a private instance method. It can only be called inside the MyClass. In other words, it cannot be called from outside the class or in the subclasses of the MyClass.
 
-To call the #privateMethod inside the MyClass, you use the this keyword as follows:
+```
 
+In this syntax, the `#privateMethod` is a private instance method. It can only be called inside the MyClass. In other words, it cannot be called from outside the class or in the subclasses of the MyClass.
+
+To call the `#privateMethod` inside the MyClass, you use the this keyword as follows:
+
+```js
 this.#privateMethod();
-Code language: JavaScript (javascript)
+
+```
+
 The following illustrates the syntax of defining a private static method:
 
+```js
 class MyClass {
   static #privateStaticMethod() {
     //...
   }
 }
-Code language: JavaScript (javascript)
-To call the #privateStaticMethod() inside the MyClass, you use the class name instead of the this keyword:
 
+```
+
+To call the `#privateStaticMethod()` inside the MyClass, you use the class name instead of the this keyword:
+
+```js
 MyClass.#privateStaticMethod();
-Code language: JavaScript (javascript)
+
+```
+
 The following shows the syntax of the private getters/setters:
 
+```js
 class MyClass {
   #field;
   get #myField() {
@@ -1429,19 +1507,24 @@ class MyClass {
       #field = value;
   }
 }
-Code language: JavaScript (javascript)
-In this example, the #myField is the private getter and setter that provides access to the private field #field.
+
+```
+
+In this example, the `#myField` is the private getter and setter that provides access to the private field `#field`.
 
 In practice, you use private methods to minimize the number of methods that the object exposes.
 
 As a rule of thumb, you should make all class methods private by default first. And then you make a method public whenever the object needs to use that method to interact with other objects.
 
-JavaScript private method examples
+🧲 JavaScript private method examples
+
 Let’s take some examples of using private methods
 
-1) Private instance method example
-The following illustrates how to define the Person class with private instance methods:
+➖ 1) Private instance method example
 
+The following illustrates how to define the Person class with `private instance methods`:
+
+```js
 class Person {
   #firstName;
   #lastName;
@@ -1453,9 +1536,12 @@ class Person {
     return format ? this.#firstLast() : this.#lastFirst();
   }
 
+  // private instance method
   #firstLast() {
     return `${this.#firstName} ${this.#lastName}`;
   }
+  
+  // private instance method
   #lastFirst() {
     return `${this.#lastName}, ${this.#firstName}`;
   }
@@ -1463,34 +1549,43 @@ class Person {
 
 let person = new Person('John', 'Doe');
 console.log(person.getFullName());
-Code language: JavaScript (javascript)
-Output:
 
-John Doe
-Code language: JavaScript (javascript)
+// Output:
+// 
+// John Doe
+
+```
+
 In this example:
 
-First, define two private fields #firstName and #lastName in the Person class body.
+First, define two private fields `#firstName` and `#lastName` in the Person class body.
 
-Second, define the private methods #firstLast() and #lastFirst(). These methods return the full name in different formats.
+Second, define the private methods `#firstLast()` and `#lastFirst()`. These methods return the full name in different formats.
 
-Third, define the public instance method getFullName() that returns a person’s full name. The getFullName() method calls the private method #firstLast() and #lastFirst() to return the full name.
+Third, define the public instance method `getFullName()` that returns a person’s full name. The `getFullName()` method calls the private method `#firstLast()` and `#lastFirst()` to return the full name.
 
 Finally, create a new person object and output the full name to the console.
 
-2) Private static method example
-The following adds the #validate() private static method to the Person class:
+🧲 1) Private static method example
 
+The following adds the `#validate()` private static method to the Person class:
+
+```js
 class Person {
+  // private fields
   #firstName;
   #lastName;
+
   constructor(firstName, lastName) {
     this.#firstName = Person.#validate(firstName);
     this.#lastName = Person.#validate(lastName);
   }
+
   getFullName(format = true) {
     return format ? this.#firstLast() : this.#lastFirst();
   }
+  
+  // private static method
   static #validate(name) {
     if (typeof name === 'string') {
       let str = name.trim();
@@ -1500,10 +1595,11 @@ class Person {
     }
     throw 'The name must be a string with at least 3 characters';
   }
-
+  // private instance method
   #firstLast() {
     return `${this.#firstName} ${this.#lastName}`;
   }
+  // private instance method
   #lastFirst() {
     return `${this.#lastName}, ${this.#firstName}`;
   }
@@ -1511,35 +1607,45 @@ class Person {
 
 let person = new Person('John', 'Doe');
 console.log(person.getFullName());
-Code language: JavaScript (javascript)
+
+// Output:
+// 
+// John Doe
+
+```
+
 How it works.
 
-First, define the static method #validate() that returns a value if it is a string with at least three characters. The method raises an exception otherwise.
+- First, define the static method `#validate()` that returns a value if it is a string with at least three characters. The method raises an exception otherwise.
 
-Second, call the #validate() private static method in the constructor to validate the firstName and lastName arguments before assigning them to the corresponding private attributes.
+- Second, call the `#validate()` private static method in the constructor to validate the `firstName` and `lastName` arguments before assigning them to the corresponding private attributes.
 
-Summary
-Prefix a method name the # to make it private.
-Private methods can be called inside the class, not from outside of the class or in the subclasses.
+➖ Summary
 
-# JavaScript instanceof
+- Prefix a method name the # to make it private.
+- Private methods can be called inside the class, not from outside of the class or in the subclasses.
 
-Summary: in this tutorial, you’ll learn how to use the JavaScript instanceof operator to determine if a constructor’s prototype appears in the prototype chain of an object.
+# instanceof
 
-Introduction to the JavaScript instanceof operator
 The instanceof operator returns true if a prototype of a constructor (constructor.prototype) appears in the prototype chain of an object.
 
 The following shows the syntax of the instanceof operator:
 
+```js
 object instanceof contructor
-Code language: JavaScript (javascript)
+
+```
+
 In this syntax:
 
-object is the object to test.
-constructor is a function to test against.
-JavaScript instanceof operator example
+- object is the object to test.
+- constructor is a function to test against.
+
+🧲 JavaScript instanceof operator example
+
 The following example defines the Person type and uses the instanceof operator to check if an object is an instance of that type:
 
+```js
 function Person(name) {
   this.name = name;
 }
@@ -1547,33 +1653,48 @@ function Person(name) {
 let p1 = new Person('John');
 
 console.log(p1 instanceof Person); // true
-Code language: JavaScript (javascript)
+
+```
+
 How it works.
 
 First, define a Person type using the constructor function pattern:
 
+```js
 function Person(name) {
   this.name = name;
 }
-Code language: JavaScript (javascript)
+
+```
+
 Second, create a new object of the Person type:
 
+```js
 let p1 = new Person('John Doe');
-Code language: JavaScript (javascript)
+
+```
+
 Third, check if the person is an instance of the Person type:
 
+```js
 console.log(p1 instanceof Person); // true
-Code language: JavaScript (javascript)
-It returns true because the Person.prototype appears on the prototype chain of the p1 object. The prototype chain of the p1 is the link between p1, Person.prototype, and Object.prototype:
 
+```
 
-The following also returns true because the Object.prototype appears on the prototype chain of the p1 object:
+It returns true because the `Person.prototype` appears on the prototype chain of the p1 object. The prototype chain of the p1 is the link between p1, Person.prototype, and Object.prototype (❗):
 
+The following also returns true because the `Object.prototype` appears on the prototype chain of the p1 object:
+
+```js
 console.log(p1 instanceof Object); // true
-Code language: JavaScript (javascript)
-ES6 class and instanceof operator
+
+```
+
+➖ ES6 class and instanceof operator
+
 The following example defines the Person class and uses the instanceof operator to check if an object is an instance of the class:
 
+```js
 class Person {
   constructor(name) {
     this.name = name;
@@ -1583,28 +1704,41 @@ class Person {
 let p1 = new Person('John');
 
 console.log(p1 instanceof Person); // true
-Code language: JavaScript (javascript)
+
+```
+
 How it works.
 
 First, define the Person class:
 
+```js
 class Person {
   constructor(name) {
     this.name = name;
   }
 }
-Code language: JavaScript (javascript)
+
+```
+
 Second, create a new instance of the Person class:
 
+```js
 let p1 = new Person('John');
-Code language: JavaScript (javascript)
+
+```
+
 Third, check if p1 is an instance of the Person class:
 
+```js
 console.log(p1 instanceof Person); // true
-Code language: JavaScript (javascript)
-The instanceof operator and inheritance
+
+```
+
+➖ The instanceof operator and inheritance
+
 The following example defines the Employee class that extends the Person class:
 
+```js
 class Person {
   constructor(name) {
     this.name = name;
@@ -1623,12 +1757,16 @@ let e1 = new Employee();
 console.log(e1 instanceof Employee); // true
 console.log(e1 instanceof Person); // true
 console.log(e1 instanceof Object); // true
-Code language: JavaScript (javascript)
-Since e1 is an instance of the Employee class, it’s also an instance of the Person and Object classes (base classes).
 
-Symbol.hasInstance
-In ES6, the instanceof operator uses the Symbol.hasInstance function to check the relationship. The Symbol.hasInstance() accepts an object and returns true if a type has that object as an instance. For example:
+```
 
+Since e1 is an instance of the `Employee class`, it’s also an instance of the Person and Object classes (base classes).
+
+➖ Symbol.hasInstance
+
+In ES6, the instanceof operator uses the `Symbol.hasInstance` function to check the relationship. The Symbol.hasInstance() accepts an object and returns true if a type has that object as an instance. For example:
+
+```js
 class Person {
   constructor(name) {
     this.name = name;
@@ -1638,11 +1776,14 @@ class Person {
 let p1 = new Person('John');
 
 console.log(Person[Symbol.hasInstance](p1)); // true
-Code language: JavaScript (javascript)
-Since the Symbol.hasInstance is defined on the Function prototype, it’s automatically available by default in all functions and classes
+
+```
+
+Since the `Symbol.hasInstance` is defined on the Function prototype, it’s automatically available by default in all functions and classes
 
 You can redefine the Symbol.hasInstance on a subclass as a static method. For example:
 
+```js
 class Person {
   constructor(name) {
     this.name = name;
@@ -1659,8 +1800,13 @@ let a1 = new Android('Sonny');
 
 console.log(a1 instanceof Android); // false
 console.log(a1 instanceof Person); // false
-Code language: JavaScript (javascript)
-Summary
-Use the instanceof operator to check if the constructor.protoype in object’s prototype chain.
+
+```
+
+URREV symbol has instance
+
+➖ Summary
+
+- Use the instanceof operator to check if the constructor.protoype in object’s prototype chain.
 
 [🔝](#contents)
