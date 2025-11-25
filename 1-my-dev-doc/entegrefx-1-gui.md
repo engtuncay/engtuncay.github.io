@@ -3,6 +3,9 @@
 
 Java Fx ile geliştirdiğim uygulama için aldığım notlar. 
 
+# Contents
+
+- [Contents](#contents)
 - [Kısaltmalar](#kısaltmalar)
 - [Helper Sınıfları](#helper-sınıfları)
 - [Meta Datalar](#meta-datalar)
@@ -27,23 +30,34 @@ Java Fx ile geliştirdiğim uygulama için aldığım notlar.
   - [Form oluşturma](#form-oluşturma)
   - [Form elemanlarının otomatik kontrolü](#form-elemanlarının-otomatik-kontrolü)
   - [Form Kontrol Helper](#form-kontrol-helper)
-  - [Form verilerinin fikeybean olarak almak](#form-verilerinin-fikeybean-olarak-almak)
+  - [Form verilerinin FiKeybean olarak almak](#form-verilerinin-fikeybean-olarak-almak)
   - [Form Elements (FiCols)](#form-elements-ficols)
     - [ComboBox FiCol Element](#combobox-ficol-element)
 - [Karalama Notlar - İnceleneecek](#karalama-notlar---i̇nceleneecek)
 
+[🔝](#contents)
 
 # Kısaltmalar
 
-Kısaltma | Açıklama
----------|-----------------------------------------------------------------------------------------------
-Ntn      | Not Null (null değer dönmez, string ise boş string döner) (metod isimlerinin sonuna yazılıyor)
-Init     | Initialize (Referansın objesini oluşturur.) (metod isminde)
-Vim      | view modal (Class isminde)
-Ehp      | Entegre Fx Helper (Class isminde)
-Esr      | EntegreServer
-Emk      | Entegre Mikro
-Emhp     | Entegre Mikro Helper (emh de kullanılabilir)
+➖ Class İsminde Kullanılan Kısaltmalar
+
+- Vim  : view modal (Class isminde)
+- Ehp : Entegre Fx Helper (Class isminde) (Enh)
+- Esr : EntegreServer
+- Emk : Entegre Mikro
+- Emhp : Ent. Mikro Helper (emh de kullanılabilir)
+- Emm : Ent. Mikro Modals (Entegre Mikro Projedeki Modal Sınıfları)
+
+➖ Metod İsminde Kullanılan Kısaltmalar
+
+Prefix
+
+PostFix
+
+- Ntn :  Not Null (null değer dönmez, string ise boş string döner) 
+- Init : Initialize (Referansın objesini oluşturur.)
+
+[🔝](#contents)
 
 # Helper Sınıfları
 
@@ -51,6 +65,7 @@ Sınıf    | Açıklama
 ---------|----------------
 EmhpIcon | Kullanılan icon
   
+[🔝](#contents)
 
 # Meta Datalar
 
@@ -306,7 +321,7 @@ Fdr fdr = FxEditorFactory.validateCols(listFiCol);
 
 ## Form Kontrol Helper
 
-EhpFormCols.formKontrol() metodu true dönerse form dogru, false dönerse hata var demektir.
+`EhpFormCols.formKontrol()` metodu true dönerse form dogru, false dönerse hata var demektir.
 
 false sonuç için ayrıca metodda uyarı popup düzenlendi.
 
@@ -314,10 +329,11 @@ false sonuç için ayrıca metodda uyarı popup düzenlendi.
 if(!new EhpFormCols().formKontrol(getFxFormRapor()))return;
 ```
 
-## Form verilerinin fikeybean olarak almak
+## Form verilerinin FiKeybean olarak almak
 
 ```java
 FiKeyBean fkbForm = getFxFormMig().getFormAsFiKeyBean();
+
 ```
 
 

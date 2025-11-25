@@ -32,7 +32,7 @@
 
 # References
 
-- https://www.javatpoint.com/c-sharp-tutorial
+- https://www.tpointtech.com/c-sharp-tutorial
 
 - https://wpf-tutorial.com
 
