@@ -25,6 +25,9 @@ Source : https://www.javascripttutorial.net/javascript-class/
 - [Private Fields](#private-fields)
 - [Private Methods](#private-methods)
 - [instanceof](#instanceof)
+- [Recap of Class Section](#recap-of-class-section)
+  - [ES6 class declaration](#es6-class-declaration-1)
+  - [Getter and Setter](#getter-and-setter)
 
 
 # Class
@@ -84,7 +87,7 @@ class Person {
 
 ```
 
-This Person class behaves like the Person type in the previous example. However, instead of using a constructor/prototype pattern, it uses the `class keyword`.
+This Person class behaves like the Person type in the previous example. However, instead of using a `constructor/prototype` pattern, it uses the `class keyword`.
 
 In the Person class, the constructor() is where you can initialize the properties of an instance. JavaScript automatically calls the constructor() method when you instantiate an object of the class.
 
@@ -235,7 +238,7 @@ constructor(name) {
 
 ```
 
-The getName() and setName() methods are known as getter and setter in other programming languages such as Java and C++.
+The getName() and setName() methods are known as `getter and setter` in other programming languages such as Java and C++.
 
 ES6 provides a specific syntax for defining the getter and setter using the get and set keywords. For example:
 
@@ -260,9 +263,9 @@ class Person {
 
 How it works.
 
-First, the name property is changed to _name to avoid the name collision with the getter and setter.
+- First, the name property is changed to _name to avoid the name collision with the getter and setter.
 
-Second, the getter uses the get keyword followed by the method name:
+- Second, the getter uses the get keyword followed by the method name:
 
 ```js
 get name() {
@@ -271,7 +274,7 @@ get name() {
 
 ```
 
-To call the getter, you use the following syntax:
+To call the getter (❗), you use the following syntax:
 
 ```js
 let name = person.name;
@@ -280,7 +283,7 @@ let name = person.name;
 
 When JavaScript sees the access to name property of the Person class, it checks if the Person class has any `name property`.
 
-If not, JavaScript checks if the Person class has any method that `binds to the name property`. In this example, the `name()` method binds to the name property via the get keyword. Once JavaScript finds the getter method, it executes the getter method and returns a value.
+If not, JavaScript checks if the Person class has any method that `binds to the name property`. In this example, the `name()` method binds to the name property via the get keyword. Once JavaScript finds the getter method, it executes the getter method and returns a value ❗
 
 Third, the setter uses the set keyword followed by the method name:
 
@@ -295,14 +298,14 @@ set name(newName) {
 
 ```
 
-JavaScript will call the `name() setter` when you assign a value to the name property like this:
+JavaScript will call the `name()` setter when you assign a value to the name property like this:
 
 ```js
 person.name = 'Jane Smith';
 
 ```
 
-If a class has only a getter but not a setter and you attempt to use the setter, the change won’t take any effect. See the following example:
+If a class has only a getter but not a setter and you attempt to use the setter, the change won’t take any effect (❗). See the following example:
 
 ```js
 class Person {
@@ -361,6 +364,8 @@ console.log(`The latest attendee is ${meeting.latest}.`);
 - The set keyword binds an object property to a method that will be invoked when that property is assigned.
 
 [🔝](#contents)
+
+TBC - 20251126 - 0911 
 
 # Class Expressions
 
@@ -1810,3 +1815,77 @@ URREV symbol has instance
 - Use the instanceof operator to check if the constructor.protoype in object’s prototype chain.
 
 [🔝](#contents)
+
+# Recap of Class Section
+
+## ES6 class declaration
+
+```js
+class Person {
+    constructor(name) {
+        this.name = name;
+    }
+    getName() {
+        return this.name;
+    }
+}
+
+```
+
+
+## Getter and Setter
+
+```js
+class Person {
+    
+    // used _name to avoid conflict with the name property
+    constructor(name) {
+        this._name = name;
+    }
+
+    get name() {
+        return this._name;
+    }
+    set name(newName) {
+        newName = newName.trim();
+        if (newName === '') {
+            throw 'The name cannot be empty';
+        }
+        this._name = newName;
+    }
+}
+
+```
+
+➖ Without Setter
+
+```js
+class Person {
+    constructor(name) {
+        this._name = name;
+    }
+    get name() {
+        return this._name;
+    }
+}
+
+let person = new Person("Jane Doe");
+console.log(person.name);
+
+// attempt to change the name, but cannot ❗
+person.name = 'Jane Smith';
+console.log(person.name); // Jane Doe
+
+```
+
+[🔝](#contents)
+
+
+
+
+
+
+> ⚠️ Note: This content is for educational and personal reference purposes only.
+> The original source is shown at the top of the document.
+>
+> All rights and copyrights belong to their respective owners.
