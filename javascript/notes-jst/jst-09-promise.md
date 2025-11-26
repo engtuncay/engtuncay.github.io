@@ -10,7 +10,7 @@ Source : https://www.javascripttutorial.net/es6/javascript-promises/
 # Contents
 
 - [Contents](#contents)
-- [JavaScript Promises](#javascript-promises)
+- [Promises](#promises)
   - [Creating a promise](#creating-a-promise)
   - [Consuming a Promise: then, catch, finally](#consuming-a-promise-then-catch-finally)
   - [2) The catch() method](#2-the-catch-method)
@@ -22,7 +22,7 @@ Source : https://www.javascripttutorial.net/es6/javascript-promises/
 
 [🔝](#contents)
 
-# JavaScript Promises
+# Promises
 
 In practice, the getUsers() function may access a database or call an API to get the user list. Therefore, the getUsers() function will have a **delay**
 
