@@ -2,7 +2,7 @@
 # Contents
 
 - [Contents](#contents)
-- [Enm Tablolar - Firma Mikro Veritabanındaki](#enm-tablolar---firma-mikro-veritabanındaki)
+- [Enm Tablolar](#enm-tablolar)
   - [EnmCariEvrak](#enmcarievrak)
   - [EnmCariEvrakEk](#enmcarievrakek)
   - [EnmCariHareketEk](#enmcarihareketek)
@@ -14,15 +14,17 @@
   - [EdmCariHareketBaslik](#edmcarihareketbaslik)
   - [CARI\_HESAP\_HAREKETLERI\_ENTEGRE](#cari_hesap_hareketleri_entegre)
   - [EmtMikroEvrTip](#emtmikroevrtip)
+- [OZPASENTEGRE DB Tablolar](#ozpasentegre-db-tablolar)
 
 [🔝](#contents)
 
-# Enm Tablolar - Firma Mikro Veritabanındaki
+# Enm Tablolar 
+
+Firma Mikro Veritabanına eklenen tablolar:
 
 ## EnmCariEvrak
 
 ## EnmCariEvrakEk
-
 
 ## EnmCariHareketEk
 
@@ -68,4 +70,5 @@ FROM [MikroDB_V15_KRAFT].[dbo].[EmtMikroEvrTip]
 ➖ ENM_HIZMET_KAPATMA
 
 
+# OZPASENTEGRE DB Tablolar
 
