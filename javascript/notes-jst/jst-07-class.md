@@ -391,9 +391,9 @@ How it works.
 
 On the left side of the expression is the Person variable. It’s assigned to a class expression.
 
-The class expression starts with the keyword `class` followed by `the class definition`.
+The class expression starts with the keyword `class` followed by the class `definition`.
 
-A class expression may have a name or not. In this example, we have an unnamed class expression ❗
+A class expression may have a name or not. In this example, we have an `unnamed class expression` ❗
 
 If a class expression has a name, its name can be local to the class body.
 
