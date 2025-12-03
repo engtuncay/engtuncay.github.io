@@ -22,7 +22,9 @@ https://docs.solidjs.com/solid-start burada konuları bana özetleyerek ve örne
 Elbette! SolidJS'in resmi belgesindeki **Solid Start** konularını kısaca özetleyeceğim ve temel bir örnekle açıklayacağım. **Solid Start**, SolidJS için bir full-stack framework'tür ve uygulamanızı server-side rendering (SSR), routing, veri alımı (data fetching) gibi yeteneklerle geliştirmek için kullanılır. Bu, React’te **Next.js** veya Svelte'deki **SvelteKit**'e benzer bir yapıdır.
 
 ### Solid Start Nedir?
+
 Solid Start, **SolidJS** ile modern web uygulamaları oluşturmanızı kolaylaştıran bir framework’tür. Şu özellikleri içerir:
+
 - **Server-Side Rendering (SSR)**: Sayfa render'ını server’da yapar.
 - **File-based Routing (Dosya Tabanlı Routing)**: Dosya yapısına dayalı olarak otomatik bir yönlendirme (routing) sistemi sunar.
 - **API Routes**: Sunucuda API endpoint'leri oluşturmayı destekler.
@@ -30,6 +32,7 @@ Solid Start, **SolidJS** ile modern web uygulamaları oluşturmanızı kolaylaş
 - **Edge işleme ve statik site oluşturma** gibi farklı rendering stratejilerini de içerir.
 
 #### Başlangıç
+
 Solid Start, projeyi hızlıca oluşturmak için kullanılabilecek bir komut sağlar:
 
 ```shell script
@@ -42,13 +45,14 @@ npm run dev
 ### Temel Konular
 
 #### 1. **Routing (Yönlendirme)**
+
 Solid Start, dosya tabanlı yönlendirme sistemi sunar. `src/routes` klasörü altında oluşturduğunuz dosyalar URL’leri temsil eder.
 
 Örnek:
 - `src/routes/index.tsx` → `/` adresine gider.
 - `src/routes/about.tsx` → `/about` adresine gider.
 
-```textmate
+```js
 // src/routes/index.tsx
 import { Link } from "@solidjs/router";
 
@@ -60,6 +64,7 @@ export default function Home() {
     </main>
   );
 }
+
 ```
 
 ```textmate

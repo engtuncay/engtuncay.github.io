@@ -5,10 +5,16 @@ Source : https://chatgpt.com/c/67b671e2-a038-800e-9101-0da05cc7a6c7
 
 ---
 
-- [Intro](#intro)
+- [Child To Parent Communication](#child-to-parent-communication)
+  - [1 Props ile Callback Fonksiyonu Gönderme (En Yaygın Yöntem)](#1-props-ile-callback-fonksiyonu-gönderme-en-yaygın-yöntem)
+  - [2️⃣ Context API Kullanımı (Daha Büyük Projeler İçin)](#2️⃣-context-api-kullanımı-daha-büyük-projeler-i̇çin)
+  - [Sonuç](#sonuç)
+- [Intro 2](#intro-2)
+  - [1 Props'u Opsiyonel Yapma (? Kullanımı)](#1-propsu-opsiyonel-yapma--kullanımı)
 
 
-# Intro
+
+# Child To Parent Communication
 
 SolidJS'de child-to-parent iletişimi için birkaç yaygın yöntem vardır. İşte en etkili yollar:
 
@@ -54,6 +60,7 @@ Context API, state'i global olarak paylaşmak için idealdir. Bu yöntem özelli
 
 Context Tanımlama
 
+```js
 import { createSignal, createContext, useContext } from "solid-js";
 
 // Context oluştur
@@ -79,6 +86,9 @@ function Child() {
     </button>
   );
 }
+
+```
+
 ⏩ Nasıl Çalışıyor?
 
 Parent, MessageContext.Provider kullanarak message ve setMessage değerlerini tüm child bileşenlere sağlar.
@@ -88,6 +98,7 @@ SolidJS'in createStore fonksiyonuyla bir global store oluşturup child bileşenl
 
 Store Kullanımı
 
+```js
 import { createStore } from "solid-js/store";
 
 function Parent() {
@@ -110,11 +121,14 @@ function Child(props: { updateMessage: (msg: string) => void }) {
 }
 
 export default Parent;
+
+```
+
 ⏩ Nasıl Çalışıyor?
 
 createStore ile reactive bir store oluşturulur.
 
-Child bileşeni, parent'tan aldığı updateMessage fonksiyonunu çağırarak store'u günceller.
+Child bileşeni, parent'tan aldığı `updateMessage` fonksiyonunu çağırarak store'u günceller.
 
 ## Sonuç
 

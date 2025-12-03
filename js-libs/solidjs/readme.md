@@ -36,12 +36,13 @@ Solid Js Notes
 
 # Articles
 
-
 - [Sınıf Değişkenleri](./arts/art-sinif-degiskenleri.md) | x
 - [Child-Parent Communication](./arts/art-child-parent-comm.md) | x
 
 # Code Play
 
 - https://playground.solidjs.com/
+
+- https://playcode.io/solid_js
 
 [🔝](#contents)

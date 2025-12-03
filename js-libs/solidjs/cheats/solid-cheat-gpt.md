@@ -5,34 +5,42 @@ Source : https://chatgpt.com/c/67b61423-5080-800e-867b-5186bf4e0634
 
 ---
 
-- [1. Kurulum](#1-kurulum)
-- [2. Başlangıç](#2-başlangıç)
-- [3. createSignal](#3-createsignal)
-- [4. createEffect](#4-createeffect)
-- [5. createMemo](#5-creatememo)
-- [6. createStore](#6-createstore)
-- [7. Bileşenler](#7-bileşenler)
-- [8. onCleanup](#8-oncleanup)
-- [9. show](#9-show)
-- [10.  For](#10--for)
-- [11.  Suspense](#11--suspense)
-- [12.  Lazy](#12--lazy)
-- [13.  Context](#13--context)
-- [14.  onError](#14--onerror)
-- [15. JSX Özellikleri](#15-jsx-özellikleri)
-- [16. Event Binding (Etkinlik Bağlama)](#16-event-binding-etkinlik-bağlama)
-- [17.  Two-Way Binding (Çift Yönlü Veri Bağlama)](#17--two-way-binding-çift-yönlü-veri-bağlama)
-- [18. Event Modifiers (Etkinlik Modifikatörleri) (Event Bubbling)](#18-event-modifiers-etkinlik-modifikatörleri-event-bubbling)
-- [19. bind (Bağlama) - SolidJS'ye özel değil, ancak alternatifler ile yapılabilir](#19-bind-bağlama---solidjsye-özel-değil-ancak-alternatifler-ile-yapılabilir)
-- [20. Event Binding (Etkinlik Bağlama)](#20-event-binding-etkinlik-bağlama)
-- [17. Two-Way Binding (Çift Yönlü Veri Bağlama)](#17-two-way-binding-çift-yönlü-veri-bağlama)
-- [18 Event Modifiers (Etkinlik Modifikatörleri)](#18-event-modifiers-etkinlik-modifikatörleri)
-- [19 bind (Bağlama) - SolidJS'ye özel değil, ancak alternatifler ile yapılabilir](#19-bind-bağlama---solidjsye-özel-değil-ancak-alternatifler-ile-yapılabilir-1)
+# Contents
+
+- [Contents](#contents)
+  - [1. Proje Oluşturma](#1-proje-oluşturma)
+  - [2. Başlangıç](#2-başlangıç)
+  - [3. createSignal](#3-createsignal)
+  - [4. createEffect](#4-createeffect)
+  - [5. createMemo](#5-creatememo)
+  - [6. createStore](#6-createstore)
+  - [7. Bileşenler](#7-bileşenler)
+  - [8. onCleanup](#8-oncleanup)
+  - [9. show](#9-show)
+  - [10.  For](#10--for)
+  - [11.  Suspense](#11--suspense)
+  - [12.  Lazy](#12--lazy)
+  - [13.  Context](#13--context)
+  - [14.  onError](#14--onerror)
+  - [15. JSX Özellikleri](#15-jsx-özellikleri)
+  - [16. Event Binding (Olay Bağlama)](#16-event-binding-olay-bağlama)
+  - [17.  Two-Way Binding (Çift Yönlü Veri Bağlama)](#17--two-way-binding-çift-yönlü-veri-bağlama)
+  - [18. Event Modifiers (Etkinlik Modifikatörleri) (Event Bubbling)](#18-event-modifiers-etkinlik-modifikatörleri-event-bubbling)
+  - [19. bind (Bağlama) - SolidJS'ye özel değil, ancak alternatifler ile yapılabilir](#19-bind-bağlama---solidjsye-özel-değil-ancak-alternatifler-ile-yapılabilir)
+  - [20. Event Binding (Etkinlik Bağlama)](#20-event-binding-etkinlik-bağlama)
+  - [17. Two-Way Binding (Çift Yönlü Veri Bağlama)](#17-two-way-binding-çift-yönlü-veri-bağlama)
+  - [18 Event Modifiers (Etkinlik Modifikatörleri)](#18-event-modifiers-etkinlik-modifikatörleri)
+  - [19 bind (Bağlama) - SolidJS'ye özel değil, ancak alternatifler ile yapılabilir](#19-bind-bağlama---solidjsye-özel-değil-ancak-alternatifler-ile-yapılabilir-1)
+- [solid js child to parent communication nasıl yapılır](#solid-js-child-to-parent-communication-nasıl-yapılır)
 
 
-## 1. Kurulum
+## 1. Proje Oluşturma
 
 SolidJS, npm veya yarn üzerinden kurulabilir:
+
+```sh
+pnpm create solid
+```
 
 ```sh
 npm init solid@latest
@@ -78,8 +86,8 @@ const [value, setValue] = createSignal(initialValue);
 
 ```
 
-- value() - Durumu okur.
-- setValue(newValue) - Durumu günceller.
+- value() - Durumu okur. (getter)
+- setValue(newValue) - Durumu günceller. (setter)
 
 ## 4. createEffect
 
@@ -281,6 +289,7 @@ function App() {
 
 ```js
 function App() {
+  
   const [value, setValue] = createSignal("");
 
   return (
