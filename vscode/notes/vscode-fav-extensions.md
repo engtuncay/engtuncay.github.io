@@ -7,91 +7,132 @@ VSCode Recommended Extennsions
 # Contents
 
 - [Contents](#contents)
-- [Programming Languages or Frameworks](#programming-languages-or-frameworks)
+- [Coding Extensions](#coding-extensions)
+  - [Html](#html)
+  - [CSS](#css)
   - [Javascript](#javascript)
   - [TypeScript](#typescript)
   - [Bootstrap 5](#bootstrap-5)
   - [Solidjs](#solidjs)
   - [Vue](#vue)
-  - [Html](#html)
+  - [Php](#php)
+  - [Java](#java)
+  - [Csharp](#csharp)
 - [Debug](#debug)
-  - [Debugger for Chrome](#debugger-for-chrome)
-- [Productivity Extensions](#productivity-extensions)
-  - [Workbench](#workbench)
-    - [EditorConfig for VS Code - EditorConfig Support for Visual Studio Code](#editorconfig-for-vs-code---editorconfig-support-for-visual-studio-code)
-- [Theme - Icons](#theme---icons)
 - [Productivity](#productivity)
+- [Workbench](#workbench)
 - [Git](#git)
+- [Theme - Icons](#theme---icons)
 - [Deprecated Extensions](#deprecated-extensions)
 - [Experiment (deneme sürecinde)](#experiment-deneme-sürecinde)
 
+[🔝](#contents)
 
-
-
-
-# Programming Languages or Frameworks
-
-## Javascript
-
-➖ Auto Import - Automatically finds, parses and provides code actions and code completion for all available imports (altough VSCode has auto import funcionatlity, this plugin is a great complement).
-
-➖ Prettier - JavaScript formatter - format your Javascript / Typescript / CSS - specially for Angular, I recommend adding the following config in you users setting for VsCode. Recommended settings:
-
-
-
-## TypeScript
-
-➖ json2ts - Convert a JSON from clipboard to TypeScript interfaces. (Ctrl+Alt+V).
-
-➖ TSLint - linter for the TypeScript language, help fixing error in TS code.
-
-Recommended settings: "tslint.autoFixOnSave": true (auto fix lint issues on file save)
-
-## Bootstrap 5
-
-
-## Solidjs
-
-
-## Vue
-
+# Coding Extensions
 
 ## Html
 
-- Auto Rename Tag - Auto rename paired HTML/XML tag.
-
-- Auto Close Tag - Automatically add HTML/XML close tag, same as Visual Studio IDE or Sublime Text.
-
 - HTML Snippets - Full HTML tags including HTML5 Snippets.
 
+🔔 Deprecated - vscode supports default
 
-# Debug
+- Auto Rename Tag - Auto rename paired HTML/XML tag.
+- Auto Close Tag - Automatically add HTML/XML close tag, same as Visual Studio IDE or Sublime Text.
 
-##  Debugger for Chrome
 
-You can debug using chrome and add your breakpoints in VSCode. Tutorial on how to use can be found on VSCode docs.
+## CSS
 
-# Productivity Extensions
+➖ Atomic CSS Search - Search for Atomic CSS classes from popular Atomic CSS frameworks like Tailwind CSS, Windi CSS, Tachyons, and more, directly within VSCode.
+
+https://marketplace.visualstudio.com/items?itemName=ArvinH.atomic-css-search
+
+## Javascript
+
+➖ TypeScript Next - Use the latest TypeScript and JavaScript features, with the ability to switch between versions of TypeScript on a per-workspace basis.
+
+https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-next
+
+➖ Prettier - JavaScript formatter - format your Javascript / Typescript / CSS 
+
+Recommended settings:
 
 "prettier.singleQuote": true (this helps when using auto import extension or the VSCode auto import functionality).
 "prettier.tabWidth": 2 (angular lint uses 2 spaces as default indentation). With this setting, you can continue using tabs if it is your preference
 "prettier.useTabs": false (same as above)
 
-Path Intellisense - VSCode has a very good auto import capability, but sometime you still need to import some files manually, and this extension helps a lot in these cases.
+🔔 Deprecated
 
-Move TS - this is a great extension to help you refactor and re-organize some files and components in the project. It automatically fixes the imports on the file (or component folder) that is being moved and also files that are importing the component you are moving. To use it: right-click on a file or folder in the Project Explorer pane and select 'Move TypeScript'.
+➖ Auto Import - Automatically finds, parses and provides code actions and code completion for all available imports (altough VSCode has auto import funcionatlity, this plugin is a great complement)
 
-## Workbench
 
-###  EditorConfig for VS Code - EditorConfig Support for Visual Studio Code
 
-# Theme - Icons
+[🔝](#contents)
 
-Other extensions recommended, but not included in this package
 
-➖  vscode-icons - my favorite collection of icons for VSCode projects!
+## TypeScript
+
+➖ TSLint - linter for the TypeScript language, help fixing error in TS code
+
+Recommended settings: 
+
+- "tslint.autoFixOnSave": true (auto fix lint issues on file save)
+
+➖ json2ts - Convert a JSON from clipboard to TypeScript interfaces. (Ctrl+Alt+V)
+
+
+
+
+[🔝](#contents)
+
+## Bootstrap 5
+
+➖ Bootstrap intellisense - with version selection
+
+https://marketplace.visualstudio.com/items?itemName=hossaini.bootstrap-intellisense
+
+
+
+
+[🔝](#contents)
+
+## Solidjs
+
+➖ SolidJS Snippets - Collection of SolidJS snippets for VSCode.
+
+https://marketplace.visualstudio.com/items?itemName=pheianox.solidjs-snippets
+
+
+[🔝](#contents)
+
+## Vue
+
+
+
+[🔝](#contents)
+
+## Php
+
+
+## Java
+
+
+## Csharp
+
+[🔝](#contents)
+
+# Debug
+
+➖ Debugger for Chrome
+
+You can debug using chrome and add your breakpoints in VSCode. Tutorial on how to use can be found on VSCode docs.
+
+[🔝](#contents)
 
 # Productivity
+
+➖ Path Intellisense - VSCode has a very good auto import capability, but sometime you still need to import some files manually, and this extension helps a lot in these cases.
+
+➖ Move TS - this is a great extension to help you refactor and re-organize some files and components in the project. It automatically fixes the imports on the file (or component folder) that is being moved and also files that are importing the component you are moving. To use it: right-click on a file or folder in the Project Explorer pane and select 'Move TypeScript'.
 
 ➖ Bracket Pair Colorizer 
 
@@ -102,11 +143,20 @@ This extension allows matching brackets to be identified with colours. Great whe
 helps you creating code snippets (saves snippets in the User Snippets in VSCode)
 
 
+# Workbench
+
+➖  EditorConfig for VS Code - EditorConfig Support for Visual Studio Code
+
 # Git
 
-- Git History (git log) 
+➖ Git History (git log) 
 
-allows you to view git history with graph and details
+Allows you to view git history with graph and details
+
+# Theme - Icons
+
+➖  vscode-icons - my favorite collection of icons for VSCode projects
+
 
 # Deprecated Extensions
 
@@ -114,6 +164,11 @@ allows you to view git history with graph and details
 
 # Experiment (deneme sürecinde)
 
-➖ Search History 
+➖ Search History - Keep track of your search history in VSCode, allowing you to easily revisit previous searches and manage them efficiently.
 
 https://marketplace.visualstudio.com/items?itemName=solomonkinard.search-history
+
+- Esdoc MDN - Integrates MDN Web Docs directly into VSCode. Browse and search MDN documentation without leaving your editor
+
+https://marketplace.visualstudio.com/items?itemName=samundrak.esdoc-mdn
+
