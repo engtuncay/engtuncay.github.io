@@ -1,3 +1,4 @@
+
 VSCode Recommended Extennsions
 
 [Back](../readme.md)
@@ -19,6 +20,7 @@ VSCode Recommended Extennsions
   - [Java](#java)
   - [Csharp](#csharp)
 - [Debug](#debug)
+- [Code Formatter](#code-formatter)
 - [Productivity](#productivity)
 - [Workbench](#workbench)
 - [Git](#git)
@@ -37,14 +39,28 @@ VSCode Recommended Extennsions
 🔔 Deprecated - vscode supports default
 
 - Auto Rename Tag - Auto rename paired HTML/XML tag.
+
 - Auto Close Tag - Automatically add HTML/XML close tag, same as Visual Studio IDE or Sublime Text.
 
 
 ## CSS
 
+➖ Css Peek - Allows you to peek into CSS files from HTML files. You can see the CSS definitions directly in your HTML file by using "Peek Definition" (Alt+F12) or by pressing Ctrl and clicking on the class or id.
+
+https://marketplace.visualstudio.com/items?itemName=pranaygp.vscode-css-peek
+
+➖ HTML CSS Support - Provides CSS class name completion for the HTML class attribute based on the definitions found in your workspace.
+
+https://marketplace.visualstudio.com/items?itemName=ecmel.vscode-html-css
+
+➖ HTML CSS Class Completion - Provides completion for CSS class names in HTML files based on the CSS files in your workspace.
+
+https://marketplace.visualstudio.com/items?itemName=Zignd.html-css-class-completion
+
 ➖ Atomic CSS Search - Search for Atomic CSS classes from popular Atomic CSS frameworks like Tailwind CSS, Windi CSS, Tachyons, and more, directly within VSCode.
 
 https://marketplace.visualstudio.com/items?itemName=ArvinH.atomic-css-search
+
 
 ## Javascript
 
@@ -127,6 +143,14 @@ https://marketplace.visualstudio.com/items?itemName=pheianox.solidjs-snippets
 You can debug using chrome and add your breakpoints in VSCode. Tutorial on how to use can be found on VSCode docs.
 
 [🔝](#contents)
+
+
+# Code Formatter
+
+➖ Prettier - Code formatter for JavaScript, TypeScript, CSS, and more.
+
+https://marketplace.visualstudio.com/items?itemName=prettier.prettier-vscode
+
 
 # Productivity
 
