@@ -11,7 +11,7 @@ OrakSoft Keyboard shortcuts for Windows Based On Idea And VS Code
 - [General (Frequent)](#general-frequent)
 - [Code Navigation](#code-navigation)
 - [Rich Languages Editing](#rich-languages-editing)
-- [Display Navigation](#display-navigation)
+- [Display / Editor Navigation](#display--editor-navigation)
 - [Editing](#editing)
 - [Editor management](#editor-management)
 - [Search and replace](#search-and-replace)
@@ -114,31 +114,32 @@ Kod içerisinde gezinme için kısayollar
 | F2            | Rename Symbol               |
 | c+k,x         | Trim trailing whitespace    |
 
-# Display Navigation
+# Display / Editor Navigation
 
 - Editor panelleri arasında gezinme
 - panellerin görüntülemesini açma ve kapama işlemleri
 
-| Shortcut  | Desc                              | Note                              |
-| --------- | --------------------------------- | --------------------------------- |
-| cs+d      | Show Debug                        |
-| cs+s      | Toggle Sidebar Panel              | old(c+b)                          |
-| cs+e      | Show Explorer                     |
-| cs+f      | Show Search                       |
-| cs+g      | Show Source Control               |
-| cs+x      | Show Extensions                   |
-| cs+h      | Replace in files                  |
-| cs+j      | Toggle Search details             |
-| cs+u      | Show Output panel                 |
-| cs+m      | Show Problems panel               |
-| cs+v      | Open Markdown preview             |
-| c+k c+v   | Open Markdown preview to the side |
-| c+k c+z   | Zen Mode (Esc Esc to exit)        |
-| a+o       | Open In Default Browser           | User                              |
-| c+"       | Focus-Open Terminal               | (workbench.action.terminal.focus) |
-| c+1       | Focus Editor(1)                   |
-| c+= / c+- | Zoom in/out                       |
-| a+t       | TODO (idea)                       |
+| Shortcut  | Desc                               | Note                              |
+|-----------|------------------------------------|-----------------------------------|
+| c+j,j     | Focus Active Editor (editor focus) |
+| cs+d      | Show Debug                         |
+| cs+s      | Toggle Sidebar Panel               | old(c+b)                          |
+| cs+e      | Show Explorer                      |
+| cs+f      | Show Search                        |
+| cs+g      | Show Source Control                |
+| cs+x      | Show Extensions                    |
+| cs+h      | Replace in files                   |
+| cs+j      | Toggle Search details              |
+| cs+u      | Show Output panel                  |
+| cs+m      | Show Problems panel                |
+| cs+v      | Open Markdown preview              |
+| c+k,v     | Open Markdown preview to the side  |
+| c+k,z     | Zen Mode (Esc Esc to exit)         |
+| a+o       | Open In Default Browser            | User-explorer da çalışıyor        |
+| c+"       | Focus-Open Terminal                | (workbench.action.terminal.focus) |
+| c+1       | Focus Editor(1)                    |
+| c+= / c+- | Zoom in/out                        |
+| a+t       | TODO (idea)                        |
 
 unfavs
 
