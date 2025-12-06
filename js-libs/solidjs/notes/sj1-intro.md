@@ -10,34 +10,28 @@ Source :
 # Contents
 
 - [Contents](#contents)
-  - [SolidJS Tutorial](#solidjs-tutorial)
-  - [AI Assistant](#ai-assistant)
-    - [1. **Reactivity (Tepkisel Yapı)**](#1-reactivity-tepkisel-yapı)
-    - [2. **JSX Kullanımı**](#2-jsx-kullanımı)
-    - [3. **Computed Values (Türetilmiş Değerler)**](#3-computed-values-türetilmiş-değerler)
-    - [4. **Effect (Yan Etki Tanımı)**](#4-effect-yan-etki-tanımı)
-    - [5. **Component Composition (Bileşenlerin Kullanımı)**](#5-component-composition-bileşenlerin-kullanımı)
-    - [6. **Props ve Çocuk Elemanlar (Children)**](#6-props-ve-çocuk-elemanlar-children)
-    - [7. **Control Flow (Koşullu Dallar ve Döngüler)**](#7-control-flow-koşullu-dallar-ve-döngüler)
-    - [8. **Store Kullanımı (Merkezi Durum Yönetimi)**](#8-store-kullanımı-merkezi-durum-yönetimi)
+- [SolidJS Tutorial](#solidjs-tutorial)
+  - [1. Reactivity (Tepkisel Yapı)](#1-reactivity-tepkisel-yapı)
+  - [2. JSX Kullanımı](#2-jsx-kullanımı)
+  - [3. Computed Values (Türetilmiş Değerler)](#3-computed-values-türetilmiş-değerler)
+    - [4. Effect (Yan Etki Tanımı)](#4-effect-yan-etki-tanımı)
+    - [5. Component Composition (Bileşenlerin Kullanımı)](#5-component-composition-bileşenlerin-kullanımı)
+  - [6. Props ve Çocuk Elemanlar (Children)](#6-props-ve-çocuk-elemanlar-children)
+  - [7. Control Flow (If ve For Kullanımı)](#7-control-flow-if-ve-for-kullanımı)
+    - [8. Store Kullanımı (State Management)](#8-store-kullanımı-state-management)
     - [9. **Context API**](#9-context-api)
     - [10. **Signal ve Bileşenlerin Optimizasyonu**](#10-signal-ve-bileşenlerin-optimizasyonu)
     - [11. **Lifecycle Metotları**](#11-lifecycle-metotları)
 
 
-## SolidJS Tutorial
+# SolidJS Tutorial
 
-https://www.solidjs.com/tutorial/ de anlatılanları madde madde örnekle özetleyebilir misin
+**SolidJS**'in [resmi eğitim sitesinde](https://www.solidjs.com/tutorial/) bulunan temel konseptler
 
-## AI Assistant
 
-**SolidJS**'in [resmi eğitim sitesinde](https://www.solidjs.com/tutorial/), temel konseptler adım adım öğretiliyor. Bu konseptleri özetleyip basit örneklerle madde halinde açıklıyorum:
+## 1. Reactivity (Tepkisel Yapı)
 
----
-
-### 1. **Reactivity (Tepkisel Yapı)**
-
-SolidJS, tepkisel bir yapı kullanır ve bu, bileşenlerin daha hızlı ve verimli çalışmasını sağlar.
+SolidJS, tepkisel bir yapı (reactive) kullanır ve bu, bileşenlerin daha hızlı ve verimli çalışmasını sağlar.
 
 **Örnek:**
 
@@ -45,12 +39,12 @@ SolidJS, tepkisel bir yapı kullanır ve bu, bileşenlerin daha hızlı ve verim
 import { createSignal } from "solid-js";
 
 function Counter() {
-  const [count, setCount] = createSignal(0);
+  const [getCount, setCount] = createSignal(0);
 
   return (
     <div>
-      <p>Değer: {count()}</p>
-      <button onClick={() => setCount(count() + 1)}>Artır</button>
+      <p>Değer: {getCount()}</p>
+      <button onClick={() => setCount(getCount() + 1)}>Artır</button>
     </div>
   );
 }
@@ -61,25 +55,31 @@ function Counter() {
 
 ---
 
-### 2. **JSX Kullanımı**
+## 2. JSX Kullanımı
 
 SolidJS, React gibi **JSX** kullanır ancak doğrudan DOM güncellemesi yaparak çalışır.
 
-**Örnek:**
+🧲
+
 ```js
 function App() {
   const name = "SolidJS";
   return <h1>Merhaba, {name}!</h1>;
 }
 ```
+
 - JSX kullanımı kolaydır ve dinamik içerikler `{}` içine alınır.
 
 ---
 
-### 3. **Computed Values (Türetilmiş Değerler)**
-SolidJS, sinyallerden otomatik türetme değerleri oluşturmanıza olanak tanır.
+## 3. Computed Values (Türetilmiş Değerler)
 
-**Örnek:**
+SolidJS, reactive değerlerden (sinyallerden) otomatik türetme değerleri oluşturmanıza olanak tanır.
+
+(Reactive Türetilmiş Değerler)
+
+🧲
+
 ```js
 import { createSignal, createMemo } from "solid-js";
 
@@ -96,11 +96,13 @@ function App() {
   );
 }
 ```
-- `createMemo` hesaplanmış bir değeri saklar ve gereksiz yeniden hesaplamaları önler.
+
+- `createMemo` türetilmiş bir değeri saklar ve gereksiz yeniden hesaplamaları önler.
 
 ---
 
-### 4. **Effect (Yan Etki Tanımı)**
+### 4. Effect (Yan Etki Tanımı)
+
 SolidJS'de yan etkiler için `createEffect` kullanılır. Tepkiselliğe dayalı işlemler tanımlanır.
 
 **Örnek:**
@@ -117,14 +119,17 @@ function App() {
   return <button onClick={() => setCount(count() + 1)}>Artır</button>;
 }
 ```
+
 - Bu kodda, her `count` değiştiğinde `console.log` çalışır.
 
 ---
 
-### 5. **Component Composition (Bileşenlerin Kullanımı)**
+### 5. Component Composition (Bileşenlerin Kullanımı)
+
 SolidJS'de bileşenler, başka bileşenler içinde kullanılabilir, bu da modüler bir yapı sağlar.
 
-**Örnek:**
+🧲
+
 ```js
 function Header(props) {
   return <h1>Başlık: {props.title}</h1>;
@@ -138,15 +143,26 @@ function App() {
   );
 }
 ```
+
 - Props yardımıyla bileşene veri aktarılır.
 
 ---
 
-### 6. **Props ve Çocuk Elemanlar (Children)**
-Bileşenlere çocuk elemanlar ve özel değerler gönderilebilir.
+## 6. Props ve Çocuk Elemanlar (Children)
 
-**Örnek:**
+Bileşenlere çocuk elemanlar ve özel değerler gönderilebilir.
+  
+🧲
+
 ```js
+function App() {
+  return (
+    <Card title="Bilgilendirme Kartı">
+      Bu, bir kart bileşenidir.
+    </Card>
+  );
+}
+
 function Card(props) {
   return (
     <div>
@@ -156,22 +172,20 @@ function Card(props) {
   );
 }
 
-function App() {
-  return (
-    <Card title="Bilgilendirme Kartı">
-      Bu, bir kart bileşenidir.
-    </Card>
-  );
-}
 ```
+
 - `props.children` bileşenin içine eklenen içerikleri ifade eder.
 
 ---
 
-### 7. **Control Flow (Koşullu Dallar ve Döngüler)**
+## 7. Control Flow (If ve For Kullanımı)
+
 SolidJS, koşullu render ve listeleme için özel yapılar sağlar.
 
-**Koşullu:**
+🧲
+
+➖ If Kullanımı:
+
 ```js
 function App() {
   const [loggedIn, setLoggedIn] = createSignal(false);
@@ -185,7 +199,8 @@ function App() {
 }
 ```
 
-**Döngü:**
+➖ For
+ 
 ```js
 function App() {
   const items = ["Elma", "Armut", "Portakal"];
@@ -203,10 +218,12 @@ function App() {
 
 ---
 
-### 8. **Store Kullanımı (Merkezi Durum Yönetimi)**
-SolidJS, `createStore` ile merkezi bir durum depoları oluşturulabilir.
+### 8. Store Kullanımı (State Management)
 
-**Örnek:**
+SolidJS, `createStore` ile merkezi bir durum depoları oluşturulabilir. (Merkezi Durum Yönetimi)
+
+🧲
+
 ```js
 import { createStore } from "solid-js/store";
 
@@ -221,14 +238,17 @@ function App() {
   );
 }
 ```
-- `createStore` objelerdeki değişiklikleri tepkisel olarak izler.
+
+- `createStore` objelerdeki değişiklikleri reactive olarak izler ❗
 
 ---
 
 ### 9. **Context API**
+
 Durumları bileşen ağacı boyunca geçirmek için `Context` kullanılabilir.
 
-**Örnek:**
+🧲
+
 ```js
 import { createContext, useContext } from "solid-js";
 

@@ -3,36 +3,35 @@ engtuncay: solidjs kurulumu ve proje oluşturulması hakkında bilgi verir misin
 
 GitHub Copilot: SolidJS kurulumu ve yeni bir proje oluşturmak için aşağıdaki adımları izleyebilirsiniz:
 
-### 2. SolidJS Projesi Oluşturma
+- [1. SolidJS Projesi Oluşturma](#1-solidjs-projesi-oluşturma)
+- [6. Geliştirme Sunucusunu Başlatın](#6-geliştirme-sunucusunu-başlatın)
+- [2. Tailwind CSS Kurulumu](#2-tailwind-css-kurulumu)
+- [4. Tailwind’i Yapılandırma](#4-tailwindi-yapılandırma)
+- [5. Tailwind’i CSS’e Ekleyin](#5-tailwindi-csse-ekleyin)
+- [6. Projeyi Çalıştırın](#6-projeyi-çalıştırın)
+- [3. Tailwind CSS Kurulumu with pnpm](#3-tailwind-css-kurulumu-with-pnpm)
+- [Resmi Dökümantasyon](#resmi-dökümantasyon)
+
+
+### 1. SolidJS Projesi Oluşturma
 
 SolidJS projeleri için en yaygın yol, `npm` veya `yarn` ile `create-solid` komutunu kullanmaktır.
 
-#### npm ile:
-
 Terminalde aşağıdaki komutu çalıştırın:
+
 ```
-npm create solid@latest
+pnpm create solid@latest
 ```
 
-#### yarn ile:
-```
-yarn create solid
-```
+➖ Komut çalıştıktan sonra sizden proje adı ve opsiyonel seçenekleri girmenizi ister.
 
-#### pnpm ile:
-```
-pnpm create solid
-```
+Proje Klasörüne Girin
 
-### 3. Proje Adı ve Şablon Seçimi
-Komut çalıştıktan sonra sizden proje adı ve şablon (JavaScript/TypeScript, basit/ileri düzey) seçmeniz istenir. İstediğiniz seçenekleri belirleyin.
-
-### 4. Proje Klasörüne Girin
 ```
 cd <proje-adı>
 ```
 
-### 5. Bağımlılıkları Yükleyin
+Bağımlılıkları Yükleyin
 
 ```
 pnpm install
@@ -56,17 +55,11 @@ veya
 yarn dev
 ```
 
-Tarayıcınızda genellikle `http://localhost:5173` adresinde çalışan SolidJS uygulamanızı görebilirsiniz.
+Tarayıcınızda genellikle `http://localhost:3000` adresinde çalışan SolidJS uygulamanızı görebilirsiniz.
+
+çıkmazsa terminalde `o+enter` yaparak tarayıcıda açar.
 
 ---
-
-**Kısaca:**  
-- `pnpm create solid@latest` ile proje oluşturulur.  
-- Şablon seçilir ve kurulum tamamlanır.  
-- `pnpm run dev` ile geliştirme sunucusu başlatılır.
-
-Daha fazla bilgi için: [SolidJS Resmi Dokümantasyonu](https://www.solidjs.com/docs/latest/getting-started)
-
 
 ### 2. Tailwind CSS Kurulumu
 
@@ -138,3 +131,7 @@ npx tailwindcss init -p
 ```
 
 Diğer adımlar (Tailwind yapılandırması ve CSS ekleme) aynıdır.
+
+### Resmi Dökümantasyon
+
+- SolidJS Resmi Dokümanları, https://www.solidjs.com/docs/latest/getting-started
