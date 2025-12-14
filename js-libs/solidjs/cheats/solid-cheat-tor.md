@@ -14,9 +14,9 @@ Source : https://chatgpt.com/c/67b61423-5080-800e-867b-5186bf4e0634
   - [15. JSX Özellikleri](#15-jsx-özellikleri)
 - [Reactivity Basics](#reactivity-basics)
   - [3. createSignal](#3-createsignal)
+  - [6. createStore](#6-createstore)
   - [4. createEffect](#4-createeffect)
   - [5. createMemo](#5-creatememo)
-  - [6. createStore](#6-createstore)
 - [Rendering Controls](#rendering-controls)
   - [9. show](#9-show)
   - [10.  For](#10--for)
@@ -115,15 +115,31 @@ JSX ifadeleri JavaScript ifadeleri gibi yazılır: `{}` içinde.
 
 ## 3. createSignal
 
-Bir durum (state) oluşturmak için kullanılır:
+Bir reactive değişken oluşturmak için kullanılır. reactive değişkene state'de adı verilir. Durum takibi manasında.
 
 ```js
-const [value, setValue] = createSignal(initialValue);
+const [getValue, setValue] = createSignal(initialValue);
+
+// common usage
+// const [value, setValue] = createSignal(initialValue);
 
 ```
 
-- value() - Durumu okur. (getter)
-- setValue(newValue) - Durumu günceller. (setter)
+- getValue() - değişkeni getirir (getter)
+- setValue(newValue) - değişkeni günceller. (setter)
+
+## 6. createStore
+
+Reactif obje oluşturmak için kullanılır. 
+
+```js
+import { createStore } from "solid-js/store";
+
+const [state, setState] = createStore({ count: 0 });
+
+setState("count", 1); // count değerini güncelle
+
+```
 
 ## 4. createEffect
 
@@ -149,18 +165,7 @@ const doubleCount = createMemo(() => count() * 2);
 
 ```
 
-## 6. createStore
 
-Daha karmaşık durum yönetimi için kullanılır:
-
-```js
-import { createStore } from "solid-js/store";
-
-const [state, setState] = createStore({ count: 0 });
-
-setState("count", 1); // count değerini güncelle
-
-```
 
 # Rendering Controls
 
