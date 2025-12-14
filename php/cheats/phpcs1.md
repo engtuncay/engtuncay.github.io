@@ -5,6 +5,9 @@ Source : https://quickref.me/php.html
 
 ---
 
+# Contents
+
+- [Contents](#contents)
 - [Getting Started](#getting-started)
   - [Variables](#variables)
   - [Strings](#strings)
@@ -20,7 +23,7 @@ Source : https://quickref.me/php.html
   - [Integer](#integer)
   - [Strings](#strings-1)
   - [Arrays](#arrays-1)
-  - [Float (Double)](#float-double)
+  - [Double (Float)](#double-float)
   - [Null](#null)
   - [Iterables](#iterables)
 - [PHP Strings](#php-strings)
@@ -33,10 +36,10 @@ Source : https://quickref.me/php.html
   - [Multi array](#multi-array)
   - [Multi type](#multi-type)
   - [manipulation](#manipulation-1)
-  - [Indexing iteration](#indexing-iteration)
-  - [Value iteration](#value-iteration)
+  - [Indexing iteration (Loop)](#indexing-iteration-loop)
+  - [Value iteration (loop)](#value-iteration-loop)
   - [Key iteration](#key-iteration)
-  - [Concatenate arrays](#concatenate-arrays)
+  - [Concatenate arrays (spreading)](#concatenate-arrays-spreading)
   - [Into functions](#into-functions)
   - [Splat Operator](#splat-operator)
 - [PHP Operators](#php-operators)
@@ -47,7 +50,7 @@ Source : https://quickref.me/php.html
   - [Arithmetic](#arithmetic-1)
   - [Bitwise](#bitwise)
 - [PHP Conditionals](#php-conditionals)
-  - [If elseif else](#if-elseif-else)
+  - [If - elseif - else](#if---elseif---else)
   - [Switch](#switch)
   - [Ternary operator](#ternary-operator)
   - [Match](#match)
@@ -355,7 +358,7 @@ $arr = array("hello", "world", "!");
 ```
 See: Arrays
 
-## Float (Double)
+## Double (Float)
 
 ```php
 $float1 = 1.234;
@@ -379,11 +382,40 @@ echo $a ?? 'a is unset'; # => a is unset
 echo $b ?? 'b is unset'; # => Hello php
 
 $a = array();
-$a == null    # => true
+$a == null    # => true (❗) ikisi de obje türünde mi???
 $a === null   # => false
 is_null($a)   # => false
 
 ```
+
+📝Loose comparison (==) kullanıldığında: PHP, type coercion (tür dönüştürme) yapar
+
+- Boş bir array ([]) falsy değer olarak kabul edilir
+- Boş array ile null loose comparison'da eşit görülür
+
+Strict comparison (===) kullanıldığında:
+
+- Tür dönüştürme olmaz
+- Dizi tipi null tipi değildir
+- Sonuç false olur
+
+```php
+$a = array();
+
+// Loose comparison (type coercion var)
+$a == null        // => true
+$a == false       // => true
+$a == ""          // => true
+$a == 0           // => true
+
+// Strict comparison (type korunur)
+$a === null       // => false
+$a === false      // => false
+$a === ""         // => false
+$a === 0          // => false
+
+```
+
 
 ## Iterables
 
@@ -396,11 +428,13 @@ function gen(): iterable {
     yield 2;
     yield 3;
 }
+
 foreach (bar() as $value) {
     echo $value;   # => 123
 } 
 
 ```
+
 # PHP Strings
 
 ## String
@@ -408,15 +442,15 @@ foreach (bar() as $value) {
 
 ```php
 # => '$String'
-$sgl_quotes = '$String';
+$sigle_quotes = '$String';
 
 # => 'This is a $String.'
-$dbl_quotes = "This is a $sgl_quotes.";
+$dbl_quotes = "This is a $sigle_quotes.";
 
-# => a 	 tab character.
+# => a \t tab character.
 $escaped   = "a \t tab character.";
 
-# => a slash and a t: \t
+# => a slash and a t: \t (single quotes do not interpret escape sequences)
 $unescaped = 'a slash and a t: \t';
 
 ```
@@ -426,19 +460,22 @@ $unescaped = 'a slash and a t: \t';
 ```php
 $str = "foo";
 
-// Uninterpolated multi-liners
+// Uninterpolated multi-liners (nowdoc)
 $nowdoc = <<<'END'
 Multi line string
 $str
 END;
 
-// Will do string interpolation
+// Will do string interpolation (heredoc)
 $heredoc = <<<END
 Multi line
 $str
 END;
 
 ```
+
+TBC - 20251214 - 1757 
+
 
 ## Manipulation
 
@@ -468,8 +505,8 @@ See: String Functions
 $a1 = ["hello", "world", "!"]
 $a2 = array("hello", "world", "!");
 $a3 = explode(",", "apple,pear,peach");
-Mixed int and string keys
 
+// Mixed int and string keys
 $array = array(
     "foo" => "bar",
     "bar" => "foo",
@@ -519,14 +556,14 @@ $array = array(
     )
 );
 
-# => string(3) "bar"
 var_dump($array["foo"]);
+# => string(3) "bar"
 
-# => int(24)
 var_dump($array[42]);    
+# => int(24)
 
-# =>  string(3) "foo"
 var_dump($array["multi"]["dim"]["a"]);
+# =>  string(3) "foo"
 
 ```
 
@@ -544,7 +581,7 @@ unset($arr);      // Remove all
 
 See: Array Functions
 
-## Indexing iteration
+## Indexing iteration (Loop)
 
 ```php
 $array = array('a', 'b', 'c');
@@ -556,7 +593,7 @@ for ($i = 0; $i < $count; $i++) {
 
 ```
 
-## Value iteration
+## Value iteration (loop)
 
 ```php
 $colors = array('red', 'blue', 'green');
@@ -567,7 +604,7 @@ foreach ($colors as $color) {
 
 ```
 
-## Key iteration
+## Key iteration 
 
 ```php
 $arr = ["foo" => "bar", "bar" => "foo"];
@@ -580,15 +617,16 @@ foreach ( $arr as $key => $value )
 
 ```
 
-## Concatenate arrays
+## Concatenate arrays (spreading)
 
 ```php
 $a = [1, 2];
 $b = [3, 4];
 
 // PHP 7.4 later
-# => [1, 2, 3, 4]
+
 $result = [...$a, ...$b];
+# => [1, 2, 3, 4]
 
 ```
 
@@ -600,8 +638,9 @@ $array = [1, 2];
 
 function foo(int $a, int $b) {
 	echo $a; # => 1
-  	echo $b; # => 2
+  echo $b; # => 2
 }
+
 foo(...$array);
 
 ```
@@ -611,8 +650,9 @@ foo(...$array);
 ```php
 function foo($first, ...$other) {
 	var_dump($first); # => a
-  	var_dump($other); # => ['b', 'c']
+  var_dump($other); # => ['b', 'c']
 }
+
 foo('a', 'b', 'c' /*, ...*/ );
 // or
 function foo($first, string ...$other){}
@@ -655,9 +695,52 @@ a %= b	Same as a = a % b
 >	Greater than
 <=	Less than or equal
 >=	Greater than or equal
-<=>	Less than/equal/greater than
+<=> Spaceship Operator (Less than/equal/greater than)
 
 ```
+
+📝<=> operatörü Spaceship Operator (Uzay Gemisi Operatörü) olarak bilinir ve PHP 7.0'da tanıtılmıştır.
+
+Bu operatör iki değeri karşılaştırır ve sonuç olarak:
+
+```
+-1 döner (solundaki değer küçükse)
+0 döner (değerler eşitse)
+1 döner (solundaki değer büyükse)
+
+```
+
+```php
+<?php
+1 <=> 2    // -1 (çünkü 1 < 2)
+2 <=> 2    // 0  (çünkü 2 == 2)
+3 <=> 2    // 1  (çünkü 3 > 2)
+
+'a' <=> 'b'  // -1
+'b' <=> 'b'  // 0
+'c' <=> 'b'  // 1
+
+```
+
+🧲
+
+```php
+<?php
+$array = [3, 1, 2];
+
+// Artan sıraya göre
+usort($array, function($a, $b) {
+    return $a <=> $b;
+});
+// Sonuç: [1, 2, 3]
+
+// Azalan sıraya göre
+usort($array, function($a, $b) {
+    return $b <=> $a;
+});
+// Sonuç: [3, 2, 1]
+```
+
 
 ## Logical
 
@@ -700,9 +783,13 @@ $num /= $float;  // Divide and assign the quotient to $num
 >>	Shift right
 
 ```
+
+URREV bitwise operator
+
+
 # PHP Conditionals
 
-## If elseif else
+## If - elseif - else
 
 ```php
 $a = 10;
@@ -739,19 +826,20 @@ switch ($x) {
 ## Ternary operator
 
 ```php
-# => Does
 print (false ? 'Not' : 'Does');
+# => Does
 
 $x = false;
-# => Does
 print($x ?: 'Does');
+# => Does
 
 $a = null;
 $b = 'Does print';
-# => a is unset
 echo $a ?? 'a is unset';
-# => print
+# => a is unset
+
 echo $b ?? 'b is unset';
+# => Does print
 
 ```
 
@@ -1254,11 +1342,12 @@ Source : https://github.com/smknstd/modern-php-cheatsheet , MIT License
 ### Complementary Resources
 
 When you struggle to understand a notion, I suggest you look for answers on the following resources:
-- [Stitcher's blog](https://stitcher.io/blog)
+
+- [PHP The Right Way - Full Php *5](https://phptherightway.com/) 
+- [Stitcher's blog - Php Articles](https://stitcher.io)
 - [PHP.Watch](https://php.watch/versions)
 - [Exploring PHP 8.0](https://leanpub.com/exploringphp80)
 - [PHP 8 in a nutshell](https://amitmerchant.gumroad.com/l/php8-in-a-nutshell)
-- [PHP The Right Way](https://phptherightway.com/)
 - [StackOverflow](https://stackoverflow.com/questions/tagged/php)
 
 ### Recent PHP releases
