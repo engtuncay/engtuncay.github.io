@@ -1346,9 +1346,14 @@ When you struggle to understand a notion, I suggest you look for answers on the 
 - [PHP The Right Way - Full Php *5](https://phptherightway.com/) 
 - [Stitcher's blog - Php Articles](https://stitcher.io)
 - [PHP.Watch](https://php.watch/versions)
+
+➖ QA Platforms:
+- [StackOverflow](https://stackoverflow.com/questions/tagged/php)
+
+➖ UnFree Resources:
 - [Exploring PHP 8.0](https://leanpub.com/exploringphp80)
 - [PHP 8 in a nutshell](https://amitmerchant.gumroad.com/l/php8-in-a-nutshell)
-- [StackOverflow](https://stackoverflow.com/questions/tagged/php)
+
 
 ### Recent PHP releases
 
