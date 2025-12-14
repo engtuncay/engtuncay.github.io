@@ -24,7 +24,7 @@ Solid Js Notes
 
 # Cheats
 
-- [Gpt Cheat](./cheats/solid-cheat-gpt.md) 
+- [Tor Cheat](./cheats/solid-cheat-tor.md) 
 
 
 [🔝](#contents)
