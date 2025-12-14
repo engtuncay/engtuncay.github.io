@@ -1,5 +1,5 @@
 
-Source : https://chatgpt.com/c/67b61423-5080-800e-867b-5186bf4e0634
+SolidJs Cheat Sheet By Oraksoft
 
 [Back](../readme.md)
 
@@ -76,6 +76,8 @@ yarn create solid
 
 ```
 
+[🔝](#contents)
+
 ## 2. App Component (Entry)
 
 SolidJS ile basit bir bileşen oluşturmak için:
@@ -101,7 +103,9 @@ export default App;
 ➖ index.tsx'de render function ile App componentini render ederek uygulamamız başlayacaktır.
 
 ```ts
+// index.tsx
 render(() => <App />, root!);
+
 ```
 
 ## 15. JSX Özellikleri
@@ -110,6 +114,8 @@ JSX ifadeleri JavaScript ifadeleri gibi yazılır: `{}` içinde.
 
 - class yerine className kullanılır.
 - for yerine htmlFor kullanılır.
+
+[🔝](#contents)
 
 # Reactivity Basics
 
@@ -128,6 +134,8 @@ const [getValue, setValue] = createSignal(initialValue);
 - getValue() - değişkeni getirir (getter)
 - setValue(newValue) - değişkeni günceller. (setter)
 
+[🔝](#contents)
+
 ## 6. createStore
 
 Reactif obje oluşturmak için kullanılır. 
@@ -140,6 +148,8 @@ const [state, setState] = createStore({ count: 0 });
 setState("count", 1); // count değerini güncelle
 
 ```
+
+[🔝](#contents)
 
 ## 4. createEffect
 
@@ -154,6 +164,8 @@ createEffect(() => {
 
 ```
 
+[🔝](#contents)
+
 ## 5. createMemo
 
 Hesaplanmış değerler (computed values) oluşturmak için kullanılır:
@@ -166,6 +178,7 @@ const doubleCount = createMemo(() => count() * 2);
 ```
 
 
+[🔝](#contents)
 
 # Rendering Controls
 
