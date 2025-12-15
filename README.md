@@ -69,15 +69,15 @@ These notes are taken from web resources. Some sections can be modified or remov
 
 - [Php Cheat](./php/cheats/phpcs1.md)
 
+- [Csharp Cheat](./csharp-dotnet/cheats/csharpcs1.md)
+
+- [Csharp Cheat 2](./csharp-dotnet/cheats/csharpcs2.md)
+
 - [Css Cheat](#)
 
 - [Tailwind Cheat](./css-libs/css-tailwind/cheats/tailwind-cheat-tor.md)
 
 - [Bootstrap Cheat](./css-libs/css-bootstrap/cheats/bootstrap-cheat-tor.md)
-
-- [Csharp Cheat](./csharp-dotnet/cheats/csharpcs1.md)
-
-- [Csharp Cheat 2](./csharp-dotnet/cheats/csharpcs2.md)
 
 - [Mysql Cheat](#)
 
