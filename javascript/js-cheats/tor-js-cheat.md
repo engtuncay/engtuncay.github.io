@@ -1,5 +1,7 @@
 
-- Source : https://www.javascriptcheatsheet.org/cheatsheet/basics (some parts may be modified or added with Turkish explanation)
+- Source : https://www.javascriptcheatsheet.org/cheatsheet/basics 
+  
+(some parts may be modified or removed)
 
 Not : Regular expression düzenlenmeli
 
@@ -9,6 +11,8 @@ Not : Regular expression düzenlenmeli
   - [Examples](#examples)
 - [Data types](#data-types)
   - [Basics](#basics)
+  - [falsy values](#falsy-values)
+  - [`undefined` ve `null` Arasındaki Farklar](#undefined-ve-null-arasındaki-farklar)
 - [Variables](#variables)
   - [Examples](#examples-1)
   - [ES6 var, let and const](#es6-var-let-and-const)
@@ -129,6 +133,75 @@ JavaScript provides seven different data types:
 | `boolean`   | `true, false`                                                         |
 | `object`    | A collection of properties.                                           |
 | `symbol`    | Represents a unique identifier.                                       |
+
+### falsy values
+
+JavaScript/TypeScript'te falsy değerler:
+
+- `false`
+- `0`
+- `-0`
+- `0n`
+- `""` (boş string)
+- `null` 
+- `undefined` 
+- `NaN`
+
+
+### `undefined` ve `null` Arasındaki Farklar
+
+Koşul kontrolleri açısından davranışları aynıdır, fakat **tür ve kaynakları farklı**dır.
+
+➖ Temel Farklar
+
+| Özellik     | `undefined`                    | `null`                        |
+|-------------|--------------------------------|-------------------------------|
+| **Tür**     | `undefined` (kendi türü)       | `object`                      |
+| **Anlamı**  | Değer atanmamış, başlatılmamış | Boş, hiç bir değer (bilinçli) |
+| **Kaynağı** | Otomatik, sistem tarafından    | Geliştiricinin atadığı        |
+
+Detaylı Açıklama
+
+**`undefined`:**
+- Değişken tanımlanmış ama değer atanmamışsa oluşur
+- Fonksiyonda `return` statement'i varsa geri dönüş değeri yoksa `undefined` olur
+- Fonksiyon parametresi geçilmemiş ise `undefined` olur
+- Eksik nesne property'sine erişilirse `undefined` olur
+
+```typescript
+let x; // undefined
+const result = () => {}; // undefined döner
+function test(param) { console.log(param); } // param undefined
+const obj = {}; obj.missing; // undefined
+```
+
+**`null`:**
+- Geliştiricinin bilinçli olarak atadığı "hiç bir değer" anlamına gelir
+- Daha iyileştirici niyeti gösterir
+- Boş bir referans temsil eder
+
+```typescript
+let x = null; // Bilinçli olarak boş
+const value = someCondition ? data : null;
+```
+
+Karşılaştırma
+
+```typescript
+undefined == null   // true  (gevşek eşitlik)
+undefined === null  // false (sıkı eşitlik)
+
+typeof undefined    // "undefined"
+typeof null         // "object" (JavaScript'te bilinen bug)
+```
+
+Pratikte
+
+Kodda `null` kullanmak daha açık ve anlaşılırdır. Fonksiyonda dönüş olarak undefined yerine null vermek daha iyi olur.
+
+```typescript
+return null; // "hiç bir değer yok" demek daha açık
+```
 
 ## Variables
 

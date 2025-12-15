@@ -19,7 +19,7 @@
 
 # Js Cheats
 
-- [Wilfreddinni Cheat With Extra](./js-cheats/wilfredinni-cheat.md)
+- [Tor Javascript Cheat](./js-cheats/tor-js-cheat.md)
 
 - QuickRef Javascript, https://quickref.me/javascript
 

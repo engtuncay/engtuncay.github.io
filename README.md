@@ -2,6 +2,15 @@
 
 These notes are taken from web resources. Some sections can be modified or removed.
 
+# Contents
+
+- [Contents](#contents)
+- [Software Development Notes List](#software-development-notes-list)
+- [Cheats](#cheats)
+- [Deprecated Tutors](#deprecated-tutors)
+
+# Software Development Notes List
+
 [My Fav Keymap Vsc](./soft-development/editor-torkeymap-vsc.md)
 
 [Csharp Notes](./csharp-dotnet/readme.md)
@@ -50,8 +59,31 @@ These notes are taken from web resources. Some sections can be modified or remov
 
 ---
 
-*Deprecated Tutors*
+[🔝](#contents)
 
-[Vue Tutors](./vue/README.md)
+# Cheats
+
+- [Js Cheat](./javascript/js-cheats/tor-js-cheat.md)
+
+- [Solidjs Cheat](./js-libs/solidjs/cheats/solid-cheat-tor.md)
+
+- [Php Cheat](./php/cheats/phpcs1.md)
+
+- [Css Cheat](#)
+
+- [Tailwind Cheat](./css-libs/css-tailwind/cheats/tailwind-cheat-tor.md)
+
+- [Bootstrap Cheat](./css-libs/css-bootstrap/cheats/bootstrap-cheat-tor.md)
+
+- [Csharp Cheat](./csharp-dotnet/cheats/csharpcs1.md)
+
+- [Csharp Cheat 2](./csharp-dotnet/cheats/csharpcs2.md)
+
+- [Mysql Cheat](#)
+
+- [Mssql Cheat](#)
 
 
+# Deprecated Tutors
+
+- [Vue Tutors](./vue/README.md)
