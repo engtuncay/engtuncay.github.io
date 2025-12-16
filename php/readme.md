@@ -9,6 +9,7 @@ Php Tutorial
   - [W3 Advanced Topics](#w3-advanced-topics)
 - [Chat Gpt Notes](#chat-gpt-notes)
 - [Kurs Notları ve Makaleler](#kurs-notları-ve-makaleler)
+- [Codeigniter](#codeigniter)
 - [Laravel](#laravel)
 - [Articles](#articles)
 
@@ -97,9 +98,14 @@ Source : W3
 
 # Kurs Notları ve Makaleler
 
-- [Laravel Api Kurs Notları 1 - CG](./notes/ude-laravel-api-not1.md) |
-- [The Ultimate Guide to .htaccess Files](./article/art-htaccess1.md) |
+- [Laravel Api Kurs Notları 1 - CG](./notes/ude-laravel-api-not1.md) 
+- [The Ultimate Guide to .htaccess Files](./article/art-htaccess1.md) 
 - [Php Kurs Notları](./notes/ude-php-te-not1.md) |
+
+# Codeigniter
+
+- [Codeigniter 4 Intro](./codeigniter/art-codeigniter-intro.md) 
+- 
 
 # Laravel
 

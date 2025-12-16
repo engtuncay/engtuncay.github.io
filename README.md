@@ -30,13 +30,9 @@ These notes are taken from web resources. Some sections can be modified or remov
 
 [Solid Js](./js-libs/solidjs/readme.md)
 
-[Svelte Notes](./js-libs/svelte/readme.md)
-
 [Php Notes](./php/readme.md)
 
 [XML](./xml/readme.md)
-
-[React Notes](./react/README.md)
 
 [Progressive Web Application](./pwa/readme.md)
 
@@ -49,6 +45,10 @@ These notes are taken from web resources. Some sections can be modified or remov
 [Mysql Notes](./mysql/readme.md)
 
 [Solidity](./blockchain/readme.md)
+
+[Svelte Notes](./js-libs/svelte/readme.md)
+
+[React Notes](./react/README.md)
 
 [Knockout Js Notes](./knockout/readme.md)
 

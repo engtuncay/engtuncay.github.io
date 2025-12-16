@@ -1,31 +1,35 @@
-- [codeigniter 4 hakkında](#codeigniter-4-hakkında)
-- [Codeigniter Detail](#codeigniter-detail)
-  - [1. Kurulum](#1-kurulum)
+
+
+
+# Contents
+
+- [Contents](#contents)
+- [Codeigniter 4 Hakkında](#codeigniter-4-hakkında)
+- [Codeigniter Intro](#codeigniter-intro)
+  - [1. Creating Ci Project](#1-creating-ci-project)
   - [2. Klasör Yapısı](#2-klasör-yapısı)
   - [3. Temel Kullanım](#3-temel-kullanım)
     - [Controller Oluşturma](#controller-oluşturma)
     - [Route Tanımlama](#route-tanımlama)
     - [View Kullanımı](#view-kullanımı)
     - [Model Kullanımı](#model-kullanımı)
-  - [4. Migration ve Seeder](#4-migration-ve-seeder)
-  - [5. Yardımcı Komutlar](#5-yardımcı-komutlar)
-  - [6. Konfigürasyon](#6-konfigürasyon)
-  - [7. Güvenlik](#7-güvenlik)
-  - [4. Migration ve Seeder](#4-migration-ve-seeder-1)
-  - [5. Yardımcı Komutlar](#5-yardımcı-komutlar-1)
-  - [6. Konfigürasyon](#6-konfigürasyon-1)
-  - [7. Güvenlik](#7-güvenlik-1)
-- [xss koruması nasıl kullanacağız](#xss-koruması-nasıl-kullanacağız)
-  - [Kullanımı](#kullanımı)
-  - [Örnek](#örnek)
-  - [Ekstra Bilgi](#ekstra-bilgi)
-  - [Otomatik XSS Koruması](#otomatik-xss-koruması)
+    - [4. Migration ve Seeder](#4-migration-ve-seeder)
+    - [5. Helper Commands](#5-helper-commands)
+    - [6. Konfigürasyon](#6-konfigürasyon)
+    - [7. Güvenlik](#7-güvenlik)
+    - [4. Migration ve Seeder](#4-migration-ve-seeder-1)
+    - [5. Yardımcı Komutlar](#5-yardımcı-komutlar)
+    - [6. Konfigürasyon](#6-konfigürasyon-1)
+    - [7. Güvenlik](#7-güvenlik-1)
+  - [Xss Koruması](#xss-koruması)
+    - [Kullanımı](#kullanımı)
+    - [Örnek](#örnek)
+    - [Ekstra Bilgi](#ekstra-bilgi)
+    - [Otomatik XSS Koruması](#otomatik-xss-koruması)
 
-## codeigniter 4 hakkında
+# Codeigniter 4 Hakkında
 
-Codeigniter 4 hakkında genel bilgi verir misin
-
-GitHub Copilot: CodeIgniter 4, PHP ile yazılmış, açık kaynaklı ve hafif bir web uygulama framework’üdür. MVC (Model-View-Controller) mimarisini kullanır ve geliştiricilere hızlı, güvenli ve esnek bir şekilde web uygulamaları geliştirme imkânı sunar.
+CodeIgniter 4, PHP ile yazılmış, açık kaynaklı ve hafif bir web uygulama framework’üdür. MVC (Model-View-Controller) mimarisini kullanır ve geliştiricilere hızlı, güvenli ve esnek bir şekilde web uygulamaları geliştirme imkânı sunar.
 
 **Öne çıkan özellikleri:**
 
@@ -45,27 +49,32 @@ GitHub Copilot: CodeIgniter 4, PHP ile yazılmış, açık kaynaklı ve hafif bi
 
 CodeIgniter 4, hızlı kurulum ve düşük sunucu gereksinimleriyle öne çıkar. Belgeleri kapsamlıdır ve topluluğu aktiftir.
 
-## Codeigniter Detail
+# Codeigniter Intro
 
-Detaylı bilgi verir misin
+CodeIgniter 4’ün kullanımıyla ilgili temel adımlar ve önemli noktalar aşağıda özetlenmiştir:
 
-GitHub Copilot: Tabii! CodeIgniter 4’ün kullanımıyla ilgili temel adımlar ve önemli noktalar aşağıda özetlenmiştir:
+## 1. Creating Ci Project
 
-### 1. Kurulum
+(Codeigniter 4 Projesi Oluşturma)
 
 **Composer ile kurulum (önerilen):**
 
-```
+```bash
 composer create-project codeigniter4/appstarter myproject
+
 ```
 
+Bu komut, `myproject` klasörüne yeni bir CodeIgniter 4 projesi oluşturur.
+
 veya
+
 **ZIP dosyası ile kurulum:**  
-[codeigniter.com](https://codeigniter.com/) adresinden indirip sunucunuza çıkarabilirsiniz.
+
+[Codeigniter](https://codeigniter.com/) adresinden indirip sunucunuza çıkarabilirsiniz.
 
 ---
 
-### 2. Klasör Yapısı
+## 2. Klasör Yapısı
 
 - **app/**: Uygulamanızın ana kodları (Controller, Model, View)
 - **public/**: Web sunucusunun kök dizini (index.php burada)
@@ -74,13 +83,11 @@ veya
 
 ---
 
-### 3. Temel Kullanım
+## 3. Temel Kullanım
 
-#### Controller Oluşturma
+### Controller Oluşturma
 
 ```php
-<?php
-
 namespace App\Controllers;
 
 class Home extends BaseController
@@ -92,13 +99,13 @@ class Home extends BaseController
 }
 ```
 
-#### Route Tanımlama
+### Route Tanımlama
 
 ```php
 $routes->get('/', 'Home::index');
 ```
 
-#### View Kullanımı
+### View Kullanımı
 
 ```php
 <!DOCTYPE html>
@@ -112,12 +119,10 @@ $routes->get('/', 'Home::index');
 </html>
 ```
 
-#### Model Kullanımı
+### Model Kullanımı
 
 ```php
 // filepath: UserModel.php
-<?php
-
 namespace App\Models;
 use CodeIgniter\Model;
 
@@ -134,16 +139,19 @@ class UserModel extends Model
 
 Veritabanı tablolarını yönetmek için migration kullanılır:
 
-```
+```bash
 php spark make:migration CreateUsersTable
 php spark migrate
 ```
 
 ---
 
-### 5. Yardımcı Komutlar
+### 5. Helper Commands
+
+(yardımcı komutlar)
 
 - Sunucu başlatmak için:
+  
   ```
   php spark serve
   ```
@@ -210,9 +218,9 @@ Tüm ayarlar `app/Config` klasöründe tutulur. Örneğin, veritabanı ayarları
 
 Daha fazla detay için [resmi dokümantasyon](https://codeigniter4.github.io/userguide/) önerilir. İhtiyacınıza göre örnek kodlar veya daha fazla detay isteyebilirsiniz!
 
-## xss koruması nasıl kullanacağız
+## Xss Koruması 
 
-GitHub Copilot: CodeIgniter 4’te XSS (Cross-Site Scripting) koruması için temel olarak **çıktıların güvenli şekilde ekrana yazdırılması** gerekir. Bunun için CodeIgniter’ın sağladığı `esc()` fonksiyonu kullanılır.
+CodeIgniter 4’te XSS (Cross-Site Scripting) koruması için temel olarak **çıktıların güvenli şekilde ekrana yazdırılması** gerekir. Bunun için CodeIgniter’ın sağladığı `esc()` fonksiyonu kullanılır.
 
 ### Kullanımı
 
@@ -246,5 +254,6 @@ Bu fonksiyon, özel karakterleri HTML entity’lerine çevirir ve XSS saldırıl
 
 CodeIgniter 4, form validation sırasında da XSS koruması sağlar. Ancak, **her zaman çıktıları ekrana yazdırırken `esc()` fonksiyonunu kullanmak en güvenli yöntemdir.**
 
-Daha fazla bilgi için:  
+Daha fazla bilgi için: 
+ 
 https://codeigniter4.github.io/userguide/general/common_functions.html#esc
