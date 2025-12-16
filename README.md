@@ -1,3 +1,4 @@
+
 <h1>Software Development Notes - Yazılım Notları</h1>
 
 These notes are taken from web resources. Some sections can be modified or removed.
