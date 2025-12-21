@@ -99,9 +99,9 @@ The flex-direction property defines *in which direction* the container wants to 
 
 This establishes *the main-axis*. Flexbox is (aside from optional wrapping) *a single-direction layout concept*. Think of flex items as primarily laying out either in *horizontal rows* or *vertical columns*.
 
-![](./img/flex-direction2.jpg)
+![](../img/flex-direction2.jpg)
 
-( ana ekseni tanımlar. Elemanların yatay mı , dikey mi olarak istifleneceğini belirtir. Tek yönlü yerleşim kavramı.horizontal or vertical )
+(ana ekseni tanımlar. Elemanların yatay mı , dikey mi olarak istifleneceğini belirtir. Tek yönlü yerleşim kavramı.horizontal or vertical )
 
 ```css
 .container {
@@ -111,9 +111,13 @@ This establishes *the main-axis*. Flexbox is (aside from optional wrapping) *a s
 
 - row (default): left to right in ltr; right to left in rtl
 
+(x ekseni boyunca elemanlar sıralanır.)
+
 - row-reverse: right to left in ltr; left to right in rtl
 
 - column: same as row but top to bottom
+
+(y ekseni boyunca elemanlar sıralanır.)
 
 - column-reverse: same as row-reverse but bottom to top
 
@@ -151,11 +155,14 @@ This is a shorthand for the flex-direction and flex-wrap properties, which toget
 ---
 ## justify-content
 
-This defines the alignment along the main axis. It helps distribute extra free space leftover when either all the flex items on a line are inflexible, or are flexible but have reached their maximum size. It also exerts some control over the alignment of items when they overflow the line. 
+This defines the alignment along the `main axis`.
 
-( ana eksende hangi tarafa istifleneceğini belirler. flex-direction row ise saga sola, column yukarı-aşağı yöne yaslanır. )
 
-![](./img/flex-justify-content.jpg)
+Detail : It helps distribute extra free space leftover when either all the flex items on a line are inflexible, or are flexible but have reached their maximum size. It also exerts some control over the alignment of items when they overflow the line. 
+
+(ana eksende hangi tarafa istifleneceğini belirler. flex-direction row ise saga sola, column yukarı-aşağı yöne yaslanır. )
+
+![](../img/flex-justify-content.jpg)
 
 ```css
 .container {
@@ -183,21 +190,19 @@ This defines the alignment along the main axis. It helps distribute extra free s
 
 - space-evenly: items are distributed so that the spacing between any two items (and the space to the edges) is equal.
 
-*Note*
-
-- Browser support for these values is nuanced. For example, space-between never got support from some versions of Edge, and start/end/left/right aren’t in Chrome yet. MDN has detailed charts. (https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content) The safest values are flex-start, flex-end, and center.
-
-- There are also two additional keywords you can pair with these values: safe and unsafe. Using safe ensures that however you do this type of positioning, you can’t push an element such that it renders off-screen (e.g. off the top) in such a way the content can’t be scrolled too (called “data loss”). 
+- There are also two additional keywords you can pair with these values: `safe and unsafe`. Using safe ensures that however you do this type of positioning, you can’t push an element such that it renders off-screen (e.g. off the top) in such a way the content can’t be scrolled too (called “data loss”). 
 
 ## align-items
 
-This defines the default behavior for how flex items are laid out along *the cross axis* on the current line. Think of it as the justify-content version for the cross-axis (perpendicular to the main-axis). 
+This defines the default behavior for how flex items are laid out along *the cross axis* on the current line.
+
+Think of it as the justify-content version for the cross-axis (perpendicular to the main-axis). 
 
 Aligning on the cross axis. 
 
-(tor:elemanlar nasıl hizalanacağını belirtir. row düzeninde dikey hizalama, col düzeninde yatay hizalama yapar.)
+(tor:y ekseni üzerinde elemanlar nasıl hizalanacağını belirtir. row düzeninde dikey hizalama, col düzeninde yatay hizalama yapar.)
 
-![](./img/flex-align-items.jpg)
+![](../img/flex-align-items.jpg)
 
 ```css
 .container {

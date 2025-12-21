@@ -1,14 +1,17 @@
 
 Source : https://www.w3schools.com/css/css_grid.asp
 
+# Contents
+
+- [Contents](#contents)
 - [Grid Layout Module](#grid-layout-module)
   - [Display Property](#display-property)
   - [Grid Columns](#grid-columns)
   - [Grid Rows](#grid-rows)
   - [Grid Gaps](#grid-gaps)
   - [Gap property (shorthand)](#gap-property-shorthand)
-  - [Grid Lines (grid-column-start and end) (Span Cells)](#grid-lines-grid-column-start-and-end-span-cells)
-  - [All CSS Grid Properties](#all-css-grid-properties)
+  - [Grid Lines (grid-column-start and end) (Span Cells) 🔨](#grid-lines-grid-column-start-and-end-span-cells-)
+  - [Summary - Grid Properties](#summary---grid-properties)
 - [Grid Container](#grid-container)
   - [The grid-template-columns property](#the-grid-template-columns-property)
   - [The grid-template-rows Property](#the-grid-template-rows-property)
@@ -21,6 +24,7 @@ Source : https://www.w3schools.com/css/css_grid.asp
   - [The grid-area Property](#the-grid-area-property)
     - [Naming Grid Items](#naming-grid-items)
   - [The Order of the Items](#the-order-of-the-items)
+  - [Extra Articles](#extra-articles)
 
 ---
 
@@ -28,7 +32,7 @@ Source : https://www.w3schools.com/css/css_grid.asp
 
 *Example grid layout*
 
-![Sample grid layout](./img/grid-ex1.jpg)
+![Sample grid layout](../img/grid-ex1.jpg)
 
 *Grid Layout*
 
@@ -73,6 +77,7 @@ display: [grid | inline-grid];
 <style>
 .grid-container {
   display: grid;
+  /* 3 cols with auto size */
   grid-template-columns: auto auto auto;
   background-color: #2196F3;
   padding: 10px;
@@ -103,7 +108,7 @@ display: [grid | inline-grid];
 
 *output*
 
-![grid container](./img/grid-cont1.jpg)
+![grid container](../img/grid-cont1.jpg)
 
 🔨 Pay Attention : `grid-template-columns: auto auto auto;` here three columns are defined. 
 
@@ -128,7 +133,7 @@ display: [grid | inline-grid];
 </style>
 ```
 
-![grid container 2](./img/grid-cont2.jpg)
+![grid container 2](../img/grid-cont2.jpg)
 
 All *direct children * elements of the grid container automatically become grid items.
 
@@ -136,19 +141,19 @@ All *direct children * elements of the grid container automatically become grid 
 
 The vertical lines of grid items are called columns.
 
-![grid col](./img/grid-col1.jpg)
+![grid col](../img/grid-col1.jpg)
 
 ## Grid Rows
 
 The horizontal lines of grid items are called rows.
 
-![grid row](./img/grid-row1.jpg)
+![grid row](../img/grid-row1.jpg)
 
 ## Grid Gaps
 
 The spaces between each column/row are called gaps.
 
-![grid gaps](./img/grid-gaps.jpg)
+![grid gaps](../img/grid-gaps.jpg)
 
 You can adjust the gap size by using one of the following properties:
 
@@ -168,7 +173,7 @@ The column-gap property sets the gap between the columns:
 
 ```
 
-![grip col gap](./img/grid-col-gap.jpg)
+![grip col gap](../img/grid-col-gap.jpg)
 
 *Example*
 
@@ -182,7 +187,7 @@ The row-gap property sets the gap between the rows:
 
 ```
 
-![grid row gap](./img/grid-row-gap1.jpg)
+![grid row gap](../img/grid-row-gap1.jpg)
 
 ## Gap property (shorthand)
 
@@ -208,13 +213,15 @@ The gap property can also be used to set both the row gap and the column gap in 
 
 ```
 
-## Grid Lines (grid-column-start and end) (Span Cells)
+## Grid Lines (grid-column-start and end) (Span Cells) 🔨
+
+(hücre birleştirme)
 
 The lines between columns are called column lines.
 
 The lines between rows are called row lines.
 
-![grid lines](./img/grid-lines.jpg)
+![grid lines](../img/grid-lines.jpg)
 
 Refer to line numbers when placing a grid item in a grid container:
 
@@ -229,7 +236,7 @@ Place a grid item at column line 1, and let it end on column line 3 (span cells)
 }
 
 ```
-![grid lines ex1](./img/grid-lines-ex1.jpg)
+![grid lines ex1](../img/grid-lines-ex1.jpg)
 
 *Full Example*
 
@@ -260,10 +267,14 @@ Place a grid item at column line 1, and let it end on column line 3 (span cells)
 <body>
 <h1>Grid Lines</h1>
 <div class="grid-container">
-  <div class="item1">1</div><div class="item2">2</div>
-  <div class="item3">3</div><div class="item4">4</div>
-  <div class="item5">5</div><div class="item6">6</div>
-  <div class="item7">7</div><div class="item8">8</div>
+  <div class="item1">1</div>
+  <div class="item2">2</div>
+  <div class="item3">3</div>
+  <div class="item4">4</div>
+  <div class="item5">5</div>
+  <div class="item6">6</div>
+  <div class="item7">7</div>
+  <div class="item8">8</div>
 </div>
 
 <p>You can refer to line numbers when placing grid items.</p>
@@ -284,38 +295,73 @@ Place a grid item at row line 1, and let it end on row line 3:
 
 ```
 
-![grid lines ex2](./img/grid-lines-ex2.jpg)
+![grid lines ex2](../img/grid-lines-ex2.jpg)
 
-## All CSS Grid Properties
+## Summary - Grid Properties
 
 Property              | Description
 ----------------------|-------------------------------------------------------------------------
-row-gap               | Specifies the gap between the grid rows
-column-gap            | Specifies the gap between the columns
-grid-auto-columns     | Specifies a default column size
-grid-auto-flow        | Specifies how auto-placed items are inserted in the grid
-grid-auto-rows        | Specifies a default row size
-grid-row-gap          | Specifies the size of the gap between rows
-grid-column-gap       | Specifies the size of the gap between columns
+row-gap               | Specifies the gap between the grid rows (old name grid-row-gap)
+column-gap            | Specifies the gap between the columns (old name grid-column-gap)
 grid-column-start     | Specifies where to start the grid item
 grid-column-end       | Specifies where to end the grid item
 grid-row-start        | Specifies where to start the grid item
 grid-row-end          | Specifies where to end the grid item
-grid-template-areas   | Specifies how to display columns and rows, using named grid items
 grid-template-columns | Specifies the size of the columns, and how many columns in a grid layout
 grid-template-rows    | Specifies the size of the rows in a grid layout
 
+➖ Other Grid Properties
+
+Property              | Description
+----------------------|-------------------------------------------------------------------------
+grid-auto-columns     | Specifies a default column size
+grid-auto-flow        | Specifies how auto-placed items are inserted in the grid
+grid-auto-rows        | Specifies a default row size
+grid-template-areas   | Specifies how to display columns and rows, using named grid items
+
+
 🔔 Shorthand Properties
 
-Property      | Description
---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-gap           | A shorthand property for the row-gap and the column-gap properties
-grid          | A shorthand property for the grid-template-rows, grid-template-columns,grid-template-areas, grid-auto-rows, grid-auto-columns, and the grid-auto-flow properties
-grid-column   | A shorthand property for the grid-column-start and the grid-column-end properties
-grid-gap      | A shorthand property for the grid-row-gap and grid-column-gap properties
-grid-row      | A shorthand property for the grid-row-start and the grid-row-end properties
-grid-template | A shorthand property for the grid-template-rows, grid-template-columns and grid-areas properties
-grid-area     | Either specifies a name for the grid item, or this property is a shorthand property for the grid-row-start, grid-column-start, grid-row-end, and grid-column-end properties
+A shorthand property for the specified  properties
+
+➖ gap           
+- row-gap 
+- column-gap 
+
+➖ grid          
+- grid-template-rows
+- grid-template-columns
+- grid-template-areas
+- grid-auto-rows
+- grid-auto-columns
+- grid-auto-flow 
+
+➖ grid-column   
+- grid-column-start 
+- grid-column-end
+  
+➖ grid-gap      
+- grid-row-gap 
+- grid-column-gap 
+
+➖ grid-row      
+- grid-row-start 
+- grid-row-end 
+
+➖ grid-template 
+- grid-template-rows
+- grid-template-columns 
+- grid-areas
+
+➖ grid-area     
+
+(a name can be specified for the grid item) 
+
+- grid-row-start
+- grid-column-start
+- grid-row-end
+- grid-column-end
+
 
 🔔 Section 2
 
@@ -344,7 +390,7 @@ Example : Make a grid with 4 columns
 ```
 *Output*
 
-![grid-template-col](./img/grid-template-col.png)
+![grid-template-col](../img/grid-template-col.png)
 
 ✏ Note: If you have more than 4 items in a 4 columns grid, the grid will automatically add a new row to put the items in.
 
@@ -362,7 +408,7 @@ Example : Set a size for the 4 columns
 
 *Output*
 
-![grid-template2](./img/grid-template-col-2.png)
+![grid-template2](../img/grid-template-col-2.png)
 
 ## The grid-template-rows Property
 
@@ -382,7 +428,7 @@ Example
 
 *Output*
 
-![](./img/grid-template-row1.png)
+![](../img/grid-template-row1.png)
 
 
 ## The justify-content Property
@@ -400,27 +446,27 @@ justify-content: [space-evenly|space-around|space-between|center|start|end]
 
 - The value "space-evenly" will give the columns equal amount of space between, and around them.
 
-![](./img/grid-justify-content1.png)
+![](../img/grid-justify-content1.png)
 
 - The value "space-around" will give the columns equal amount of space around them:
 
-![](./img/grid-jc-space-around1.png)
+![](../img/grid-jc-space-around1.png)
 
 - The value "space-between" will give the columns equal amount of space between them:
 
-![](./img/grid-jc-space-between1.png)
+![](../img/grid-jc-space-between1.png)
 
 - The value "center" will align the grid in the middle of the container:
 
-![](./img/grid-jc-center.png)
+![](../img/grid-jc-center.png)
 
 - The value "start" will align the grid at the beginning of the container:
 
-![](./img/grid-jc-start.png)
+![](../img/grid-jc-start.png)
 
 - The value "end" will align the grid at the end of the container:
 
-![](./img/grid-jc-end1.png)
+![](../img/grid-jc-end1.png)
 
 ## The align-content Property
 
@@ -436,27 +482,27 @@ align-content: [center|space-evenly|space-around|space-between|start|end]
 
 - The value "center" will align the rows in the middle of the container:
 
-![](./img/grid-ac-center.png)
+![](../img/grid-ac-center.png)
 
 - The value "space-evenly" will give the rows equal amount of space between, and around them:
 
-![](./img/grid-ac-space-evenly1.png)
+![](../img/grid-ac-space-evenly1.png)
 
 - The value "space-around" will give the rows equal amount of space around them:
 
-![image](./img/grid-ac-space-around.png)
+![image](../img/grid-ac-space-around.png)
 
 - The value "space-between" will give the rows equal amount of space between them:
 
-![image](./img/grid-ac-space-betwwen.png)
+![image](../img/grid-ac-space-betwwen.png)
 
 - The value "start" will align the rows at the beginning of the container:
 
-![image](./img/grid-ac-start.png)
+![image](../img/grid-ac-start.png)
 
 - The value "end" will align the rows at the end of the container:
 
-![image](./img/grid-ac-end.png)
+![image](../img/grid-ac-end.png)
 
 
 # CSS Grid Item
@@ -488,7 +534,7 @@ Make "item1" start on column 1 and end before column 5:
 
 ```
 
-![image](./img/grid-col-prop.png)
+![image](../img/grid-col-prop.png)
 
 Example
 
@@ -512,7 +558,7 @@ Make "item2" start on column 2 and span 3 columns:
 
 ```
 
-![image](./img/grid-col-prop2.png)
+![image](../img/grid-col-prop2.png)
 
 
 ## The grid-row Property:
@@ -534,7 +580,7 @@ Make "item1" start on row-line 1 and end on row-line 4:
 
 ```
 
-![image](./img/grid-row-prop1.png)
+![image](../img/grid-row-prop1.png)
 
 Example
 
@@ -547,7 +593,7 @@ Make "item1" start on row 1 and span 2 rows:
 
 ```
 
-![image](./img/grid-row-prop2.png)
+![image](../img/grid-row-prop2.png)
 
 ## The grid-area Property
 
@@ -574,6 +620,8 @@ Make "item8" start on row-line 2 and column-line 1, and span 2 rows and 3 column
 }
 
 ```
+
+[🔝](#contents)
 
 ### Naming Grid Items
 
@@ -702,4 +750,9 @@ Example
 
 ```
 
+## Extra Articles
+
+- https://css-tricks.com/css-grid-layout-guide
+
 --end--
+

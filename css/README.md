@@ -50,7 +50,7 @@ Source : [W3Schools]()
 - [5-1 Layout (Display,Position,Z-index)](./w3/css-notes-05-01-Layout.md)   |      |
 - [5-2 Overflow,Align,Float](./w3/cw-05-02-overflow.md)              |      |
 - [6- Flexbox](./w3/cw-06-Flexbox.md)                                |      |
-- [7- Grid](./w3/cw-07-Grid.md)                                      | ✔    |
+- [7- Grid](./w3/cw-07-grid.md)                                      | ✔    |
 - [8- Variables](./w3/cw-08-Variables.md)                            | ✔    |
 - [9- Media](./w3/cw-09-media.md)                                    | ✔    |
 - [10- Animation](./w3/cw-10-Animation.md)                           |      |

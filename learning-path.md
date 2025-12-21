@@ -1,36 +1,46 @@
 ➖ **Learning Targets**
 
-------*Step 1*-------
-javascript,typescript, Node (vite vs)
-php (+rest) + codeigniter
-csharp + wpf + web api + dot net (core)
+------*Step 1 Active*-------
 
-Html
-Css,Tailwind,Bootstrap
+- javascript,typescript, node (vite vs)
+- php + codeigniter
+- csharp + wpf + web api + dot.net (core)
 
-solidjs (react)
-vue
+Frontend Basics
 
-blockchain
+- html,css,tailwind,bootstrap
 
-Mysql
-Mssql
-Sqlite
+Frontend Frameworks
 
-Xml,Xslt
+- solidjs, vue
 
-inkscape (grafik için)
+DB
 
-firebird (gelecek)
-React + React Native (gelecek)
-windows+IIS (gelecek)
+- mysql, mssql
+- sqlite
 
-Java
+Graphics
 
----*---
-Docker (gelecek-2)
-Devops (gelecek-2) (azure vs)
+- affinity 
 
----*---
-Svelte
-Flutter (gelecek-2)
+Diger
+
+- Xml,Xslt
+
+
+------*Step 2*-------
+
+- Docker
+- firebird 
+- React + React Native 
+- windows+IIS 
+- blockchain
+
+- inkscape
+- gimp
+
+
+---*Step 3*---
+
+Devops (azure vs)
+Flutter 
