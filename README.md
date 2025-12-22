@@ -8,7 +8,7 @@ These notes are taken from web resources. Some sections can be modified or remov
 - [Contents](#contents)
 - [Software Development Notes List](#software-development-notes-list)
 - [Cheats](#cheats)
-- [Deprecated Tutors](#deprecated-tutors)
+- [Other Tutors](#other-tutors)
 
 # Software Development Notes List
 
@@ -30,7 +30,6 @@ These notes are taken from web resources. Some sections can be modified or remov
 
 [Solid Js](./js-libs/solidjs/readme.md)
 
-[Php Notes](./php/readme.md)
 [Php Notes](./php/readme.md)
 
 [XML](./xml/readme.md)
@@ -88,6 +87,6 @@ These notes are taken from web resources. Some sections can be modified or remov
 - [Mssql Cheat](#)
 
 
-# Deprecated Tutors
+# Other Tutors
 
 - [Vue Tutors](./vue/README.md)
