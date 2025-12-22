@@ -21,4 +21,7 @@
 
 - [Tailwind For Beginner](./arts/art-tailwind-for-beginner.md)
 
-- [Tailwind Flex](./arts/art-tailwind-flex.md)
+- [Tailwind Flex](./arts/art-tw-flex.md)
+
+- [Tailwind Grid](./arts/art-tw-grid.md)
+
