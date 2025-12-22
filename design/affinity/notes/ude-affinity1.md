@@ -1,11 +1,28 @@
 
+- [Affinity Notları](#affinity-notları)
+- [Genel Kısayollar](#genel-kısayollar)
+  - [New Document](#new-document)
+  - [Working with the shapes](#working-with-the-shapes)
+  - [Marquee Selection](#marquee-selection)
+- [Tools](#tools)
+  - [Move tool](#move-tool)
+  - [Selecting and Transforming Seperately](#selecting-and-transforming-seperately)
+  - [Customizing shapes](#customizing-shapes)
+  - [Moving the Nodes](#moving-the-nodes)
+  - [Duplicating Objects](#duplicating-objects)
+  - [Corner Tool](#corner-tool)
+  - [Boolean Operations](#boolean-operations)
+  - [Shape Builder Tool](#shape-builder-tool)
+
+
 # Affinity Notları
 
 
+# Genel Kısayollar
 
 ➖ Tab shortcut
 
-Çalışmaya tam ekran gösterir. stüdyo panel, araç kutularını gizler.
+Çalışmayı tam ekran gösterir. stüdyo panel, araç kutularını gizler.
 
 ## New Document
 
@@ -30,7 +47,7 @@ Türkçesiyle:
 
 # Tools
 
-## move tool
+## Move tool
 
 - to move the selected object
 
@@ -49,6 +66,43 @@ Türkçesiyle:
 ## Customizing shapes
 
 - köşeleri yuvarlatmak için köşe simgesine tıklayıp sürükleyebiliriz.
+
+## Moving the Nodes
+
+- features toolbardan `convert to curves` seçeneği ile şekli eğriye dönüştürüp node tool seçip nodları hareket ettirebiliriz.
+
+- seçimle node'ları seçip örneğin ikisini birden hareket ettirebiliriz.
+
+- köşeleri seçip yuvarlatabiliriz. köşelerden tutunca handles çıkar.
+
+## Duplicating Objects
+
+- ctrl + j basarak seçili objeyi çoğaltabiliriz. move tool ile sürükleyerek kopyalanan objeyi istediğimiz yere taşıyabiliriz.
+
+- ctrl veya alt'a basılı tutarak sürükleyerek de kopyalayabiliriz.
+
+## Corner Tool
+
+- köşeleri yuvarlatmak için kullanılır. birden fazla köşe seçip hepsini aynı anda yuvarlatabiliriz.
+
+- köşe tipini değiştirebiliriz (rounded, inverted rounded, chamfered, straight) (gpt)
+
+## Boolean Operations
+
+- iki veya daha fazla şekli birleştirmek, çıkarmak veya kesiştirmek için kullanılır.
+
+- iki şekli seçip üstteki toolbar'dan boolean operation seçeneğini kullanabiliriz. birleştir, çıkar, kesiştir gibi seçenekler var.
+  
+- örneğin bir daire ve bir kareyi seçip "subtract" yaparsak, kareden dairenin şekli çıkarılır.
+
+- boolean operation yaptıktan sonra şekil hala düzenlenebilir. `expand stroke` yaparsak artık düzenlenemez olur.
+
+## Shape Builder Tool
+
+- boolean operation'lara alternatif olarak kullanılabilir.
+
+- shape builder tool ile şekillerin üzerine gelince artı veya eksi işareti çıkar. artı işaretine tıklarsak o alanları birleştirir, eksi işaretine tıklarsak o alanları çıkarır.
+
 
 
 

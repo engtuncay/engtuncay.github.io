@@ -1,8 +1,4 @@
 
-User: tailwind ile flex kullanımını bana anlatır mısın ? tailwind'da flex sınıfları nelerdir
-
-Tailwind'da Flex kullanımı hakkında kapsamlı bir açıklama yapacağım:
-
 ## Tailwind CSS'de Flex Kullanımı
 
 ### **Temel Flex Sınıfları**
@@ -19,10 +15,10 @@ Tailwind'da Flex kullanımı hakkında kapsamlı bir açıklama yapacağım:
 
 **2. Yön Kontrolü (flex-direction)**
 ```html
-<!-- Yatay (default) -->
+<!-- Yatay (x ekseni boyunca l-r) (default) -->
 <div class="flex">...</div>
 
-<!-- Dikey -->
+<!-- Dikey (y ekseni boyunca t-b) -->
 <div class="flex flex-col">...</div>
 
 <!-- Ters yatay -->
@@ -33,6 +29,7 @@ Tailwind'da Flex kullanımı hakkında kapsamlı bir açıklama yapacağım:
 ```
 
 **3. Sarma (Wrap)**
+
 ```html
 <!-- Sarılmaz (default) (no wrap) -->
 <div class="flex">...</div>
@@ -45,13 +42,15 @@ Tailwind'da Flex kullanımı hakkında kapsamlı bir açıklama yapacağım:
 ```
 
 **4. Justify (Yatay Hizalama) (kendi ekseninde)**
+
 ```html
 <div class="flex justify-start"><!-- Başlangıç --></div>
 <div class="flex justify-end"><!-- Son --></div>
 <div class="flex justify-center"><!-- Ortada --></div>
-<div class="flex justify-between"><!-- Aralarında boşluk --></div>
-<div class="flex justify-around"><!-- Etrafında boşluk --></div>
-<div class="flex justify-evenly"><!-- Eşit boşluk --></div>
+<!-- justify-between - uçtan uca hizalama (*5) -->
+<div class="flex justify-between"><!-- Aralarında boşluk (space-between) --></div>
+<div class="flex justify-around"><!-- Etrafında boşluk  (space-around) --></div>
+<div class="flex justify-evenly"><!-- Eşit boşluk (space-evenly) --></div>
 ```
 
 ![justify-* (content)](../img/flex-justify-content.jpg)
@@ -74,6 +73,7 @@ source : css-tricks.com
 
 
 **6. Grow & Shrink (Büyüme/Küçülme)**
+
 ```html
 <!-- Eşit şekilde büyüyerek alanı doldur -->
 <div class="flex">

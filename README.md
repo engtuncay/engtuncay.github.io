@@ -45,6 +45,8 @@ These notes are taken from web resources. Some sections can be modified or remov
 
 [Mysql Notes](./mysql/readme.md)
 
+[Affinity](./design/affinity/readme.md)
+
 [Solidity](./blockchain/readme.md)
 
 [Svelte Notes](./js-libs/svelte/readme.md)
