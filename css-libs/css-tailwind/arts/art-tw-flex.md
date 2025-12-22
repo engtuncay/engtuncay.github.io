@@ -1,9 +1,60 @@
 
-## Tailwind CSS'de Flex Kullanımı
+# Contents
 
-### **Temel Flex Sınıfları**
+- [Contents](#contents)
+- [Tailwind CSS'de Flex Kullanımı](#tailwind-cssde-flex-kullanımı)
+  - [Flex Class List](#flex-class-list)
+  - [Flex Cheat](#flex-cheat)
+  - [Temel Flex Sınıfları](#temel-flex-sınıfları)
+    - [1. Container Oluşturma (flex)](#1-container-oluşturma-flex)
+    - [2. Yön Kontrolü (flex-direction) (flex-col) (flex-row)](#2-yön-kontrolü-flex-direction-flex-col-flex-row)
+    - [3. Sarma (Wrap) (flex-wrap)](#3-sarma-wrap-flex-wrap)
+    - [4. Justify (Yatay Hizalama) (kendi ekseninde) (justify-\*)](#4-justify-yatay-hizalama-kendi-ekseninde-justify-)
+    - [5. Align Items (Dikey Hizalama) (ters eksende) (items-\*)](#5-align-items-dikey-hizalama-ters-eksende-items-)
+    - [7. Gap (Boşluk) (gap-\*)](#7-gap-boşluk-gap-)
+  - [Flex Item Sınıfları](#flex-item-sınıfları)
+    - [6. Grow \& Shrink (Büyüme/Küçülme) (flex-\*)](#6-grow--shrink-büyümeküçülme-flex-)
+    - [Flex Grow (Büyüme)](#flex-grow-büyüme)
+    - [Flex Shrink (Küçülme)](#flex-shrink-küçülme)
+    - [Flex Basis (Başlangıç Genişliği)](#flex-basis-başlangıç-genişliği)
+  - [**Pratik Örnekler**](#pratik-örnekler)
+  - [Flex sabit col ve dinamik col](#flex-sabit-col-ve-dinamik-col)
 
-**1. Container Oluşturma**
+
+
+# Tailwind CSS'de Flex Kullanımı
+
+
+## Flex Class List
+
+```
+Container Classes:
+-----
+flex
+flex-col (dikey hizalama)
+flex-wrap
+gap-*
+justify-*
+align-*
+
+
+Item Classes:
+-----
+flex-*
+grow  grow-*
+shrink  shrink-*
+basis-*
+
+
+```
+
+## Flex Cheat
+
+
+## Temel Flex Sınıfları
+
+### 1. Container Oluşturma (flex)
+
 ```html
 <!-- Flex container -->
 <div class="flex">
@@ -11,9 +62,11 @@
   <div>Item 2</div>
   <div>Item 3</div>
 </div>
+
 ```
 
-**2. Yön Kontrolü (flex-direction)**
+### 2. Yön Kontrolü (flex-direction) (flex-col) (flex-row) 
+
 ```html
 <!-- Yatay (x ekseni boyunca l-r) (default) -->
 <div class="flex">...</div>
@@ -26,9 +79,10 @@
 
 <!-- Ters dikey -->
 <div class="flex flex-col-reverse">...</div>
+
 ```
 
-**3. Sarma (Wrap)**
+### 3. Sarma (Wrap) (flex-wrap)
 
 ```html
 <!-- Sarılmaz (default) (no wrap) -->
@@ -41,7 +95,7 @@
 <div class="flex flex-wrap-reverse">...</div>
 ```
 
-**4. Justify (Yatay Hizalama) (kendi ekseninde)**
+### 4. Justify (Yatay Hizalama) (kendi ekseninde) (justify-*)
 
 ```html
 <div class="flex justify-start"><!-- Başlangıç --></div>
@@ -57,7 +111,7 @@
 
 source : css-tricks.com
 
-**5. Align Items (Dikey Hizalama) (ters eksende)**
+### 5. Align Items (Dikey Hizalama) (ters eksende) (items-*)
 ```html
 <div class="flex items-start"><!-- Üst --></div>
 <div class="flex items-end"><!-- Alt --></div>
@@ -70,9 +124,15 @@ source : css-tricks.com
 
 source : css-tricks.com
 
+### 7. Gap (Boşluk) (gap-*)
+```html
+<div class="flex gap-4"><!-- Aralarında 4 birim boşluk --></div>
+<div class="flex gap-x-4 gap-y-2"><!-- X ve Y ayrı --></div>
+```
 
+## Flex Item Sınıfları
 
-**6. Grow & Shrink (Büyüme/Küçülme)**
+### 6. Grow & Shrink (Büyüme/Küçülme) (flex-*)
 
 ```html
 <!-- Eşit şekilde büyüyerek alanı doldur -->
@@ -95,13 +155,54 @@ source : css-tricks.com
 </div>
 ```
 
-**7. Gap (Boşluk)**
+### Flex Grow (Büyüme)
+
+`grow` sınıfları, bir flex item'ın kalan alanı doldurmak için ne kadar büyüyebileceğini kontrol eder.
+
+| Sınıf         | Açıklama                        |
+|-------------- |---------------------------------|
+| `grow`        | Büyüyebilir (`flex-grow: 1`)    |
+| `grow-0`      | Büyümez (`flex-grow: 0`)        |
+
+**Örnek:**
 ```html
-<div class="flex gap-4"><!-- Aralarında 4 birim boşluk --></div>
-<div class="flex gap-x-4 gap-y-2"><!-- X ve Y ayrı --></div>
+<div class="flex gap-2">
+  <div class="grow bg-blue-200">Büyüyen</div>
+  <div class="grow-0 bg-red-200">Büyümeyen</div>
+</div>
 ```
 
-### **Pratik Örnekler**
+### Flex Shrink (Küçülme)
+
+`shrink` sınıfları, bir flex item'ın alan daraldığında ne kadar küçülebileceğini kontrol eder.
+
+| Sınıf         | Açıklama                         |
+|-------------- |----------------------------------|
+| `shrink`      | Küçülebilir (`flex-shrink: 1`)   |
+| `shrink-0`    | Küçülmez (`flex-shrink: 0`)      |
+
+**Örnek:**
+```html
+<div class="flex w-40 gap-2">
+  <div class="shrink bg-green-200 w-32">Küçülebilir</div>
+  <div class="shrink-0 bg-yellow-200 w-32">Küçülmez</div>
+</div>
+```
+
+### Flex Basis (Başlangıç Genişliği)
+
+`basis-*` sınıfları, bir flex item'ın başlangıç genişliğini belirler.
+
+**Örnek:**
+```html
+<div class="flex gap-2">
+  <div class="basis-1/4 bg-purple-200">%25</div>
+  <div class="basis-1/2 bg-pink-200">%50</div>
+  <div class="basis-1/4 bg-gray-200">%25</div>
+</div>
+```
+
+## **Pratik Örnekler**
 
 ```html
 <!-- Navbar - Yatay, Ortada Hizalanmış -->
@@ -125,153 +226,7 @@ source : css-tricks.com
 </div>
 ```
 
-### **En Önemli Tailwind Flex Sınıfları Özeti**
-
-| Sınıf       | Işlem                          |
-| ----------- | ------------------------------ |
-| `flex`      | Flex container (default yatay) |
-| `flex-col`  | Dikey yön                      |
-| `flex-wrap` | Sarılır                        |
-| `justify-*` | Yatay hizalama                 |
-| `justify-*` | (flex-col)dikey hizalama       |
-| `items-*`   | Dikey hizalama                 |
-| `items-*`   | (flex-col)yatay hizalama       |
-| `flex-1`    | Eşit büyüme                    |
-| `gap-*`     | Elemanlar arası boşluk         |
-
-User: tailwind ile flex kullanımını bana anlatır mısın ? tailwind'da flex sınıfları nelerdir
-
-GitHub Copilot: Read [](file:///y%3A/devrepo-github/engtuncay.github.io/css/arts/art-grid-tailwind.md#1-1), lines 1 to 100
-
-Mevcut dosya Grid hakkında olduğu için, Tailwind'da Flex kullanımı hakkında kapsamlı bir açıklama yapacağım:
-
-## Tailwind CSS'de Flex Kullanımı
-
-### **Temel Flex Sınıfları**
-
-**1. Container Oluşturma**
-```html
-<!-- Flex container -->
-<div class="flex">
-  <div>İtem 1</div>
-  <div>İtem 2</div>
-  <div>İtem 3</div>
-</div>
-```
-
-**2. Yön Kontrolü (flex-direction)**
-```html
-<!-- Yatay (default) -->
-<div class="flex">...</div>
-
-<!-- Dikey -->
-<div class="flex flex-col">...</div>
-
-<!-- Ters yatay -->
-<div class="flex flex-row-reverse">...</div>
-
-<!-- Ters dikey -->
-<div class="flex flex-col-reverse">...</div>
-```
-
-**3. Sarma (Wrap)**
-```html
-<!-- Sarılmaz (default) -->
-<div class="flex">...</div>
-
-<!-- Sarılır -->
-<div class="flex flex-wrap">...</div>
-
-<!-- Ters sırada sarılır -->
-<div class="flex flex-wrap-reverse">...</div>
-```
-
-**4. Justify (Yatay Hizalama)**
-```html
-<div class="flex justify-start"><!-- Başlangıç --></div>
-<div class="flex justify-end"><!-- Son --></div>
-<div class="flex justify-center"><!-- Ortada --></div>
-<div class="flex justify-between"><!-- Aralarında boşluk --></div>
-<div class="flex justify-around"><!-- Etrafında boşluk --></div>
-<div class="flex justify-evenly"><!-- Eşit boşluk --></div>
-```
-
-**5. Align Items (Dikey Hizalama)**
-```html
-<div class="flex items-start"><!-- Üst --></div>
-<div class="flex items-end"><!-- Alt --></div>
-<div class="flex items-center"><!-- Merkez --></div>
-<div class="flex items-baseline"><!-- Baseline --></div>
-<div class="flex items-stretch"><!-- Gerilmiş (default) --></div>
-```
-
-**6. Grow & Shrink (Büyüme/Küçülme)**
-```html
-<!-- Eşit şekilde büyüyerek alanı doldur -->
-<div class="flex">
-  <div class="flex-1">1/3</div>
-  <div class="flex-1">1/3</div>
-  <div class="flex-1">1/3</div>
-</div>
-
-<!-- Farklı oranlar -->
-<div class="flex">
-  <div class="flex-2">2/3</div>
-  <div class="flex-1">1/3</div>
-</div>
-
-<!-- Sabit genişlik -->
-<div class="flex">
-  <div class="flex-none">Sabit</div>
-  <div class="flex-1">Dinamik</div>
-</div>
-```
-
-**7. Gap (Boşluk)**
-```html
-<div class="flex gap-4"><!-- Aralarında 4 birim boşluk --></div>
-<div class="flex gap-x-4 gap-y-2"><!-- X ve Y ayrı --></div>
-```
-
-### **Pratik Örnekler**
-
-```html
-<!-- Navbar - Yatay, Ortada Hizalanmış -->
-<div class="flex justify-between items-center h-16 bg-gray-800">
-  <div>Logo</div>
-  <div class="flex gap-4">
-    <a>Ana Sayfa</a>
-    <a>Hakkında</a>
-  </div>
-</div>
-
-<!-- Kartlar - Wrap ile Responsive -->
-<div class="flex flex-wrap gap-4">
-  <div class="flex-1 min-w-80 p-4 bg-white rounded">Kart 1</div>
-  <div class="flex-1 min-w-80 p-4 bg-white rounded">Kart 2</div>
-</div>
-
-<!-- Merkeze Hizalı Content -->
-<div class="flex h-screen justify-center items-center">
-  <div>Ekranın tam ortasında</div>
-</div>
-```
-
-### **En Önemli Tailwind Flex Sınıfları Özeti**
-
-| Sınıf | İşlem |
-|-------|--------|
-| `flex` | Flex container |
-| `flex-col` | Dikey yön |
-| `flex-wrap` | Sarılır |
-| `justify-*` | Yatay hizalama |
-| `items-*` | Dikey hizalama |
-| `flex-1` | Eşit büyüme |
-| `gap-*` | Elemanlar arası boşluk |
-
-İstersen bu bilgileri dosyaya ekleyebilirim! 🎯
-
-# flex sabit col ve dinamik col
+## Flex sabit col ve dinamik col
 
 Flex'de bir flex-item belli bir rem genişliğinde, kalanı diğer item verecek şekilde dağıtma
 
