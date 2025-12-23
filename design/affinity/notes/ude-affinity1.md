@@ -13,6 +13,8 @@
   - [Corner Tool](#corner-tool)
   - [Boolean Operations](#boolean-operations)
   - [Shape Builder Tool](#shape-builder-tool)
+- [Colors](#colors)
+  - [Palette](#palette)
 
 
 # Affinity Notları
@@ -105,4 +107,10 @@ Türkçesiyle:
 
 
 
+# Colors
 
+## Palette
+
+- kendi özel renk paletimizi oluşturabiliriz. swatches panelden yeni palet oluşturabiliriz. scope'u document yaparsak sadece o dokümanda görünür olur. scope'u application yaparsak tüm dokümanlarda görünür olur. scope'u global yaparsak tüm affinity uygulamalarında görünür olur.
+
+ 

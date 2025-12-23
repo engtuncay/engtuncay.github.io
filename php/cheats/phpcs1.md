@@ -36,6 +36,7 @@ Source : https://quickref.me/php.html
   - [Multi array](#multi-array)
   - [Multi type](#multi-type)
   - [manipulation](#manipulation-1)
+  - [Array eleman sayısı](#array-eleman-sayısı)
   - [Indexing iteration (Loop)](#indexing-iteration-loop)
   - [Value iteration (loop)](#value-iteration-loop)
   - [Key iteration](#key-iteration)
@@ -62,6 +63,7 @@ Source : https://quickref.me/php.html
   - [break](#break)
   - [continue](#continue)
   - [foreach](#foreach)
+  - [foreach (key-value)](#foreach-key-value)
 - [PHP Functions](#php-functions)
   - [Returning values](#returning-values)
   - [Return types](#return-types)
@@ -581,6 +583,19 @@ unset($arr);      // Remove all
 
 See: Array Functions
 
+## Array eleman sayısı
+
+```php
+$arr = [1, 2, 3, 4];
+
+// Eleman sayısını alır
+echo count($arr);    // => 4
+
+// `sizeof()` alias olarak aynı şeyi yapar
+echo sizeof($arr);   // => 4
+
+```
+
 ## Indexing iteration (Loop)
 
 ```php
@@ -938,10 +953,24 @@ for ($i = 1; $i <= 5; $i++) {
 
 ```php
 $a = ['foo' => 1, 'bar' => 2];
-# => 12
+
 foreach ($a as $k) {
     echo $k;
 }
+# => 12
+
+```
+
+## foreach (key-value)
+
+```php
+$arr = ["foo" => "bar", "bar" => "foo"];
+
+foreach ($arr as $key => $value) {
+    echo "key: " . $key . ", value: " . $value . "\n";
+}
+# => key: foo, value: bar
+# => key: bar, value: foo
 
 ```
 

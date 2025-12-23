@@ -1,10 +1,10 @@
 
 - [Tailwind 4 ile Grid Kullanımı](#tailwind-4-ile-grid-kullanımı)
   - [Tailwind 4 Grid Özellikleri ve Kullanımı](#tailwind-4-grid-özellikleri-ve-kullanımı)
-    - [1. **Temel Grid Container Oluşturma**](#1-temel-grid-container-oluşturma)
-    - [2. **Grid Kolon Sayısı - grid-cols-**](#2-grid-kolon-sayısı---grid-cols-)
-    - [3. **Satır Sayısı - grid-rows-**](#3-satır-sayısı---grid-rows-)
-    - [4. **Boşluk Ayarı - gap-**](#4-boşluk-ayarı---gap-)
+    - [1. Temel Grid Container Oluşturma (grid)](#1-temel-grid-container-oluşturma-grid)
+    - [2. Grid Kolon Sayısı (grid-cols-\*)](#2-grid-kolon-sayısı-grid-cols-)
+    - [3. Satır Sayısı (grid-rows-\*)](#3-satır-sayısı-grid-rows-)
+    - [4. Boşluk Ayarı (gap-\*)](#4-boşluk-ayarı-gap-)
     - [5. **Item Yerleşimi - col-span ve row-span**](#5-item-yerleşimi---col-span-ve-row-span)
     - [6. **Otomatik Kolon - auto-cols ve grid-auto-flow**](#6-otomatik-kolon---auto-cols-ve-grid-auto-flow)
     - [7. **Elemanların Hizalanması - Justify \& Align**](#7-elemanların-hizalanması---justify--align)
@@ -21,7 +21,7 @@ Tailwind 4 ile Grid kullanımını detaylı şekilde anlatacağım:
 
 ## Tailwind 4 Grid Özellikleri ve Kullanımı
 
-### 1. **Temel Grid Container Oluşturma**
+### 1. Temel Grid Container Oluşturma (grid)
 
 ```html
 <!-- grid sınıfıyla grid container oluştur -->
@@ -32,7 +32,7 @@ Tailwind 4 ile Grid kullanımını detaylı şekilde anlatacağım:
 </div>
 ```
 
-### 2. **Grid Kolon Sayısı - grid-cols-**
+### 2. Grid Kolon Sayısı (grid-cols-*)
 
 ```html
 <!-- 3 kolonlu grid ve aralarında boşluklu -->
@@ -48,7 +48,7 @@ Tailwind 4 ile Grid kullanımını detaylı şekilde anlatacağım:
 </div>
 ```
 
-### 3. **Satır Sayısı - grid-rows-**
+### 3. Satır Sayısı (grid-rows-*)
 
 ```html
 <div class="grid grid-rows-3 h-96">
@@ -58,7 +58,7 @@ Tailwind 4 ile Grid kullanımını detaylı şekilde anlatacağım:
 </div>
 ```
 
-### 4. **Boşluk Ayarı - gap-**
+### 4. Boşluk Ayarı (gap-*)
 
 ```html
 <div class="grid grid-cols-3 gap-4">

@@ -70,7 +70,7 @@ In this article, we'll learn,
 
 1. How can we create Json Web Token in ASP.NET Web API
 2. How to validate a JWT bearer token if it comes in a request
-3. How to get claims data 
+3. How to get claims data
 
 ## Creating & Validating JWT in ASP.NET Web API
  
@@ -97,6 +97,7 @@ Add following Action in Values Controller. Here we've made it very simple.
 ❗ Warn : Normally we'll expose this method with POST verb + we'll receive some credentials for authentication. Once user will be authenticated, token will be generated accordingly. 
 
 ```cs
+
 [HttpGet]    
 public Object GetToken()    
 {    
@@ -225,7 +226,7 @@ using Microsoft.Owin.Security.OAuth;
 
 ```
 
-b) Update WebApiConfig.Register method with adding the code shown in 1. This is to enable oAuth authentication. Also add `{action}` in route config.
+b) Update `WebApiConfig.Register` method with adding the code shown in 1. This is to enable oAuth authentication. Also add `{action}` in route config.
 
 ```cs
 public static void Register(HttpConfiguration config) {  
@@ -249,12 +250,19 @@ public static void Register(HttpConfiguration config) {
 Open any API Controller (e.g. Values Controller)
  
 a) Add following namespace
+
+```csharp
 using System.Security.Claims;  
+
+```
+
 b) Add the following Actions in API Controller (e.g. Values) for testing.
  
-GetName1
+➖ GetName1 Endpoint
  
 It has no authorization enabled on it. This function will be called whether we've received a token or not but we are checking if user is authenticated (means a valid token has been received) inside the function. User.Identity contains the claims (which are constructed from token)
+
+```csharp
 [HttpPost]    
 public String GetName1() {    
  if (User.Identity.IsAuthenticated) {    
@@ -267,9 +275,14 @@ public String GetName1() {
   return "Invalid";    
  }    
 }    
-GetName2
+
+```  
+
+➖ GetName2 Endpoint
  
 It has Authorize attribute. This function will not be called if a valid token is not received.
+
+```cs
 [Authorize]  
 [HttpPost]  
 public Object GetName2() {  
@@ -284,8 +297,12 @@ public Object GetName2() {
  }  
  return null;  
 } 
+
+```
+
 Now let's run the application and test it using Postman (https://getpostman.com) by providing token, by providing invalid token, without token etc.
- 
+
+```
 Method Type: POST
  
 URL: http://localhost:1234/api/values/getname1
@@ -295,7 +312,7 @@ Headers
 Authorization: Bearer <token> 
 Content-Type: application/json
    
-
+---
  
 Method Type: POST
 URL: http://localhost:1234/api/values/getname2
@@ -303,15 +320,14 @@ URL: http://localhost:1234/api/values/getname2
 Headers
 Authorization: Bearer <token>
 Content-Type: application/json
- 
 
+``` 
  
  
-Note
-Requester/Consumer of token can be browser/desktop app/mobile app/postman etc. as long it allows creating HTTP requests. 
+📝 Note: Requester/Consumer of token can be browser/desktop app/mobile app/postman etc. as long it allows creating HTTP requests. 
  
 Want to see how to achieve above with ASP.NET Core? Check here.
  
-Summary
+**Summary**
  
 JSON web tokens have got quite popular and there are reasons for this popularity. The main reason is its simplicity. End application/consumer should consider security of tokens as important as login/password security. JWT are not encrypted, but rather encoded. It means anyone who has access to JWT can decode and get information from it. Confidential data should not be part of it or it should be encrypted if it is required. Size of payload should be small. Keep only required claims with small names.
