@@ -28,14 +28,14 @@ Source : https://quickref.me/php.html
   - [Iterables](#iterables)
 - [PHP Strings](#php-strings)
   - [String](#string)
-  - [Multi-line](#multi-line)
-  - [Manipulation](#manipulation)
+  - [Multi-line String](#multi-line-string)
+  - [Manipulation Functions](#manipulation-functions)
 - [PHP Arrays](#php-arrays)
   - [Defining](#defining)
   - [Short array syntax](#short-array-syntax)
   - [Multi array](#multi-array)
   - [Multi type](#multi-type)
-  - [manipulation](#manipulation-1)
+  - [manipulation](#manipulation)
   - [Array eleman sayısı](#array-eleman-sayısı)
   - [Indexing iteration (Loop)](#indexing-iteration-loop)
   - [Value iteration (loop)](#value-iteration-loop)
@@ -88,7 +88,8 @@ Source : https://quickref.me/php.html
   - [Custom exception](#custom-exception)
   - [Nullsafe Operator](#nullsafe-operator)
 - [Regular expressions](#regular-expressions)
-- [fopen() mode](#fopen-mode)
+- [File](#file)
+  - [fopen() mode](#fopen-mode)
 - [Runtime defined Constants](#runtime-defined-constants)
 - [Article : Modern PHP Cheatsheet](#article--modern-php-cheatsheet)
   - [Introduction](#introduction)
@@ -437,6 +438,8 @@ foreach (bar() as $value) {
 
 ```
 
+[🔝](#contents)
+
 # PHP Strings
 
 ## String
@@ -457,7 +460,7 @@ $unescaped = 'a slash and a t: \t';
 
 ```
 
-## Multi-line
+## Multi-line String
 
 ```php
 $str = "foo";
@@ -479,7 +482,7 @@ END;
 TBC - 20251214 - 1757 
 
 
-## Manipulation
+## Manipulation Functions
 
 ```php
 $s = "Hello Phper";
@@ -662,6 +665,8 @@ foo(...$array);
 
 ## Splat Operator
 
+(Spread mi?)
+
 ```php
 function foo($first, ...$other) {
 	var_dump($first); # => a
@@ -673,6 +678,7 @@ foo('a', 'b', 'c' /*, ...*/ );
 function foo($first, string ...$other){}
 
 ```
+
 # PHP Operators
 
 ## Arithmetic
@@ -1299,6 +1305,8 @@ try {
 
 ```
 
+[🔝](#contents)
+
 ## Nullsafe Operator
 
 ```php
@@ -1321,17 +1329,89 @@ if (is_null($repo)) {
 
 See also: Nullsafe Operator
 
+[🔝](#contents)
+
 # Regular expressions
 
+**Functions**
+
+- (1) `preg_match()`	Performs a regex match
+- (2) `preg_match_all()`	Perform a `global` regular expression match
+- (3) `preg_replace_callback()`	Perform a regular expression - search and replace using a callback
+- (4) `preg_replace()`	Perform a regular expression search and replace
+- (5) `preg_split()`	Splits a string by regex pattern
+- (6) `preg_grep()`	Returns array entries that match a pattern
+
+➖ 1. preg_match
+ 
 ```php
-$str = "Visit Quickref.me";
-echo preg_match("/qu/i", $str); # => 1
+$str = "Visit QuickRef";
+$regex = "#quickref#i";
+
+echo preg_match($regex, $str);
+
+// Output: 1
 
 ```
 
-See: Regex in PHP
+➖ 2. preg_replace
 
-# fopen() mode
+```php
+$str = "Visit Microsoft!";
+$regex = "/microsoft/i";
+
+echo preg_replace($regex, "QuickRef", $str); 
+
+// Output: Visit QuickRef!
+```
+
+➖ 3. preg_matchall
+
+```php
+$regex = "/[a-zA-Z]+ (\d+)/";
+$input_str = "June 24, August 13, and December 30";
+
+if (preg_match_all($regex, $input_str, $matches_out)) {
+
+  echo count($matches_out);
+  // Output: 2
+  
+  echo count($matches_out[0]);
+  // Output: 3
+  
+  print_r($matches_out[0]);
+  // Output: Array("June 24", "August 13", "December 30")
+
+  print_r($matches_out[1]);
+  // Output: Array("24", "13", "30")
+
+}
+
+```
+
+➖ 4. preg_grep
+
+```php
+$arr = ["Jane", "jane", "Joan", "JANE"];
+$regex = "/Jane/";
+
+// Output: Jane
+echo preg_grep($regex, $arr);
+preg_split
+
+$str = "Jane\tKate\nLucy Marion";
+$regex = "@\s@";
+
+// Output: Array("Jane", "Kate", "Lucy", "Marion")
+print_r(preg_split($regex, $str));
+
+```
+
+- For regex table, see https://quickref.me/regex
+
+# File 
+
+## fopen() mode
 
 ```php
 r	Read
