@@ -10,8 +10,8 @@ OrakSoft Keyboard shortcuts for Windows Based On Idea And VS Code
 - [Memorize Table](#memorize-table)
 - [General (Frequent)](#general-frequent)
 - [Code Navigation](#code-navigation)
+- [Display / Panel Navigation](#display--panel-navigation)
 - [Rich Languages Editing](#rich-languages-editing)
-- [Display / Editor Navigation](#display--editor-navigation)
 - [Editing](#editing)
 - [Editor management](#editor-management)
 - [Search and replace](#search-and-replace)
@@ -71,7 +71,7 @@ kullanışlı olan,ezberlenecek liste
 Kod içerisinde gezinme için kısayollar
 
 | Shortcut     | Desc                               | F   |
-| ------------ | ---------------------------------- | --- |
+|--------------|------------------------------------|-----|
 | c+t          | Show all Symbols                   |     |
 | c+p          | Go to File                         |     |
 | c+\* (cs+o)  | Go to Symbol...                    |     |
@@ -79,15 +79,15 @@ Kod içerisinde gezinme için kısayollar
 | c+g          | Go to Line                         |     |
 | F8           | Go to next error or warning        |     |
 | s+F8         | Go to previous error or warning    |     |
-| cs+m         | Jump to matching bracket           | \*  |
+| cs+m         | `Jump to matching bracket`         | xxx |
 | c+k,b        | Toogle Bookmark (idea)             |     |
 | c+F11        | Toggle Bookmark Mnemonic (idea)    |     |
 | cs+[0-9]     | Toggle Bookmark [0-9] (idea)       |     |
 | c+[0-9]      | Go to Bookmark (idea)              |     |
 | c+h,b        | Open file from path (vsc-ext)      |     |
 | a+z          | Toggle word wrap                   |     |
-| cs,np-       | Fold (collapse) region (close)     |     |
-| cs,np+       | Unfold (uncollapse) region (open)  |     |
+| cs+(np-)     | Fold (collapse) region (close)     |     |
+| cs+(np+)     | Unfold (uncollapse) region (open)  |     |
 | c+k,[        | Fold (collapse) all subregions     | ??  |
 | c+k,]        | Unfold (uncollapse) all subregions | ??  |
 | c+k,0        | Fold (collapse) all regions        |     |
@@ -98,48 +98,33 @@ Kod içerisinde gezinme için kısayollar
 
 [🔝](#contents)
 
-# Rich Languages Editing
 
-| Shortcut      | Desc                        |
-| ------------- | --------------------------- |
-| c+space - c+i | Trigger suggestion          |
-| cs+space      | Trigger parameter hints     |
-| sa+F          | Format document             |
-| c+k,f         | Format selection            |
-| F12           | Go to Definition            |
-| a+F12         | Peek Definition             |
-| c+k, F12      | Open Definition to the side |
-| c+.           | Quick Fix                   |
-| s+F12         | Show References             |
-| F2            | Rename Symbol               |
-| c+k,x         | Trim trailing whitespace    |
-
-# Display / Editor Navigation
+# Display / Panel Navigation
 
 - Editor panelleri arasında gezinme
-- panellerin görüntülemesini açma ve kapama işlemleri
+- Panellerin görüntülemesini açma ve kapama işlemleri
 
-| Shortcut  | Desc                               | Note                              |
-|-----------|------------------------------------|-----------------------------------|
-| c+j,j     | Focus Active Editor (editor focus) |
-| cs+d      | Show Debug                         |
-| cs+s      | Toggle Sidebar Panel               | old(c+b)                          |
-| cs+e      | Show Explorer                      |
-| cs+f      | Show Search                        |
-| cs+g      | Show Source Control                |
-| cs+x      | Show Extensions                    |
-| cs+h      | Replace in files                   |
-| cs+j      | Toggle Search details              |
-| cs+u      | Show Output panel                  |
-| cs+m      | Show Problems panel                |
-| cs+v      | Open Markdown preview              |
-| c+k,v     | Open Markdown preview to the side  |
-| c+k,z     | Zen Mode (Esc Esc to exit)         |
-| a+o       | Open In Default Browser            | User-explorer da çalışıyor        |
-| c+"       | Focus-Open Terminal                | (workbench.action.terminal.focus) |
-| c+1       | Focus Editor(1)                    |
-| c+= / c+- | Zoom in/out                        |
-| a+t       | TODO (idea)                        |
+| Shortcut   | Desc                               | Note                              |
+|------------|------------------------------------|-----------------------------------|
+| c+j,j      | Focus Active Editor (editor focus) |
+| cs+d       | Show Debug                         |
+| cs+s       | Toggle Sidebar Panel               | old(c+b)                          |
+| cs+e - a+1 | Show Explorer                      |
+| cs+f       | Show Search                        |
+| cs+g       | Show Source Control                |
+| cs+x       | Show Extensions                    |
+| cs+h       | Replace in files                   |
+| cs+j       | Toggle Search details              |
+| cs+u       | Show Output panel                  |
+| cs+m       | Show Problems panel                |
+| cs+v       | Open Markdown preview              |
+| c+k,v      | Open Markdown preview to the side  |
+| c+k,z      | Zen Mode (Esc Esc to exit)         |
+| a+o        | Open In Default Browser            | User-explorer da çalışıyor        |
+| c+"        | Focus-Open Terminal                | (workbench.action.terminal.focus) |
+| c+1        | Focus Editor(1)                    |
+| c+= / c+-  | Zoom in/out                        |
+| a+t        | TODO (idea)                        |
 
 unfavs
 
@@ -149,6 +134,22 @@ s+a+0    | Toggle editor layout (horizontal/vertical)       |
 cs+tab   | Navigate editor group history                    |
 c+j      | (workbench.action.focusActiveEditorGroup)        |
 ```
+
+# Rich Languages Editing
+
+| Shortcut      | Desc                        |
+| ------------- | --------------------------- |
+| c+space - c+i | Trigger suggestion          |
+| cs+space      | Trigger parameter hints     |
+| as+f          | Format document             |
+| c+k,f         | Format selection            |
+| F12           | Go to Definition            |
+| a+F12         | Peek Definition             |
+| c+k, F12      | Open Definition to the side |
+| c+.           | Quick Fix                   |
+| s+F12         | Show References             |
+| F2            | Rename Symbol               |
+| c+k,x         | Trim trailing whitespace    |
 
 # Editing
 
@@ -174,13 +175,13 @@ c+j      | (workbench.action.focusActiveEditorGroup)        |
 # Editor management
 
 | Shortcut        | Desc                                    | Note |
-| --------------- | --------------------------------------- | ---- |
+|-----------------|-----------------------------------------|------|
 | c+F4, c+W       | Close editor                            |      |
-| c+K F           | Close folder                            |      |
+| c+K, F          | Close folder                            |      |
 | c+\             | Split editor                            |      |
 | c+ 1 / 2 / 3    | Focus into 1st, 2nd or 3rd editor group |      |
-| c+K c+ ←/→      | Focus into previous/next editor group   |      |
-| c+s+PgUp / PgDn | Move editor left/right                  |      |
+| c+k,c + ←/→      | Focus into previous/next editor group   |      |
+| cs+PgUp / PgDn | Move editor left/right                  |      |
 | c+K ← / →       | Move active editor group                |      |
 
 # Search and replace

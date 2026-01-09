@@ -87,6 +87,7 @@ Not : Regular expression düzenlenmeli
   - [ES6 Classes](#es6-classes)
   - [ES6 getters and setters](#es6-getters-and-setters)
   - [ES6 Statics Methods](#es6-statics-methods)
+  - [Importing References or Classes](#importing-references-or-classes)
   - [ES6 Inheritance](#es6-inheritance)
 - [ES6 import and export](#es6-import-and-export)
   - [Basics](#basics-2)
@@ -1736,6 +1737,33 @@ class Book {
 
 Book.sayHi(); // Hi!
 ```
+
+### Importing References or Classes
+
+TypeScript (ve JavaScript) ortamında bir sınıfın statik alanı, o sınıfın kendisine aittir ve modül sistemi gereği, farklı dosyalardan aynı sınıfı import ettiğinizde aynı statik alanı işaret edersiniz.
+
+Yani:
+- Statik alanlar, sınıfın örneklerine değil, doğrudan sınıfın kendisine bağlıdır.
+- `Bir modül bir kez yüklenir ve cache’lenir`. Farklı dosyalardan import ettiğinizde, aynı sınıf ve aynı statik alan kullanılır.
+
+Örnek:
+````typescript
+// logger.ts
+export class Logger {
+  static count = 0;
+}
+
+// a.ts
+import { Logger } from './logger';
+Logger.count++; // count = 1
+
+// b.ts
+import { Logger } from './logger';
+Logger.count++; // count = 2 (aynı alan!)
+````
+
+Sonuç: Farklı dosyalardan import etseniz de, statik alan tek ve ortaktır.
+
 
 ### ES6 Inheritance
 

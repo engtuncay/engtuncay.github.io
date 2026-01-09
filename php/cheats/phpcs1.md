@@ -86,7 +86,7 @@ Source : https://quickref.me/php.html
   - [Basic error handling](#basic-error-handling)
   - [Exception in PHP 8.0](#exception-in-php-80)
   - [Custom exception](#custom-exception)
-  - [Nullsafe Operator](#nullsafe-operator)
+  - [Nullsafe Operator (\*)](#nullsafe-operator-)
 - [Regular expressions](#regular-expressions)
 - [File](#file)
   - [fopen() mode](#fopen-mode)
@@ -121,7 +121,7 @@ Source : https://quickref.me/php.html
         - [Object's method](#objects-method)
         - [Chained method](#chained-method)
       - [Null Coalescing Assignment operator](#null-coalescing-assignment-operator)
-    - [Nullsafe operator](#nullsafe-operator-1)
+    - [Nullsafe operator](#nullsafe-operator)
     - [Spread operator](#spread-operator)
       - [Variadic parameter](#variadic-parameter)
       - [Argument unpacking](#argument-unpacking)
@@ -1109,6 +1109,9 @@ echo $fn1(5);   # => 6
 echo $fn2(5);   # => 6
 
 ```
+
+[🔝](#contents)
+
 # PHP Classes
 
 ## Constructor
@@ -1126,6 +1129,12 @@ $alex = new Student("Alex");
 $alex->print();    # => Name: Alex
 
 ```
+
+➖ PHP’de bir sınıfın field’ı tanımlanıp, obje oluşturulduğunda dikkat edilecek hususlar:
+
+- Tip belirtilmemişse (ör: public $foo;), değeri null olur.
+- Tip belirtilmişse (ör: public string $foo;), ama constructor’da değer atanmazsa, PHP 7.4+’da erişmeye çalıştığınızda `Fatal error` verir: `"Typed property ... must not be accessed before initialization"`
+- Eğer nullable tip (ör: `public ?string $foo;`) kullanırsanız, değer atanmamışsa null olur ve hata vermez.
 
 ## Inheritance
 
@@ -1245,10 +1254,12 @@ interface Foo
 {
     public function doSomething();
 }
+
 interface Bar
 {
     public function doSomethingElse();
 }
+
 class Cls implements Foo, Bar 
 {
     public function doSomething() {}
@@ -1256,6 +1267,7 @@ class Cls implements Foo, Bar
 }
 
 ```
+
 # Miscellaneous
 
 ## Basic error handling
@@ -1307,7 +1319,7 @@ try {
 
 [🔝](#contents)
 
-## Nullsafe Operator
+## Nullsafe Operator (*)
 
 ```php
 // As of PHP 8.0.0, this line:
@@ -1452,7 +1464,7 @@ Source : https://github.com/smknstd/modern-php-cheatsheet , MIT License
 
 When you struggle to understand a notion, I suggest you look for answers on the following resources:
 
-- [PHP The Right Way - Full Php *5](https://phptherightway.com/) 
+- [PHP The Right Way - Full Php Book *5](https://phptherightway.com/) 
 - [Stitcher's blog - Php Articles](https://stitcher.io)
 - [PHP.Watch](https://php.watch/versions)
 
@@ -1839,14 +1851,13 @@ $f->bar = null;
 $a = $f->bar;
 // $a = null
 ```
-
-### Destructuring arrays
+### Destructuring arrays 
 
 You can destructure arrays to pull out several elements into separate variables.
 
 #### Indexed array
 
-![php-version-40](https://shields.io/badge/php->=4.0-blue)
+(php>=4.0)
 
 Considering an indexed array like :
 
@@ -2616,9 +2627,11 @@ $array2 = [
 // $array2 = []
 ```
 
+[🔝](#contents)
+
 ### Named arguments
 
-![php-version-80](https://shields.io/badge/php->=8.0-blue)
+`php>=8.0`
 
 Since PHP 8.0, it is possible to pass in arguments by name instead of their position.
 

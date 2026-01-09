@@ -44,8 +44,10 @@ For example:
 Table with structured and semi-structured data
 
 Table Creation
+
 Using JSON within MariaDB is as easy as enabling the ability to store JSON data within a table. In fact, the SQL used to create a new location table should look very familiar.
 
+```sql
 CREATE TABLE locations (
     id INT NOT NULL AUTO_INCREMENT,
     name VARCHAR(100) NOT NULL,  
@@ -55,6 +57,8 @@ CREATE TABLE locations (
     attr JSON, 
     PRIMARY KEY (id)
 );
+
+```
 
 Note that the attr column included within the locations table is defined with a JSON data type. More specifically the column is using a JSON alias datatype. That means there’s no actual JSON data type, but, instead, the JSON specified datatype assures that added data is valid JSON by adding a check constraint to the columns.
 
