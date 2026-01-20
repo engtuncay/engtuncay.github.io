@@ -37,7 +37,7 @@ OrakSoft Keyboard shortcuts for Windows Based On Idea And VS Code
 
 - ❗ c+ks or c+k,s means c+k, then c+s
 
-- np:numpad , np- (numpad -)
+- np:numpad , np- (numpad-)
 
 [🔝](#contents)
 
@@ -45,10 +45,11 @@ OrakSoft Keyboard shortcuts for Windows Based On Idea And VS Code
 
 kullanışlı olan,ezberlenecek liste
 
-| Key | Desc |
-| --- | ---- |
-| aaa | aaa  |
-| bbb | bbb  |
+| Key   | Desc                                 |
+|-------|--------------------------------------|
+| c+j,j | `Focus Active Editor (editor focus)` |
+| aaa   | aaa                                  |
+
 
 [🔝](#contents)
 
@@ -104,27 +105,27 @@ Kod içerisinde gezinme için kısayollar
 - Editor panelleri arasında gezinme
 - Panellerin görüntülemesini açma ve kapama işlemleri
 
-| Shortcut   | Desc                               | Note                              |
-|------------|------------------------------------|-----------------------------------|
-| c+j,j      | Focus Active Editor (editor focus) |
-| cs+d       | Show Debug                         |
-| cs+s       | Toggle Sidebar Panel               | old(c+b)                          |
-| cs+e - a+1 | Show Explorer                      |
-| cs+f       | Show Search                        |
-| cs+g       | Show Source Control                |
-| cs+x       | Show Extensions                    |
-| cs+h       | Replace in files                   |
-| cs+j       | Toggle Search details              |
-| cs+u       | Show Output panel                  |
-| cs+m       | Show Problems panel                |
-| cs+v       | Open Markdown preview              |
-| c+k,v      | Open Markdown preview to the side  |
-| c+k,z      | Zen Mode (Esc Esc to exit)         |
-| a+o        | Open In Default Browser            | User-explorer da çalışıyor        |
-| c+"        | Focus-Open Terminal                | (workbench.action.terminal.focus) |
-| c+1        | Focus Editor(1)                    |
-| c+= / c+-  | Zoom in/out                        |
-| a+t        | TODO (idea)                        |
+| Shortcut   | Desc                                 | Note                       |
+|------------|--------------------------------------|----------------------------|
+| c+j,j      | `Focus Active Editor (editor focus)` |
+| cs+d       | Show Debug                           |
+| cs+s       | Toggle Sidebar Panel                 | old(c+b)                   |
+| cs+e - a+1 | Show Explorer                        |
+| cs+f       | Show Search                          |
+| cs+g       | Show Source Control                  |
+| cs+x       | Show Extensions                      |
+| cs+h       | Replace in files                     |
+| cs+j       | Toggle Search details                |
+| cs+u       | Show Output panel                    |
+| cs+m       | Show Problems panel                  |
+| cs+v       | Open Markdown preview                |
+| c+k,v      | Open Markdown preview to the side    |
+| c+k,z      | Zen Mode (Esc Esc to exit)           |
+| a+o        | Open In Default Browser              | User-explorer da çalışıyor |
+| c+"        | Focus-Open Terminal                  | (wb.action.terminal.focus) |
+| c+1        | Focus Editor(1)                      |
+| c+= / c+-  | Zoom in/out                          |
+| a+t        | TODO (idea)                          |
 
 unfavs
 
@@ -246,22 +247,22 @@ c+j      | (workbench.action.focusActiveEditorGroup)        |
 
 # File management
 
-| Shortcut    | Desc                                    |
-|-------------|-----------------------------------------|
-| c+N         | New File                                |
-| c+O         | Open File...                            |
-| c+S         | Save                                    |
-| c+s+S       | Save As...                              |
-| c+K S       | Save All                                |
-| c+F4        | Close                                   |
-| c+K c+W     | Close All                               |
-| c+s+T       | Reopen closed editor                    |
-| c+K         | Enter Keep preview mode editor open     |
-| c+Tab       | Open next                               |
-| c+s+Tab     | Open previous                           |
-| c+kp        | Copy path of active file                |
-| c+k,r c+o,e | Reveal active file in Explorer          |
-| c+k,o       | Show active file in new window/instance |
+| Shortcut      | Desc                                    |
+| ------------- | --------------------------------------- |
+| c+n           | New File                                |
+| c+o           | Open File...                            |
+| c+s           | Save                                    |
+| c+s,s         | Save As...                              |
+| c+k,s         | Save All                                |
+| c+f4          | Close                                   |
+| c+k,w         | Close All                               |
+| c+s,t         | Reopen closed editor                    |
+| c+k           | Enter Keep preview mode editor open     |
+| c+tab         | Open next                               |
+| cs+tab        | Open previous                           |
+| c+k,p         | Copy path of active file                |
+| c+k,r - c+o,e | Reveal active file in Explorer          |
+| c+k,o         | Show active file in new window/instance |
 
 # Alphatic Order
 
@@ -269,67 +270,67 @@ c+j      | (workbench.action.focusActiveEditorGroup)        |
 
 ## Ctrl Shortcuts
 
-| Key  | Desc                           | When             |
-| ---- | ------------------------------ | ---------------- |
-| c+a  | select all                     |
-| ctb  |                                |
-| c+c  | cut                            |
-| c+d  | copy line down(duplicate line) |
-| c+d  | add selection to match         | selection active |
-| c+e  | recent files                   |
-| c+f  | find                           |
-| c+g  | go to                          |
-| c+hh | replace                        |
-| c+ı  |                                |
-| c+i  |                                |
-| c+jj |                                |
-| c+kk |                                |
-| c+l  | delete line                    |
-| c+m  | (screen to center??)           |
-| c+n  | Create New File                |
-| c+o  | Open File                      |
-| c+p  | Navigate Project File          |
-| c+rr | Open Recent                    |
-| c+s  | Save                           |
-| c+ş  |
-| c+t  | go to symbol                   |
-| c+u  |
-| c+ü  |
-| c+v  | paste                          |
-| c+y  |
-| c+z  |
+| Key   | Desc                           | When             |
+|-------|--------------------------------|------------------|
+| c+a   | select all                     |
+| ctb   |                                |
+| c+c   | cut                            |
+| c+d   | copy line down(duplicate line) |
+| c+d   | add selection to match         | selection active |
+| c+e   | recent files                   |
+| c+f   | find                           |
+| c+g   | go to                          |
+| c+h,h | replace                        |
+| c+ı   |                                |
+| c+i   |                                |
+| c+j,j |                                |
+| c+k,k |                                |
+| c+l   | delete line                    |
+| c+m   | (screen to center??)           |
+| c+n   | Create New File                |
+| c+o   | open file                      |
+| c+p   | navigate Project File          |
+| c+rr  | open recent                    |
+| c+s   | save                           |
+| c+ş   |
+| c+t   | go to symbol                   |
+| c+u   |
+| c+ü   |
+| c+v   | paste                          |
+| c+y   |
+| c+z   |
 
 [🔝](#contents)
 
 ## Alt Shortcuts
 
-| Key  | Desc             |
-| ---- | ---------------- |
-| a+a  | matched brackets |
-| a+b  | -                |
-| a+c  | -                |
-| a+d  | open file        |
-| a+e  | edit menu        |
-| a+f  | file menu        |
-| a+g  | go menu          |
-| a+h  | help menu        |
-| a+ı  | -                |
-| a+i  | -                |
-| a+j  | -                |
-| a+k  | -                |
-| a+ll |                  |
-| a+m  | -                |
-| a+n  | -                |
-| a+o  | -                |
-| a+p  | -                |
-| a+r  | -                |
-| a+s  | tilda char       |
-| a+ş  | -                |
-| a+t  | -                |
-| a+u  | -                |
-| a+ü  | -                |
-| a+v  | view menu        |
-| a+y  | -                |
+| Key   | Desc             |
+|-------|------------------|
+| a+a   | matched brackets |
+| a+b   | -                |
+| a+c   | -                |
+| a+d   | open file        |
+| a+e   | edit menu        |
+| a+f   | file menu        |
+| a+g   | go menu          |
+| a+h   | help menu        |
+| a+ı   | -                |
+| a+i   | -                |
+| a+j   | -                |
+| a+k   | -                |
+| a+l,l |                  |
+| a+m   | -                |
+| a+n   | -                |
+| a+o   | -                |
+| a+p   | -                |
+| a+r   | -                |
+| a+s   | tilda char       |
+| a+ş   | -                |
+| a+t   | -                |
+| a+u   | -                |
+| a+ü   | -                |
+| a+v   | view menu        |
+| a+y   | -                |
 
 ## multi keys
 
