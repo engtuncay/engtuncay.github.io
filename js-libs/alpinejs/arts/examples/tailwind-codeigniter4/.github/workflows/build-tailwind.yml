@@ -1,0 +1,30 @@
+name: Build Tailwind CSS
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - name: Install dependencies
+        run: |
+          cd js-libs/alpinejs/arts/examples/tailwind-codeigniter4
+          npm ci
+      - name: Build Tailwind CSS
+        run: |
+          cd js-libs/alpinejs/arts/examples/tailwind-codeigniter4
+          npm run build:css
+      - name: Upload built CSS artifact (optional)
+        uses: actions/upload-artifact@v4
+        with:
+          name: tailwind-css
+          path: js-libs/alpinejs/arts/examples/tailwind-codeigniter4/public/css/tailwind.css
