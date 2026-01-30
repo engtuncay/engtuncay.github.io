@@ -1,6 +1,5 @@
 
 
-
 ## Maven Projesini Vscode'da Çalıştırma
 
 Visual Studio Code'da Maven tabanlı bir projeyi çalıştırmak için aşağıdaki adımları izleyebilirsiniz:
@@ -58,3 +57,70 @@ Visual Studio Code'da Maven tabanlı bir projeyi çalıştırmak için aşağıd
 - Hata mesajlarını terminalde kontrol edin ve gerekirse pom.xml dosyasını düzenleyin.
 
 Projeniz artık çalışmaya hazır!
+
+### 8. **Java Console Application Örneği**
+
+Basit bir Java konsol uygulaması oluşturmak için aşağıdaki adımları izleyin:
+
+#### a. **Maven ile Proje Oluşturun**
+- Terminalde aşağıdaki komutu çalıştırarak basit bir Java konsol projesi oluşturun:
+  
+```sh
+mvn archetype:generate -DgroupId=com.example -DartifactId=console-app -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+```
+
+Bu komut, temel bir Maven projesi yapısı oluşturur ve `App.java` sınıfını otomatik olarak ekler.
+
+#### b. **pom.xml Dosyası**
+Oluşturulan pom.xml dosyasını aşağıdaki gibi düzenleyin (veya benzer şekilde bırakın):
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.example</groupId>
+    <artifactId>console-app</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.0.0</version>
+                <configuration>
+                    <mainClass>com.example.App</mainClass>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
+```
+
+#### c. **App.java Dosyası**
+Oluşturulan `src/main/java/com/example/App.java` dosyasını aşağıdaki gibi düzenleyin:
+```java
+package com.example;
+
+public class App {
+    public static void main(String[] args) {
+        System.out.println("Merhaba, Dünya!");
+    }
+}
+```
+
+#### d. **Uygulamayı Çalıştırın**
+- Terminalde `mvn clean compile exec:java` komutunu çalıştırarak uygulamayı başlatın.
+
+#### e. **Uygulamayı Paketleyin ve Kurun**
+- Uygulamayı JAR dosyası olarak paketlemek için terminalde `mvn clean package` komutunu çalıştırın.
+- Oluşturulan JAR dosyasını `java -jar target/console-app-1.0-SNAPSHOT.jar` komutu ile çalıştırabilirsiniz.
+
+Bu örnek, basit bir konsol uygulamasıdır. Daha karmaşık uygulamalar için bağımlılıkları pom.xml'e ekleyebilirsiniz.

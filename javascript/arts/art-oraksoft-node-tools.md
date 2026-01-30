@@ -8,13 +8,15 @@ Yayınladıktan sonra herkes şu şekilde kurabilir:
 pnpm install -g oraksoft-node-tools
 
 # Sonra komutları kullanabilir
-fi-copy-deps
-fi-deploy-ftp
-fi-deploy-zip
-fi-env-change --help
+orak-copy-deps
+orak-deploy-ftp
+orak-zip-package
+orak-zip-content
+orak-env-change --help
 ```
 
 ### Proje Yapısı:
+
 ```
 oraksoft-node-tools/
 ├── bin/           # CLI wrapper'ları
