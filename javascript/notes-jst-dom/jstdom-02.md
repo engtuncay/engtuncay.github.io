@@ -10,6 +10,7 @@ Source : https://www.javascripttutorial.net/javascript-dom
 - [Section 2. Selecting elements](#section-2-selecting-elements)
   - [getElementById() Method](#getelementbyid-method)
   - [getElementsByName() Method](#getelementsbyname-method)
+  - [getElementsByTagName() Method](#getelementsbytagname-method)
 
 
 # Section 2. Selecting elements
@@ -163,3 +164,80 @@ How it works:
 
 - The NodeList is an array-like object, not an array object.
 
+## getElementsByTagName() Method
+
+The getElementsByTagName() is a method of the document object or a specific DOM element.
+
+Here’s the syntax of the getElementsByTagName() method:
+
+```js
+let elements = document.getElementsByTagName(tagName);
+
+```
+
+The getElementsByTagName() method accepts a tag name such as h1, a, and img and returns a live HTMLCollection of elements with the matching tag name.
+
+The HTMLCollection is live means that it is automatically updated when the DOM tree in the document changes.
+
+Note that the HTMLCollection is an array-like object.
+
+To create an array of elements from a HTMLCollection, you use the Array.of() method like this:
+
+const items = Array.of(...htmlCollection);
+Code language: JavaScript (javascript)
+In this syntax, the spread operator (...) spreads out the items from the htmlCollection and the Array.of() method creates an array of the items.
+
+JavaScript getElementsByTagName() examples
+The following example shows how to use the getElementsByTagName() method to get the number of h2 tags in the document.
+
+When you click the Count H2 button, it shows the number of H2 tags:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript getElementsByTagName() Demo</title>
+</head>
+<body>
+    <h1>JavaScript getElementsByTagName() Demo</h1>
+    <h2>First heading</h2>
+    <p>This is the first paragraph.</p>
+    <h2>Second heading</h2>
+    <p>This is the second paragraph.</p>
+    <h2>Third heading</h2>
+    <p>This is the third paragraph.</p>
+
+    <button id="btnCount">Count h2</button>
+
+    <script>
+        let btn = document.getElementById('btnCount');
+        btn.addEventListener('click', () => {
+            let headings = document.getElementsByTagName('h2');
+            alert(`The number of H2 tags: ${headings.length}`);
+        });
+    </script>
+</body>
+
+</html>
+Code language: HTML, XML (xml)
+
+How it works:
+
+First, select the button Count H2 by using the getElementById() method:
+
+let btn = document.getElementById('btnCount');
+Code language: JavaScript (javascript)
+Second, register a click event handler:
+
+btn.addEventListener('click', () => {
+Code language: PHP (php)
+Third, select a list of h2 tags using document.getElementsByTagName() inside the event handler:
+
+let headings = document.getElementsByTagName('h2');
+Code language: JavaScript (javascript)
+Finally, display the number of H2 tags using the alert() function:
+
+alert(`The number of H2 tags: ${headings.length}`);
+Code language: JavaScript (javascript)
+Summary
+The getElementsByTagName() is a method of the document or element object.
+The getElementsByTagName() accepts a tag name and returns a live HTMLCollection of elements with the matching tag name.
