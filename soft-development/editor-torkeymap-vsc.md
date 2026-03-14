@@ -10,7 +10,7 @@ OrakSoft Keyboard shortcuts for Windows Based On Idea And VS Code
 - [Memorize Table](#memorize-table)
 - [General (Frequent)](#general-frequent)
 - [Code Navigation](#code-navigation)
-- [Display / Panel Navigation](#display--panel-navigation)
+- [Display / Panel Navigation / View](#display--panel-navigation--view)
 - [Rich Languages Editing](#rich-languages-editing)
 - [Editing](#editing)
 - [Editor management](#editor-management)
@@ -100,7 +100,7 @@ Kod içerisinde gezinme için kısayollar
 [🔝](#contents)
 
 
-# Display / Panel Navigation
+# Display / Panel Navigation / View
 
 - Editor panelleri arasında gezinme
 - Panellerin görüntülemesini açma ve kapama işlemleri

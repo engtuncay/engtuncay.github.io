@@ -19,7 +19,7 @@ Source : https://www.javascripttutorial.net/javascript-dom
 
 ## getElementById() Method
 
-The getElementById() method of the document object returns an HTML element with the specified id.
+The getElementById() method of the document object returns an HTML element (HtmlElement Object) with the specified id.
 
 Syntax :  
 
@@ -38,18 +38,15 @@ If the document has no element with the specified id, the getElementById() metho
 
 Typically, the id is unique within an HTML document. However, HTML is forgiving, and a non-well-formed HTML may have `multiple elements with the same id`. In this case, the getElementById() method returns `the first element` it encounters (❗).
  
-🧲
+🧲 The following code shows how to get the element with the id first:
 
 ```html
 <p id="first">Hi, There!</p>
 <p>JavaScript is fun.</p>
 
-```
-
-The following code shows how to get the element with the id first:
-
-```js
-const elem = document.getElementById("first");
+<script>
+  const elem = document.getElementById("first");
+</script>
 
 ```
 
@@ -88,7 +85,7 @@ let elements = document.getElementsByName(name);
 
 The `getElementsByName()` accepts the value of the name attribute of elements and returns `a live NodeList` of elements.
 
-The return collection of elements is `live` ❗. It means that the return elements are automatically updated when elements with the same name are inserted and/or removed from the document.
+The return collection of elements is `live` ❗ It means that the return elements are automatically updated when elements with the same name are inserted and/or removed from the document.
 
 🧲
 
@@ -143,7 +140,9 @@ When you select a radio button and click the submit button, the page will show t
 
 - The getElementsByName() returns a `live NodeList` of elements with a specified name.
 
-- The NodeList is an array-like object, not an array object.
+- The NodeList is an `array-like object`, not an array object.
+
+TBC - 20260304 - 1043 
 
 ## getElementsByTagName() Method
 

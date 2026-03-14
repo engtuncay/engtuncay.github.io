@@ -28,12 +28,17 @@ This section covers the JavaScript Document Object Model (DOM) and shows you how
 # Section 1. Getting started
 - Understanding the Document Object Model in JavaScript
 
+
+[Jst-Dom-01](./jstdom-01.md)
+
 # Section 2. Selecting elements
 - getElementById() – select an element by id.
 - getElementsByName() – select elements by name.
 - getElementsByTagName()  – select elements by a tag name.
 - getElementsByClassName() – select elements by one or more class names.
 - querySelector()  – select elements by CSS selectors.
+
+[Jst-Dom-02](./jstdom-02.md)
 
 # Section 3. Traversing elements
 - Get the parent element – get the parent node of an element.

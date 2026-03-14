@@ -8,17 +8,15 @@ Source : https://www.javascripttutorial.net/javascript-dom
 ---
 
 - [Document Object Model in JavaScript](#document-object-model-in-javascript)
-  - [Introduction to Document Object Model in JavaScript](#introduction-to-document-object-model-in-javascript)
+  - [Intro to Document Object Model in JavaScript](#intro-to-document-object-model-in-javascript)
   - [Summary](#summary)
 
 
 # Document Object Model in JavaScript
 
-Summary: in this tutorial, you will learn about the Document Object Model in JavaScript.
+## Intro to Document Object Model in JavaScript
 
-## Introduction to Document Object Model in JavaScript
-
-Suppose you have an HTML file calledindex.html with the following code:
+Suppose you have an HTML file called index.html with the following code:
 
 ```html
 <!DOCTYPE html>
@@ -35,17 +33,19 @@ Suppose you have an HTML file calledindex.html with the following code:
 
 ```
 
-The web browser displays the message `Hello DOM!` as specified by the <h1> tag on the index.html document.
+The web browser displays the message `Hello DOM!` as specified by the `<h1>` tag on the index.html document.
 
-Additionally, the web browser also creates something called a DOM tree internally:
+Additionally, the web browser also creates something called `a DOM tree` internally :
 
-see https://www.javascripttutorial.net/wp-content/uploads/2024/11/JavaScript-DOM.svg
+
+![Js Dom](https://www.javascripttutorial.net/wp-content/uploads/2024/11/JavaScript-DOM.svg)
+
 
 DOM stands for document object model.
 
 The web browser uses DOM to represent the HTML document internally. Additionally, it provides a set of functions and methods to modify the HTML document programmatically.
 
-These functions and methods are often called DOM Application Programming Interfaces or DOM API.
+These functions and methods are often called `DOM Application Programming Interfaces or DOM API`.
 
 For example, you can use JavaScript to select the h1 tag using the querySelector() method:
 
@@ -77,7 +77,7 @@ h1.textContent = 'Hi JS';
 
 Using DOM API in JavaScript, you can manipulate the HTML document effectively.
 
-In the next tutorials, you’ll learn various methods for selecting, traversing, and manipulating DOM.
+You’ll learn various methods for selecting, traversing, and manipulating DOM.
 
 ## Summary
 
