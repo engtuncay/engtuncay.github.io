@@ -62,8 +62,10 @@ kullanışlı olan,ezberlenecek liste
 | ca+d          | Keyboard Shortcuts     |
 | c+p           | Go to File, Quick Open |
 | c+pup / pdown | Prev / Next Tab        |
-| cs+n ???      | New window/instance    |
-| cs+w ???      | Close window/instance  |
+
+
+|       | Close window/instance  |
+|       | New window/instance    |
 
 [🔝](#contents)
 

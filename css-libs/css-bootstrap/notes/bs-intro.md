@@ -39,7 +39,7 @@ Bootstrap’ta `.container` sınıfının temel CSS çıktısı aşağıdaki gib
 
 Kısaca:  
 - Yatayda ortalar (`margin-right: auto; margin-left: auto;`)
-- Sağ ve soldan boşluk bırakır (`padding`)
+- Sağ ve soldan padding bırakır (`padding`)
 - Ekran boyutuna göre maksimum genişliği değişir (responsive)
 
 
@@ -51,11 +51,7 @@ CSS çıktısı (Bootstrap 5 için örnek):
 
 ````css
 .container-fluid {
-  width: 100%;
-  padding-right: var(--bs-gutter-x, 0.75rem);
-  padding-left: var(--bs-gutter-x, 0.75rem);
-  margin-right: auto;
-  margin-left: auto;
+
 }
 ````
 
@@ -63,7 +59,7 @@ Bu sınıfı kullandığınızda, içerik ekranın tamamına yayılır ve respon
 
 ## card ve card-body 
 
-GitHub Copilot: Bootstrap’ta `.card` ve `.card-body` sınıflarının temel CSS çıktısı aşağıdaki gibidir:
+Bootstrap’ta `.card` ve `.card-body` sınıflarının temel CSS çıktısı aşağıdaki gibidir:
 
 ````css
 /* .card */

@@ -2,6 +2,8 @@
 
 <h1>Get Up & Running with Tailwind and Node.JS By Matt Brice</h1> 
 
+(Tailwind, normal web projelerinde framework'süz (react,vue gibi) kullanma rehberi)
+
 Goodbye Bootstrap. Hello Tailwind!
 
 3 min read, Aug 24, 2020
@@ -16,17 +18,12 @@ Goodbye Bootstrap. Hello Tailwind!
 - [Link Tailwind](#link-tailwind)
 - [Summary](#summary)
 
-
-Tailwind is a CSS framework that allows developers to easily and quickly build custom components using low-level utility classes. With Tailwind, you can create an element (e.g., button, card, form, etc.) from scratch without fighting predesigned components like you would with Bootstrap.
-
-The remainder of this article provides step by step instructions on how to install and setup Tailwind. Please note, this article assumes you are using Visual Studio, node, npm (automatically installed with node), and Chrome. Now enough chat. Let’s get started.
-
 # Create a New Project
 
 First, let’s start by creating a new directory for our project and initializing it. For this example, I will name the directory “tailwindExample,” but you can use whatever makes the most sense to you.
 
 ```sh
-mkdir tailwindExample
+mkdir tail-proj
 npm init -y
 ```
 
@@ -44,7 +41,7 @@ PostCSS is a framework that can process and transform CSS with JavaScript plugin
 
 # Create a PostCSS Config JavaScript File
 
-First, create a file named “postcss.config.js”. This is where we will provide the plugins we will be using. The snippet below offers the two packages we will be using.
+First, create a file named `postcss.config.js` . This is where we will provide the plugins we will be using. The snippet below offers the two packages we will be using.
 
 ```js
 module.exports = {
@@ -106,3 +103,4 @@ Other Resources
 
 - https://daily.dev/blog/how-to-use-tailwindcss-with-node-js-express-and-pug
 
+- https://tailwindcss.com/docs/installation/tailwind-cli
