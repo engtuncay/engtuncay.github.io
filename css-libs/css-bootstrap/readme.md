@@ -11,9 +11,9 @@
 
 # Cheats
 
-- [Bootstrap Example Cheat](./cheats/bs-example-cheat.md)
+- [Bootstrap Cheat](./cheats/bs-cheat.md)
   
-- [Bootstrap Keys Cheat](./cheats/bs-keys-cheat.md)
+- [Bootstrap Class Cheat](./cheats/bs-class-cheat.md)
 
 # Notes
 
