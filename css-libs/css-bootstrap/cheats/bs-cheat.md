@@ -6,17 +6,17 @@ Source : https://chatgpt.com/c/67b2176c-1ee0-800e-93c6-ee0521a4b3ab
 ---
 
 - [Bootstrap 5 Cheatsheet](#bootstrap-5-cheatsheet)
-  - [📌 Grid System](#-grid-system)
-  - [📌 Typography](#-typography)
-  - [📌 Colors](#-colors)
-  - [📌 Buttons](#-buttons)
-  - [📌 Forms](#-forms)
-  - [📌 Alerts](#-alerts)
-  - [📌 Cards](#-cards)
-  - [📌 Navbar](#-navbar)
-  - [📌 Modals](#-modals)
-  - [📌 Tables](#-tables)
-  - [📌 Utility Classes](#-utility-classes)
+  - [Grid System](#grid-system)
+  - [Typography](#typography)
+  - [Colors](#colors)
+  - [Buttons](#buttons)
+  - [Forms](#forms)
+  - [Alerts](#alerts)
+  - [Cards](#cards)
+  - [Navbar](#navbar)
+  - [Modals](#modals)
+  - [Tables](#tables)
+  - [Utility Classes](#utility-classes)
     - [`w-*` (Width - Genişlik)](#w--width---genişlik)
     - [`h-*` (Height - Yükseklik)](#h--height---yükseklik)
     - [`m-*` ve `p-*` (Margin \& Padding - Dış ve İç Boşluklar)](#m--ve-p--margin--padding---dış-ve-i̇ç-boşluklar)
@@ -24,7 +24,7 @@ Source : https://chatgpt.com/c/67b2176c-1ee0-800e-93c6-ee0521a4b3ab
 
 # Bootstrap 5 Cheatsheet
 
-## 📌 Grid System
+## Grid System
 
 ```html
 <div class="container"> ... </div>
@@ -42,9 +42,24 @@ Source : https://chatgpt.com/c/67b2176c-1ee0-800e-93c6-ee0521a4b3ab
   <div class="col-6">Col-6</div>
   <div class="col-6">Col-6</div>
 </div>
+
+<!-- Responsive sütun örnekleri -->
+<div class="row">
+  <div class="col-md-4">md'de 4 sütun</div>
+  <div class="col-md-8">md'de 8 sütun</div>
+</div>
+
+<div class="row">
+  <div class="col-sm-6 col-lg-3">sm'de 6, lg'de 3 sütun</div>
+  <div class="col-sm-6 col-lg-9">sm'de 6, lg'de 9 sütun</div>
+</div>
+
+Eğer "md ve altında 2 sütun, md ve üstünde 4 sütun" yapmak isterseniz şöyle yazılır:
+<div class="col-2 col-md-4">...</div>
+
 ```
 
-## 📌 Typography
+## Typography
 
 ```html
 <p class="lead">This is a lead paragraph.</p>
@@ -53,7 +68,7 @@ Source : https://chatgpt.com/c/67b2176c-1ee0-800e-93c6-ee0521a4b3ab
 <p class="text-danger">Danger text</p>
 ```
 
-## 📌 Colors
+## Colors
 
 ```html
 <div class="bg-primary text-white p-3">Primary</div>
@@ -62,7 +77,7 @@ Source : https://chatgpt.com/c/67b2176c-1ee0-800e-93c6-ee0521a4b3ab
 <div class="bg-danger text-white p-3">Danger</div>
 ```
 
-## 📌 Buttons
+## Buttons
 
 ```html
 <button class="btn btn-primary">Primary</button>
@@ -70,7 +85,7 @@ Source : https://chatgpt.com/c/67b2176c-1ee0-800e-93c6-ee0521a4b3ab
 <button class="btn btn-outline-danger">Outline Danger</button>
 ```
 
-## 📌 Forms
+## Forms
 
 ```html
 <form>
@@ -82,14 +97,14 @@ Source : https://chatgpt.com/c/67b2176c-1ee0-800e-93c6-ee0521a4b3ab
 </form>
 ```
 
-## 📌 Alerts
+## Alerts
 
 ```html
 <div class="alert alert-warning" role="alert">This is a warning alert!</div>
 <div class="alert alert-danger" role="alert">This is a danger alert!</div>
 ```
 
-## 📌 Cards
+## Cards
 
 ```html
 <div class="card" style="width: 18rem;">
@@ -102,7 +117,7 @@ Source : https://chatgpt.com/c/67b2176c-1ee0-800e-93c6-ee0521a4b3ab
 </div>
 ```
 
-## 📌 Navbar
+## Navbar
 
 ```html
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -121,7 +136,7 @@ Source : https://chatgpt.com/c/67b2176c-1ee0-800e-93c6-ee0521a4b3ab
 </nav>
 ```
 
-## 📌 Modals
+## Modals
 
 ```html
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -146,7 +161,7 @@ Source : https://chatgpt.com/c/67b2176c-1ee0-800e-93c6-ee0521a4b3ab
 </div>
 ```
 
-## 📌 Tables
+## Tables
 
 ```html
 <table class="table table-striped table-hover">
@@ -167,7 +182,7 @@ Source : https://chatgpt.com/c/67b2176c-1ee0-800e-93c6-ee0521a4b3ab
 </table>
 ```
 
-## 📌 Utility Classes
+## Utility Classes
 
 ```html
 <div class="d-flex justify-content-center align-items-center">Centered content</div>
