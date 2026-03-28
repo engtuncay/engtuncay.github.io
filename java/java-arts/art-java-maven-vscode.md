@@ -30,7 +30,7 @@ Visual Studio Code'da Maven tabanlı bir projeyi çalıştırmak için aşağıd
   ```
   Eğer proje Spring Boot kullanmıyorsa, `mvn exec:java` komutunu kullanabilirsiniz:
   ```sh
-  mvn exec:java -Dexec.mainClass="ozpasyazilim.entegrefx.gui.ModPanoIskProYukleme"
+  mvn exec:java -Dexec.mainClass="ozpasyazilim.entegrefx.gui.MainApplication"
   ```
   (Ana sınıfı pom.xml veya projenizin yapısına göre değiştirin.)
 
@@ -63,7 +63,7 @@ Projeniz artık çalışmaya hazır!
 Basit bir Java konsol uygulaması oluşturmak için aşağıdaki adımları izleyin:
 
 #### a. **Maven ile Proje Oluşturun**
-- Terminalde aşağıdaki komutu çalıştırarak basit bir Java konsol projesi oluşturun:
+- Terminalde aşağıdaki komutu çalıştırarak basit bir `Java konsol projesi` oluşturun:
   
 ```sh
 mvn archetype:generate -DgroupId=com.example -DartifactId=console-app -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
@@ -72,7 +72,9 @@ mvn archetype:generate -DgroupId=com.example -DartifactId=console-app -Darchetyp
 Bu komut, temel bir Maven projesi yapısı oluşturur ve `App.java` sınıfını otomatik olarak ekler.
 
 #### b. **pom.xml Dosyası**
+
 Oluşturulan pom.xml dosyasını aşağıdaki gibi düzenleyin (veya benzer şekilde bırakın):
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
@@ -120,7 +122,68 @@ public class App {
 - Terminalde `mvn clean compile exec:java` komutunu çalıştırarak uygulamayı başlatın.
 
 #### e. **Uygulamayı Paketleyin ve Kurun**
+
 - Uygulamayı JAR dosyası olarak paketlemek için terminalde `mvn clean package` komutunu çalıştırın.
 - Oluşturulan JAR dosyasını `java -jar target/console-app-1.0-SNAPSHOT.jar` komutu ile çalıştırabilirsiniz.
 
 Bu örnek, basit bir konsol uygulamasıdır. Daha karmaşık uygulamalar için bağımlılıkları pom.xml'e ekleyebilirsiniz.
+
+ 
+## Java Uygulamasını Maven ile EXE'ye Çevirme
+
+Java uygulamanızı Maven ile derledikten sonra, aşağıdaki yöntemlerle EXE dosyası oluşturabilirsiniz:
+
+#### 1. Launch4j Maven Plugin ile EXE Oluşturma
+
+`pom.xml` dosyanıza aşağıdaki eklentiyi ekleyin:
+
+```xml
+<plugin>
+    <groupId>org.bluej</groupId>
+    <artifactId>launch4j-maven-plugin</artifactId>
+    <version>2.1.3</version>
+    
+    <executions>
+        <execution>
+            <phase>package</phase>
+            <goals>
+                <goal>launch4j</goal>
+            </goals>
+        </execution>
+    </executions>
+    
+    <configuration>
+        <headerType>console</headerType>
+        <jar>target/console-app-1.0-SNAPSHOT.jar</jar>
+        <outfile>target/console-app.exe</outfile>
+        <mainClass>com.example.App</mainClass>
+        <jre>
+            <minVersion>11</minVersion>
+            <runtimeBits>64</runtimeBits>
+        </jre>
+    </configuration>
+    
+</plugin>
+```
+
+#### 2. jpackage (Java 14+)
+
+JDK ile gelen `jpackage` aracı ile EXE oluşturabilirsiniz:
+
+```sh
+jpackage --input target --name ConsoleApp --main-jar console-app-1.0-SNAPSHOT.jar --main-class com.example.App --type exe
+```
+
+#### 3. GraalVM Native Image
+
+Daha ileri düzeyde, GraalVM ile doğrudan native EXE dosyası üretebilirsiniz:
+
+```sh
+native-image -cp target/console-app-1.0-SNAPSHOT.jar com.example.App console-app
+```
+
+> Not: EXE dosyası oluşturmak için önce JAR dosyanızın hazır olması gerekir (`mvn clean package`). Bazı yöntemlerde kullanıcıda Java yüklü olmalıdır.
+
+---
+
+Bu bölümü dosyanızın uygun bir yerine ekleyebilirsiniz. Yardımcı olmamı ister misiniz?
