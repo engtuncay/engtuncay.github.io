@@ -26,7 +26,46 @@
   - [Örnek Güvenli Build Akışı](#örnek-güvenli-build-akışı)
   - [Önerilen Değişiklikler (Kısa)](#önerilen-değişiklikler-kısa)
   - [Nerelere Bakmalısınız (Build çıktısı)](#nerelere-bakmalısınız-build-çıktısı)
-  - [Sonuç](#sonuç)
+  - [Maven Antrun Plugin ve Ant Task Nedir? — Detaylı Açıklama](#maven-antrun-plugin-ve-ant-task-nedir--detaylı-açıklama)
+    - [Ant Nedir?](#ant-nedir)
+      - [Ant'ın Temel Özellikleri:](#antın-temel-özellikleri)
+    - [Maven Antrun Plugin Nedir?](#maven-antrun-plugin-nedir)
+      - [Çalışma Prensibi:](#çalışma-prensibi)
+    - [Ant Task Nedir?](#ant-task-nedir)
+      - [Sık Kullanılan Ant Task'ları:](#sık-kullanılan-ant-taskları)
+    - [Pom.xml'deki Antrun Kullanımı (Launch4j Örneği)](#pomxmldeki-antrun-kullanımı-launch4j-örneği)
+      - [Bu Kod Ne Yapar?](#bu-kod-ne-yapar)
+      - [Sonuç:](#sonuç)
+    - [Pratik Antrun Örnekleri](#pratik-antrun-örnekleri)
+      - [Örnek 1: Dosya Kopyalama](#örnek-1-dosya-kopyalama)
+      - [Örnek 2: Shell Komutunu Çalıştırma (Windows)](#örnek-2-shell-komutunu-çalıştırma-windows)
+      - [Örnek 3: Dosya Silme (Temizlik)](#örnek-3-dosya-silme-temizlik)
+      - [Örnek 4: Koşullu İşlem](#örnek-4-koşullu-i̇şlem)
+      - [Örnek 5: Maven Property'lerini Kullanma](#örnek-5-maven-propertylerini-kullanma)
+    - [Antrun Ne Zaman Kullanılır?](#antrun-ne-zaman-kullanılır)
+    - [Antrun vs Diğer Plugin'ler](#antrun-vs-diğer-pluginler)
+    - [Antrun Debugging](#antrun-debugging)
+    - [Özet](#özet)
+  - [Maven Exec Plugin Nedir? — Detaylı Açıklama](#maven-exec-plugin-nedir--detaylı-açıklama)
+    - [Exec Plugin Nedir?](#exec-plugin-nedir)
+      - [Temel Özellikleri:](#temel-özellikleri)
+    - [Exec Plugin'in iki temel goal'u vardır:](#exec-pluginin-iki-temel-goalu-vardır)
+    - [Pom.xml'deki Exec Kullanımı (Launch4j Örneği)](#pomxmldeki-exec-kullanımı-launch4j-örneği)
+      - [Bu Kod Ne Yapar?](#bu-kod-ne-yapar-1)
+      - [İş Akışı:](#i̇ş-akışı)
+    - [Exec Plugin'in Pratik Kullanım Örnekleri](#exec-pluginin-pratik-kullanım-örnekleri)
+      - [Örnek 1: Harici Programı Çalıştırma (Windows batch dosyası)](#örnek-1-harici-programı-çalıştırma-windows-batch-dosyası)
+      - [Örnek 2: Python Script'ini Çalıştırma](#örnek-2-python-scriptini-çalıştırma)
+      - [Örnek 3: Java Programını Doğrudan Çalıştırma](#örnek-3-java-programını-doğrudan-çalıştırma)
+      - [Örnek 4: Çalışma Dizinini Değiştirerek Komut Çalıştırma](#örnek-4-çalışma-dizinini-değiştirerek-komut-çalıştırma)
+      - [Örnek 5: Environment Variable'ları Ayarlayarak Çalıştırma](#örnek-5-environment-variableları-ayarlayarak-çalıştırma)
+      - [Örnek 6: Komut Satırı Parametresiyle Çalıştırma](#örnek-6-komut-satırı-parametresiyle-çalıştırma)
+    - [Antrun vs Exec Plugin Karşılaştırması](#antrun-vs-exec-plugin-karşılaştırması)
+    - [Exec Plugin'de Hata Yönetimi](#exec-pluginde-hata-yönetimi)
+    - [Exec Plugin'le İlişkili Sorunlar ve Çözümler](#exec-pluginle-i̇lişkili-sorunlar-ve-çözümler)
+    - [Özet Tablo](#özet-tablo-1)
+    - [Pratik Kullanım Örneği: Projenizde Launch4j](#pratik-kullanım-örneği-projenizde-launch4j)
+  - [Sonuç](#sonuç-1)
 
 
 # `pom.xml` Açıklaması ve Maven Komutları
@@ -524,7 +563,7 @@ mvn exec:exec
 </execution>
 ```
 
-Yukarıdaki örnekte `maven-antrun-plugin`'in `run` goal'u `package` fazından otomatik çalıştırılır.
+Yukarıdaki örnekte `maven-antrun-plugin`'in `run` goal'u `package` fazından (phase) otomatik çalıştırılır.
 
 ### Lifecycle, Phase, Goal Arasındaki İlişki (Hiyerarşi)
 
@@ -607,7 +646,7 @@ mvn assembly:single
 Bu komut:
 - Sadece `assembly:single` goal'unu çalıştırır
 - Pom'da `phase=package` olsa bile, diğer package phase goal'ları çalışmaz
-- Hazırlık fazları (compile vb.) yine çalışır
+- Hazırlık fazları (compile vb.) yine çalışır ❗
 
 ### Hangi Goal'lar Hangi Plugin'e Ait?
 
@@ -635,6 +674,7 @@ Pom'daki plugin'lerin sağladığı goal'lar:
 ---
 
 ## Potansiyel Sorunlar & Öneriler
+
 1. Logging çakışmaları
 - `spring-boot-starter-logging` zaten Logback ve SLF4J getirir; `logback-classic` ve `slf4j-api`'ı ayrı eklemek çoğu zaman gereksiz ve çakışma yaratabilir. "Multiple SLF4J bindings" gibi uyarılar alabilirsiniz.
 - Çözüm: explicit `logback-classic` ve `slf4j-api` bağımlılıklarını kaldırın veya organizasyon içi paketlerden (`ozpasmikro`, `tunc-utils-java`) gelen kütüphaneler için `<exclusions>` kullanın.
@@ -658,66 +698,81 @@ Pom'daki plugin'lerin sağladığı goal'lar:
 ## Sık Kullanılan Maven Komutları (PowerShell örnekleri)
 Aşağıda projeniz için en sık kullanacağınız `mvn` komutları ve açıklamaları var.
 
-1) Full build (exe de üretmeye çalışır)
+➖ (1) Full build (exe de üretmeye çalışır)
 ```powershell
 mvn -DskipTests clean package
 ```
 - `clean` önce `target/` klasörünü temizler.
 - `package` lifecycle'ı tetikler; pom'daki package bağlı executions (assembly, antrun, exec) çalışır.
 
-2) Sadece fat-jar (exe atlanır)
+➖ (2) Sadece fat-jar (exe atlanır)
+
 ```powershell
 mvn -DskipTests assembly:single -DdescriptorId=jar-with-dependencies
 ```
-- Sadece assembly goal'ını direkt çalıştırır; package fazına bağlı diğer plugin'leri tetiklemez.
+Sadece assembly goal'ını direkt çalıştırır; package fazına bağlı diğer plugin'leri tetiklemez.
 
-3) Sadece kaynak kopyalama (process-resources)
+➖ (3) Sadece kaynak dosyaları kopyalama (process-resources)
+
 ```powershell
 mvn process-resources
 ```
 
-4) Sadece derleme
+➖ (4) Sadece derleme
+
 ```powershell
 mvn compile
 ```
 
-5) Lokal repository'ye yükleme
+➖ (5) Lokal repository'ye yükleme
+
 ```powershell
 mvn clean install
 ```
-- Üretilen artifact yerel Maven deposuna (`%USERPROFILE%\.m2\repository`) yüklenir.
 
-6) Debug / detaylı çıktı
+Üretilen artifact yerel Maven deposuna (`%USERPROFILE%\.m2\repository`) yüklenir.
+
+➖ (6) Debug / detaylı çıktı
+
 ```powershell
 mvn -X clean package
 ```
 
-7) Etkin POM'u görmek
+➖ (7) Etkin POM'u görmek
+
 ```powershell
 mvn help:effective-pom
 ```
 
-8) Spring Boot uygulamasını doğrudan çalıştırmak
+➖ (8) Spring Boot uygulamasını doğrudan çalıştırmak
+
 - Eğer `spring-boot-maven-plugin` etkinse:
+
 ```powershell
 mvn org.springframework.boot:spring-boot-maven-plugin:2.7.18:run
 ```
 - Veya build edilmiş jar'ı çalıştırmak için:
+
 ```powershell
 java -jar target\entegre-rest-api-jar-with-dependencies.jar
 ```
 
-9) Bağımlılık ağacını incelemek
+➖ (9) Bağımlılık ağacını incelemek
+
 ```powershell
 mvn dependency:tree
 ```
-- SLF4J veya logback ile ilgili çakışmaları aramak için kullanın.
 
-10) Testleri atlamak için
+- SLF4J veya logback ile ilgili çakışmaları aramak için kullanın.
+ 
+➖ (10) Testleri atlamak için
+
 ```powershell
 mvn -DskipTests clean package
 ```
+
 - Ya da test derlemelerini de atmak isterseniz:
+
 ```powershell
 mvn -Dmaven.test.skip=true clean package
 ```
@@ -725,6 +780,7 @@ mvn -Dmaven.test.skip=true clean package
 ---
 
 ## Örnek Güvenli Build Akışı
+
 1. Bağımlılık ağacını kontrol et:
 ```powershell
 mvn dependency:tree > deps.txt; code deps.txt
@@ -761,12 +817,530 @@ Hata durumunda:
 
 ---
 
+## Maven Antrun Plugin ve Ant Task Nedir? — Detaylı Açıklama
+
+Pom.xml dosyasında kullanılan `maven-antrun-plugin` ve içerdeki Ant task'ları, Maven build sürecine esnek ve güçlü özellikleri ekleyen araçlardır. Bu bölüm bu kavramları detaylı bir şekilde açıklamaktadır.
+
+### Ant Nedir?
+
+**Ant** (Another Neat Tool), Java tabanlı bir build automation aracıdır. Maven'den çok daha eski (1998'lerden beri) ve oldukça basit ancak güçlü bir araçtır. Ant, XML tabanlı konfigürasyon dosyaları (`build.xml`) kullanarak build işlemlerini otomatikleştirir.
+
+#### Ant'ın Temel Özellikleri:
+- Dosya işlemleri (kopyalama, silme, taşıma)
+- Shell komutları çalıştırma
+- Basit kontrol akışı (if-else)
+- Platform bağımsız script yazma
+- Sistemde kurulu herhangi bir programı tetikleme
+
+### Maven Antrun Plugin Nedir?
+
+`maven-antrun-plugin`, Maven build lifecycle'ının içinde Ant task'larını çalıştırmayı sağlayan bir bridge (köprü) plugin'idir.
+
+**Amaç**: Maven, compile, test, package gibi standart işlemleri yapar. Ancak özel, teknik işlemler (mesela Launch4j konfigürasyon dosyası oluşturma) yapmak istiyorsak, Ant'ın gücünden faydalanırız.
+
+#### Çalışma Prensibi:
+
+```
+Maven Lifecycle Phase → maven-antrun-plugin tetiklenir → Ant task'ları çalışır → İş yapılır
+```
+
+Örneğin pom.xml'deki şu bölüm:
+
+```xml
+<plugin>
+  <groupId>org.apache.maven.plugins</groupId>
+  <artifactId>maven-antrun-plugin</artifactId>
+  <version>3.1.0</version>
+  <executions>
+    <execution>
+      <id>create-launch4j-config</id>
+      <phase>package</phase>                  <!-- Package fazında tetiklensin -->
+      <goals>
+        <goal>run</goal>                      <!-- Ant task'larını çalıştır -->
+      </goals>
+      <configuration>
+        <target>
+          <!-- Buraya Ant task'ları yazılır -->
+        </target>
+      </configuration>
+    </execution>
+  </executions>
+</plugin>
+```
+
+### Ant Task Nedir?
+
+**Ant Task**, Ant'ın yapabileceği belirli işlemleri ifade eden XML komutlarıdır. Her task, bir işlemi gerçekleştirir.
+
+#### Sık Kullanılan Ant Task'ları:
+
+| Task | İşlemi | Örnek |
+|------|--------|-------|
+| `<echo>` | Ekrana yazı yazdır | `<echo>Merhaba Dünya</echo>` |
+| `<copy>` | Dosya/klasör kopyala | `<copy file="a.txt" tofile="b.txt"/>` |
+| `<delete>` | Dosya/klasör sil | `<delete dir="target"/>` |
+| `<mkdir>` | Klasör oluştur | `<mkdir dir="build"/>` |
+| `<exec>` | Harici program çalıştır | `<exec executable="cmd.exe"/>` |
+| `<move>` | Dosya taşı | `<move file="src" tofile="dst"/>` |
+| `<chmod>` | Dosya permission değiştir | `<chmod file="script.sh" perm="+x"/>` |
+| `<zip>` | ZIP dosyası oluştur | `<zip destfile="app.zip" basedir="src"/>` |
+| `<unzip>` | ZIP dosyasını aç | `<unzip src="app.zip" dest="target"/>` |
+| `<property>` | Property tanımla | `<property name="foo" value="bar"/>` |
+| `<condition>` | Koşul kontrolü | `<condition property="isWindows">...</condition>` |
+
+### Pom.xml'deki Antrun Kullanımı (Launch4j Örneği)
+
+Projenizin pom.xml'inde şu blok vardır:
+
+```xml
+<plugin>
+  <groupId>org.apache.maven.plugins</groupId>
+  <artifactId>maven-antrun-plugin</artifactId>
+  <version>3.1.0</version>
+  <executions>
+    <execution>
+      <id>create-launch4j-config</id>
+      <phase>package</phase>
+      <goals>
+        <goal>run</goal>
+      </goals>
+      <configuration>
+        <target>
+          <echo>Creating Launch4j configuration file...</echo>
+          <echo file="${project.build.directory}/launch4j-config.xml"><![CDATA[
+            <?xml version="1.0" encoding="UTF-8"?>
+            <launch4jConfig>
+              <dontWrapJar>false</dontWrapJar>
+              <headerType>console</headerType>
+              <jar>Y:\devrepo-ozpas\entegre-rest-api\target\entegre-rest-api-jar-with-dependencies.jar</jar>
+              <outfile>Y:\devrepo-ozpas\entegre-rest-api\target\entegre-rest-api.exe</outfile>
+              <!-- ... diğer konfigürasyon ... -->
+            </launch4jConfig>
+          ]]></echo>
+          <echo>Launch4j configuration created at ${project.build.directory}/launch4j-config.xml</echo>
+        </target>
+      </configuration>
+    </execution>
+  </executions>
+</plugin>
+```
+
+#### Bu Kod Ne Yapar?
+
+1. **`<phase>package</phase>`** → `package` fazında çalışsın
+2. **`<echo>Creating Launch4j...</echo>`** → Ekrana "Creating Launch4j configuration file..." yaz
+3. **`<echo file="..."><![CDATA[...]]></echo>`** → İçerisindeki metni bir dosyaya yaz:
+   - **Hedef dosya**: `${project.build.directory}/launch4j-config.xml` (yani `target/launch4j-config.xml`)
+   - **İçerik**: Launch4j XML konfigürasyonu
+   - **`<![CDATA[...]]>`**: XML özel karakterlerini escape etmeden doğrudan yazabilmek için
+4. **Son `<echo>`** → Işlem tamamlandığını ekrana yaz
+
+#### Sonuç:
+`package` fazında `target/` klasörüne `launch4j-config.xml` dosyası otomatik oluşturulur, sonra diğer plugin (`exec-maven-plugin`) bu config dosyasını okur ve Launch4j'i çalıştırır.
+
+### Pratik Antrun Örnekleri
+
+#### Örnek 1: Dosya Kopyalama
+
+```xml
+<plugin>
+  <groupId>org.apache.maven.plugins</groupId>
+  <artifactId>maven-antrun-plugin</artifactId>
+  <executions>
+    <execution>
+      <phase>package</phase>
+      <goals>
+        <goal>run</goal>
+      </goals>
+      <configuration>
+        <target>
+          <!-- src/main/resources klasörünün tamamını target/ köküne kopyala -->
+          <copy todir="${project.build.directory}">
+            <fileset dir="src/main/resources"/>
+          </copy>
+        </target>
+      </configuration>
+    </execution>
+  </executions>
+</plugin>
+```
+
+#### Örnek 2: Shell Komutunu Çalıştırma (Windows)
+
+```xml
+<target>
+  <!-- Windows'ta cmd.exe ile bir komut çalıştır -->
+  <exec executable="cmd.exe">
+    <arg value="/c"/>
+    <arg value="echo Merhaba Maven!"/>
+  </exec>
+</target>
+```
+
+#### Örnek 3: Dosya Silme (Temizlik)
+
+```xml
+<target>
+  <!-- Build öncesi eski dosyaları sil -->
+  <delete>
+    <fileset dir="${project.build.directory}/old-files" includes="*.bak"/>
+  </delete>
+</target>
+```
+
+#### Örnek 4: Koşullu İşlem
+
+```xml
+<target>
+  <!-- Eğer Build Windows'ta yapılıyorsa -->
+  <condition property="isWindows">
+    <os family="windows"/>
+  </condition>
+  
+  <echo message="OS: Windows detected!" if="isWindows"/>
+</target>
+```
+
+#### Örnek 5: Maven Property'lerini Kullanma
+
+```xml
+<target>
+  <!-- Maven property'lerini Ant'ın içinde kullan -->
+  <echo>Project Name: ${project.name}</echo>
+  <echo>Project Version: ${project.version}</echo>
+  <echo>Build Directory: ${project.build.directory}</echo>
+  <echo>Java Version: ${java.version}</echo>
+</target>
+```
+
+### Antrun Ne Zaman Kullanılır?
+
+**Ant task'ları şu durumlarda kullanılır:**
+
+✅ **Kullanılmalı:**
+- Basit dosya işlemleri (kopyala, sil, taşı)
+- Build sırasında doğrudan komut çalıştırmak (şifreler, script'ler)
+- Konfigürasyon dosyaları dinamik olarak oluşturmak
+- Harici tool'ları tetiklemek (Launch4j, InnoSetup vb.)
+- Platform bağımsız script yazma (Windows/Linux)
+- Basit koşullu işlemler
+
+❌ **Kullanılmaması gerekenler:**
+- Komplex Java lojiği (Maven plugin yazın)
+- Bağımlılık yönetimi (Maven bunu zaten yapar)
+- Test framework yazma (TestNG/JUnit kullanın)
+- Proje yapısını radikal değiştirmek
+
+### Antrun vs Diğer Plugin'ler
+
+| Plugin | Amaç | Karmaşıklık | Esneklik |
+|--------|------|-------------|----------|
+| **maven-antrun-plugin** | Basit işlemler, dış tool'lar | Düşük | Yüksek |
+| **maven-assembly-plugin** | JAR/WAR paketleme | Orta | Orta |
+| **exec-maven-plugin** | Harici program çalıştır | Düşük | Orta |
+| **maven-plugin** (custom) | Özel Maven logic | Yüksek | Çok Yüksek |
+
+### Antrun Debugging
+
+Eğer Ant task'larında hata alırsanız:
+
+```powershell
+# Detaylı çıktı görmek için
+mvn -X clean package
+
+# Sadece antrun'ı çalıştırmak için
+mvn antrun:run
+
+# Pom'dan bir specific execution çalıştırmak için
+# antrun konfigürasyon dosyası oluşturup elle çalıştırabilirsiniz
+```
+
+### Özet
+
+| Kavram | Ne Olduğu | Amaç |
+|--------|-----------|------|
+| **Ant** | Eski Java build tool'u | XML ile basit build işlemleri |
+| **Ant Task** | Ant'ın yapabileceği belirli işlem | `<echo>`, `<copy>`, `<exec>` vb. |
+| **maven-antrun-plugin** | Maven içinde Ant çalıştıran plugin | Maven build lifecycle'ında Ant task'larını tetiklemek |
+
+Projenizin `maven-antrun-plugin` bloku, `package` fazında Launch4j config XML dosyasını otomatik oluşturmak için kullanılmaktadır. Bu sayede elleriyle config yazmanıza gerek kalmıyor, build sırasında Maven otomatik yapıyor.
+
+---
+
+## Maven Exec Plugin Nedir? — Detaylı Açıklama
+
+`exec-maven-plugin`, Maven build lifecycle'ı içinde **harici programları ve command'ları çalıştırmak** için kullanılan bir plugin'dir. Pom.xml'inizde Launch4j'i tetiklemek için kullanılmaktadır.
+
+### Exec Plugin Nedir?
+
+**Temel Amaç**: Maven build sırasında Java programını çalıştırmak veya sistemde kurulu herhangi bir executable (bash, python, exe, cmd vb.) çalıştırmak.
+
+#### Temel Özellikleri:
+- Windows/Linux/Mac platform'da executable çalıştırır
+- Maven property'lerini parametre olarak geçebilir
+- Komut satırı argümanlarını belirleyebilir
+- Çalıştırma dizinini (working directory) değiştirebilir
+- Çıkış kodunun başarılı / başarısız olmasını kontrol edebilir
+- Environment variable'ları ayarlayabilir
+
+### Exec Plugin'in iki temel goal'u vardır:
+
+1. **`exec:exec`** — Harici program/command çalıştırır
+2. **`exec:java`** — Bir Java class'ının main() method'u çalıştırır
+
+### Pom.xml'deki Exec Kullanımı (Launch4j Örneği)
+
+Projenizin pom.xml'inde exec-maven-plugin şu şekilde kullanılıyor:
+
+```xml
+<plugin>
+  <groupId>org.codehaus.mojo</groupId>
+  <artifactId>exec-maven-plugin</artifactId>
+  <version>3.1.0</version>
+  <executions>
+    <execution>
+      <id>launch4j-build-exe</id>
+      <phase>package</phase>                    <!-- Package fazında tetiklensin -->
+      <goals>
+        <goal>exec</goal>                       <!-- Harici program çalıştır -->
+      </goals>
+      <configuration>
+        <executable>Y:\ozpasjavaexe\launch4j-3.8-win32\launch4j\launch4jc.exe</executable>
+        <arguments>
+          <argument>${project.build.directory}/launch4j-config.xml</argument>
+        </arguments>
+      </configuration>
+    </execution>
+  </executions>
+</plugin>
+```
+
+#### Bu Kod Ne Yapar?
+
+1. **`<phase>package</phase>`** → `package` fazında çalışsın
+2. **`<goal>exec</goal>`** → `exec:exec` goal'u (harici program)
+3. **`<executable>...</executable>`** → Çalıştırılacak program:
+   - Windows yolu: `Y:\ozpasjavaexe\launch4j-3.8-win32\launch4j\launch4jc.exe`
+   - Bu, Launch4j'nin command-line interface'i
+4. **`<arguments>`** → Programa geçilecek argümanlar:
+   - `${project.build.directory}/launch4j-config.xml` → `target/launch4j-config.xml`
+   - Bu, Launch4j'ye hangi config dosyasını okuduğunu söylüyor
+
+#### İş Akışı:
+
+```
+Package fazı
+   │
+   ├─ maven-assembly-plugin:single → fat jar yarat
+   ├─ maven-antrun-plugin:run → Launch4j config dosyası oluştur
+   └─ exec-maven-plugin:exec  → Launch4j programını çalıştır
+                              │
+                              └─ launch4jc.exe çalışır
+                                   │
+                                   ├─ config'i okur
+                                   └─ fat jar'dan exe yaratır
+```
+
+### Exec Plugin'in Pratik Kullanım Örnekleri
+
+#### Örnek 1: Harici Programı Çalıştırma (Windows batch dosyası)
+
+```xml
+<plugin>
+  <groupId>org.codehaus.mojo</groupId>
+  <artifactId>exec-maven-plugin</artifactId>
+  <executions>
+    <execution>
+      <phase>package</phase>
+      <goals>
+        <goal>exec</goal>
+      </goals>
+      <configuration>
+        <executable>cmd.exe</executable>
+        <arguments>
+          <argument>/c</argument>
+          <argument>build.bat</argument>
+        </arguments>
+      </configuration>
+    </execution>
+  </executions>
+</plugin>
+```
+
+#### Örnek 2: Python Script'ini Çalıştırma
+
+```xml
+<configuration>
+  <executable>python</executable>
+  <arguments>
+    <argument>scripts/build-app.py</argument>
+    <argument>--version</argument>
+    <argument>${project.version}</argument>
+  </arguments>
+</configuration>
+```
+
+#### Örnek 3: Java Programını Doğrudan Çalıştırma
+
+```xml
+<plugin>
+  <groupId>org.codehaus.mojo</groupId>
+  <artifactId>exec-maven-plugin</artifactId>
+  <executions>
+    <execution>
+      <goals>
+        <goal>java</goal>                       <!-- exec:java goal'u -->
+      </goals>
+      <configuration>
+        <mainClass>com.example.MyApp</mainClass>
+        <arguments>
+          <argument>arg1</argument>
+          <argument>arg2</argument>
+        </arguments>
+      </configuration>
+    </execution>
+  </executions>
+</plugin>
+```
+
+#### Örnek 4: Çalışma Dizinini Değiştirerek Komut Çalıştırma
+
+```xml
+<configuration>
+  <executable>gradle</executable>
+  <arguments>
+    <argument>build</argument>
+  </arguments>
+  <workingDirectory>${project.basedir}/submodule</workingDirectory>  <!-- Farklı dizinde çalıştır -->
+</configuration>
+```
+
+#### Örnek 5: Environment Variable'ları Ayarlayarak Çalıştırma
+
+```xml
+<configuration>
+  <executable>build.sh</executable>
+  <environmentVariables>
+    <BUILD_VERSION>${project.version}</BUILD_VERSION>
+    <BUILD_NAME>${project.artifactId}</BUILD_NAME>
+    <JAVA_HOME>${java.home}</JAVA_HOME>
+  </environmentVariables>
+</configuration>
+```
+
+#### Örnek 6: Komut Satırı Parametresiyle Çalıştırma
+
+```xml
+<configuration>
+  <executable>InnoSetup compiler</executable>
+  <arguments>
+    <argument>/F"MyApp-${project.version}"</argument>  <!-- Versiyon numarası ekle -->
+    <argument>installer-script.iss</argument>
+  </arguments>
+</configuration>
+```
+
+### Antrun vs Exec Plugin Karşılaştırması
+
+| Özellik | Maven Antrun | Maven Exec |
+|---------|------------------|----------------|
+| **Amaç** | Ant task'ları çalıştırır | Harici program çalıştırır |
+| **Dosya İşlemleri** | ✅ Evet (copy, delete, vb.) | ❌ Yok |
+| **Koşullu İşlem** | ✅ Evet | ⚠️ Limited |
+| **Program Çalıştırma** | ✅ Evet (<exec> task'u) | ✅ Evet (asıl amacı) |
+| **Basitlik** | Orta (XML'de Ant yazma) | Yüksek (sadece executable ve arg) |
+| **Platform Bağımsızlık** | ✅ Çok iyi | ✅ Çok iyi |
+| **Hata Yönetimi** | ✅ Basit | ✅ Basit |
+
+### Exec Plugin'de Hata Yönetimi
+
+Exec plugin hatalarını kontrol etmek istiyorsanız:
+
+```xml
+<configuration>
+  <executable>launch4jc.exe</executable>
+  <arguments>
+    <argument>config.xml</argument>
+  </arguments>
+  <!-- Eğer program hata döndürürse Maven başarısız sayılır -->
+  <!-- Bunu kontrol etmek istiyorsanız: -->
+  <executableDependency>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>exec-maven-plugin</artifactId>
+  </executableDependency>
+</configuration>
+```
+
+### Exec Plugin'le İlişkili Sorunlar ve Çözümler
+
+**Sorun 1: Executable bulunamıyor**
+```powershell
+# Çözüm: Tam yol kullanın
+<executable>C:\Program Files\MyApp\app.exe</executable>
+```
+
+**Sorun 2: Çevre değişkenleri tanınmıyor**
+```xml
+<!-- Çözüm: environmentVariables bölümü ekleyin -->
+<environmentVariables>
+  <PATH>/usr/local/bin:${env.PATH}</PATH>
+</environmentVariables>
+```
+
+**Sorun 3: Programın çıktısı görülmüyor**
+```powershell
+# Çözüm: Maven verbose modunu kullanın
+mvn -X clean package
+```
+
+**Sorun 4: Geriye dönüş kodu önemli değil**
+```xml
+<configuration>
+  <skip>false</skip>  <!-- Yine de devam et, hata görmezden gel -->
+</configuration>
+```
+
+### Özet Tablo
+
+| Özellik | Açıklama | Örnek |
+|---------|----------|-------|
+| **executable** | Çalıştırılacak program | `launch4jc.exe`, `python`, `cmd.exe` |
+| **arguments** | Program argümanları | `<argument>config.xml</argument>` |
+| **workingDirectory** | Çalışma dizini | `${project.basedir}/build` |
+| **environmentVariables** | Çevre değişkenleri | `<BUILD_VERSION>${project.version}</BUILD_VERSION>` |
+| **phase** | Hangi build fazında çalışsın | `package`, `verify`, `install` |
+
+### Pratik Kullanım Örneği: Projenizde Launch4j
+
+Projeninizde exec-maven-plugin şu amaçla kullanılıyor:
+
+```
+1. maven-assembly-plugin
+   ↓ (fat jar oluştur)
+   ↓ entegre-rest-api-jar-with-dependencies.jar
+   ↓
+2. maven-antrun-plugin  
+   ↓ (Launch4j config oluştur)
+   ↓ target/launch4j-config.xml
+   ↓
+3. exec-maven-plugin
+   ↓ (launch4jc.exe çalıştır)
+   ↓ entegre-rest-api.exe OLUŞUR
+```
+
+**Sonuç**: Build sırasında Maven otomatik olarak Windows EXE dosyası oluşturuyor. Bunun için antrun config dosyasını oluşturur, exec ise Launch4j'i tetikler.
+
+---
+
 ## Sonuç
 
-Bu dosya `pom.xml`'inizin davranışını, kullanılan plugin'leri ve sık kullanılan Maven komutlarını (PowerShell örnekleriyle) özetlemektedir. Dosyayı workspace'e ekledim: `Y:\devrepo-ozpas\entegre-rest-api\POM-explanation.md`.
+Bu dokümantasyon `pom.xml`'in tüm yönlerini kapsamaktadır:
+- Maven Lifecycle, Phase ve Goal kavramları
+- Plugin'lerin detaylı açıklaması (Assembly, Antrun, Exec)
+- Sık kullanılan Maven komutları
+- Antrun ve Ant task'ları
+- Exec Maven Plugin'i
 
-İsterseniz şimdi:
-- Bu dosyada değişiklik yapayım (kısalaştırma, Türkçe/İngilizce çeviri vb.), veya
-- `pom.xml` üzerinde önerdiğim değişiklikleri uygulayıp `mvn -DskipTests clean package` komutunu çalıştırıp build çıktısını kontrol edeyim.
+Eğer Maven build sürecinde sorun yaşarsanız veya pom.xml'i optimize etmek istiyorsanız, bu dokümantasyon iyi bir referans kaynağıdır.
 
 
