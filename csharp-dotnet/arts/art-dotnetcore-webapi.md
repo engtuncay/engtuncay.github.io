@@ -1,3 +1,53 @@
+
+
+
+- [ASP.NET Core Web API (.NET 8) - Kapsamlı Rehber](#aspnet-core-web-api-net-8---kapsamlı-rehber)
+  - [1. Proje Yapısı ve Klasör Organizasyonu](#1-proje-yapısı-ve-klasör-organizasyonu)
+  - [**2. Önemli Konfigürasyon Dosyaları**](#2-önemli-konfigürasyon-dosyaları)
+    - [**Program.cs** (Giriş Noktası)](#programcs-giriş-noktası)
+    - [**appsettings.json**](#appsettingsjson)
+  - [**3. Application Lifecycle (Uygulama Yaşam Döngüsü)**](#3-application-lifecycle-uygulama-yaşam-döngüsü)
+  - [4. Controller Yapısı Örneği](#4-controller-yapısı-örneği)
+  - [**5. Dependency Injection Yapılandırması**](#5-dependency-injection-yapılandırması)
+  - [**6. Middleware Pipeline Sırası (Önemli)**](#6-middleware-pipeline-sırası-önemli)
+  - [**7. .csproj Dosyası**](#7-csproj-dosyası)
+  - [**8. DbContext Yapılandırması (Entity Framework)**](#8-dbcontext-yapılandırması-entity-framework)
+  - [**9. Custom Middleware Örneği**](#9-custom-middleware-örneği)
+  - [**10. CORS Yapılandırması**](#10-cors-yapılandırması)
+  - [**11. Komut Satırından Proje Oluşturma (CLI)**](#11-komut-satırından-proje-oluşturma-cli)
+  - [**11.1 Rider IDE ile Web API Projesi Oluşturma**](#111-rider-ide-ile-web-api-projesi-oluşturma)
+  - [**12. Aynı Diskteki Library Projesini Referans Olarak Ekleme**](#12-aynı-diskteki-library-projesini-referans-olarak-ekleme)
+  - [**13. .NET Framework (eski) Library ile Farklar ve Çözüm Önerileri**](#13-net-framework-eski-library-ile-farklar-ve-çözüm-önerileri)
+- [**JWT Güvenliği Ekleme - Adım Adım**](#jwt-güvenliği-ekleme---adım-adım)
+  - [**1. Gerekli NuGet Paketlerini Yükle**](#1-gerekli-nuget-paketlerini-yükle)
+  - [**2. appsettings.json'a JWT Konfigürasyonu Ekle**](#2-appsettingsjsona-jwt-konfigürasyonu-ekle)
+  - [**3. JWT Service Oluştur**](#3-jwt-service-oluştur)
+  - [**4. Authentication Konfigürasyonunu Program.cs'e Ekle**](#4-authentication-konfigürasyonunu-programcse-ekle)
+  - [**5. Login Controller Oluştur**](#5-login-controller-oluştur)
+  - [**6. DTO'ları Oluştur**](#6-dtoları-oluştur)
+  - [**7. Korunan Controller Oluştur**](#7-korunan-controller-oluştur)
+  - [**8. Custom Authorization Policy (Opsiyonel)**](#8-custom-authorization-policy-opsiyonel)
+  - [**9. Test Etme - Postman/cURL Örneği**](#9-test-etme---postmancurl-örneği)
+  - [**Önemli Noktalar:**](#önemli-noktalar)
+- [14. Windows Servis Olarak Kurulum ve Yapılandırması](#14-windows-servis-olarak-kurulum-ve-yapılandırması)
+  - [**14.1 Adım 1: Projeyi Release Modunda Yayınlama (Publish)**](#141-adım-1-projeyi-release-modunda-yayınlama-publish)
+    - [**CLI ile Publish Etme**](#cli-ile-publish-etme)
+    - [**Rider IDE ile Publish Etme**](#rider-ide-ile-publish-etme)
+  - [**14.2 Adım 2: appsettings.json'u Windows Servis için Ayarla**](#142-adım-2-appsettingsjsonu-windows-servis-için-ayarla)
+  - [**14.3 Adım 3: Program.cs'i Windows Servis için Yapılandır**](#143-adım-3-programcsi-windows-servis-için-yapılandır)
+  - [**14.4 Adım 4: Windows Servisi Olarak Kaydetme**](#144-adım-4-windows-servisi-olarak-kaydetme)
+    - [**Yöntem 1: NSSM Kullanarak (Recommended)**](#yöntem-1-nssm-kullanarak-recommended)
+    - [**Yöntem 2: PowerShell ile Direct Kayıt**](#yöntem-2-powershell-ile-direct-kayıt)
+    - [**Yöntem 3: SC Komutu ile Kayıt (Advanced)**](#yöntem-3-sc-komutu-ile-kayıt-advanced)
+  - [**14.5 Adım 5: Servisi Yapılandırma ve Kontrol**](#145-adım-5-servisi-yapılandırma-ve-kontrol)
+  - [**14.6 Adım 6: Logging ve Monitoring**](#146-adım-6-logging-ve-monitoring)
+  - [**14.7 Adım 7: Güvenlik Ayarları**](#147-adım-7-güvenlik-ayarları)
+  - [**14.8 Troubleshooting**](#148-troubleshooting)
+  - [**14.9 Özet - Windows Servis Kurulum Akış Şeması**](#149-özet---windows-servis-kurulum-akış-şeması)
+  - [**14.10 Rider'da Build ve Deploy Entegrasyonu**](#1410-riderda-build-ve-deploy-entegrasyonu)
+
+
+
 dot net core web api (dotnet8) hakkında bilgi verir misin ? proje yapısı, klasör yapısı, config dosyaları, application life cycle gibi
 
 .NET 8 Core Web API hakkında kapsamlı bilgi vereceğim:
@@ -324,6 +374,290 @@ curl -X POST https://localhost:5001/api/auth/login -H "Content-Type: application
 Notlar:
 - Oluşturulan proje zaten bir örnek controller ve WeatherForecast şablonunu içerir; yeni controller dosyalarını `Controllers/` klasörüne ekleyin.
 - Production için `JwtSettings` gibi hassas bilgileri `appsettings.Production.json` yerine environment variable veya secrets manager (Azure Key Vault vb.) ile yönetin.
+
+### **11.1 Rider IDE ile Web API Projesi Oluşturma**
+
+JetBrains Rider, Visual Studio'ya benzer şekilde GUI aracılığıyla proje oluşturmayı sağlar. Aşağıda adım adım proje oluşturma ve kurulum talimatları verilmiştir.
+
+**Adım 1: Yeni Proje Oluştur**
+
+1. Rider'ı açın
+2. **File** → **New** → **Project** menüsüne tıklayın
+3. Açılan "New Project" penceresinde:
+   - **Project Template**: Sol panelden **.NET** kategorisini seçin
+   - **Project Type**: "ASP.NET Core Web API" seçin (veya "Web API" varsa onu seçin)
+   - **Project Framework**: **.NET 8.0** seçin
+   - **Project Name**: `MyWebApi` (veya istediğiniz isim) yazın
+   - **Project Location**: Proje yolu belirtin (örn: `C:\Projects\MyWebApi`)
+   - **Solution Name**: Solution adı girin (varsa)
+4. **Create** butonuna tıklayın
+
+Rider otomatik olarak temel proje yapısını oluşturacaktır.
+
+**Adım 2: Proje Yapısını Kontrol Et**
+
+Rider proje oluşturuldıktan sonra sol panelda (Project View) aşağıdaki klasörleri göreceksiniz:
+
+```
+MyWebApi/
+├── Properties/
+│   ├── launchSettings.json
+├── Controllers/
+│   ├── WeatherForecastController.cs
+├── appsettings.json
+├── appsettings.Development.json
+├── Program.cs
+└── MyWebApi.csproj
+```
+
+**Adım 3: NuGet Paketleri Ekle**
+
+Rider'de paket eklemek için:
+
+1. **Project** pane'de sağ tık yapın veya **Tools** menüsüne gidin
+2. **NuGet** → **Manage NuGet Packages** seçin
+3. Açılan "NuGet" penceresinde arama kutusuna paket adını yazın ve "Install" butonuna tıklayın
+
+Aşağıdaki paketleri bu sırada ekleyin:
+
+- `Microsoft.AspNetCore.Authentication.JwtBearer`
+- `System.IdentityModel.Tokens.Jwt`
+- `Microsoft.EntityFrameworkCore.SqlServer`
+- `Serilog`
+- `Serilog.AspNetCore`
+
+**Alternatif (Terminal kullanarak):**
+
+Rider içinde built-in terminal açabilirsiniz:
+- **View** → **Tool Windows** → **Terminal** (veya `Alt+F12`)
+
+Terminal açıktan sonra:
+
+```bash
+dotnet add package Microsoft.AspNetCore.Authentication.JwtBearer
+dotnet add package System.IdentityModel.Tokens.Jwt
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+dotnet add package Serilog
+dotnet add package Serilog.AspNetCore
+```
+
+**Adım 4: Klasör Yapısını Oluştur**
+
+Rider'de Solution Structure'a göre klasörler oluşturun. Proje üzerinde sağ tık yapıp:
+
+1. **New** → **Folder** seçerek şu klasörleri oluşturun:
+   - `Services/` (JWT ve business logic)
+   - `Dtos/` (Data Transfer Objects)
+   - `Models/` (Domain models)
+   - `Data/` (DbContext ve database)
+   - `Filters/` (Exception handlers)
+   - `Middlewares/` (Custom middlewares)
+   - `Repositories/` (Data access)
+
+**Adım 5: Program.cs'i Yapılandır**
+
+Rider'de `Program.cs` dosyasını açın ve aşağıdaki şekilde düzenleyin:
+
+```csharp
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
+using Serilog;
+using System.Text;
+
+var builder = WebApplication.CreateBuilder(args);
+
+// Serilog yapılandırması
+Log.Logger = new LoggerConfiguration()
+    .MinimumLevel.Information()
+    .WriteTo.Console()
+    .WriteTo.File("logs/log-.txt", rollingInterval: RollingInterval.Day)
+    .CreateLogger();
+
+builder.Host.UseSerilog();
+
+// Servisleri ekle
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+// JWT Authentication
+var jwtSettings = builder.Configuration.GetSection("JwtSettings");
+var secretKey = Encoding.UTF8.GetBytes(jwtSettings["SecretKey"]!);
+
+builder.Services
+    .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = new SymmetricSecurityKey(secretKey),
+            ValidateIssuer = true,
+            ValidIssuer = jwtSettings["Issuer"],
+            ValidateAudience = true,
+            ValidAudience = jwtSettings["Audience"],
+            ValidateLifetime = true
+        };
+    });
+
+builder.Services.AddAuthorization();
+
+var app = builder.Build();
+
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
+app.UseHttpsRedirection();
+app.UseAuthentication();
+app.UseAuthorization();
+app.MapControllers();
+
+app.Run();
+```
+
+**Adım 6: appsettings.json'u Yapılandır**
+
+Rider'da `appsettings.json` dosyasını açın:
+
+```json
+{
+  "JwtSettings": {
+    "SecretKey": "your-super-secret-key-min-256-bits-long-for-hs256-algorithm",
+    "Issuer": "YourAppName",
+    "Audience": "YourAppUsers",
+    "ExpiryMinutes": 60
+  },
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=localhost;Database=MyDb;User Id=sa;Password=YourPassword;"
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft": "Warning",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*"
+}
+```
+
+**Adım 7: Debug/Run Konfigürasyonunu Ayarla**
+
+Rider'da projeyi çalıştırmak için:
+
+1. Üst toolbar'da "Run Configuration" açılır menüsünü tıklayın
+2. Varsayılan olarak `My WebApi` gibi bir konfigürasyon göreceksiniz
+3. Projeyi çalıştırmak için:
+   - **Run** düğmesine (`▶` simgesi) basın veya `Shift+F10` tuş kombinasyonunu kullanın
+   - Veya **Debug** modu için `F9` tuşunu basın
+
+**Adım 8: Swagger ile Test Et**
+
+Proje başarıyla çalıştıktan sonra:
+
+1. Tarayıcıda `https://localhost:7001/swagger/index.html` adresine girin (port farklı olabilir)
+2. Swagger UI açılacak ve API endpointlerini görebileceksiniz
+3. Rider'da çalışan uygulamanın output pane'inde port bilgisini görebilirsiniz
+
+**Adım 9: İlk Controller Oluştur (Test)**
+
+Test için hızlıca bir controller oluşturalım:
+
+1. `Controllers` klasörüne sağ tık → **New** → **Rider C# Class**
+2. Dosya adı: `ProductsController.cs`
+3. Şablondan `Controller` seçin (varsa) veya manuel yazın:
+
+```csharp
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+
+namespace MyWebApi.Controllers;
+
+[ApiController]
+[Route("api/[controller]")]
+public class ProductsController : ControllerBase
+{
+    [HttpGet]
+    public ActionResult<List<string>> GetProducts()
+    {
+        return Ok(new List<string> { "Product 1", "Product 2" });
+    }
+
+    [HttpGet("{id}")]
+    [Authorize]
+    public ActionResult<string> GetProductById(int id)
+    {
+        return Ok($"Product {id}");
+    }
+}
+```
+
+**Adım 10: Hot Reload Etkinleştir (İsteğe Bağlı)**
+
+Rider'da geliştirirken kod değişiklikleri anında uygulanabilir:
+
+- **Ctrl+Shift+F8** tuş kombinasyonu veya **Run** menüsünde **Toggle Hot Reload** seçeneğini etkinleştirin
+- Bu sayede her kod değişikliğinde uygulamayı yeniden başlatmaya gerek kalmaz
+
+**Özet - Rider Proje Oluşturma Akış:**
+
+```
+1. File → New → Project
+   └─> .NET > ASP.NET Core Web API, .NET 8.0 seç
+
+2. NuGet paketleri ekle
+   └─> JwtBearer, EntityFrameworkCore.SqlServer, Serilog vb.
+
+3. Klasör yapısını oluştur
+   └─> Services/, Dtos/, Models/, Data/, Filters/
+
+4. Program.cs yapılandır
+   └─> JWT, Authentication, Serilog
+
+5. appsettings.json ayarla
+   └─> JWT Secret, ConnectionStrings, Logging
+
+6. Controllers oluştur
+   └─> Rider sağ tık → New Class
+
+7. Shift+F10 ile çalıştır
+   └─> https://localhost:7001/swagger
+
+8. Hot Reload ile test et
+   └─> Ctrl+Shift+F8
+```
+
+**Rider Terminal Komutları (İsteğe Bağlı):**
+
+Rider'ın built-in terminal'de şu komutları çalıştırabilirsiniz:
+
+```bash
+# Restore
+dotnet restore
+
+# Build
+dotnet build
+
+# Run (debug modu)
+dotnet run
+
+# Watch mode (hot reload)
+dotnet watch run
+
+# EF Core migrations (varsa)
+dotnet ef migrations add InitialCreate
+dotnet ef database update
+```
+
+**Notlar:**
+
+- Rider lisanslı bir ürün olsa da, Community Edition (ücretsiz) de kullanılabilir
+- Visual Studio Code + OmniSharp extension ile de benzer deneyim elde edebilirsiniz
+- Rider, IntelliJ IDEA tabanlı olduğu için Java/Kotlin geliştiren yazılımcılara tanıdık gelir
 
 ### **12. Aynı Diskteki Library Projesini Referans Olarak Ekleme**
 
@@ -818,3 +1152,424 @@ curl -X POST https://localhost:7001/api/products \
 5. **Secret Key** - Production'da environment variable kullan, hard-coded etme
 
 Bu yapı production-ready bir JWT implementasyonudur.
+
+---
+
+## 14. Windows Servis Olarak Kurulum ve Yapılandırması
+
+.NET 8 Web API projesini Windows servisi olarak çalıştırmak, uygulamanın sistem başlatıldığında otomatik olarak başlamasını ve arka planda çalışmasını sağlar. Aşağıda komut satırı veya Rider kullanarak kurulum adımlarını anlatıyorum.
+
+### **14.1 Adım 1: Projeyi Release Modunda Yayınlama (Publish)**
+
+#### **CLI ile Publish Etme**
+
+```bash
+# Proje dizinine git
+cd C:\path\to\MyWebApi
+
+# Release modunda publish et (self-contained)
+dotnet publish -c Release -o C:\Services\MyWebApi
+
+# veya runtime belirterek (daha hafif)
+dotnet publish -c Release -r win-x64 -o C:\Services\MyWebApi
+```
+
+Publish edilen dosyalar `C:\Services\MyWebApi\` klasörüne yerleştirilir. İçeriği:
+- `MyWebApi.exe` - Çalıştırılabilir dosya
+- `appsettings.json` - Konfigürasyon
+- `.dll` dosyaları - Kütüphaneler
+
+#### **Rider IDE ile Publish Etme**
+
+Rider'da yayınlamak için:
+1. **Proje** üzerinde sağ tık → **Publish**
+2. **Configuration**: `Release` seçin
+3. **Target Runtime**: `win-x64` seçin (Windows 64-bit için)
+4. **Output Path**: `C:\Services\MyWebApi` belirtin
+5. **Publish** butonuna tıklayın
+
+### **14.2 Adım 2: appsettings.json'u Windows Servis için Ayarla**
+
+`C:\Services\MyWebApi\appsettings.Production.json` dosyasını oluştur:
+
+```json
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft": "Warning",
+      "Microsoft.AspNetCore": "Warning"
+    },
+    "File": {
+      "IncludeScopes": false,
+      "LogDirectory": "C:\\Logs\\MyWebApi"
+    }
+  },
+  "AllowedHosts": "*",
+  "Kestrel": {
+    "Endpoints": {
+      "Http": {
+        "Url": "http://0.0.0.0:5000"
+      },
+      "Https": {
+        "Url": "https://0.0.0.0:5001",
+        "Certificate": {
+          "Path": "C:\\Certificates\\mycert.pfx",
+          "Password": "cert-password"
+        }
+      }
+    }
+  },
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=localhost;Database=MyDb;User Id=sa;Password=YourPassword;Encrypt=true;TrustServerCertificate=true;"
+  }
+}
+```
+
+**Log Klasörü Oluştur:**
+```powershell
+New-Item -ItemType Directory -Path "C:\Logs\MyWebApi" -Force
+```
+
+### **14.3 Adım 3: Program.cs'i Windows Servis için Yapılandır**
+
+Windows servisi ortamında çalışacak şekilde `Program.cs`'i düzenle:
+
+```csharp
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
+
+var builder = Host.CreateDefaultBuilder(args)
+    .ConfigureWebHostDefaults(webBuilder =>
+    {
+        webBuilder.UseStartup<Startup>(); // veya .UseStartup'ı takip eden konfigürasyon
+    })
+    .UseWindowsService();  // ← KEY: Windows Servis desteği
+
+var app = builder.Build();
+app.Run();
+```
+
+**veya Modern .NET 8 şekliyle (Startup sınıfı olmadan):**
+
+```csharp
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.Hosting;
+
+var builder = WebApplication.CreateBuilder(args);
+
+// Servisleri ekle
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+// Windows Servis desteği
+builder.Host.UseWindowsService();
+
+var app = builder.Build();
+
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
+app.UseHttpsRedirection();
+app.UseAuthorization();
+app.MapControllers();
+
+app.Run();
+```
+
+**NuGet Paketi (gerekirse):**
+```bash
+dotnet add package Microsoft.Extensions.Hosting.WindowsServices
+```
+
+### **14.4 Adım 4: Windows Servisi Olarak Kaydetme**
+
+#### **Yöntem 1: NSSM Kullanarak (Recommended)**
+
+[NSSM (Non-Sucking Service Manager)](https://nssm.cc) en basit ve güvenilir yoldur.
+
+**NSSM İndir ve Kur:**
+1. [nssm.cc](https://nssm.cc/download) adresinden `nssm-2.24-101-g897c7ad.zip` indir
+2. `nssm.exe` dosyasını `C:\tools\nssm` klasörüne çıkar
+3. `C:\tools\nssm` klasörünü PATH'e ekle (isteğe bağlı)
+
+**PowerShell'de Admin olarak Servisi Kaydet:**
+
+```powershell
+# NSSM klasöründe
+cd C:\tools\nssm\win64
+
+# Servisi kaydet (örnek isim: MyWebApiSvc)
+.\nssm install MyWebApiSvc "C:\Services\MyWebApi\MyWebApi.exe"
+
+# Çalışma dizinini ayarla
+.\nssm set MyWebApiSvc AppDirectory "C:\Services\MyWebApi"
+
+# Ortam değişkenini ayarla (production)
+.\nssm set MyWebApiSvc AppEnvironmentExtra ASPNETCORE_ENVIRONMENT=Production
+
+# Port numarasını ayarla
+.\nssm set MyWebApiSvc AppEnvironmentExtra ASPNETCORE_URLS=http://0.0.0.0:5000
+
+# Servis parametrelerini kontrol et
+.\nssm get MyWebApiSvc AppParameters
+```
+
+**Servisi Başlat:**
+```powershell
+Start-Service MyWebApiSvc
+```
+
+**Servisi Kontrol Et:**
+```powershell
+Get-Service MyWebApiSvc
+```
+
+#### **Yöntem 2: PowerShell ile Direct Kayıt**
+
+```powershell
+# Admin olarak çalıştır
+# Servisi kaydet
+New-Service -Name "MyWebApiSvc" `
+  -BinaryPathName "C:\Services\MyWebApi\MyWebApi.exe" `
+  -DisplayName "My Web API Service" `
+  -Description "ASP.NET Core 8 Web API Windows Service" `
+  -StartupType Automatic
+
+# Servisi başlat
+Start-Service MyWebApiSvc
+
+# Durum kontrolü
+Get-Service MyWebApiSvc
+```
+
+#### **Yöntem 3: SC Komutu ile Kayıt (Advanced)**
+
+```cmd
+# Admin komut isteminde
+sc create MyWebApiSvc binPath= "C:\Services\MyWebApi\MyWebApi.exe"
+sc config MyWebApiSvc start= auto
+sc config MyWebApiSvc DisplayName= "My Web API Service"
+sc description MyWebApiSvc "ASP.NET Core 8 Web API Windows Service"
+sc start MyWebApiSvc
+```
+
+### **14.5 Adım 5: Servisi Yapılandırma ve Kontrol**
+
+**Servisi Başlat/Durdur/Yeniden Başlat:**
+
+```powershell
+# Başlat
+Start-Service MyWebApiSvc
+
+# Durdur
+Stop-Service MyWebApiSvc
+
+# Yeniden başlat
+Restart-Service MyWebApiSvc
+
+# Durum kontrol
+Get-Service MyWebApiSvc | Select-Object Status, Name, DisplayName
+```
+
+**NSSM ile Servis Editörü:**
+```powershell
+cd C:\tools\nssm\win64
+.\nssm edit MyWebApiSvc  # GUI editor açılır
+```
+
+**Servisi Kaldır:**
+
+```powershell
+# NSSM ile
+cd C:\tools\nssm\win64
+.\nssm remove MyWebApiSvc confirm
+
+# PowerShell ile
+Remove-Service MyWebApiSvc
+
+# SC ile
+sc delete MyWebApiSvc
+```
+
+### **14.6 Adım 6: Logging ve Monitoring**
+
+**Program.cs'te File Logging Ekle:**
+
+```csharp
+using Serilog;
+
+var builder = WebApplication.CreateBuilder(args);
+
+// Serilog konfigürasyonu
+Log.Logger = new LoggerConfiguration()
+    .MinimumLevel.Information()
+    .WriteTo.Console()
+    .WriteTo.File(
+        path: "C:\\Logs\\MyWebApi\\log-.txt",
+        rollingInterval: RollingInterval.Day,
+        retainedFileCountLimit: 30,
+        outputTemplate: "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level:u3}] {Message:lj}{NewLine}{Exception}")
+    .CreateLogger();
+
+builder.Host.UseSerilog();
+
+// Diğer konfigürasyonlar...
+builder.Services.AddControllers();
+
+var app = builder.Build();
+app.Run();
+```
+
+**NuGet Paketleri:**
+```bash
+dotnet add package Serilog
+dotnet add package Serilog.Sinks.File
+dotnet add package Serilog.Sinks.Console
+dotnet add package Serilog.AspNetCore
+```
+
+**Log Dosyasını Net Olarak Görüntüle:**
+```powershell
+Get-Content "C:\Logs\MyWebApi\log-*.txt" -Tail 100
+```
+
+### **14.7 Adım 7: Güvenlik Ayarları**
+
+**Servis'i Özel Kullanıcıyla Çalıştır:**
+
+```powershell
+# NSSM ile
+cd C:\tools\nssm\win64
+.\nssm set MyWebApiSvc ObjectName ".\Username" "Password"
+
+# PowerShell ile
+$cred = Get-Credential  # Kullanıcı adı/şifre gir
+$password = ConvertTo-SecureString "password" -AsPlainText -Force
+Set-Service MyWebApiSvc -Credential $cred
+```
+
+**Dosya İzinlerini Ayarla:**
+
+```powershell
+# Servis kullanıcısına klasör erişimi ver
+$serviceName = "MyWebApiSvc"
+$folderPath = "C:\Services\MyWebApi"
+$logPath = "C:\Logs\MyWebApi"
+
+# Owner ve permissions ayarla
+icacls "$folderPath" /grant "Users:F" /t /q
+icacls "$logPath" /grant "Users:F" /t /q
+```
+
+### **14.8 Troubleshooting**
+
+**Servis Başlamıyorsa - Hata Kontrol:**
+
+```powershell
+# Event Viewer'da Error Log kontrol et
+Get-EventLog -LogName Application -Newest 20 -Source "MyWebApiSvc" | Format-List
+
+# veya PowerShell'de
+Get-WinEvent -FilterHashtable @{LogName='Application'; ProviderName='MyWebApiSvc'} -Newest 10
+```
+
+**Port Sorunu:**
+
+```powershell
+# Hangi işlem port'u kullanıyor kontrol et
+netstat -ano | findstr :5000
+
+# Process ID'sini bul ve kapat
+taskkill /PID <PID> /F
+```
+
+**Configuration Hatası:**
+
+```bash
+# Lokal test
+cd C:\Services\MyWebApi
+.\MyWebApi.exe
+
+# Ortam değişkenlerini kontrol et
+$env:ASPNETCORE_ENVIRONMENT
+$env:ASPNETCORE_URLS
+```
+
+**Servis Başlatmada Gecikme:**
+
+`appsettings.json`'da health check timeout ayarla:
+
+```json
+{
+  "Kestrel": {
+    "Limits": {
+      "RequestHeadersTimeout": "00:00:10",
+      "KeepAliveTimeout": "00:05:00"
+    }
+  }
+}
+```
+
+### **14.9 Özet - Windows Servis Kurulum Akış Şeması**
+
+```
+1. Projeyi Release modunda publish et
+   └─> dotnet publish -c Release -r win-x64 -o C:\Services\MyWebApi
+
+2. appsettings.Production.json ayarla
+   └─> Logging, Kestrel, ConnectionStrings konfigürasyonu
+
+3. Program.cs'e UseWindowsService() ekle
+   └─> builder.Host.UseWindowsService()
+
+4. Windows Servisi Kaydet (NSSM önerilir)
+   └─> nssm install MyWebApiSvc "C:\Services\MyWebApi\MyWebApi.exe"
+
+5. Ortam Değişkenlerini Ayarla
+   └─> ASPNETCORE_ENVIRONMENT=Production
+   └─> ASPNETCORE_URLS=http://0.0.0.0:5000
+
+6. Servisi Başlat
+   └─> Start-Service MyWebApiSvc
+
+7. Kontrol Et
+   └─> Get-Service MyWebApiSvc
+   └─> http://localhost:5000/swagger (veya appsettings'teki port)
+```
+
+### **14.10 Rider'da Build ve Deploy Entegrasyonu**
+
+**Rider'da Custom Run Configuration Oluştur (Opsiyonel):**
+
+1. **Run** → **Edit Configurations**
+2. **+** tuşuna basıp **PowerShell** seç
+3. Script'i ayarla:
+
+```powershell
+# Build
+dotnet build -c Release
+
+# Publish
+dotnet publish -c Release -r win-x64 -o "C:\Services\MyWebApi"
+
+# Servis durdur
+Stop-Service MyWebApiSvc
+
+# Dosyaları kopyala
+Copy-Item "C:\Services\MyWebApi\*" -Destination "C:\Services\MyWebApi.backup" -Recurse -Force
+
+# Servis başlat
+Start-Service MyWebApiSvc
+
+Write-Host "Deployment completed! Service status:"
+Get-Service MyWebApiSvc
+```
+
+4. **Run** butonuyla otomatik deploy edilir
+
+Bu adımlar takip edilerek ASP.NET Core 8 Web API'niz Windows servisi olarak stabil bir şekilde çalışabilir.
