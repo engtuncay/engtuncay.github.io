@@ -9,7 +9,9 @@
 
 # Cheatsheets
 
-- https://github.com/LabinatorSolutions/csharp-cheat-sheet (5*) ([review version](./cheats/csharpcs1.md))
+- [CSharp Cheat](./cheats/csharpcs1.md)
+
+- https://github.com/LabinatorSolutions/csharp-cheat-sheet (5*) 
 
 - https://cheatography.com/pao361/cheat-sheets/c-cheatsheet/
 

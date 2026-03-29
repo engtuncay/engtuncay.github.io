@@ -1,130 +1,15 @@
 
+
+
 Source : https://github.com/LabinatorSolutions/csharp-cheat-sheet
 
 [Back](../readme.md)
 
-(some parts may be modified or added)
+C# Cheat Sheet By ConstructG Dot Com
+
+(some parts may be modified or removed)
 
 License : GNU
-
----
-
-- [C# Cheat Sheet - ConstructG.com](#c-cheat-sheet---constructgcom)
-  - [C# Introduction](#c-introduction)
-    - [What is C#?](#what-is-c)
-    - [What Is C# Used For?](#what-is-c-used-for)
-  - [C# Keywords](#c-keywords)
-    - [Reserved Keywords](#reserved-keywords)
-    - [Contextual Keywords](#contextual-keywords)
-  - [C# Special Characters](#c-special-characters)
-  - [C# Preprocessor Directives](#c-preprocessor-directives)
-  - [General Syntax](#general-syntax)
-  - [Comments](#comments)
-  - [C# Hello World Console Application](#c-hello-world-console-application)
-  - [C# Variables](#c-variables)
-  - [C# Naming Conventions](#c-naming-conventions)
-    - [Terminology](#terminology)
-    - [Summary Table](#summary-table)
-  - [C# Data Types](#c-data-types)
-    - [1. Value Types](#1-value-types)
-      - [1.1 Simple Data Types](#11-simple-data-types)
-        - [1.1.1 Bytes](#111-bytes)
-        - [1.1.2 Integers](#112-integers)
-        - [1.1.3 Floating-Point Types](#113-floating-point-types)
-        - [1.1.4 Unicode Characters (char)](#114-unicode-characters-char)
-        - [1.1.5 Booleans](#115-booleans)
-      - [1.2 Enum Types](#12-enum-types)
-      - [1.3 Structure Types](#13-structure-types)
-      - [1.4 Tuple Types](#14-tuple-types)
-      - [1.5 Nullable Value Types](#15-nullable-value-types)
-    - [2. Reference Types](#2-reference-types)
-      - [2.1 Built-In Reference Types](#21-built-in-reference-types)
-        - [2.1.1 Object Types](#211-object-types)
-        - [2.1.2 String Types](#212-string-types)
-        - [2.1.3 Delegate Types](#213-delegate-types)
-      - [2.2 Interface Types](#22-interface-types)
-      - [2.3 Nullable Reference Types](#23-nullable-reference-types)
-      - [2.4 Array Types](#24-array-types)
-        - [Array Of Simple Types](#array-of-simple-types)
-        - [Jagged Arrays](#jagged-arrays)
-        - [Array Properties \& Methods](#array-properties--methods)
-  - [Type Casting](#type-casting)
-    - [Implicit Casting](#implicit-casting)
-    - [Explicit Casting](#explicit-casting)
-    - [Type Conversion Methods](#type-conversion-methods)
-  - [Operators](#operators)
-    - [Arithmetic Operators](#arithmetic-operators)
-    - [Combined Assignment Operators](#combined-assignment-operators)
-    - [Increment and Decrement Operators](#increment-and-decrement-operators)
-    - [Comparison Operators](#comparison-operators)
-    - [Logical Operators](#logical-operators)
-    - [Bitwise Operators](#bitwise-operators)
-    - [Operator Precedents](#operator-precedents)
-  - [Statements](#statements)
-    - [Conditions](#conditions)
-      - [If Conditions](#if-conditions)
-      - [Switch Case](#switch-case)
-    - [Loops](#loops)
-      - [while Loop](#while-loop)
-      - [do...while Loop](#dowhile-loop)
-      - [for Loop](#for-loop)
-      - [foreach Loop](#foreach-loop)
-    - [goto Statement](#goto-statement)
-    - [return Statement](#return-statement)
-    - [yield Statement](#yield-statement)
-    - [checked and unchecked Statements](#checked-and-unchecked-statements)
-    - [lock Statement](#lock-statement)
-    - [using Statement](#using-statement)
-    - [Exception Handling](#exception-handling)
-  - [Classes \& Objects](#classes--objects)
-    - [Members](#members)
-    - [Constructors](#constructors)
-    - [The 'this' Keyword](#the-this-keyword)
-    - [Garbage Collector](#garbage-collector)
-    - [Destructors / Finalizers](#destructors--finalizers)
-  - [Object-Oriented Programming (OOP)](#object-oriented-programming-oop)
-    - [Encapsulation / Access Levels](#encapsulation--access-levels)
-    - [Inheritance](#inheritance)
-    - [Polymorphism / Redefining Members](#polymorphism--redefining-members)
-    - [Static](#static)
-    - [Properties](#properties)
-    - [Indexers](#indexers)
-    - [Abstraction](#abstraction)
-      - [Abstract Classes \& Methods](#abstract-classes--methods)
-      - [Interfaces](#interfaces)
-    - [Namespaces](#namespaces)
-    - [Operator Overloading](#operator-overloading)
-  - [Delegates](#delegates)
-    - [Anonymous Methods](#anonymous-methods)
-    - [Lambda Expressions](#lambda-expressions)
-  - [Events](#events)
-  - [Generics](#generics)
-  - [Generic Collections](#generic-collections)
-    - [List](#list)
-    - [SortedList](#sortedlist)
-    - [BitArray](#bitarray)
-    - [Stack](#stack)
-    - [Queue](#queue)
-    - [Dictionary](#dictionary)
-    - [HashSet](#hashset)
-  - [Constants](#constants)
-    - [The const Keyword](#the-const-keyword)
-    - [The readonly Keyword](#the-readonly-keyword)
-  - [Asynchronous Methods](#asynchronous-methods)
-  - [Working With Files](#working-with-files)
-  - [Language-Integrated Query (LINQ)](#language-integrated-query-linq)
-  - [Attributes](#attributes)
-    - [Predefined Attributes](#predefined-attributes)
-    - [Custom Attributes](#custom-attributes)
-    - [Extension Methods](#extension-methods)
-  - [References](#references)
-  - [Credits](#credits)
-
-
-
-
-
-# C# Cheat Sheet - ConstructG.com
 
 **Version:** 1.0.1
 
@@ -132,23 +17,139 @@ License : GNU
 
 **Language Version:** C# 8.0 or later.
 
-## C# Introduction
+---
 
-### What is C#?
+
+# Contents
+
+- [Contents](#contents)
+- [C# Introduction](#c-introduction)
+  - [What is C#?](#what-is-c)
+- [C# Keywords](#c-keywords)
+  - [Reserved Keywords](#reserved-keywords)
+  - [Contextual Keywords](#contextual-keywords)
+- [C# Special Characters](#c-special-characters)
+- [C# Preprocessor Directives](#c-preprocessor-directives)
+- [General Syntax](#general-syntax)
+- [Comments](#comments)
+- [C# Hello World Console Application](#c-hello-world-console-application)
+- [C# Variables](#c-variables)
+- [C# Naming Conventions](#c-naming-conventions)
+  - [Terminology](#terminology)
+  - [Summary Table](#summary-table)
+- [C# Data Types](#c-data-types)
+  - [1. Value Types](#1-value-types)
+    - [1.1 Simple Data Types](#11-simple-data-types)
+      - [1.1.1 Bytes](#111-bytes)
+      - [1.1.2 Integers](#112-integers)
+      - [1.1.3 Floating-Point Types](#113-floating-point-types)
+      - [1.1.4 Unicode Characters (char)](#114-unicode-characters-char)
+      - [1.1.5 Booleans](#115-booleans)
+    - [1.2 Enum Types](#12-enum-types)
+    - [1.3 Structure Types](#13-structure-types)
+    - [1.4 Tuple Types](#14-tuple-types)
+    - [1.5 Nullable Value Types](#15-nullable-value-types)
+  - [2. Reference Types](#2-reference-types)
+    - [2.1 Built-In Reference Types](#21-built-in-reference-types)
+      - [2.1.1 Object Types](#211-object-types)
+      - [2.1.2 String Types](#212-string-types)
+      - [2.1.3 Delegate Types](#213-delegate-types)
+    - [2.2 Interface Types](#22-interface-types)
+    - [2.3 Nullable Reference Types](#23-nullable-reference-types)
+    - [2.4 Array Types](#24-array-types)
+      - [Array Of Simple Types](#array-of-simple-types)
+      - [Jagged Arrays](#jagged-arrays)
+      - [Array Properties \& Methods](#array-properties--methods)
+- [Type Casting](#type-casting)
+  - [Implicit Casting](#implicit-casting)
+  - [Explicit Casting](#explicit-casting)
+  - [Type Conversion Methods](#type-conversion-methods)
+- [Operators](#operators)
+  - [Arithmetic Operators](#arithmetic-operators)
+  - [Combined Assignment Operators](#combined-assignment-operators)
+  - [Increment and Decrement Operators](#increment-and-decrement-operators)
+  - [Comparison Operators](#comparison-operators)
+  - [Logical Operators](#logical-operators)
+  - [Bitwise Operators](#bitwise-operators)
+  - [Operator Precedents](#operator-precedents)
+- [Statements](#statements)
+  - [Conditions](#conditions)
+    - [If Conditions](#if-conditions)
+    - [Switch Case](#switch-case)
+  - [Loops](#loops)
+    - [while Loop](#while-loop)
+    - [do...while Loop](#dowhile-loop)
+    - [for Loop](#for-loop)
+    - [foreach Loop](#foreach-loop)
+  - [goto Statement](#goto-statement)
+  - [return Statement](#return-statement)
+  - [yield Statement](#yield-statement)
+  - [checked and unchecked Statements](#checked-and-unchecked-statements)
+  - [lock Statement](#lock-statement)
+  - [using Statement](#using-statement)
+  - [Exception Handling](#exception-handling)
+- [Classes \& Objects](#classes--objects)
+  - [Members](#members)
+  - [Constructors](#constructors)
+  - [The 'this' Keyword](#the-this-keyword)
+  - [Garbage Collector](#garbage-collector)
+  - [Destructors / Finalizers](#destructors--finalizers)
+- [Object-Oriented Programming (OOP)](#object-oriented-programming-oop)
+  - [Encapsulation / Access Levels](#encapsulation--access-levels)
+  - [Inheritance](#inheritance)
+  - [Polymorphism / Redefining Members](#polymorphism--redefining-members)
+  - [Static](#static)
+  - [Properties](#properties)
+  - [Indexers](#indexers)
+  - [Abstraction](#abstraction)
+    - [Abstract Classes \& Methods](#abstract-classes--methods)
+    - [Interfaces](#interfaces)
+  - [Namespaces](#namespaces)
+  - [Operator Overloading](#operator-overloading)
+- [Delegates](#delegates)
+  - [Anonymous Methods](#anonymous-methods)
+  - [Lambda Expressions](#lambda-expressions)
+- [Events](#events)
+- [Generics](#generics)
+- [Generic Collections](#generic-collections)
+  - [List](#list)
+  - [SortedList](#sortedlist)
+  - [BitArray](#bitarray)
+  - [Stack](#stack)
+  - [Queue](#queue)
+  - [Dictionary](#dictionary)
+  - [HashSet](#hashset)
+- [Constants](#constants)
+  - [The const Keyword](#the-const-keyword)
+  - [The readonly Keyword](#the-readonly-keyword)
+- [Asynchronous Methods](#asynchronous-methods)
+- [Working With Files](#working-with-files)
+- [Language-Integrated Query (LINQ)](#language-integrated-query-linq)
+- [Attributes](#attributes)
+  - [Predefined Attributes](#predefined-attributes)
+  - [Custom Attributes](#custom-attributes)
+  - [Extension Methods](#extension-methods)
+- [References](#references)
+- [Credits](#credits)
+
+[🔝](#contents)
+
+
+# C# Introduction
+
+## What is C#?
 
 - See the source, https://github.com/LabinatorSolutions/csharp-cheat-sheet
 
 - See https://www.dotnetustad.com/c-sharp
 
-### What Is C# Used For?
-
-See Source
+- What Is C# Used For? See Source
 
 ---
 
-## C# Keywords
+# C# Keywords
 
-### Reserved Keywords
+## Reserved Keywords
 
 - abstract
 - as
@@ -227,7 +228,7 @@ See Source
 - volatile
 - while
 
-### Contextual Keywords
+## Contextual Keywords
 
 A contextual keyword is used to provide a specific meaning in the code, but it is not a reserved word in C#. Some contextual keywords, such as partial and where, have special meanings in two or more contexts.
 
@@ -269,12 +270,12 @@ https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/
 
 ---
 
-## C# Special Characters
+# C# Special Characters
 
 Special characters are predefined, contextual characters that modify the program element (a literal string, an identifier, or an attribute name) to which they are prepended. C# supports the following special characters:
 
-- **@**, the verbatim identifier character.
-- **$**, the interpolated string character.
+- `@` : the verbatim identifier character.
+- `$` : the interpolated string character.
 
 **Learn More:**
 https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/tokens/
@@ -283,7 +284,7 @@ https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/tokens/
 
 --*TBC - 20250118 - 2041 
 
-## C# Preprocessor Directives
+# C# Preprocessor Directives
 
 C# has the following preprocessor directives:
 
@@ -307,7 +308,7 @@ https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/preprocessor-d
 
 ---
 
-## General Syntax
+# General Syntax
 
 - Case sensitive.
 - Code is typed inside code blocks **{}**
@@ -315,7 +316,7 @@ https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/preprocessor-d
 
 ---
 
-## Comments
+# Comments
 
 ```csharp
 // Single Line Comment
@@ -330,7 +331,7 @@ https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/preprocessor-d
 
 ---
 
-## C# Hello World Console Application
+# C# Hello World Console Application
 
 ```csharp
 class Hello
@@ -344,7 +345,7 @@ class Hello
 
 ---
 
-## C# Variables
+# C# Variables
 
 **Syntax:**
 
@@ -361,9 +362,9 @@ https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/language-speci
 
 ---
 
-## C# Naming Conventions
+# C# Naming Conventions
 
-### Terminology
+## Terminology
 
 There are following three terminologies are used to declare C# and .NET naming standards.
 
@@ -371,7 +372,7 @@ There are following three terminologies are used to declare C# and .NET naming s
 - **Pascal Case (PascalCase):** In this the first letter of every word is in capital letter.
 - **Underscore Prefix (_underScore):** For underscore ( __ ), the word after _ use camelCase terminology.
 
-### Summary Table
+## Summary Table
 
 | Kind            | Rule            |
 |-----------------|-----------------|
@@ -395,19 +396,19 @@ There are following three terminologies are used to declare C# and .NET naming s
 
 --*TBC - 20250118 - 2107 
 
-## C# Data Types
+# C# Data Types
 
-### 1. Value Types
+## 1. Value Types
 
 **For Reference:**
 https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-types
 
-#### 1.1 Simple Data Types
+### 1.1 Simple Data Types
 
 **For Reference:**
 https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/integral-numeric-types
 
-##### 1.1.1 Bytes
+#### 1.1.1 Bytes
 
 ```csharp
 
@@ -415,7 +416,7 @@ byte myUnsignedByte = 8; // Size: 8 bits  | Range: 0 to 255
 sbyte mySignedByte = -8; // Size: 8 bits  | Range: -128 to +127
 ```
 
-##### 1.1.2 Integers
+#### 1.1.2 Integers
 
 🔔 Unsigned Integers
 
@@ -434,7 +435,7 @@ int mySignedInt = 32; // Size: 32 bits  | Range: -2^31  to +2^31-1
 long mySignedLong = -64; // Size: 64 bits  | Range: -2^63  to +2^63-1
 ```
 
-##### 1.1.3 Floating-Point Types
+#### 1.1.3 Floating-Point Types
 
 ```csharp
 float myFloat = 3.14F; // Size: 32 bits  | Range: 7 digits of precision
@@ -445,19 +446,19 @@ decimal myDecimal = 3.14M; // Size: 128 bits | Range: 28-29 digits of precision
 **Learn More:**
 https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/floating-point-numeric-types
 
-##### 1.1.4 Unicode Characters (char)
+#### 1.1.4 Unicode Characters (char)
 
 ```csharp
 char myChar = 'a'; // Size: 16 bits  | Range: Unicode character
 ```
 
-##### 1.1.5 Booleans
+#### 1.1.5 Booleans
 
 ```csharp
 bool myBool = true; // Size: 4 bits   | Range: true or false
 ```
 
-#### 1.2 Enum Types
+### 1.2 Enum Types
 
 An enum type is a distinct value type with a set of named constants.
 
@@ -504,7 +505,7 @@ class Test
 **Learn More:**
 https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/enum
 
-#### 1.3 Structure Types
+### 1.3 Structure Types
 
 Like classes, structs are data structures that can contain data members and function members, but unlike classes, structs are value types and do not require heap allocation. A variable of a struct type directly stores the data of the struct, whereas a variable of a class type stores a reference to a dynamically allocated object. Struct types do not support user-specified inheritance, and all struct types implicitly inherit from type object.
 
@@ -525,7 +526,7 @@ struct Point
 **Learn More:**
 https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/struct
 
-#### 1.4 Tuple Types
+### 1.4 Tuple Types
 
 Available in C# 7.0 and later, the tuples feature provides concise syntax to group multiple data elements in a lightweight data structure.
 
@@ -540,7 +541,7 @@ Console.WriteLine($"Sum of {t2.Count} elements is {t2.Sum}."); // Output => Sum 
 **Learn More:**
 https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-tuples
 
-#### 1.5 Nullable Value Types
+### 1.5 Nullable Value Types
 
 A nullable value type **```T?```** represents all values of its underlying value type **T** and an additional null value. For example, you can assign any of the following three values to a **```bool?```** variable: true, false, or null. An underlying value type **T** cannot be a nullable value type itself.
 
@@ -562,15 +563,15 @@ https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/
 
 --*TBC - 20250119 - 0011 
 
-### 2. Reference Types
+## 2. Reference Types
 
-#### 2.1 Built-In Reference Types
+### 2.1 Built-In Reference Types
 
-##### 2.1.1 Object Types
+#### 2.1.1 Object Types
 
 The object type is an alias for System.Object in .NET. In the unified type system of C#, all types, predefined and user-defined, reference types and value types, inherit directly or indirectly from System.Object. You can assign values of any type to variables of type object. Any object variable can be assigned to its default value using the literal null.
 
-##### 2.1.2 String Types
+#### 2.1.2 String Types
 
 It is common to think of strings as arrays of characters. In reality, strings in C# are objects.
 
@@ -641,7 +642,7 @@ https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/strings/
 
 --*TBC - 20250119 - 0027 
 
-##### 2.1.3 Delegate Types
+#### 2.1.3 Delegate Types
 
 A delegate type represents references to methods with a particular parameter list and return type. Delegates make it possible to treat methods as entities that can be assigned to variables and passed as parameters. Delegates are similar to the concept of `function pointers` found in some other languages, but unlike function pointers, delegates are object-oriented and type-safe.
 
@@ -697,7 +698,7 @@ class Test
 **Learn More:**
 https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/delegates/
 
-#### 2.2 Interface Types
+### 2.2 Interface Types
 
 An interface defines a contract that can be implemented by classes and structs. An interface can contain methods, properties, events, and indexers. An interface does not provide implementations of the members it defines—it merely specifies the members that must be supplied by classes or structs that implement the interface. Interfaces may employ `multiple inheritance`.
 
@@ -724,7 +725,7 @@ static void Main(string[] args)
 https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/interfaces/
 https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/interface
 
-#### 2.3 Nullable Reference Types
+### 2.3 Nullable Reference Types
 
 Nullable reference types are available beginning with C# 8.0, in code that has opted in to a nullable aware context. Nullable reference types, the null static analysis warnings, and the `null-forgiving operator` are optional language features. All are turned off by default. A nullable context is controlled at the project level using build settings, or in code using pragmas.
 
@@ -736,13 +737,13 @@ string? nullable = default;
 **Learn More:**
 https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/nullable-reference-types
 
-#### 2.4 Array Types
+### 2.4 Array Types
 
 An array is a data structure that contains a number of variables that are accessed through computed indices. The variables contained in an array, also called the elements of the array, are all of the same type, and this type is called the element type of the array.
 
 Array types are reference types, and the declaration of an array variable simply sets aside space for a reference to an array instance. Actual array instances are created dynamically at run-time using the new operator. The new operation specifies the length of the new array instance, which is then fixed for the lifetime of the instance. The indices of the elements of an array range from 0 to Length - 1. The new operator automatically initializes the elements of an array to their default value, which, for example, is zero for all numeric types and null for all reference types.
 
-##### Array Of Simple Types
+#### Array Of Simple Types
 
 ```csharp
 int[] a1   = new int[10];        // One-Dimensional Array
@@ -750,7 +751,7 @@ int[,] a2  = new int[10, 5];     // Two-Dimensional Array
 int[,,] a3 = new int[10, 5, 2];  // Three-Dimensional Array
 ```
 
-##### Jagged Arrays
+#### Jagged Arrays
 
 **Jagged Array:** is an array with elements of an array type.
 
@@ -783,7 +784,7 @@ int x = anotherJaggedArray[2][1];
 Console.WriteLine(x); // Outputs => 42
 ```
 
-##### Array Properties & Methods
+#### Array Properties & Methods
 
 The Array class in C# provides various properties and methods to work with arrays.
 
@@ -849,7 +850,7 @@ https://docs.microsoft.com/en-us/dotnet/api/system.linq.enumerable
 
 --*TBC - 20250119 - 1041 
 
-## Type Casting
+# Type Casting
 
 Type casting is when you assign a value of one data type to another type.
 
@@ -863,7 +864,7 @@ In C#, there are two types of casting:
 
 > double -> float -> long -> int -> char
 
-### Implicit Casting
+## Implicit Casting
 
 Implicit casting is done automatically when passing a smaller size type to a larger size type.
 
@@ -875,7 +876,7 @@ Console.WriteLine(myInt);      // Outputs 9
 Console.WriteLine(myDouble);   // Outputs 9
 ```
 
-### Explicit Casting
+## Explicit Casting
 
 Explicit casting must be done manually by placing the type in parentheses in front of the value.
 
@@ -887,7 +888,7 @@ Console.WriteLine(myDouble);   // Outputs 9.78
 Console.WriteLine(myInt);      // Outputs 9
 ```
 
-### Type Conversion Methods
+## Type Conversion Methods
 
 It is also possible to convert data types explicitly by using built-in methods (static methods of Convert class).
 
@@ -924,9 +925,9 @@ https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/types/casting-a
 
 ---
 
-## Operators
+# Operators
 
-### Arithmetic Operators
+## Arithmetic Operators
 
 ```csharp
 float myFloat = 0;
@@ -947,7 +948,7 @@ myFloat = 3 / (float) 2; // 1.5
 
 --*TBC - 20250206 - 2019
 
-### Combined Assignment Operators
+## Combined Assignment Operators
 
 ```csharp
 float myFloat = 0;
@@ -959,7 +960,7 @@ myFloat /= 2; // myNumber = myNumber / 2
 myFloat %= 2; // myNumber = myNumber % 2
 ```
 
-### Increment and Decrement Operators
+## Increment and Decrement Operators
 
 ```csharp
 int myCounter = 0;
@@ -970,7 +971,7 @@ Console.WriteLine(myCounter--); //Prints "2", _myCounter = 1. Post-Decrementatio
 Console.WriteLine(--myCounter); //Prints "0", _myCounter = 0. Pre-Decrementation
 ```
 
-### Comparison Operators
+## Comparison Operators
 
 ```csharp
 Console.WriteLine($"3 == 2? {3 == 2}"); // => false
@@ -981,7 +982,7 @@ Console.WriteLine($"2 <= 2? {2 <= 2}"); // => true
 Console.WriteLine($"2 >= 2? {2 >= 2}"); // => true
 ```
 
-### Logical Operators
+## Logical Operators
 
 ```csharp
 bool myBool;
@@ -993,7 +994,7 @@ myBool = !(true); // Logical NOT => (false)
 Console.WriteLine(myBool);
 ```
 
-### Bitwise Operators
+## Bitwise Operators
 
 ```csharp
 int myInteger;
@@ -1025,7 +1026,7 @@ myInteger = 5;
 myInteger >>= 1; // right shift (0b101 >> 1 = 0b10 = 2)
 ```
 
-### Operator Precedents
+## Operator Precedents
 
 ```csharp
 /*
@@ -1071,11 +1072,11 @@ https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/
 
 ---
 
-## Statements
+# Statements
 
-### Conditions
+## Conditions
 
-#### If Conditions
+### If Conditions
 
 🔔 **```if```**...**```else if```**...**```else```**
 ```csharp
@@ -1101,7 +1102,7 @@ int toCompare = 17;
 string isTrue = toCompare == 17 ? "True" : "False";
 ```
 
-#### Switch Case
+### Switch Case
 
 ```csharp
 // A switch works with the byte, short, char, and int data types.
@@ -1135,9 +1136,9 @@ switch (month)
 }
 ```
 
-### Loops
+## Loops
 
-#### while Loop
+### while Loop
 
 ```csharp
 
@@ -1150,7 +1151,7 @@ while (fooWhile < 100)
 }
 ```
 
-#### do...while Loop
+### do...while Loop
 
 ```csharp
 // Do While Loop
@@ -1174,7 +1175,7 @@ do
 } while (fooDoWhile < 100);
 ```
 
-#### for Loop
+### for Loop
 
 ```csharp
 for (int fooFor = 0; fooFor < 10; fooFor++)
@@ -1183,7 +1184,7 @@ for (int fooFor = 0; fooFor < 10; fooFor++)
 }
 ```
 
-#### foreach Loop
+### foreach Loop
 
 ```csharp
 foreach (char character in "Hello World".ToCharArray())
@@ -1192,7 +1193,7 @@ foreach (char character in "Hello World".ToCharArray())
 }
 ```
 
-### goto Statement
+## goto Statement
 
 ```csharp
 static void Main(string[] args) {
@@ -1210,7 +1211,7 @@ static void Main(string[] args) {
 }
 ```
 
-### return Statement
+## return Statement
 
 ```csharp
 static int Add(int a, int b)
@@ -1225,7 +1226,7 @@ static void Main(string[] args)
 }
 ```
 
-### yield Statement
+## yield Statement
 
 ```csharp
 static IEnumerable<int> Range(int from, int to)
@@ -1246,7 +1247,7 @@ static void Main(string[] args)
 }
 ```
 
-### checked and unchecked Statements
+## checked and unchecked Statements
 
 ```csharp
 static void Main(string[] args)
@@ -1263,7 +1264,7 @@ static void Main(string[] args)
 }
 ```
 
-### lock Statement
+## lock Statement
 
 ```csharp
 class Account
@@ -1283,7 +1284,7 @@ class Account
 }
 ```
 
-### using Statement
+## using Statement
 
 ```csharp
 static void Main(string[] args)
@@ -1297,7 +1298,7 @@ static void Main(string[] args)
 }
 ```
 
-### Exception Handling
+## Exception Handling
 
 ```csharp
 static double Divide(double x, double y)
@@ -1339,7 +1340,7 @@ https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expr
 
 ---
 
-## Classes & Objects
+# Classes & Objects
 
 Classes are the most fundamental of C#'s types. A class is a data structure that combines state (fields) and actions (methods and other function members) in a single unit. A class provides a definition for dynamically created instances of the class, also known as objects. Classes support inheritance and polymorphism, mechanisms whereby derived classes can extend and specialize base classes.
 
@@ -1406,7 +1407,7 @@ namespace Example
 https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/classes
 https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/objects
 
-### Members
+## Members
 
 The members of a class are either static members or instance members. Static members belong to classes, and instance members belong to objects (instances of classes).
 
@@ -1425,7 +1426,7 @@ The following table provides an overview of the kinds of members a class can con
 | Destructors  | Actions to perform before instances of the class are permanently discarded |
 | Types        | Nested types declared by the class                                         |
 
-### Constructors
+## Constructors
 
 Whenever a class or struct is created, its constructor is called. A class or struct may have multiple constructors that take different arguments. Constructors enable the programmer to set default values, limit instantiation, and write code that is flexible and easy to read.
 
@@ -1452,7 +1453,7 @@ class MyRectangle
 **Learn More:**
 https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/constructors
 
-### The 'this' Keyword
+## The 'this' Keyword
 
 Inside the constructor, as well as in other methods belonging to the object, a special keyword called this can be used. This keyword is a reference to the current instance of the class. Suppose, for example, that the constructor’s parameters have the same names as the corresponding fields. The fields could then still be accessed by using the this keyword, even though they are overshadowed by the parameters.
 
@@ -1472,7 +1473,7 @@ class MyRectangle
 **Learn More:**
 https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/this
 
-### Garbage Collector
+## Garbage Collector
 
 The .NET Framework has a garbage collector that periodically releases memory used by objects when they are no longer accessible. This frees the programmer from the often tedious and error-prone task of manual memory management.
 
@@ -1494,7 +1495,7 @@ static void Main(string[] args)
 **Learn More:**
 https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/fundamentals
 
-### Destructors / Finalizers
+## Destructors / Finalizers
 
 The destructor or finilizer is used to release any unmanaged resources allocated by the object. It is called automatically before an object is destroyed and cannot be called explicitly.
 
@@ -1530,7 +1531,7 @@ https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-str
 
 ---
 
-## Object-Oriented Programming (OOP)
+# Object-Oriented Programming (OOP)
 
 C# is an object-oriented language. Four of the key techniques used in object-oriented programming are:
 
@@ -1542,7 +1543,7 @@ C# is an object-oriented language. Four of the key techniques used in object-ori
 **Learn More:**
 https://docs.microsoft.com/en-us/dotnet/csharp/tutorials/intro-to-csharp/object-oriented-programming
 
-### Encapsulation / Access Levels
+## Encapsulation / Access Levels
 
 In programming, encapsulation means more than simply combining members together within a class; it also means restricting access to the inner workings of that class.
 Encapsulation is implemented by using access modifiers. An access modifier defines the scope and visibility of a class member.
@@ -1567,7 +1568,7 @@ Each member of a class has an associated accessibility, which controls the regio
 | Destructors   | Actions to perform before instances of the class are permanently discarded |
 | Types         | Nested types declared by the class                                         |
 
-### Inheritance
+## Inheritance
 
 Inheritance allows a class to acquire the members of another class. It allows to define a class based on another class. This makes creating and maintaining an application easy.
 
@@ -1640,7 +1641,7 @@ namespace RectangleApplication
 https://docs.microsoft.com/en-us/dotnet/csharp/tutorials/inheritance
 https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/inheritance
 
-### Polymorphism / Redefining Members
+## Polymorphism / Redefining Members
 
 The word polymorphism means "having many forms". In C#, polymorphism means that a single method can have a number of different implementations. Typically, polymorphism occurs when there is a hierarchy of classes and they are related through inheritance from a common base class.
 
@@ -1694,7 +1695,7 @@ namespace SamplePolymorphism
 **Learn More:**
 https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/polymorphism
 
-### Static
+## Static
 
 Use the static modifier to declare a static member, which belongs to the type itself rather than to a specific object.
 
@@ -1753,7 +1754,7 @@ namespace StaticDemonstration
 https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/static
 https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/static-classes-and-static-class-members
 
-### Properties
+## Properties
 
 Properties in C# provide the ability to protect a field by reading and writing to it through special methods called **accessors**. They are generally declared as ```public``` with the same data type as the field they are going to protect, followed by the name of the property and a code block that defines the ```get``` and ```set``` accessors.
 
@@ -1815,7 +1816,7 @@ namespace PropertiesDemonstration
 https://docs.microsoft.com/en-us/dotnet/csharp/properties
 https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/properties
 
-### Indexers
+## Indexers
 
 Indexers allow instances of a class or struct to be indexed just like arrays. The indexed value can be set or retrieved without explicitly specifying a type or instance member. Indexers resemble properties except that their accessors take parameters.
 
@@ -1866,9 +1867,9 @@ namespace IndexerDemonstration
 **Learn More:**
 https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/indexers/
 
-### Abstraction
+## Abstraction
 
-#### Abstract Classes & Methods
+### Abstract Classes & Methods
 
 Polymorphism is used when you have different derived classes with the same method, which has different implementations in each class. This behavior is achieved through ```virtual``` methods that are **overridden** in the derived classes.
 
@@ -1933,7 +1934,7 @@ class DerivedClass : BaseClass
 **Learn More:**
 https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/abstract
 
-#### Interfaces
+### Interfaces
 
 An interface is a completely abstract class, which contains only abstract members. It is declared using the ```interface``` keyword.
 
@@ -2010,7 +2011,7 @@ namespace InterfacesDemonstration
 https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/interfaces/
 https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/interface
 
-### Namespaces
+## Namespaces
 
 **Namespaces** provide a way to group related top-level members into a hierarchy. They are also used to avoid naming conflicts. A top-level member, such as a class, that is not included in a namespace is said to belong to the **default namespace**. It can be moved to another namespace by being enclosed in a **namespace block**. You can use a namespace to organize code elements. You can define your own namespaces and use them in your program.
 
@@ -2040,7 +2041,7 @@ namespace NamespaceDemonstration
 **Learn More:**
 https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/namespaces/
 
-### Operator Overloading
+## Operator Overloading
 
 **Operator overloading** allows operators to be **redefined** and used where one or both of the operands are of a certain class. When done correctly, this can simplify the code and make user-defined types as easy to use as the simple types.
 
@@ -2091,7 +2092,7 @@ https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/oper
 
 ---
 
-## Delegates
+# Delegates
 
 A **delegate** is a type used to reference a method. This allows methods to be assigned to variables and passed as arguments. The delegate’s declaration specifies the method signature to which objects of the delegate type can refer. Delegates are by convention named with each word initially capitalized, followed by Delegate at the end of the name.
 
@@ -2244,7 +2245,7 @@ C# provides some built-in delegates that are useful for common purposes. These p
 https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/delegates/
 https://docs.microsoft.com/en-us/dotnet/api/system.delegate
 
-### Anonymous Methods
+## Anonymous Methods
 
 Anonymous methods are introduced in C# 2.0. They can be assigned to delegate objects. An anonymous method is specified by using the ```delegate``` keyword followed by a method parameter list and body. This can simplify the delegate’s instantiation since a separate method will not have to be defined in order to instantiate the delegate.
 
@@ -2272,7 +2273,7 @@ public class Program
 **Learn More:**
 https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/anonymous-functions
 
-### Lambda Expressions
+## Lambda Expressions
 
 Lambda expressions were introduced in C# 3.0. They achieve the same goal as anonymous methods, but with a more concise
 syntax. A lambda expression is written as a parameter list followed by the lambda operator (=>) and an expression.
@@ -2304,7 +2305,7 @@ https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/lamb
 
 ---
 
-## Events
+# Events
 
 Events enable a class or object to notify other classes or objects when something of interest occurs. The class that sends (or raises) the event is called the **publisher** and the classes that receive (or handle) the event are called **subscribers**.
 
@@ -2371,7 +2372,7 @@ https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/events/
 
 ---
 
-## Generics
+# Generics
 
 Generics introduce the concept of type parameters to .NET, which make it possible to design classes and methods that defer the specification of one or more types until the class or method is declared and instantiated by client code.
 
@@ -2426,7 +2427,7 @@ https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/generics/
 
 ---
 
-## Generic Collections
+# Generic Collections
 
 A collection is used to group related objects. Unlike an array, it is dynamic and can also group objects. A collection can grow and shrink to accommodate any number of objects. Collection classes are organized into namespaces and contain built in methods for processing elements within the collection.
 
@@ -2437,7 +2438,7 @@ A collection typically includes methods to add, remove, and count objects. The `
 **Learn More:**
 https://docs.microsoft.com/en-us/dotnet/standard/generics/collections
 
-### List
+## List
 
 A list is similar to an array, but the elements in a list can be inserted and removed dynamically. The C# generic collection ```List<T>``` class requires all elements be of the same type ```T```.
 
@@ -2481,7 +2482,7 @@ namespace SampleList
 **Learn More:**
 https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1
 
-### SortedList
+## SortedList
 
 A sorted list is a collection of key/value pairs that are sorted by key. A key can be used to access its corresponding value in the sorted list.
 
@@ -2519,7 +2520,7 @@ namespace SampleSortedList
 **Learn More:**
 https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.sortedlist-2
 
-### BitArray
+## BitArray
 
 A bit array is a collection of bits. The value of a bit can be either 0 (off/false) or 1 (on/true). Bit arrays compactly store bits. Most commonly, they are used to represent a simple group of boolean flags or an ordered sequence of boolean values.
 
@@ -2570,7 +2571,7 @@ namespace SampleBitArray
 **Learn More:**
 https://docs.microsoft.com/en-us/dotnet/api/system.collections.bitarray
 
-### Stack
+## Stack
 
 A stack is a Last In, First Out (LIFO) collection of elements where the last element that goes into the stack will be the first element that comes out.
 
@@ -2620,7 +2621,7 @@ namespace SampleStack
 **Learn More:**
 https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.stack-1
 
-### Queue
+## Queue
 
 A queue is a First In, First Out (FIFO) collection of elements where the first element that goes into a queue is also the first element that comes out.
 
@@ -2667,7 +2668,7 @@ namespace SampleQueue
 **Learn More:**
 https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.queue-1
 
-### Dictionary
+## Dictionary
 
 A dictionary is a collection of unique key/value pairs where a key is used to access the corresponding value. Dictionaries are used in database indexing, cache implementations, and so on.
 
@@ -2705,7 +2706,7 @@ namespace SampleDictionary
 **Learn More:**
 https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2
 
-### HashSet
+## HashSet
 
 A hash set is a set of unique values where duplicates are not allowed.
 
@@ -2753,9 +2754,9 @@ https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.hashset-1
 
 ---
 
-## Constants
+# Constants
 
-### The const Keyword
+## The const Keyword
 
 A variable in C# can be made into a compile-time constant by adding the ```const``` keyword before the data type. This modifier means that the variable cannot be changed and it must therefore be assigned a value at the same time as it is declared. Any attempts to assign a new value to the constant will result in a compile-time error.
 
@@ -2768,7 +2769,7 @@ static void Main(string[] args)
 
 **Note:** Constant fields cannot have the static modifier. They are implicitly static and are accessed in the same way as static fields.
 
-### The readonly Keyword
+## The readonly Keyword
 
 Another variable modifier similar to ```const``` is ```readonly```. It creates a runtime constant. This modifier can be applied to fields, and like ```const```, it makes the field unchangeable.
 
@@ -2803,7 +2804,7 @@ https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/const
 
 ---
 
-## Asynchronous Methods
+# Asynchronous Methods
 
 An asynchronous method is a method that can **return** before it has finished executing. Any method that performs a potentially long-running task, such as accessing a web resource or reading a file, can be made asynchronous to improve the responsiveness of the program.
 
@@ -2836,7 +2837,7 @@ https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/
 
 ---
 
-## Working With Files
+# Working With Files
 
 The System.IO namespace has various classes that are used for performing numerous operations with files, such as creating and deleting files, reading from or writing to a file, closing a file, and more. The File class is one of them.
 
@@ -2874,7 +2875,7 @@ https://docs.microsoft.com/en-us/dotnet/api/system.io.file
 
 ---
 
-## Language-Integrated Query (LINQ)
+# Language-Integrated Query (LINQ)
 
 Language-Integrated Query (LINQ) is the name for a set of technologies based on the integration of query capabilities directly into the C# language. Traditionally, queries against data are expressed as simple strings without type checking at compile time or IntelliSense support.
 
@@ -2909,7 +2910,7 @@ https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/
 
 ---
 
-## Attributes
+# Attributes
 
 An attribute is a declarative tag that is used to convey information to runtime about the behaviors of various elements like classes, methods, structures, enumerators, assemblies etc. in your program. You can add declarative information to a program by using an attribute. A declarative tag is depicted by square ([ ]) brackets placed above the element it is used for.
 
@@ -2920,7 +2921,7 @@ There are two types of Attributes implementations provided by the .NET Framework
 - Predefined Attributes
 - Custom Attributes
 
-### Predefined Attributes
+## Predefined Attributes
 
 Predefined attributes are those attributes that are a part of the .NET Framework Class Library and are supported by the C# compiler for a specific purpose.
 
@@ -2960,7 +2961,7 @@ class GFG2
 }
 ```
 
-### Custom Attributes
+## Custom Attributes
 
 Custom attributes can be created in C# for attaching declarative information to methods, assemblies, properties, types, etc. in any way required. This increases the extensibility of the .NET framework.
 
@@ -3011,7 +3012,7 @@ public class GFG
 **Learn More:**
 https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/attributes/
 
-### Extension Methods
+## Extension Methods
 
 Extension methods enable you to "add" methods to existing types without creating a new derived type, recompiling, or otherwise modifying the original type. Extension methods are static methods, but they're called as if they were instance methods on the extended type. 
 
@@ -3043,7 +3044,7 @@ https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-str
 
 ---
 
-## References
+# References
 
 **Official C# Documentation:**
 https://docs.microsoft.com/en-us/dotnet/csharp/
@@ -3056,7 +3057,7 @@ https://docs.unity3d.com/Manual/index.html
 
 ---
 
-## Credits
+# Credits
 
 **Prepared By:**
 
