@@ -1,5 +1,6 @@
 
 - [Cheatsheets](#cheatsheets)
+- [Arts](#arts)
 - [References](#references)
 - [Notes (1)](#notes-1)
 - [C# Wpf Notes](#c-wpf-notes)
@@ -28,7 +29,15 @@
 
 - https://github.com/ssukhpinder/csharp-cheatsheet
 
+# Arts
 
+- [Dot Net Core Web Api Intro](./arts/artcs4-dotnetcore-webapi.md)
+- [art-csharp-unit-test1](./arts/artcs2-csharp-unit-test1.md)
+- [Jwt Token - Alternative Way](./arts/artcs8-jwt-benzeri-token-sistem.md)
+- [App Config](./arts/artcs1-app-config.md)
+- [Custom Log](./arts/artcs3-custom-log.md)
+- 
+- 
 
 # References
 
