@@ -44,8 +44,8 @@ Visual Studio Code'da Maven tabanlı bir projeyi çalıştırmak için aşağıd
       {
         "type": "java",
         "request": "launch",
-        "mainClass": "ozpasyazilim.entegrefx.gui.ModPanoIskProYukleme",
-        "projectName": "ozpasentegrefx"
+        "mainClass": "myGroupName.myAppName.AppMain",
+        "projectName": "projectName"
       }
     ]
   }
@@ -53,8 +53,10 @@ Visual Studio Code'da Maven tabanlı bir projeyi çalıştırmak için aşağıd
   Ardından **Start Debugging** düğmesine basarak projeyi çalıştırabilirsiniz.
 
 ### 7. **Sorun Giderme**
+
 - Eğer bağımlılıklarla ilgili bir sorun yaşarsanız, `mvn dependency:tree` komutunu çalıştırarak bağımlılıkları kontrol edin.
-- Hata mesajlarını terminalde kontrol edin ve gerekirse pom.xml dosyasını düzenleyin.
+ 
+- Hata mesajlarını terminalde kontrol edin ve gerekirse `pom.xml` dosyasını düzenleyin.
 
 Projeniz artık çalışmaya hazır!
 
@@ -63,6 +65,7 @@ Projeniz artık çalışmaya hazır!
 Basit bir Java konsol uygulaması oluşturmak için aşağıdaki adımları izleyin:
 
 #### a. **Maven ile Proje Oluşturun**
+
 - Terminalde aşağıdaki komutu çalıştırarak basit bir `Java konsol projesi` oluşturun:
   
 ```sh
@@ -108,6 +111,7 @@ Oluşturulan pom.xml dosyasını aşağıdaki gibi düzenleyin (veya benzer şek
 
 #### c. **App.java Dosyası**
 Oluşturulan `src/main/java/com/example/App.java` dosyasını aşağıdaki gibi düzenleyin:
+
 ```java
 package com.example;
 
@@ -162,7 +166,7 @@ Java uygulamanızı Maven ile derledikten sonra, aşağıdaki yöntemlerle EXE d
             <runtimeBits>64</runtimeBits>
         </jre>
     </configuration>
-    
+
 </plugin>
 ```
 
