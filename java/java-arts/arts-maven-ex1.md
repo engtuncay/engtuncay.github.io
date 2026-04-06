@@ -387,7 +387,7 @@
 - `org.slf4j:slf4j-api:1.7.36`
   - SLF4J API. Yine starter transitif getirir; explicit eklemek çakışmaya neden olabilir.
 - `ozpasyazilim:tunc-utils-java:0.1` ve `ozpasyazilim:ozpasmikro:0.1`
-  - Organizasyonunuza ait iç artefaktlar. Bu artefaktlar kendi bağımlılıklarını getirebilir — çakışma kontrolü için `mvn dependency:tree` çalıştırın.
+  - Organizasyonunuza ait iç artifekler. Bu artifekler kendi bağımlılıklarını getirebilir — çakışma kontrolü için `mvn dependency:tree` çalıştırın.
 
 Öneri: Logback/SLF4J ile ilgili explicit bağımlılıkları kaldırıp Spring Boot parent versiyon yönetimine bırakın veya gerektiğinde `<exclusions>` kullanın.
 
@@ -455,11 +455,11 @@ Lifecycle, Maven'in build sürecinin önceden tanımlanmış, sıralı aşamalar
 2. **clean**: Önceki build çıktılarını (`target/` klasörü vb.) temizler.
 3. **site**: Proje için documentation sitesi oluşturur.
 
-Bir lifecycle, ardışık olarak çalışacak mehreza phase(faz) içerir ve bu fazlar sırayla yürütülür.
+Bir lifecycle, ardışık olarak çalışacak faz (phase) içerir ve bu fazlar sırayla yürütülür.
 
 #### Default Lifecycle'daki Fazlar (Sıra Önemli!)
 
-En sık kullanılan default lifecycle'da, fazlar şu sırada çalışır:
+En sık kullanılan default lifecycle'da, fazlar (phases) şu sırada çalışır:
 
 ```
 1. validate          — pom.xml ve kaynak kodun geçerliliğini kontrol et
@@ -468,7 +468,9 @@ En sık kullanılan default lifecycle'da, fazlar şu sırada çalışır:
 4. process-sources   — kaynak kodları işle (filtreleme vb.)
 5. generate-resources— derleme öncesi resource'ları üret
 6. process-resources — resource'ları işle, hedef klasöre kopyala
+--maven-resources-plugin--
 7. compile           — Java kaynaklarını derle
+--maven-compiler-plugin--
 8. process-classes   — derlenmiş class'ları işle
 9. generate-test-sources — test kaynaklarını üret
 10. process-test-sources  — test kaynaklarını işle
@@ -479,6 +481,7 @@ En sık kullanılan default lifecycle'da, fazlar şu sırada çalışır:
 15. test             — unit test'leri çalıştır (JUnit, TestNG vb.)
 16. prepare-package  — paketleme öncesi hazırlık yap
 17. package          — derlenmiş kodu jar, war, zip vb. formata paketle
+--maven-assembly-plugin--
 18. pre-integration-test  — integration test öncesi hazırlık
 19. integration-test — integration test'leri çalıştır
 20. post-integration-test — integration test sonrası temizlik
