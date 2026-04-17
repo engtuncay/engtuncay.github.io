@@ -55,3 +55,39 @@ Satır satır açıklamalar:
 - **20** | `"exclude": ["node_modules", "dist", "logs"]` | Bu klasörler derlenmeyecek |
 
 **Özet:** Bu konfigürasyon modern TypeScript projesi için optimize edilmiş, ES2020 hedefli, sıkı tip kontrollü ve npm paketleri oluşturmak için (`declaration: true`) hazırlanmış bir ayardır.
+
+
+# her ts dosyasını olduğu yerde js dosyası oluşturma
+
+GitHub Copilot: TypeScript derleyicisinin (tsc) her TypeScript (.ts) dosyasını kendi bulunduğu dizinde JavaScript (.js) dosyasına çevirmesi için tsconfig.json dosyasında aşağıdaki ayarları yapmalısınız:
+
+1. outDir ayarını kaldırın veya belirtmeyin. (outDir varsa, derlenmiş dosyalar tek bir klasöre gider.)
+2. rootDir ayarını kaldırın veya belirtmeyin. (rootDir varsa, kaynak dosyalarınızın kökünü belirler.)
+3. tsconfig.json dosyanızda aşağıdaki gibi olmalı:
+
+```json
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "ESNext",
+    "lib": ["ES2020"],
+    "moduleResolution": "bundler",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "types": ["node"]
+  },
+  "include": ["entegre_node/**/*.ts"],
+  "exclude": ["node_modules", "dist", "logs"]
+}
+```
+
+Bu şekilde, tsc her .ts dosyasının yanına aynı isimde .js dosyası oluşturur.  
+Kısacası: outDir ve rootDir olmamalı veya kaldırılmalı.
+
+Ek bilgi: Eğer mevcutta dist gibi bir klasöre çıkış alıyorsanız, onu kaldırınca dosyalar kaynaklarının yanına derlenir.
