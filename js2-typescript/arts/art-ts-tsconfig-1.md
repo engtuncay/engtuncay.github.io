@@ -7,8 +7,8 @@
 - [dist klasörüne ayrıca dosya ve klasörde eklemesini belirtebilir miyiz](#dist-klasörüne-ayrıca-dosya-ve-klasörde-eklemesini-belirtebilir-miyiz)
 - [module ve target değerlerini açıklar mısın](#module-ve-target-değerlerini-açıklar-mısın)
   - [Kullanılabilecek diğer değerler nelerdir](#kullanılabilecek-diğer-değerler-nelerdir)
-  - [**`module` Değerleri**](#module-değerleri)
-  - [**Öneriniz için Seçim:**](#öneriniz-için-seçim)
+  - [module Değerleri](#module-değerleri)
+  - [Öneriniz için Seçim](#öneriniz-için-seçim)
   - [ES2015 ile EsNext arasında fark var mı ?](#es2015-ile-esnext-arasında-fark-var-mı-)
   - [Özellik | ES2015 | ESNext](#özellik--es2015--esnext)
 - [tsconfig içindeki moduleResolution nedir ne işe yarar](#tsconfig-içindeki-moduleresolution-nedir-ne-işe-yarar)
@@ -203,7 +203,7 @@ TypeScript hangi JavaScript sürümüne derlenecek:
 | `ES2022`         | Class fields, private methods, static blocks             |
 | `ESNext`         | En son ve gelecek özellikleri (unstable)                 |
 
-## **`module` Değerleri**
+## module Değerleri
 
 Modülleri nasıl yükleyecek:
 
@@ -217,7 +217,7 @@ Modülleri nasıl yükleyecek:
 | `System`         | SystemJS modül yükleyici                                                    |
 | `Node16`         | Node.js 16+ için dual package (`.ts` dosyalarından `.cjs` ve `.mjs` üretir) |
 
-## **Öneriniz için Seçim:**
+## Öneriniz için Seçim
 
 - **Web uygulaması** → `target: "ES2015"` veya `ES2020`, `module: "ES2015"`
 - **Node.js 14+** → `target: "ES2020"`, `module: "CommonJS"`
