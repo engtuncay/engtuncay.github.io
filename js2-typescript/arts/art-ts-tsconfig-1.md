@@ -112,10 +112,12 @@ Ek bilgi: Eğer mevcutta dist gibi bir klasöre çıkış alıyorsanız, onu kal
 
 TypeScript’te:
 
-* declaration: true  
+➖ declaration: true  
+
 Bu ayar, her .ts dosyası için bir .d.ts (declaration, tip bildirim) dosyası üretir. Bu dosyalar, JavaScript çıktısının yanında, TypeScript tip bilgisini dışa aktarır. Özellikle kütüphane geliştirirken, başkalarının sizin kodunuzun tiplerini kullanabilmesi için gereklidir.
 
-* declarationMap: true  
+➖ declarationMap: true  
+
 Bu ayar, .d.ts dosyaları için harita (source map) dosyası (.d.ts.map) üretir. Böylece, tip bildirim dosyasında bir tipin nereden geldiğini, orijinal TypeScript dosyasına kolayca izleyebilirsiniz. Özellikle büyük projelerde ve IDE desteğinde faydalıdır.
 
 Özetle:
@@ -123,7 +125,7 @@ Bu ayar, .d.ts dosyaları için harita (source map) dosyası (.d.ts.map) üretir
 - declarationMap: .d.ts dosyası ile orijinal kaynak arasında bağlantı kurar (debug ve IDE için)
 sourceMap: true ayarı, her derlenen .js dosyası için bir .js.map dosyası üretir. Bu dosya, derlenmiş JavaScript kodunu orijinal TypeScript koduna eşler.
 
-* sourceMap : true
+➖ sourceMap : true
 
 - Hata ayıklama (debugging) sırasında, tarayıcı veya IDE, .js dosyasındaki bir hatanın aslında hangi .ts satırında olduğunu gösterir.
 - Kodunuzu derledikten sonra bile, orijinal TypeScript dosyalarınız üzerinden hata ayıklayabilirsiniz.
