@@ -13,6 +13,7 @@
   - [Özellik | ES2015 | ESNext](#özellik--es2015--esnext)
 - [tsconfig içindeki moduleResolution nedir ne işe yarar](#tsconfig-içindeki-moduleresolution-nedir-ne-işe-yarar)
   - [Proje tipi | Öneri](#proje-tipi--öneri)
+- [lib alanı](#lib-alanı)
 
 
 # Örnek tsconfig.json dosyasının satır satır açıklaması
@@ -351,4 +352,54 @@ import Foo from "./Foo.js"
 ```
 
 Pratik özet: Vite kullanıyorsan bundler seç, uzantı yazmakla uğraşma.
+
+# lib alanı 
+
+lib alanı ne işe yarar?
+
+TypeScript'e "hangi ortamın built-in API'larını tanıyorsun?" diye söylersin. Yani document, Promise, fetch, Array.prototype.map gibi şeylerin tip tanımlarını hangi kütüphanelerden alacağını belirtir.
+
+Bunu yazmazsan TS, target'a göre varsayılan bir set seçer.
+
+Mantığı
+ts
+document.getElementById("app") //← bu "DOM" lib'inden geliyor
+Promise.resolve()               //← bu "ES2015" lib'inden geliyor
+fetch("/api")                   //← bu "DOM" lib'inden geliyor
+Eğer ilgili lib yoksa TS "Cannot find name 'document'" gibi hata verir — kodun çalışıp çalışmamasıyla alakası yok, sadece tip sistemi için.
+
+Başlıca seçenekler
+ES sürümleri
+Değer	İçerik
+ES5	Temel JS
+ES2015 / ES6	Promise, Map, Set, Symbol...
+ES2016	Array.includes...
+ES2017	async/await tipleri, Object.entries...
+ES2018	Rest/spread, async iteration...
+ES2020	BigInt, optional chaining...
+ES2022	Array.at, Object.hasOwn...
+ESNext	En güncel, henüz kararlı olmayan özellikler dahil
+Bunları tek tek yazmak yerine ES2022 yazarsan altındaki her şeyi de kapsar.
+
+Ortam lib'leri
+Değer	Ne zaman
+DOM	Tarayıcı projesi — document, window, fetch...
+DOM.Iterable	NodeList gibi DOM koleksiyonlarını for...of ile dolaşmak için
+WebWorker	Web Worker ortamı
+Özel lib'ler
+Değer	Ne zaman
+ESNext.Decorators	Decorator kullanıyorsan
+ESNext.Disposable	using keyword (yeni)
+Tipik kombinasyonlar
+Vite + SolidJS / React (tarayıcı):
+
+json
+"lib": ["ES2020", "DOM", "DOM.Iterable"]
+Node.js backend (tarayıcı API'ı yok):
+
+json
+"lib": ["ES2022"]
+Node projelerinde DOM ekleme — document gibi şeyleri yanlışlıkla kullanırsın, hata görmezsin.
+
+target ile ilişkisi: lib yazmazsan TS, target: "ES2020" → lib: ["ES2020", "DOM"] gibi varsayılan seçer. Ama açıkça yazman her zaman daha güvenli.
 
