@@ -1,4 +1,6 @@
 
+<h5>Brief Guide for tsconfig.json</h5> 
+
 - [Örnek tsconfig.json dosyasının satır satır açıklaması](#örnek-tsconfigjson-dosyasının-satır-satır-açıklaması)
   - [compilerOptions (TypeScript Derleyici Seçenekleri)](#compileroptions-typescript-derleyici-seçenekleri)
   - [include \& exclude (Dosya Seçimi)](#include--exclude-dosya-seçimi)
@@ -17,6 +19,7 @@
 - [tsup.config.ts](#tsupconfigts)
   - [Ana Konfigürasyon](#ana-konfigürasyon)
   - [Özel İşlem: `onSuccess` Hook'u](#özel-i̇şlem-onsuccess-hooku)
+- [module ESNext ise moduleResolution ne olmalı](#module-esnext-ise-moduleresolution-ne-olmalı)
 
 
 # Örnek tsconfig.json dosyasının satır satır açıklaması
@@ -553,3 +556,29 @@ Build başarılı olduktan sonra **ekstra minify** işlemi yapıyor:
 3. **Sonuç mesajı:** Başarılı ✅ veya hatalı ❌ durumunu göster
 
 **Kısaca:** Tsup normal build yapıyor, sonra `onSuccess` hook'u Terser ile daha agresif minify işlemi uygulayıp dosyaları daha da küçültüyor.
+
+# module ESNext ise moduleResolution ne olmalı
+
+module: "ESNext" seçtiysen moduleResolution: "bundler" olmalı.
+
+Çünkü ESNext zaten "bundler kullanıyorum" sinyali — Node.js ESM değil, tarayıcı/bundler ortamı demek. İkisi birlikte anlam taşıyor:
+
+```json
+{
+  "module": "ESNext",
+  "moduleResolution": "bundler"
+}
+
+```
+
+Diğer tutarlı kombinasyonlar:
+
+module | moduleResolution | Kullanım
+
+- ESNext | bundler| Vite, SolidJS, React
+- Node16 | node16 | Saf Node.js ESM 
+- NodeNext | nodenext | Saf Node.js ESM
+- CommonJS | node | Eski Node.js / CJS
+
+`module: "ESNext"` + `moduleResolution: "node"` yazarsan TS hata vermez ama `package.json exports` alanını okumaz, modern paketlerde tip bulamama sorunları yaşarsın.
+
