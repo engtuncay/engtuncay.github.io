@@ -14,6 +14,9 @@
 - [tsconfig içindeki moduleResolution nedir ne işe yarar](#tsconfig-içindeki-moduleresolution-nedir-ne-işe-yarar)
   - [Proje tipi | Öneri](#proje-tipi--öneri)
 - [lib alanı](#lib-alanı)
+- [tsup.config.ts](#tsupconfigts)
+  - [Ana Konfigürasyon](#ana-konfigürasyon)
+  - [Özel İşlem: `onSuccess` Hook'u](#özel-i̇şlem-onsuccess-hooku)
 
 
 # Örnek tsconfig.json dosyasının satır satır açıklaması
@@ -286,9 +289,10 @@ exports alanını okumaz → modern paketlerle sorun çıkarabilir.
 ➖ bundler ⭐ (modern, önerilen)
 
 Vite, esbuild, Webpack gibi bundler kullanan projeler için tasarlanmıştır.
-package.json → "exports" alanını okur
 
-moduleResolution: "bundler" + module: "ESNext" kombinasyonu SolidJS/Vite projelerinde standarttır.
+`package.json → "exports"` alanını okur
+
+`moduleResolution: "bundler" + module: "ESNext"` kombinasyonu SolidJS/Vite projelerinde standarttır.
 
 Uzantısız importlara izin verir (import Foo from "./Foo" — bundler halleder).
 
@@ -357,49 +361,195 @@ Pratik özet: Vite kullanıyorsan bundler seç, uzantı yazmakla uğraşma.
 
 lib alanı ne işe yarar?
 
-TypeScript'e "hangi ortamın built-in API'larını tanıyorsun?" diye söylersin. Yani document, Promise, fetch, Array.prototype.map gibi şeylerin tip tanımlarını hangi kütüphanelerden alacağını belirtir.
+TypeScript'e "hangi ortamın built-in API'larını tanıyorsun?" diye söylersin. Yani `document, Promise, fetch, Array.prototype.map` gibi şeylerin `tip tanımlarını` hangi kütüphanelerden alacağını belirtir.
 
-Bunu yazmazsan TS, target'a göre varsayılan bir set seçer.
+Bunu yazmazsan TS, `target`'a göre varsayılan bir set seçer.
 
 Mantığı
-ts
+
+```ts
 document.getElementById("app") //← bu "DOM" lib'inden geliyor
 Promise.resolve()               //← bu "ES2015" lib'inden geliyor
 fetch("/api")                   //← bu "DOM" lib'inden geliyor
-Eğer ilgili lib yoksa TS "Cannot find name 'document'" gibi hata verir — kodun çalışıp çalışmamasıyla alakası yok, sadece tip sistemi için.
+
+```
+
+Eğer ilgili lib yoksa TS `"Cannot find name 'document'"` gibi hata verir — kodun çalışıp çalışmamasıyla alakası yok, sadece `tip sistemi` için.
 
 Başlıca seçenekler
+
 ES sürümleri
+
 Değer	İçerik
-ES5	Temel JS
-ES2015 / ES6	Promise, Map, Set, Symbol...
-ES2016	Array.includes...
-ES2017	async/await tipleri, Object.entries...
-ES2018	Rest/spread, async iteration...
-ES2020	BigInt, optional chaining...
-ES2022	Array.at, Object.hasOwn...
-ESNext	En güncel, henüz kararlı olmayan özellikler dahil
+- ES5	| Temel JS
+- ES2015 / ES6	| Promise, Map, Set, Symbol...
+- ES2016	| Array.includes...
+- ES2017	| async/await tipleri, Object.entries...
+- ES2018	| Rest/spread, async iteration...
+- ES2020	| BigInt, optional chaining...
+- ES2022	| Array.at, Object.hasOwn...
+- ESNext	| En güncel, henüz kararlı olmayan özellikler dahil
+
 Bunları tek tek yazmak yerine ES2022 yazarsan altındaki her şeyi de kapsar.
 
 Ortam lib'leri
-Değer	Ne zaman
-DOM	Tarayıcı projesi — document, window, fetch...
-DOM.Iterable	NodeList gibi DOM koleksiyonlarını for...of ile dolaşmak için
-WebWorker	Web Worker ortamı
+
+Değer	| Ne zaman
+
+- DOM |	Tarayıcı projesi — document, window, fetch...
+- DOM.Iterable	| NodeList gibi DOM koleksiyonlarını for...of ile dolaşmak için
+- WebWorker	| Web Worker ortamı
+
 Özel lib'ler
-Değer	Ne zaman
-ESNext.Decorators	Decorator kullanıyorsan
-ESNext.Disposable	using keyword (yeni)
+
+Değer	| Ne zaman
+
+- ESNext.Decorators	| Decorator kullanıyorsan
+- ESNext.Disposable	| using keyword (yeni)
+
 Tipik kombinasyonlar
+
 Vite + SolidJS / React (tarayıcı):
 
-json
+```json
 "lib": ["ES2020", "DOM", "DOM.Iterable"]
+
+```
+
 Node.js backend (tarayıcı API'ı yok):
 
-json
+```json
 "lib": ["ES2022"]
-Node projelerinde DOM ekleme — document gibi şeyleri yanlışlıkla kullanırsın, hata görmezsin.
 
-target ile ilişkisi: lib yazmazsan TS, target: "ES2020" → lib: ["ES2020", "DOM"] gibi varsayılan seçer. Ama açıkça yazman her zaman daha güvenli.
+```
 
+> Node projelerinde DOM ekleme — document gibi şeyleri yanlışlıkla kullanırsın, hata görmezsin.
+
+`target` ile ilişkisi: lib yazmazsan TS, 
+`target: "ES2020" → lib: ["ES2020", "DOM"]` gibi varsayılan seçer. 
+Ama açıkça yazman her zaman daha güvenli.
+
+# tsup.config.ts 
+
+GitHub Copilot: tsup.config.ts, bu TypeScript projesinin **build konfigürasyonu** dosyasıdır. Tsup, TypeScript kodunu JavaScript'e derleyen ve bundle eden bir araçtır.
+
+```js
+import { defineConfig } from 'tsup';
+
+export default defineConfig({
+  entry: ['src/index.ts'],
+  format: ['esm', 'cjs'],
+  dts: true,
+  sourcemap: false,
+  clean: true,
+  outDir: 'dist',
+});
+
+```
+
+Bu dosyadaki ayarlar şunları yapıyor:
+
+| Ayar | Anlamı |
+
+-  `entry: ['src/index.ts']` | Derlemeye index.ts dosyasından başlar |
+-  `format: ['esm', 'cjs']` | Hem ES Module hem CommonJS formatlarında çıktı üretir |
+-  `dts: true` | TypeScript type definition dosyaları (`.d.ts`) oluşturur |
+- `sourcemap: false` | Debug için sourcemap dosyaları oluşturmaz |
+-  `clean: true` | Her build'den önce dist klasörünü temizler |
+-  `outDir: 'dist'` | Derlenmiş dosyaları dist klasörüne koyar |
+
+**Kısaca**: Proje build edildiğinde, index.ts içindeki TypeScript kodu dist klasörüne ES Module ve CommonJS formatlarında derlenmiş JavaScript dosyaları olarak çıktı verir.
+
+User: bu tsup da açıkla
+
+```js
+import { defineConfig } from "tsup";
+import { minify } from "terser";
+//import fs from "fs/promises";
+import { promises as fs } from "fs";
+//alternatif tanımlama
+//import { promises as fs } from "fs";
+
+export default defineConfig([
+    {
+        entry: { "orak-util-ts": "src/index.ts" },
+        format: ["cjs", "esm", "iife"],
+        globalName: "OrakUtilTs",
+        dts: true,
+        minify: false, // `tsup`'un minify işlemini kapatıyoruz
+        clean: true,
+        outDir: "dist",
+        async onSuccess() {
+            const files = [
+                "dist/orak-util-ts.global.js",
+                "dist/orak-util-ts.cjs",
+                "dist/orak-util-ts.js",
+            ];
+
+            for (const file of files) {
+                try {
+                    let code = await fs.readFile(file, "utf8");
+
+                    // Terser ile minify işlemi yapıyoruz
+                    let result = await minify(code, {
+                        compress: true,
+                        mangle: {
+                            keep_classnames: true, // Sınıf isimlerini koru
+                            keep_fnames: true, // Fonksiyon isimlerini koru
+                        },
+                    });
+
+                    // Minify edilmiş dosyayı yazıyoruz
+                    await fs.writeFile(file, result.code, "utf8");
+                    console.log(`✅ ${file} minify edildi.`);
+                } catch (error) {
+                    console.error(`❌ Minify işlemi başarısız: ${file}`, error);
+                }
+            }
+        },
+    },
+]);
+
+```
+
+GitHub Copilot: Bu config dosyası **daha ileri bir kurulum**. Adım adım açıklayım:
+
+## Ana Konfigürasyon
+
+```typescript
+entry: { "orak-util-ts": "src/index.ts" }
+```
+- Giriş dosyası: index.ts
+- Çıktı dosyasının adı: `orak-util-ts`
+
+```typescript
+format: ["cjs", "esm", "iife"]
+```
+- **3 format** oluşturur:
+  - `cjs` - CommonJS (Node.js)
+  - `esm` - ES Module
+  - `iife` - Tarayıcıda global variable olarak kullanılabilir
+
+```typescript
+globalName: "OrakUtilTs"
+```
+- IIFE formatında global variable adı: `window.OrakUtilTs` (tarayıcıda)
+
+## Özel İşlem: `onSuccess` Hook'u
+
+Build başarılı olduktan sonra **ekstra minify** işlemi yapıyor:
+
+1. **Üç dosyayı işler:**
+   - orak-util-ts.global.js (IIFE formatı)
+   - orak-util-ts.cjs (CommonJS)
+   - orak-util-ts.js (ES Module)
+
+2. **Her dosya için:**
+   - Dosyayı oku
+   - **Terser** kütüphanesiyle minify et
+   - Sınıf ve fonksiyon isimlerini **koru** (debugging için)
+   - Minify edilmiş kodu üzerine yaz
+
+3. **Sonuç mesajı:** Başarılı ✅ veya hatalı ❌ durumunu göster
+
+**Kısaca:** Tsup normal build yapıyor, sonra `onSuccess` hook'u Terser ile daha agresif minify işlemi uygulayıp dosyaları daha da küçültüyor.
