@@ -48,22 +48,21 @@ Satır satır açıklamalar:
 
 ➖ compilerOptions (TypeScript Derleyici Seçenekleri)
 
-
--`"target": "ES2020"` | TypeScript kodunun ES2020 JavaScript standardına derlenecek 
--`"module": "ESNext"` | Modern ES modülü formatı kullanılacak (import/export) 
--`"moduleResolution": "bundler"` | Modül çözümlemesi için bundler stratejisi (webpack, vite gibi araçlarla uyumlu)
--`"lib": ["ES2020"]` | Derleme sırasında ES2020 kütüphanelerinin tip tanımları kullanılacak 
--`"esModuleInterop": true` | CommonJS modüleriyle ES modüllerinin uyumluluğu sağlanacak 
--`"types": ["node"]` | Node.js tipleri otomatik olarak dahil edilecek 
--`"declaration": true` | Her `.ts` dosyası için `.d.ts` (tip tanım) dosyası oluşturulacak 
--`"declarationMap": true` | `.d.ts.map` dosyaları oluşturulacak (kaynak dosyaya geri izleme) 
--`"sourceMap": true` | `.js.map` dosyaları oluşturulacak (debug sırasında orijinal TS kodunu görmek için) 
--`"outDir": "./dist"` | Derlenmiş `.js` dosyaları dist klasörüne yazılacak 
--`"rootDir": "./entegre_node"` | Kaynak dosyaların kök dizini (derlenmesi gereken TypeScript dosyaları buradan alınacak) 
--`"strict": true"` | Katı tip kontrolü etkin (daha güvenli kod) |
--`"skipLibCheck": true` | `.d.ts` dosyalarının tip kontrolü atlanacak (derleme hızı artar) |
--`"forceConsistentCasingInFileNames": true` | Dosya adlarında harf büyüklüğü tutarlılığı zorunlu kılınacak |
--`"resolveJsonModule": true` | `.json` dosyaları modül olarak import edilebilecek |
+- `"target": "ES2020"` | TypeScript kodunun ES2020 JavaScript standardına derlenecek 
+- `"module": "ESNext"` | Modern ES modülü formatı kullanılacak (import/export) 
+- `"moduleResolution": "bundler"` | Modül çözümlemesi için bundler stratejisi (webpack, vite gibi araçlarla uyumlu)
+- `"lib": ["ES2020"]` | Derleme sırasında ES2020 kütüphanelerinin tip tanımları kullanılacak 
+- `"esModuleInterop": true` | CommonJS modüleriyle ES modüllerinin uyumluluğu sağlanacak 
+- `"types": ["node"]` | Node.js tipleri otomatik olarak dahil edilecek 
+- `"declaration": true` | Her `.ts` dosyası için `.d.ts` (tip tanım) dosyası oluşturulacak 
+- `"declarationMap": true` | `.d.ts.map` dosyaları oluşturulacak (kaynak dosyaya geri izleme) 
+- `"sourceMap": true` | `.js.map` dosyaları oluşturulacak (debug sırasında orijinal TS kodunu görmek için) 
+- `"outDir": "./dist"` | Derlenmiş `.js` dosyaları dist klasörüne yazılacak 
+- `"rootDir": "./entegre_node"` | Kaynak dosyaların kök dizini (derlenmesi gereken TypeScript dosyaları buradan alınacak) 
+- `"strict": true"` | Katı tip kontrolü etkin (daha güvenli kod) |
+- `"skipLibCheck": true` | `.d.ts` dosyalarının tip kontrolü atlanacak (derleme hızı artar) |
+- `"forceConsistentCasingInFileNames": true` | Dosya adlarında harf büyüklüğü tutarlılığı zorunlu kılınacak |
+- `"resolveJsonModule": true` | `.json` dosyaları modül olarak import edilebilecek |
 
 
 ➖ include & exclude (Dosya Seçimi)
@@ -332,6 +331,54 @@ Bundler özellikleri:
 
 - tsup.config.ts - bundler konfigürasyonu
 - mouleResolution: "bundler" - bundler uyumlu modül çözümleme
+
+📝 moduleResolution'da bundler veya node16 veya nodenext kullanmak neyi değiştirir ?
+
+İşte farklar:
+
+| Seçenek | Kullanım Alanı | Özellikleri |
+|---------|---------------|-----------|
+| **bundler** | Vite, Webpack 5+, esbuild gibi modern bundler'lar | Paket çözümlemesi en esnektir; ES modules prioritesi |
+| **node16** | Node.js 16+ ile ESM desteği | package.json'daki `exports` alanını respektler |
+| **nodenext** | En yeni Node.js sürümlerine göre | `node16`'dan daha yeni ve daha esnek |
+
+**Sizin durumunuzda:**
+- **tsup.config.ts** çalıştırmak için → `node` veya `nodenext` kullanmalı
+- **`bundler`** olursa Node.js built-in modülleri (`fs`, `path` vb.) zor bulabilir
+
+tsup.config.ts bir Node.js config dosyası olduğu için **`nodenext`** en iyidir:
+
+```json
+"moduleResolution": "nodenext"
+```
+
+Bu, tsup konfigürasyonunun Node.js modüllerini doğru şekilde çözmesini sağlar.
+
+📝 import yazımında değişim olur mu ?
+
+**`moduleResolution` import yazımını doğrudan değiştirmez**, ama modüllerin **nasıl çözüldüğünü** değiştirir. Farklılık package.json'da `exports` alanı varsa ortaya çıkar:
+
+```json
+// package.json örneği
+"exports": {
+  ".": "./dist/index.js",
+  "./utils": "./dist/utils.js"
+}
+```
+
+➖ import yazımı farkları:
+
+| Durum | bundler | node16 / nodenext |
+|-------|---------|------------------|
+| `import { x } from "mypackage"` | ✅ Çalışır | ✅ Çalışır |
+| `import { x } from "mypackage/utils"` | ✅ Çalışır | ✅ Çalışır |
+| `import { x } from "mypackage/dist/index.js"` | ✅ Çalışır | ❌ **Hata** (exports'ta yok) |
+
+**Özet:**
+- **bundler**: Daha esnek, node_modules içindeki dosyaları doğrudan import edebilirsin
+- **node16 / nodenext**: Katı, **sadece** `exports`'ta tanımlanmış yolları kabul eder
+
+Sizin durumunuzda tsup.config.ts'nin Node.js modüllerini (`fs`, `terser`) doğru bulması için **`nodenext`** idealdir.
 
 ## ES2015 ile EsNext arasında farklar
 
@@ -620,3 +667,16 @@ Ama bu projede `noEmit: true` olduğu için `tsc` herhangi bir dosya oluşturmaz
 **tsc vs tsup:**
 - `tsc`: Sadece TypeScript → JavaScript dönüşümü
 - `tsup`: TypeScript derlemesi + bundling (paketleme) + minification
+
+## Hata Çözümlemeleri
+
+### Cannot find name 'fs' hatası 
+
+Sorun tsconfig.json'da. include ayarı sadece entegre_node/**/*.ts dosyalarını dahil ediyor, ama tsup.config.ts kök klasörde. Bunu düzeltmeliyim:
+
+Tamam! `tsconfig.json`'da *.config.ts dosyalarını include array'ine ekledim. Artık tsup.config.ts dosyası TypeScript compilation'a dahil olacak ve fs hatasını vermeyecek.
+
+```json
+  "include": ["entegre_node/**/*.ts", "*.config.ts"],
+
+```
