@@ -46,13 +46,15 @@ Source : https://www.typescripttutorial.net
 
 - [7 How to install Typescript and create a simple webpage by Jaeho Kim](./arts/art-ts-07-how-to-install-ts-project-web.md) 
 
-- [8 Setup Typescript Project with Vite](./arts/art-ts-08-setup-typescript-project-with-vite.md)
+- [(8) Setup Typescript Project with Vite](./arts/art-ts-08-setup-typescript-project-with-vite.md)
 
-- [9 Strict Type](./arts/art-ts-09-strict-type.md)
+- [(9) Strict Type](./arts/art-ts-09-strict-type.md)
 
-- [10 Tsconfig Guide](./arts/art-ts-10-tsconfig-guide.md)
+- [(10) Tsconfig Guide](./arts/art-ts-10-tsconfig-guide.md)
 
-- [11 Creating Vite Ts Project](./arts/art-ts-11-vite-ts-project.md)
+- [(12) TsConfig Guide (2) ](./arts/art-ts-12-tsconfig-guide.md)
+
+- [(11) Creating Vite Ts Project](./arts/art-ts-11-vite-ts-project.md)
 
 
 
