@@ -74,7 +74,7 @@ kullanışlı olan,ezberlenecek liste
 Kod içerisinde gezinme için kısayollar
 
 | Shortcut     | Desc                               | F   |
-|--------------|------------------------------------|-----|
+| ------------ | ---------------------------------- | --- |
 | c+t          | Show all Symbols                   |     |
 | c+p          | Go to File                         |     |
 | c+\* (cs+o)  | Go to Symbol...                    |     |
@@ -84,9 +84,11 @@ Kod içerisinde gezinme için kısayollar
 | s+F8         | Go to previous error or warning    |     |
 | cs+m         | `Jump to matching bracket`         | xxx |
 | c+k,b        | Toogle Bookmark (idea)             |     |
+| c+a,k        | Toogle Bookmark (vsc)              |     |
 | c+F11        | Toggle Bookmark Mnemonic (idea)    |     |
 | cs+[0-9]     | Toggle Bookmark [0-9] (idea)       |     |
 | c+[0-9]      | Go to Bookmark (idea)              |     |
+| s+F11        | List Bookmarks(all files) (vsc)    |     |
 | c+h,b        | Open file from path (vsc-ext)      |     |
 | a+z          | Toggle word wrap                   |     |
 | cs+(np-)     | Fold (collapse) region (close)     |     |
