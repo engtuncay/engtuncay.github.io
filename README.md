@@ -26,7 +26,7 @@ These notes are taken from web resources. Some sections can be modified or remov
 
 [Node](./node/readme.md)
 
-[Typescript](./typescript/readme.md)
+[Typescript](./js-typescript/readme.md)
 
 [Solid Js](./js-libs/solidjs/readme.md)
 
@@ -40,9 +40,9 @@ These notes are taken from web resources. Some sections can be modified or remov
 
 [Tor VsCode Keymap](./editors/editor-keymap-vsc-tor1.md)
 
-[Mssql Notes](./mssql/readme.md)
+[Mssql Notes](./db-mssql/readme.md)
 
-[Mysql Notes](./mysql/readme.md)
+[Mysql Notes](./db-mysql-mariadb/readme.md)
 
 [Affinity](./design/affinity/readme.md)
 
