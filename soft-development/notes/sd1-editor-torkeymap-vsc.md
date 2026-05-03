@@ -83,7 +83,7 @@ Kod içerisinde gezinme için kısayollar
 | F8           | Go to next error or warning        |     |
 | s+F8         | Go to previous error or warning    |     |
 | cs+m         | `Jump to matching bracket`         | xxx |
-| c+k,b        | Toogle Bookmark (idea)             |     |
+| F11          | Toogle Bookmark (idea)             |     |
 | c+a,k        | Toogle Bookmark (vsc)              |     |
 | c+F11        | Toggle Bookmark Mnemonic (idea)    |     |
 | cs+[0-9]     | Toggle Bookmark [0-9] (idea)       |     |
