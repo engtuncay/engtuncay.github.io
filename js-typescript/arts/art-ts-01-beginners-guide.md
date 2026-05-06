@@ -1,7 +1,9 @@
 
 <h1>Learn TypeScript – A Comprehensive Guide for Beginners By Isaiah Clifford Opoku</h1>
 
-Source : https://www.freecodecamp.org/news/typescript-for-beginners-guide/ (some parts may be modified)
+Source : https://www.freecodecamp.org/news/typescript-for-beginners-guide/ 
+
+(some parts may be modified or removed)
 
 August 8, 2024
 
@@ -46,14 +48,6 @@ August 8, 2024
 - [Conclusion](#conclusion)
 
 
-TypeScript has become an industry standard for building large-scale applications, with many organizations choosing it as their primary language for application development.
-
-The aim of this guide is not to be an exhaustive resource, but rather a concise and handy reference. It distills the essence of TypeScript into a digestible format.
-
-Whether you're a novice just starting out, an intermediate learner aiming to consolidate your knowledge, or an advanced user in need of a quick refresher, this guide is crafted to meet your TypeScript learning requirements.
-
-After carefully reading through this tutorial and practicing the examples it contains, you should have the skills to build robust, scalable, and maintainable TypeScript applications. We'll cover key TypeScript concepts like types, functions, classes, interfaces, generics, and more.
-
 # Prerequisites
 
 Before you begin going through this guide, you should have a basic understanding of JavaScript. Familiarity with object-oriented programming concepts like classes, interfaces, and inheritance is also recommended.
@@ -62,13 +56,11 @@ But if you're new to these concepts, don't worry - we'll cover them in detail in
 
 # Who is this Guide For?
 
-This guide is for anyone looking to learn TypeScript. Whether you're a beginner, an intermediate learner, or an advanced user, this guide is designed to meet your TypeScript learning needs.
-
 It's also a handy reference for anyone looking to brush up on their TypeScript skills.
 
 # TypeScript vs JavaScript
 
-TypeScript is a statically-typed superset of JavaScript, designed to enhance the development of large-scale applications.
+TypeScript is a `statically-typed superset of JavaScript`, designed to enhance the development of large-scale applications.
 
 It introduces optional static typing, classes, and interfaces to JavaScript, drawing parallels with languages like C# and Java. TypeScript code is transpiled to plain JavaScript, ensuring compatibility across various JavaScript environments.
 
@@ -117,14 +109,14 @@ This feature helps catch errors early in the development process, making TypeScr
 
 TypeScript and JavaScript are both powerful languages used in a wide range of applications. Let's summarize their key differences:
 
-Feature        | TypeScript                                                                                                                                                         | JavaScript
----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------
-Type           | System	Statically typed (types are checked at compile-time)                                                                                                        | Dynamically typed (types are checked at run-time)
-Superset       | Yes, TypeScript is a superset of JavaScript                                                                                                                        | N/A <br/> Compilation	Needs to be compiled (or transpiled) into JavaScript	Does not need to be compiled
-OOP Features   | Includes advanced OOP features such as interfaces, generics, and decorators                                                                                        | Supports OOP through prototypes, does not natively support interfaces or generics
-Tooling        | Offers better tooling with autocompletion, type checking, and source map support	Basic tooling <br/>Community and Ecosystem	Newer, smaller community and ecosystem | Large community and vast ecosystem of libraries and frameworks since 1995
-Learning Curve | Steeper due to additional features                                                                                                                                 | Generally easier for beginners
-Use Cases      | Typically used in larger codebases where the benefits of type checking and autocompletion are most noticeable                                                      | Used for both client-side and server-side development, can be executed natively in the browser
+| Feature        | TypeScript                                                                                                                                                       | JavaScript                                                                                            |
+|----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|
+| Type           | System	Statically typed (types are checked at compile-time)                                                                                                       | Dynamically typed (types are checked at run-time)                                                     |
+| Superset       | Yes, TypeScript is a superset of JavaScript                                                                                                                      | N/A <br/> Compilation	Needs to be compiled (or transpiled) into JavaScript	Does not need to be compiled |
+| OOP Features   | Includes advanced OOP features such as interfaces, generics, and decorators                                                                                      | Supports OOP through prototypes, does not natively support interfaces or generics                     |
+| Tooling        | Offers better tooling with autocompletion, type checking, and source map support	Basic tooling <br/>Community and Ecosystem	Newer, smaller community and ecosystem | Large community and vast ecosystem of libraries and frameworks since 1995                             |
+| Learning Curve | Steeper due to additional features                                                                                                                               | Generally easier for beginners                                                                        |
+| Use Cases      | Typically used in larger codebases where the benefits of type checking and autocompletion are most noticeable                                                    | Used for both client-side and server-side development, can be executed natively in the browser        |
 
 # Advantages of TypeScript
 
@@ -168,9 +160,9 @@ With this command, the compiler will monitor the index.ts file and automatically
 
 ➖ Configuring the TypeScript Compiler
 
-For larger projects, it's common to have a configuration file, tsconfig.json, to manage compiler options. This file allows you to specify the root level files and the compiler options required to compile the project.
+For larger projects, it's common to have a configuration file, tsconfig.json, to manage compiler options. This file allows you to specify `the root level files and the compiler options` required to compile the project.
 
-Here's an example of a tsconfig.json file:
+Here's an example of a `tsconfig.json` file:
 
 ```js
 {
@@ -1006,3 +998,8 @@ We discussed TypeScript's built-in enumerations, such as number enums, string en
 
 [Back](../readme.md)
 
+
+> ⚠️ Note: This content is for educational and personal reference purposes only.
+> The original source is shown at the top of the document.
+>
+> All rights and copyrights belong to their respective owners.

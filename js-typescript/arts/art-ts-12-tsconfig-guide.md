@@ -42,9 +42,7 @@
 
 ```
 
-GitHub Copilot: # tsconfig.json Açıklaması
-
-Satır satır açıklamalar:
+tsconfig.json satır satır açıklaması :
 
 ➖ compilerOptions (TypeScript Derleyici Seçenekleri)
 

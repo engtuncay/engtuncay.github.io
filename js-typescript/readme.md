@@ -52,9 +52,9 @@ Source : https://www.typescripttutorial.net
 
 - [(10) Tsconfig Guide](./arts/art-ts-10-tsconfig-guide.md)
 
-- [(12) TsConfig Guide (2) ](./arts/art-ts-12-tsconfig-guide.md)
-
 - [(11) Creating Vite Ts Project](./arts/art-ts-11-vite-ts-project.md)
+
+- [(12) TsConfig Guide (2) ](./arts/art-ts-12-tsconfig-guide.md)
 
 
 
