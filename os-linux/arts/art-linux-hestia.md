@@ -20,15 +20,19 @@ User: ubuntu 24 vps'eme hestia nasıl kurarım (normal kullanıcı ile giriş ya
 GitHub Copilot: Ubuntu 24 VPS’inize Hestia Control Panel’i normal (root olmayan) bir kullanıcı ile kurmak için aşağıdaki adımları izleyebilirsiniz:
 
 ### 1. Root Yetkisi Alın
+
 Hestia kurulumu için root yetkisi gereklidir. Normal kullanıcı ile giriş yaptıysanız, aşağıdaki komutla root’a geçin:
+
 ```sh
 sudo -i
 ```
+
 veya sadece kurulum komutlarında başına `sudo` ekleyin.
 
----
+
 
 ### 2. Sistem Güncellemesi
+
 ```sh
 sudo apt update && sudo apt upgrade -y
 ```
@@ -51,7 +55,7 @@ wget https://raw.githubusercontent.com/hestiacp/hestiacp/release/install/hst-ins
 
 ### 5. Kurulum Script’ini Çalıştırın
 ```sh
-sudo bash hst-install.sh
+  sudo bash hst-install.sh
 ```
 Kurulum sırasında size bazı sorular sorulacak, tercihinize göre yanıtlayabilirsiniz.
 
