@@ -10,6 +10,7 @@ Rclone, komut satırı tabanlı bir dosya senkronizasyon ve yönetim aracıdır.
 ---
 
 # Rclone'un Temel Özellikleri
+
 - Bulut Depolama Desteği: Google Drive, Dropbox, OneDrive, Amazon S3, Backblaze B2, Yandex Disk, MEGA ve daha birçok servisi destekler.
 - Senkronizasyon ve Kopyalama: Yerel diskten buluta, buluttan buluta veya buluttan yerel diske dosya ve klasör senkronizasyonu yapabilir.
 - Şifreleme: Verilerinizi güvenli bir şekilde şifreleyerek saklayabilirsiniz.

@@ -24,7 +24,7 @@ Solid Js Notes
 
 # Cheats
 
-- [Tor Cheat](./cheats/solid-cheat-tor.md) 
+- [Cheatx](./cheats/solid-cheat-tor.md) 
 
 
 [🔝](#contents)
@@ -33,6 +33,8 @@ Solid Js Notes
 
 - [Intro](./notes/sj1-intro.md)
 - [Css](./notes/sj2-css.md)
+
+- [Solid App Notes](./arts/art-solid-notes.md)
 
 # Articles
 

@@ -71,7 +71,7 @@ ln -s /var/www/html /home/tuncay/html-link
 
 ### 6. BAT Karşılığı Bash Dosyası mı?
 
-Evet, Windows’taki `.bat` dosyalarının karşılığı Linux’ta Bash scriptleridir (`.sh` uzantılı olabilir ama zorunlu değil).
+Windows’taki `.bat` dosyalarının karşılığı Linux’ta Bash scriptleridir (`.sh` uzantılı olabilir ama zorunlu değil).
 
 ---
 
