@@ -18,6 +18,8 @@
 - [Winget ile yüklü uygulamalardan d ile başlayanlar](#winget-ile-yüklü-uygulamalardan-d-ile-başlayanlar)
 - [Belirli Bir Yazılımı Güncelleme](#belirli-bir-yazılımı-güncelleme)
 - [winget in powershell or in cmd and using admin rights](#winget-in-powershell-or-in-cmd-and-using-admin-rights)
+- [Örnek Uygulamalar](#örnek-uygulamalar)
+  - [ImageMagick](#imagemagick)
 
 
 [🔝](#contents)
@@ -132,3 +134,19 @@ Bazı uygulamalar zaten kendi installer'larında yönetici ister, winget bunu ot
 
 Pratik öneri: Normal kullanıcı PowerShell'de aç, yeterli. Bir şey hata verirse o zaman yönetici olarak aç.
 
+# Örnek Uygulamalar
+
+## ImageMagick
+
+magick cli komutu yükler. imajları resolution'u değiştirir.
+
+```sh
+winget install --id ImageMagick.ImageMagick -e
+```
+
+💡 Örnek komut
+
+```
+magick convert favicon.svg -resize 32x32 favicon.ico
+
+```

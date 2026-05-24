@@ -175,3 +175,11 @@ Türkçesiyle:
 - kendi özel renk paletimizi oluşturabiliriz. swatches panelden yeni palet oluşturabiliriz. scope'u document yaparsak sadece o dokümanda görünür olur. scope'u application yaparsak tüm dokümanlarda görünür olur. scope'u global yaparsak tüm affinity uygulamalarında görünür olur.
 
  
+# Calismalar
+
+## Calisma 2
+
+➖ Making yoru first paper pixel brush
+
+Intensity brushes work off light and dark contrast
+

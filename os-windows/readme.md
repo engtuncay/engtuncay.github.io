@@ -1,8 +1,13 @@
 
 
 
-- [Winget Intro](./arts/winget-intro.md)
+- [Winget](./arts/art-win-0-winget.md)
 
-- [Cmder](./arts/cmder-intro.md)
+- [Cmder](./arts/art-win-3-cmder-intro.md)
 
-- [Arts1](./arts/arts1.md)
+- [Rclone](./arts/art-win-1-rclone.md)
+
+- [Dns](./arts/art-win-2-dns-sol.md)
+
+- [Dns](./arts/art-win-4-magick.md)
+
