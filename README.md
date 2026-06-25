@@ -68,6 +68,8 @@ These notes are taken from web resources. Some sections can be modified or remov
 
 - [Js Cheat](./javascript/js-cheats/tor-js-cheat.md)
 
+- [Css3 Cheat](./css/notes/css3-cheatsheet.md)
+
 - [Solidjs Cheat](./js-libs/solidjs/cheats/solid-cheat-tor.md)
 
 - [Php Cheat](./php/cheats/phpcs1.md)

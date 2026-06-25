@@ -9,6 +9,8 @@
 
 # CSS Cheats
 
+- [Css3 Cheat](./notes/css3-cheatsheet.md)
+
 - QuickRef Css, https://quickref.me/css3
 
 - Interactive CSS Cheat Sheet, https://htmlcheatsheet.com/css/
