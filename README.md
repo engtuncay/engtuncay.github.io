@@ -36,9 +36,9 @@ These notes are taken from web resources. Some sections can be modified or remov
 
 [Progressive Web Application](./pwa/readme.md)
 
-[Regex](./reg-ex/readme.md)
+[Regex](./regex/readme.md)
 
-[Tor VsCode Keymap](./editors/editor-keymap-vsc-tor1.md)
+[Soft Development](./soft-development/readme.md)
 
 [Mssql Notes](./db-mssql/readme.md)
 
@@ -86,6 +86,7 @@ These notes are taken from web resources. Some sections can be modified or remov
 
 - [Mssql Cheat](#)
 
+[🔝](#contents)
 
 # Other Tutors
 
