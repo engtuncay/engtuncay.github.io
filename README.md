@@ -66,7 +66,9 @@ These notes are taken from web resources. Some sections can be modified or remov
 
 # Cheats
 
-- [Js Cheat](./javascript/js-cheats/tor-js-cheat.md)
+- [Js Cheat (Tor)](./javascript/js-cheats/tor-js-cheat.md)
+
+- [Js Cheat1](./javascript/js-cheats/jscheat1.md)
 
 - [Css3 Cheat](./css/notes/css3-cheatsheet.md)
 
