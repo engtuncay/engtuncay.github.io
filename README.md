@@ -12,7 +12,7 @@ These notes are taken from web resources. Some sections can be modified or remov
 
 # Software Development Notes List
 
-[My Fav Keymap Vsc](./soft-development/editor-torkeymap-vsc.md)
+[Editor Keymap Vsc And Idea](./soft-development/notes/sd1-editor-keymap-or1.md)
 
 [Csharp Notes](./csharp-dotnet/readme.md)
 

@@ -86,38 +86,49 @@ rclone copy local_folder crypt:/secure-backup
 ---
 
 # Google Drive ile Temel Rclone Komutları
+
 ## Google Drive İçeriğini Listeleme
 ```sh
 rclone ls gdrive:
 ```
+
 Sadece klasörleri listelemek için:
+
 ```sh
 rclone lsd gdrive:
 ```
 
 ## Google Drive'a Dosya Yükleme
+
 ```sh
 rclone copy ~/yerel_klasor gdrive:/yedek
 ```
 Windows için:
+
 ```sh
 rclone copy C:\Dosyalar gdrive:/Backup
 ```
 
 ## Google Drive'dan Dosya İndirme
+
 ```sh
 rclone copy gdrive:/Backup ~/yerel_yedek
 ```
+
 Windows için:
+
 ```sh
 rclone copy gdrive:/Backup C:\Yedek
 ```
 
 ## Google Drive ile Senkronizasyon
+
 ```sh
 rclone sync ~/yerel_klasor gdrive:/yedek
 ```
+
 Silme işlemi yapmadan önizlemek için:
+
 ```sh
 rclone sync ~/yerel_klasor gdrive:/yedek --dry-run
 ```
@@ -125,18 +136,24 @@ rclone sync ~/yerel_klasor gdrive:/yedek --dry-run
 ---
 
 # Google Drive'ı Yerel Disk Gibi Bağlama (Mount)
+
 ```sh
 rclone mount gdrive:/ X: --vfs-cache-mode full
 ```
+
 Linux için:
+
 ```sh
 rclone mount gdrive:/ ~/GoogleDrive --daemon
 ```
+
 Mount’u kaldırmak için:
+
 Windows:
 ```sh
 net use X: /delete
 ```
+
 Linux:
 ```sh
 fusermount -u ~/GoogleDrive
@@ -145,6 +162,7 @@ fusermount -u ~/GoogleDrive
 ---
 
 # Rclone Web Arayüzü ile Google Drive Yönetimi
+
 ```sh
 rclone rcd --rc-web-gui
 ```

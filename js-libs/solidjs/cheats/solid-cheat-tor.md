@@ -55,6 +55,8 @@ SolidJs Cheat Sheet By Oraksoft
       - [**10. Routing (Yönlendirme)**](#10-routing-yönlendirme)
       - [**11. Server-Side Rendering (SSR)**](#11-server-side-rendering-ssr)
       - [**12. Performans ve Doğrudan DOM Manipülasyonu**](#12-performans-ve-doğrudan-dom-manipülasyonu)
+- [Extensions](#extensions)
+  - [Tailwind Installation](#tailwind-installation)
 
 # Proje Oluşturma
 
@@ -1147,3 +1149,66 @@ function App() {
 ---
 
 SolidJS'in güçlü yanları olan reaktivite ve performansı desteklemek için küçük ve basit parçalı yapılar üzerinde çalışmak gereklidir.
+
+# Extensions
+
+## Tailwind Installation
+
+solidjs uygulamama (solidjs+vite+ts) tailwind nasıl eklerim
+
+Tailwind v4 ile kurulum oldukça basit:
+
+1. Paketi yükle
+
+```bash
+pnpm add -D tailwindcss @tailwindcss/vite
+
+```   
+2. vite.config.ts güncelle
+   
+```ts
+import { defineConfig } from "vite";
+import solid from "vite-plugin-solid";
+// eklenecek import
+import tailwindcss from "@tailwindcss/vite";
+
+export default defineConfig({
+  plugins: [
+    tailwindcss(),
+    solid(),
+  ],
+});
+
+```
+
+3. CSS dosyasına ekle
+
+src/index.css (yoksa oluştur):
+
+```css
+@import "tailwindcss";
+
+```
+
+4. CSS'i index.tsx'e import et
+
+```tsx
+import "./index.css";
+
+```
+
+5. Test et
+
+```tsx
+<h1 class="text-3xl font-bold text-blue-500">Merhaba</h1>
+
+```
+
+Not: SolidJS'te className değil class kullanılır.
+
+```bash
+pnpm dev
+
+```
+
+Tailwind sınıfları çalışıyorsa kurulum tamam.
