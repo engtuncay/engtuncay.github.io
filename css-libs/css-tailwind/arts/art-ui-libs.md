@@ -7,6 +7,8 @@ GitHub Copilot: Tailwind CSS için, Bootstrap gibi hazır component sunan ve kay
 Açık kaynaklı, çok sayıda hazır component sunar.  
 Kaynak kodu: https://github.com/saadeghi/daisyui
 
+- daisyui bir css library eklentisi
+
 2. Flowbite  
 Modern ve kapsamlı bir component kütüphanesi.  
 Kaynak kodu: https://github.com/themesberg/flowbite
@@ -16,14 +18,17 @@ Resmi olarak Tailwind ekibi tarafından geliştirilir, ancak kaynak kodu sadece 
 Demo: https://tailwindui.com/components
 
 4. Headless UI  
+
 Daha çok erişilebilirlik odaklı, işlevsel componentler sunar.  
 Kaynak kodu: https://github.com/tailwindlabs/headlessui
 
 5. Kometa UI Kit  
+
 Ücretsiz ve açık kaynaklı componentler.  
 Kaynak kodu: https://github.com/konstantinmuenster/kometa-ui-kit
 
 6. HyperUI  
+
 Ücretsiz, açık kaynaklı ve çok sayıda component içerir.  
 Kaynak kodu: https://github.com/markmead/hyperui
 
@@ -34,11 +39,15 @@ User: bir şey kurmadan sadece copy paste ile component'leri kullanabileceği ui
 GitHub Copilot: Evet, hiçbir şey kurmadan sadece copy-paste ile kullanabileceğiniz, Tailwind tabanlı UI component kitleri mevcuttur. Bu kitlerde HTML ve Tailwind sınıflarıyla hazırlanmış component kodlarını doğrudan kopyalayıp projenize ekleyebilirsiniz. İşte popüler seçenekler:
 
 1. HyperUI  
+
 Componentleri doğrudan kopyalayıp kullanabilirsiniz.  
+
 Site: https://www.hyperui.dev/
 
 2. Tailwind Components  
 Topluluk tarafından paylaşılan, kopyala-yapıştır ile kullanılabilen componentler.  
+
+
 Site: https://tailwindcomponents.com/
 
 3. Tailwind UI Kit  

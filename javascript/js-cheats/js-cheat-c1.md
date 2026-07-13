@@ -121,6 +121,7 @@ multi-line comment */
 
 ## Data types
 
+
 ### Basics
 
 JavaScript provides seven different data types:
@@ -134,6 +135,7 @@ JavaScript provides seven different data types:
 | `boolean`   | `true, false`                                                         |
 | `object`    | A collection of properties.                                           |
 | `symbol`    | Represents a unique identifier.                                       |
+
 
 ### falsy values
 

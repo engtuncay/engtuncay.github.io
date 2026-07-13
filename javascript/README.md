@@ -20,7 +20,7 @@
 
 # Js Cheats
 
-- [Tor Javascript Cheat](./js-cheats/tor-js-cheat.md)
+- [Javascript Cheat-c1](./js-cheats/js-cheat-c1.md)
 
 - QuickRef Javascript, https://quickref.me/javascript
 

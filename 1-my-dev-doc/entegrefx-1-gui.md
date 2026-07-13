@@ -11,6 +11,7 @@ Java Fx ile geliştirdiğim uygulama için aldığım notlar.
 - [Meta Datalar](#meta-datalar)
   - [FiColsEntegre - Entegre Sütun Objeleri](#ficolsentegre---entegre-sütun-objeleri)
   - [MetaEntConst Entegre Meta Sabitler (String degerler)](#metaentconst-entegre-meta-sabitler-string-degerler)
+  - [Fim Meta Sınıflar](#fim-meta-sınıflar)
 - [Layout](#layout)
   - [Hide Component](#hide-component)
 - [Module Oluşturma](#module-oluşturma)
@@ -19,8 +20,10 @@ Java Fx ile geliştirdiğim uygulama için aldığım notlar.
 - [Module Helper](#module-helper)
   - [Listede eleman sayısı 1 den fazla var mı ortak kontolü](#listede-eleman-sayısı-1-den-fazla-var-mı-ortak-kontolü)
 - [Dialog Pencereleri](#dialog-pencereleri)
+  - [Emm Form Dialog (EmmFormWindowCont)](#emm-form-dialog-emmformwindowcont)
   - [Pop Dialog - Info Warn Error](#pop-dialog---info-warn-error)
   - [String deger Alan Dialog](#string-deger-alan-dialog)
+  - [EmmFormDialog](#emmformdialog)
 - [Special Components](#special-components)
   - [Şablon Exceli Oluşturma](#şablon-exceli-oluşturma)
   - [Form Dialog](#form-dialog)
@@ -43,10 +46,10 @@ Java Fx ile geliştirdiğim uygulama için aldığım notlar.
 
 - Vim  : view modal (Class isminde)
 - Ehp : Entegre Fx Helper (Class isminde) (Enh)
-- Esr : EntegreServer
+- Esr : EntegreServer (Era : Entegre Rest Api)
 - Emk : Entegre Mikro
-- Emhp : Ent. Mikro Helper (emh de kullanılabilir)
-- Emm : Ent. Mikro Modals (Entegre Mikro Projedeki Modal Sınıfları)
+- Emh : Ent. Mikro Helper (Emhp kullanılmış da olabilir mevcutta)
+- Emm : Ent. Mikro Models (Entegre Mikro Projedeki Model Sınıfları)
 
 ➖ Metod İsminde Kullanılan Kısaltmalar
 
@@ -63,7 +66,7 @@ PostFix
 
 Sınıf    | Açıklama
 ---------|----------------
-EmhpIcon | Kullanılan icon
+EmhIcon | Kullanılan iconlar
   
 [🔝](#contents)
 
@@ -77,7 +80,7 @@ EmhpIcon | Kullanılan icon
 
 İlgili tablo ismindeki sınıfın içerisine çekildi. (FiColsCariHesap,FiColsCha gibi...)
 
-örnek alan objesi dönen metod :
+Örnek alan objesi dönen metod :
 
 ```java
 public static FiCol aucTxValue() {
@@ -85,6 +88,7 @@ public static FiCol aucTxValue() {
   fiCol.buildColType(OzColType.String);
   return fiCol;
 }
+
 ```
 
 ## MetaEntConst Entegre Meta Sabitler (String degerler)
@@ -97,7 +101,14 @@ String sabitler burada tutulur.
 public String soapAction(){
 		return "SOAPaction";
   }
+
 ```
+
+## Fim Meta Sınıflar
+
+* FimQcSpecFields : Dml excelin özel anlamı olan alanlar
+  
+
 
 # Layout
 
@@ -145,6 +156,106 @@ if (!EfxhpModHelper.checkKayitlarSecilmisMi(itemsChecked)) return;
 - FxDialogShow
 - FxSimpleDialog
 
+
+## Emm Form Dialog (EmmFormWindowCont)
+
+```java
+  EmmFormWindowCont emmFormWindowCont = new EmmFormWindowCont(getConnProfile());
+  emmFormWindowCont.initCont();
+  emmFormWindowCont.addCrudSaveButtonAndAction();
+
+  FicList fiCols = new FicList();
+  fiCols.add(FiColsMikro.dtBas());
+  fiCols.add(FiColsMikro.dtSon());
+
+  emmFormWindowCont.getFormMain().setListFormElements(fiCols);
+
+  if(getFxTableView().getFkbHeaderFilterExtra()!=null){
+      emmFormWindowCont.getFormMain().getFxFormConfig().setFkbEntity(getFxTableView().getFkbHeaderFilterExtra());
+  }
+
+  emmFormWindowCont.getFormMain().initCont();
+  //emmFormWindowCont.getFormMain().setFormTypeSelected(FormType.PlainFormV1);
+
+  emmFormWindowCont.setFnFdrSavec(() -> {
+      Fkb formAsFkb = emmFormWindowCont.getFormMain().getFormAsFkbNotNullKeys();
+      //formAsFkb.logParams();
+      getFxTableView().setFkbHeaderFilterExtra(formAsFkb);
+      return Fdr.bui(true);
+  });
+
+  emmFormWindowCont.openAsNonModal();
+
+  if (emmFormWindowCont.checkClosedWithDone()) {
+      pullTableData();
+  }
+```
+
+➖ Crud Dialog Örnek
+
+```java
+private void actBtnGuncelleIadeNoTarih() {
+
+    MkCariHar itemsChecked = getFxTableView().getItemsCheckedOneOrSelectedItemWitWarn();
+
+    if (itemsChecked == null) return;
+
+    RepoMkEBelgeEvrakFkb repoMkEBelgeEvrakFkb2 = new RepoMkEBelgeEvrakFkb(getConnProfile());
+    Fkb fkbParams = new Fkb();
+    fkbParams.addFic(FicEBelgeEvrakHar.ebh_related_recno(), itemsChecked.getCha_RECno());
+
+    Fdr fdrEbelgeEvrak = repoMkEBelgeEvrakFkb2.getItems(fkbParams);
+    Integer ebhRecNo = null;
+    Fkb fkbEbhEntity = null;
+
+    if (fdrEbelgeEvrak.isTrueBoResult()) {
+      fdrEbelgeEvrak.getFdFkbListValNtn().logContent();
+      if (fdrEbelgeEvrak.getFdFkbListValNtn().size() == 1) {
+        ebhRecNo = fdrEbelgeEvrak.getFdFkbListValNtn().get(0).getFicAsInt(FicEBelgeEvrakHar.ebh_recno());
+        fkbEbhEntity = fdrEbelgeEvrak.getFdFkbListValNtn().get(0);
+      }
+    }
+
+    if (fkbEbhEntity == null) {
+      fkbEbhEntity = new Fkb();
+      fkbEbhEntity.addFic(FicEBelgeEvrakHar.ebh_related_recno(), itemsChecked.getCha_RECno());
+    }
+
+    EmmFormWindowCont emmFormWindowCont = new EmmFormWindowCont(getConnProfile());
+    emmFormWindowCont.initCont();
+    emmFormWindowCont.addCrudSaveButtonAndAction();
+
+    emmFormWindowCont.addMessageHeader(String.format("%s nolu Evrak", itemsChecked.getEvrakSeriTireSira()));
+
+    FicList fiCols = new FicList();
+    fiCols.add(FicEBelgeEvrakHar.ebh_iade_fat_no1());
+    fiCols.add(FicEBelgeEvrakHar.ebh_iade_fat_tarihi1());
+    fiCols.add(FicEBelgeEvrakHar.ebh_related_recno().buiBoEditable(false));
+    fiCols.add(FicEBelgeEvrakHar.ebh_recno().buiBoEditable(false));
+
+    emmFormWindowCont.getFormMain().setListFormElements(fiCols);
+    emmFormWindowCont.getFormConfig().setFkbEntity(fkbEbhEntity);
+
+    emmFormWindowCont.getFormMain().initCont();
+    //emmFormWindowCont.getFormMain().setFormTypeSelected(FormType.PlainFormV1);
+
+    emmFormWindowCont.setFnFdrSavec(() -> {
+      Fkb formAsFkb = emmFormWindowCont.getFormMain().getFormAsFkb();
+      //formAsFkb.logParams();
+
+      RepoMkEBelgeEvrakFkb repoMkEBelgeEvrakFkb = new RepoMkEBelgeEvrakFkb(getConnProfile());
+      Fdr fdrInsUpEbh = repoMkEBelgeEvrakFkb.insOrUp(formAsFkb);
+
+      EmmErrorWindow.showFdr1PopOrFailWindow(fdrInsUpEbh, null);
+      return fdrInsUpEbh;
+    });
+
+    emmFormWindowCont.openAsNonModal();
+
+  }
+
+```
+
 ## Pop Dialog - Info Warn Error
 
 Pop Dialog - Modal Dialog Örnekleri
@@ -177,6 +288,12 @@ if (fxSimpleDialog.isClosedWithOk()) {
 }
 
 ```
+
+
+## EmmFormDialog
+
+
+
 
 # Special Components 
 
