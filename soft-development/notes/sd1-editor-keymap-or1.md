@@ -28,6 +28,7 @@ OrakSoft Keyboard shortcuts for Windows Based On Idea And VS Code
 - [Notes](#notes)
 - [Other Unfrequent Items](#other-unfrequent-items)
 - [Templates](#templates)
+- [Windows Keymap](#windows-keymap)
 
 ---
 
@@ -46,7 +47,7 @@ OrakSoft Keyboard shortcuts for Windows Based On Idea And VS Code
 kullanışlı olan,ezberlenecek liste
 
 | Key   | Desc                                 |
-|-------|--------------------------------------|
+| ----- | ------------------------------------ |
 | c+j,j | `Focus Active Editor (editor focus)` |
 | aaa   | aaa                                  |
 
@@ -110,7 +111,7 @@ Kod içerisinde gezinme için kısayollar
 - Panellerin görüntülemesini açma ve kapama işlemleri
 
 | Shortcut   | Desc                                 | Note                       |
-|------------|--------------------------------------|----------------------------|
+| ---------- | ------------------------------------ | -------------------------- |
 | c+j,j      | `Focus Active Editor (editor focus)` |
 | cs+d       | Show Debug                           |
 | cs+s       | Toggle Sidebar Panel                 | old(c+b)                   |
@@ -159,7 +160,7 @@ c+j      | (workbench.action.focusActiveEditorGroup)        |
 # Editing
 
 | Shortcut    | Desc                 | Note    |
-|-------------|----------------------|---------|
+| ----------- | -------------------- | ------- |
 | c+l s+del   | Delete line          |         |
 | a+up/down   | Move line up/down    |         |
 | as+up/down  | Copy line up/down    |         |
@@ -179,15 +180,15 @@ c+j      | (workbench.action.focusActiveEditorGroup)        |
 
 # Editor management
 
-| Shortcut        | Desc                                    | Note |
-|-----------------|-----------------------------------------|------|
-| c+F4, c+W       | Close editor                            |      |
-| c+K, F          | Close folder                            |      |
-| c+\             | Split editor                            |      |
-| c+ 1 / 2 / 3    | Focus into 1st, 2nd or 3rd editor group |      |
-| c+k,c + ←/→      | Focus into previous/next editor group   |      |
+| Shortcut       | Desc                                    | Note |
+| -------------- | --------------------------------------- | ---- |
+| c+F4, c+W      | Close editor                            |      |
+| c+K, F         | Close folder                            |      |
+| c+\            | Split editor                            |      |
+| c+ 1 / 2 / 3   | Focus into 1st, 2nd or 3rd editor group |      |
+| c+k,c + ←/→    | Focus into previous/next editor group   |      |
 | cs+PgUp / PgDn | Move editor left/right                  |      |
-| c+K ← / →       | Move active editor group                |      |
+| c+K ← / →      | Move active editor group                |      |
 
 # Search and replace
 
@@ -275,7 +276,7 @@ c+j      | (workbench.action.focusActiveEditorGroup)        |
 ## Ctrl Shortcuts
 
 | Key   | Desc                           | When             |
-|-------|--------------------------------|------------------|
+| ----- | ------------------------------ | ---------------- |
 | c+a   | select all                     |
 | ctb   |                                |
 | c+c   | cut                            |
@@ -309,7 +310,7 @@ c+j      | (workbench.action.focusActiveEditorGroup)        |
 ## Alt Shortcuts
 
 | Key   | Desc             |
-|-------|------------------|
+| ----- | ---------------- |
 | a+a   | matched brackets |
 | a+b   | -                |
 | a+c   | -                |
@@ -378,3 +379,12 @@ c+k,m | Change file language
 See [Keymap Template](./keymap-template.md)
 
 [🔝](#contents)
+
+
+# Windows Keymap
+
+| Key   | Exp                         |
+| ----- | --------------------------- |
+| win+ü | c+f4 equilavent (close tab) |
+|       | .                           |
+
