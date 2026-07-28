@@ -72,7 +72,7 @@ These notes are taken from web resources. Some sections can be modified or remov
 
 - [Css3 Cheat](./css/notes/css3-cheatsheet.md)
 
-- [Solidjs Cheat](./js-libs/solidjs/cheats/solid-cheat-tor.md)
+- [Solidjs Cheat](./js-solidjs/cheats/solid-cheat-tor.md)
 
 - [Php Cheat](./php/cheats/phpcs1.md)
 
