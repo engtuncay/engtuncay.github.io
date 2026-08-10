@@ -1,5 +1,5 @@
 
-SolidJs Cheat Sheet By Oraksoft
+SolidJs Cheat Sheet By AI And Some Contributions
 
 [Back](../readme.md)
 
