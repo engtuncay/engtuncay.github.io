@@ -915,7 +915,8 @@ Her maddenin örnekleri
 - **Signal'ler**, SolidJS'in temelinde reaktif state yönetimi için kullanılır. React'teki `useState`'e benzer şekilde çalışır.
 
 **Örnek:**
-```textmate
+
+```js
 import { createSignal } from "solid-js";
 
 function Counter() {
@@ -936,7 +937,9 @@ function Counter() {
 - Signal değiştiğinde, bağlı effect otomatik olarak çalışır.
 
 **Örnek:**
-```textmate
+
+```js
+
 import { createSignal, createEffect } from "solid-js";
 
 function App() {
@@ -958,11 +961,13 @@ function App() {
 ---
 
 #### **3. Komponentler**
+
 - SolidJS'de tüm yapılar **fonksiyon komponenti** olarak tanımlanır.
 - JSX ile kullanıcı arayüzleri oluşturulur.
 
 **Örnek:**
-```textmate
+
+```js
 function Greeting(props) {
   return <h1>Merhaba, {props.name}!</h1>; // Props kullanımı.
 }
@@ -978,7 +983,7 @@ export default function App() {
 - Komponentler arasında veri aktarımı props ile gerçekleşir.
 
 **Örnek:**
-```textmate
+```js
 function Child(props) {
   return <p>Merhaba, {props.data}!</p>;
 }
@@ -994,7 +999,7 @@ function Parent() {
 - `createMemo`, Signal'lardan türetilmiş verileri hesaplamak için kullanılır. Yalnızca bağımlı olduğu Signal'ler değiştiğinde yeniden hesaplanır.
 
 **Örnek:**
-```textmate
+```js
 import { createSignal, createMemo } from "solid-js";
 
 function App() {
@@ -1013,7 +1018,7 @@ function App() {
 - JSX ile `Show` veya `For` gibi işlemler kullanılarak şartlara göre render yapılır.
 
 **Örnek:**
-```textmate
+```js
 import { createSignal, For, Show } from "solid-js";
 
 function App() {
@@ -1039,7 +1044,7 @@ function App() {
 - Tüm uygulama genelinde veri paylaşımı için kullanışlıdır. Props drilling sorununu çözer.
 
 **Örnek:**
-```textmate
+```js
 import { createContext, useContext } from "solid-js";
 
 const UserContext = createContext();
@@ -1064,7 +1069,7 @@ function User() {
 - Çoklu state'leri reaktif bir şekilde yönetmek için `createStore` kullanılır.
 
 **Örnek:**
-```textmate
+```js
 import { createStore } from "solid-js/store";
 
 function App() {
@@ -1108,7 +1113,7 @@ function App() {
 - SolidJS yönlendirme için `@solidjs/router` kullanır.
 
 **Örnek:**
-```textmate
+```js
 import { Router, Routes, Route, Link } from "@solidjs/router";
 
 function Page1() {
@@ -1142,7 +1147,7 @@ export default function App() {
 - SSR ile SEO dostu uygulamalar oluşturabilirsiniz. Bunun için SolidJS'in SSR desteği aktifleştirilir.
 
 **Özet Örnek:**
-```textmate
+```js
 // SSR için Solid Start framework'üyle özel bir yapılandırma yapılır.
 ```
 
