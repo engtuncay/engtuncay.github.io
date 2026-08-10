@@ -14,7 +14,7 @@ SolidJs Cheat Sheet By Oraksoft
   - [15. JSX Özellikleri](#15-jsx-özellikleri)
 - [Reactivity Basics](#reactivity-basics)
   - [3. createSignal](#3-createsignal)
-  - [6. createStore](#6-createstore)
+  - [6. createStore (Reactive object)](#6-createstore-reactive-object)
   - [4. createEffect](#4-createeffect)
   - [5. createMemo](#5-creatememo)
 - [Rendering Controls](#rendering-controls)
@@ -37,11 +37,8 @@ SolidJs Cheat Sheet By Oraksoft
   - [18 Event Modifiers](#18-event-modifiers)
   - [19 Two way binding](#19-two-way-binding)
 - [Child to parent Communications](#child-to-parent-communications)
-  - [Me](#me)
-  - [AI Assistant](#ai-assistant)
-    - [SolidJS Tutorial Özeti (https://www.solidjs.com/tutorial/)](#solidjs-tutorial-özeti-httpswwwsolidjscomtutorial)
-  - [Me](#me-1)
-  - [AI Assistant](#ai-assistant-1)
+- [SolidJS Tutorial Özeti](#solidjs-tutorial-özeti)
+  - [Örnekler](#örnekler)
     - [**SolidJS Özeti (Maddeler ve Örnekler)**](#solidjs-özeti-maddeler-ve-örnekler)
       - [**1. Signal'ler**](#1-signaller)
       - [**2. `createEffect` ile Reaktif Güncellemeler**](#2-createeffect-ile-reaktif-güncellemeler)
@@ -138,9 +135,9 @@ const [getValue, setValue] = createSignal(initialValue);
 
 [🔝](#contents)
 
-## 6. createStore
+## 6. createStore (Reactive object)
 
-Reactif obje oluşturmak için kullanılır. 
+Reaktif obje oluşturmak için kullanılır. 
 
 ```js
 import { createStore } from "solid-js/store";
@@ -161,7 +158,7 @@ Yan etkiler (side effects) için kullanılır:
 import { createEffect } from "solid-js";
 
 createEffect(() => {
-  console.log("Durum değişti: ", value());
+  console.log("Durum değişti: ", getValue());
 });
 
 ```
@@ -244,6 +241,40 @@ function App() {
 }
 
 ```
+
+📝 Not : Suspense'in "yükleniyor mu" kararı, içindeki bileşenlerin reactive okuma sırasında bir Promise fırlatıp fırlatmadığına bakarak veriliyor. SolidJS'in resource/lazy sistemine bağlı bir mekanizma.
+
+Nasıl çalışıyor
+
+➖ 1. lazy() ile import edilen component
+
+```jsx
+const LazyComponent = lazy(() => import("./LazyComponent"));
+
+```
+
+lazy(), component'i render etmeye çalıştığında dinamik import() promise'i henüz resolve olmamışsa, SolidJS'in reactive sistemine bu bilgiyi bildirir (internal olarak bir "suspense kaynağı" işaretlenir). Promise resolve olana kadar Suspense fallback'i gösterir, resolve olunca gerçek component'i render eder.
+
+➖ 2. createResource kullanan component
+
+Eğer LazyComponent içinde createResource ile async veri çekiliyorsa, o resource henüz "pending" durumdaysa ve component render sırasında o resource'un değerine (signal'ine) erişiliyorsa, Suspense bunu yakalar ve fallback gösterir.
+
+➖ Kritik nokta: "tracking context" içinde olmalı
+
+Suspense'in bunu anlayabilmesi için, promise'in render/tracking sırasında oluşması gerekiyor — yani component fonksiyonu çalışırken bir resource okunmalı veya lazy() component'i mount edilmeye çalışılmalı. SolidJS bunu global bir "suspense context" ile yakalar: en yakın üst `<Suspense>` bileşeni, kendi altındaki ağaçta pending bir kaynak olup olmadığını izler.
+
+Sizin örneğinizde
+
+```html
+<Suspense fallback={<div>Loading...</div>}>
+  <LazyComponent />
+</Suspense>
+
+```
+
+Eğer LazyComponent, `lazy(() => import(...))` ile tanımlanmışsa: modül import promise'i resolve olana kadar fallback gösterilir. Eğer düz bir component (lazy olmadan import edilmiş) ise ve içinde createResource kullanıyorsa: o resource pending olduğu sürece fallback gösterilir. Component'in kendisi zaten senkron import edilmişse ve içinde hiçbir async kaynak yoksa, Suspense'in burada pratik bir etkisi olmaz — direkt render edilir.
+
+Kısacası: Suspense component'in "network'ten indirilip indirilmediğine" değil, render sırasında fırlatılan promise'lere göre karar veriyor.
 
 # Modularity
 
@@ -707,8 +738,7 @@ export default Parent;
 
 ⏩ Nasıl Çalışıyor?
 
-Parent, sendData adında bir callback fonksiyonunu Child bileşenine gönderir.
-Child, butona tıklandığında sendData("Merhaba Parent!") çağırarak parent bileşeninin state'ini günceller.
+Parent, sendData adında bir callback fonksiyonunu Child bileşenine gönderir. Child, butona tıklandığında `sendData("Merhaba Parent!")` çağırarak parent bileşeninin state'ini günceller.
 
 2️⃣ Context API Kullanımı (Daha Büyük Projeler İçin)
 
@@ -783,27 +813,20 @@ export default Parent;
 
 ⏩ Nasıl Çalışıyor?
 
-createStore ile reactive bir store oluşturulur. Child bileşeni, parent'tan aldığı updateMessage fonksiyonunu çağırarak store'u günceller.
+createStore ile reactive bir store oluşturulur. Child bileşeni, parent'tan aldığı updateMessage fonksiyonunu (callback) çağırarak store'u günceller.
 
 **Summary**
 
 - Callback ile Props (1. yöntem) → En basit ve performanslı yöntem. Küçük projeler için ideal.
 - Context API (2. yöntem) → Birden fazla child bileşeni arasında veri paylaşımı gerektiğinde iyi bir çözüm.
-- Store (3. yöntem) → Daha büyük ve yönetilmesi gereken karmaşık state'ler için önerilir.
+- Store (3. yöntem) → Daha büyük ve yönetilmesi gereken karmaşık state'ler için önerilir. Reaktif olarak takip etmek için kullanılabilir.
 
 
 
-## Me
+# SolidJS Tutorial Özeti 
 
-https://www.solidjs.com/tutorial/ anlatılanları özetler misin madde madde
+➖ (https://www.solidjs.com/tutorial/) özeti
 
-
-## AI Assistant
-Tabii! SolidJS'in resmi kaynaklarında anlatılan temel öğreticiyi aşağıdaki gibi maddeler halinde özetleyebilirim:
-
----
-
-### SolidJS Tutorial Özeti (https://www.solidjs.com/tutorial/)
 
 1. **SolidJS Nedir?**
    - Solid, performans odaklı ve reaktif bir JavaScript framework'üdür.
@@ -878,11 +901,9 @@ Tabii! SolidJS'in resmi kaynaklarında anlatılan temel öğreticiyi aşağıdak
 
 Eğitim boyunca örnek kodlarla SolidJS özelliklerini anlamanız hedeflenir. Eğer spesifik bir konu hakkında detaylı açıklama veya örnek isterseniz, size daha çok yardımcı olabilirim! 😊
 
-## Me
-her maddede örnekte ver
+## Örnekler
 
-## AI Assistant
-Tabii ki! Aşağıda SolidJS resmi eğitim sitesindeki bilgileri her madde için açıklayıp örneklerle tekrar özetledim:
+Her maddenin örnekleri
 
 ---
 

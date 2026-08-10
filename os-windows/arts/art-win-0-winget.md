@@ -17,7 +17,7 @@
 - [Ekstra Bilgiler](#ekstra-bilgiler)
 - [Winget ile yüklü uygulamalardan d ile başlayanlar](#winget-ile-yüklü-uygulamalardan-d-ile-başlayanlar)
 - [Belirli Bir Yazılımı Güncelleme](#belirli-bir-yazılımı-güncelleme)
-- [winget in powershell or in cmd and using admin rights](#winget-in-powershell-or-in-cmd-and-using-admin-rights)
+- [winget in powershell or cmd](#winget-in-powershell-or-cmd)
 - [Örnek Uygulamalar](#örnek-uygulamalar)
   - [ImageMagick](#imagemagick)
 
@@ -91,9 +91,9 @@ winget uninstall <paket-adı>
 
 # Ekstra Bilgiler
 
-- Winget ile yüklenebilecek paketlerin tam listesi için: [winget-pkgs](https://github.com/microsoft/winget-pkgs)
+- Winget ile yüklenebilecek paketlerin tam listesi için link : [winget-pkgs](https://github.com/microsoft/winget-pkgs)
 - Komutlar PowerShell veya Komut İstemi'nde çalıştırılabilir.
-- Daha fazla bilgi için: [Microsoft Docs - Winget](https://learn.microsoft.com/tr-tr/windows/package-manager/winget/)
+- Daha fazla bilgi için : [Microsoft Docs - Winget](https://learn.microsoft.com/tr-tr/windows/package-manager/winget/)
 
 
 # Winget ile yüklü uygulamalardan d ile başlayanlar
@@ -122,12 +122,13 @@ Bu komut, belirttiğin paketi en son sürüme günceller. Paket adını öğrenm
 
 Bu komut, yüklü uygulama listesini alır ve satır başı "d" ile başlayanları filtreler. İstersen bu bilgiyi markdown dosyana da ekleyebilirim. Eklememi ister misin?
 
-# winget in powershell or in cmd and using admin rights
+# winget in powershell or cmd 
 
-winget hem PowerShell hem de CMD'de çalışır, ikisi arasında fark yok.winget hem PowerShell hem de CMD'de çalışır, ikisi arasında fark yok.
+Winget hem PowerShell hem de CMD'de çalışır, ikisi arasında fark yok. Winget hem PowerShell hem de CMD'de çalışır, ikisi arasında fark yok.
 
 Yönetici yetkisi konusunda ise şöyle:
-
+ 
+ 
 Çoğu kurulum için gerekmez — winget kendi kullanıcı scope'unda kurabilir
 Sistem genelinde kurulum istiyorsan (--scope machine) yönetici gerekir
 Bazı uygulamalar zaten kendi installer'larında yönetici ister, winget bunu otomatik UAC ile halleder — terminal'i yönetici açmasan bile UAC penceresi çıkar

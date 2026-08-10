@@ -47,6 +47,8 @@
 - [SQL LOGGING](#sql-logging)
   - [RaiseError](#raiseerror)
   - [Kayıt Edilen Sayısını Bastırma](#kayıt-edilen-sayısını-bastırma)
+- [İpuçları](#i̇puçları)
+  - [Null Check Trap](#null-check-trap)
 
 
 # Reference Sources
@@ -865,9 +867,48 @@ https://docs.microsoft.com/en-us/sql/t-sql/language-elements/raiserror-transact-
 
 
 ```sql
-
 DELETE FROM STOK_HAREKETLERI where sth_evrakno_seri=@seri and sth_evrakno_sira=@sira and sth_evraktip = @sth_evraktip 
 PRINT  'STOK HAREKETLERİ - DELETED RECORDS :' + CAST( @@ROWCOUNT as varchar(10))
+
 ```
 
+
+# İpuçları
+
+
+## Null Check Trap
+
+SQL'de NULL karşılaştırmasının nasıl çalıştığıyla ilgili klasik bir tuzak.
+
+Sorun:
+
+```sql
+CASE chh.cha_belge_tarih WHEN NULL THEN ...
+
+```
+
+Bu aslında arka planda şuna eşdeğer:
+
+
+```sql
+CASE WHEN chh.cha_belge_tarih = NULL THEN ...
+
+```
+
+SQL'de = NULL karşılaştırması hiçbir zaman TRUE dönmez — NULL "bilinmeyen değer" anlamına geldiği için, herhangi bir şeyle (hatta NULL ile bile) eşitlik karşılaştırması UNKNOWN sonucu verir, TRUE değil. Bu yüzden WHEN NULL şartı asla tetiklenmez ve her zaman ELSE dalına düşersiniz — kolon gerçekten NULL olsa bile.
+
+Çözüm:
+
+IS NULL operatörünü kullanan searched CASE yapısına geçmeniz gerekiyor:
+
+
+```sql
+CASE 
+  WHEN chh.cha_belge_tarih IS NULL THEN 'belge tarih null'
+  ELSE 'belge tarih not null'
+END as chaTest
+
+```
+
+Ama sizin senaryonuzda (metin döndürme) en temiz çözüm IS NULL ile searched CASE kullanmak. IS NULL / IS NOT NULL, NULL kontrolü yapmanın SQL'deki tek doğru yoludur; = NULL veya <> NULL hiçbir zaman kullanılmamalı.
 
