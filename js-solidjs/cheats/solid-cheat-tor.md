@@ -1,5 +1,5 @@
 
-SolidJs Cheat Sheet By AI And Some Contributions
+SolidJs Cheat Sheet 
 
 [Back](../readme.md)
 
@@ -9,8 +9,8 @@ SolidJs Cheat Sheet By AI And Some Contributions
 
 - [Contents](#contents)
 - [Proje Oluşturma](#proje-oluşturma)
-  - [1. Installations](#1-installations)
-  - [2. App Component (Entry)](#2-app-component-entry)
+  - [Installations](#installations)
+  - [App Component (Entry)](#app-component-entry)
   - [15. JSX Özellikleri](#15-jsx-özellikleri)
 - [Reactivity Basics](#reactivity-basics)
   - [3. createSignal](#3-createsignal)
@@ -37,6 +37,7 @@ SolidJs Cheat Sheet By AI And Some Contributions
   - [18 Event Modifiers](#18-event-modifiers)
   - [19 Two way binding](#19-two-way-binding)
 - [Child to parent Communications](#child-to-parent-communications)
+- [Popup pencere ile ana pencere arasında postMessage API kullanılması](#popup-pencere-ile-ana-pencere-arasında-postmessage-api-kullanılması)
 - [SolidJS Tutorial Özeti](#solidjs-tutorial-özeti)
   - [Örnekler](#örnekler)
     - [**SolidJS Özeti (Maddeler ve Örnekler)**](#solidjs-özeti-maddeler-ve-örnekler)
@@ -57,7 +58,7 @@ SolidJs Cheat Sheet By AI And Some Contributions
 
 # Proje Oluşturma
 
-## 1. Installations
+## Installations
 
 SolidJS projesi oluşturma:
 
@@ -77,7 +78,7 @@ yarn create solid
 
 [🔝](#contents)
 
-## 2. App Component (Entry)
+## App Component (Entry)
 
 SolidJS ile basit bir bileşen oluşturmak için:
 
@@ -98,6 +99,8 @@ function App() {
 export default App;
 
 ```
+
+- Componentler, referans olarak da tanımlanabilir (lambda syntax)
 
 ➖ index.tsx'de render function ile App componentini render ederek uygulamamız başlayacaktır.
 
@@ -821,6 +824,86 @@ createStore ile reactive bir store oluşturulur. Child bileşeni, parent'tan ald
 - Context API (2. yöntem) → Birden fazla child bileşeni arasında veri paylaşımı gerektiğinde iyi bir çözüm.
 - Store (3. yöntem) → Daha büyük ve yönetilmesi gereken karmaşık state'ler için önerilir. Reaktif olarak takip etmek için kullanılabilir.
 
+
+# Popup pencere ile ana pencere arasında postMessage API kullanılması
+
+Popup pencere ile ana pencere arasında postMessage API kullanarak veri gönderebilirsiniz:
+
+Ana Sayfa (Home.tsx)
+
+```js
+import { createSignal } from "solid-js";
+
+export default function Home() {
+  const [formData, setFormData] = createSignal(null);
+
+  // Popup'tan gelen mesajları dinle
+  window.addEventListener("message", (event) => {
+    if (event.origin !== window.location.origin) return;
+    
+    // Popup'tan veri aldı
+    console.log("Popup'tan gelen veri:", event.data);
+    setFormData(event.data);
+  });
+
+  return (
+    <div>
+      <button 
+        onClick={() => window.open("/form", "popup", "width=400,height=300")}
+      >
+        Form Aç
+      </button>
+
+      {formData() && (
+        <div>
+          <h3>Alınan Veriler:</h3>
+          <pre>{JSON.stringify(formData(), null, 2)}</pre>
+        </div>
+      )}
+    </div>
+  );
+}
+
+```
+
+Popup Sayfası (/form)
+
+```js
+export default function Form() {
+  const handleSave = (e) => {
+    e.preventDefault();
+    
+    const formData = {
+      name: document.querySelector("input[name='name']").value,
+      email: document.querySelector("input[name='email']").value,
+    };
+
+    // Ana pencereye veri gönder
+    window.opener.postMessage(formData, window.location.origin);
+    
+    // Popup'ı kapat
+    window.close();
+  };
+
+  return (
+    <form onSubmit={handleSave}>
+      <input type="text" name="name" placeholder="Ad" required />
+      <input type="email" name="email" placeholder="Email" required />
+      <button type="submit">Kaydet</button>
+    </form>
+  );
+}
+
+```
+
+Akış:
+1.Ana sayfa → popup açar
+2.Popup'ta form doldurulur
+3."Kaydet" tıklandı → postMessage ile veri gönderilir
+4.Ana sayfa veri alır ve gösterir
+5.Popup kapatılır
+
+Bu şekilde güvenli ve rahat şekilde veri alış-verişi yapabilirsiniz!
 
 
 # SolidJS Tutorial Özeti 
