@@ -40,6 +40,8 @@ SolidJs Cheat Sheet
   - [onError](#onerror)
 - [Child to parent Communications](#child-to-parent-communications)
 - [Popup pencere ile ana pencere arasında postMessage API kullanılması](#popup-pencere-ile-ana-pencere-arasında-postmessage-api-kullanılması)
+- [Extensions](#extensions)
+  - [Tailwind Installation (v4)](#tailwind-installation-v4)
 
 # Proje Oluşturma
 
@@ -786,4 +788,63 @@ Akış:
 
 Bu şekilde güvenli ve rahat şekilde veri alış-verişi yapabilirsiniz!
 
+# Extensions
 
+## Tailwind Installation (v4)
+
+Tailwind v4 ile kurulum oldukça basit:
+
+1. Paketi yükle
+
+```bash
+pnpm add -D tailwindcss @tailwindcss/vite
+
+```   
+2. vite.config.ts güncelle
+   
+```ts
+import { defineConfig } from "vite";
+import solid from "vite-plugin-solid";
+// eklenecek import
+import tailwindcss from "@tailwindcss/vite";
+
+export default defineConfig({
+  plugins: [
+    tailwindcss(),
+    solid(),
+  ],
+});
+
+```
+
+3. CSS dosyasına ekle
+
+src/index.css (yoksa oluştur):
+
+```css
+@import "tailwindcss";
+
+```
+
+4. CSS'i index.tsx'e import et
+
+```tsx
+import "./index.css";
+
+```
+
+5. Test et
+
+```tsx
+<h1 class="text-3xl font-bold text-blue-500">Merhaba</h1>
+
+```
+
+Not: SolidJS'te className değil class kullanılır.
+
+```bash
+pnpm dev
+
+```
+
+Tailwind sınıfları çalışıyorsa kurulum tamam.
