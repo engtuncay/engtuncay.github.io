@@ -15,7 +15,7 @@
       - [**11. Server-Side Rendering (SSR)**](#11-server-side-rendering-ssr)
       - [**12. Performans ve Doğrudan DOM Manipülasyonu**](#12-performans-ve-doğrudan-dom-manipülasyonu)
 - [Extensions](#extensions)
-  - [Tailwind Installation](#tailwind-installation)
+  - [Tailwind Installation (v4)](#tailwind-installation-v4)
 
 
 # SolidJS Tutorial Özeti 
@@ -375,9 +375,7 @@ SolidJS'in güçlü yanları olan reaktivite ve performansı desteklemek için k
 
 # Extensions
 
-## Tailwind Installation
-
-solidjs uygulamama (solidjs+vite+ts) tailwind nasıl eklerim
+## Tailwind Installation (v4)
 
 Tailwind v4 ile kurulum oldukça basit:
 

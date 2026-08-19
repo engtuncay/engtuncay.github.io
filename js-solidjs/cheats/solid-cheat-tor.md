@@ -10,7 +10,7 @@ SolidJs Cheat Sheet
 - [Contents](#contents)
 - [Proje Oluşturma](#proje-oluşturma)
   - [Installations](#installations)
-  - [App Component (Entry)](#app-component-entry)
+  - [App Component (Entry Component)](#app-component-entry-component)
   - [JSX Özellikleri](#jsx-özellikleri)
 - [Reactivity Basics](#reactivity-basics)
   - [createSignal](#createsignal)
@@ -63,7 +63,7 @@ yarn create solid
 
 [🔝](#contents)
 
-## App Component (Entry)
+## App Component (Entry Component)
 
 SolidJS ile basit bir bileşen oluşturmak için:
 
