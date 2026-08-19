@@ -464,12 +464,13 @@ function App() {
 
 Komponentin "mount" ve "destroy" aşamaları için `onMount` ve `onCleanup` kullanılır.
 
-**Örnek:**
+🧲 Örnek
 
 ```js
 import { onMount, onCleanup } from "solid-js";
 
 function App() {
+  
   onMount(() => {
     console.log("Component yüklendi!");
   });
@@ -486,7 +487,7 @@ function App() {
 
 SolidJS yönlendirme için `@solidjs/router` kullanır.
 
-**Örnek:**
+🧲 Örnek
 
 ```js
 import { Router, Routes, Route, Link } from "@solidjs/router";
