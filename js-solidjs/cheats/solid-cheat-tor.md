@@ -24,41 +24,22 @@ SolidJs Cheat Sheet
   - [Suspense'e Alternatif show](#suspensee-alternatif-show)
 - [Modularity](#modularity)
   - [Components](#components)
+- [Event Binding](#event-binding)
+  - [Click Event:](#click-event)
+  - [Input Change Event (onInput) (Two way binding)](#input-change-event-oninput-two-way-binding)
+  - [Submit Event:](#submit-event)
+  - [Event Modifiers (Etkinlik Modifikatörleri)](#event-modifiers-etkinlik-modifikatörleri)
+    - [Stop Propagation:](#stop-propagation)
+    - [Prevent Default:](#prevent-default)
+- [Lifecycle İşlevleri](#lifecycle-i̇şlevleri)
+- [Routing (Yönlendirme)](#routing-yönlendirme)
 - [Other Useful Features](#other-useful-features)
-  - [8. onCleanup](#8-oncleanup)
+  - [onCleanup](#oncleanup)
   - [Lazy](#lazy)
   - [Context](#context)
   - [onError](#onerror)
-- [Event Binding](#event-binding)
-  - [Click Event:](#click-event)
-  - [Input Change Event: (two way binding)](#input-change-event-two-way-binding)
-  - [Submit Event:](#submit-event)
-  - [Two-Way Binding (Çift Yönlü Veri Bağlama)](#two-way-binding-çift-yönlü-veri-bağlama)
-  - [Event Modifiers (Etkinlik Modifikatörleri) (Event Bubbling)](#event-modifiers-etkinlik-modifikatörleri-event-bubbling)
-  - [bind (Bağlama)](#bind-bağlama)
-  - [Event Binding (Etkinlik Bağlama)](#event-binding-etkinlik-bağlama)
-  - [Two-Way Binding (Çift Yönlü Veri Bağlama)](#two-way-binding-çift-yönlü-veri-bağlama-1)
-  - [Event Modifiers](#event-modifiers)
-  - [Two way binding](#two-way-binding)
 - [Child to parent Communications](#child-to-parent-communications)
 - [Popup pencere ile ana pencere arasında postMessage API kullanılması](#popup-pencere-ile-ana-pencere-arasında-postmessage-api-kullanılması)
-- [SolidJS Tutorial Özeti](#solidjs-tutorial-özeti)
-  - [Örnekler](#örnekler)
-    - [**SolidJS Özeti (Maddeler ve Örnekler)**](#solidjs-özeti-maddeler-ve-örnekler)
-      - [**1. Signal'ler**](#1-signaller)
-      - [**2. `createEffect` ile Reaktif Güncellemeler**](#2-createeffect-ile-reaktif-güncellemeler)
-      - [**3. Komponentler**](#3-komponentler)
-      - [**4. Props Kullanımı**](#4-props-kullanımı)
-      - [**5. `createMemo` ile Hesaplamalar**](#5-creatememo-ile-hesaplamalar)
-      - [**6. Koşullu Render (Control Flow)**](#6-koşullu-render-control-flow)
-      - [**7. Context API**](#7-context-api)
-      - [**8. Store Kullanımı**](#8-store-kullanımı)
-      - [**9. Lifecycle İşlevleri**](#9-lifecycle-i̇şlevleri)
-      - [**10. Routing (Yönlendirme)**](#10-routing-yönlendirme)
-      - [**11. Server-Side Rendering (SSR)**](#11-server-side-rendering-ssr)
-      - [**12. Performans ve Doğrudan DOM Manipülasyonu**](#12-performans-ve-doğrudan-dom-manipülasyonu)
-- [Extensions](#extensions)
-  - [Tailwind Installation](#tailwind-installation)
 
 # Proje Oluşturma
 
@@ -360,9 +341,184 @@ export const FiSelectRemote: Component<RemoteSelectProps> = (props) => {
 
 ```
 
+# Event Binding
+
+SolidJS'de olaylar, JSX üzerinde doğrudan bağlanabilir. Olaylar için kullanılan sözdizimi, HTML ile benzerdir, ancak işlevler on ile başlar.
+
+🧲
+
+## Click Event:
+
+```js
+import { createSignal } from "solid-js";
+
+function App() {
+  const [count, setCount] = createSignal(0);
+  
+  const increment = () => setCount(count() + 1);
+  
+  return (
+    <div>
+      <p>Count: {count()}</p>
+      <button onClick={increment}>Increment</button>
+    </div>
+  );
+}
+
+```
+
+## Input Change Event (onInput) (Two way binding)
+
+```js
+function App() {
+  
+  const [value, setValue] = createSignal("");
+
+  return (
+    <div>
+      <input 
+        type="text" 
+        value={value()} 
+        onInput={(e) => setValue(e.target.value)} 
+      />
+      <p>{value()}</p>
+    </div>
+  );
+}
+
+```
+
+## Submit Event:
+
+
+```js
+function App() {
+  
+  const [input, setInput] = createSignal("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert(`Form submitted with input: ${input()}`);
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input 
+        type="text" 
+        value={input()} 
+        onInput={(e) => setInput(e.target.value)} 
+      />
+      <button type="submit">Submit</button>
+    </form>
+  );
+
+}
+
+```
+
+## Event Modifiers (Etkinlik Modifikatörleri)
+
+SolidJS, etkinliklere modifikatörler eklemek için basit bir yöntem sunmaz. Ancak, fonksiyonları ve olayları yönetmek için standart JavaScript yöntemleri kullanılabilir.
+
+Örneğin:
+
+###  Stop Propagation:
+
+```js
+function App() {
+  const handleClick = (e) => {
+    e.stopPropagation();
+    alert("Click stopped from bubbling.");
+  };
+
+  return (
+    <div onClick={() => alert("Div clicked!")}>
+      <button onClick={handleClick}>Click me</button>
+    </div>
+  );
+}
+
+```
+
+### Prevent Default:
+
+```js
+function App() {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert("Form submission prevented");
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input type="text" />
+      <button type="submit">Submit</button>
+    </form>
+  );
+}
+
+```
+
+
+# Lifecycle İşlevleri
+
+Komponentin "mount" ve "destroy" aşamaları için `onMount` ve `onCleanup` kullanılır.
+
+**Örnek:**
+
+```js
+import { onMount, onCleanup } from "solid-js";
+
+function App() {
+  onMount(() => {
+    console.log("Component yüklendi!");
+  });
+
+  onCleanup(() => {
+    console.log("Component kaldırıldı!");
+  });
+
+  return <div>Merhaba!</div>;
+}
+```
+
+# Routing (Yönlendirme)
+
+SolidJS yönlendirme için `@solidjs/router` kullanır.
+
+**Örnek:**
+
+```js
+import { Router, Routes, Route, Link } from "@solidjs/router";
+
+function Page1() {
+  return <h1>Sayfa 1</h1>;
+}
+
+function Page2() {
+  return <h1>Sayfa 2</h1>;
+}
+
+export default function App() {
+  return (
+    <Router>
+      <nav>
+        <Link href="/">Sayfa 1</Link>
+        <Link href="/page2">Sayfa 2</Link>
+      </nav>
+
+      <Routes>
+        <Route path="/" component={Page1} />
+        <Route path="/page2" component={Page2} />
+      </Routes>
+    </Router>
+  );
+}
+```
+
 # Other Useful Features
 
-## 8. onCleanup
+## onCleanup
 
 Temizlik (cleanup) işlemleri için kullanılır:
 
@@ -370,6 +526,7 @@ Temizlik (cleanup) işlemleri için kullanılır:
 import { onCleanup } from "solid-js";
 
 const timer = setInterval(() => console.log("Tick"), 1000);
+
 onCleanup(() => clearInterval(timer));
 
 ```
@@ -423,354 +580,7 @@ onError((error) => {
 
 ```
 
-# Event Binding
 
-SolidJS'de olaylar, JSX üzerinde doğrudan bağlanabilir. Olaylar için kullanılan sözdizimi, HTML ile benzerdir, ancak işlevler on ile başlar.
-
-🧲
-
-## Click Event:
-
-```js
-import { createSignal } from "solid-js";
-
-function App() {
-  const [count, setCount] = createSignal(0);
-  
-  const increment = () => setCount(count() + 1);
-  
-  return (
-    <div>
-      <p>Count: {count()}</p>
-      <button onClick={increment}>Increment</button>
-    </div>
-  );
-}
-
-```
-
-## Input Change Event: (two way binding)
-
-```js
-function App() {
-  
-  const [value, setValue] = createSignal("");
-
-  return (
-    <div>
-      <input 
-        type="text" 
-        value={value()} 
-        onInput={(e) => setValue(e.target.value)} 
-      />
-      <p>{value()}</p>
-    </div>
-  );
-}
-
-```
-
-## Submit Event:
-
-
-```js
-function App() {
-  
-  const [input, setInput] = createSignal("");
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert(`Form submitted with input: ${input()}`);
-  };
-
-  return (
-    <form onSubmit={handleSubmit}>
-      <input 
-        type="text" 
-        value={input()} 
-        onInput={(e) => setInput(e.target.value)} 
-      />
-      <button type="submit">Submit</button>
-    </form>
-  );
-
-}
-
-```
-
-## Two-Way Binding (Çift Yönlü Veri Bağlama)
-
-SolidJS'de iki yönlü veri bağlama, React'deki gibi doğrudan value ve onInput olaylarını bağlayarak yapılır. Ancak, two-way binding için manuel olarak bağlama yapılması gerekir. bind gibi bir özellik yoktur.
-
-Örnek:
-
-```js
-import { createSignal } from "solid-js";
-
-function App() {
-  const [inputValue, setInputValue] = createSignal("");
-
-  return (
-    <div>
-      <input 
-        type="text" 
-        value={inputValue()} 
-        onInput={(e) => setInputValue(e.target.value)} 
-      />
-      <p>Input Value: {inputValue()}</p>
-    </div>
-  );
-
-}
-
-```
-
-Burada, `<input />` bileşeni, inputValue state'ini okur ve onInput ile değeri günceller.
-
-## Event Modifiers (Etkinlik Modifikatörleri) (Event Bubbling)
-
-SolidJS, etkinliklere modifikatörler eklemek için basit bir yöntem sunmaz. Ancak, fonksiyonları ve olayları yönetmek için standart JavaScript yöntemleri kullanılabilir.
-
-Örneğin:
-
-➖ Stop Propagation:
-
-```js
-function App() {
-  const handleClick = (e) => {
-    e.stopPropagation();
-    alert("Click stopped from bubbling.");
-  };
-
-  return (
-    <div onClick={() => alert("Div clicked!")}>
-      <button onClick={handleClick}>Click me</button>
-    </div>
-  );
-}
-
-```
-
-➖ Prevent Default:
-
-```js
-function App() {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert("Form submission prevented");
-  };
-
-  return (
-    <form onSubmit={handleSubmit}>
-      <input type="text" />
-      <button type="submit">Submit</button>
-    </form>
-  );
-}
-
-```
-
-## bind (Bağlama) 
-
-SolidJS'ye özel değil, ancak alternatifler ile yapılabilir
-
-SolidJS'de bind kullanımı olmadığı için iki yönlü veri bağlama işlemi için value ve onInput olayları manuel olarak yönetilmelidir. Ancak, birkaç çözüm önerilebilir.
-
-Çift Yönlü Bağlama için Manual Binding (State ile):
-
-```js
-import { createSignal } from "solid-js";
-
-function App() {
-  const [value, setValue] = createSignal("Hello");
-
-  return (
-    <div>
-      <input 
-        type="text" 
-        value={value()} 
-        onInput={(e) => setValue(e.target.value)} 
-      />
-      <p>{value()}</p>
-    </div>
-  );
-}
-
-```
-
-SolidJS'deki veri bağlama ve etkinlik yönetimi, sade ve güçlüdür. Özellikle manuel bağlama, bileşenlerinizin kontrolünü size tamamen bırakır.
-
-## Event Binding (Etkinlik Bağlama)
-
-SolidJS'de etkinlikler, JSX üzerinde doğrudan bağlanabilir. Etkinlikler için kullanılan sözdizimi, HTML ile benzerdir, ancak işlevler on ile başlar.
-
-Örnekler:
-
-➖ Click Event:
-
-```js
-import { createSignal } from "solid-js";
-
-function App() {
-  const [count, setCount] = createSignal(0);
-  
-  const increment = () => setCount(count() + 1);
-  
-  return (
-    <div>
-      <p>Count: {count()}</p>
-      <button onClick={increment}>Increment</button>
-    </div>
-  );
-}
-
-```
-
-➖ Input Change Event:
-
-```js
-function App() {
-  const [value, setValue] = createSignal("");
-
-  return (
-    <div>
-      <input 
-        type="text" 
-        value={value()} 
-        onInput={(e) => setValue(e.target.value)} 
-      />
-      <p>{value()}</p>
-    </div>
-  );
-}
-
-```
-
-➖ Submit Event:
-
-```js
-function App() {
-  const [input, setInput] = createSignal("");
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert(`Form submitted with input: ${input()}`);
-  };
-
-  return (
-    <form onSubmit={handleSubmit}>
-      <input 
-        type="text" 
-        value={input()} 
-        onInput={(e) => setInput(e.target.value)} 
-      />
-      <button type="submit">Submit</button>
-    </form>
-  );
-}
-
-```
-
-## Two-Way Binding (Çift Yönlü Veri Bağlama)
-
-SolidJS'de iki yönlü veri bağlama, React'deki gibi doğrudan value ve onInput olaylarını bağlayarak yapılır. Ancak, two-way binding için manuel olarak bağlama yapılması gerekir. bind gibi bir özellik yoktur.
-
-```js
-import { createSignal } from "solid-js";
-
-function App() {
-  const [inputValue, setInputValue] = createSignal("");
-
-  return (
-    <div>
-      <input 
-        type="text" 
-        value={inputValue()} 
-        onInput={(e) => setInputValue(e.target.value)} 
-      />
-      <p>Input Value: {inputValue()}</p>
-    </div>
-  );
-}
-
-```
-
-Burada, `<input />` bileşeni, inputValue state'ini okur ve onInput ile değeri günceller.
-
-## Event Modifiers 
-
-(tr:Etkinlik Modifikatörleri)
-
-SolidJS, etkinliklere modifikatörler eklemek için basit bir yöntem sunmaz. Ancak, fonksiyonları ve olayları yönetmek için standart JavaScript yöntemleri kullanılabilir.
-
-Örneğin:
-
-➖ Stop Propagation:
-
-```js
-function App() {
-  const handleClick = (e) => {
-    e.stopPropagation();
-    alert("Click stopped from bubbling.");
-  };
-
-  return (
-    <div onClick={() => alert("Div clicked!")}>
-      <button onClick={handleClick}>Click me</button>
-    </div>
-  );
-}
-
-```
-
-➖ Prevent Default:
-
-```js
-function App() {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert("Form submission prevented");
-  };
-
-  return (
-    <form onSubmit={handleSubmit}>
-      <input type="text" />
-      <button type="submit">Submit</button>
-    </form>
-  );
-}
-
-```
-
-## Two way binding
-
-SolidJS'ye özel değil, ancak alternatifler ile yapılabilir
-
-SolidJS'de bind kullanımı olmadığı için iki yönlü veri bağlama işlemi için value ve onInput olayları manuel olarak yönetilmelidir. Ancak, birkaç çözüm önerilebilir.
-
-➖ Çift Yönlü Bağlama için Manual Binding (State ile):
-
-```js
-import { createSignal } from "solid-js";
-
-function App() {
-  const [value, setValue] = createSignal("Hello");
-
-  return (
-    <div>
-      <input 
-        type="text" 
-        value={value()} 
-        onInput={(e) => setValue(e.target.value)} 
-      />
-      <p>{value()}</p>
-    </div>
-  );
-}
-
-```
-
-SolidJS'deki veri bağlama ve etkinlik yönetimi, sade ve güçlüdür. Özellikle manuel bağlama, bileşenlerinizin kontrolünü size tamamen bırakır.
 
 # Child to parent Communications
 

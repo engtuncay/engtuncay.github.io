@@ -283,6 +283,7 @@ function App() {
 ---
 
 #### **9. Lifecycle İşlevleri**
+
 - Komponentin "mount" ve "destroy" aşamaları için `onMount` ve `onCleanup` kullanılır.
 
 **Örnek:**
