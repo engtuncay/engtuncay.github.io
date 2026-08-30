@@ -190,13 +190,13 @@ exit
 ---
 
 # Özet
-| İşlem | Komut |
-|-----------|----------|
-| Google Drive bağlantısı ekleme | `rclone config` |
-| Drive’daki dosyaları listeleme | `rclone ls gdrive:` |
-| Dosya yükleme | `rclone copy ~/yerel_klasor gdrive:/yedek` |
-| Dosya indirme | `rclone copy gdrive:/yedek ~/yerel_yedek` |
-| Drive’ı senkronize etme | `rclone sync ~/yerel_klasor gdrive:/yedek` |
-| Google Drive'ı mount etme | `rclone mount gdrive:/ X: --vfs-cache-mode full` |
-| Web arayüzü açma | `rclone rcd --rc-web-gui` |
+| İşlem                          | Komut                                            |
+| ------------------------------ | ------------------------------------------------ |
+| Google Drive bağlantısı ekleme | `rclone config`                                  |
+| Drive’daki dosyaları listeleme | `rclone ls gdrive:`                              |
+| Dosya yükleme                  | `rclone copy ~/yerel_klasor gdrive:/yedek`       |
+| Dosya indirme                  | `rclone copy gdrive:/yedek ~/yerel_yedek`        |
+| Drive’ı senkronize etme        | `rclone sync ~/yerel_klasor gdrive:/yedek`       |
+| Google Drive'ı mount etme      | `rclone mount gdrive:/ X: --vfs-cache-mode full` |
+| Web arayüzü açma               | `rclone rcd --rc-web-gui`                        |
 

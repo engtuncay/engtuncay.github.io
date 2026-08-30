@@ -7,7 +7,6 @@ Source : https://www.w3schools.com/php/default.asp
 
 - [PHP Introduction](#php-introduction)
 - [PHP Installation](#php-installation)
-  - [W3School's Compiler](#w3schools-compiler)
 - [PHP Syntax](#php-syntax)
 - [PHP Comments](#php-comments)
 - [PHP Variables](#php-variables)
@@ -74,17 +73,7 @@ To start using PHP, you can:
 - Find a web host with PHP and MySQL support
 - Install a web server on your own PC, and then install PHP and MySQL
 
-*Use a Web Host With PHP Support*
-
-If your server has activated support for PHP you do not need to do anything.
-
-Just create some .php files, place them in your web directory, and the server will automatically parse them for you.
-
-You do not need to compile anything or install any extra tools.
-
-Because PHP is free, most web hosts offer PHP support.
-
-*Set Up PHP on Your Own PC*
+➖ Set Up PHP on Your Own PC
 
 However, if your server does not support PHP, you must:
 
@@ -96,22 +85,9 @@ The official PHP website (PHP.net) has installation instructions for PHP: http:/
 
 *PHP Online Compiler / Editor*
 
-With w3schools' online PHP compiler, you can edit PHP code, and view the result in your browser.
+You can use online php playgrounds like w3.
 
-```php
-<?php
-$txt = "PHP";
-echo "I love $txt!";
-?>
-I love PHP!
-
-```
-
-Click on the "Try it Yourself" button to see how it works. 
-
-## W3School's Compiler
-
-[W3School's Compiler](https://www.w3schools.com/php/phptryit.asp?filename=tryphp_compiler)
+- [W3School's Compiler](https://www.w3schools.com/php/phptryit.asp?filename=tryphp_compiler)
 
 
 # PHP Syntax
@@ -139,7 +115,7 @@ Below, we have an example of a simple PHP file, with a PHP script that uses a bu
 
 Example
 
-```html
+```php
 <!DOCTYPE html>
 <html>
 <body>
@@ -155,9 +131,9 @@ echo "Hello World!";
 
 ```
 
-*Note:* PHP statements end with a semicolon (;).
+📝 Note: PHP statements end with a semicolon ( ; )
 
-*PHP Case Sensitivity*
+➖ PHP Case Sensitivity
 
 In PHP, keywords (e.g. if, else, while, echo, etc.), classes, functions, and user-defined functions are *case-insensitive*.
 
