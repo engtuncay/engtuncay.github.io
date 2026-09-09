@@ -74,29 +74,29 @@ kullanışlı olan,ezberlenecek liste
 
 Kod içerisinde gezinme için kısayollar
 
-| Shortcut    | Desc                            | F |
-|-------------|---------------------------------|---|
-| c+\* (cs+o) | Go to Symbol (method or field)  |   |
-| c+t         | Show all Symbols                |   |
-| s+F8        | Go to previous error or warning |   |
-| F8          | Go to next error or warning     |   |
-| cs+m        | Jump to matching bracket        | ❗ |
-| c+p         | Go to File                      |   |
-| c+h,b       | Open file from path (vsc-ext)   |   |
-| c+g         | Go to Line                      |   |
+| Shortcut     | Desc                            | F |
+|--------------|---------------------------------|---|
+| c+p          | Go to File                      |   |
+| c+\* (cs+o)  | Go to Symbol (method or field)  |   |
+| c+t          | Show all Symbols                |   |
+| F8           | Go to next error or warning     |   |
+| s+F8         | Go to previous error or warning |   |
+| cs+m         | Jump to matching bracket        | ❗ |
+| c+h,b        | Open file from path (vsc-ext)   |   |
+| c+g          | Go to Line                      |   |
 | a+left/right | Go (navigate) back / forward    |   |
-| Home / End   | Go to beginning/end of line     |   |
 | c+Home       | Go to beginning of file         |   |
 | c+End        | Go to end of file               |   |
+| Home / End   | Go to beginning/end of line     |   |
 
 ➖ Bookmark
 
 | Shortcut | Desc                            | F |
 |----------|---------------------------------|---|
-| s+F11        | List Bookmarks(all files) (vsc)    |     |
-| F11          | Toogle Bookmark (idea)             |     |
-| cs+[0-9]     | Toggle Bookmark [0-9] (idea)       |     |
-| c+[0-9]      | Go to Bookmark (idea)           |   |
+| s+F11    | List Bookmarks(all files) (vsc) |   |
+| F11      | Toogle Bookmark (idea)          |   |
+| cs+[0-9] | Toggle Bookmark [0-9] (idea)    |   |
+| c+[0-9]  | Go to Bookmark (idea)           |   |
 | c+F11    | Toggle Bookmark Mnemonic (idea) |   |
 | c+a,k    | Toogle Bookmark (vsc)           |   |
 
