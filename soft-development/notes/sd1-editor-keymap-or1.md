@@ -10,8 +10,8 @@ OrakSoft Keyboard shortcuts for Windows Based On Idea And VS Code
 - [Memorize Table](#memorize-table)
 - [General (Frequent)](#general-frequent)
 - [Code Navigation](#code-navigation)
-- [Display / Panel Navigation / View](#display--panel-navigation--view)
 - [Rich Languages Editing](#rich-languages-editing)
+- [Display / Panel Navigation / View](#display--panel-navigation--view)
 - [Editing](#editing)
 - [Editor management](#editor-management)
 - [Search and replace](#search-and-replace)
@@ -118,6 +118,22 @@ Fold,collapse (close). Unfold (open) şeklinde
 
 [🔝](#contents)
 
+# Rich Languages Editing
+
+| Shortcut      | Desc                        |
+| ------------- | --------------------------- |
+| c+space - c+i | Trigger suggestion          |
+| cs+space      | Trigger parameter hints     |
+| as+f          | Format document             |
+| c+k,f         | Format selection            |
+| F12           | Go to Definition            |
+| a+F12         | Peek Definition             |
+| c+k, F12      | Open Definition to the side |
+| c+.           | Quick Fix                   |
+| s+F12         | Show References             |
+| F2            | Rename Symbol               |
+| c+k,x         | Trim trailing whitespace    |
+
 
 # Display / Panel Navigation / View
 
@@ -157,21 +173,7 @@ cs+tab   | Navigate editor group history                    |
 c+j      | (workbench.action.focusActiveEditorGroup)        |
 ```
 
-# Rich Languages Editing
 
-| Shortcut      | Desc                        |
-| ------------- | --------------------------- |
-| c+space - c+i | Trigger suggestion          |
-| cs+space      | Trigger parameter hints     |
-| as+f          | Format document             |
-| c+k,f         | Format selection            |
-| F12           | Go to Definition            |
-| a+F12         | Peek Definition             |
-| c+k, F12      | Open Definition to the side |
-| c+.           | Quick Fix                   |
-| s+F12         | Show References             |
-| F2            | Rename Symbol               |
-| c+k,x         | Trim trailing whitespace    |
 
 # Editing
 
