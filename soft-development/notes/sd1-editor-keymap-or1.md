@@ -74,33 +74,47 @@ kullanışlı olan,ezberlenecek liste
 
 Kod içerisinde gezinme için kısayollar
 
-| Shortcut     | Desc                               | F   |
-| ------------ | ---------------------------------- | --- |
-| c+t          | Show all Symbols                   |     |
-| c+p          | Go to File                         |     |
-| c+\* (cs+o)  | Go to Symbol...                    |     |
-| a+left/right | Go (navigate) back / forward       |     |
-| c+g          | Go to Line                         |     |
-| F8           | Go to next error or warning        |     |
-| s+F8         | Go to previous error or warning    |     |
-| cs+m         | `Jump to matching bracket`         | xxx |
-| F11          | Toogle Bookmark (idea)             |     |
-| c+a,k        | Toogle Bookmark (vsc)              |     |
-| c+F11        | Toggle Bookmark Mnemonic (idea)    |     |
-| cs+[0-9]     | Toggle Bookmark [0-9] (idea)       |     |
-| c+[0-9]      | Go to Bookmark (idea)              |     |
+| Shortcut    | Desc                            | F |
+|-------------|---------------------------------|---|
+| c+\* (cs+o) | Go to Symbol (method or field)  |   |
+| c+t         | Show all Symbols                |   |
+| s+F8        | Go to previous error or warning |   |
+| F8          | Go to next error or warning     |   |
+| cs+m        | Jump to matching bracket        | ❗ |
+| c+p         | Go to File                      |   |
+| c+h,b       | Open file from path (vsc-ext)   |   |
+| c+g         | Go to Line                      |   |
+| a+left/right | Go (navigate) back / forward    |   |
+| Home / End   | Go to beginning/end of line     |   |
+| c+Home       | Go to beginning of file         |   |
+| c+End        | Go to end of file               |   |
+
+➖ Bookmark
+
+| Shortcut | Desc                            | F |
+|----------|---------------------------------|---|
 | s+F11        | List Bookmarks(all files) (vsc)    |     |
-| c+h,b        | Open file from path (vsc-ext)      |     |
-| a+z          | Toggle word wrap                   |     |
-| cs+(np-)     | Fold (collapse) region (close)     |     |
-| cs+(np+)     | Unfold (uncollapse) region (open)  |     |
-| c+k,[        | Fold (collapse) all subregions     | ??  |
-| c+k,]        | Unfold (uncollapse) all subregions | ??  |
-| c+k,0        | Fold (collapse) all regions        |     |
-| c+k,j        | Unfold (uncollapse) all regions    |     |
-| Home / End   | Go to beginning/end of line        |     |
-| c+Home       | Go to beginning of file            |     |
-| c+End        | Go to end of file                  |     |
+| F11          | Toogle Bookmark (idea)             |     |
+| cs+[0-9]     | Toggle Bookmark [0-9] (idea)       |     |
+| c+[0-9]      | Go to Bookmark (idea)           |   |
+| c+F11    | Toggle Bookmark Mnemonic (idea) |   |
+| c+a,k    | Toogle Bookmark (vsc)           |   |
+
+➖ Fold or Collapse
+
+Blokları otomatik kapatıp açma.
+
+Fold,collapse (close). Unfold (open) şeklinde
+
+| Shortcut | Desc               | F |
+|----------|--------------------|---|
+| cs+(np-) | Fold all           |   |
+| cs+(np+) | Unfold all         |   |
+| ca+(np-) | Fold recursively   |   |
+| ca+(np+) | Unfold recursively |   |
+| c+(-)    | Fold               |   |
+| c+(+)    | Unfold             |   |
+
 
 [🔝](#contents)
 
@@ -111,9 +125,10 @@ Kod içerisinde gezinme için kısayollar
 - Panellerin görüntülemesini açma ve kapama işlemleri
 
 | Shortcut   | Desc                                 | Note                       |
-| ---------- | ------------------------------------ | -------------------------- |
-| c+j,j      | `Focus Active Editor (editor focus)` |
-| cs+d       | Show Debug                           |
+|------------|--------------------------------------|----------------------------|
+| a+z        | Toggle word wrap                     |                            |
+| c+j,j      | `Focus Active Editor (editor focus)` |                            |
+| cs+d       | Show Debug                           |                            |
 | cs+s       | Toggle Sidebar Panel                 | old(c+b)                   |
 | cs+e - a+1 | Show Explorer                        |
 | cs+f       | Show Search                          |

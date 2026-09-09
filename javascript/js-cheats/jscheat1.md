@@ -52,8 +52,8 @@
     - [for Loop](#for-loop)
     - [Reverse Loop](#reverse-loop)
     - [break / continue](#break--continue)
-    - [for...in (index)](#forin-index)
-    - [for...of (value)](#forof-value)
+    - [for (index) in](#for-index-in)
+    - [for (object) of](#for-object-of)
   - [Iterators](#iterators)
     - [Callback Functions](#callback-functions)
     - [.forEach()](#foreach)
@@ -562,7 +562,7 @@ for (let i = 0; i < 10; i++) {
 }
 ```
 
-### for...in (index)
+### for (index) in
 
 ```javascript
 const fruits = ["apple", "orange", "banana"];
@@ -572,7 +572,7 @@ for (let index in fruits) {
 }
 ```
 
-### for...of (value)
+### for (object) of
 
 ```javascript
 const fruits = ["apple", "orange", "banana"];
