@@ -124,28 +124,29 @@ Fold,collapse (close). Unfold (open) şeklinde
 - Editor panelleri arasında gezinme
 - Panellerin görüntülemesini açma ve kapama işlemleri
 
-| Shortcut   | Desc                                 | Note                       |
-|------------|--------------------------------------|----------------------------|
-| a+z        | Toggle word wrap                     |                            |
-| c+j,j      | `Focus Active Editor (editor focus)` |                            |
-| cs+d       | Show Debug                           |                            |
-| cs+s       | Toggle Sidebar Panel                 | old(c+b)                   |
-| cs+e - a+1 | Show Explorer                        |
-| cs+f       | Show Search                          |
-| cs+g       | Show Source Control                  |
-| cs+x       | Show Extensions                      |
-| cs+h       | Replace in files                     |
-| cs+j       | Toggle Search details                |
-| cs+u       | Show Output panel                    |
-| cs+m       | Show Problems panel                  |
-| cs+v       | Open Markdown preview                |
-| c+k,v      | Open Markdown preview to the side    |
-| c+k,z      | Zen Mode (Esc Esc to exit)           |
-| a+o        | Open In Default Browser              | User-explorer da çalışıyor |
-| c+"        | Focus-Open Terminal                  | (wb.action.terminal.focus) |
-| c+1        | Focus Editor(1)                      |
-| c+= / c+-  | Zoom in/out                          |
-| a+t        | TODO (idea)                          |
+| Shortcut   | Desc                               | Note                       |
+|------------|------------------------------------|----------------------------|
+| a+z        | Toggle word wrap                   |                            |
+| c+j,j      | Focus Active Editor (editor focus) | ❗ vsc'de,idea'da esc       |
+| cs+d       | Show Debug                         |                            |
+| cs+s       | Toggle Sidebar Panel               | old(c+b)                   |
+| a+1        | Explorer (vsc) (Toggle Sidebar)    |                            |
+| cs+e - a+1 | Show Explorer                      |                            |
+| cs+f       | Show Search                        |                            |
+| cs+g       | Show Source Control                |                            |
+| cs+x       | Show Extensions                    |                            |
+| cs+h       | Replace in files                   |                            |
+| cs+j       | Toggle Search details              |                            |
+| cs+u       | Show Output panel                  |                            |
+| cs+m       | Show Problems panel ???                |                            |
+| cs+v       | Open Markdown preview              |                            |
+| c+k,v      | Open Markdown preview to the side  |                            |
+| c+k,z      | Zen Mode (Esc Esc to exit)         |                            |
+| a+o        | Open In Default Browser            | side-panelde çalışıyor     |
+| c+"        | Focus-Open Terminal                | (wb.action.terminal.focus) |
+| c+1        | Focus Editor(1)                    |                            |
+| c+= / c+-  | Zoom in/out                        |                            |
+| a+t        | TODO (idea)                        |                            |
 
 unfavs
 
@@ -402,4 +403,5 @@ See [Keymap Template](./keymap-template.md)
 | ----- | --------------------------- |
 | win+ü | c+f4 equilavent (close tab) |
 |       | .                           |
+
 
