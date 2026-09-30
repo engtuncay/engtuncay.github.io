@@ -5,6 +5,31 @@ Source : https://chatgpt.com/c/67c3acfb-56dc-800e-ac52-9b9270e31e68
 
 ---
 
+- [Rclone'un Temel Özellikleri](#rcloneun-temel-özellikleri)
+- [Rclone Nasıl Kurulur?](#rclone-nasıl-kurulur)
+  - [Windows İçin](#windows-i̇çin)
+  - [Linux İçin](#linux-i̇çin)
+  - [MacOS İçin](#macos-i̇çin)
+- [Temel Komutlar](#temel-komutlar)
+  - [Bağlantı Ayarlama (Remote Eklemek)](#bağlantı-ayarlama-remote-eklemek)
+  - [Dosya ve Dizin Listeleme](#dosya-ve-dizin-listeleme)
+- [İşlemler](#i̇şlemler)
+  - [Dosya Kopyalama](#dosya-kopyalama)
+  - [Dosya Senkronizasyonu (İki Yönlü)](#dosya-senkronizasyonu-i̇ki-yönlü)
+  - [Bulutu Mount Etme (Yerel Disk Gibi)](#bulutu-mount-etme-yerel-disk-gibi)
+  - [Şifrelenmiş Depolama Kullanma](#şifrelenmiş-depolama-kullanma)
+- [Google Drive ile Temel Rclone Komutları](#google-drive-ile-temel-rclone-komutları)
+  - [Google Drive'a Dosya Yükleme](#google-drivea-dosya-yükleme)
+  - [Google Drive'dan Dosya İndirme](#google-drivedan-dosya-i̇ndirme)
+  - [Google Drive ile Senkronizasyon](#google-drive-ile-senkronizasyon)
+- [Google Drive'ı Yerel Disk Gibi Bağlama (Mount)](#google-driveı-yerel-disk-gibi-bağlama-mount)
+- [Rclone Web Arayüzü ile Google Drive Yönetimi](#rclone-web-arayüzü-ile-google-drive-yönetimi)
+- [Otomatik Yedekleme ve Senkronizasyon](#otomatik-yedekleme-ve-senkronizasyon)
+- [Özet](#özet)
+
+
+
+
 Rclone, komut satırı tabanlı bir dosya senkronizasyon ve yönetim aracıdır. Bulut depolama hizmetleriyle (Google Drive, OneDrive, Dropbox, Amazon S3, vb.) yerel diskler arasında dosya transferi yapmanıza, senkronizasyon işlemlerini otomatikleştirmenize ve uzaktaki depolama alanlarını yerel bir disk gibi bağlamanıza olanak tanır.
 
 ---
@@ -40,6 +65,7 @@ brew install rclone
 ---
 
 # Temel Komutlar
+
 ## Bağlantı Ayarlama (Remote Eklemek)
 ```sh
 rclone config
@@ -47,38 +73,54 @@ rclone config
 - Yeni bir bağlantı eklemek için `"n"` seçeneğini kullan.
 - Bulut sağlayıcısını seç ve giriş bilgilerini gir.
 
-## Dosya Listeleme
+## Dosya ve Dizin Listeleme
+
 ```sh
 rclone ls remote:
 ```
 - `remote:` yerine bağladığın bulut servisini yaz.
 
+- ls dosyaları listeler
+- lsd dizinleri listeler
+- lsf hem dizn hem dosyaları listeler
+
+# İşlemler
+
 ## Dosya Kopyalama
+
 ```sh
 rclone copy local_folder remote:/backup
 ```
 - `local_folder` → Yerel klasör
 - `remote:/backup` → Buluta yedekleme
 
+
 ## Dosya Senkronizasyonu (İki Yönlü)
+
 ```sh
-rclone sync local_folder remote:/backup
+rclone sync local_folder remote:backup
 ```
 - Yereldeki dosyalar ile buluttaki dosyaları eşitler.
 
 ## Bulutu Mount Etme (Yerel Disk Gibi)
+
 ```sh
 rclone mount remote:/backup X: --vfs-cache-mode full
 ```
+
 - Windows'ta **X:** sürcücüsünü bağlar.
 - Linux için:
-  ```sh
-  rclone mount remote:/backup /mnt/backup --daemon
-  ```
+
+```sh
+rclone mount remote:/backup /mnt/backup --daemon
+```
+
 - `fusermount -u /mnt/backup` ile bağlantıyı kaldırabilirsin.
 
 ## Şifrelenmiş Depolama Kullanma
+
 - `rclone config` ile yeni bir **kriptolu remote** ekleyebilirsin.
+
 ```sh
 rclone copy local_folder crypt:/secure-backup
 ```
@@ -86,17 +128,6 @@ rclone copy local_folder crypt:/secure-backup
 ---
 
 # Google Drive ile Temel Rclone Komutları
-
-## Google Drive İçeriğini Listeleme
-```sh
-rclone ls gdrive:
-```
-
-Sadece klasörleri listelemek için:
-
-```sh
-rclone lsd gdrive:
-```
 
 ## Google Drive'a Dosya Yükleme
 
@@ -127,11 +158,20 @@ rclone copy gdrive:/Backup C:\Yedek
 rclone sync ~/yerel_klasor gdrive:/yedek
 ```
 
-Silme işlemi yapmadan önizlemek için:
+➖ Önizleme yapmak için:
 
 ```sh
 rclone sync ~/yerel_klasor gdrive:/yedek --dry-run
 ```
+
+🧲 Örnek
+
+```sh
+rclone sync Y:\demosync mydrive:demosync --progress -v
+
+```
+
+"-v" ile loglama veya "-vv" ile detaylı loglama kayıtlarını görüntüleyebiliriz.
 
 ---
 
