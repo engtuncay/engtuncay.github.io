@@ -10,16 +10,15 @@ Source : https://chatgpt.com/c/67c3acfb-56dc-800e-ac52-9b9270e31e68
   - [Windows İçin](#windows-i̇çin)
   - [Linux İçin](#linux-i̇çin)
   - [MacOS İçin](#macos-i̇çin)
-- [Temel Komutlar](#temel-komutlar)
-  - [Bağlantı Ayarlama (Remote Eklemek)](#bağlantı-ayarlama-remote-eklemek)
-  - [Dosya ve Dizin Listeleme](#dosya-ve-dizin-listeleme)
+- [Bağlantı Ayarlama (Remote Eklemek)](#bağlantı-ayarlama-remote-eklemek)
+- [Dosya ve Dizin Listeleme](#dosya-ve-dizin-listeleme)
 - [İşlemler](#i̇şlemler)
   - [Dosya Kopyalama](#dosya-kopyalama)
   - [Dosya Senkronizasyonu (İki Yönlü)](#dosya-senkronizasyonu-i̇ki-yönlü)
   - [Şifrelenmiş Depolama Kullanma](#şifrelenmiş-depolama-kullanma)
 - [Mount İşlemi](#mount-i̇şlemi)
   - [Bulutu Mount Etme (Yerel Disk Gibi)](#bulutu-mount-etme-yerel-disk-gibi)
-- [Google Drive ile Temel Rclone Komutları](#google-drive-ile-temel-rclone-komutları)
+- [(deps) Google Drive ile Temel Rclone Komutları](#deps-google-drive-ile-temel-rclone-komutları)
   - [Google Drive'a Dosya Yükleme](#google-drivea-dosya-yükleme)
   - [Google Drive'dan Dosya İndirme](#google-drivedan-dosya-i̇ndirme)
 - [Rclone Web Arayüzü ile Google Drive Yönetimi](#rclone-web-arayüzü-ile-google-drive-yönetimi)
@@ -63,16 +62,16 @@ brew install rclone
 
 ---
 
-# Temel Komutlar
+# Bağlantı Ayarlama (Remote Eklemek)
 
-## Bağlantı Ayarlama (Remote Eklemek)
 ```sh
 rclone config
 ```
+
 - Yeni bir bağlantı eklemek için `"n"` seçeneğini kullan.
 - Bulut sağlayıcısını seç ve giriş bilgilerini gir.
 
-## Dosya ve Dizin Listeleme
+# Dosya ve Dizin Listeleme
 
 ```sh
 rclone ls remote:
@@ -172,7 +171,7 @@ fusermount -u ~/GoogleDrive
 ```
 
 
-# Google Drive ile Temel Rclone Komutları
+# (deps) Google Drive ile Temel Rclone Komutları
 
 ## Google Drive'a Dosya Yükleme
 
