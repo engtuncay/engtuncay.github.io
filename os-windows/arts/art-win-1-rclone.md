@@ -16,13 +16,12 @@ Source : https://chatgpt.com/c/67c3acfb-56dc-800e-ac52-9b9270e31e68
 - [İşlemler](#i̇şlemler)
   - [Dosya Kopyalama](#dosya-kopyalama)
   - [Dosya Senkronizasyonu (İki Yönlü)](#dosya-senkronizasyonu-i̇ki-yönlü)
-  - [Bulutu Mount Etme (Yerel Disk Gibi)](#bulutu-mount-etme-yerel-disk-gibi)
   - [Şifrelenmiş Depolama Kullanma](#şifrelenmiş-depolama-kullanma)
+- [Mount İşlemi](#mount-i̇şlemi)
+  - [Bulutu Mount Etme (Yerel Disk Gibi)](#bulutu-mount-etme-yerel-disk-gibi)
 - [Google Drive ile Temel Rclone Komutları](#google-drive-ile-temel-rclone-komutları)
   - [Google Drive'a Dosya Yükleme](#google-drivea-dosya-yükleme)
   - [Google Drive'dan Dosya İndirme](#google-drivedan-dosya-i̇ndirme)
-  - [Google Drive ile Senkronizasyon](#google-drive-ile-senkronizasyon)
-- [Google Drive'ı Yerel Disk Gibi Bağlama (Mount)](#google-driveı-yerel-disk-gibi-bağlama-mount)
 - [Rclone Web Arayüzü ile Google Drive Yönetimi](#rclone-web-arayüzü-ile-google-drive-yönetimi)
 - [Otomatik Yedekleme ve Senkronizasyon](#otomatik-yedekleme-ve-senkronizasyon)
 - [Özet](#özet)
@@ -102,6 +101,37 @@ rclone sync local_folder remote:backup
 ```
 - Yereldeki dosyalar ile buluttaki dosyaları eşitler.
 
+```sh
+rclone sync ~/yerel_klasor gdrive:/yedek
+```
+
+➖ Önizleme yapmak için:
+
+```sh
+rclone sync ~/yerel_klasor gdrive:/yedek --dry-run
+```
+
+🧲 Örnek
+
+```sh
+rclone sync Y:\demosync mydrive:demosync --progress -v
+
+```
+
+➖ "-v" ile loglama veya "-vv" ile detaylı loglama (very verbose) kayıtlarını görüntüleyebiliriz.
+
+## Şifrelenmiş Depolama Kullanma
+
+- `rclone config` ile yeni bir **kriptolu remote** ekleyebilirsin.
+
+```sh
+rclone copy local_folder crypt:/secure-backup
+```
+
+---
+
+# Mount İşlemi
+
 ## Bulutu Mount Etme (Yerel Disk Gibi)
 
 ```sh
@@ -117,15 +147,30 @@ rclone mount remote:/backup /mnt/backup --daemon
 
 - `fusermount -u /mnt/backup` ile bağlantıyı kaldırabilirsin.
 
-## Şifrelenmiş Depolama Kullanma
-
-- `rclone config` ile yeni bir **kriptolu remote** ekleyebilirsin.
+➖ Google Drive'ı Yerel Disk Gibi Bağlama (Mount)
 
 ```sh
-rclone copy local_folder crypt:/secure-backup
+rclone mount gdrive:/ X: --vfs-cache-mode full
 ```
 
----
+Linux için:
+
+```sh
+rclone mount gdrive:/ ~/GoogleDrive --daemon
+```
+
+Mount’u kaldırmak için:
+
+Windows:
+```sh
+net use X: /delete
+```
+
+Linux:
+```sh
+fusermount -u ~/GoogleDrive
+```
+
 
 # Google Drive ile Temel Rclone Komutları
 
@@ -152,53 +197,6 @@ Windows için:
 rclone copy gdrive:/Backup C:\Yedek
 ```
 
-## Google Drive ile Senkronizasyon
-
-```sh
-rclone sync ~/yerel_klasor gdrive:/yedek
-```
-
-➖ Önizleme yapmak için:
-
-```sh
-rclone sync ~/yerel_klasor gdrive:/yedek --dry-run
-```
-
-🧲 Örnek
-
-```sh
-rclone sync Y:\demosync mydrive:demosync --progress -v
-
-```
-
-"-v" ile loglama veya "-vv" ile detaylı loglama kayıtlarını görüntüleyebiliriz.
-
----
-
-# Google Drive'ı Yerel Disk Gibi Bağlama (Mount)
-
-```sh
-rclone mount gdrive:/ X: --vfs-cache-mode full
-```
-
-Linux için:
-
-```sh
-rclone mount gdrive:/ ~/GoogleDrive --daemon
-```
-
-Mount’u kaldırmak için:
-
-Windows:
-```sh
-net use X: /delete
-```
-
-Linux:
-```sh
-fusermount -u ~/GoogleDrive
-```
-
 ---
 
 # Rclone Web Arayüzü ile Google Drive Yönetimi
@@ -211,16 +209,20 @@ Bu komut, tarayıcıda bir web paneli açar.
 ---
 
 # Otomatik Yedekleme ve Senkronizasyon
+
 Linux için:
 ```sh
 crontab -e
 ```
+
 Ve şunu ekle:
+
 ```sh
 0 2 * * * rclone sync ~/yerel_klasor gdrive:/yedek
 ```
 
 Windows’ta bir `.bat` dosyası oluşturup Görev Zamanlayıcı'ya ekleyebilirsin:
+
 ```bat
 @echo off
 rclone sync C:\Dosyalar gdrive:/Backup
@@ -230,6 +232,7 @@ exit
 ---
 
 # Özet
+
 | İşlem                          | Komut                                            |
 | ------------------------------ | ------------------------------------------------ |
 | Google Drive bağlantısı ekleme | `rclone config`                                  |
