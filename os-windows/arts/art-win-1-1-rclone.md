@@ -47,15 +47,18 @@ Rclone, komut satırı tabanlı bir dosya senkronizasyon ve yönetim aracıdır.
 # Rclone Nasıl Kurulur?
 
 ## Windows İçin
+
 1. [Resmi Rclone sitesinden](https://rclone.org/downloads/) uygun sürümü indir.
 2. ZIP dosyasını çıkar ve `rclone.exe` dosyasını kullan.
 
 ## Linux İçin
+
 ```sh
 curl https://rclone.org/install.sh | sudo bash
 ```
 
 ## MacOS İçin
+
 ```sh
 brew install rclone
 ```

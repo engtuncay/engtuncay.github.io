@@ -47,25 +47,26 @@ y  → Yes, this is OK
 q  → Quit config
 
 ```
+
 Adım 3: Drive'ı Klasör Olarak Bağla
 
 Rclone, Google Drive'ı Windows'ta G: gibi bir sürücü harfi olarak bağlayabilir. DevGenius
-cmd
-```
+
+```sh
 rclone mount gdrive: G: --vfs-cache-mode full
 
 ```
 
 veya belirli bir alt klasörü bağlamak için:
 
-```
+```sh
 cmdrclone mount gdrive:/Projeler G: --vfs-cache-mode full
 
 ```
 
 Arka planda çalıştırmak için (yeni pencere açar):
 
-```
+```sh
 cmdstart /B rclone mount gdrive: G: --vfs-cache-mode full --log-file C:\rclone\rclone.log
 
 ```
