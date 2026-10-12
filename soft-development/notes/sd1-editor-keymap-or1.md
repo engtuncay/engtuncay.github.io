@@ -24,9 +24,9 @@ Updated : 2026-10-12
 - [Alphatic Order](#alphatic-order)
   - [Ctrl Shortcuts](#ctrl-shortcuts)
   - [Alt Shortcuts](#alt-shortcuts)
-  - [multi keys](#multi-keys)
-    - [(c+k) multi keys](#ck-multi-keys)
-    - [(c+h) multi keys](#ch-multi-keys)
+- [Multi keys](#multi-keys)
+  - [(c+k) multi keys](#ck-multi-keys)
+  - [(c+h) multi keys](#ch-multi-keys)
 - [Notes](#notes)
 - [Other Unfrequent Items](#other-unfrequent-items)
 - [Templates](#templates)
@@ -365,7 +365,7 @@ c+j      | (workbench.action.focusActiveEditorGroup)        |
 | a+ş   |                                |
 | a+ç   |                                |
 
-## multi keys
+# Multi keys
 
 | Key | Exp                   |
 | --- | --------------------- |
@@ -379,7 +379,7 @@ c+j      | (workbench.action.focusActiveEditorGroup)        |
 
 [🔝](#contents)
 
-### (c+k) multi keys
+## (c+k) multi keys
 
 | Key   | Exp         |
 | ----- | ----------- |
@@ -387,7 +387,7 @@ c+j      | (workbench.action.focusActiveEditorGroup)        |
 
 [🔝](#contents)
 
-### (c+h) multi keys
+## (c+h) multi keys
 
 | Key   | Exp                      |
 | ----- | ------------------------ |
