@@ -2,6 +2,8 @@ OrakSoft Keyboard shortcuts for Windows Based On Idea And VS Code
 
 [Back](../readme.md)
 
+Updated : 2026-10-12
+
 ---
 
 # Contents
@@ -294,7 +296,7 @@ c+j      | (workbench.action.focusActiveEditorGroup)        |
 ## Ctrl Shortcuts
 
 | Key   | Desc                           | When             |
-| ----- | ------------------------------ | ---------------- |
+|-------|--------------------------------|------------------|
 | c+a   | select all                     |
 | ctb   |                                |
 | c+c   | cut                            |
@@ -306,22 +308,26 @@ c+j      | (workbench.action.focusActiveEditorGroup)        |
 | c+h,h | replace                        |
 | c+ı   |                                |
 | c+i   |                                |
-| c+j,j |                                |
-| c+k,k |                                |
+| c+j,j | multi -                        |
+| c+k,k | multi -                        |
 | c+l   | delete line                    |
-| c+m   | (screen to center??)           |
+| c+m   | multi : screen to center??     |
 | c+n   | Create New File                |
-| c+o   | open file                      |
+| c+o   | multi - open file              |
 | c+p   | navigate Project File          |
-| c+rr  | open recent                    |
+| c+r,r | multi - open recent            |
 | c+s   | save                           |
-| c+ş   |
 | c+t   | go to symbol                   |
-| c+u   |
-| c+ü   |
+| c+u   | multi -                        |
 | c+v   | paste                          |
 | c+y   |
-| c+z   |
+| c+z   |                                |
+| c+ğ   |                                |
+| c+ü   |                                |
+| c+ş   |                                |
+| c+ç   |                                |
+
+
 
 [🔝](#contents)
 
@@ -354,6 +360,10 @@ c+j      | (workbench.action.focusActiveEditorGroup)        |
 | a+ü   | -                |
 | a+v   | view menu        |
 | a+y   | -                |
+| a+ğ   |                                |
+| a+ü   |                                |
+| a+ş   |                                |
+| a+ç   |                                |
 
 ## multi keys
 
@@ -363,8 +373,9 @@ c+j      | (workbench.action.focusActiveEditorGroup)        |
 | c+j | x                     |
 | c+r | x                     |
 | c+h | x                     |
-| c+1 | navigation related??? |
+| c+1 | navigation related??? -  |
 | c+m | markdown related      |
+
 
 [🔝](#contents)
 
