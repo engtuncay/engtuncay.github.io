@@ -38,7 +38,7 @@ C1 -> Cheat1
   - [ES6 Destructuring Arrays to Assign Variables](#es6-destructuring-arrays-to-assign-variables)
 - [Array Methods](#array-methods)
   - [Map](#map)
-- [JavaScript Objects](#javascript-objects)
+- [Objects](#objects)
   - [Example](#example-1)
   - [Accessing Objects Properties](#accessing-objects-properties)
     - [Accessing with dot (`.`) notation](#accessing-with-dot--notation)
@@ -130,6 +130,10 @@ C1 -> Cheat1
 - [Files and Directories](#files-and-directories)
 - [Error Handling](#error-handling)
 - [Debugging](#debugging)
+- [Map](#map-1)
+- [Set](#set)
+- [String Manipulation](#string-manipulation)
+- [String Formatting](#string-formatting)
 - [Extra Sources](#extra-sources)
 
 
@@ -601,7 +605,7 @@ const rating = watchList.map((movie) => ({
   { title: 'Batman Begins', rating: '7.9' } ]  */
 ```
 
-## JavaScript Objects
+## Objects
 
 ### Example
 
@@ -3818,6 +3822,762 @@ test('adds 1 + 2 to equal 3', () => {
 The sum function is being tested to ensure that it correctly adds two numbers together. The test function is used to define a test, and the expect and toBe functions are used to define what the expected output should be.
 
 Unit tests are typically automated and run by a CI/CD system whenever changes are made to the codebase, ensuring that regressions are caught and fixed as early as possible.
+
+## Map
+
+Javascript Map Object
+
+A Map is a built in object that holds key-value pairs. It can hold a key of any data type unlike in plain objects. It maintains the insertion order and provides helpers to manage key-value pairs.
+
+Creating a Map
+Creates an empty Map instance.
+
+JAVASCRIPT
+Run
+Playground
+
+const map = new Map()
+console.log(map.size)
+Output
+
+Visualize
+No output yet.
+Initializing a Map
+You can initialize a Map with an array of key-value pairs.
+
+JAVASCRIPT
+Run
+Playground
+
+const map = new Map([
+  ['id', 1], // key: 'id', value: 1
+  ['name', 'Alice'], // key: 'name', value: 'Alice'
+])
+console.log(map.size)
+Output
+
+Visualize
+No output yet.
+Map Size
+size property returns the number of key-value pairs in a map. It returns a number.
+
+JAVASCRIPT
+Run
+Playground
+
+const map = new Map([
+  ['id', 1],
+  ['name', 'Alice'],
+])
+console.log(map.size)
+Output
+
+Visualize
+No output yet.
+Map Set
+The set(key, value) method adds a key-value pair. If a key exists already, the value will be updated. set() affects the size of a map.
+
+JAVASCRIPT
+Run
+Playground
+
+const map = new Map([
+  ['id', 1],
+  ['name', 'Alice'],
+])
+map.set('age', 50)
+map.set(2, 200)
+map.set('id', 2)
+
+console.log(map.size)
+Output
+
+Visualize
+No output yet.
+You can also chain set like map.set(key, value).set(key, value)
+
+Map Get
+The get(key) retrieves the value of the specified key. If a key exists, its value will be returned otherwise undefined.
+
+JAVASCRIPT
+Run
+Playground
+
+const map = new Map([
+  ['id', 1],
+  ['name', 'Alice'],
+  ['age', 50],
+])
+console.log(map.get('age'))
+console.log(map.get('none'))
+Output
+
+Visualize
+No output yet.
+Map Has
+The has(key) returns a boolean by checking the key existence.
+
+JAVASCRIPT
+Run
+Playground
+
+const map = new Map([
+  ['id', 1],
+  ['name', 'Alice'],
+])
+console.log(map.has('id'))
+console.log(map.has('none'))
+Output
+
+Visualize
+No output yet.
+Map Delete
+The delete(key) method removes the key-value pair with the specified key. It returns true if the key exists, otherwise false. delete() affects the size of a map.
+
+JAVASCRIPT
+Run
+Playground
+
+const map = new Map([
+  ['id', 1],
+  ['name', 'Alice'],
+  ['age', 50],
+  [2, 200],
+])
+console.log(map.delete('age'))
+console.log(map.delete('none'))
+console.log(map.size)
+Output
+
+Visualize
+No output yet.
+Map Clear
+The clear method removes all key-value pairs from the map. clear affects the size of a map.
+
+JAVASCRIPT
+Run
+Playground
+
+const map = new Map([
+  ['id', 1],
+  ['name', 'Alice'],
+])
+map.clear()
+console.log(map.size)
+Output
+
+Visualize
+No output yet.
+Iterate Map using for ... of
+You can directly iterate using for ... of over each key-value pair.
+
+JAVASCRIPT
+Run
+Playground
+
+const map = new Map()
+map.set('name', 'Bob').set('age', 20)
+for (const [key, value] of map) {
+  console.log(`${key}: ${value}`)
+}
+Output
+
+Visualize
+No output yet.
+Iterate Map using keys()
+You can iterate over the map keys using keys() method as in the order it was inserted.
+
+JAVASCRIPT
+Run
+Playground
+
+const map = new Map()
+map.set('name', 'Bob').set('age', 20)
+for (const key of map.keys()) {
+  console.log(`${key}`)
+}
+Output
+
+Visualize
+No output yet.
+Iterate Map using values()
+You can iterate over the map values using values() method as in the order it was inserted.
+
+JAVASCRIPT
+Run
+Playground
+
+const map = new Map()
+map.set('name', 'Bob').set('age', 20)
+for (const value of map.values()) {
+  console.log(`${value}`)
+}
+Output
+
+Visualize
+No output yet.
+Iterate Map using entries()
+You can iterate over the map's key-value pair using entries() method as in the order it was inserted.
+
+JAVASCRIPT
+Run
+Playground
+
+const map = new Map()
+map.set('name', 'Bob').set('age', 20)
+for (let [key, value] of map.entries()) {
+  console.log(`${key}: ${value}`)
+}
+Output
+
+Visualize
+No output yet.
+
+## Set
+
+Sets are commonly used in scenarios where you need to work with collections of unique elements.
+
+From the MDN Web Docs
+
+The Set object lets you store unique values of any type, whether primitive values or object references.
+
+Common Use Cases
+Removing duplicates from an array
+Since a Set automatically removes duplicates, you can convert an array to a Set and back to an array to remove duplicate elements.
+
+JAVASCRIPT
+Run
+Playground
+
+let array = [1, 2, 2, 3, 4, 4, 5];
+let uniqueArray = [...new Set(array)];
+console.log(uniqueArray);
+Output
+
+Visualize
+No output yet.
+Membership check
+Checking if an element exists in a Set is faster and more efficient than checking if it exists in an array.
+
+JAVASCRIPT
+Run
+Playground
+
+let mySet = new Set([1, 2, 3, 4, 5]);
+console.log(mySet.has(3));
+Output
+
+Visualize
+No output yet.
+Set operations
+You can perform operations like union, intersection, difference, and symmetric difference on Sets, similar to mathematical set operations.
+
+Remember!
+
+Sets only store unique values, so they are not suitable for cases where duplicate values are important.
+
+Set Declaration
+A Set is declared using the new Set() constructor. You can optionally pass an iterable (like an array) to the constructor to initialize the Set with values.
+
+JAVASCRIPT
+Run
+Playground
+
+// Declare an empty Set
+let set1 = new Set();
+
+// Declare a Set with initial values
+let set2 = new Set([1, 2, 3, 4, 5]);
+
+console.log([...set1]);
+console.log([...set2]);
+Output
+
+Visualize
+No output yet.
+set1 is an empty Set, and set2 is a Set initialized with the values 1, 2, 3, 4, and 5. Note that Sets automatically remove duplicate values, so each value in a Set is unique.
+
+Checking if a Value Exists
+You can check if a value exists in a Set using the has method. The has method returns a boolean indicating whether the value exists in the Set:
+
+JAVASCRIPT
+Run
+Playground
+
+let mySet = new Set([1, 2, 3, 4, 5]);
+
+console.log(mySet.has(1));
+console.log(mySet.has(6));
+Output
+
+Visualize
+No output yet.
+mySet is a Set initialized with the values 1, 2, 3, 4, and 5. The has method is used to check if the values 1 and 6 exist in the Set.
+
+Adding and Deleting Values
+Add and delete values in a Set using the add and delete methods respectively.
+
+Adding Values
+You can add a value to a Set using the add method. The add method appends a new element with a specified value to the end of a Set object.
+
+JAVASCRIPT
+Run
+Playground
+
+let mySet = new Set();
+
+mySet.add(1);
+mySet.add(2);
+mySet.add(3);
+
+console.log([...mySet]);
+Output
+
+Visualize
+No output yet.
+Here, we're adding the values 1, 2, and 3 to the Set mySet.
+
+Deleting Values
+You can delete a value from a Set using the delete method. The delete method removes the specified element from a Set.
+
+JAVASCRIPT
+Run
+Playground
+
+let mySet = new Set([1, 2, 3]);
+
+mySet.delete(2);
+
+console.log([...mySet]);
+Output
+
+Visualize
+No output yet.
+We're deleting the value 2 from the Set mySet.
+
+Getting the Size of a Set
+Get the size (number of elements) of a Set using the size property.
+
+JAVASCRIPT
+Run
+Playground
+
+let mySet = new Set([1, 2, 3, 4, 5]);
+
+console.log(mySet.size);
+Output
+
+Visualize
+No output yet.
+mySet is a Set initialized with the values 1, 2, 3, 4, and 5. The size property is used to get the number of elements in the Set.
+
+Iterating Over a Set
+You can iterate over a Set using several methods:
+
+For...of loop: Iterate over the values in a Set.
+JAVASCRIPT
+Run
+Playground
+
+let mySet = new Set([1, 2, 3, 4, 5]);
+
+for (let value of mySet) {
+  console.log(value);
+}
+Output
+
+Visualize
+No output yet.
+forEach method: This allows you to execute a function for each value in a Set.
+JAVASCRIPT
+Run
+Playground
+
+let mySet = new Set([1, 2, 3, 4, 5]);
+
+mySet.forEach(function(value) {
+  console.log(value);
+});
+Output
+
+Visualize
+No output yet.
+Spread operator: Convert a Set into an Array, which can be useful for iteration.
+JAVASCRIPT
+Run
+Playground
+
+let mySet = new Set([1, 2, 3, 4, 5]);
+let array = [...mySet];
+
+array.forEach(function(value) {
+  console.log(value);
+});
+Output
+
+Visualize
+No output yet.
+In each of these examples, we're iterating over the Set mySet and logging each value to the console.
+
+Clearing a Set
+In JavaScript, you can clear all values from a Set using the clear method.
+
+JAVASCRIPT
+Run
+Playground
+
+let mySet = new Set([1, 2, 3, 4, 5]);
+
+console.log(mySet.size);
+
+mySet.clear();
+
+console.log(mySet.size);
+Output
+
+Visualize
+No output yet.
+mySet is a Set initialized with the values 1, 2, 3, 4, and 5. The clear method is used to remove all values from the Set. After clearing, the size of the Set is 0.
+
+In JavaScript, you can perform set operations like union, intersection, difference, and symmetric difference using Sets. Here's how you can do it:
+
+Set Union
+The union of two sets is a set of all elements from both sets. You can get the union of two sets by creating a new Set from the concatenation of the two sets.
+
+JAVASCRIPT
+Run
+Playground
+
+let setA = new Set([1, 2, 3]);
+let setB = new Set([3, 4, 5]);
+
+let union = new Set([...setA, ...setB]);
+console.log([...union]);
+Output
+
+Visualize
+No output yet.
+Set Intersection
+The intersection of two sets is a set of elements that are common to both sets. You can get the intersection of two sets by filtering one set for elements that also exist in the other set.
+
+JAVASCRIPT
+Run
+Playground
+
+let setA = new Set([1, 2, 3]);
+let setB = new Set([3, 4, 5]);
+
+let intersection = new Set([...setA].filter(x => setB.has(x)));
+console.log([...intersection]);
+Output
+
+Visualize
+No output yet.
+Set Difference
+The difference of two sets is a set of elements that exist in the first set but not in the second set. You can get the difference of two sets by filtering the first set for elements that do not exist in the second set.
+
+JAVASCRIPT
+Run
+Playground
+
+let setA = new Set([1, 2, 3]);
+let setB = new Set([3, 4, 5]);
+
+let difference = new Set([...setA].filter(x => !setB.has(x)));
+console.log([...difference]);
+Output
+
+Visualize
+No output yet.
+Set Symmetric Difference
+The symmetric difference of two sets is a set of elements that exist in either of the two sets but not in their intersection. You can get the symmetric difference of two sets by getting the union of the two sets and then filtering out the intersection.
+
+JAVASCRIPT
+Run
+Playground
+
+let setA = new Set([1, 2, 3]);
+let setB = new Set([3, 4, 5]);
+
+let union = new Set([...setA, ...setB]);
+let intersection = new Set([...setA].filter(x => setB.has(x)));
+
+let symmetricDifference = new Set([...union].filter(x => !intersection.has(x)));
+console.log([...symmetricDifference]);
+Output
+
+Visualize
+No output yet.
+
+
+## String Manipulation
+
+Manipulating Strings
+
+String manipulation refers to the process of changing, parsing, slicing, or analyzing strings in various ways.
+
+Concat
+The concat method is used to join two or more strings together. This method does not change the existing strings, but returns a new string containing the text of the joined strings.
+
+JAVASCRIPT
+Run
+Playground
+
+let str1 = "Hello, ";
+let str2 = "World!";
+let result = str1.concat(str2);
+
+console.log(result);
+Output
+
+Visualize
+No output yet.
+str1 and str2 are two strings. The concat method is called on str1 with str2 as the argument, resulting in a new string that is the concatenation of str1 and str2. The new string is stored in the result variable.
+
+CharAt
+charAt method is used to get the character at a specific index in a string. The index of the first character is 0, the second character is 1, and so on.
+
+JAVASCRIPT
+Run
+Playground
+
+let str = "Hello, World!";
+let char = str.charAt(7);
+
+console.log(char);
+Output
+
+Visualize
+No output yet.
+Here, str is a string. The charAt method is called on str with 7 as the argument, which corresponds to the 8th character in the string (since the index is 0-based). The character at this index is "W", so "W" is stored in the char variable and then logged to the console.
+
+Includes
+The includes method is used to determine whether one string can be found within another string, returning true or false as appropriate. It performs a case-sensitive search.
+
+JAVASCRIPT
+Run
+Playground
+
+let str = "Hello, World!";
+let result = str.includes("World");
+
+console.log(result);
+Output
+
+Visualize
+No output yet.
+str is a string. The includes method is called on str with "World" as the argument. Since "World" is a substring of str, the includes method returns true, which is stored in the result variable and then logged to the console.
+
+IndexOf
+indexOf method is used to determine the first occurrence of a specified value in a string. It returns the index of the value if found, or -1 if the value is not found. The search is case-sensitive.
+
+JAVASCRIPT
+Run
+Playground
+
+let str = "Hello, World!";
+let index = str.indexOf("World");
+
+console.log(index);
+Output
+
+Visualize
+No output yet.
+str is a string. The indexOf method is called on str with "World" as the argument. Since "World" is a substring of str and starts at index 7, the indexOf method returns 7, which is stored in the index variable and then logged to the console.
+
+Slice
+The slice method is used to extract a section of a string and returns it as a new string, without modifying the original string. The method takes two parameters: the start index (inclusive), and the end index (exclusive).
+
+JAVASCRIPT
+Run
+Playground
+
+let str = "Hello, World!";
+let slicedStr = str.slice(7, 12);
+
+console.log(slicedStr);
+Output
+
+Visualize
+No output yet.
+Here, str is a string. The slice method is called on str with 7 as the start index and 12 as the end index. This extracts the substring starting from the 8th character up to (but not including) the 13th character. The resulting substring "World" is stored in the slicedStr variable and then logged to the console.
+
+Split
+The split method is used to divide a string into an array of substrings. It takes a separator as an argument, which specifies the character(s) to use for separating the string. If the separator is not provided, the entire string will be returned as a single element in an array.
+
+JAVASCRIPT
+Run
+Playground
+
+let str = "Hello, World!";
+let array = str.split(", ");
+
+console.log(array);
+Output
+
+Visualize
+No output yet.
+str is a string. The split method is called on str with ", " as the separator. This divides the string into two substrings "Hello" and "World!", which are returned as elements in an array. The array is stored in the array variable and then logged to the console.
+
+Replace
+The replace method is used to replace a specified value with another value in a string. It returns a new string with some or all matches of a pattern replaced by a replacement. The original string is not modified.
+
+JAVASCRIPT
+Run
+Playground
+
+let str = "Hello, World!";
+let newStr = str.replace("World", "Universe");
+
+console.log(newStr);
+Output
+
+Visualize
+No output yet.
+str is a string. The replace method is called on str with "World" as the pattern to be replaced and "Universe" as the replacement. This results in a new string "Hello, Universe!", which is stored in the newStr variable and then logged to the console.
+
+ToLowerCase
+The toLowerCase method is used to convert a string to lowercase letters. This method does not change the original string, but returns a new string where all the uppercase characters are converted to lowercase.
+
+JAVASCRIPT
+Run
+Playground
+
+let str = "Hello, World!";
+let lowerCaseStr = str.toLowerCase();
+
+console.log(lowerCaseStr);
+Output
+
+Visualize
+No output yet.
+str is a string. The toLowerCase method is called on str, resulting in a new string where all the uppercase characters are converted to lowercase. The new string is stored in the lowerCaseStr variable and then logged to the console.
+
+ToUpperCase
+The toUpperCase method is used to convert a string to uppercase letters. This method does not change the original string, but returns a new string where all the lowercase characters are converted to uppercase.
+
+Here's an example of how to use the toUpperCase method:
+
+JAVASCRIPT
+Run
+Playground
+
+let str = "Hello, World!";
+let upperCaseStr = str.toUpperCase();
+
+console.log(upperCaseStr);
+Output
+
+Visualize
+No output yet.
+str is a string. The toUpperCase method is called on str, resulting in a new string where all the lowercase characters are converted to uppercase. The new string is stored in the upperCaseStr variable and then logged to the console.
+
+Trim
+The trim method is used to remove whitespace from both ends of a string. This method does not change the original string, but returns a new string with the whitespace removed.
+
+JAVASCRIPT
+Run
+Playground
+
+let str = "   Hello, World!   ";
+let trimmedStr = str.trim();
+
+console.log(trimmedStr);
+Output
+
+Visualize
+No output yet.
+str is a string with leading and trailing whitespace. The trim method is called on str, resulting in a new string where the whitespace at both ends is removed. The new string is stored in the trimmedStr variable and then logged to the console.
+
+TrimLeft and TrimRight
+trimLeft and trimRight methods are used to remove whitespace from the beginning and end of a string respectively. These methods do not change the original string, but return a new string with the whitespace removed.
+
+JAVASCRIPT
+Run
+Playground
+
+let str = "   Hello, World!   ";
+let trimmedLeftStr = str.trimLeft();
+let trimmedRightStr = str.trimRight();
+
+console.log(trimmedLeftStr);
+console.log(trimmedRightStr);
+Output
+
+Visualize
+No output yet.
+In this example, str is a string with leading and trailing whitespace. The trimLeft method is called on str, resulting in a new string where the whitespace at the beginning is removed. Similarly, the trimRight method is called on str, resulting in a new string where the whitespace at the end is removed. The new strings are stored in the trimmedLeftStr and trimmedRightStr variables and then logged to the console.
+
+## String Formatting
+
+Template Literals
+Template literals (also known as template strings) are string literals allowing embedded expressions. You can use multi-line strings and string interpolation features with them. They were introduced in ECMAScript 6.
+
+From the MDN Web Docs
+
+Template literals are literals delimited with backtick (`) characters, allowing for multi-line strings, string interpolation with embedded expressions, and special constructs called tagged templates.
+
+Template literals can contain placeholders, indicated by the dollar sign and curly braces (${expression}). The expressions in the placeholders and the text between them get passed to a function.
+
+JAVASCRIPT
+Run
+Playground
+
+let name = "John";
+let age = 30;
+let greeting = `Hello, my name is ${name} and I am ${age} years old.`;
+
+console.log(greeting);
+Output
+
+Visualize
+No output yet.
+Here, name and age are variables. The template literal is defined using backticks, and the variables are embedded in the string using ${} syntax. The resulting string is stored in the greeting variable and then logged to the console.
+
+String Concatenation
+String concatenation is the operation of joining two or more strings together. This can be achieved using the + operator or the concat method.
+
+Using the + Operator
+Here's an example of string concatenation using the + operator:
+
+JAVASCRIPT
+Run
+Playground
+
+let str1 = "Hello, ";
+let str2 = "World!";
+let result = str1 + str2;
+
+console.log(result);
+Output
+
+Visualize
+No output yet.
+str1 and str2 are strings. The + operator is used to concatenate str1 and str2 together. The resulting string is stored in the result variable and then logged to the console.
+
+Using the concat Method
+Here's an example of string concatenation using the concat method:
+
+JAVASCRIPT
+Run
+Playground
+
+let str1 = "Hello, ";
+let str2 = "World!";
+let result = str1.concat(str2);
+
+console.log(result);
+Output
+
+Visualize
+No output yet.
+str1 and str2 are strings. The concat method is called on str1 with str2 as the argument, concatenating str1 and str2 together. The resulting string is stored in the result variable and then logged to the console.
+
+The recommended way
+The recommended way to format strings in JavaScript is by using Template Literals (Template Strings) introduced in ECMAScript 6 (ES6). Template literals allow you to embed expressions, create multi-line strings, and use string interpolation features, making them a powerful tool for string formatting.
+
+
+
 
 ## Extra Sources
 
