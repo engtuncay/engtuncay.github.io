@@ -628,8 +628,10 @@ var myObj = {
   prop2: "val2",
 };
 
-var prop1val = myObj.prop1; // val1
-var prop2val = myObj.prop2; // val2
+let prop1val = myObj.prop1; // val1
+let prop2val = myObj.prop2; // val2
+let prop3val = myObj.prop3; // undefined (tanımlı değil)
+
 ```
 
 #### Accessing with bracket (`[]`) notation
