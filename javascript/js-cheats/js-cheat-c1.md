@@ -533,7 +533,7 @@ console.log(arr); // [3, 4, 5, 7]
 
 ### Map
 
-(eşleştirme)
+(her bir elemanı işleyerek farklı bir yapıya çeviririk tekrar birleştirme yapılır. bir nevi eşleme)
 
 ```javascript
 var watchList = [
@@ -582,6 +582,8 @@ const rating = watchList.map((movie) => ({
 
 ### Example
 
+• '{}' object notation or object literal
+
 ```javascript
 var cat = {
   name: "Whiskers",
@@ -589,6 +591,31 @@ var cat = {
   tails: 1,
   enemies: ["Water", "Dogs"],
 };
+```
+
+```js
+const user = { ad: "Ahmet", yaş: 30 }; // Bu bir Object Literal'dır.
+
+```
+
+📝 { } farklı kullanım alanları
+
+• Template Literals (Şablon Dizileri içinde İfade)
+
+Ters tırnak (`) içinde dolar işaretiyle birlikte (${}) kullanılıyorsa, araya bir JavaScript ifadesi veya değişkeni yerleştirmek için kullanılan bir yer tutucudur (placeholder).
+
+```js
+console.log(`Merhaba ${user.ad}`); // Bu bir şablon yer tutucusudur.
+
+```
+
+• Object Destructuring (Nesne Parçalama)
+
+Bir nesnenin içindeki özellikleri (property) tek hamlede değişkenlere çıkarmak için eşittir işaretinin solunda kullanılıyorsa buna destructuring (parçalama) denir.
+
+```js
+const { ad, yaş } = user; // Bu bir Destructuring işlemidir.
+
 ```
 
 ### Accessing Objects Properties
