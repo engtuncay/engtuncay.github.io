@@ -54,6 +54,13 @@ C1 -> Cheat1
   - [ES6 Destructuring to Pass an Object as a Function's Parameters](#es6-destructuring-to-pass-an-object-as-a-functions-parameters)
   - [ES6 Object Literal Declarations Using Simple Fields](#es6-object-literal-declarations-using-simple-fields)
 - [Booleans](#booleans)
+- [Classes](#classes)
+  - [Class Declaration](#class-declaration)
+  - [Methods](#methods)
+  - [Getters and Setters](#getters-and-setters)
+  - [Static Methods](#static-methods)
+  - [Inheritance](#inheritance)
+  - [Private Fields](#private-fields)
 - [Conditional Statements](#conditional-statements)
   - [If Statements](#if-statements)
   - [Conditional (Ternary) Operator](#conditional-ternary-operator)
@@ -76,13 +83,14 @@ C1 -> Cheat1
   - [ES6 Rest Operator with Function Parameters](#es6-rest-operator-with-function-parameters)
   - [ES6 Declarative Functions within Objects](#es6-declarative-functions-within-objects)
 - [Regular Expressions](#regular-expressions)
+  - [Regular Expression Symbols](#regular-expression-symbols)
   - [Resume Table](#resume-table)
   - [Regex Methods](#regex-methods)
   - [Examples](#examples-3)
 - [Object Oriented (old style)](#object-oriented-old-style)
   - [Example](#example-2)
   - [Constructors and New Objects](#constructors-and-new-objects)
-  - [Inheritance](#inheritance)
+  - [Inheritance](#inheritance-1)
   - [Mixins](#mixins)
   - [Closures to Protect Properties](#closures-to-protect-properties)
   - [Modules](#modules)
@@ -103,12 +111,25 @@ C1 -> Cheat1
   - [Async](#async)
   - [Await](#await)
   - [Things to remember when using Async Await](#things-to-remember-when-using-async-await)
-- [Math Objects](#math-objects)
-    - [round() Method](#round-method)
-    - [sqrt(a) Method](#sqrta-method)
-    - [pow(a,b) Method](#powab-method)
-    - [ceil(x) Method](#ceilx-method)
-    - [log(x) Method](#logx-method)
+- [Math](#math)
+  - [Math.PI](#mathpi)
+- [Json](#json)
+  - [JSON.stringify()](#jsonstringify)
+  - [JSON.parse()](#jsonparse)
+  - [Deep Copy with JSON](#deep-copy-with-json)
+  - [Handling Dates](#handling-dates)
+- [Fetch API](#fetch-api)
+  - [Basic GET Request](#basic-get-request)
+  - [POST Request](#post-request)
+  - [Async/Await vs .then()](#asyncawait-vs-then)
+- [Date And Time](#date-and-time)
+  - [Creating a Date](#creating-a-date)
+  - [Get Methods](#get-methods)
+  - [Set Methods](#set-methods)
+  - [Formatting Dates](#formatting-dates)
+- [Files and Directories](#files-and-directories)
+- [Error Handling](#error-handling)
+- [Debugging](#debugging)
 - [Extra Sources](#extra-sources)
 
 
@@ -855,6 +876,178 @@ true;
 false;
 ```
 
+## Classes
+
+JavaScript classes, introduced in ECMAScript 2015, are primarily syntactical sugar over JavaScript's existing prototype-based inheritance. The class syntax does not introduce a new object-oriented inheritance model to JavaScript.
+
+### Class Declaration
+
+You define a class using the class keyword followed by the name of the class.
+
+```js
+class Rectangle {
+  constructor(height, width) {
+    this.height = height;
+    this.width = width;
+  }
+}
+
+const rect = new Rectangle(10, 20);
+console.log(rect.height);
+
+//Output
+
+```
+
+The `constructor` method is a special method for creating and initializing an object created with a class. There can only be one special method with the name "constructor" in a class.
+
+### Methods
+
+You can define methods inside a class. These methods are stored on the prototype of the class.
+
+```js
+class Rectangle {
+  constructor(height, width) {
+    this.height = height;
+    this.width = width;
+  }
+  
+  // Method
+  calcArea() {
+    return this.height * this.width;
+  }
+}
+
+const square = new Rectangle(10, 10);
+console.log(square.calcArea());
+
+//Output
+
+```
+
+### Getters and Setters
+
+You can use the get and set keywords to define getters and setters for properties.
+
+```js
+class User {
+  constructor(name) {
+    this._name = name;
+  }
+
+  get name() {
+    return this._name.toUpperCase();
+  }
+
+  set name(newName) {
+    if (newName.length < 4) {
+      console.log("Name is too short.");
+      return;
+    }
+    this._name = newName;
+  }
+}
+
+let user = new User("John");
+console.log(user.name);
+
+user.name = "Al";
+console.log(user.name);
+
+//Output
+
+```
+### Static Methods
+
+The static keyword defines a static method for a class. Static methods are called without instantiating their class and cannot be called through a class instance. They are often used to create utility functions for an application.
+
+JAVASCRIPT
+Run
+Playground
+
+class Point {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+  }
+
+  static distance(a, b) {
+    const dx = a.x - b.x;
+    const dy = a.y - b.y;
+
+    return Math.hypot(dx, dy);
+  }
+}
+
+const p1 = new Point(5, 5);
+const p2 = new Point(10, 10);
+
+console.log(Point.distance(p1, p2));
+Output
+
+Visualize
+No output yet.
+### Inheritance
+
+Classes can inherit from other classes using the extends keyword.
+
+JAVASCRIPT
+Run
+Playground
+
+class Animal {
+  constructor(name) {
+    this.name = name;
+  }
+
+  speak() {
+    console.log(`${this.name} makes a noise.`);
+  }
+}
+
+class Dog extends Animal {
+  constructor(name) {
+    super(name); // call the super class constructor and pass in the name parameter
+  }
+
+  speak() {
+    console.log(`${this.name} barks.`);
+  }
+}
+
+let d = new Dog('Mitzie');
+d.speak();
+Output
+
+Visualize
+No output yet.
+The super keyword is used to access and call functions on an object's parent.
+
+### Private Fields
+
+Class fields are public by default, but private class members can be created by using a hash # prefix. The privacy encapsulation of these class features is enforced by JavaScript itself.
+
+JAVASCRIPT
+Run
+Playground
+
+class Counter {
+  #count = 0;
+
+  increment() {
+    this.#count++;
+  }
+
+  getCount() {
+    return this.#count;
+  }
+}
+
+const counter = new Counter();
+counter.increment();
+console.log(counter.getCount());
+
+
 ## Conditional Statements
 
 ### If Statements
@@ -1244,6 +1437,349 @@ const person = {
 
 ## Regular Expressions
 
+From the MDN web docs (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions)
+
+Regular expressions are patterns used to match character combinations in strings. In JavaScript, regular expressions are also objects. These patterns are used with the exec() and test() methods of RegExp, and with the match(), matchAll(), replace(), replaceAll(), search(), and split() methods of String. This section describes JavaScript regular expressions.
+
+### Regular Expression Symbols
+
+| Symbol   | Description                                                               |
+|----------|---------------------------------------------------------------------------|
+| .        | Matches any character except newline                                      |
+| `\d`     | Matches any digit (0-9)                                                   |
+| \D       | Matches any non-digit character                                           |
+| \s       | Matches any whitespace character                                          |
+| \S       | Matches any non-whitespace character                                      |
+| \w       | Matches any alphanumeric character (a-z, A-Z, 0-9) and underscore (_)     |
+| \W       | Matches any non-alphanumeric character                                    |
+| `[abc]`  | Matches any character inside the brackets (a, b, or c)                    |
+| `[^abc]` | Matches any character not inside the brackets                             |
+| `^`      | Matches the start of the string                                           |
+| $        | Matches the end of the string                                             |
+| *        | Matches zero or more occurrences of the preceding element                 |
+| +        | Matches one or more occurrences of the preceding element                  |
+| ?        | Matches zero or one occurrence of the preceding element                   |
+| `{n}`    | Matches exactly n occurrences of the preceding element                    |
+| `{n,}`   | Matches n or more occurrences of the preceding element                    |
+| `{n,m}`  | Matches at least n and at most m occurrences of the preceding element     |
+| `\|`     | Acts as a boolean OR. Matches the pattern before or the pattern after the |
+| `( )`    | Defines a group                                                           |
+| `(?: )`  | Defines a non-capturing group                                             |
+| `(?= )`  | Positive lookahead                                                        |
+| `(?! )`  | Negative lookahead                                                        |
+
+📝 Complex Patterns : Please note that following examples are simple examples and regular expressions can be combined to create more complex patterns.
+
+➖ Dot (.)
+Matches any character except newline.
+
+```js
+let regex = /a.c/;
+let str = 'abc';
+console.log(regex.test(str));
+Output
+
+```
+
+➖ Digit (\d)
+Matches any digit (0-9).
+
+JAVASCRIPT
+Run
+Playground
+
+let regex = /\d/;
+let str = 'abc123';
+console.log(regex.test(str));
+Output
+
+Visualize
+No output yet.
+Non-Digit (\D)
+Matches any non-digit character.
+
+JAVASCRIPT
+Run
+Playground
+
+let regex = /\D/;
+let str = 'abc123';
+console.log(regex.test(str));
+Output
+
+Visualize
+No output yet.
+Whitespace (\s)
+Matches any whitespace character.
+
+JAVASCRIPT
+Run
+Playground
+
+let regex = /\s/;
+let str = 'abc def';
+console.log(regex.test(str));
+Output
+
+Visualize
+No output yet.
+Non-Whitespace (\S)
+Matches any non-whitespace character.
+
+JAVASCRIPT
+Run
+Playground
+
+let regex = /\S/;
+let str = ' abc';
+console.log(regex.test(str));
+Output
+
+Visualize
+No output yet.
+Word Character (\w)
+Matches any alphanumeric character (a-z, A-Z, 0-9) and underscore (_).
+
+JAVASCRIPT
+Run
+Playground
+
+let regex = /\w/;
+let str = 'abc';
+console.log(regex.test(str));
+Output
+
+Visualize
+No output yet.
+Non-Word Character (\W)
+Matches any non-alphanumeric character.
+
+JAVASCRIPT
+Run
+Playground
+
+let regex = /\W/;
+let str = 'abc-def';
+console.log(regex.test(str));
+Output
+
+Visualize
+No output yet.
+Character Set ([abc])
+Matches any character inside the brackets (a, b, or c).
+
+JAVASCRIPT
+Run
+Playground
+
+let regex = /[abc]/;
+let str = 'defabc';
+console.log(regex.test(str));
+Output
+
+Visualize
+No output yet.
+Negated Character Set ([^abc])
+Matches any character not inside the brackets.
+
+JAVASCRIPT
+Run
+Playground
+
+let regex = /[^abc]/;
+let str = 'defabc';
+console.log(regex.test(str));
+Output
+
+Visualize
+No output yet.
+Start Anchor (^)
+Matches the start of the string.
+
+JAVASCRIPT
+Run
+Playground
+
+let regex = /^abc/;
+let str = 'abcdef';
+console.log(regex.test(str));
+Output
+
+Visualize
+No output yet.
+End Anchor ($)
+Matches the end of the string.
+
+JAVASCRIPT
+Run
+Playground
+
+let regex = /def$/;
+let str = 'abcdef';
+console.log(regex.test(str));
+Output
+
+Visualize
+No output yet.
+Zero or More (*):** Matches zero or more occurrences of the preceding element.
+JAVASCRIPT
+Run
+Playground
+
+let regex = /a*/;
+let str = 'aaaabc';
+console.log(regex.test(str));
+Output
+
+Visualize
+No output yet.
+One or More (+)
+Matches one or more occurrences of the preceding element.
+
+JAVASCRIPT
+Run
+Playground
+
+let regex = /a+/;
+let str = 'aaaabc';
+console.log(regex.test(str));
+Output
+
+Visualize
+No output yet.
+Zero or One (?)
+Matches zero or one occurrence of the preceding element.
+
+JAVASCRIPT
+Run
+Playground
+
+let regex = /a?/;
+let str = 'abc';
+console.log(regex.test(str));
+Output
+
+Visualize
+No output yet.
+Exactly N ({n})
+Matches exactly n occurrences of the preceding element.
+
+JAVASCRIPT
+Run
+Playground
+
+let regex = /a{2}/;
+let str = 'aaaabc';
+console.log(regex.test(str));
+Output
+
+Visualize
+No output yet.
+N or More ({n,})
+Matches n or more occurrences of the preceding element.
+
+JAVASCRIPT
+Run
+Playground
+
+let regex = /a{2,}/;
+let str = 'aaaabc';
+console.log(regex.test(str));
+Output
+
+Visualize
+No output yet.
+Between N and M ({nm})
+Matches at least n and at most m occurrences of the preceding element.
+
+JAVASCRIPT
+Run
+Playground
+
+let regex = /a{2,3}/;
+let str = 'aaaabc';
+console.log(regex.test(str));
+Output
+
+Visualize
+No output yet.
+OR (|)
+Acts as a boolean OR. Matches the pattern before or the pattern after the |.
+
+JAVASCRIPT
+Run
+Playground
+
+let regex = /abc|def/;
+let str1 = 'abc';
+let str2 = 'def';
+console.log(regex.test(str1));
+console.log(regex.test(str2));
+Output
+
+Visualize
+No output yet.
+Grouping (()
+Defines a group.
+
+JAVASCRIPT
+Run
+Playground
+
+let regex = /(abc)/;
+let str = 'abcdef';
+console.log(regex.test(str));
+Output
+
+Visualize
+No output yet.
+Non-Capturing Group ((?: ))
+Defines a non-capturing group.
+
+JAVASCRIPT
+Run
+Playground
+
+let regex = /(?:abc)/;
+let str = 'abcdef';
+console.log(regex.test(str));
+Output
+
+Visualize
+No output yet.
+Sure, here is the continuation from item 21:
+
+Positive Lookahead ((?= ))
+Positive lookahead.
+
+JAVASCRIPT
+Run
+Playground
+
+let regex = /abc(?=def)/;
+let str = 'abcdef';
+console.log(regex.test(str));
+Output
+
+Visualize
+No output yet.
+Negative Lookahead ((?! ))
+Negative lookahead.
+
+JAVASCRIPT
+Run
+Playground
+
+let regex = /abc(?!def)/;
+let str = 'abcghi';
+console.log(regex.test(str));
+Output
+
+Visualize
+No output yet
+
+
+
 ### Resume Table
 
 | Character  | Description                                                                                        |
@@ -1490,6 +2026,9 @@ console.log(result19);
 
 
 ```
+
+
+
 
 ## Object Oriented (old style)
 
@@ -2004,66 +2543,1291 @@ async function parallel() {
 
 Async Await is very powerful but they come with caveats. But if we use them properly, they help to make our code very readable and efficient.
 
-## Math Objects
+## Math
 
-```javascript
+📝 Math Object : The `Math` object is not a constructor. All properties and methods of `Math` are static. You refer to the constant pi as `Math.PI` and you call the sine function as `Math.sin(x)`, where x is the method's argument.
+
+### Math.PI
+
+Math.PI returns the ratio of a circle's circumference to its diameter (approx. 3.14159).
+
+JAVASCRIPT
+Run
+Playground
+
 console.log(Math.PI);
+Output
 
-//output - 3.141592653589793
+Visualize
+No output yet.
+Math.round()
+Math.round(x) returns the value of x rounded to its nearest integer.
+
+JAVASCRIPT
+Run
+Playground
+
+console.log(Math.round(4.7));
+console.log(Math.round(4.4));
+Output
+
+Visualize
+No output yet.
+Math.pow()
+Math.pow(x, y) returns the value of x to the power of y.
+
+JAVASCRIPT
+Run
+Playground
+
+console.log(Math.pow(8, 2));
+Output
+
+Visualize
+No output yet.
+Math.sqrt()
+Math.sqrt(x) returns the square root of x.
+
+JAVASCRIPT
+Run
+Playground
+
+console.log(Math.sqrt(64));
+Output
+
+Visualize
+No output yet.
+Math.abs()
+Math.abs(x) returns the absolute (positive) value of x.
+
+JAVASCRIPT
+Run
+Playground
+
+console.log(Math.abs(-4.7));
+Output
+
+Visualize
+No output yet.
+Math.ceil()
+Math.ceil(x) returns the value of x rounded up to its nearest integer.
+
+JAVASCRIPT
+Run
+Playground
+
+console.log(Math.ceil(4.4));
+Output
+
+Visualize
+No output yet.
+Math.floor()
+Math.floor(x) returns the value of x rounded down to its nearest integer.
+
+JAVASCRIPT
+Run
+Playground
+
+console.log(Math.floor(4.7));
+Output
+
+Visualize
+No output yet.
+Math.min() and Math.max()
+Math.min() and Math.max() can be used to find the lowest or highest value in a list of arguments.
+
+JAVASCRIPT
+Run
+Playground
+
+console.log(Math.min(0, 150, 30, 20, -8, -200));
+console.log(Math.max(0, 150, 30, 20, -8, -200));
+Output
+
+Visualize
+No output yet.
+Math.random()
+Math.random() returns a random number between 0 (inclusive), and 1 (exclusive).
+
+JAVASCRIPT
+Run
+Playground
+
+console.log(Math.random());
+Output
+
+Visualize
+No output yet.
+Random Integer
+This JavaScript function always returns a random integer between min (included) and max (excluded):
+
+JAVASCRIPT
+Run
+Playground
+
+function getRndInteger(min, max) {
+  return Math.floor(Math.random() * (max - min) ) + min;
+}
+
+console.log(getRndInteger(0, 10));
+Output
+
+Visualize
+No output yet.
+Math.trunc()
+Math.trunc(x) returns the integer part of x (new in ES6).
+
+JAVASCRIPT
+Run
+Playground
+
+console.log(Math.trunc(4.9));
+console.log(Math.trunc(-4.2));
+Output
+
+Visualize
+No output yet.
+
+
+## Json
+
+➖ What is JSON?
+
+JSON (JavaScript Object Notation) is a standard text-based format for representing structured data based on JavaScript object syntax. It is commonly used for transmitting data in web applications (e.g., sending some data from the server to the client, so it can be displayed on a web page, or vice versa).
+
+### JSON.stringify()
+
+The JSON.stringify() method converts a JavaScript object or value to a JSON string.
+
+JAVASCRIPT
+Run
+Playground
+
+const obj = {
+  name: "John",
+  age: 30,
+  city: "New York"
+};
+
+const jsonString = JSON.stringify(obj);
+console.log(jsonString);
+Output
+
+Visualize
+No output yet.
+You can also use it to format the output for readability (pretty-print) by passing arguments for replacer (null) and space (2 or 4).
+
+JAVASCRIPT
+Run
+Playground
+
+const obj = {
+  name: "John",
+  age: 30,
+  city: "New York"
+};
+
+const prettyJson = JSON.stringify(obj, null, 2);
+console.log(prettyJson);
+Output
+
+Visualize
+No output yet.
+### JSON.parse()
+
+The JSON.parse() method parses a JSON string, constructing the JavaScript value or object described by the string.
+
+JAVASCRIPT
+Run
+Playground
+
+const jsonString = '{"name":"John", "age":30, "city":"New York"}';
+
+const obj = JSON.parse(jsonString);
+console.log(obj.name);
+Output
+
+Visualize
+No output yet.
+Parsing Errors
+
+`JSON.parse()` will throw an error if the string passed to it is not valid JSON. Always ensure your JSON strings are well-formed (e.g., proper quoting of keys). It's good practice to wrap `JSON.parse()` in a `try...catch` block.
+
+### Deep Copy with JSON
+
+You can create a deep copy of an object (if it doesn't contain functions, Dates, undefined, or circular references) using a combination of JSON.parse() and JSON.stringify().
+
+JAVASCRIPT
+Run
+Playground
+
+const original = {
+  name: "Alice",
+  details: {
+    age: 25,
+    hobbies: ["reading", "coding"]
+  }
+};
+
+const copy = JSON.parse(JSON.stringify(original));
+
+// Modify the copy
+copy.details.age = 30;
+
+// The original remains unchanged
+console.log(original.details.age);
+console.log(copy.details.age);
+Output
+
+Visualize
+No output yet.
+
+This method is simple but has limitations (it loses Date objects and undefined values). For complex objects, consider using structuredClone() or a library like Lodash.
+
+### Handling Dates
+ 
+JSON does not have a built-in date type. Dates are often serialized as ISO strings.
+
+```js
+const event = {
+  title: "Conference",
+  date: new Date()
+};
+
+const json = JSON.stringify(event);
+console.log(json);
+
+const parsed = JSON.parse(json);
+console.log(typeof parsed.date);
+
+// You need to manually convert it back to a Date object
+parsed.date = new Date(parsed.date);
+console.log(parsed.date.getFullYear());
+
+// Output
+// {"title":"Conference","date":"2026-10-18T06:17:14.195Z"}
+// string
+// 2026
+
 ```
 
-#### round() Method
-It rounds a number to the nearest integer.
+## Fetch API
 
-```javascript
-console.log(Math.floor(2.1));
+The Fetch API provides a JavaScript interface for accessing and manipulating parts of the HTTP pipeline, such as requests and responses. It also provides a global `fetch()` method that provides an easy, logical way to fetch resources asynchronously across the network.
 
-//output - 2
-```
+### Basic GET Request
 
-#### sqrt(a) Method
-It returns square root of a number.
+The simplest use of fetch() takes one argument — the path to the resource you want to fetch — and returns a promise containing the response (a Response object).
 
-```javascript
-var x = 25;
-Math.sqrt(x);
+JAVASCRIPT
 
-//output - 5
-```
+async function getData() {
+  const response = await fetch('https://jsonplaceholder.typicode.com/todos/1');
+  const data = await response.json();
+  console.log(data);
+}
 
-#### pow(a,b) Method
-It returns value of a to the power b.
+getData();
+Here, we are fetching a JSON object from a public API. We await the fetch call to get the response, and then await the response.json() method to parse the JSON body.
 
-```javascript
-console.log(Math.floor(2.1));
+Handling Text Responses
+Sometimes you might want to fetch text instead of JSON. You can use the text() method for this.
 
-//output - 2
-```
+JAVASCRIPT
 
-#### ceil(x) Method
-It rounds a number upwards to the nearest integer.
+async function getText() {
+  const response = await fetch('https://jsonplaceholder.typicode.com/posts/1');
+  const text = await response.text();
+  console.log(text);
+}
 
-```javascript
-var x = 25.3;
-Math.ceil(x);
+getText();
 
-//output - 26
-```
+### POST Request
 
-#### log(x) Method
-It returns the logarithmic value of x.
+To allow your script to modify data, you can send data to the server using the POST method. You need to provide a second argument to fetch(): an options object.
 
-```javascript
-var x = 25.3;
+JAVASCRIPT
 
-Math.log(x);
+async function postData() {
+  const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
+    method: 'POST',
+    body: JSON.stringify({
+      title: 'foo',
+      body: 'bar',
+      userId: 1,
+    }),
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+  });
+  
+  const data = await response.json();
+  console.log(data);
+}
 
-//output - 3.2308043957334744
-```
+postData();
 
+In this example:
+
+method: set to 'POST'.
+body: the data we want to send, converted to a JSON string.
+headers: specifying that we are sending JSON data.
+Checking for Success
+The fetch promise only rejects on network failure. HTTP errors (like 404 or 500) validly resolve. You should check response.ok or response.status.
+
+JAVASCRIPT
+
+async function checkStatus() {
+  const response = await fetch('https://jsonplaceholder.typicode.com/posts/invalid-id');
+  
+  if (!response.ok) {
+    console.log('Network response was not ok:', response.status);
+    return;
+  }
+  
+  const data = await response.json();
+  console.log(data);
+}
+
+checkStatus();
+
+### Async/Await vs .then()
+
+While valid to use .then(), modern JavaScript prefers async/await for cleaner code.
+
+Using .then():
+
+JAVASCRIPT
+
+fetch('https://jsonplaceholder.typicode.com/todos/1')
+  .then(response => response.json())
+  .then(json => console.log(json))
+  .catch(err => console.error('Error:', err));
+Using Async/Await:
+
+JAVASCRIPT
+
+async function fetchData() {
+  try {
+    const response = await fetch('https://jsonplaceholder.typicode.com/todos/1');
+    const json = await response.json();
+    console.log(json);
+  } catch (err) {
+    console.error('Error:', err);
+  }
+}
+
+## Date And Time
+
+📝 Date Objects : JavaScript `Date` objects represent a single moment in time in a platform-independent format. `Date` objects contain a `Number` that represents milliseconds since 1 January 1970 UTC.
+
+### Creating a Date
+
+There are four ways to create a new date object:
+
+• New Date(): Creates a new date object with the current date and time.
+
+JAVASCRIPT
+Run
+Playground
+
+const now = new Date();
+console.log(now);
+Output
+
+Visualize
+No output yet.
+Date(milliseconds): Creates a new date object as zero time plus milliseconds.
+JAVASCRIPT
+Run
+Playground
+
+// 0 milliseconds after Jan 01 1970
+const d = new Date(0);
+console.log(d);
+Output
+
+Visualize
+No output yet.
+Date(dateString): Creates a new date object from a date string.
+JAVASCRIPT
+Run
+Playground
+
+const d = new Date("October 13, 2014 11:13:00");
+console.log(d);
+Output
+
+Visualize
+No output yet.
+Date(year, month, ...): Creates a new date object with a specified date and time.
+Note: JavaScript counts months from 0 to 11 (January = 0, December = 11).
+JAVASCRIPT
+Run
+Playground
+
+// year, month, day, hour, minute, second, millisecond
+const d = new Date(2018, 11, 24, 10, 33, 30, 0);
+console.log(d);
+Output
+
+Visualize
+No output yet.
+
+### Get Methods
+
+Use these methods to get information from a date object.
+
+JAVASCRIPT
+Run
+Playground
+
+const d = new Date("2021-03-25");
+
+console.log(d.getFullYear());
+console.log(d.getMonth());
+console.log(d.getDate());
+console.log(d.getDay());
+console.log(d.getHours());
+console.log(d.getTime());
+Output
+
+Visualize
+No output yet.
+### Set Methods
+
+Use these methods to set a part of a date object.
+
+JAVASCRIPT
+Run
+Playground
+
+const d = new Date();
+d.setFullYear(2020);
+d.setMonth(11);
+d.setDate(25);
+console.log(d);
+Output
+
+Visualize
+No output yet.
+Date.now()
+Date.now() returns the number of milliseconds since January 1, 1970 00:00:00 UTC.
+
+JAVASCRIPT
+Run
+Playground
+
+const start = Date.now();
+
+// do something...
+for (let i = 0; i < 100000; i++) {}
+
+const end = Date.now();
+console.log(`Elapsed time: ${end - start} ms`);
+Output
+
+Visualize
+No output yet.
+
+### Formatting Dates
+
+JavaScript provides a built-in object Intl.DateTimeFormat for language-sensitive date and time formatting.
+
+JAVASCRIPT
+Run
+Playground
+
+const date = new Date(Date.UTC(2020, 11, 20, 3, 23, 16, 738));
+
+// US English
+console.log(new Intl.DateTimeFormat('en-US').format(date));
+
+// British English
+console.log(new Intl.DateTimeFormat('en-GB').format(date));
+
+// Korean
+console.log(new Intl.DateTimeFormat('ko-KR').format(date));
+Output
+
+Visualize
+No output yet.
+Date Calculations
+Since dates are just numbers (milliseconds) under the hood, you can perform math on them.
+
+JAVASCRIPT
+Run
+Playground
+
+const date1 = new Date('2022-01-01');
+const date2 = new Date('2022-01-02');
+
+// Difference in milliseconds
+const diffTime = Math.abs(date2 - date1);
+
+// Convert to days
+const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+
+console.log(diffDays + " days");
+Output
+
+Visualize
+No output yet.
+
+## Files and Directories
+
+To interact with the file system in JavaScript, you typically use the built-in fs (File System) module in Node.js.
+
+Node.js Environment
+
+While running in a browser, Javascript doesn't have the permissions to directly interact with files and directories on a user's computer due to security restrictions. The contents of this cheatsheet are intended for local use with a Node.js environment.
+
+Requirements
+Node.js Environment: JavaScript by itself doesn't have the ability to interact with the file system for security reasons. However, Node.js, a JavaScript runtime built on Chrome's V8 JavaScript engine, provides this capability.
+
+FS Module: The fs module in Node.js is used for interacting with the file system. It provides methods for reading files, creating files, updating files, deleting files, and renaming files.
+
+Async/Sync Operations: The fs module provides both synchronous (blocking) and asynchronous (non-blocking) methods. It's generally recommended to use asynchronous methods for better performance, especially for IO-heavy operations.
+
+Error Handling: When working with the file system, it's important to handle errors properly. This can be done using callbacks, promises, or async/await.
+
+Here's a simple example of reading a file using the fs module:
+
+JAVASCRIPT
+
+const fs = require('fs').promises;
+
+async function readFileAsync() {
+  try {
+    const data = await fs.readFile('example.txt', 'utf8');
+    console.log('File content:', data);
+  } catch (err) {
+    console.error('An error occurred:', err);
+  }
+}
+
+readFileAsync();
+fs.readFile is used to read the content of example.txt. Because fs.readFile returns a promise, you can use await to wait for the promise to resolve. If an error occurs while reading the file, it's caught by the catch block and logged to the console.
+
+Reading Files
+Reading files in Node.js can be done using the fs module's readFile function. This is how you can do it using async/await:
+
+JAVASCRIPT
+
+const fs = require('fs').promises;
+
+async function readFileAsync
+
+(filePath
+
+) {
+  try {
+    const data = await fs.readFile(filePath, 'utf8');
+    console.log('File content:', data);
+  } catch (err) {
+    console.error('An error occurred:', err);
+  }
+}
+
+readFileAsync('example.txt');
+readFileAsync reads a file at the given filePath. The fs.readFile function is used to read the file content. It returns a promise that resolves with the file content as a string. If an error occurs while reading the file, it's caught by the catch block and logged to the console.
+
+Writing Files
+Writing files can be done using the fs module's writeFile function:
+
+JAVASCRIPT
+
+const fs = require('fs').promises;
+
+async function writeFileAsync(filePath, content) {
+  try {
+    await fs.writeFile(filePath, content);
+    console.log('File written successfully');
+  } catch (err) {
+    console.error('An error occurred:', err);
+  }
+}
+
+writeFileAsync('example.txt', 'Hello, World!');
+The writeFileAsync function writes content to a file at the given filePath. The fs.writeFile function is used to write the content. It returns a promise that resolves when the file has been written. If an error occurs while writing the file, it's caught by the catch block and logged to the console.
+
+Updating Files
+To update a file you can use the appendFile or writeFile function.
+
+Appending to a file
+JAVASCRIPT
+
+const fs = require('fs').promises;
+
+async function appendToFileAsync(filePath, content) {
+  try {
+    await fs.appendFile(filePath, content);
+    console.log('File updated successfully');
+  } catch (err) {
+    console.error('An error occurred:', err);
+  }
+}
+
+appendToFileAsync('example.txt', ' More content');
+The appendToFileAsync function appends content to a file at the given filePath. The fs.appendFile function is used to append the content. It returns a promise that resolves when the file has been updated. If an error occurs while updating the file, it's caught by the catch block and logged to the console.
+
+Overwriting a file
+JAVASCRIPT
+
+const fs = require('fs').promises;
+
+async function overwriteFileAsync(filePath, content) {
+  try {
+    await fs.writeFile(filePath, content);
+    console.log('File updated successfully');
+  } catch (err) {
+    console.error('An error occurred:', err);
+  }
+}
+
+overwriteFileAsync('example.txt', 'New content');
+overwriteFileAsync overwrites a file at the given filePath with new content. The fs.writeFile function is used to write the new content. It returns a promise that resolves when the file has been updated. If an error occurs while updating the file, it's caught by the catch block and logged to the console.
+
+Deleting Files
+You can delete a file with the unlink function.
+
+JAVASCRIPT
+
+const fs = require('fs').promises;
+
+async function deleteFileAsync(filePath) {
+  try {
+    await fs.unlink(filePath);
+    console.log('File deleted successfully');
+  } catch (err) {
+    console.error('An error occurred:', err);
+  }
+}
+
+deleteFileAsync('example.txt');
+The deleteFileAsync function deletes a file at the given filePath. The fs.unlink function is used to delete the file. It returns a promise that resolves when the file has been deleted. If an error occurs while deleting the file, it's caught by the catch block and logged to the console.
+
+Renaming Files
+The rename function allow you to rename a file.
+
+JAVASCRIPT
+
+const fs = require('fs').promises;
+
+async function renameFileAsync(old
+
+Path
+
+, newPath) {
+  try {
+    await fs.rename(oldPath, newPath);
+    console.log('File renamed successfully');
+  } catch (err) {
+    console.error('An error occurred:', err);
+  }
+}
+
+renameFileAsync('oldName.txt', 'newName.txt');
+renameFileAsync renames a file from oldPath to newPath. The fs.rename function is used to rename the file. It returns a promise that resolves when the file has been renamed. If an error occurs while renaming the file, it's caught by the catch block and logged to the console.
+
+Creating Directories
+To create a directory, you can use the mkdir function.
+
+JAVASCRIPT
+
+const fs = require('fs').promises;
+
+async function createDirectoryAsync(dirPath) {
+  try {
+    await fs.mkdir(dirPath, { recursive: true });
+    console.log('Directory created successfully');
+  } catch (err) {
+    console.error('An error occurred:', err);
+  }
+}
+
+createDirectoryAsync('exampleDir');
+The createDirectoryAsync function creates a directory at the given dirPath. The fs.mkdir function is used to create the directory. The recursive option is set to true to create parent directories if they do not exist. It returns a promise that resolves when the directory has been created. If an error occurs while creating the directory, it's caught by the catch block and logged to the console.
+
+Reading Directories
+You can read a directory by using the readdir function.
+
+JAVASCRIPT
+
+const fs = require('fs').promises;
+
+async function readDirectoryAsync(dirPath) {
+  try {
+    const files = await fs.readdir(dirPath);
+    console.log('Directory content:', files);
+  } catch (err) {
+    console.error('An error occurred:', err);
+  }
+}
+
+readDirectoryAsync('exampleDir');
+readDirectoryAsync reads the content of a directory at the given dirPath. The fs.readdir function is used to read the directory content. It returns a promise that resolves with an array of filenames. If an error occurs while reading the directory, it's caught by the catch block and logged to the console.
+
+Deleting Directories
+To delete a directory yo can use the rmdir function.
+
+JAVASCRIPT
+
+const fs = require('fs').promises;
+
+async function deleteDirectoryAsync(dirPath) {
+  try {
+    await fs.rmdir(dirPath);
+    console.log('Directory deleted successfully');
+  } catch (err) {
+    console.error('An error occurred:', err);
+  }
+}
+
+deleteDirectoryAsync('exampleDir');
+The deleteDirectoryAsync function deletes a directory at the given dirPath. The fs.rmdir function is used to delete the directory. It returns a promise that resolves when the directory has been deleted. If an error occurs while deleting the directory, it's caught by the catch block and logged to the console.
+
+Deleting Non-Empty Directories
+
+`fs.rmdir` only works on empty directories. If you want to delete a directory and all of its contents, you'll need to first delete the contents of the directory. This can be done using a library like `rimraf`, or by recursively deleting all files and subdirectories.
+
+Deleting non Empty Directories
+Deleting non-empty directories requires a recursive function that deletes all files and subdirectories within the directory before deleting the directory itself:
+
+JAVASCRIPT
+
+const fs = require('fs').promises;
+const path = require('path');
+
+async function deleteDirectoryRecursive(dirPath) {
+  if (dirPath === '/') {
+    throw new Error("You are trying to delete the root directory, operation stopped.");
+  }
+
+  let entries = await fs.readdir(dirPath, { withFileTypes: true });
+
+  for (let entry of entries) {
+    let fullPath = path.join(dirPath, entry.name);
+
+    if (entry.isDirectory()) {
+      await deleteDirectoryRecursive(fullPath);
+    } else {
+      await fs.unlink(fullPath);
+    }
+  }
+
+  await fs.rmdir(dirPath);
+  console.log(`Directory ${dirPath} has been deleted!`);
+}
+
+deleteDirectoryRecursive('exampleDir');
+deleteDirectoryRecursive deletes a directory and all of its contents at the given dirPath. The fs.readdir function is used to read the directory content. If an entry is a directory, the function is called recursively. If an entry is a file, it's deleted using fs.unlink. Finally, the directory itself is deleted using fs.rmdir.
+
+Caution
+
+This operation is potentially dangerous as it will permanently delete the specified directory and all of its contents. Always make sure that the path you provide does not contain any files or directories you want to keep.
+
+Watching Files and Directories
+Watching files and directories can be done using watch or watchFile.
+
+JAVASCRIPT
+
+const fs = require('fs');
+
+fs.watch('example.txt', (eventType, filename) => {
+  console.log(`Event type is: ${eventType}`);
+  if (filename) {
+    console.log(`Filename provided: ${filename}`);
+  } else {
+    console.log('Filename not provided');
+  }
+});
+fs.watch is used to watch changes in the file example.txt. The callback function is called when the file is accessed or modified. The eventType argument can be 'rename' or 'change', and the filename argument is the name of the file which triggered the event.
+
+Platform and Situational Variability
+
+The exact behavior of `fs.watch` can vary across different platforms and situations. It's not always reliable, especially on network file systems and certain file systems like NFS and VFS. For more reliable file watching, consider using a library like `chokidar`.
+
+Checking if a File or Directory Exists
+Checking if a file or directory exists can be don with the access function or fs.promises API's access function.
+
+JAVASCRIPT
+
+const fs = require('fs').promises;
+
+async function checkExists(path) {
+  try {
+    await fs.access(path);
+    console.log('The file or directory exists.');
+  } catch {
+    console.log('The file or directory does not exist.');
+  }
+}
+
+checkExists('example.txt');
+checkExists checks if a file or directory at the given path exists. The fs.access function is used to check for the existence of the file or directory. It returns a promise that resolves if the file or directory exists, and rejects if it does not.
+
+## Error Handling
+
+Error handling in programming is the process of responding to and managing errors that occur during the execution of a program.
+
+Why is Error Handling Important?
+
+Error handling is important because it helps to ensure that your program can continue to function (or fail gracefully) even when unexpected conditions occur.
+
+Errors can occur for a variety of reasons, such as user input that the program doesn't know how to handle, system resources being unavailable, or unexpected conditions in the program's logic.
+
+Try...Catch Statements
+Error handling is typically done using try...catch statements:
+
+JAVASCRIPT
+
+try {
+  // Code that may throw an error
+} catch (error) {
+  // Code to handle the error
+}
+In the try block, you write the code that may throw an error. In the catch block, you write the code to handle the error. The error object that is passed to the catch block contains information about the error, such as its name and message.
+
+JAVASCRIPT
+Run
+Playground
+
+try {
+  let x = y; // y is not defined, so an error is thrown
+} catch (error) {
+  console.log(error.message);
+}
+Output
+
+Visualize
+No output yet.
+y is not defined, so when we try to assign its value to x, an error is thrown. The catch block catches this error and logs its message to the console.
+
+Finally Block
+There's also a finally block that can be added after catch, which will be executed regardless of whether an error was thrown or caught:
+
+JAVASCRIPT
+
+try {
+  // Code that may throw an error
+} catch (error) {
+  // Code to handle the error
+} finally {
+  // Code to be executed regardless of an error
+}
+Throwing Errors
+Throwing errors in programming is a way to handle unexpected or exceptional conditions. It allows a function to indicate that it is unable to proceed with its normal execution, and gives control back to the part of the program that called the function.
+
+In many programming languages, you can "throw" an error (or "raise" an exception) with a throw statement.
+
+JAVASCRIPT
+
+function divide(a, b) {
+  if (b === 0) {
+    throw new Error("Division by zero is not allowed");
+  }
+  return a / b;
+}
+If the function divide is called with the second argument as 0, it will throw an error. The calling code can then "catch" this error and handle it appropriately.
+
+Custom Error Types
+Creating custom error types can be useful when you want to throw and catch errors that represent specific conditions in your program. This allows you to handle different types of errors in different ways.
+
+Here's an example of how you can define and use a custom error type:
+
+JAVASCRIPT
+Run
+Playground
+
+class DivisionByZeroError extends Error {
+  constructor() {
+    super("Division by zero is not allowed");
+    this.name = "DivisionByZeroError";
+  }
+}
+
+function divide(a, b) {
+  if (b === 0) {
+    throw new DivisionByZeroError();
+  }
+  return a / b;
+}
+
+try {
+  console.log(divide(1, 0));
+} catch (error) {
+  if (error instanceof DivisionByZeroError) {
+    console.log(error.message);
+  } else {
+    throw error;
+  }
+}
+Output
+
+Visualize
+No output yet.
+DivisionByZeroError is a custom error type that extends the built-in Error type. When divide is called with 0 as the second argument, it throws a DivisionByZeroError. The try/catch block then catches this error and handles it by logging the error message to the console.
+
+Error Propagation
+Error propagation refers to the process by which errors (or exceptions) are passed up the call stack from where they were thrown until they are caught by an appropriate error handler.
+
+In many programming languages, when an error is thrown and not immediately caught within the same function or method, it propagates up to the calling function. This continues until the error is either caught and handled, or it reaches the top level of the call stack, at which point the program typically crashes with an unhandled exception error.
+
+Here's an example in JavaScript:
+
+JAVASCRIPT
+Run
+Playground
+
+function function1() {
+  function2();
+}
+
+function function2() {
+  throw new Error("An error occurred");
+}
+
+try {
+  function1();
+} catch (error) {
+  console.log("Caught an error: " + error.message);
+}
+Output
+
+Visualize
+No output yet.
+function2 throws an error. Since it's not caught within function2, it propagates up to function1. Again, it's not caught there, so it propagates up to the top level, where it is finally caught in the try/catch block.
+
+Asynchronous Error Handling
+Asynchronous error handling is a bit different from synchronous error handling. In asynchronous programming, because the operations are not blocking, errors can't be caught with a simple try/catch block.
+
+There are a few ways to handle errors in asynchronous code:
+
+Callbacks: The most traditional way is to use a callback function that takes an error as its first argument.
+JAVASCRIPT
+
+fs.readFile('nonexistent-file.txt', function(err, data) {
+  if (err) {
+    console.error('There was an error reading the file!', err);
+    return;
+  }
+  // Otherwise handle the data
+});
+Promises: Promises have .catch method to handle any errors that might have occurred in the promise chain.
+JAVASCRIPT
+
+doSomething()
+  .then(result => doSomethingElse(result))
+  .then(newResult => doAnotherThing(newResult))
+  .catch(error => console.error(error));
+Async/Await: With async/await, you can use a try/catch block to handle errors, which can make your asynchronous code look and behave a little more like synchronous code.
+JAVASCRIPT
+
+async function doSomethingAsync() {
+  try {
+    const result = await doSomething();
+    const newResult = await doSomethingElse(result);
+    await doAnotherThing(newResult);
+  } catch (error) {
+    console.error(error);
+  }
+}
+In all these cases, the key is to make sure that any function that might throw an error is properly handled to prevent the error from propagating up and crashing your program.
+
+## Debugging
+
+Debugging is the process of identifying, isolating, and fixing problems or "bugs" in computer code. It involves running the program and using various tools and techniques to understand why the program is not behaving as expected
+
+console.log
+The console.log() function is quite versatile and can be used in several ways to aid in debugging and understanding your code. Here are some examples:
+
+Logging variable values: The most common use of console.log() is to print the value of a variable.
+JAVASCRIPT
+Run
+Playground
+
+let x = 10;
+console.log(x);
+Output
+
+Visualize
+No output yet.
+Logging multiple values: You can pass multiple arguments to console.log() to print them all.
+JAVASCRIPT
+Run
+Playground
+
+let x = 10;
+let y = 20;
+console.log(x, y);
+Output
+
+Visualize
+No output yet.
+String substitution: console.log() supports string substitution, similar to printf in C.
+JAVASCRIPT
+Run
+Playground
+
+let name = 'Alice';
+console.log('Hello, %s', name);
+Output
+
+Visualize
+No output yet.
+Logging objects: You can log entire objects, and console.log() will format them nicely.
+JAVASCRIPT
+Run
+Playground
+
+let obj = {a: 1, b: 2, c: 3};
+console.log(obj);
+Output
+
+Visualize
+No output yet.
+Logging arrays: Similarly, you can log entire arrays.
+JAVASCRIPT
+Run
+Playground
+
+let arr = [1, 2, 3, 4, 5];
+console.log(arr);
+Output
+
+Visualize
+No output yet.
+Remember, excessive use of console.log() can slow down your application, especially when logging large objects or arrays. It's a good practice to remove or comment out console.log() statements once you're done debugging.
+
+Caution
+
+Remember to remove or comment out the `console.log()` statements once you're done debugging, as they can slow down your code and you typically don't want to output debug information in a production environment.
+
+console.info
+The console.info() method is used to output an informational message to the Web Console. In many environments, it behaves the same way as console.log().
+
+Here's an example of how you can use console.info():
+
+JAVASCRIPT
+Run
+Playground
+
+console.info('This is an informational message');
+Output
+
+Visualize
+No output yet.
+When you run this code, it will output the string "This is an informational message" to the console.
+
+In some browsers, the output of console.info() might be styled differently from console.log() to indicate that it's an informational message. However, in many environments, including Node.js and many modern browsers, console.info() and console.log() behave the same way.
+
+console.warn
+Used to output a warning message to the Web Console. It's similar to console.log(), but in many environments, the output is styled differently to indicate that it's a warning.
+
+JAVASCRIPT
+Run
+Playground
+
+console.warn('This is a warning message');
+Output
+
+Visualize
+No output yet.
+When you run this code, it will output the string "This is a warning message" to the console. In many browsers, this message will be displayed with a yellow warning icon and a yellow text background to distinguish it from regular console log messages.
+
+This method is useful for logging messages that indicate potential problems in your code that aren't severe enough to throw an error.
+
+console.error
+Output an error message to the Web Console. In some environments, the output is styled differently to indicate that it's an error.
+
+Here's an example of how you can use console.error():
+
+JAVASCRIPT
+Run
+Playground
+
+console.error('This is an error message');
+Output
+
+Visualize
+No output yet.
+Useful for logging error messages that help in debugging your code. It does not throw an error or stop the execution of the function. It simply outputs the message to the console.
+
+console.table
+Display data in a table format in the console. It's particularly useful when working with arrays or objects.
+
+JAVASCRIPT
+Run
+Playground
+
+let people = [
+  { name: 'Alice', age: 20 },
+  { name: 'Bob', age: 25 },
+  { name: 'Charlie', age: 30 }
+];
+
+console.table(people);
+Output
+
+Visualize
+No output yet.
+The console.table() method can make it easier to visualize and understand complex data structures. It automatically provides an index column, and uses the keys of your objects as the column names.
+
+console.group
+I group together related log messages. When you call console.group(), it starts a new group in the console. All subsequent console messages will be added to this group, until you call console.groupEnd(), which ends the group.
+
+JAVASCRIPT
+Run
+Playground
+
+const array = [1, 2, 3, 4, 5];
+console.group('Processing array');
+console.log('Array has', array.length, 'elements');
+console.log('First element:', array[0]);
+console.groupEnd();
+Output
+
+Visualize
+No output yet.
+The messages inside the group are indented to show that they're part of the group. This can make it easier to understand the flow of complex code with many log messages.
+
+You can also create nested groups by calling console.group() multiple times before calling console.groupEnd(). Each call to console.groupEnd() ends the most recently started group that hasn't already been ended.
+
+console.count
+Log the number of times that this particular call to console.count() has been invoked. It takes an optional argument label. If provided, console.count() outputs the count and label. If label is omitted, the console uses 'default' as the label.
+
+JAVASCRIPT
+Run
+Playground
+
+for(let i = 0; i < 5; i++) {
+  console.count('Loop counter');
+}
+Output
+
+Visualize
+No output yet.
+This method is useful when you want to know how many times a particular part of your code has been executed.
+
+console.time
+console.time is used in conjunction with console.timeEnd() to measure the time taken by a block of code to execute. It's a simple and effective way to benchmark your code.
+
+JAVASCRIPT
+Run
+Playground
+
+console.time('Array processing');
+
+// Some array processing to measure
+let array = [];
+for(let i = 0; i < 1000000; i++) {
+  array.push(i);
+}
+
+console.timeEnd('Array processing');
+Output
+
+Visualize
+No output yet.
+The string you pass to console.time() and console.timeEnd() is used as the label for the timer. The timer starts when you call console.time() and stops when you call console.timeEnd(). The elapsed time, in milliseconds, is then output to the console.
+
+console.trace
+console.trace() is used to output a stack trace to the console. A stack trace is a report of the active stack frames at a certain point in time during the execution of a program. It can be very useful for debugging, as it shows the execution path your code has taken to reach a certain point.
+
+JAVASCRIPT
+
+function firstFunction() {
+  secondFunction();
+}
+
+function secondFunction() {
+  thirdFunction();
+}
+
+function thirdFunction() {
+  console.trace();
+}
+
+firstFunction();
+When you run this code, it will output a stack trace to the console that shows that firstFunction called secondFunction, which called thirdFunction, which is where the trace was output.
+
+The output will look something like this:
+
+Code
+
+thirdFunction
+secondFunction
+firstFunction
+This shows the order in which the functions were called. The function at the top of the list is the current function (where console.trace() was called), and the function at the bottom is the first function that was called.
+
+console.assert
+This method is used to write a message to the console if the assertion is false. If the assertion is true, nothing happens.
+
+JAVASCRIPT
+Run
+Playground
+
+console.assert(1 === 2, '1 is not equal to 2');
+Output
+
+Visualize
+No output yet.
+When you run this code, it will output the string "1 is not equal to 2" to the console, because the assertion (1 === 2) is false. If the assertion was true, console.assert() would do nothing.
+
+Debugger Statement
+The debugger statement is used to pause execution and start a debugging session. When the JavaScript interpreter encounters a debugger statement, and if the developer console is open in your browser or if the code is running in a debugging environment (like Node.js with a debugger attached), the execution of the code will pause at the debugger statement.
+
+Here's an example of how you can use the debugger statement:
+
+JAVASCRIPT
+
+function potentiallyBuggyFunction() {
+  let obj = { a: 1, b: 2 };
+
+  // Insert debugger statement
+  debugger;
+
+  // Rest of the function
+  obj.c = obj.a + obj.b;
+  return obj.c;
+}
+
+potentiallyBuggyFunction();
+When you run this code with the developer console open, the execution will pause at the debugger statement. You can then step through the rest of the function, inspect variables, and so on.
+
+Caution
+
+Remember to remove `debugger` statements once you're done debugging, as leaving them in can cause your code to pause unexpectedly if run with a debugger attached.
+
+Unit Testing
+Unit testing is a software testing method where individual units of source code—sets of one or more computer program modules together with associated control data, usage procedures, and operating procedures—are tested to determine whether they are fit for use.
+
+In the context of programming, a unit could be an entire module, but it is more commonly an individual function or procedure. The purpose of unit testing is to isolate each part of the program and verify that the individual parts are working correctly.
+
+Here's an example of a simple unit test using the Jest testing framework:
+
+JAVASCRIPT
+
+const sum = require('./sum');
+
+test('adds 1 + 2 to equal 3', () => {
+  expect(sum(1, 2)).toBe(3);
+});
+The sum function is being tested to ensure that it correctly adds two numbers together. The test function is used to define a test, and the expect and toBe functions are used to define what the expected output should be.
+
+Unit tests are typically automated and run by a CI/CD system whenever changes are made to the codebase, ensuring that regressions are caught and fixed as early as possible.
 
 ## Extra Sources
 
 - https://www.javascriptcheatsheet.org/cheatsheet/basics
 
 - https://github.com/mbeaudru/modern-js-cheatsheet
+
+
+
+> ⚠️ Note: This content is for educational and personal reference purposes only.
+> The original source is shown at the top of the document.
+>
+> All rights and copyrights belong to their respective owners.
