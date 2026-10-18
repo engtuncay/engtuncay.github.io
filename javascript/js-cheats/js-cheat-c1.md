@@ -407,7 +407,7 @@ ourArray.unshift("Happy"); // ourArray now equals ["Happy", "J", "cat"]
 
 ### Splice : Remove any element with splice (parça çıkarma ve elde etme) 
 
-❗ array start index is 0. çıkartılan dilimi dönüş yapar.
+❗ array start index is 0.
 
 (remove a slice in an array ve returns that slice) - (array içerisinden dilim çıkarır ve dilimi dönüş yapar)
 
@@ -488,7 +488,7 @@ var maximus = Math.max.apply(null, arr); // 89
 
 // ...arr returns an unpacked array. In other words, it spreads the array.
 const arr = [6, 89, 3, 45];
-const maximus = Math.max(...arr); // 89
+const maximus = Math.max(...arr); // 89     (Math.max(6,89,3,45) gibi uygulama yapar (unpacked) ) 
 
 // [...new Set(arr)] = unique value array
 const arr = [1, 2, 2, 3, 3, 4, 5, 5];
@@ -508,7 +508,7 @@ let thatArray = ["basil", "cilantro", ...thisArray, "coriander"];
 
 ### ES6 Destructuring Arrays to Assign Variables
 
-(yapıyı açma-çözme)
+(yapıyı açma-çözme) (parse yapar)
 
 ```javascript
 const [a, b] = [1, 2, 3, 4, 5, 6];
@@ -523,6 +523,11 @@ const [a, b, ...arr] = [1, 2, 3, 4, 5, 7];
 console.log(a, b); // 1, 2
 console.log(arr); // [3, 4, 5, 7]
 ```
+
+📝 Parse-Deparse : Yazılım dünyasında bu iki kavram şu şekilde işler:
+
+- Parse (Ayrıştırma,Öğelerine ayırma): Düz bir metin halindeki kaynak kodu okuyup, bilgisayarın anlayacağı bir ağaç yapısına (AST - Abstract Syntax Tree) dönüştürmektir. (Öğelerine ayırmak gibi, xml'i objeye çevirmek)
+- Unparse (or Deparse): Bu soyut ağaç yapısını (AST) alıp, tekrar insanların okuyabileceği düz bir metin (kod) haline getirmek demektir. (objeyi xml'e çevirmek)
 
 ## Array Methods
 
