@@ -5,6 +5,8 @@
 
 Not : Regular expression düzenlenmeli
 
+C1 -> Cheat1
+
 <h3>Content</h3> 
 
 - [Comments](#comments)
@@ -27,7 +29,7 @@ Not : Regular expression düzenlenmeli
   - [Example](#example)
   - [Accessing elements of an array with index](#accessing-elements-of-an-array-with-index)
   - [Manipulate arrays with reverse, push, pop, shift and unshift](#manipulate-arrays-with-reverse-push-pop-shift-and-unshift)
-  - [Splice : Remove any element with splice (parça atma)](#splice--remove-any-element-with-splice-parça-atma)
+  - [Splice : Remove any element with splice (parça çıkarma ve elde etme)](#splice--remove-any-element-with-splice-parça-çıkarma-ve-elde-etme)
   - [Slice : Copy an array with slice (dilim alma)](#slice--copy-an-array-with-slice-dilim-alma)
   - [indexOf (checking existing element)](#indexof-checking-existing-element)
   - [Accessing Nested Arrays](#accessing-nested-arrays)
@@ -403,15 +405,17 @@ ourArray.shift(); // ourArray now equals ["J", "cat"]
 ourArray.unshift("Happy"); // ourArray now equals ["Happy", "J", "cat"]
 ```
 
-### Splice : Remove any element with splice (parça atma)
+### Splice : Remove any element with splice (parça çıkarma ve elde etme) 
 
-(parça atma, array içerisinden bir parçayı kesip atma)
+❗ array start index is 0. çıkartılan dilimi dönüş yapar.
+
+(remove a slice in an array ve returns that slice) - (array içerisinden dilim çıkarır ve dilimi dönüş yapar)
 
 ```javascript
 // first parameter is the index, the second indicates the number of elements to delete.
 let array = ["today", "was", "not", "so", "great"];
 array.splice(2, 2); // (2.index itibari ile 2 elemanı at)
-// remove 2 elements beginning with the 3rd element (array starts from 0 index)
+// remove 2 elements beginning with the 3rd element (array starts from 0 index !!!)
 // array now equals ['today', 'was', 'great']
 
 // also returns a new array containing the value of the removed elements
