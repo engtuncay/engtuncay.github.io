@@ -3,7 +3,7 @@
   
 (some parts may be modified or removed)
 
-Not : Regular expression düzenlenmeli
+Not : Regular expression düzenlenmeli.
 
 C1 -> Cheat1
 
