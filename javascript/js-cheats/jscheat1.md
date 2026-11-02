@@ -1343,84 +1343,62 @@ for (let index in langs) {
 
 ## Functions
 
-Programming Functions
+A function declaration in JavaScript is a way to define a function. It's also known as a function statement.
 
-A function in JavaScript is a ... of statements that performs a task or calculates a value ...To use a function, you must define it somewhere in the scope from which you wish to call it.
-
-A function is a block of organized, reusable code that is used to perform a single, related action. Functions provide better modularity for your application and a high degree of code reusing.
-
-Function Declaration
-A function declaration in JavaScript is a way to define a function. It's also known as a function statement. The function keyword is used, followed by the name of the function, a list of parameters in parentheses, and the function body enclosed in curly braces.
-
-JAVASCRIPT
-Run
-Playground
-
+```js
 function greet() {
   console.log("Hello, world!");
 }
 
 greet();
-Output
+// Output
 
-Visualize
-No output yet.
-greet is a function that prints "Hello, world!" to the console. You can call this function using its name followed by parentheses greet(), which executes the code inside the function body.
 
-One of the key characteristics of function declarations is that they are hoisted, which means you can call the function before it's declared in your code:
+```
 
-JAVASCRIPT
-Run
-Playground
+greet is a function that prints "Hello, world!" to the console. You can call this function using its name followed by parentheses `greet()`, which executes the code inside the function body.
 
+One of the key characteristics of function declarations is that `they are hoisted`, which means you can call the function before it's declared in your code:
+
+```js
 greet();
 
 function greet() {
   console.log("Hello, world!");
 }
-Output
 
-Visualize
-No output yet.
+// Output
+
+```
+
 In this case, even though the function call appears before the function declaration in the code, it still works because function declarations are hoisted to the top of their containing scope.
 
-Function Parameters
+➖ Function Parameters
+
 In JavaScript, function parameters are the names listed in the function definition. They are used to pass values (arguments) into functions.
 
-JAVASCRIPT
-Run
-Playground
-
+```js
 function add(a, b) {
   return a + b;
 }
 
 console.log(add(2, 3));
-Output
+// OR
+// let sum = add(1, 2);
+// console.log(sum);
 
-Visualize
-No output yet.
+// Output
+// 5
+```
+
 a and b are the parameters of the add function. When you call the function, you provide values for a and b:
 
-JAVASCRIPT
-Run
-Playground
-
-function add(a, b) {
-  return a + b;
-}
-
-let sum = add(1, 2);
-console.log(sum);
-Output
-
-Visualize
-No output yet.
 1 and 2 are the arguments that are passed into the function. The function adds these values together and returns the result.
 
-You can have as many parameters as you want, separated by commas. If you call a function with more arguments than there are parameters, the extra arguments are ignored. If you call a function with fewer arguments than there are parameters, the missing arguments are set to undefined.
+You can have as many parameters as you want, separated by commas. If you call a function with more arguments than there are parameters, the extra arguments are `ignored`. If you call a function with fewer arguments than there are parameters, the missing arguments are set to `undefined`.
 
-Function Return
+➖ Function Return
+
 In JavaScript, the return statement ends function execution and specifies a value to be returned to the function caller.
 
 JAVASCRIPT
@@ -1439,11 +1417,12 @@ Visualize
 No output yet.
 add is a function that takes two parameters, a and b, and returns their sum. The return statement specifies that the sum of a and b should be returned to the function caller. When you call this function with arguments 1 and 2, the return value is 3, which is then assigned to the variable sum.
 
-Functions without a return statement
+➖ Functions without a return statement
 
 If a function doesn't have a `return` statement, it returns `undefined` by default. If the `return` statement is used without a value, the function also returns `undefined`.
 
-Function Expressions
+➖ Function Expressions
+
 A function expression in JavaScript is a way to define a function as an expression, rather than as a statement. It can be anonymous, or it can have a name. The function is defined and assigned to a variable, and it can be used later by referencing that variable.
 
 JAVASCRIPT
@@ -1472,7 +1451,8 @@ let greet = function() {
 }
 In this case, calling greet before it's defined results in an error, because function expressions are not hoisted to the top of their containing scope.
 
-Anonymous Functions
+➖ Anonymous Functions
+
 An anonymous function in JavaScript is a function that is not given a name. Instead, it is usually used where a function is expected as an argument, such as in a callback function or an event handler.
 
 JAVASCRIPT
@@ -1497,9 +1477,11 @@ JAVASCRIPT
 setTimeout(function() {
   console.log("This message is delayed by 1 second.");
 }, 1000);
+
 Here, the anonymous function is passed as an argument to setTimeout. The function will be called after 1 second (1000 milliseconds).
 
-Arrow Functions
+➖ Arrow Functions
+
 Arrow functions in JavaScript provide a concise syntax to write function expressions. They are anonymous and change the way this binds in functions.
 
 JAVASCRIPT
@@ -1549,7 +1531,8 @@ Visualize
 No output yet.
 square is an arrow function that takes one parameter, x, and returns its square.
 
-Arrow Functions vs Regular Functions
+➖ Arrow Functions vs Regular Functions
+
 Arrow functions and regular functions in JavaScript are similar in many ways, but there are some key differences:
 
 Syntax: Arrow functions have a shorter syntax compared to function expressions. Here's a comparison:
@@ -1563,7 +1546,8 @@ let add = function(a, b) {
 
 // Arrow function
 let add = (a, b) => a + b;
-this keyword: In regular functions, the this keyword represents the object that called the function. In arrow functions, this is lexically bound. It means that it uses this from the code that contains the arrow function. For example:
+
+• this keyword: In regular functions, the this keyword represents the object that called the function. In arrow functions, this is lexically bound. It means that it uses this from the code that contains the arrow function. For example:
 
 JAVASCRIPT
 Run
@@ -1596,13 +1580,11 @@ Output
 
 Visualize
 No output yet.
-Arguments object: Regular functions have an "arguments" object which contains all the arguments passed to the function. Arrow functions do not have an "arguments" object. If you need to access arguments with an arrow function, you can use rest parameters instead.
+• Arguments object: Regular functions have an "arguments" object which contains all the arguments passed to the function. Arrow functions do not have an "arguments" object. If you need to access arguments with an arrow function, you can use rest parameters instead.
 
-Constructors and prototypes: Regular functions, when used with the new keyword, can act as constructors. Arrow functions, however, do not have a prototype property and cannot act as constructors, so they can't be used with new.
+• Constructors and prototypes: Regular functions, when used with the new keyword, can act as constructors. Arrow functions, however, do not have a prototype property and cannot act as constructors, so they can't be used with new.
 
-Method definitions: If you're defining a method in an object literal, a method definition or a regular function is often preferable, because it's shorter than an arrow function and it keeps the correct this context.
-
-
+• Method definitions: If you're defining a method in an object literal, a method definition or a regular function is often preferable, because it's shorter than an arrow function and it keeps the correct this context.
 
 ## Functions (2)
 
