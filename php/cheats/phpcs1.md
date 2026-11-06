@@ -1771,6 +1771,7 @@ function myFunction(string $param)
     return $param;
 }
 $a = myFunction(null); // TypeError: myFunction(): Argument #1 ($param) must be of type string, null given
+
 ```
 
 If a function has a return type, it won't accept null value either:
